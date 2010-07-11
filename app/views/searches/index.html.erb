@@ -1,0 +1,10 @@
+<div id="search_form">
+  <% form_tag searches_path, :method => :get do %>
+    <%= text_field_tag :search_term %>
+    <%= submit_tag "Search"%>
+  <% end  %>
+</div>
+
+<div id="search_results">
+  <%= render :partial => 'search_results' %>
+</div>

@@ -1,0 +1,29 @@
+<h1>Listing vote_topics</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Status</th>
+    <th>Published At</th>
+    <th>User</th>
+    <th>Anonymous</th>
+  </tr>
+  <% unless @vote_topics.nil? %>
+    <% @vote_topics.each do |vote_topic| %>
+      <tr>
+        <td><%=h vote_topic.topic %></td>
+        <td><%=h vote_topic.status %></td>
+        <td><%=h vote_topic.published_at%></td>
+        <td><%=link_to vote_topic.user.username, vote_topic.user%></td>
+        <td><%=h vote_topic.anon%></td>
+        <td><%= link_to 'Show', vote_topic %></td>
+        <% permitted_to? :update, vote_topic do %>
+          <td><%= link_to 'Edit', edit_user_vote_topic_path(vote_topic.user, vote_topic) %></td>
+        <% end  %>
+        <% permitted_to? :destroy, vote_topic do %>
+          <td><%= link_to 'Destroy', vote_topic, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end  %>
+      </tr>
+    <% end %>
+  <% end  %>
+</table>

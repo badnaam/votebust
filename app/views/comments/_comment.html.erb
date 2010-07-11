@@ -1,0 +1,13 @@
+<div id="comment" class="append-bottom">
+  <% if !comment.nil? %>
+    <div>
+      <h6><%= "Posted By #{comment.user.username}" %></h6>
+      <% if @vote_topic %>
+        <%= "Voted for - #{@vote_topic.what_user_voted_for(comment.user)}" %>
+      <% end  %>
+      <p>
+        <%= comment.body %>
+      </p>
+    </div>
+  <% end  %>
+</div>

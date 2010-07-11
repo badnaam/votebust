@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function(){
+    $('#register_submit').click(function(){
+      $('form').submit();
+      return false;
+    });
+  });
+  //]]>
+</script>
+<% semantic_form_for @user, :html => {:multipart => true} do |form| %>
+  <%= form.semantic_errors%>
+  <% form.inputs do  %>
+    <%= form.input :username %>
+    <%= form.input :password, :label => form.object.new_record? ? "Password" : "Change password" %>
+    <%= form.input :password_confirmation %>
+    <%= form.input :email %>
+    <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1} %>
+    <%= form.input :age %>
+    <% if form.object.new_record? %>
+      <%= form.input :image, :hint => "Select an image less than 1 MB in size", :label => "Add Image" %>
+    <% else %>
+      <% if !missing_user_image?(form.object) %>
+        <%=image_tag form.object.image.url(:small)   %>
+        <% img_label = "Replace Avataar" %>
+      <% else  %>
+        <% img_label = "Add Avataar" %>
+      <% end  %>
+      <%= form.input :image, :hint => "Select an image less than 1 MB in size", :label => img_label %>
+    <% end  %>
+    <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
+  <% end  %>
+  <ul>
+    <li>
+      <%= color_link_with_icon("register_submit", "#", "ui-icon-circle-check", form.object.new_record? ? "Register" : "Update Profile") %>
+    </li>
+  </ul>
+  <%#= form.commit_button "Register" %>
+<% end  %>

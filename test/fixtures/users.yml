@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email: MyString
+  username: MyString
+  sex: 1
+  age: 1
+  lat: 1.5
+  lng: 1.5
+  password: MyString
+  role_id: 1
+  active: false
+
+two:
+  email: MyString
+  username: MyString
+  sex: 1
+  age: 1
+  lat: 1.5
+  lng: 1.5
+  password: MyString
+  role_id: 1
+  active: false

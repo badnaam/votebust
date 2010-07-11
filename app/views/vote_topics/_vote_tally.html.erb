@@ -1,0 +1,55 @@
+<% if !@vote_topic.nil? %>
+  <% vote_items = @vote_topic.vote_items %>
+  <h2><%= @vote_topic.header %></h2>
+  <h4><%= @vote_topic.topic %></h4>
+  <h5><%= "Total Votes #{@vote_topic.total_votes}" %></h5>
+  <% total_v = @vote_topic.total_votes %>
+
+  <% if !@vote_topic.anon %>
+    <h5><%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
+  <% else %>
+    <h5><%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
+  <% end  %>
+<% end  %>
+
+<div id="vote_details">
+  <% if !total_v.nil? && total_v > 0 %>
+    <% user_vote = false %>
+    <ul>
+      <% vote_items.each do |v| %>
+        <li>
+          <% total = v.votes_count
+          per = (total.to_f/total_v.to_f) * 100
+          if current_user && current_user.voted_for?(v)
+            user_vote = true
+          end
+        %>
+          <%= "Total Votes for #{v.option} - #{total} - #{sprintf('%.1f', per)}% - #{user_vote == true ? "(Including your vote!)" : ""}" %>
+        </li>
+      <% end  %>
+    </ul>
+  </div>
+
+  <div id="pic_loading_g" style="opacity:0"></div>
+
+  <div id="slideshow" class="slideshow" style="border:2px solid black;height: 339px; width: 601px;">
+    <div rel="ss" class="left-button left" style="display: none;"></div>
+    <div class="simpleSlide-window" rel="ss" style="overflow: hidden; height: 338px; width: 600px; position: relative;">
+      <div class="simpleSlide-tray" rel="ss">
+        <% path = get_main_graph @vote_topic %>
+        <div class="simpleSlide-slide" rel="ss" style="height: 338px; width: 600px;">
+          <% if !path.nil? %>
+            <%= image_tag get_main_graph @vote_topic %>
+          <% else %>
+            <p>Processing Image</p>
+          <% end  %>
+        </div>
+      </div>
+    </div>
+    <div rel="ss" class="right-button left" style="display: none;"></div>
+  </div>
+  
+<div class="simpleSlideStatus-tray" rel="ss">
+    <div class="simpleSlideStatus-window" rel="ss"></div>
+</div> 
+<% end  %>

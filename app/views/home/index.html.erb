@@ -1,0 +1,11 @@
+<div id="search_form">
+  <% form_tag searches_path, :method => :get do %>
+    <%= text_field_tag :search_term %>
+    <%= submit_tag "Search"%>
+  <% end  %>
+</div>
+<% content_for :right_nav do %>
+  <%= render :partial => "category/cat_side_list" %>
+<% end %>
+<%# @vote_topics = VoteTopic.find_all_by_status('a') %>
+<%#= render :partial => "vote_topics/vote_list" %>

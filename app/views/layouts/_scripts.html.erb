@@ -1,0 +1,36 @@
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <% unless (yield :title).blank? || (yield :title) == t("logo") %>
+    <% @title = t("logo") + " " + (yield :title) %>
+  <% else %>
+    <% @title = t("logo") %>
+  <% end  %>
+  <title><%= @title %> </title>
+
+  <%= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes",  :cache => "base" %>
+  <%= stylesheet_link_tag "print", :media => "print" %>
+  <!--<link type="text/css" href="/stylesheets/css/gb/jquery-ui-1.8.1.custom.css" rel="Stylesheet" /> -->
+  <link type="text/css" href="/stylesheets/css/bb/jquery-ui-1.8.2.custom.css" rel="Stylesheet" />
+  <!--[if IE]>
+<style type="text/css">
+.clearfix {
+  zoom: 1;     /* triggers hasLayout */
+  }  /* Only IE can see inside the conditional comment
+  and read this CSS rule. Don't ever use a normal HTML
+  comment inside the CC or it will close prematurely. */
+</style>
+<![endif]-->
+  <!--<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen"/>-->
+  <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"/><![endif]-->
+  <%= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js', 'application.js', :cache => 'base' %>
+  <%#= javascript_include_tag   'application'%>
+  <script type="text/javascript">
+    //<![CDATA[
+    jQuery.ajaxSetup({
+      'beforeSend': function (xhr) {
+        xhr.setRequestHeader("Accept", "text/javascript")
+      }
+    });
+    //]]>
+  </script>
+</head>

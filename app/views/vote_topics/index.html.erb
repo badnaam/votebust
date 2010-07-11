@@ -1,0 +1,12 @@
+<%= render :partial => "vote_list" %>
+<br />
+
+<% if current_user %>
+<%= link_to 'New Vote', new_user_vote_topic_path(current_user) %>
+<% else %>
+  <%= link_to "New Vote", new_vote_topic_path %>
+<% end  %>
+
+<% content_for :right_nav do %>
+  <%= render :partial => "category/cat_side_list" %>
+<% end  %>

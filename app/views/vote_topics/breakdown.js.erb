@@ -1,0 +1,7 @@
+<% if @bd_type == 'all' %>
+$('.simpleSlide-tray').append("<%= escape_javascript(render :partial => 'sex_bd', :locals => {:vote_items => @vote_topic.vote_items, :all => true}) %>");
+<% else %>
+  $('.simpleSlide-tray').append("<%= escape_javascript(render :partial => 'sex_bd', :locals => {:vote_items => @vote_topic.vote_items, :all => false}) %>");
+<% end  %>
+
+simpleSlide();

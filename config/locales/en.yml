@@ -1,0 +1,55 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  n: "BallotBust"
+  site_main_msg: "Bust a Ballot"
+  site_main_logo_msg: "Logo"
+  logo: "BB"
+
+#Models
+  notifier:
+    from_email_admin: pjointadm@gmail.com
+    domain: ballotbust.com
+    act_sub: "BallotBust Account Activation Instructions"
+    act_conf: "Account Activated!"
+
+  #Controllers
+  users:
+    create:
+      confirmation: "You account has been created and a confirmation email has been sent to the email address you provided during registration. Please confirm your registration
+    by clicking on the link in the confirmation email and activate your account. Thanks for registering!"
+    
+  formtastic:
+    labels:
+     vote_topic:
+       new:
+         header: "Vote Title"
+         topic: "Vote Topic"
+         anon: "Anonymous?"
+         category: "Category"
+         option: "Vote Option"
+       edit:
+         header: "Vote Title"
+         topic: "Vote Topic"
+         anon: "Anonymous?"
+         category: "Category"
+         option: "Vote Option"
+    hints:
+     vote_topic:
+       new:
+         header: "The big screaming title"
+         topic: "The big problem"
+         anon: "Should we show your username?"
+         option: "Options to choose"
+       edit:
+         header: "The big screaming title"
+         topic: "The big problem"
+         anon: "Should we show your username?"
+         option: "Options to choose"
+    actions:
+        commit: "Bust a Ballot!"
+        update: "Save Changes"
+
+   

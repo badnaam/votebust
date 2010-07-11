@@ -1,0 +1,31 @@
+<div>
+  <ul>
+    <li>
+      Email:
+      <%=h @user.email %>
+    </li>
+    <li>Username:
+      <%=h @user.username %></li>
+    <li>
+      Sex:
+      <%=h User::SEX[@user.sex] %>
+    </li>
+    <li>
+      Age:
+      <%=h @user.age %>
+    </li>
+    <% if !missing_user_image?(@user) %>
+      <li>
+        <%= image_tag @user.image.url(:small) %>
+      </li>
+    <% end  %>
+  </ul>
+</div>
+
+<ul>
+  <% permitted_to? :update, @user do %>
+    <li>
+      <%= link_to 'Edit', edit_user_path(@user) %>
+    </li>
+  <% end  %>
+</ul>

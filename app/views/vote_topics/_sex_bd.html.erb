@@ -1,0 +1,20 @@
+<% if all %>
+  <% path = get_main_graph @vote_topic %>
+  <div class="simpleSlide-slide" rel="ss" style="height: 338px; width: 600px;">
+    <% if !path.nil? %>
+      <%= image_tag get_main_graph @vote_topic %>
+    <% else %>
+      <p>Processing Image</p>
+    <% end  %>
+  </div>
+<% end  %>
+<% vote_items.each do |v| %>
+  <% path = get_sex_graph(v, @vote_topic.id) %>
+  <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+    <% if !path.nil? %>
+      <%= image_tag get_sex_graph(v, @vote_topic.id) %>
+    <% else %>
+      <p>Processing Image</p>
+    <% end  %>
+  </div>
+<% end  %>
