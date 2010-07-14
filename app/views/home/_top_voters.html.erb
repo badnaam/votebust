@@ -1,0 +1,10 @@
+<% voters = User.active_equals(true).descend_by_votes_count.all(:limit => Constants::SMART_COL_LIMIT) %>
+<div>
+  <ul>
+    <% voters.each do |v| %>
+      <li>
+        <%= "#{v.username} - #{v.votes_count}" %>
+      </li>
+    <% end  %>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+<% if !vote.nil? %>
+  <div class="bordered">
+    <h2><%= link_to vote.topic, vote %></h2>
+    <span><%= link_to vote.user.username, vote.user %> - <%= vote.created_at.strftime('%m %d %I:%M') %></span>
+    <table class="borderless">
+      <tr>
+        <td><h2><%= link_to vote.total_votes, vote, :class => "special_link_big" %></h2></td>
+        <td style="text-align: left">
+          <ul>
+          <% vote.vote_items.each do |v| %>
+            <li>
+            <%=  get_vote_percent(v, vote.total_votes)%>
+            </li>
+          <% end  %>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end  %>

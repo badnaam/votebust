@@ -1,0 +1,6 @@
+<div class="prepend-top append-bottom" id ="div_cancel_vote">
+  <div class="append-bottom"><%= "You voted for : #{@selected_response.option}" if !@selected_response.nil? %></div>
+  <% form_tag cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "cancel_vote_form" do |f| %>
+    <%= color_link_with_icon("cancel_vote_link", "#", "ui-icon-closethick", "Cancel Your Vote") %>
+  <% end  %>
+</div>

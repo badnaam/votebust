@@ -7,14 +7,17 @@
       <p>Processing Image</p>
     <% end  %>
   </div>
-<% end  %>
-<% vote_items.each do |v| %>
-  <% path = get_sex_graph(v, @vote_topic.id) %>
-  <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
-    <% if !path.nil? %>
-      <%= image_tag get_sex_graph(v, @vote_topic.id) %>
-    <% else %>
-      <p>Processing Image</p>
-    <% end  %>
-  </div>
+  <% paths = get_other_graphs(@vote_topic) %>
+  <% paths.each do |v| %>
+    <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+      <%= image_tag v %>
+    </div>
+  <% end  %>
+<% else %>
+  <% paths = get_other_graphs(@vote_topic) %>
+  <% paths.each do |v| %>
+    <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+      <%= image_tag v %>
+    </div>
+  <% end  %>
 <% end  %>

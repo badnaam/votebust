@@ -1,0 +1,4 @@
+<div class="bordered prepend-top">
+  <% votes = VoteTopic.total_votes_gt(0).descend_by_total_votes.descend_by_created_at.all(:limit => Constants::SMART_COL_LIMIT) %>
+  <%= render :partial => "vote_topics/vote_preview", :collection => votes, :as => :vote %>
+</div>

@@ -6,10 +6,14 @@
     <div class="container" id="main_container">
       <div class="header span-24 last">
         <div class ="span-24 header_links_div last">
+          <%= render :partial => "category/cat_side_list" %>
           <ul class="header_links">
             <% unless  current_user %>
               <li><%= link_to "Sign Up", new_user_path, :class => "special_link"%></li>
               <li><%= link_to "Login", login_path, :id => 'login_link' %></li>
+              <!--<li>-->
+  <%#= rpx_popup( :link_text => "Register/Sign in with RPX", :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false ) %>
+              <!--</li>-->
             <% else %>
               <li><%= link_to current_user.username, current_user %></li>
               <li><%= link_to "Logout", logout_path  %></li>
@@ -19,6 +23,12 @@
         <div class="last span-24 header_logo_div"> <!-- header logo -->
           <h1 class="header_txt"><%= link_to t('logo'), root_path, :class => "logo_link"%><%= %></h1>
           <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
+          <div class="span-24 last">
+            <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
+              <%= text_field_tag :search_term %>
+              <%= link_to "Search", "#", :id => 'search_button' %>
+            <% end  %>
+          </div>
         </div>
         <%= render :partial => "/layouts/nav" %>
       </div>
@@ -28,13 +38,16 @@
           <%= yield :page_headers %>
         </div>
         <div class="span-24 last">
-          <%= yield :search %>
+          <%= yield :page_top %>
+          <% unless @header_exempt_page %>
+              <%= render :partial => 'layouts/page_header' %>
+            <% end  %>
         </div> <!-- end search yield -->
-        <div class="content span-17 prepend-1" id="content">
+        <div class="content span-17 prepend-1 bordered" id="content">
           <div class="span-17 last" id="flash_messages">
             <%= render :partial => 'layouts/flash_msg' %>
           </div>
-          <div class="crumb">
+          <div class="crumb span-17 last">
             <%= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
           </div>
           <%= yield %>

@@ -69,6 +69,13 @@ module VoteTopicsHelper
         end
     end
 
+    def get_other_graphs(v)
+        dir = File.join(Constants::GRAPHS_PATH, "#{v.id}")
+        files = (Dir.foreach(dir).select{|f| (File.basename(f)).index('pie').nil? && !File.directory?(f)}).map {|x| File.join(Constants::GRAPH_ASSET_DIR, "#{v.id}", x)}
+
+        return files
+    end
+    
     def get_main_graph(v)
         path = File.join(Constants::GRAPH_ASSET_DIR, "#{v.id}", "#{v.id}#{Constants::MAIN_GRAPH_POST_FIX}")
         check_path = File.join(Constants::GRAPHS_PATH, v.id.to_s, v.id.to_s + Constants::MAIN_GRAPH_POST_FIX)

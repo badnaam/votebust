@@ -3,17 +3,30 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics.xml
     layout "main"
     filter_access_to [:edit, :update], :attribute_check => true
-    before_filter :require_user, :only => [ :new, :create]
+    before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote]
 
     ########## Security hole, control access!
+
+    def cancel_vote
+        @vote_topic = VoteTopic.find(params[:id], :include => :vote_items)
+        @vote_items = @vote_topic.vote_items
+        @selected_response = @vote_topic.what_vi_user_voted_for(current_user)
+        if Vote.find_by_voteable_id_and_voter_id(@selected_response.id, current_user.id).destroy
+            flash[:success] = "Your vote has been cancelled."
+            @vote_topic.send_later(:post_process, @selected_response, current_user, false)
+        end
+        respond_to do |format|
+            format.js
+        end
+    end
     
     def process_votes
         @vote_topic = VoteTopic.find(params[:id], :include => :vote_items)
         if !@vote_topic.nil? && !params[:response].nil? && !current_user.nil?
             @vote_items = @vote_topic.vote_items
-            selected_response = @vote_topic.vote_items.find_by_id(params[:response])
-            if !current_user.voted_for?(selected_response)
-                if current_user.vote_for(selected_response)
+            @selected_response = @vote_topic.vote_items.find_by_id(params[:response])
+            if !current_user.voted_for?(@selected_response)
+                if current_user.vote_for(@selected_response)
                     flash[:success] = "Thanks for voting. Your vote is being processed."
                 else
                     flash[:error] = "Something went wrong, we couldn't process your vote."
@@ -22,7 +35,7 @@ class VoteTopicsController < ApplicationController
                 flash[:notice] = "You already voted."
             end
             #initiate post processing
-            @vote_topic.send_later(:post_process, selected_response, current_user)
+            @vote_topic.send_later(:post_process, @selected_response, current_user, true)
             respond_to do |format|
                 format.html
                 format.js
@@ -43,9 +56,11 @@ class VoteTopicsController < ApplicationController
     def index
         if !params[:user_id].nil?
             @user = User.find(params[:user_id])
-            @vote_topics = VoteTopic.find_all_by_user_id(params[:user_id])
+            @vote_topics = @user.vote_topics
         elsif !params[:category_id].nil?
-            @vote_topics = VoteTopic.find_all_by_category_id(params[:category_id])
+            @category = Category.find(params[:category_id])
+            #            @vote_topics = VoteTopic.find_all_by_category_id(params[:category_id])
+            @vote_topics = @category.vote_topics
         else
             @vote_topics = VoteTopic.all
         end
@@ -61,6 +76,7 @@ class VoteTopicsController < ApplicationController
         @vote_topic = VoteTopic.find(params[:id])
         @comments = @vote_topic.comments.find(:all, :order => 'created_at DESC').paginate(:page => params[:page],
             :per_page => Constants::COMMENTS_PER_PAGE)
+        @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
         if !request.xhr?
             if !params[:user_id].nil?
                 @user = User.find(params[:user_id]) unless params[:user_id].nil?

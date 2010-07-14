@@ -8,9 +8,10 @@
   });
   //]]>
 </script>
-<h1>Login</h1>
 
-<% semantic_form_for @user_session, :url => user_session_path do |f| %>
+<div class="span-8">
+ <h1>Login</h1>
+<% semantic_form_for @user_session, :url => user_sessions_path do |f| %>
   <%= f.semantic_errors %>
   <% f.inputs do  %>
     <%= f.input :username, :input_html => {:style => "width:40%"} %>
@@ -18,7 +19,16 @@
     <%= f.input :remember_me, :as => :boolean, :label => "Remember me" %>
   <% end  %>
   <%= color_link_with_icon("login_submit", "#", "ui-icon-key", "Login") %>
-<div class="prepend-top">
-  <%= link_to "Forgot password?", new_password_reset_path  %>
-</div>
+  <div class="prepend-top">
+    <%= link_to "Forgot password?", new_password_reset_path  %>
+  </div>
 <% end %>
+</div>
+
+<div class="span-9 last">
+  <h2>Or Sign In with RPX..</h2>
+  <p>RPX is lorem ipsum</p>
+  <%= rpx_embed( :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url ) %>
+</div>
+
+

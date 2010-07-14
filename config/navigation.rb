@@ -32,6 +32,11 @@ SimpleNavigation::Configuration.run do |navigation|
         primary.item :home_nav, 'New', root_path do|n|
 
         end
+        primary.item :cat_nav, 'Categories', "#" do|ct|
+            if !@category.nil? && !@vote_topics.nil?
+                ct.item :ct_vt_index, @category.name, category_vote_topics_path(@category)
+            end
+        end
         primary.item :vote_nav, 'Votes', vote_topics_path do|v|
             if @vote_topic && !@vote_topic.id.nil?
                 v.item :v_show, @vote_topic.header,vote_topic_path(@vote_topic)
@@ -45,7 +50,7 @@ SimpleNavigation::Configuration.run do |navigation|
                     a.item :uv_new, "New Vote", new_user_vote_topic_path(current_user)
                 end
                 if @vote_topics 
-#                    a.item :uv_new, @vote_topic.header, new_user_vote_topic_path(current_user)
+                    #                    a.item :uv_new, @vote_topic.header, new_user_vote_topic_path(current_user)
                     a.item :uv_show, "My Votes", user_vote_topics_path(current_user)
                 end
             end

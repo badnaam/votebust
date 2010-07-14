@@ -1,5 +1,17 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+    
+    def get_vote_percent(v, total_votes)
+        votes = v.votes_for
+        if votes == 0
+            return "#{v.option} - 0%"
+        elsif total_votes == 0
+            return 'N/A'
+        else
+            return "#{v.option} - #{sprintf('%.1f', ((votes.to_f / total_votes.to_f) * 100))}%"
+        end
+    end
+    
     def missing_user_image?(user)
         if user.processing == true
             return true

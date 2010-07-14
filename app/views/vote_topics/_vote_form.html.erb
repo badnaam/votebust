@@ -1,0 +1,18 @@
+<div id="div_process_vote">
+<% form_tag process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "vote_form" do |f| %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <ul class="list_no_pad_no_style">
+    <% @vote_items.each do |v| %>
+      <li>
+        <%= radio_button_tag "response", v.id %>
+        <%= label_tag v.option %>
+      </li>
+    <% end %>
+  </ul>
+  <ul class="list_no_pad_no_style">
+    <li>
+      <%= color_link_with_icon("vote_link", "#", "ui-icon-trash", "Bust Your Vote") %>
+    </li>
+  </ul>
+<% end%>
+</div>

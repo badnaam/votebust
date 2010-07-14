@@ -3,7 +3,6 @@
   //<![CDATA[
   $(document).ready(function() {
     //Load the remaining pictures
-    
     $.ajax({
       url:"<%= breakdown_vote_topic_url(@vote_topic)%>",
       data: {bd_type: "other", id: "<%= @vote_topic.id %>"},
@@ -20,9 +19,9 @@
     });**/
     simpleSlide({
       'set_speed': 300,
-      'status_width': 120,
-      'status_color_outside': 'rgb(170, 10, 172)',
-      'status_color_inside': '#ffe',
+      'status_width': 20,
+      'status_color_outside': '<%= Constants::SLIDE_SHOW_PROG_OUTSIDE_COL %>' ,
+      'status_color_inside': '<%= Constants::SLIDE_SHOW_PROG_INSIDE_COL %>',
       'callback': function() {
         /* function code */
       }
@@ -36,8 +35,13 @@
       }
     });
 
-    $('#vote_link').click(function() {
+    $('#vote_link').live('click',function() {
       $('#vote_form').submit();
+      return false;
+    });
+
+    $('#cancel_vote_link').live('click', function() {
+      $('#cancel_vote_form').submit();
       return false;
     });
 
@@ -47,9 +51,21 @@
     });
     
     $('#vote_form').submit(function (){
-      $.post($(this).attr('action'), $(this).serialize(), null, "script");
+      showLoading('#vote_prog_loading')
+      $.post($(this).attr('action'), $(this).serialize(), function(data) {
+        hideLoading('#vote_prog_loading');
+      }, "script");
       return false;
     });
+    
+    $('#cancel_vote_form').submit(function (){
+      showLoading('#vote_prog_loading')
+      $.post($(this).attr('action'), $(this).serialize(), function(data) {
+        hideLoading('#vote_prog_loading');
+      }, "script");
+      return false;
+    });
+    
     $('#new_comment').submit(function (){
       showLoading('#com_prog_loading')
       $.post($(this).attr('action'), $(this).serialize(), function(data) {
@@ -62,29 +78,27 @@
   //]]>
 </script>
 
-<div id="div_vote_form" >
-  <%vote_items = @vote_topic.vote_items if !@vote_topic.nil?%>
-  <%if current_user && !vote_items.nil? && !@vote_topic.is_vote_complete?(vote_items, current_user)%>
-    <h2><%= @vote_topic.header %></h2>
-    <h4><%= @vote_topic.topic %></h4>
-    <% form_tag process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "vote_form" do |f| %>
-      <%= hidden_field_tag :user_id, current_user.id %>
-      <ul class="list_no_pad_no_style">
-        <% vote_items.each do |v| %>
-          <li>
-            <%= radio_button_tag "response", v.id %>
-            <%= label_tag v.option %>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="list_no_pad_no_style">
-        <li>
-          <%= color_link_with_icon("vote_link", "#", "ui-icon-trash", "Bust Your Vote") %>
-        </li>
-      </ul>
-    <% end%>
+<div class="span-17 last">
+  <h2><%= @vote_topic.header %></h2>
+  <h4><%= @vote_topic.topic %></h4>
+</div>
+
+<div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
+
+<div id="div_vote_form" class="span-17 last" >
+  <%@vote_items = @vote_topic.vote_items if !@vote_topic.nil?%>
+  <% complete = @vote_topic.is_vote_complete?(@vote_items, current_user) %>
+  <%if current_user && !@vote_items.nil? && !complete%>
+    <%= render :partial => "vote_form" %>
+  <% elsif current_user && complete %>
+    <%= render :partial => "vote_cancel_form" %>
+  <% elsif !current_user %>
+    <div class="prepend-top append-bottom">
+      <%= color_link_with_icon("lnk", login_path, "ui-icon-key", "Login to Vote") %>
+    </div>
   <% end  %>
 </div>
+
 
 <div id="vote_dlg" class="span-17 last">
   <% if @vote_topic.total_votes > 0 %>
@@ -92,8 +106,7 @@
   <% end  %>
 </div>
 
-<div id="comments_container">
-
+<div id="comments_container" class="span-17 last">
   <% if current_user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>
@@ -108,9 +121,6 @@
   <% end  %>
   <div id="com_prog_loading" class="progress" style="opacity:0;"></div>
   <div id ="comments">
-<%#= will_paginate @comments %>
-<%#= render :partial=> "comments/comment", :collection => @comments, :as => :comment %>
-<%#= will_paginate @comments %>
     <%= render :partial => "comments/comments" %>
   </div>
 </div>

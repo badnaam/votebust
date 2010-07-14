@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100711052555) do
+ActiveRecord::Schema.define(:version => 20100711213423) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(:version => 20100711052555) do
     t.datetime "updated_at"
   end
 
+  create_table "rpx_identifiers", :force => true do |t|
+    t.string   "identifier",    :null => false
+    t.string   "provider_name"
+    t.integer  "user_id",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rpx_identifiers", ["identifier"], :name => "index_rpx_identifiers_on_identifier", :unique => true
+  add_index "rpx_identifiers", ["user_id"], :name => "index_rpx_identifiers_on_user_id"
+
   create_table "searches", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,13 +91,13 @@ ActiveRecord::Schema.define(:version => 20100711052555) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "crypted_password",                                  :null => false
-    t.string   "password_salt",                                     :null => false
-    t.string   "persistence_token",                                 :null => false
-    t.string   "single_access_token",                               :null => false
-    t.string   "perishable_token",                                  :null => false
-    t.integer  "login_count",                        :default => 0, :null => false
-    t.integer  "failed_login_count",                 :default => 0, :null => false
+    t.string   "crypted_password",                                     :null => false
+    t.string   "password_salt",                                        :null => false
+    t.string   "persistence_token",                                    :null => false
+    t.string   "single_access_token",                                  :null => false
+    t.string   "perishable_token",                                     :null => false
+    t.integer  "login_count",                        :default => 0,    :null => false
+    t.integer  "failed_login_count",                 :default => 0,    :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
@@ -96,7 +107,7 @@ ActiveRecord::Schema.define(:version => 20100711052555) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "processing"
+    t.boolean  "processing",                         :default => true
   end
 
   add_index "users", ["active"], :name => "active"
@@ -118,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20100711052555) do
 
   create_table "vote_topics", :force => true do |t|
     t.string   "topic"
+    t.text     "friend_emails"
     t.string   "status"
     t.datetime "published_at"
     t.datetime "created_at"
@@ -126,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20100711052555) do
     t.boolean  "anon"
     t.string   "header"
     t.integer  "category_id"
-    t.integer  "total_votes",  :default => 0
+    t.integer  "total_votes",   :default => 0
   end
 
   add_index "vote_topics", ["status"], :name => "index_vote_topics_on_status"

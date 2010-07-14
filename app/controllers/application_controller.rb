@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     helper_method :current_user_session, :current_user
     filter_parameter_logging :password, :password_confirmation
 
+    def header_exempt
+        @header_exempt_page = true
+    end
+    
     def permission_denied
         flash[:notice] = "Sorry, permission denied."
         respond_to do |format|
@@ -54,7 +58,7 @@ class ApplicationController < ActionController::Base
         unless current_user
             store_location
             flash[:notice] = "You must be logged in to access this page"
-            redirect_to new_user_session_url
+            redirect_to new_user_sessions_url
             return false
         end
     end

@@ -38,8 +38,11 @@ Rails::Initializer.run do |config|
     ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
     ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
 
+    ENV['RPX_KEY'] = '18c3db9c36e3ce844af615637cfc9ffbac08448f'
+    
     config.time_zone = 'Pacific Time (US & Canada)'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','*.{rb,yml}')]
+    
     config.action_mailer.default_url_options({:host => "localhost:3000"})
     #    config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
     %w(middleware).each do |dir|
@@ -56,6 +59,8 @@ Rails::Initializer.run do |config|
     config.gem "geokit", :source => "gems.github.com"
     config.gem 'mime-types', :lib => "mime/types",     :version => '1.16'
     config.gem "authlogic", :source => "gems.github.com"
+    config.gem "rpx_now"
+    config.gem "authlogic_rpx"
     config.gem "formtastic"
     config.gem "validation_reflection"
     config.gem "ym4r"

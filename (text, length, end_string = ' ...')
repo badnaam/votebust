@@ -1,0 +1,8 @@
+More than one method matched your request. You can refine
+your search by asking for information on one of:
+
+     Pathname#truncate, Float#truncate, StringIO#truncate,
+     Numeric#truncate, Integer#truncate, BigDecimal#truncate,
+     File::truncate, File#truncate, Rational#truncate,
+     ActionView::Helpers::TextHelper#truncate,
+     Rake::Application#truncate_output?, Rake::Application#truncate

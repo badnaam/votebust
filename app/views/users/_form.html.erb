@@ -16,7 +16,7 @@
     <%= form.input :password_confirmation %>
     <%= form.input :email %>
     <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1} %>
-    <%= form.input :age %>
+    <%= form.input :age, :as => :select, :collection => Constants::USER_AGE_RANGE.map{|x| [x, x]} %>
     <% if form.object.new_record? %>
       <%= form.input :image, :hint => "Select an image less than 1 MB in size", :label => "Add Image" %>
     <% else %>
@@ -30,10 +30,25 @@
     <% end  %>
     <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
   <% end  %>
+  <% if @user.new_record? %>
+    <%= rpx_popup( :link_text => ".. or register using RPX", :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false ) %>
+  <% else %>
+    <% if @user.using_rpx? %>
+      <div class="prepend-top append-bottom">
+        "This account is enabled for RPX authentication"
+        (<%= rpx_popup( :link_text => "Add another RPX authentication provider to this account", :app_name => Constants::RPX_APP_NAME, :return_url => addrpxauth_url, :add_rpx => true, :unobtrusive => false ) %> )
+      </div>
+    <% else %>
+      <div class="prepend-top append-bottom">
+        <%= rpx_popup( :link_text => "Add RPX authentication for this account..", :app_name => Constants::RPX_APP_NAME, :return_url => addrpxauth_url, :add_rpx => true, :unobtrusive => false ) %>
+      </div>
+    <% end %>
+  <% end %>
   <ul>
     <li>
       <%= color_link_with_icon("register_submit", "#", "ui-icon-circle-check", form.object.new_record? ? "Register" : "Update Profile") %>
     </li>
   </ul>
+
   <%#= form.commit_button "Register" %>
 <% end  %>

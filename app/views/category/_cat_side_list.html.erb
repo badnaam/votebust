@@ -1,7 +1,7 @@
-<div class="prepend-top">
-  <ul>
+<div  style="display: none;position:absolute;z-index: 190;text-align: left" class="span-24 ui-corner-all ui-state-default last" id="cat_menu">
+  <ul style="list-style-type: none;padding-right: 5px;text-align: left">
     <% Category.all.each do |c| %>
-      <li><%= link_to_unless_current c.name, category_vote_topics_path(c) %></li>
+      <li style="display: inline;margin: 0 2em 2em 0;text-align: left"><%= link_to_unless_current c.name, category_vote_topics_path(c) %></li>
     <% end  %>
   </ul>
 </div>

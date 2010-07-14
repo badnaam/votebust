@@ -123,6 +123,24 @@ tr.generic {
 /** end typography **/
 
 /**layout **/
+.right {
+    float:right;
+}
+.bordered {
+    border:1px solid;
+}
+table.borderless {
+    border :none;
+}
+table.borderless td {
+    border :none;
+}
+table.borderless th{
+    border :none;
+}
+table.borderless tr{
+    border :none;
+}
 .crumb {
     padding:1em 0 1em 0;
 }
@@ -174,6 +192,14 @@ tr.generic {
     height:24px;
     z-index: 200;
 }
+.progress {
+    background:transparent url(/images/progress.gif) no-repeat scroll center center;
+    margin: auto;
+    width:50%;
+    height:24px;
+    z-index: 200;
+}
+
 #com_prog_loading {
     background:transparent url(/images/progress.gif) no-repeat scroll center center;
     margin: auto;
@@ -181,7 +207,7 @@ tr.generic {
     height:24px;
     z-index: 200;
 }
-#com_prog_loadding{
+/**#com_prog_loadding{
     background:transparent url(/images/progress.gif) no-repeat scroll center center;
     font-size:16px;
     font-style:normal;
@@ -196,7 +222,7 @@ tr.generic {
     margin: auto;
     width:50%;
     z-index:200;
-}
+}**/
 /*#com_prog_loading {
     background:transparent url(/images/progress.gif) no-repeat scroll center center;
     height:15px;
@@ -274,10 +300,6 @@ body a {
 body a:hover {
     color:#86b96a !important;
 }
-.header a {
-    color:#8F8F8F;
-    text-decoration:none;
-}
 
 .header a:hover {
     color:#86b96a;
@@ -309,7 +331,6 @@ body a:hover {
     border-bottom:1px solid #86b96a;
 }
 .header_logo_div {
-    padding-bottom:1em;
     background-color:#322f25;
     color:black;
 
@@ -882,6 +903,10 @@ p.listing_description:first-letter {
 }
 /* End View Global */
 /* Vote_topics views */
+.slide-progress {
+    margin: .5em auto;
+    background-color: black;
+}
 .left {
     float:left
 }

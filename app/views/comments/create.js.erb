@@ -1,1 +1,6 @@
-$('#comments .pagination').after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+if ($('#comments .pagination').length > 0) {
+  $('#comments .pagination').after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+} else {
+  $('#comments').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+}
+

@@ -1,10 +1,7 @@
-<div id="search_form">
-  <% form_tag searches_path, :method => :get do %>
-    <%= text_field_tag :search_term %>
-    <%= submit_tag "Search"%>
-  <% end  %>
-</div>
+<div class="span-17 last">
+  <div id="com_prog_loading" class="progress" style="opacity:0;"></div>
+  <div id="search_results">
+    <%= render :partial => 'search_results' %>
+  </div>
 
-<div id="search_results">
-  <%= render :partial => 'search_results' %>
 </div>

@@ -46,15 +46,16 @@ ActionController::Routing::Routes.draw do |map|
         categories.resources :vote_topics
     end
     map.resources :comments
-    map.resources :vote_topics, :belongs_to => [:user, :category], :has_many => [:comments],  :member => {:process_votes => :post, :breakdown => :get}
+    map.resources :vote_topics, :belongs_to => [:user, :category], :has_many => [:comments],  :member => {:process_votes => :post, :breakdown => :get, :cancel_vote => :post}
     map.resources :vote_items, :belongs_to => :vote_topic
-    map.resource :user_session
+    map.resource :user_sessions
     map.resource :account, :controller => "users"
     map.login "login", :controller =>:user_sessions, :action => "new"
     map.logout "logout", :controller =>:user_sessions, :action => "destroy"
     map.resources :password_resets
     map.register "register/:activation_code", :controller => "activations", :action => "new"
     map.activate "activate/:id", :controller => "activations", :action => "create"
+    map.addrpxauth "addrpxauth", :controller => "users", :action => "addrpxauth", :method => :post
     map.resources :users do |users|
         users.resources :vote_topics
         users.resources :comments

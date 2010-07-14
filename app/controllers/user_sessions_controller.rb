@@ -1,7 +1,14 @@
 class UserSessionsController < ApplicationController
-    before_filter :require_no_user, :only => [:new, :create]
-    before_filter :require_user, :only => :destroy
+    #    before_filter :require_no_user, :only => [:new, :create]
+    #    before_filter :require_user, :only => :destroy
+    before_filter :require_user, :except => [:index, :new, :create]
+    before_filter :header_exempt
+    #    rpx_extended_info
 
+    def index
+        redirect_to current_user ? root_url : new_user_sessions_url
+    end
+    
     def new
         @user_session = UserSession.new
     end
@@ -9,16 +16,29 @@ class UserSessionsController < ApplicationController
     def create
         @user_session = UserSession.new(params[:user_session])
         if @user_session.save
-            flash[:notice] = "Login successful!"
-            redirect_back_or_default root_url
+            if @user_session.new_registration?
+                flash[:notice] = "Welcome! Please review your profile information before continuing"
+                redirect_to edit_user_path(:current_user)
+            else
+                if @user_session.registration_complete?
+                    flash[:notice] = "Successfully signed in!"
+                    redirect_back_or_default root_url
+                else
+                    flash[:notice] = "Welcome back! Please complete required registration details before continuing.."
+                    redirect_to edit_user_path(:current_user)
+                end
+            end
         else
-            render :action => :new
+            flash[:error] = "Login Failed #{@user_session.errors}"
+            #            render :action => :new
+            redirect_to new_user_sessions_path
         end
     end
 
     def destroy
-        current_user_session.destroy
-        flash[:notice] = "Logout successful!"
+        @user_session = current_user_session
+        @user_session.destroy if @user_session
+        flash[:notice] = "Sign out successful!"
         redirect_back_or_default root_url
     end
 end

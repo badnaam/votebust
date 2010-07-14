@@ -1,0 +1,11 @@
+<div id="div_place_holder" class="append-bottom prepend-top span-17 last">
+  <div class="span-8">
+    <% if current_user %>
+      <%link =  new_user_vote_topic_path(current_user) %>
+    <% else %>
+      <%link = login_path %>
+    <% end  %>
+    <%= link_to "Start A Vote", link, :id => 'new_vote_btn' %>
+<%#= color_link_with_icon('lnk', link, 'ui-icon-circle-plus', 'Start a Vote') %>
+  </div>
+</div>
