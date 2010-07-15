@@ -28,4 +28,6 @@ class Constants
     AGE_GROUP_2 = (20..35)
     AGE_GROUP_3 = (35..55)
     AGE_GROUP_4 = (55..99)
+
+    ADMIN_EMAIL = 'pjointadm@gmail.com'
 end

@@ -43,6 +43,17 @@ module VoteTopicsHelper
         end
     end
 
+    def get_vote_percent(v, total_votes)
+        votes = v.votes_for
+        if votes == 0
+            return "#{v.option} - 0%"
+        elsif total_votes == 0
+            return 'N/A'
+        else
+            return "#{v.option} - #{votes} votes - #{sprintf('%.1f', ((votes.to_f / total_votes.to_f) * 100))}%"
+        end
+    end
+    
     def add_vi_link(name, form)
         link_to_function name do |page|
             vote_item = render(:partial => 'vi', :locals => { :f => form, :vote_item => VoteItem.new })

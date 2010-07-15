@@ -38,7 +38,7 @@ SimpleNavigation::Configuration.run do |navigation|
             end
         end
         primary.item :vote_nav, 'Votes', vote_topics_path do|v|
-            if @vote_topic && !@vote_topic.id.nil?
+            if @vote_topic && !@vote_topic.id.nil? 
                 v.item :v_show, @vote_topic.header,vote_topic_path(@vote_topic)
             end
         end

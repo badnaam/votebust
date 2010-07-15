@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'gruff'
+include ActionView::Helpers::TextHelper
+
 class VoteTopic < ActiveRecord::Base
     belongs_to :user
     belongs_to :category
@@ -34,6 +36,10 @@ class VoteTopic < ActiveRecord::Base
     rescue
         #Rescue code here
     end
+
+    def deliver_new_vote_notification!
+        Notifier.deliver_new_vote_notification(self)
+    end
     
     def post_process(selected_response, user, add)
         if add == true
@@ -59,12 +65,12 @@ class VoteTopic < ActiveRecord::Base
         else
             selected_response.increment!(:ag_4_v, inc)
         end
-        make_sex_graph_stacked(self)
+        make_gender_graph_stacked(self)
         make_age_graph_stacked(self)
         make_pie_graph(self, self.vote_items)
     end
 
-        def make_gender_graph_stacked(vt)
+    def make_gender_graph_stacked(vt)
         g = Gruff::StackedBar.new(Constants::LARGE_GRAPH_DIM_16_9)
         g.title = "By Gender"
         vi = vt.vote_items

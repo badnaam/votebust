@@ -1,0 +1,32 @@
+<html>
+  <head>
+  <body>
+    <p>
+      A new Vote has been created
+    </p>
+
+    <br></br>
+    <hr/>
+    <table>
+      <tr>
+        <td>Header</td>
+        <td><%= @vote_topic.header %></td>
+      </tr>
+      <tr>
+        <td>Topic</td>
+        <td><%= @vote_topic.topic %></td>
+      </tr>
+      <% @vote_topic.vote_items.each do |v| %>
+        <tr>
+          <td>
+            Option
+          </td>
+          <td>
+            <%= v.option %>
+          </td>
+        </tr>
+      <% end  %>
+    </table>
+  </body>
+</head>
+</html>

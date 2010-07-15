@@ -18,6 +18,14 @@ class Notifier < ActionMailer::Base
         body "Here is the body"
     end
 
+    def new_vote_notification(vote_topic)
+        subject "New Vote Notification"
+        from          Constants::ADMIN_EMAIL
+        recipients    Constants::ADMIN_EMAIL
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :vote_topic => vote_topic
+    end
 
     def password_reset_instructions(user)
         subject       "VoteBust Password Reset Instructions"

@@ -1,7 +1,8 @@
-$('#vote_dlg').replaceWith("<%= escape_javascript (render :partial => "vote_tally", :locals => {:vote_items => @vote_items}) %>");
+//$('#vote_dlg').replaceWith("<%= escape_javascript (render :partial => "vote_tally", :locals => {:vote_items => @vote_items}) %>");
 $('#div_process_vote').remove();
 $('#div_vote_form').prepend("<%= escape_javascript (render :partial => "vote_cancel_form")%>");
 $('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
+
 $('#cancel_vote_form').submit(function (){
 showLoading('#vote_prog_loading')
 $.post($(this).attr('action'), $(this).serialize(), function(data) {

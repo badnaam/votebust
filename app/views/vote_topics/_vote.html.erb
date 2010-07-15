@@ -81,6 +81,25 @@
 <div class="span-17 last">
   <h2><%= @vote_topic.header %></h2>
   <h4><%= @vote_topic.topic %></h4>
+  <% if !@vote_topic.anon %>
+    <h5><%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
+  <% else %>
+    <h5><%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
+  <% end  %>
+  <h5><%= "Total Votes #{@vote_topic.total_votes}" %></h5>
+  <% total_v = @vote_topic.total_votes %>
+  
+  <div id="vote_details">
+    <% if !total_v.nil? && total_v > 0 %>
+      <ul>
+        <% @vote_items.each do |v| %>
+          <li>
+            <%= get_vote_percent v, total_v %>
+          </li>
+        <% end  %>
+      </ul>
+    <% end  %>
+  </div>
 </div>
 
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>

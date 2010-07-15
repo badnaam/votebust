@@ -56,7 +56,7 @@ class VoteTopicsController < ApplicationController
     def index
         if !params[:user_id].nil?
             @user = User.find(params[:user_id])
-            @vote_topics = @user.vote_topics
+            @vote_topics = @user.vote_topics.status_equals(true)
         elsif !params[:category_id].nil?
             @category = Category.find(params[:category_id])
             #            @vote_topics = VoteTopic.find_all_by_category_id(params[:category_id])
@@ -74,17 +74,22 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1.xml
     def show
         @vote_topic = VoteTopic.find(params[:id])
-        @comments = @vote_topic.comments.find(:all, :order => 'created_at DESC').paginate(:page => params[:page],
-            :per_page => Constants::COMMENTS_PER_PAGE)
-        @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
-        if !request.xhr?
-            if !params[:user_id].nil?
-                @user = User.find(params[:user_id]) unless params[:user_id].nil?
-            else
-                @user = @vote_topic.user
-            end
+        if @vote_topic.status == true
+            @vote_items = @vote_topic.vote_items
+#            if !request.xhr?
+#                if !params[:user_id].nil?
+#                    @user = User.find(params[:user_id])
+#                else
+#                    @user = @vote_topic.user
+#                end
+#            end
+            @comments = @vote_topic.comments.find(:all, :order => 'created_at DESC').paginate(:page => params[:page],
+                :per_page => Constants::COMMENTS_PER_PAGE)
+            @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
+        else
+            @not_approved = true
+            flash[:notice] = "This vote will be displayed after moderator approval."
         end
-
         respond_to do |format|
             format.html # show.html.erb
             format.js
@@ -121,10 +126,11 @@ class VoteTopicsController < ApplicationController
     def create
         @user = User.find(params[:vote_topic][:user_id].to_i)
         @vote_topic = @user.vote_topics.create(params[:vote_topic])
-
+        @vote_topic.status = false
         respond_to do |format|
             if @vote_topic.save
-                flash[:notice] = 'VoteTopic was successfully created.'
+                flash[:notice] = 'VoteTopic was successfully created and sent for moderator approval.'
+                @vote_topic.send_later :deliver_new_vote_notification!
                 format.html { redirect_to(@vote_topic) }
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else
