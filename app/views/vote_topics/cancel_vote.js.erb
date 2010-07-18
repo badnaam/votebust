@@ -1,9 +1,9 @@
-$('#div_vote_form').prepend("<%= escape_javascript (render :partial => 'vote_form') %>");
-$('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
-$('#div_cancel_vote').remove();
-$('#vote_form').submit(function (){
+$j('#div_vote_form').prepend("<%= escape_javascript (render :partial => 'vote_form') %>");
+$j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
+$j('#div_cancel_vote').remove();
+$j('#vote_form').submit(function (){
       showLoading('#vote_prog_loading')
-      $.post($(this).attr('action'), $(this).serialize(), function(data) {
+      $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
         hideLoading('#vote_prog_loading');
       }, "script");
       return false;

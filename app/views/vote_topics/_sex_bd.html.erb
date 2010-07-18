@@ -1,23 +1,19 @@
 <% if all %>
-  <% path = get_main_graph @vote_topic %>
   <div class="simpleSlide-slide" rel="ss" style="height: 338px; width: 600px;">
-    <% if !path.nil? %>
-      <%= image_tag get_main_graph @vote_topic %>
-    <% else %>
-      <p>Processing Image</p>
-    <% end  %>
+    <%= @p_flash_graph %>
   </div>
-  <% paths = get_other_graphs(@vote_topic) %>
-  <% paths.each do |v| %>
-    <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
-      <%= image_tag v %>
-    </div>
-  <% end  %>
+  <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+    <%= @g_flash_graph %>
+  </div>
+  <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+    <%= @a_flash_graph %>
+  </div>
 <% else %>
-  <% paths = get_other_graphs(@vote_topic) %>
-  <% paths.each do |v| %>
-    <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
-      <%= image_tag v %>
-    </div>
-  <% end  %>
+
+  <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+    <%= @g_flash_graph %>
+  </div>
+  <div class="simpleSlide-slide" rel="ss" style="height: 450px; width: 600px;">
+    <%= @a_flash_graph %>
+  </div>
 <% end  %>

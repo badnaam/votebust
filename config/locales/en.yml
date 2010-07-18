@@ -31,25 +31,26 @@ en:
          category: "Category"
          option: "Vote Option"
        edit:
-         header: "Vote Title"
-         topic: "Vote Topic"
+         header: "Details"
+         topic: "Vote Topic/Question"
          anon: "Anonymous?"
          category: "Category"
          option: "Vote Option"
     hints:
      vote_topic:
        new:
-         header: "The big screaming title"
-         topic: "The big problem"
+         header: "Help voters understand the topic/question/problem"
+         topic: "The topic/question/issue you want votes on"
          anon: "Should we show your username?"
          option: "Options to choose"
+         friend_emails: "Invite friends to vote, enter comma separated valid emails"
        edit:
-         header: "The big screaming title"
-         topic: "The big problem"
+         header: "Help voters understand the topic/question/problem"
+         topic: "The topic/question/issue you want votes on"
          anon: "Should we show your username?"
          option: "Options to choose"
     actions:
-        commit: "Bust a Ballot!"
+        commit: "Bust a Vote!"
         update: "Save Changes"
 
    

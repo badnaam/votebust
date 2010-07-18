@@ -1,22 +1,12 @@
+
 <div id="pic_loading_g" style="opacity:0"></div>
-<div style="width:602px">
-  <div id="slideshow" class="slideshow" style="border:2px solid black;height: 339px; width: 601px;">
-    <div rel="ss" class="left-button left" style="display: none;"></div>
-    <div class="simpleSlide-window" rel="ss" style="overflow: hidden; height: 338px; width: 600px; position: relative;">
-      <div class="simpleSlide-tray" rel="ss">
-        <% path = get_main_graph @vote_topic %>
-        <div class="simpleSlide-slide" rel="ss" style="height: 338px; width: 600px;">
-          <% if !path.nil? %>
-            <%= image_tag get_main_graph @vote_topic %>
-          <% else %>
-            <p>Processing Image</p>
-          <% end  %>
-        </div>
-      </div>
-    </div>
-    <div rel="ss" class="right-button left" style="display: none;"></div>
-  </div>
-  <div class="simpleSlideStatus-tray slide-progress" rel="ss">
-    <div class="simpleSlideStatus-window " rel="ss"></div>
-  </div>
+<div class="chart-container">
+  <%= @p_chart.js_open_flash_chart_object("chart", Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9) %>
 </div>
+
+
+<%#= @p_chart.link_to_ofc_load("Pie", "chart") %>
+<%= @p_chart.link_to_remote_ofc_load("Pie", "chart", url_for(:controller => :graphs, :action => :pie_graph, :id => @vote_topic.id)) %>
+<%= @p_chart.link_to_remote_ofc_load("Age", "chart", url_for(:controller => :graphs, :action => :age_graph, :id => @vote_topic.id)) %>
+<%= @p_chart.link_to_remote_ofc_load("Gender", "chart", url_for(:controller => :graphs, :action => :gender_graph, :id => @vote_topic.id)) %>
+

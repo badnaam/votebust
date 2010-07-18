@@ -7,7 +7,7 @@
   <% end  %>
   <title><%= @title %> </title>
 
-  <%= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes",  :cache => "base" %>
+  <%= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes", :cache => "base" %>
   <%= stylesheet_link_tag "print", :media => "print" %>
   <!--<link type="text/css" href="/stylesheets/css/gb/jquery-ui-1.8.1.custom.css" rel="Stylesheet" /> -->
   <link type="text/css" href="/stylesheets/css/bb/jquery-ui-1.8.2.custom.css" rel="Stylesheet" />
@@ -22,40 +22,17 @@
 <![endif]-->
   <!--<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen"/>-->
   <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"/><![endif]-->
-  <%= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js', 'application.js', :cache => 'base' %>
-<%#= javascript_include_tag   'application'%>
+  <% if controller.controller_name == 'vote_topics' && controller.action_name == 'show' %>
+    <%= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js','common_alt.js',  'swfobject.js', :cache => 'base' %>
+  <% else %>
+    <%= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js','common.js', 'application.js', :cache => 'base' %>
+  <% end  %>
   <script type="text/javascript">
     //<![CDATA[
     jQuery.ajaxSetup({
       'beforeSend': function (xhr) {
         xhr.setRequestHeader("Accept", "text/javascript")
       }
-    });
-    var showMenu = function(ev) {
-      //get the position of the placeholder element
-      var pos = $("#home_nav a").offset();
-      var width = $("#home_nav").width();
-      var height = $("#home_nav a").outerHeight();
-      //show the menu directly over the placeholder
-      $("#cat_menu").css( { "left": (pos.left) + "px", "top":(pos.top + height) + "px" } );
-      $("#cat_menu").toggle('slow');
-    }
-
-    $(document).ready(function(){
-      $('#new_vote_btn').button({icons:{primary:'ui-icon-lightbulb'}});
-      $("#search_form a").click(function() {
-        $(this).parents().filter("form").trigger("submit");
-    });
-
-      /**$('#search_button').click(function(){
-        $('#search_form').submit();
-        return false;
-      });**/
-      $('#search_button').button({icons:{primary:'ui-icon-search'}, text:false});
-      $("#cat_nav").bind('click', function(){
-        showMenu();
-        return false;
-      });
     });
     //]]>
   </script>

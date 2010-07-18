@@ -1,3 +1,7 @@
-<% if !@not_approved %>
-<%= render :partial => "vote" %>
+<% if @preview %>
+  <%= render :partial => "prev" %>
+<% elsif  @approved%>
+  <%= render :partial => "vote" %>
+<% elsif @waiting %>
 <% end  %>
+

@@ -23,7 +23,7 @@ module VoteTopicsHelper
         unless fields.object.new_record?
             out = ''
             out << fields.hidden_field(:_delete)
-            out << link_to_function("remove", "$(this).up('.#{fields.object.class.name.underscore}').hide(); $(this).previous().value = '1'")
+            out << link_to_function("remove", "$(this).parent('.#{fields.object.class.name.underscore}').hide(); $(this).prev().value = '1'")
             out
         end
     end
@@ -50,7 +50,7 @@ module VoteTopicsHelper
         elsif total_votes == 0
             return 'N/A'
         else
-            return "#{v.option} - #{votes} votes - #{sprintf('%.1f', ((votes.to_f / total_votes.to_f) * 100))}%"
+            return "#{v.option} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
         end
     end
     

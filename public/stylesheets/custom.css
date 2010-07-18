@@ -903,6 +903,9 @@ p.listing_description:first-letter {
 }
 /* End View Global */
 /* Vote_topics views */
+.chart-container {
+    margin-right: 1em;border:2px solid;
+}
 .slide-progress {
     margin: .5em auto;
     background-color: black;
@@ -910,16 +913,7 @@ p.listing_description:first-letter {
 .left {
     float:left
 }
-.left-button, .right-button {
-    cursor:pointer;
-    display:none;
-    height:72px;
-    margin-top:-36px;
-    position:absolute;
-    top:50%;
-    width:50px;
-    z-index:9999;
-}
+
 .right-button {
     background-image:url(/images/right-arrow.png);
     right:1px;

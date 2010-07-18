@@ -29,7 +29,7 @@ class UserSessionsController < ApplicationController
                 end
             end
         else
-            flash[:error] = "Login Failed #{@user_session.errors}"
+            flash[:error] = "Login Failed. Please make sure username/password is correct."
             #            render :action => :new
             redirect_to new_user_sessions_path
         end

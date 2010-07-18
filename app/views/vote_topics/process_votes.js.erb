@@ -1,11 +1,10 @@
-//$('#vote_dlg').replaceWith("<%= escape_javascript (render :partial => "vote_tally", :locals => {:vote_items => @vote_items}) %>");
-$('#div_process_vote').remove();
-$('#div_vote_form').prepend("<%= escape_javascript (render :partial => "vote_cancel_form")%>");
-$('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
+$j('#div_process_vote').remove();
+$j('#div_vote_form').prepend("<%= escape_javascript (render :partial => "vote_cancel_form")%>");
+$j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
 
-$('#cancel_vote_form').submit(function (){
+$j('#cancel_vote_form').submit(function (){
 showLoading('#vote_prog_loading')
-$.post($(this).attr('action'), $(this).serialize(), function(data) {
+$j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
 hideLoading('#vote_prog_loading');
 }, "script");
 return false;

@@ -5,10 +5,6 @@ authorization do
             if_attribute :id => is {user.id}
         end
         
-        has_permission_on :vote_topics, :to => [:edit, :update] do
-            if_attribute :user => is {user}
-        end
-        
         has_permission_on :vote_item do
             to :edit, :update
             if_permitted_to :update, :vote_topic

@@ -1,6 +1,6 @@
-if ($('#comments .pagination').length > 0) {
-  $('#comments .pagination').after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+if ($j('#comments .pagination').length > 0) {
+  $j('#comments .pagination').after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
 } else {
-  $('#comments').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+  $j('#comments').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
 }
 

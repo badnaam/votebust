@@ -3,9 +3,24 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics.xml
     layout "main"
     filter_access_to [:edit, :update], :attribute_check => true
-    before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote]
-
+    before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote, :approve_vote]
+    #    cache_sweeper :home_sweeper, :only => [:create]
     ########## Security hole, control access!
+
+    def approve_vote
+        @vote_topic = VoteTopic.find(params[:id])
+        if current_role == 'admin'
+            @vote_topic.status = 'a'
+            if @vote_topic.save
+                flash[:success] = 'Change vote status to approved'
+            end
+        else
+            flash[:error] = "Sorry can't do that"
+        end
+        respond_to do |format|
+            format.html {redirect_to :controller => :account, :action => :index}
+        end
+    end
 
     def cancel_vote
         @vote_topic = VoteTopic.find(params[:id], :include => :vote_items)
@@ -17,6 +32,19 @@ class VoteTopicsController < ApplicationController
         end
         respond_to do |format|
             format.js
+        end
+    end
+
+    def confirm_vote
+        @vote_topic = VoteTopic.find(params[:id])
+        if @vote_topic.update_attribute(:status, 'w')
+            flash[:notice] = 'Vote was successfully created and sent for moderator approval.'
+            @vote_topic.send_later :deliver_new_vote_notification!
+        else
+            flash[:error] = 'Something went wrong.'
+        end
+        respond_to do |format|
+            format.html { redirect_to(@vote_topic) }
         end
     end
     
@@ -48,6 +76,12 @@ class VoteTopicsController < ApplicationController
     def breakdown
         @bd_type = params[:bd_type] if !params[:bd_type].nil?
         @vote_topic = VoteTopic.find(params[:id])
+        @g_flash_graph = open_flash_chart_object(Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9,
+            url_for(:controller => :graphs, :action => :gender_graph, :id => @vote_topic.id))
+        @a_flash_graph = open_flash_chart_object(Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9,
+            url_for(:controller => :graphs, :action => :age_graph, :id => @vote_topic.id))
+        @p_flash_graph = open_flash_chart_object(Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9,
+            url_for(:controller => :graphs, :action => :pie_graph, :id => @vote_topic.id))
         respond_to do |format|
             format.js
         end
@@ -56,13 +90,13 @@ class VoteTopicsController < ApplicationController
     def index
         if !params[:user_id].nil?
             @user = User.find(params[:user_id])
-            @vote_topics = @user.vote_topics.status_equals(true)
+            @vote_topics = @user.vote_topics
         elsif !params[:category_id].nil?
             @category = Category.find(params[:category_id])
             #            @vote_topics = VoteTopic.find_all_by_category_id(params[:category_id])
-            @vote_topics = @category.vote_topics
+            @vote_topics = @category.vote_topics.status_equals('a')
         else
-            @vote_topics = VoteTopic.all
+            @vote_topics = VoteTopic.status_equals('a')
         end
         respond_to do |format|
             format.html # index.html.erb
@@ -74,22 +108,26 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1.xml
     def show
         @vote_topic = VoteTopic.find(params[:id])
-        if @vote_topic.status == true
-            @vote_items = @vote_topic.vote_items
-#            if !request.xhr?
-#                if !params[:user_id].nil?
-#                    @user = User.find(params[:user_id])
-#                else
-#                    @user = @vote_topic.user
-#                end
-#            end
+        if params[:comment_only] == "true"
             @comments = @vote_topic.comments.find(:all, :order => 'created_at DESC').paginate(:page => params[:page],
                 :per_page => Constants::COMMENTS_PER_PAGE)
-            @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
         else
-            @not_approved = true
-            flash[:notice] = "This vote will be displayed after moderator approval."
+            if @vote_topic.status == 'a'
+                @approved = true
+                @vote_items = @vote_topic.vote_items
+                @p_chart = @vote_topic.make_flash_pie_graph(true)
+                @comments = @vote_topic.comments.find(:all, :order => 'created_at DESC').paginate(:page => params[:page],
+                    :per_page => Constants::COMMENTS_PER_PAGE)
+                @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
+            elsif @vote_topic.status == 'p'
+                @preview = true
+                @vote_items = @vote_topic.vote_items
+            elsif @vote_topic.status == 'w'
+                @waiting = true
+                flash[:notice] = "This vote will be displayed after moderator approval."
+            end
         end
+        
         respond_to do |format|
             format.html # show.html.erb
             format.js
@@ -126,11 +164,10 @@ class VoteTopicsController < ApplicationController
     def create
         @user = User.find(params[:vote_topic][:user_id].to_i)
         @vote_topic = @user.vote_topics.create(params[:vote_topic])
-        @vote_topic.status = false
+        @vote_topic.status = 'p'
         respond_to do |format|
             if @vote_topic.save
-                flash[:notice] = 'VoteTopic was successfully created and sent for moderator approval.'
-                @vote_topic.send_later :deliver_new_vote_notification!
+              
                 format.html { redirect_to(@vote_topic) }
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else

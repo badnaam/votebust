@@ -7,12 +7,13 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+#    Rails.cache.clear
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-    # config.load_paths += %W( #{RAILS_ROOT}/extras )
+     config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
 
     # Specify gems that this application depends on and have them installed with rake gems:install
     # config.gem "bj"

@@ -2,12 +2,15 @@
   <%= form.semantic_errors %>
   <% form.inputs do %>
     <%= form.input :user_id, :as => :hidden %>
-    <%= form.input :header %>
-    <%= form.input :anon %>
-    <%= form.input :category %>
     <%= form.input :topic%>
+    <%= form.input :header, :as => :text %>
+    <%= form.input :anon %>
+
+    <%= form.input :category %>
+    <%= form.input :friend_emails, :as => :text %>
     <div id ="vote_items">
       <% form.semantic_fields_for :vote_items do |f| %>
+        <%= f.semantic_errors %>
         <div class="vote_item">
           <%= f.input :option %>
           <%= remove_link_unless_new_record(f) %>
@@ -16,5 +19,6 @@
     </div>
     <%= add_object_link "Add a vote option", form, VoteItem.new, "vi", "#vote_items" %>
   <% end  %>
+
   <%= form.commit_button %>
 <% end  %>
