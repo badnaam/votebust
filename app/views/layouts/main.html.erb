@@ -7,30 +7,35 @@
       <div class="header span-24 last">
         <div class ="span-24 header_links_div last">
           <%= render :partial => "category/cat_side_list" %>
-          <ul class="header_links">
-            <% unless  current_user %>
-              <li><%= link_to "Sign Up", new_user_path, :class => "special_link"%></li>
-              <li><%= link_to "Login", login_path, :id => 'login_link' %></li>
-              <!--<li>-->
-  <%#= rpx_popup( :link_text => "Register/Sign in with RPX", :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false ) %>
-              <!--</li>-->
-            <% else %>
-              <li><%= link_to current_user.username, current_user %></li>
-              <li><%= link_to "Logout", logout_path  %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="last span-24 header_logo_div"> <!-- header logo -->
-          <h1 class="header_txt"><%= link_to t('logo'), root_path, :class => "logo_link"%><%= %></h1>
-          <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
-          <div class="span-24 last">
-            <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
-              <%= text_field_tag :search_term %>
-              <%= link_to "Search", "#", :id => 'search_button' %>
-            <% end  %>
+          <div class="span-17"> &nbsp;</div>
+          <div class="span-6 last ui-corner-bl ui-corner-br ui-state-default">
+            <ul class="header_links">
+              <% if current_user %>
+                <%link =  new_user_vote_topic_path(current_user) %>
+              <% else %>
+                <%link = login_path %>
+              <% end  %>
+              <li><%= link_to "Start A Vote", link%></li>
+              <% unless  current_user %>
+                <li><%= link_to "Sign Up", new_user_path, :class => "special_link"%></li>
+                <li><%= link_to "Login", login_path, :id => 'login_link' %></li>
+              <% else %>
+                <li><%= link_to current_user.username, current_user %></li>
+                <li><%= link_to "Logout", logout_path  %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
-        <%= render :partial => "/layouts/nav" %>
+        <div class="last span-24 header_logo_div"> <!-- header logo -->
+          <%= image_tag '/images/logo_1.png' %>
+          <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
+          <div class="span-24 last nav_container">
+            <div class="span-24 last main_links_div">
+              <%= render_navigation :level => 1 %>
+            </div>
+
+          </div>
+        </div>
       </div>
 
       <div class ="span-24 last content_container">
@@ -40,25 +45,31 @@
         <div class="span-24 last">
           <%= yield :page_top %>
           <% unless @header_exempt_page %>
-              <%= render :partial => 'layouts/page_header' %>
-            <% end  %>
+            <%= render :partial => 'layouts/page_header' %>
+          <% end  %>
         </div> <!-- end search yield -->
-        <div class="content span-17 prepend-1 bordered" id="content">
-          <div class="span-17 last" id="flash_messages">
+        <div class="content span-18  bordered" id="content">
+          <div class="span-18 last" id="flash_messages">
             <%= render :partial => 'layouts/flash_msg' %>
           </div>
-          <div class="crumb span-17 last">
+          <div class="crumb  span-18 last">
             <%= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
           </div>
           <%= yield %>
         </div> <!-- end content div -->
 
         <div class="right_nav span-6 last">
-          <%= yield :right_nav %>
+          <div class="span-6 last div-search-form"
+          <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
+            <%= text_field_tag :search_term, "Search",  :class => 'search-term' %>
+            <%= link_to "Search", "#", :id => 'search_button' %>
+          <% end  %>
         </div>
-        <div class="push"> </div>
-      </div> <!-- end content_container -->
-      <%= render :partial => "/layouts/footer" %>
-    </div>
-  </body>
+        <%= yield :right_nav %>
+      </div>
+      <div class="push"> </div>
+    </div> <!-- end content_container -->
+    <%= render :partial => "/layouts/footer" %>
+  </div>
+</body>
 </html>

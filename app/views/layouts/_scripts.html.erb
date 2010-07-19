@@ -1,5 +1,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
   <% unless (yield :title).blank? || (yield :title) == t("logo") %>
     <% @title = t("logo") + " " + (yield :title) %>
   <% else %>
@@ -9,7 +11,6 @@
 
   <%= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes", :cache => "base" %>
   <%= stylesheet_link_tag "print", :media => "print" %>
-  <!--<link type="text/css" href="/stylesheets/css/gb/jquery-ui-1.8.1.custom.css" rel="Stylesheet" /> -->
   <link type="text/css" href="/stylesheets/css/bb/jquery-ui-1.8.2.custom.css" rel="Stylesheet" />
   <!--[if IE]>
 <style type="text/css">
@@ -22,18 +23,25 @@
 <![endif]-->
   <!--<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen"/>-->
   <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"/><![endif]-->
-  <% if controller.controller_name == 'vote_topics' && controller.action_name == 'show' %>
-    <%= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js','common_alt.js',  'swfobject.js', :cache => 'base' %>
-  <% else %>
-    <%= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js','common.js', 'application.js', :cache => 'base' %>
-  <% end  %>
+  <script src="http://www.google.com/jsapi?key=ABQIAAAAi_F8JNAI9__oCG-KzCfTYhTJQa0g3IQ9GZqIMmInSLzwtGDKaBQ6kTvHNGROiENaALqema6YZJEh2Q" type="text/javascript"></script>
   <script type="text/javascript">
     //<![CDATA[
-    jQuery.ajaxSetup({
-      'beforeSend': function (xhr) {
-        xhr.setRequestHeader("Accept", "text/javascript")
-      }
+    google.load("jquery", "1.4.2");
+    google.load("jqueryui", "1.8.2");
+    google.setOnLoadCallback(function() {
+      jQuery.ajaxSetup({
+        'beforeSend': function (xhr) {
+          xhr.setRequestHeader("Accept", "text/javascript")
+        }
+      });
     });
     //]]>
   </script>
+  <% if controller.controller_name == 'vote_topics' && controller.action_name == 'show' %>
+  <%#= javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.2.custom.min.js','common_alt.js',  'swfobject.js', :cache => 'base' %>
+    <%= javascript_include_tag 'common_alt.js',  'swfobject.js', :cache => 'base' %>
+  <% else %>
+    <%= javascript_include_tag 'common.js', 'application.js', :cache => 'base' %>
+  <% end  %>
+
 </head>

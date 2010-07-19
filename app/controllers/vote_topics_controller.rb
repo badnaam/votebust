@@ -28,7 +28,7 @@ class VoteTopicsController < ApplicationController
         @selected_response = @vote_topic.what_vi_user_voted_for(current_user)
         if Vote.find_by_voteable_id_and_voter_id(@selected_response.id, current_user.id).destroy
             flash[:success] = "Your vote has been cancelled."
-            @vote_topic.send_later(:post_process, @selected_response, current_user, false)
+#            @vote_topic.send_later(:post_process, @selected_response, current_user, false)
         end
         respond_to do |format|
             format.js
@@ -63,7 +63,7 @@ class VoteTopicsController < ApplicationController
                 flash[:notice] = "You already voted."
             end
             #initiate post processing
-            @vote_topic.send_later(:post_process, @selected_response, current_user, true)
+#            @vote_topic.send_later(:post_process, @selected_response, current_user, true)
             respond_to do |format|
                 format.html
                 format.js

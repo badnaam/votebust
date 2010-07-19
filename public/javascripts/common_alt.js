@@ -13,11 +13,12 @@ var showMenu = function(ev) {
 }
 
 $j(document).ready(function(){
-    $j('#new_vote_btn').button({
+   /** $j('#new_vote_btn').button({
         icons:{
             primary:'ui-icon-lightbulb'
         }
-    });
+    });**/
+    
     $j("#search_form a").click(function() {
         $j(this).parents().filter("form").trigger("submit");
     });

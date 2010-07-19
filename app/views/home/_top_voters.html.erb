@@ -1,5 +1,6 @@
 <% voters = User.active_equals(true).descend_by_votes_count.all(:limit => Constants::SMART_COL_LIMIT) %>
-<div>
+<div class="span-6 last prepend-top ui-widget-content">
+  <h4 class="ui-state-default">Top Voters</h4>
   <ul>
     <% voters.each do |v| %>
       <li>

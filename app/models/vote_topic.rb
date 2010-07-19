@@ -3,10 +3,12 @@ require 'gruff'
 include ActionView::Helpers::TextHelper
 
 class VoteTopic < ActiveRecord::Base
+    MAX_VOTE_ITEMS = 5
     belongs_to :user
     belongs_to :category
     has_many :comments
     has_many :vote_items, :dependent => :destroy
+
 
     #\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b
     validates_presence_of :topic
@@ -83,14 +85,11 @@ class VoteTopic < ActiveRecord::Base
         else
             selected_response.increment!(:ag_4_v, inc)
         end
-        #        make_gender_graph_stacked(self)
-        #        make_age_graph_stacked(self)
-        #        make_pie_graph(self, self.vote_items)
     end
     
     def make_flash_gender_graph_stacked
-        title = Title.new('By Gender')
-        title.set_style( '{font-size: 12px; color: #F24062;font-weight: bold;font-family:Verdana; text-align: center;}' );
+        title = Title.new(Constants::GENDER_GRAPH_TITLE)
+        title.set_style(Constants::GRAPH_TITLE_STYLE);
         bar_stack = BarStack.new
         vi = self.vote_items
         labels_arr = Array.new
@@ -102,20 +101,21 @@ class VoteTopic < ActiveRecord::Base
             male_val =  vv.male_votes
             female_val =  vv.female_votes
             
-            bar_male = BarStackValue.new(male_val,'#C4D318')
-            bar_female = BarStackValue.new(female_val,'#50284A')
+            bar_male = BarStackValue.new(male_val, Constants::GRAPH_MALE_COLOR)
+            bar_female = BarStackValue.new(female_val, Constants::GRAPH_FEMALE_COLOR)
 
             bar_stack.append_stack(Array.new([bar_male, bar_female]))
-            labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_LABEL_LENGTH, :omission => '~'),'#000000', 12, 0)
+            labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_AXIS_LABEL_LENGTH, :omission => '~'),Constants::GRAPH_X_AXIS_LABEL_COLOR,
+                Constants::GRAPH_X_AXIS_LABEL_FONT_SIZE, Constants::GRAPH_X_AXIS_LABEL_ANGLE)
         end
         #Make keys
         keys_arr = Array.new
-        keys_arr << BarStackKey.new('#C4D318', "Men", 10)
-        keys_arr << BarStackKey.new('#50284A', "Women", 10)
+        keys_arr << BarStackKey.new(Constants::GRAPH_MALE_COLOR, "Men", Constants::GRAPH_KEY_SIZE)
+        keys_arr << BarStackKey.new(Constants::GRAPH_FEMALE_COLOR, "Women", Constants::GRAPH_KEY_SIZE)
         bar_stack.set_keys(keys_arr)
         
         #        bar_stack.set_tooltip('X label [#x_label#], Value [#val#]<br>Total [#total#]' )
-        bar_stack.set_tooltip('#val# of #total#' )
+        bar_stack.set_tooltip('#val# of #total#')
         
         y = YAxis.new();
         n = (totals.sort{|x, z| z <=> x})[0]
@@ -124,17 +124,17 @@ class VoteTopic < ActiveRecord::Base
 
         x.labels = labels_arr
         
-        x.set_colour('#ffffff')
-        x.set_grid_colour('#ffffff')
-        y.set_colour('#ffffff')
-        y.set_grid_colour('#ffffff')
+        x.set_colour(Constants::GRAPH_AXIS_COLOR)
+        x.set_grid_colour(Constants::GRAPH_GRID_COLOR)
+        y.set_colour(Constants::GRAPH_AXIS_COLOR)
+        y.set_grid_colour(Constants::GRAPH_GRID_COLOR)
 
         x.set_labels_from_array(labels_arr);
 
         tooltip = Tooltip.new;
         tooltip.set_hover();
         chart = OpenFlashChart.new
-        chart.bg_colour = "#ffffff"
+        chart.bg_colour = Constants::GRAPHS_BG_COLOR
         chart.set_title(title)
         chart.add_element(bar_stack)
         chart.x_axis = x ;
@@ -144,8 +144,8 @@ class VoteTopic < ActiveRecord::Base
     end
 
     def make_flash_age_graph_stacked
-        title = Title.new"By Age Group"
-        title.set_style( '{font-size: 12px; color: #F24062; text-align: center;}' );
+        title = Title.new Constants::AGE_GRAPH_TITLE
+        title.set_style(Constants::GRAPH_TITLE_STYLE);
         bar_stack = BarStack.new
         
         vi = self.vote_items
@@ -158,9 +158,10 @@ class VoteTopic < ActiveRecord::Base
             ag2 = vv.ag_2_v
             ag3 = vv.ag_3_v
             ag4 = vv.ag_4_v
-            bar_stack.append_stack(Array.new([BarStackValue.new(ag1,'#C4D318'), 
-                        BarStackValue.new(ag2,'#50284A'), BarStackValue.new(ag3,'#2AB597'), BarStackValue.new(ag4,'#B00E21')]))
-            labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_LABEL_LENGTH, :omission => '~'), '#000000', 12, 0)
+            bar_stack.append_stack(Array.new([BarStackValue.new(ag1,Constants::GRAPH_AG1_COLOR),
+                        BarStackValue.new(ag2,Constants::GRAPH_AG2_COLOR), BarStackValue.new(ag3, Constants::GRAPH_AG3_COLOR), BarStackValue.new(ag4,Constants::GRAPH_AG4_COLOR)]))
+            labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_AXIS_LABEL_LENGTH, :omission => '~'),
+                Constants::GRAPH_X_AXIS_LABEL_COLOR, Constants::GRAPH_X_AXIS_LABEL_FONT_SIZE, Constants::GRAPH_X_AXIS_LABEL_ANGLE)
         end
         #Make keys
         sag1 = "#{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last}"
@@ -169,10 +170,10 @@ class VoteTopic < ActiveRecord::Base
         sag4 = "#{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last}"
 
         keys_arr = Array.new
-        keys_arr << BarStackKey.new('#C4D318', sag1, 10)
-        keys_arr << BarStackKey.new('#50284A', sag2, 10)
-        keys_arr << BarStackKey.new('#2AB597', sag3, 10)
-        keys_arr << BarStackKey.new('#B00E21', sag4, 10)
+        keys_arr << BarStackKey.new(Constants::GRAPH_AG1_COLOR, sag1, Constants::GRAPH_KEY_SIZE)
+        keys_arr << BarStackKey.new(Constants::GRAPH_AG2_COLOR, sag2, Constants::GRAPH_KEY_SIZE)
+        keys_arr << BarStackKey.new(Constants::GRAPH_AG3_COLOR, sag3, Constants::GRAPH_KEY_SIZE)
+        keys_arr << BarStackKey.new(Constants::GRAPH_AG4_COLOR, sag4, Constants::GRAPH_KEY_SIZE)
         bar_stack.set_keys(keys_arr)
         
         #        bar_stack.set_tooltip('X label [#x_label#], Value [#val#]<br>Total [#total#]' )
@@ -184,16 +185,16 @@ class VoteTopic < ActiveRecord::Base
         x = XAxis.new();
         x.labels = labels_arr
 
-        x.set_colour('#ffffff')
-        x.set_grid_colour('#ffffff')
-        y.set_colour('#ffffff')
-        y.set_grid_colour('#ffffff')
+        x.set_colour(Constants::GRAPH_AXIS_COLOR)
+        x.set_grid_colour(Constants::GRAPH_GRID_COLOR)
+        y.set_colour(Constants::GRAPH_AXIS_COLOR)
+        y.set_grid_colour(Constants::GRAPH_GRID_COLOR)
         
         tooltip = Tooltip.new;
         tooltip.set_hover();
 
         chart = OpenFlashChart.new
-        chart.bg_colour = '#ffffff'
+        chart.bg_colour = Constants::GRAPHS_BG_COLOR
         chart.set_title(title)
         chart.add_element(bar_stack)
 
@@ -253,6 +254,7 @@ class VoteTopic < ActiveRecord::Base
                     return v
                 end
             end
+            return nil
         end
     end
     
@@ -291,103 +293,5 @@ class VoteTopic < ActiveRecord::Base
             self.status = 'a'
         end
     end
-
-    def make_age_graph_stacked(vt)
-        g = Gruff::StackedBar.new(Constants::LARGE_GRAPH_DIM_16_9)
-        g.title = "By Age Group"
-        vi = vt.vote_items
-        ag1_arr = Array.new
-        ag2_arr = Array.new
-        ag3_arr = Array.new
-        ag4_arr = Array.new
-        labels_hash = Hash.new
-
-        vi.each_with_index do |vv, i|
-            ag1_arr << (vv.ag_1_v.to_f / vv.votes_for.to_f) * 100 if vv.votes_for > 0
-            ag2_arr << (vv.ag_2_v.to_f / vv.votes_for.to_f) * 100 if vv.votes_for > 0
-            ag3_arr << (vv.ag_3_v.to_f / vv.votes_for.to_f) * 100 if vv.votes_for > 0
-            ag4_arr << (vv.ag_4_v.to_f / vv.votes_for.to_f) * 100 if vv.votes_for > 0
-            labels_hash[i] = truncate(vv.option, :length => 10, :omission => '~')
-        end
-
-        ag1 = "#{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last}"
-        ag2 = "#{Constants::AGE_GROUP_2.first} - #{Constants::AGE_GROUP_2.last}"
-        ag3 = "#{Constants::AGE_GROUP_3.first} - #{Constants::AGE_GROUP_3.last}"
-        ag4 = "#{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last}"
-
-        dataset = [[ag1, ag1_arr], [ag2, ag2_arr], [ag3, ag3_arr], [ag4, ag4_arr]]
-
-        dataset.each do |data|
-            g.data(data[0], data[1])
-        end
-        g.labels = labels_hash
-        path = File.join(Constants::GRAPHS_PATH, "#{vt.id}")
-        if !File.exists?(path)
-            FileUtils.mkdir_p(path)
-            path = File.join(path, "#{vt.id}#{Constants::STACK_AGE_GRAPH_POST_FIX}")
-        else
-            path = File.join(path, "#{vt.id}#{Constants::STACK_AGE_GRAPH_POST_FIX}")
-        end
-        g.write(path)
-    end
-
-    def make_sex_graph(vt, v)
-        g = Gruff::Pie.new(Constants::LARGE_GRAPH_DIM_16_9)
-        g.data Constants::GRAPH_MALE_LABEL, v.male_votes.to_f / v.votes_count.to_f
-        g.data Constants::GRAPH_FEMALE_LABEL, v.female_votes.to_f / v.votes_count.to_f
-        path = File.join(Constants::GRAPHS_PATH, "#{vt.id}")
-        if !File.exists?(path)
-            FileUtils.mkdir_p(path)
-            path = File.join(path, "#{v.id}#{Constants::SEX_GRAPH_POST_FIX}")
-        else
-            path = File.join(path, "#{v.id}#{Constants::SEX_GRAPH_POST_FIX}")
-        end
-        g.title = v.option
-        g.write(path)
-    end
-
-    def make_pie_graph(v, vi)
-        g = Gruff::Pie.new(Constants::LARGE_GRAPH_DIM_16_9)
-        total_votes = v.total_votes
-        vi.each do |x|
-            g.data x.option, x.votes_count.to_f / total_votes.to_f
-        end
-        path = File.join(Constants::GRAPHS_PATH, "#{v.id}")
-        if !File.exists?(path)
-            FileUtils.mkdir_p(path)
-            path = File.join(path, "#{v.id}#{Constants::MAIN_GRAPH_POST_FIX}")
-        else
-            path = File.join(path, "#{v.id}#{Constants::MAIN_GRAPH_POST_FIX}")
-        end
-        g.write(path)
-    end
-
-    def make_gender_graph_stacked(vt)
-        g = Gruff::StackedBar.new(Constants::LARGE_GRAPH_DIM_16_9)
-        g.title = "By Gender"
-        vi = vt.vote_items
-        male_arr = Array.new
-        female_arr = Array.new
-        labels_hash = Hash.new
-
-        vi.each_with_index do |vv, i|
-            male_arr << (vv.male_votes.to_f / vv.votes_for.to_f) * 100 if vv.votes_for > 0
-            female_arr << (vv.female_votes.to_f / vv.votes_for.to_f) * 100 if vv.votes_for > 0
-            labels_hash[i] = truncate(vv.option, :length => 10, :omission => '~')
-        end
-        dataset = [[:Male, male_arr], [:Female, female_arr]]
-        dataset.each do |data|
-            g.data(data[0], data[1])
-        end
-        g.labels = labels_hash
-        path = File.join(Constants::GRAPHS_PATH, "#{vt.id}")
-        if !File.exists?(path)
-            FileUtils.mkdir_p(path)
-            path = File.join(path, "#{vt.id}#{Constants::STACK_GENDER_GRAPH_POST_FIX}")
-        else
-            path = File.join(path, "#{vt.id}#{Constants::STACK_GENDER_GRAPH_POST_FIX}")
-        end
-        g.write(path)
-    end
-
+    
 end

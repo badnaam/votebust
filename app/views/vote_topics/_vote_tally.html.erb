@@ -1,12 +1,17 @@
 
-<div id="pic_loading_g" style="opacity:0"></div>
-<div class="chart-container">
+<div class="span-18 last">
+  <div id="pic_loading_g" class="span-9" style="opacity:0.0"></div>
+  <div class="span-9 last" style="text-align: right">
+    <%= @p_chart.link_to_remote_ofc_load("Pie", "chart", url_for(:controller => :graphs, :action => :pie_graph, :id => @vote_topic.id)) %>
+    <%= @p_chart.link_to_remote_ofc_load("Age", "chart", url_for(:controller => :graphs, :action => :age_graph, :id => @vote_topic.id)) %>
+    <%= @p_chart.link_to_remote_ofc_load("Gender", "chart", url_for(:controller => :graphs, :action => :gender_graph, :id => @vote_topic.id)) %>
+  </div>
+</div>
+
+<div class="chart-container span-18 last">
   <%= @p_chart.js_open_flash_chart_object("chart", Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9) %>
 </div>
 
 
 <%#= @p_chart.link_to_ofc_load("Pie", "chart") %>
-<%= @p_chart.link_to_remote_ofc_load("Pie", "chart", url_for(:controller => :graphs, :action => :pie_graph, :id => @vote_topic.id)) %>
-<%= @p_chart.link_to_remote_ofc_load("Age", "chart", url_for(:controller => :graphs, :action => :age_graph, :id => @vote_topic.id)) %>
-<%= @p_chart.link_to_remote_ofc_load("Gender", "chart", url_for(:controller => :graphs, :action => :gender_graph, :id => @vote_topic.id)) %>
 

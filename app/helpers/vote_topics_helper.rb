@@ -50,7 +50,7 @@ module VoteTopicsHelper
         elsif total_votes == 0
             return 'N/A'
         else
-            return "#{v.option} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
+            return "#{v.option.titleize} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
         end
     end
     
@@ -67,33 +67,6 @@ module VoteTopicsHelper
         link_to_function name do |page|
             tag = render(:partial => 'tag', :locals => { :pf => form, :tag => Tag.new })
             page << %{var new_tag_id = "new_" + new Date().getTime();$('tags').insert({ bottom: "#{ escape_javascript tag }".replace(/new_\\d+/g, new_tag_id) });}
-        end
-    end
-
-    def get_sex_graph(v, vid)
-        path = File.join(Constants::GRAPH_ASSET_DIR, "#{vid}", "#{v.id}#{Constants::SEX_GRAPH_POST_FIX}")
-        check_path = File.join(Constants::GRAPHS_PATH, vid.to_s, v.id.to_s + Constants::SEX_GRAPH_POST_FIX)
-        if File.exists?(check_path)
-            return path
-        else
-            return nil
-        end
-    end
-
-    def get_other_graphs(v)
-        dir = File.join(Constants::GRAPHS_PATH, "#{v.id}")
-        files = (Dir.foreach(dir).select{|f| (File.basename(f)).index('pie').nil? && !File.directory?(f)}).map {|x| File.join(Constants::GRAPH_ASSET_DIR, "#{v.id}", x)}
-
-        return files
-    end
-    
-    def get_main_graph(v)
-        path = File.join(Constants::GRAPH_ASSET_DIR, "#{v.id}", "#{v.id}#{Constants::MAIN_GRAPH_POST_FIX}")
-        check_path = File.join(Constants::GRAPHS_PATH, v.id.to_s, v.id.to_s + Constants::MAIN_GRAPH_POST_FIX)
-        if File.exists?(check_path)
-            return path
-        else
-            return nil
         end
     end
 end

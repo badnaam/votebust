@@ -1,6 +1,6 @@
 <% votes = VoteTopic.latest.descend_by_created_at.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT) %>
-<div>
-  <h4>Busted Recently</h4>
+<div class="span-6 last prepend-top ui-widget-content">
+  <h4 class="ui-state-default">Busted Recently</h4>
   <ul>
     <% votes.each do |v| %>
       <li>

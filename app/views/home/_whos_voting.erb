@@ -1,6 +1,6 @@
 <% votes = Vote.descend_by_created_at.all(:limit => 5) %>
-<div>
-  <h4>Who's Voting</h4>
+<div class="span-6 last prepend-top ui-widget-content">
+  <h4 class="ui-state-default">Who's Voting</h4>
   <ul>
     <% votes.each do |v| %>
     <li>

@@ -1,11 +1,3 @@
-<div id="div_place_holder" class="append-bottom prepend-top span-17 last">
-  <div class="span-8">
-    <% if current_user %>
-      <%link =  new_user_vote_topic_path(current_user) %>
-    <% else %>
-      <%link = login_path %>
-    <% end  %>
-    <%= link_to "Start A Vote", link, :id => 'new_vote_btn' %>
-<%#= color_link_with_icon('lnk', link, 'ui-icon-circle-plus', 'Start a Vote') %>
-  </div>
+<div id="div_page_header_content" class=" page-header-content span-24 last ui-widget-content ui-corner-all">
+  <h4>This is the header message</h4>
 </div>

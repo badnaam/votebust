@@ -1,4 +1,4 @@
-<div class="prepend-top span-17 last">
+<div class="prepend-top span-18 last">
   <ul>
     <li><%= link_to "Your profile", current_user %></li>
     <li><%= link_to "Your Votes", user_vote_topics_path(current_user) %></li>
@@ -6,7 +6,7 @@
         :return_url => addrpxauth_url, :add_rpx => true, :unobtrusive => false ) %></li>
   </ul>
   <% if current_role == 'admin' %>
-    <div class="span-17 last">
+    <div class="span-18 last">
       <p>
         Vote Topics waiting for approval
 

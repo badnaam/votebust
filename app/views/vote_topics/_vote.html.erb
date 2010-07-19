@@ -1,11 +1,29 @@
-<script src="http://www.google.com/jsapi?key=ABQIAAAAi_F8JNAI9__oCG-KzCfTYhTJQa0g3IQ9GZqIMmInSLzwtGDKaBQ6kTvHNGROiENaALqema6YZJEh2Q" type="text/javascript"></script>
+
 <script type="text/javascript">
   //<![CDATA[
-  //  google.load("jquery", "1.4.2");
-  // google.load("jqueryui", "1.8.1");
   google.load("prototype", "1.6.1.0");
+  
+  google.setOnLoadCallback(function() {
+    $('pic_loading_g').setStyle({
+      opacity: 0.0
+    });
 
- 
+    Ajax.Responders.register({
+      onCreate: function() {
+        $('pic_loading_g').setStyle({
+          opacity: 1.0
+        });
+        return false;
+      },
+      onComplete: function() {
+        $('pic_loading_g').setStyle({
+          opacity: 0.0
+        });
+        return false;
+      }
+    });
+
+  });
   function showLoading(elem) {
     $j(elem).animate({opacity:1.0}, 'slow', function(){});
     $j(elem).next('div').animate({
@@ -35,7 +53,7 @@
       $j('#vote_form').submit();
       return false;
     });
-
+ 
     $j('#cancel_vote_link').live('click', function() {
       $j('#cancel_vote_form').submit();
       return false;
@@ -74,18 +92,22 @@
   //]]>
 </script>
 
-<div class="span-17 last">
-  <h2><%= @vote_topic.header %></h2>
-  <h4><%= @vote_topic.topic %></h4>
-  <% if !@vote_topic.anon %>
-    <h5><%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
-  <% else %>
-    <h5><%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
-  <% end  %>
-  <h5><%= "Total Votes #{@vote_topic.total_votes}" %></h5>
+<div class="topic-details span-18 last">
   <% total_v = @vote_topic.total_votes %>
+  <div class=" ui-state-hover ui-corner-all prepend-top  top-pad bottom-pad left-pad right-pad right_mar_small">
+    <span class="clearfix lrg bld"><%= @vote_topic.header %></span>
+    <span class="bld big special_text right_mar_small"><%= "#{total_v} Votes" %></span>
+    <span>
+      <% if !@vote_topic.anon %>
+        <%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+      <% else %>
+        <%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+      <% end  %>
+    </span>
+  </div>
+  <span class="clearfix prepend-top "><%= @vote_topic.topic %></span>
 
-  <div id="vote_details">
+  <div id="vote_details" class=" top-mar">
     <% if !total_v.nil? && total_v > 0 %>
       <ul>
         <% @vote_items.each do |v| %>
@@ -100,12 +122,12 @@
 
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
 
-<div id="div_vote_form" class="span-17 last" >
+<div id="div_vote_form" class="span-18 last" >
   <%@vote_items = @vote_topic.vote_items if !@vote_topic.nil?%>
-  <% complete = @vote_topic.is_vote_complete?(@vote_items, current_user) %>
-  <%if current_user && !@vote_items.nil? && !complete%>
+<%# complete = @vote_topic.is_vote_complete?(@vote_items, current_user) %>
+  <%if current_user && !@vote_items.nil? && !@selected_response%>
     <%= render :partial => "vote_form" %>
-  <% elsif current_user && complete %>
+  <% elsif current_user && @selected_response %>
     <%= render :partial => "vote_cancel_form" %>
   <% elsif !current_user %>
     <div class="prepend-top append-bottom">
@@ -115,13 +137,13 @@
 </div>
 
 
-<div id="vote_dlg" class="span-17 last">
+<div id="vote_dlg" class="span-18 last">
   <% if @vote_topic.total_votes > 0 %>
     <%= render :partial => "vote_tally"%>
   <% end  %>
 </div>
 
-<div id="comments_container" class="span-17 last">
+<div id="comments_container" class="span-18 last">
   <% if current_user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>

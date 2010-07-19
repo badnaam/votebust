@@ -1,20 +1,34 @@
 class Constants
+    SITE_COLOR = '#38385c'
+        
     GRAPHS_PATH = File.join(Rails.root, "public/assets/images/graphs")
     VOTE_PROCESS_FREQ = 8.hours
+
+    GRAPH_TITLE_STYLE = '{font-size: 12px; color: #F24062;font-weight: bold;font-family:Verdana; text-align: center;}' 
+    GRAPH_X_AXIS_LABEL_COLOR = '#000000'
+    GRAPH_X_AXIS_LABEL_FONT_SIZE = 12
+    GRAPH_X_AXIS_LABEL_ANGLE = 0
+    GRAPH_X_AXIS_LABEL_LENGTH = 10
+    GRAPH_KEY_SIZE = 10
+    GRAPH_AXIS_COLOR = '#ffffff'
+    GRAPH_GRID_COLOR = '#ffffff'
+    GRAPHS_BG_COLOR = '#ffffff'
+    GRAPH_MALE_COLOR = '#C4D318'
+    GRAPH_FEMALE_COLOR = '#50284A'
     GRAPH_MALE_LABEL = "Men"
     GRAPH_FEMALE_LABEL = "Women"
-    SMALL_GRAPH_WIDTH = 400
+    GENDER_GRAPH_TITLE = "Men vs Women"
+    AGE_GRAPH_TITLE = "Age Group"
+    GRAPH_AG1_COLOR = '#C4D318'
+    GRAPH_AG2_COLOR = '#50284A'
+    GRAPH_AG3_COLOR = '#2AB597'
+    GRAPH_AG4_COLOR = '#B00E21'
+
     LARGE_GRAPH_WIDTH = 650
     LARGE_GRAPH_HEIGHT = 450
     LARGE_GRAPH_HEIGHT_16_9 = 400
-    GRAPH_X_LABEL_LENGTH = 10
     LARGE_GRAPH_DIM_16_9 = '600x338'
 
-    SEX_GRAPH_POST_FIX = "_sex_breakdown.png"
-    STACK_AGE_GRAPH_POST_FIX = "_stack_age_breakdown.png"
-    STACK_GENDER_GRAPH_POST_FIX = "_stack_gender_breakdown.png"
-    MAIN_GRAPH_POST_FIX = "_pie_breakdown.png"
-    GRAPH_ASSET_DIR = '/assets/images/graphs'
    
     MAX_VOTE_TOPIC_HEADER  = 1000
     MAX_VOTE_TOPIC_FEMAILS  = 500
