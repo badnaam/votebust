@@ -4,6 +4,7 @@ class UserSessionsController < ApplicationController
     before_filter :require_user, :except => [:index, :new, :create]
     before_filter :header_exempt
     #    rpx_extended_info
+    layout "login"
 
     def index
         redirect_to current_user ? root_url : new_user_sessions_url

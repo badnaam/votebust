@@ -1,8 +1,9 @@
-$j('#div_process_vote').remove();
-$j('#div_vote_form').prepend("<%= escape_javascript (render :partial => "vote_cancel_form")%>");
+$j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url =>
+      cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'}) %>");
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
 
-$j('#cancel_vote_form').submit(function (){
+$j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+$j('#vote_form').submit(function (){
 showLoading('#vote_prog_loading')
 $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
 hideLoading('#vote_prog_loading');

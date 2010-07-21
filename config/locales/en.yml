@@ -3,7 +3,7 @@
 
 en:
   hello: "Hello world"
-  n: "BallotBust"
+  n: "Votebust"
   site_main_msg: "Bust a Ballot"
   site_main_logo_msg: "Logo"
   logo: "BB"
@@ -15,6 +15,10 @@ en:
     act_sub: "BallotBust Account Activation Instructions"
     act_conf: "Account Activated!"
 
+#View
+  vote_topic:
+    new:
+      header: 'Bust a Vote!'
   #Controllers
   users:
     create:
@@ -23,30 +27,50 @@ en:
     
   formtastic:
     labels:
+     user:
+       new:
+         sex: 'Gender'
+         image: 'Profile Image'
+       edit:
+         sex: 'Gender'
+         image: 'Profile Image'
      vote_topic:
        new:
-         header: "Vote Title"
-         topic: "Vote Topic"
+         header: "Topic"
+         topic: "Details"
+         ext_link: "Link to the topic"
          anon: "Anonymous?"
          category: "Category"
          option: "Vote Option"
        edit:
          header: "Details"
-         topic: "Vote Topic/Question"
+         ext_link: "Link to the topic"
+         topic: "Topic"
          anon: "Anonymous?"
          category: "Category"
          option: "Vote Option"
     hints:
+     user:
+       new:
+         sex: "Never displayed or shared. Used for processing votes."
+         age: "Never displayed or shared. Used for processing votes."
+         image: "Upload a profile image. Less than 1MB"
+       edit:
+         sex: "Never displayed or shared. Used for processing votes."
+         age: "Never displayed or shared. Used for processing votes."
+         image: "Upload a profile image. Less than 1MB"
      vote_topic:
        new:
-         header: "Help voters understand the topic/question/problem"
-         topic: "The topic/question/issue you want votes on"
+         header: "What should people vote on?"
+         ext_link: "Link to the source of the topic i.e. News headline, Article etc."
+         topic: "More details about the topic for your voters. "
          anon: "Should we show your username?"
          option: "Options to choose"
          friend_emails: "Invite friends to vote, enter comma separated valid emails"
        edit:
-         header: "Help voters understand the topic/question/problem"
-         topic: "The topic/question/issue you want votes on"
+         header: "What should people vote one?"
+         ext_link: "Link to the source of the topic i.e. News headline, Article etc."
+         topic: "More details about the topic for your voters. "
          anon: "Should we show your username?"
          option: "Options to choose"
     actions:

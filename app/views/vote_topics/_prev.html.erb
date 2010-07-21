@@ -1,33 +1,43 @@
 <script type="text/javascript">
   //<![CDATA[
   $j(document).ready(function(){
-    $j("#vote_confirm_link").click(function() {
+    $j("#vote_confirm_link").button({icons:{primary:'ui-icon-circle-check'}}).click(function() {
       //$('#confirm_vote_form').trigger("submit");
       $j('#confirm_vote_form').submit();
     });
+    $j('#vote_edit_link').button({icons:{primary:'ui-icon-bookmark'}});
   });
     
   //]]>
 </script>
 
-
-<div class="span-18 last">
-  <h2>Preview Vote</h2>
-  <% form_tag confirm_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "confirm_vote_form" do |f| %>
-    <h2><%= @vote_topic.header %></h2>
-    <h4><%= @vote_topic.topic %></h4>
-    <% if !@vote_topic.anon %>
-      <h5><%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
-    <% else %>
-      <h5><%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %></h5>
-    <% end  %>
-    <ul>
-      <% @vote_items.each do |v| %>
+<% form_tag confirm_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "confirm_vote_form" do |f| %>
+<div class=" span-18 last">
+  <div class=" ui-state-default ui-corner-all prepend-top normal-pad right-mar append-bottom">
+    <h4 class="ui-widget-header normal-pad">Preview Vote</h4>
+    
+      <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
+      <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
+      <span class="small">
+        <% if !@vote_topic.anon %>
+          <%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+        <% else %>
+          <%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+        <% end  %>
+      </span>
+    </div>
+    <div id="div_process_vote">
+      <ul class="list_no_pad_no_style top-mar">
+        <% @vote_items.each do |v| %>
+          <li class="ui-widget-content">
+            <span class="ui-icon ui-icon-document list-icon"></span><%= (get_vote_percent v, @total_v) %>
+          </li>
+        <% end %>
         <li>
-          <%= v.option %>
+          <span class=small-button style="margin-right:2em"><button id ="vote_confirm_link">Confirm</button></span>
+          <span class=small-button><%= link_to "Edit", edit_user_vote_topic_path(current_user, @vote_topic), :id => 'vote_edit_link' %></span>
         </li>
-      <% end  %>
-    </ul>
-    <%= color_link_with_icon("vote_confirm_link", "#", "ui-icon-circle-check", "Confirm") %>
-  <% end  %>
-</div>
+      </ul>
+    </div>
+  </div>
+<% end  %>

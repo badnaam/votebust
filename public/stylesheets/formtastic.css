@@ -19,7 +19,7 @@ form.formtastic ol, form.formtastic ul { list-style:none; }
 form.formtastic abbr, form.formtastic acronym { border:0; font-variant:normal; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-family:inherit; font-size:inherit; font-weight:inherit; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-size:100%; }
-form.formtastic legend { color:#000; }
+/*form.formtastic legend { color:#000; }*/
 
 
 /* FIELDSETS & LISTS

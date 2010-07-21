@@ -1,4 +1,4 @@
- var $j = jQuery.noConflict();
+var $j = jQuery.noConflict();
 var showMenu = function(ev) {
     //get the position of the placeholder element
     var pos = $j("#home_nav a").offset();
@@ -13,7 +13,7 @@ var showMenu = function(ev) {
 }
 
 $j(document).ready(function(){
-   /** $j('#new_vote_btn').button({
+    /** $j('#new_vote_btn').button({
         icons:{
             primary:'ui-icon-lightbulb'
         }
@@ -28,6 +28,27 @@ $j(document).ready(function(){
             primary:'ui-icon-search'
         },
         text:false
+    });
+
+    $j('#main_login_link').button({
+        icons:{
+            primary:'ui-icon-key'
+        }
+    });
+    $j('#main_sign_up_link').button({
+        icons:{
+            primary:'ui-icon-notice'
+        }
+    });
+    $j('#main_new_vote_link').button({
+        icons:{
+            primary:'ui-icon-plus'
+        }
+    });
+    $j('#main_profile_link').button({
+        icons:{
+            primary:'ui-icon-contact'
+        }
     });
     $j("#cat_nav").bind('click', function(){
         showMenu();

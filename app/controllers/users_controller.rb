@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-    layout "main"
+    layout "login", :only => [:new]
     before_filter :require_no_user, :only => [:new, :create]
     before_filter :require_user, :except => [:new, :create]
     filter_access_to [:edit, :update], :attribute_check => true
 
     def new
         @user = User.new
+#        @user_session = UserSession.new
     end
 
     def create

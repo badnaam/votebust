@@ -4,6 +4,15 @@ include ActionView::Helpers::TextHelper
 
 class VoteProcessJob
 
+    def list_vi
+        VoteTopic.all do |vt|
+            vt.vote_items.all(:joins => :votes, :select => "vote_items.*, count(id) AS vote_count",
+                :group => :id, :order => "vote_count DESC").each do |vi|
+                puts "#{vi.header} : #{vi.vote_count}"
+            end
+        end
+    end
+
     def perform
         vi = VoteItem.all
         vi.each do |v|

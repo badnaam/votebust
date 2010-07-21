@@ -1,18 +1,39 @@
 <div id="div_process_vote">
-<% form_tag process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "vote_form" do |f| %>
-  <%= hidden_field_tag :user_id, current_user.id %>
-  <ul class="list_no_pad_no_style">
-    <% @vote_items.each do |v| %>
+  <% form_tag submit_url, :id => "vote_form" do |f| %>
+    <%= hidden_field_tag :user_id, current_user.id %>
+    <ul class="list_no_pad_no_style top-mar">
+      <% first = true %>
+      <% @vote_items.each do |v| %>
+        <% if !@selected_response.nil?  && @selected_response == v%>
+          <li class="ui-state-active">
+            <% if first %>
+              <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
+              <% first = false %>
+            <% else %>
+              <span class="ui-icon ui-icon-document list-icon"></span>
+            <% end  %>
+            <%= (get_vote_percent v, @total_v) %>
+            <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
+          <% else %>
+          <li class="ui-widget-content">
+            <% if first %>
+              <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
+              <% first = false %>
+            <% else %>
+              <span class="ui-icon ui-icon-document list-icon"></span>
+            <% end  %>
+            <%= (get_vote_percent v, @total_v) %>
+          <% end  %>
+          <% if action == 'process' %>
+            <%= radio_button_tag "response", v.id %>
+          <% end  %>
+        </li>
+      <% end %>
       <li>
-        <%= radio_button_tag "response", v.id %>
-        <%= label_tag v.option %>
+        <% if action == 'process' %>
+          <span class="small-button"><button id="vote_link">Vote</button></span>
+        <% end  %>
       </li>
-    <% end %>
-  </ul>
-  <ul class="list_no_pad_no_style">
-    <li>
-      <%= color_link_with_icon("vote_link", "#", "ui-icon-trash", "Bust Your Vote") %>
-    </li>
-  </ul>
-<% end%>
+    </ul>
+  <% end  %>
 </div>

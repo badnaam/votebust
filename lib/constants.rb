@@ -30,15 +30,17 @@ class Constants
     LARGE_GRAPH_DIM_16_9 = '600x338'
 
    
-    MAX_VOTE_TOPIC_HEADER  = 1000
+    MAX_VOTE_HEADER_LENGTH  = 500
+    MAX_VOTE_TOPIC_LENGTH  =  999
     MAX_VOTE_TOPIC_FEMAILS  = 500
+    MAX_VOTE_EXT_LINK_LENGTH  = 500
 
     COMMENTS_PER_PAGE = 3
 
     RPX_APP_NAME = "votebust"
 
     SMART_COL_LIMIT = 5
-    SMART_COL_LATEST_LIMIT = 7.days
+    SMART_COL_LATEST_LIMIT = 14.days
 
     USER_AGE_RANGE = (10..99)
     AGE_GROUP_1 = (10..19)
@@ -47,4 +49,6 @@ class Constants
     AGE_GROUP_4 = (55..99)
 
     ADMIN_EMAIL = 'pjointadm@gmail.com'
+
+    SIDE_BAR_LINK_LENGTH = 50
 end

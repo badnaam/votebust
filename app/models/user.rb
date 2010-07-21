@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
     
     validates_presence_of :email, :sex, :age
 
+    scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count.all(:limit => Constants::SMART_COL_LIMIT)}
+        
     before_image_post_process do |user|
         if user.image_changed?
             user.processing = true
@@ -103,7 +105,7 @@ class User < ActiveRecord::Base
     #
     def map_added_rpx_data( rpx_data )
         # map some additional fields, e.g. photo_url
-#        self.photo_url = rpx_data['profile']['photo'] if photo_url.blank?
+        #        self.photo_url = rpx_data['profile']['photo'] if photo_url.blank?
     end
 
     # before_merge_rpx_data provides a hook for application developers to perform data migration prior to the merging of user accounts.

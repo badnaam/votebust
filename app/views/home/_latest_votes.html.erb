@@ -1,11 +1,3 @@
-<% votes = VoteTopic.latest.descend_by_created_at.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT) %>
-<div class="span-6 last prepend-top ui-widget-content">
-  <h4 class="ui-state-default">Busted Recently</h4>
-  <ul>
-    <% votes.each do |v| %>
-      <li>
-        <%= link_to v.header, v %>
-      </li>
-    <% end  %>
-  </ul>
-</div>
+<% votes = VoteTopic.latest_votes %>
+<%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => votes, :header => "Busted Recently"} %>
+  

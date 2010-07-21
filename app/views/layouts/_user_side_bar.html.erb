@@ -1,0 +1,8 @@
+<div class="span-6 last  prepend-top ui-widget-content">
+  <ul class="list-no-pad-no-style-close sidebox-list">
+    <li class="ui-widget-header"><%= header %></li>
+    <%users.each do |r|  %>
+      <li><%= link_to "#{r.username}(#{r.votes_count} votes)", r %></li>
+    <% end  %>
+  </ul>
+</div>

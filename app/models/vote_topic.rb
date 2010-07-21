@@ -4,15 +4,19 @@ include ActionView::Helpers::TextHelper
 
 class VoteTopic < ActiveRecord::Base
     MAX_VOTE_ITEMS = 5
+    STATUS = {'approved' => 'a', 'waiting' => 'w', 'preview' => 'p'}
     belongs_to :user
     belongs_to :category
     has_many :comments
     has_many :vote_items, :dependent => :destroy
+    has_many :votes, :through => :vote_items
 
 
     #\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b
-    validates_presence_of :topic
-    validates_length_of :header, :maximum => Constants::MAX_VOTE_TOPIC_HEADER, :allow_nil => true
+    validates_presence_of :header
+    validates_length_of :header, :maximum => Constants::MAX_VOTE_HEADER_LENGTH
+    validates_length_of :topic, :maximum => Constants::MAX_VOTE_TOPIC_LENGTH, :allow_nil => true
+    validates_length_of :ext_link, :maximum => Constants::MAX_VOTE_EXT_LINK_LENGTH, :allow_nil => true
     validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true
     validate :valid_email?
     validate :min_vote_items, :if => :its_new?
@@ -25,8 +29,53 @@ class VoteTopic < ActiveRecord::Base
 
     #    scope_procedure :latest, lambda {created_at_gte(p[0]).created_at_lt(p[1]) }
     scope_procedure :latest, lambda {created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago) }
+    scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT) }
+    scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
+    scope_procedure :in_preview, lambda {status_equals(STATUS['preview']).ascend_by_created_at}
 
-    
+    def self.get_top_votes
+        h = Hash.new
+        coll = VoteTopic.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => :vote_items)
+         coll.each do |vt|
+            arr = Array.new
+            vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
+                arr << vi
+            end
+            h[vt] = arr
+        end
+        return h
+    end
+
+    def get_sorted_vi
+        arr = Array.new
+        self.vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
+            arr << vi
+        end
+        return arr
+    end
+
+    def self.get_top_sorted_vi
+        h = Hash.new
+        VoteTopic.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT).each do |vt|
+            arr = Array.new
+            vt.vote_items.all(:joins => :votes, :select => "vote_items.*, count(vote_items.id) AS vote_count",
+                :group => :id, :order => "vote_count DESC").each do |vi|
+                arr << vi
+            end
+            h[vt] = arr
+        end
+        return h
+    end
+
+#    def get_sorted_vi
+#        arr = Array.new
+#        self.vote_items.all(:joins => :votes, :select => "vote_items.*, count(vote_items.id) AS vote_count",
+#            :group => :id, :order => "vote_count DESC").each do |vi|
+#            arr << vi
+#        end
+#        return arr
+#    end
+
     def valid_email?
         if !self.friend_emails.nil?
             emails = self.friend_emails.split(",")
@@ -44,8 +93,10 @@ class VoteTopic < ActiveRecord::Base
         indexes :header
         indexes :topic
         indexes vote_items.option, :as => :option
-
+        indexes category.name, :as => :category_name
+        
         has created_at, updated_at, :total_votes
+        has category_id, user_id
     end
 
     def destroy_graphs
@@ -85,7 +136,9 @@ class VoteTopic < ActiveRecord::Base
         else
             selected_response.increment!(:ag_4_v, inc)
         end
+
     end
+
     
     def make_flash_gender_graph_stacked
         title = Title.new(Constants::GENDER_GRAPH_TITLE)
@@ -208,7 +261,7 @@ class VoteTopic < ActiveRecord::Base
         pie = Pie.new
         pie.start_angle = 35
         pie.animate = true
-        pie.tooltip = '#val# of #total#<br>#percent# of 100%'
+        
         pie.colours = ["#504F7D", "#68BC52", "#47703C", "#7E271B", "#BC7E5C"]
 
         total_votes = self.total_votes
@@ -221,7 +274,7 @@ class VoteTopic < ActiveRecord::Base
 
         end
         pie.values = vals
-        
+        pie.tooltip = '#val# of #total#<br>#percent# of 100%'
         chart = OpenFlashChart.new
         chart.bg_colour = "#ffffff"
         chart.add_element(pie)
@@ -244,6 +297,7 @@ class VoteTopic < ActiveRecord::Base
                 end
             end
         end
+        return nil
     end
 
     def what_vi_user_voted_for(user)
@@ -281,17 +335,6 @@ class VoteTopic < ActiveRecord::Base
         self.new_record?
     end
 
-    def deactivate_current_vote
-        @existing_vote_topic = VoteTopic.find_by_status_and_user_id('a', self.user_id)
-        if !@existing_vote_topic.nil?
-            if !@existing_vote_topic.update_attribute(:status, 'd')
-                return false
-            else
-                self.status = 'a'
-            end
-        else
-            self.status = 'a'
-        end
-    end
+
     
 end

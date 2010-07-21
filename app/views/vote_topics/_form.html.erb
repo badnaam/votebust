@@ -1,24 +1,37 @@
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function(){
+    $('#vote_submit').button({icons:{primary:'ui-icon-circle-check'}}).click(function(){
+      $('#new_vote_topic').submit();
+      $('form.vote_topic').submit();
+      return false;
+    });
+  });
+  //]]>
+</script>
 <% semantic_form_for @vote_topic do |form| %>
   <%= form.semantic_errors %>
   <% form.inputs do %>
+    <li class="bld">Fields marked with (*) are required.</li>
     <%= form.input :user_id, :as => :hidden %>
-    <%= form.input :topic%>
-    <%= form.input :header, :as => :text %>
+    <%= form.input :header, :input_html => {:style => "width:50%"}%>
+    <%= form.input :ext_link,  :input_html => {:style => "width:60%"} %>
+    <%= form.input :topic, :as => :text, :input_html => {:style => "width:50%" } %>
     <%= form.input :anon %>
-
     <%= form.input :category %>
-    <%= form.input :friend_emails, :as => :text %>
+    <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:50%" }  %>
+    <li class="bld">Add up to 5 options for your voters to vote on.</li>
     <div id ="vote_items">
       <% form.semantic_fields_for :vote_items do |f| %>
         <%= f.semantic_errors %>
         <div class="vote_item">
-          <%= f.input :option %>
-          <%= remove_link_unless_new_record(f) %>
+          <%= f.input :option, :input_html => {:style => "width:50%" } %>
+          <%#= remove_link_unless_new_record(f) %>
         </div>
       <% end  %>
     </div>
-    <%= add_object_link "Add a vote option", form, VoteItem.new, "vi", "#vote_items" %>
+    <%#= add_object_link "Add a vote option", form, VoteItem.new, "vi", "#vote_items" %>
   <% end  %>
-
-  <%= form.commit_button %>
+    <a href="#" id="vote_submit">Save</a>
+  <%#= form.commit_button %>
 <% end  %>

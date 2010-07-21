@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <%= render :partial => '/layouts/scripts' %>
+  <body>
+    <div class="container" id="main_container">
+      <div class="header span-24 last">
+        <div class="last span-24 header_logo_div"> <!-- header logo -->
+          <%= image_tag '/images/logo_1.png' %>
+          <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
+         
+        </div>
+      </div>
+      <div class ="span-24 last content_container">
+        <div class="content span-24 " id="content">
+          <div class="span-24 last" id="flash_messages">
+            <%= render :partial => 'layouts/flash_msg' %>
+          </div>
+          <%= yield %>
+        </div> <!-- end content div -->
+        <div class="push"> </div>
+      </div> <!-- end content_container -->
+      <%= render :partial => "/layouts/footer" %>
+    </div>
+  </body>
+</html>

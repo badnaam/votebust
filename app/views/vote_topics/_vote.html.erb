@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
   //<![CDATA[
   google.load("prototype", "1.6.1.0");
@@ -48,14 +47,27 @@
       }, 'script');
       return false;
     }); 
+
+    $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
+    $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+    $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
     
     $j('#vote_link').live('click',function() {
-      $j('#vote_form').submit();
+      oneChecked = false
+      $j(':radio', '#vote_form').each(function() {
+        if (this.checked == true) {
+          $j('#vote_form').submit();
+          oneChecked = true
+        }
+      });
+      if (oneChecked == false) {
+        alert('Please select a vote option.');
+      }
       return false;
     });
  
     $j('#cancel_vote_link').live('click', function() {
-      $j('#cancel_vote_form').submit();
+      $j('#vote_form').submit();
       return false;
     });
 
@@ -81,23 +93,28 @@
     });
 
     $j('#new_comment').submit(function (){
-      showLoading('#com_prog_loading')
+      showLoading('#com_submit_loading')
       $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
-        hideLoading('#com_prog_loading');
+        hideLoading('#com_submit_loading');
       }, "script");
       return false;
     });
+
+    $j("#chart_controls a:contains('Pie')").button({icons:{primary:'ui-icon-document'}, text:false});
+    $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
+    $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
+    $j('#comment_form button').button({icons: {primary:'ui-icon-trash'}});
 
   });
   //]]>
 </script>
 
-<div class="topic-details span-18 last">
-  <% total_v = @vote_topic.total_votes %>
-  <div class=" ui-state-hover ui-corner-all prepend-top  top-pad bottom-pad left-pad right-pad right_mar_small">
-    <span class="clearfix lrg bld"><%= @vote_topic.header %></span>
-    <span class="bld big special_text right_mar_small"><%= "#{total_v} Votes" %></span>
-    <span>
+<div class=" span-18 last">
+  <% @total_v = @vote_topic.total_votes %>
+  <div class=" ui-state-default ui-corner-all prepend-top normal-pad right-mar">
+    <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
+    <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
+    <span class="small">
       <% if !@vote_topic.anon %>
         <%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% else %>
@@ -105,34 +122,18 @@
       <% end  %>
     </span>
   </div>
-  <span class="clearfix prepend-top "><%= @vote_topic.topic %></span>
-
-  <div id="vote_details" class=" top-mar">
-    <% if !total_v.nil? && total_v > 0 %>
-      <ul>
-        <% @vote_items.each do |v| %>
-          <li>
-            <%= get_vote_percent v, total_v %>
-          </li>
-        <% end  %>
-      </ul>
-    <% end  %>
-  </div>
+  <p class="prepend-top bottom-mar bld big special-text right_mar_small" id="tot_votes"><%= "#{@total_v} Votes" %></p>
 </div>
 
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
 
 <div id="div_vote_form" class="span-18 last" >
-  <%@vote_items = @vote_topic.vote_items if !@vote_topic.nil?%>
-<%# complete = @vote_topic.is_vote_complete?(@vote_items, current_user) %>
   <%if current_user && !@vote_items.nil? && !@selected_response%>
-    <%= render :partial => "vote_form" %>
+    <%= render :partial => "vote_form", :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'process'} %>
   <% elsif current_user && @selected_response %>
-    <%= render :partial => "vote_cancel_form" %>
+    <%= render :partial => "vote_form", :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'} %>
   <% elsif !current_user %>
-    <div class="prepend-top append-bottom">
-      <%= color_link_with_icon("lnk", login_path, "ui-icon-key", "Login to Vote") %>
-    </div>
+    <%= render :partial => "vote_form_need_login", :locals => {:action => 'login'} %>
   <% end  %>
 </div>
 
@@ -143,23 +144,29 @@
   <% end  %>
 </div>
 
-<div id="comments_container" class="span-18 last">
+
+<div id="comments_container" class=" prepend-top span-18 last">
+  <span class="bld">Comments</span>
   <% if current_user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>
-    <div id ="comment_form">
+    <div id="com_submit_loading" class="progress" style="opacity:0;"></div>
+    <div id ="comment_form" class=" right-mar ">
       <% form_for ([@vote_topic, Comment.new]) do |f| %>
-        <ul>
-          <li><%= f.text_area :body, :size => "50x5" %></li>
-          <li><%= color_link_with_icon("comment_submit", "#", "ui-icon-trash", "Comment") %></li>
+        <ul class="list_no_pad_no_style">
+          <li><%= f.text_area :body %></li>
+          <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
         </ul>
       <% end %>
     </div>
   <% end  %>
 
   <div id="com_prog_loading" class="progress" style="opacity:0;"></div>
-  <div id ="comments">
+  <div id ="comments" class="right-mar">
     <%= render :partial => "comments/comments" %>
   </div>
 </div>
+
+
+
 

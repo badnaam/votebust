@@ -17,18 +17,39 @@ $(document).ready(function(){
             primary:'ui-icon-lightbulb'
         }
     });
-$("#search_form a").click(function() {
-    $(this).parents().filter("form").trigger("submit");
-});
+    $("#search_form a").click(function() {
+        $(this).parents().filter("form").trigger("submit");
+    });
 
-$('#search_button').button({
-    icons:{
-        primary:'ui-icon-search'
-    },
-    text:false
-});
-$("#cat_nav").bind('click', function(){
-    showMenu();
-    return false;
-});
+    $('#main_login_link').button({
+        icons:{
+            primary:'ui-icon-key'
+        }
+    });
+    $('#main_sign_up_link').button({
+        icons:{
+            primary:'ui-icon-notice'
+        }
+    });
+    $('#main_new_vote_link').button({
+        icons:{
+            primary:'ui-icon-plus'
+        }
+    });
+    $('#main_profile_link').button({
+        icons:{
+            primary:'ui-icon-contact'
+        }
+    });
+
+    $('#search_button').button({
+        icons:{
+            primary:'ui-icon-search'
+        },
+        text:false
+    });
+    $("#cat_nav").bind('click', function(){
+        showMenu();
+        return false;
+    });
 });

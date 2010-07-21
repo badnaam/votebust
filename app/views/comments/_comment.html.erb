@@ -1,10 +1,14 @@
-<div id="comment" class="append-bottom">
+<div id="comment" class="append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
     <div>
-      <h6><%= "Posted By #{comment.user.username}" %></h6>
-      <% if @vote_topic %>
-        <%= "Voted for - #{@vote_topic.what_user_voted_for(comment.user)}" %>
-      <% end  %>
+      <span class="small"><%= "Posted By #{comment.user.username}" %>
+
+        <% if @vote_topic%>
+          <% what = @vote_topic.what_user_voted_for(comment.user) %>
+          <%= "(Voted for - #{what})" if !what.nil? %>
+        <% end  %>
+      </span>
+      <hr/>
       <p>
         <%= comment.body %>
       </p>

@@ -1,13 +1,8 @@
-<h3 class="page_title">Create a Vote</h3>
-<div>
-  <p >
-    Create a vote and understand what your customers want. You can create a vote to see what products/services your customers like the most.
-    What new products/service you could offer? Votes allow you set the guesswork aside and have access to the powerful information like the summary
-    of your customers' collective opinions.
+
+<div class="span-16 last normal-pad ui-widget-content">
+  <h4 class="ui-widget-header normal-pad"><%= t('vote_topic.new.header') %></h4>
+  <p>
+    Create a vote on any topic you like.
   </p>
-  <p >Creating a new vote will deactivate any previous votes. You can still see the results of those votes, but
-    your customer can not vote on it any longer. By default, votes are active for 2 weeks and then they are automatically deactivated, unless you specify a different
-    start and end date.
-  </p>
+  <%= render :partial => "form" %>
 </div>
-<%= render :partial => "form" %>

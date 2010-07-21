@@ -43,8 +43,18 @@ module VoteTopicsHelper
         end
     end
 
+#    def get_vote_percent(v, total_votes)
+#        votes = v.votes_for
+#        if votes == 0
+#            return "#{v.option} - 0%"
+#        elsif total_votes == 0
+#            return 'N/A'
+#        else
+#            return "#{v.option.titleize} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
+#        end
+#    end
     def get_vote_percent(v, total_votes)
-        votes = v.votes_for
+        votes = v.votes_count
         if votes == 0
             return "#{v.option} - 0%"
         elsif total_votes == 0

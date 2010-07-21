@@ -10,18 +10,14 @@
           <div class="span-17"> &nbsp;</div>
           <div class="span-6 last ui-corner-bl ui-corner-br ui-state-default">
             <ul class="header_links">
-              <% if current_user %>
-                <%link =  new_user_vote_topic_path(current_user) %>
-              <% else %>
-                <%link = login_path %>
-              <% end  %>
-              <li><%= link_to "Start A Vote", link%></li>
               <% unless  current_user %>
-                <li><%= link_to "Sign Up", new_user_path, :class => "special_link"%></li>
-                <li><%= link_to "Login", login_path, :id => 'login_link' %></li>
+                <span class="small-button"><li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link'%></li></span>
+                <span class="small-button"><li><%= link_to "Login", login_path, :id => 'main_login_link' %></li></span>
               <% else %>
-                <li><%= link_to current_user.username, current_user %></li>
-                <li><%= link_to "Logout", logout_path  %></li>
+                <span class="small-button"><li><%= link_to "New Vote", new_user_vote_topic_path(current_user), :id => 'main_new_vote_link' %></li></span>
+                <span class="small-button"><li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %></li></span>
+                <span class="small-button"><li><%= link_to "Logout", logout_path  %></li></span>
+
               <% end %>
             </ul>
           </div>
@@ -29,7 +25,7 @@
         <div class="last span-24 header_logo_div"> <!-- header logo -->
           <%= image_tag '/images/logo_1.png' %>
           <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
-          <div class="span-24 last nav_container">
+          <div class="span-24 last nav_container ui-state-default">
             <div class="span-24 last main_links_div">
               <%= render_navigation :level => 1 %>
             </div>
@@ -53,7 +49,9 @@
             <%= render :partial => 'layouts/flash_msg' %>
           </div>
           <div class="crumb  span-18 last">
-            <%= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
+            <% unless controller.controller_name == 'home' && controller.action_name == 'index' %>
+              <%= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
+            <% end  %>
           </div>
           <%= yield %>
         </div> <!-- end content div -->
@@ -62,14 +60,14 @@
           <div class="span-6 last div-search-form"
           <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
             <%= text_field_tag :search_term, "Search",  :class => 'search-term' %>
-            <%= link_to "Search", "#", :id => 'search_button' %>
-          <% end  %>
+                 <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
+                 <% end  %>
+          </div>
+          <%= yield :right_nav %>
         </div>
-        <%= yield :right_nav %>
-      </div>
-      <div class="push"> </div>
-    </div> <!-- end content_container -->
-    <%= render :partial => "/layouts/footer" %>
-  </div>
-</body>
+        <div class="push"> </div>
+      </div> <!-- end content_container -->
+      <%= render :partial => "/layouts/footer" %>
+    </div>
+  </body>
 </html>

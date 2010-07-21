@@ -62,7 +62,7 @@ th, td, caption {padding:4px 10px 4px 5px;}
 tr.even td {background:#e5ecf9;}
 tfoot {font-style:italic;}
 caption {background:#eee;}
-.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
+/*.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}*/
 .large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
 .hide {display:none;}
 .quiet {color:#666;}
@@ -79,7 +79,7 @@ caption {background:#eee;}
 /* forms.css */
 label {font-weight:bold; margin-right: .5em}
 fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
-legend {font-weight:bold;font-size:1.2em;}
+/*legend {font-weight:bold;font-size:1.2em;}*/
 input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #bbb;}
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;}
 input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0.5em 0;}
@@ -253,7 +253,7 @@ input.span-24, textarea.span-24 {width:938px!important;}
 
 .append-bottom {margin-bottom:1.5em;}
 .box {padding:1.5em;margin-bottom:1.5em;background:#E5ECF9;}
-hr {background:#86b96a;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;}
+hr {background:#DDDDDD;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;}
 hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}

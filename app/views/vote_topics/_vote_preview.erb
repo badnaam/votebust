@@ -1,20 +1,31 @@
-<% if !vote.nil? %>
-  <div class="bordered">
-    <h2><%= link_to vote.topic, vote %></h2>
-    <span><%= link_to vote.user.username, vote.user %> - <%= vote.created_at.strftime('%m %d %I:%M') %></span>
-    <table class="borderless">
-      <tr>
-        <td><h2><%= link_to vote.total_votes, vote, :class => "special_link_big" %></h2></td>
-        <td style="text-align: left">
-          <ul>
-          <% vote.vote_items.each do |v| %>
-            <li>
-            <%=  get_vote_percent(v, vote.total_votes)%>
-            </li>
+<% if !vt.nil? %>
+  <div class="span-16 last ui-widget-content bottom-mar normal-pad">
+    <div class="clearfix bld bottom-mar ui-widget-header normal-pad">
+      <span class="big"><%= link_to vt.header, vt %></span>
+      <span class="special-text"><%= "(#{vt.total_votes} votes)"  %></span>
+      <span class="small clearfix">
+        <% if !vt.anon %>
+          <%= "Posted by #{link_to vt.user.username, vt.user} on #{vt.created_at.strftime('%b %d %Y')}" %>
+        <% else %>
+          <%= "Posted by Anonymous on #{vt.created_at.strftime('%b %d %Y')}" %>
+        <% end  %>
+      </span>
+    </div>
+    <ul>
+      <% first = true %>
+      <% vi.each do |v| %>
+        <li>
+          <% if first %>
+            <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
+            <span class="bld"><%=  get_vote_percent(v, vt.total_votes)%></span>
+            <% first = false %>
+          <% else %>
+            <span class="ui-icon ui-icon-document list-icon"></span>
+            <span><%=  get_vote_percent(v, vt.total_votes)%></span>
           <% end  %>
-          </ul>
-        </td>
-      </tr>
-    </table>
+          
+        </li>
+      <% end  %>
+    </ul>
   </div>
 <% end  %>

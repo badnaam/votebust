@@ -2,7 +2,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics
     # GET /vote_topics.xml
     layout "main"
-    filter_access_to [:edit, :update], :attribute_check => true
+    filter_access_to [:edit, :update, :confirm_vote], :attribute_check => true
     before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote, :approve_vote]
     #    cache_sweeper :home_sweeper, :only => [:create]
     ########## Security hole, control access!
@@ -23,12 +23,12 @@ class VoteTopicsController < ApplicationController
     end
 
     def cancel_vote
-        @vote_topic = VoteTopic.find(params[:id], :include => :vote_items)
-        @vote_items = @vote_topic.vote_items
-        @selected_response = @vote_topic.what_vi_user_voted_for(current_user)
-        if Vote.find_by_voteable_id_and_voter_id(@selected_response.id, current_user.id).destroy
+        @vote_topic = VoteTopic.find(params[:id])
+        @vote_items = @vote_topic.get_sorted_vi
+        @selected_option = @vote_topic.what_vi_user_voted_for(current_user)
+        if Vote.find_by_voteable_id_and_voter_id(@selected_option.id, current_user.id).destroy
             flash[:success] = "Your vote has been cancelled."
-#            @vote_topic.send_later(:post_process, @selected_response, current_user, false)
+            @vote_topic.send_later(:post_process, @selected_response, current_user, false)
         end
         respond_to do |format|
             format.js
@@ -49,9 +49,9 @@ class VoteTopicsController < ApplicationController
     end
     
     def process_votes
-        @vote_topic = VoteTopic.find(params[:id], :include => :vote_items)
+        @vote_topic = VoteTopic.find(params[:id])
         if !@vote_topic.nil? && !params[:response].nil? && !current_user.nil?
-            @vote_items = @vote_topic.vote_items
+            @vote_items = @vote_topic.get_sorted_vi
             @selected_response = @vote_topic.vote_items.find_by_id(params[:response])
             if !current_user.voted_for?(@selected_response)
                 if current_user.vote_for(@selected_response)
@@ -63,7 +63,7 @@ class VoteTopicsController < ApplicationController
                 flash[:notice] = "You already voted."
             end
             #initiate post processing
-#            @vote_topic.send_later(:post_process, @selected_response, current_user, true)
+            @vote_topic.send_later(:post_process, @selected_response, current_user, true)
             respond_to do |format|
                 format.html
                 format.js
@@ -73,19 +73,6 @@ class VoteTopicsController < ApplicationController
         flash[:error] = "Something went wrong, we couldn't process your vote."
     end
 
-    def breakdown
-        @bd_type = params[:bd_type] if !params[:bd_type].nil?
-        @vote_topic = VoteTopic.find(params[:id])
-        @g_flash_graph = open_flash_chart_object(Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9,
-            url_for(:controller => :graphs, :action => :gender_graph, :id => @vote_topic.id))
-        @a_flash_graph = open_flash_chart_object(Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9,
-            url_for(:controller => :graphs, :action => :age_graph, :id => @vote_topic.id))
-        @p_flash_graph = open_flash_chart_object(Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9,
-            url_for(:controller => :graphs, :action => :pie_graph, :id => @vote_topic.id))
-        respond_to do |format|
-            format.js
-        end
-    end
     
     def index
         if !params[:user_id].nil?
@@ -114,11 +101,16 @@ class VoteTopicsController < ApplicationController
         else
             if @vote_topic.status == 'a'
                 @approved = true
-                @vote_items = @vote_topic.vote_items
+                @vote_items = @vote_topic.get_sorted_vi
                 @p_chart = @vote_topic.make_flash_pie_graph(true)
                 @comments = @vote_topic.comments.find(:all, :order => 'created_at DESC').paginate(:page => params[:page],
                     :per_page => Constants::COMMENTS_PER_PAGE)
                 @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
+                #Gather related
+                @related = VoteTopic.search "", :with => {:category_id => @vote_topic.category_id},
+                  :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT
+                @same_user = VoteTopic.search "", :with => {:user_id => @vote_topic.user_id},
+                  :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT
             elsif @vote_topic.status == 'p'
                 @preview = true
                 @vote_items = @vote_topic.vote_items
@@ -140,7 +132,8 @@ class VoteTopicsController < ApplicationController
     def new
         @user = User.find(params[:user_id])
         @vote_topic = @user.vote_topics.build
-        @vote_items = @vote_topic.vote_items.build
+#        @vote_items = @vote_topic.vote_items.build
+        @vote_items = 5.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
             format.html # new.html.erb
@@ -150,12 +143,19 @@ class VoteTopicsController < ApplicationController
 
     # GET /vote_topics/1/edit
     def edit
-        @edit = true
         @user = User.find(params[:user_id])
         @vote_topic = VoteTopic.find(params[:id])
-
+        if @vote_topic.status == 'p'
+            edit = true
+        end
         respond_to do |format|
-            format.html
+            format.html {
+                if edit 
+                else
+                    flash[:error] = 'Can not edit an active vote.'
+                    redirect_back_or_default root_url
+                end
+            }
         end
     end
 
@@ -183,6 +183,7 @@ class VoteTopicsController < ApplicationController
         @vote_topic = VoteTopic.find(params[:id])
 
         respond_to do |format|
+            params[:vote_topic][:status] = 'p'
             if @vote_topic.update_attributes(params[:vote_topic])
                 flash[:notice] = 'VoteTopic was successfully updated.'
                 format.html { redirect_to(@vote_topic) }

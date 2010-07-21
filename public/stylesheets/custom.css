@@ -1,23 +1,27 @@
+.ui-tabs .ui-tabs-hide {
+     display: none;
+}
 div.pagination {
-    margin:1em 7px;
+    margin:1em 7px 1em 0;
     padding:2px;
 }
 div.pagination a {
-    background-color:#322F25;
-    color:#FFFFFF;
+    background-color:#f6f6f6;
+    color:#38385c;
     margin:2px;
     padding:0.5em 0.64em 0.43em;
     text-decoration:none;
 }
 div.pagination a:hover, div.pagination a:active {
-    background-color:#8D6E6E;
+    background-color:#38385c;
     color:#FFFFFF;
     margin:2px;
     padding:0.5em 0.64em 0.43em;
 }
 div.pagination span.current {
-    background-color:#F6EFCC;
-    color:#6D643C;
+    background-color:#ffffff;
+    color:#ff0084;
+    border:1px solid #dddddd;
     margin:2px;
     padding:0.5em 0.64em 0.43em;
 }
@@ -46,7 +50,11 @@ div.pagination span.disabled {
     float:right;
 }
 .bordered {
-    border:1px solid;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+}
+.full-bordered {
+    border :1px solid #dddddd;
 }
 table.borderless {
     border:medium none;
@@ -65,13 +73,19 @@ table.borderless tr {
 }
 
 .crumb a {
-    text-decoration:underline;
+    color:#38385c;
+    /*text-decoration:underline;*/
+}
+.normal-pad {
+     padding:.4em;
 }
 .go_left {
     float:left;
-    margin-right:1em;
 }
-.go_right {
+.go-right {
+    float:right;
+}
+.bot {
     float:right;
 }
 #pic_loading_g {
@@ -141,29 +155,14 @@ body a.action_link {
     font-size:2em;
     font-weight:bold;
 }
-label {
-    color:#53AB24;
-}
-body a.action_link:hover {
-    color:#7DDEEA;
-}
-body a.title_link {
-    color:#22D1E6;
-    font-size:1.2em;
-    font-weight:bold;
-    text-decoration:none;
-}
-body a.title_link:hover {
-    color:#F3AF5C;
-}
+
 body a {
-    color:#86B96A;
-    font-size:1em;
+    color:#598F49;
     font-weight:bold;
     text-decoration:none;
 }
 body a:hover {
-    color:#86B96A !important;
+    color:#6FA85E !important;
 }
 .header a:hover {
     color:#86B96A;
@@ -184,7 +183,6 @@ body a:hover {
 }
 .header_txt {
     display:block;
-    font-size:4em;
     margin:0;
     padding-top:0.1em;
 }
@@ -192,8 +190,13 @@ body a:hover {
     margin-bottom:1em;
     margin-top:1em;
 }
-.page-header-content h4 {
+.page-header-content h5 {
     margin:0.5em 0 0.5em 0.5em;
+    color:white;
+    font-weight: bold;
+}
+.small-button {
+    font-size: .8em;
 }
 .logo_link {
     color:white !important;
@@ -239,15 +242,15 @@ body a:hover {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
-    background:#383427 none repeat scroll 0 0;
+    background:#38385c none repeat scroll 0 0;
     font-weight:bold;
 }
 .selected a {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
-    background:#322F25 none repeat scroll 0 0;
-    color:white;
+    background:#38385c none repeat scroll 0 0;
+    color:white !important;
     font-weight:bold;
 }
 .main_links_div li {
@@ -304,7 +307,7 @@ body a:hover {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
-    background:#322F25 none repeat scroll 0 0;
+    background:#38385c none repeat scroll 0 0;
     height:10em;
     padding:4em 0 0;
     text-align:center;
@@ -329,7 +332,6 @@ body a:hover {
 }
 .form_label {
     color:#222222;
-    font-size:1em;
 }
 .top-pad {
     padding-top:0.5em;
@@ -352,6 +354,9 @@ body a:hover {
 .left_mar_small {
     margin-left:0.5em;
 }
+.right-mar {
+    margin-right:1.5em;
+}
 .right_mar_small {
     margin-right:0.5em;
 }
@@ -372,16 +377,19 @@ body a:hover {
     font-size:3em;
 }
 .lrg {
-    font-size:1.6em;
-}
-.big {
     font-size:1.2em;
 }
+.big {
+    font-size:1.1em;
+}
 
+.small {
+    font-size:.8em;
+}
 .tiny {
     font-size:0.5em;
 }
-.special_text {
+.special-text {
     color:#F5722C;
 }
 img.ui-icon {
@@ -394,6 +402,21 @@ img.ui-icon {
     list-style-type:none;
     padding:0;
 }
+.list_no_pad_no_style li {
+    padding:.2em;
+    margin-bottom: 1em;
+}
+.list-no-pad-no-style-close {
+    list-style-type:none;
+    padding:0;
+}
+.list-no-pad-no-style-close li {
+    padding:.2em;
+    margin-bottom: .3em;
+}
+.list-icon {
+    float:left;margin: 0 .3em 0 0
+}
 .ad_holder_list {
     list-style-type:none;
     margin:0;
@@ -405,6 +428,19 @@ img.ui-icon {
     text-align:center;
 }
 .chart-container {
+}
+.topic-header {
+    color:#E80C7A;
+}
+.chart-box {
+    border:2px solid #38385c;
+    margin-right: 1.5em;
+}
+.chart-control {
+    margin: auto
+}
+.sidebox-list {
+    margin-right:0;
 }
 .slide-progress {
     background-color:black;
@@ -461,15 +497,45 @@ img.ui-icon {
     top:50%;
 }
 .search-term {
-    padding:6px 0;
-    width:191px;
+    padding:1px 0 4px 0;
+    width:194px;
 }
+
 .div-search-form input[type="text"] {
     margin-bottom:0;
     margin-top:0;
 }
 
-.topic-details h4 {
-    margin-bottom:0;
-    font-weight:bold;
+#comment_form textarea {
+    height:100px;
+    width:678px;
+    border:2px solid #dddddd;
 }
+/*#comment_form textarea:focus {
+    border:2px solid #38385c;
+}
+*/
+
+input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border:2px solid #38385c !important}
+
+/**Icons **/
+/*.cui-icon-add-vote { background-position: 0 0; width: 16px; height: 16px; }
+.cui-icon-ex { background-position: 0 -21px; width: 16px; height: 16px; }
+.cui-icon-group { background-position: 0 -42px; width: 16px; height: 16px; }
+.cui-icon-mvw { background-position: 0 -63px; width: 16px; height: 16px; }
+.cui-icon-mw { background-position: 0 -84px; width: 16px; height: 16px; }
+.cui-icon-pie { background-position: 0 -105px; width: 16px; height: 16px; }
+.cui-icon-rep { background-position: 0 -126px; width: 16px; height: 16px; }
+.cui-icon-star { background-position: 0 -147px; width: 16px; height: 16px; }
+.cui-icon-ug { background-position: 0 -168px; width: 16px; height: 16px; }
+
+.cui-icon {
+   background: transparent url(/images/normal.png) no-repeat top left;
+}*/
+/*.cui-icon { width: 16px; height: 16px; background-image: url(/images/normal.png) no-repeat top left; }*/
+/*.ui-widget-content .cui-icon {background-image: url(/images/normal.png); }
+.ui-widget-header .cui-icon {background-image: url(/images/normal.png); }
+.ui-state-default .cui-icon { background-image: url(/images/normal.png); }
+.ui-state-hover .cui-icon, .ui-state-focus .cui-icon {background-image: url(/images/ff.png); }*/
+
+/** end Icons**/
