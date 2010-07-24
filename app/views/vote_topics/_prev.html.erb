@@ -10,7 +10,9 @@
     
   //]]>
 </script>
-
+<div class="bld">
+  Please preview your vote and click Confirm if you are satisfied. <em>The vote can not be changed once it has been confirmed and active</em>.
+</div>
 <% form_tag confirm_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "confirm_vote_form" do |f| %>
 <div class=" span-18 last">
   <div class=" ui-state-default ui-corner-all prepend-top normal-pad right-mar append-bottom">
@@ -20,9 +22,9 @@
       <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
       <span class="small">
         <% if !@vote_topic.anon %>
-          <%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+          <%= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
         <% else %>
-          <%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+          <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
         <% end  %>
       </span>
     </div>
@@ -30,7 +32,7 @@
       <ul class="list_no_pad_no_style top-mar">
         <% @vote_items.each do |v| %>
           <li class="ui-widget-content">
-            <span class="ui-icon ui-icon-document list-icon"></span><%= (get_vote_percent v, @total_v) %>
+            <span class="ui-icon ui-icon-document list-icon"></span><%= v.option %>
           </li>
         <% end %>
         <li>

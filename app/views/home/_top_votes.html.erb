@@ -1,6 +1,6 @@
 <div class="span-18 last">
   <% votes = VoteTopic.get_top_votes %>
   <% votes.keys.sort_by{|k|k.total_votes}.reverse_each do |vt| %>
-    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt]} %>
+    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt], :top_vote => true} %>
   <% end  %>
 </div>

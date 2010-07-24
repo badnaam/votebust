@@ -12,8 +12,8 @@ class Vote < ActiveRecord::Base
   
     attr_accessible :vote, :voter, :voteable
 
-    after_save :increment_votes
-    after_destroy :decrement_votes
+#    after_save :increment_votes
+#    after_destroy :decrement_votes
 
     def increment_votes
         voter = self.voter

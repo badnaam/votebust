@@ -2,7 +2,7 @@ class UserSessionsController < ApplicationController
     #    before_filter :require_no_user, :only => [:new, :create]
     #    before_filter :require_user, :only => :destroy
     before_filter :require_user, :except => [:index, :new, :create]
-    before_filter :header_exempt
+#    before_filter :header_exempt
     #    rpx_extended_info
     layout "login"
 
@@ -19,14 +19,16 @@ class UserSessionsController < ApplicationController
         if @user_session.save
             if @user_session.new_registration?
                 flash[:notice] = "Welcome! Please review your profile information before continuing"
-                redirect_to edit_user_path(:current_user)
+#                redirect_to edit_user_path((current_user == nil) ? @user_session.record : current_user)
+                redirect_to edit_user_path(current_user)
             else
                 if @user_session.registration_complete?
-                    flash[:notice] = "Successfully signed in!"
+                    flash[:notice] = "Welcome #{current_user.username}"
                     redirect_back_or_default root_url
                 else
                     flash[:notice] = "Welcome back! Please complete required registration details before continuing.."
-                    redirect_to edit_user_path(:current_user)
+#                    redirect_to edit_user_path((current_user == nil) ? @user_session.record : current_user)
+                    redirect_to edit_user_path(current_user)
                 end
             end
         else

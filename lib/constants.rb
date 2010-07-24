@@ -1,6 +1,7 @@
 class Constants
     SITE_COLOR = '#38385c'
-        
+    USER_PROFILE_IMAGE_SIZE = "32x32"
+    MISSING_IMAGE_FILE = 'small/missing.png'
     GRAPHS_PATH = File.join(Rails.root, "public/assets/images/graphs")
     VOTE_PROCESS_FREQ = 8.hours
 
@@ -33,7 +34,7 @@ class Constants
     MAX_VOTE_HEADER_LENGTH  = 500
     MAX_VOTE_TOPIC_LENGTH  =  999
     MAX_VOTE_TOPIC_FEMAILS  = 500
-    MAX_VOTE_EXT_LINK_LENGTH  = 500
+    MAX_VOTE_EXT_LINK_LENGTH  = 150
 
     COMMENTS_PER_PAGE = 3
 
@@ -51,4 +52,10 @@ class Constants
     ADMIN_EMAIL = 'pjointadm@gmail.com'
 
     SIDE_BAR_LINK_LENGTH = 50
+
+    DEVIDED_BUFFER = 5
+    DEVIDED_QUORUM = 100
+
+    UNAN_LIMIT = 60
+
 end

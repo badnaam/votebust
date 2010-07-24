@@ -3,6 +3,8 @@ $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form',
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
 
 $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+$j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
+
 $j('#vote_form').submit(function (){
 showLoading('#vote_prog_loading')
 $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {

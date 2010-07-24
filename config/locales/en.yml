@@ -4,7 +4,7 @@
 en:
   hello: "Hello world"
   n: "Votebust"
-  site_main_msg: "Bust a Ballot"
+  site_main_msg: "What's the public opinion?"
   site_main_logo_msg: "Logo"
   logo: "BB"
 
@@ -42,6 +42,7 @@ en:
          anon: "Anonymous?"
          category: "Category"
          option: "Vote Option"
+         friend_emails: "Invite friends"
        edit:
          header: "Details"
          ext_link: "Link to the topic"
@@ -49,6 +50,7 @@ en:
          anon: "Anonymous?"
          category: "Category"
          option: "Vote Option"
+         friend_emails: "Invite friends"
     hints:
      user:
        new:
@@ -66,7 +68,7 @@ en:
          topic: "More details about the topic for your voters. "
          anon: "Should we show your username?"
          option: "Options to choose"
-         friend_emails: "Invite friends to vote, enter comma separated valid emails"
+         friend_emails: "Invite friends to vote, enter comma separated valid emails. For example <b>joe@gmail.com,susan@yahoo.com,gary@hotmail.com></b>"
        edit:
          header: "What should people vote one?"
          ext_link: "Link to the source of the topic i.e. News headline, Article etc."

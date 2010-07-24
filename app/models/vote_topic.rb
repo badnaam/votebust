@@ -13,30 +13,37 @@ class VoteTopic < ActiveRecord::Base
 
 
     #\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b
-    validates_presence_of :header
-    validates_length_of :header, :maximum => Constants::MAX_VOTE_HEADER_LENGTH
-    validates_length_of :topic, :maximum => Constants::MAX_VOTE_TOPIC_LENGTH, :allow_nil => true
-    validates_length_of :ext_link, :maximum => Constants::MAX_VOTE_EXT_LINK_LENGTH, :allow_nil => true
-    validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true
+    validates_presence_of :header, :message => "Topic can not be blank"
+    validates_presence_of :category, :message => "Please select a category"
+    validates_length_of :header, :maximum => Constants::MAX_VOTE_HEADER_LENGTH, :message => "Please keep the topic description within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"
+    validates_length_of :topic, :maximum => Constants::MAX_VOTE_TOPIC_LENGTH, :allow_nil => true, :message => "Please keep the details within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters"
+    validates_length_of :website, :maximum => Constants::MAX_VOTE_EXT_LINK_LENGTH, :allow_nil => true, :message => "Please keep the link within #{Constants::MAX_VOTE_EXT_LINK_LENGTH} characters or make it short at http://tinyurl.com/"
+    validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true, :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
     validate :valid_email?
     validate :min_vote_items, :if => :its_new?
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
     after_destroy :destroy_graphs
+    #    after_save :send_friendly_emails, :if => Proc.new { |vote_topic| !vote_topic.friend_emails.nil? }
     attr_accessible :topic, :header, :vote_items_attributes, :cached_slug, :friend_emails, :anon, :header, :category_id
-    has_friendly_id :topic, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
+    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     #    acts_as_mappable :through => :merchant
 
     #    scope_procedure :latest, lambda {created_at_gte(p[0]).created_at_lt(p[1]) }
     scope_procedure :latest, lambda {created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago) }
+    scope_procedure :unanimous_votes, lambda {unan_equals(true).descend_by_created_at.all(:limit => Constants::SMART_COL_LIMIT)}
     scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT) }
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
     scope_procedure :in_preview, lambda {status_equals(STATUS['preview']).ascend_by_created_at}
 
+    def send_friendly_emails
+        self.send_later :deliver_friendly_vote_emails!
+    end
+    
     def self.get_top_votes
         h = Hash.new
-        coll = VoteTopic.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => :vote_items)
-         coll.each do |vt|
+        coll = VoteTopic.status_equals('a').descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => :vote_items)
+        coll.each do |vt|
             arr = Array.new
             vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
                 arr << vi
@@ -46,6 +53,18 @@ class VoteTopic < ActiveRecord::Base
         return h
     end
 
+    def self.get_all_votes_user (user)
+        h = Hash.new
+        coll = VoteTopic.user_id_equals(user.id).descend_by_total_votes.all(:include => :vote_items)
+        coll.each do |vt|
+            arr = Array.new
+            vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
+                arr << vi
+            end
+            h[vt] = arr
+        end
+        return h
+    end
     def get_sorted_vi
         arr = Array.new
         self.vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
@@ -67,14 +86,14 @@ class VoteTopic < ActiveRecord::Base
         return h
     end
 
-#    def get_sorted_vi
-#        arr = Array.new
-#        self.vote_items.all(:joins => :votes, :select => "vote_items.*, count(vote_items.id) AS vote_count",
-#            :group => :id, :order => "vote_count DESC").each do |vi|
-#            arr << vi
-#        end
-#        return arr
-#    end
+    #    def get_sorted_vi
+    #        arr = Array.new
+    #        self.vote_items.all(:joins => :votes, :select => "vote_items.*, count(vote_items.id) AS vote_count",
+    #            :group => :id, :order => "vote_count DESC").each do |vi|
+    #            arr << vi
+    #        end
+    #        return arr
+    #    end
 
     def valid_email?
         if !self.friend_emails.nil?
@@ -112,6 +131,20 @@ class VoteTopic < ActiveRecord::Base
         Notifier.deliver_new_vote_notification(self)
     end
     
+    def deliver_friendly_vote_emails!
+        Notifier.deliver_friendly_vote_emails(self)
+    end
+
+    def reset
+        self.votes.each do |vi|
+            vi.destroy
+        end
+        self.vote_items.each do |v|
+            v.reset_counters
+        end
+        self.update_attribute(:total_votes, 0)
+    end
+    
     def post_process(selected_response, user, add)
         if add == true
             inc = 1
@@ -124,19 +157,33 @@ class VoteTopic < ActiveRecord::Base
         if !user.sex.nil? && user.sex == 0
             selected_response.increment!(:male_votes, inc)
         else
-            selected_response.decrement!(:female_votes, inc)
+            selected_response.increment!(:female_votes, inc)
         end
         age = user.age
         if Constants::AGE_GROUP_1.include?(age)
             selected_response.increment!(:ag_1_v, inc)
         elsif Constants::AGE_GROUP_2.include?(age)
-            selected_response.increment!(:ag_4_v, inc)
+            selected_response.increment!(:ag_2_v, inc)
         elsif Constants::AGE_GROUP_3.include?(age)
             selected_response.increment!(:ag_3_v, inc)
         else
             selected_response.increment!(:ag_4_v, inc)
         end
 
+        determine_devided
+    end
+
+    def determine_devided
+        vis = self.vote_items
+        vis.each do |v|
+            if (v.get_vote_percent_num self.total_votes) > Constants::UNAN_LIMIT
+                self.update_attribute(:unan, true)
+                return false
+            end
+        end
+        return true
+    rescue
+        
     end
 
     
@@ -326,7 +373,8 @@ class VoteTopic < ActiveRecord::Base
     
     def min_vote_items
         if self.vote_items.length < 2
-            errors.add_to_base("Please specify at least two vote options")
+            #            errors.add_to_base("Please specify at least two vote options")
+            errors.add(:vote_items, "Please specify at least two vote options")
             return false
         end
     end

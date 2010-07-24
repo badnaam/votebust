@@ -1,12 +1,19 @@
-<%= render :partial => "vote_list" %>
-<br />
-
-<% if current_user %>
-<%= link_to 'New Vote', new_user_vote_topic_path(current_user) %>
-<% else %>
-  <%= link_to "New Vote", new_vote_topic_path %>
+<% if @user_listing %>
+  <% @vote_topics.keys.sort_by{|k|k.total_votes}.reverse_each do |vt| %>
+    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => @vote_topics[vt]} %>
+  <% end  %>
+<% elsif @category_listing || @general_listing %>
+  <%= page_entries_info @vote_topics, :entry_name => "Votes" %>
+  <%= will_paginate @vote_topics, :class => 'pagination ' %>
+  <% @vote_topics.each  do |vt| %>
+    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => vt.vote_items} %>
+  <% end  %>
+  <%= will_paginate @vote_topics , :class => 'pagination'%>
 <% end  %>
 
 <% content_for :right_nav do %>
-  <%= render :partial => "category/cat_side_list" %>
-<% end  %>
+  <%= render (:partial => '/layouts/category_side_bar') if @general_listing %>
+  <%= render :partial => "/home/latest_votes" %>
+  <%= render :partial => "/home/top_voters" %>
+
+<% end %>

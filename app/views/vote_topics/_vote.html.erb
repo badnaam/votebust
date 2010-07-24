@@ -3,9 +3,11 @@
   google.load("prototype", "1.6.1.0");
   
   google.setOnLoadCallback(function() {
-    $('pic_loading_g').setStyle({
-      opacity: 0.0
-    });
+    if ($('pic_loading_g') != null) {
+      $('pic_loading_g').setStyle({
+        opacity: 0.0
+      });
+    }
 
     Ajax.Responders.register({
       onCreate: function() {
@@ -21,8 +23,8 @@
         return false;
       }
     });
-
   });
+  
   function showLoading(elem) {
     $j(elem).animate({opacity:1.0}, 'slow', function(){});
     $j(elem).next('div').animate({
@@ -38,8 +40,22 @@
     }, 'slow', function() {
     });
   }
+
+
   
   $j(document).ready(function() {
+    //update page elements every now and then
+
+    function updatePageElems() {
+      showLoading($j('#tot_prog_loading'));
+      $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>', function(data){
+        hideLoading($j('#tot_prog_loading'));
+      }, 'script');
+    }
+    var refreshId = setInterval(function(){
+      updatePageElems();
+    }, 10000);
+    
     $j('.pagination a').live("click", function () {
       showLoading('#com_prog_loading');
       $j.get(this.href, null, function (data) {
@@ -50,6 +66,7 @@
 
     $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
     $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+    $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
     $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
     
     $j('#vote_link').live('click',function() {
@@ -71,7 +88,7 @@
       return false;
     });
 
-    $j('#comment_submit').click(function() {
+    $j('#comment_submit').button({icons:{primary:'ui-icon-comment'}}).click(function() {
       $j('#new_comment').submit();
       return false;
     });
@@ -103,7 +120,6 @@
     $j("#chart_controls a:contains('Pie')").button({icons:{primary:'ui-icon-document'}, text:false});
     $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
     $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
-    $j('#comment_form button').button({icons: {primary:'ui-icon-trash'}});
 
   });
   //]]>
@@ -111,18 +127,20 @@
 
 <div class=" span-18 last">
   <% @total_v = @vote_topic.total_votes %>
-  <div class=" ui-state-default ui-corner-all prepend-top normal-pad right-mar">
+  <div class=" ui-state-hover ui-corner-all prepend-top normal-pad right-mar">
     <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
     <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
     <span class="small">
       <% if !@vote_topic.anon %>
-        <%= "Posted by #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+        <%= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% else %>
-        <%= "Posted by Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+        <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% end  %>
     </span>
   </div>
-  <p class="prepend-top bottom-mar bld big special-text right_mar_small" id="tot_votes"><%= "#{@total_v} Votes" %></p>
+  <div id="tags" class=""bld top-mar"> <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category), :class => 'tag' %></div>
+  <div id="tot_prog_loading" class="progress" style="opacity:0;"></div>
+  <div class="prepend-top bottom-mar bld big special-text right_mar_small" id="tot_votes"><%= "#{@total_v} Votes" %></div>
 </div>
 
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
@@ -138,11 +156,12 @@
 </div>
 
 
-<div id="vote_dlg" class="span-18 last">
-  <% if @vote_topic.total_votes > 0 %>
+<div id="vote_dlg" class="span-18 last" >
+  <% if !(@total_v == 0) %>
     <%= render :partial => "vote_tally"%>
   <% end  %>
 </div>
+
 
 
 <div id="comments_container" class=" prepend-top span-18 last">

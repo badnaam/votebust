@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Friendly vote invitation from Votebust</title>
+  </head>
+  <body>
+    <p>
+      Your friend <%= @vote_topic.user.username %> at <%= link_to "Votebust", root_url  %> has invited you to a vote about <%= @vote_topic.header %>.
+      <%= link_to "Please click on this link to be taken directly to the vote", vote_topic_url(@vote_topic) %>
+      <br/>
+      See you there!
+    </p>
+    <p>
+      Best,<br/>
+      The Votebust team.
+    </p>
+  </body>
+</html>

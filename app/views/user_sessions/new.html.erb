@@ -9,24 +9,27 @@
   });
   //]]>
 </script>
-
-<div class="span-11 normal-pad ui-widget-content">
-  <h4 class="ui-widget-header normal-pad">Login</h4>
-  <% semantic_form_for @user_session, :url => user_sessions_path do |f| %>
-    <%= f.semantic_errors %>
-    <% f.inputs do  %>
-      <%= f.input :username, :input_html => {:style => "width:40%"} %>
-      <%= f.input :password, :as => :password, :input_html => {:style => "width:40%"} %>
-      <li><%= link_to "Forgot password?", new_password_reset_path  %></li>
-      <%= f.input :remember_me, :as => :boolean, :label => "Remember me" %>
-    <% end  %>
-    <span class="small-button"><button id="login_submit">Login</button></span>
-    <span><%= link_to "Dont have an account? Please register", new_user_path %></span>
-  <% end %>
+<div id ="login_container" class="span-24 last">
+  <div class="span-12">
+    <div class="normal-pad ui-widget-content">
+      <h4 class="ui-widget-header normal-pad">Login</h4>
+      <% semantic_form_for @user_session, :url => user_sessions_path do |f| %>
+        <%= f.semantic_errors %>
+        <% f.inputs do  %>
+          <%= f.input :username, :input_html => {:style => "width:40%"} %>
+          <%= f.input :password, :as => :password, :input_html => {:style => "width:40%"} %>
+          <li><%= link_to "Forgot password?", new_password_reset_path  %></li>
+          <%= f.input :remember_me, :as => :boolean, :label => "Remember me" %>
+        <% end  %>
+        <span class="small-button"><button id="login_submit">Login</button></span>
+        <span><%= link_to "Dont have an account? Please register", new_user_path %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="span-12 last">
+    <div class="ui-widget-content normal-pad">
+      <%= render :partial => '/layouts/rpx' %>
+    </div>
+  </div>
 </div>
-
-<div class="span-12 last ui-widget-content normal-pad">
-  <%= render :partial => '/layouts/rpx' %>
-</div>
-
 

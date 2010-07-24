@@ -4,6 +4,7 @@ class VoteTopicsController < ApplicationController
     layout "main"
     filter_access_to [:edit, :update, :confirm_vote], :attribute_check => true
     before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote, :approve_vote]
+    before_filter :store_location, :only => [:show]
     #    cache_sweeper :home_sweeper, :only => [:create]
     ########## Security hole, control access!
 
@@ -12,6 +13,9 @@ class VoteTopicsController < ApplicationController
         if current_role == 'admin'
             @vote_topic.status = 'a'
             if @vote_topic.save
+                if !@vote_topic.friend_emails.nil?
+                    @vote_topic.send_later :deliver_friendly_vote_emails!
+                end
                 flash[:success] = 'Change vote status to approved'
             end
         else
@@ -22,13 +26,25 @@ class VoteTopicsController < ApplicationController
         end
     end
 
+    def update_stats
+        @vote_topic = VoteTopic.find(params[:id], :conditions => ['status = ?', VoteTopic::STATUS['approved']])
+        if @vote_topic.total_votes > 0
+            @vote_items = @vote_topic.vote_items
+            @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
+            @p_chart = @vote_topic.make_flash_pie_graph(true)
+        end
+        respond_to do |format|
+            format.js
+        end
+    end
+    
     def cancel_vote
         @vote_topic = VoteTopic.find(params[:id])
         @vote_items = @vote_topic.get_sorted_vi
         @selected_option = @vote_topic.what_vi_user_voted_for(current_user)
         if Vote.find_by_voteable_id_and_voter_id(@selected_option.id, current_user.id).destroy
             flash[:success] = "Your vote has been cancelled."
-            @vote_topic.send_later(:post_process, @selected_response, current_user, false)
+            @vote_topic.send_later(:post_process, @selected_option, current_user, false)
         end
         respond_to do |format|
             format.js
@@ -76,14 +92,17 @@ class VoteTopicsController < ApplicationController
     
     def index
         if !params[:user_id].nil?
+            @user_listing = true
             @user = User.find(params[:user_id])
-            @vote_topics = @user.vote_topics
+            @vote_topics = VoteTopic.get_all_votes_user(@user)
         elsif !params[:category_id].nil?
+            @category_listing = true
             @category = Category.find(params[:category_id])
             #            @vote_topics = VoteTopic.find_all_by_category_id(params[:category_id])
-            @vote_topics = @category.vote_topics.status_equals('a')
+            @vote_topics = @category.vote_topics.status_equals('a').descend_by_created_at.paginate(:page => params[:page])
         else
-            @vote_topics = VoteTopic.status_equals('a')
+            @general_listing = true
+            @vote_topics = VoteTopic.status_equals('a').descend_by_created_at.paginate(:page => params[:page])
         end
         respond_to do |format|
             format.html # index.html.erb
@@ -132,8 +151,8 @@ class VoteTopicsController < ApplicationController
     def new
         @user = User.find(params[:user_id])
         @vote_topic = @user.vote_topics.build
-#        @vote_items = @vote_topic.vote_items.build
-        @vote_items = 5.times {@vote_topic.vote_items.build}
+        #        @vote_items = 5.times {@vote_topic.vote_items.build}
+        @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
             format.html # new.html.erb
@@ -145,12 +164,15 @@ class VoteTopicsController < ApplicationController
     def edit
         @user = User.find(params[:user_id])
         @vote_topic = VoteTopic.find(params[:id])
+        
         if @vote_topic.status == 'p'
             edit = true
         end
         respond_to do |format|
             format.html {
-                if edit 
+                if edit
+                    #
+                    setup_vote_items(true)
                 else
                     flash[:error] = 'Can not edit an active vote.'
                     redirect_back_or_default root_url
@@ -167,10 +189,20 @@ class VoteTopicsController < ApplicationController
         @vote_topic.status = 'p'
         respond_to do |format|
             if @vote_topic.save
-              
                 format.html { redirect_to(@vote_topic) }
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else
+                full_counter = 0
+                (0..(VoteTopic::MAX_VOTE_ITEMS - 1)).each do |i|
+                    if !params[:vote_topic][:vote_items_attributes][i.to_s][:option].blank?
+                        full_counter += 1
+                    end
+                end
+                if full_counter == 0
+                    @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
+                else
+                    @vote_items = (VoteTopic::MAX_VOTE_ITEMS - full_counter).times {@vote_topic.vote_items.build}
+                end
                 format.html { render :action => "new" }
                 format.xml  { render :xml => @vote_topic.errors, :status => :unprocessable_entity }
             end
@@ -204,6 +236,19 @@ class VoteTopicsController < ApplicationController
         respond_to do |format|
             format.html { redirect_to(vote_topics_url) }
             format.xml  { head :ok }
+        end
+    end
+
+    private
+    def setup_vote_items( is_edit)
+        if is_edit
+            full_counter = @vote_topic.vote_items.length
+            
+            if full_counter == 0
+                @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
+            else
+                @vote_items = (VoteTopic::MAX_VOTE_ITEMS - full_counter).times {@vote_topic.vote_items.build}
+            end
         end
     end
 end

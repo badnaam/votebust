@@ -32,8 +32,10 @@
       <% end  %>
       <%= form.input :image,  :label => img_label %>
     <% end  %>
+    <% if form.object.new_record? %>
       <li class="bld">Please enter the text as it appears in the image.</li>
-    <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
+      <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
+    <% end  %>
   <% end  %>
   <% if @user.new_record? %>
     <%#= rpx_popup( :link_text => ".. or register using RPX", :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false ) %>

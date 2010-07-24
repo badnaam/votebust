@@ -18,6 +18,19 @@ class Notifier < ActionMailer::Base
         body "Here is the body"
     end
 
+    def friendly_vote_emails(vote_topic)
+        emails = vote_topic.friend_emails.split(",")
+        logger.debug("Notifier sending friendly_vote_emails to => " + emails)
+        
+        subject "Vote invitation from #{vote_topic.user.username} at Votebust"
+        from          Constants::ADMIN_EMAIL
+        recipients    Constants::ADMIN_EMAIL
+        bcc           emails
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :vote_topic => vote_topic
+    end
+    
     def new_vote_notification(vote_topic)
         subject "New Vote Notification"
         from          Constants::ADMIN_EMAIL

@@ -6,7 +6,7 @@
       <% @vote_items.each do |v| %>
         <% if !@selected_response.nil?  && @selected_response == v%>
           <li class="ui-state-active">
-            <% if first %>
+            <% if first && (v.votes_for) > 0 %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
               <% first = false %>
             <% else %>
@@ -14,9 +14,10 @@
             <% end  %>
             <%= (get_vote_percent v, @total_v) %>
             <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
+            <span class ="small-button"><a href="#comment_form" id="goto_comment_link">Comment</a></span>
           <% else %>
           <li class="ui-widget-content">
-            <% if first %>
+            <% if first && v.votes_for > 0 %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
               <% first = false %>
             <% else %>
@@ -31,7 +32,11 @@
       <% end %>
       <li>
         <% if action == 'process' %>
-          <span class="small-button"><button id="vote_link">Vote</button></span>
+          <% if !registration_complete? %>
+            <%= link_to "Complete Registration to Vote", edit_user_path(current_user) %>
+          <% else %>
+            <span class="small-button"><button id="vote_link">Vote</button></span>
+          <% end  %>
         <% end  %>
       </li>
     </ul>

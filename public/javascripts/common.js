@@ -7,21 +7,30 @@ var showMenu = function(ev) {
     $("#cat_menu").css( {
         "left": (pos.left) + "px",
         "top":(pos.top + height) + "px"
-    } );
-    $("#cat_menu").toggle('slow');
+    });
+    $('#cat_nav a').toggleClass('hover-nav');
+    $("#cat_menu").toggle('fast');
 }
 
 $(document).ready(function(){
+    $('#close_cat_menu').click(function(){
+        $('#cat_nav a').toggleClass('hover-nav');
+        $("#cat_menu").toggle('fast');
+    });
+    
     $('#new_vote_btn').button({
         icons:{
             primary:'ui-icon-lightbulb'
         }
     });
+    $('#search_term').focus(function(){
+        $(this).val('');
+    });
     $("#search_form a").click(function() {
         $(this).parents().filter("form").trigger("submit");
     });
 
-    $('#main_login_link').button({
+    /**$('#main_login_link').button({
         icons:{
             primary:'ui-icon-key'
         }
@@ -40,7 +49,7 @@ $(document).ready(function(){
         icons:{
             primary:'ui-icon-contact'
         }
-    });
+    });**/
 
     $('#search_button').button({
         icons:{

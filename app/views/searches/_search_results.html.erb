@@ -1,11 +1,9 @@
-
 <%= page_entries_info @search_results, :entry_name => "Search Result" %>
-<%= will_paginate @search_results %>
+<%= will_paginate @search_results, :class => 'pagination' %>
 <% if !@search_results.nil? %>
-  <ul>
     <% @search_results.each do |s| %>
-      <li><%= s.header %></li>
+      <%= render :partial => '/vote_topics/vote_preview', :locals => {:vt => s, :si => s.vote_items} %>
     <% end %>
-  </ul>
 <% end  %>
-<%= will_paginate @search_results %>
+
+<%= will_paginate @search_results, :class => 'pagination ' %>

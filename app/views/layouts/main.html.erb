@@ -6,30 +6,32 @@
     <div class="container" id="main_container">
       <div class="header span-24 last">
         <div class ="span-24 header_links_div last">
-          <%= render :partial => "category/cat_side_list" %>
-          <div class="span-17"> &nbsp;</div>
-          <div class="span-6 last ui-corner-bl ui-corner-br ui-state-default">
-            <ul class="header_links">
-              <% unless  current_user %>
-                <span class="small-button"><li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link'%></li></span>
-                <span class="small-button"><li><%= link_to "Login", login_path, :id => 'main_login_link' %></li></span>
-              <% else %>
-                <span class="small-button"><li><%= link_to "New Vote", new_user_vote_topic_path(current_user), :id => 'main_new_vote_link' %></li></span>
-                <span class="small-button"><li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %></li></span>
-                <span class="small-button"><li><%= link_to "Logout", logout_path  %></li></span>
+          <%= render :partial => "category/cat_nav_list" %>
+          <div class="span-24 last"
+               <div class="ui-corner-bl ui-corner-br ui-state-hover">
+              <ul class="header_links">
+                <% unless  current_user %>
+                  <li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
+                  <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
+                <% else %>
+                  <li><%= link_to "New Vote", new_user_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text' %></li>
+                  <li><%= link_to current_user.username.titleize, current_user, :id => 'main_profile_link' %></li>
+                  <li><%= link_to "Logout", logout_path  %></li>
 
-              <% end %>
-            </ul>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="last span-24 header_logo_div"> <!-- header logo -->
-          <%= image_tag '/images/logo_1.png' %>
+          <%= link_to image_tag ('/images/logo.png'), root_path %>
           <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
           <div class="span-24 last nav_container ui-state-default">
-            <div class="span-24 last main_links_div">
-              <%= render_navigation :level => 1 %>
+            <div class="span-24 last">
+              <div class="main_links_div">
+                <%= render_navigation :level => 1 %>
+              </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -38,7 +40,7 @@
         <div class="span-24 last">
           <%= yield :page_headers %>
         </div>
-        <div class="span-24 last">
+        <div class="span-22 prepend-1 last">
           <%= yield :page_top %>
           <% unless @header_exempt_page %>
             <%= render :partial => 'layouts/page_header' %>
@@ -48,10 +50,12 @@
           <div class="span-18 last" id="flash_messages">
             <%= render :partial => 'layouts/flash_msg' %>
           </div>
-          <div class="crumb  span-18 last">
-            <% unless controller.controller_name == 'home' && controller.action_name == 'index' %>
-              <%= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
-            <% end  %>
+          <div class="span-18 last">
+            <div class="crumb ui-widget-header   normal-pad right-mar">
+              <% unless controller.controller_name == 'home' && controller.action_name == 'index' %>
+                <%= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
+              <% end  %>
+            </div>
           </div>
           <%= yield %>
         </div> <!-- end content div -->
@@ -65,7 +69,7 @@
           </div>
           <%= yield :right_nav %>
         </div>
-        <div class="push"> </div>
+        <!-- <div class="push"> </div>-->
       </div> <!-- end content_container -->
       <%= render :partial => "/layouts/footer" %>
     </div>

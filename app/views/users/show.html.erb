@@ -1,31 +1,38 @@
-<div>
-  <ul>
-    <li>
-      Email:
-      <%=h @user.email %>
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function(){
+
+    $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
+  });
+  //]]>
+</script>
+
+<div class=" prepend-top normal-pad span-15 ui-widget-content">
+  
+  <ul class="profile-list prepend-top">
+    <li style="list-style: none">
+      <% if !missing_user_image?(@user) %>
+      <%= image_tag @user.image.url(:small), :id => 'profile_image' %>
+  <% end  %>
     </li>
     <li>Username:
       <%=h @user.username %></li>
     <li>
-      Sex:
+      Email:
+      <%=h @user.email %>
+    </li>
+    <li>
+      Gender:
       <%=h User::SEX[@user.sex] %>
     </li>
     <li>
       Age:
       <%=h @user.age %>
     </li>
-    <% if !missing_user_image?(@user) %>
-      <li>
-        <%= image_tag @user.image.url(:small) %>
-      </li>
-    <% end  %>
   </ul>
+  <% permitted_to? :update, @user do %>
+    <span class="small-button"><%= link_to 'Edit', edit_user_path(@user), :id => 'profile_edit' %></span>
+  <% end  %>
+
 </div>
 
-<ul>
-  <% permitted_to? :update, @user do %>
-    <li>
-      <%= link_to 'Edit', edit_user_path(@user) %>
-    </li>
-  <% end  %>
-</ul>

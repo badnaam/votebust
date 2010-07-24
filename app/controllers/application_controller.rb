@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
     helper :all # include all helpers, all the time
     protect_from_forgery # See ActionController::RequestForgeryProtection for details
     after_filter :discard_flash_if_xhr
-    before_filter :set_current_user
+#    before_filter :set_current_user
 
     # Scrub sensitive parameters from your log
     # filter_parameter_logging :password
-    helper_method :current_user_session, :current_user, :current_role
+    helper_method :current_user_session, :current_user, :current_role, :registration_complete?
     filter_parameter_logging :password, :password_confirmation
 
     def header_exempt
@@ -54,6 +54,18 @@ class ApplicationController < ActionController::Base
         @current_user = current_user_session && current_user_session.record
     end
 
+    def registration_complete?
+       current_user_session.registration_complete? if current_user_session
+    end
+
+    def require_registration
+        unless registration_complete?
+            store_location
+            flash[:notice] = "Please complete registration before continuing"
+            redirect_to edit_user_path(current_user)
+        end
+    end
+    
     def require_user
         unless current_user
             store_location

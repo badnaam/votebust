@@ -1,4 +1,4 @@
-
+<% if !@p_chart.nil? && !@vote_topic.nil?%>
 <div class="span-18 last">
   <div id="pic_loading_g" class="span-18 last" style="opacity:0.0"></div>
   <div class="bottom-mar span-18 last"  id="chart_controls">
@@ -15,6 +15,8 @@
     <%= @p_chart.js_open_flash_chart_object("chart", Constants::LARGE_GRAPH_WIDTH, Constants::LARGE_GRAPH_HEIGHT_16_9) %>
   </div>
 </div>
-
+<% else %>
+  <%= "" %>
+<% end  %>
 
 

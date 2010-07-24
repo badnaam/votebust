@@ -14,24 +14,28 @@
   <% form.inputs do %>
     <li class="bld">Fields marked with (*) are required.</li>
     <%= form.input :user_id, :as => :hidden %>
-    <%= form.input :header, :input_html => {:style => "width:50%"}%>
-    <%= form.input :ext_link,  :input_html => {:style => "width:60%"} %>
-    <%= form.input :topic, :as => :text, :input_html => {:style => "width:50%" } %>
-    <%= form.input :anon %>
-    <%= form.input :category %>
-    <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:50%" }  %>
-    <li class="bld">Add up to 5 options for your voters to vote on.</li>
+    <%= form.input :header, :label => "Topic", :input_html => {:style => "width:50%"}, :hint => "What should people vote on? For example: How do you like your Martini?. Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
+    <%= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
+    <%= form.input :topic, :label => "Details", :as => :text, :input_html => {:style => "width:50%" }, :hint => "More details about the topic for your voters.
+    For example: A dry martini you always shake to waltz time and Smoky Martini is where the dry vermouth is substituted with a dash of Scotch whisky and a lemon peel. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
+    <%= form.input :anon, :label => "Keep it anonymous", :hint => "Should we show your username in the Vote listing?." %>
+    <%= form.input :category, :as => :radio, :hint => "Please categorize the vote." %>
+    <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:50%" }, :hint => "Invite friends to vote, enter comma separated valid emails. For example <b>joe@gmail.com,susan@yahoo.com,gary@hotmail.com</b>"  %>
+    <li class="bld">Add up to 5 options(Minimum 2) for your voters to vote on.</li>
+    <% if !form.object.errors.on(:vote_items).nil? && form.object.errors.on(:vote_items).length > 0 %>
+      <div class="error"><%= form.object.errors.on(:vote_items) %></div>
+    <% end %>
     <div id ="vote_items">
       <% form.semantic_fields_for :vote_items do |f| %>
         <%= f.semantic_errors %>
         <div class="vote_item">
-          <%= f.input :option, :input_html => {:style => "width:50%" } %>
-          <%#= remove_link_unless_new_record(f) %>
+          <%= f.input :option, :input_html => {:style => "width:50%" }, :hint => "Option to vote on." %>
+      <%#= remove_link_unless_new_record(f) %>
         </div>
       <% end  %>
     </div>
     <%#= add_object_link "Add a vote option", form, VoteItem.new, "vi", "#vote_items" %>
   <% end  %>
-    <a href="#" id="vote_submit">Save</a>
+  <a href="#" id="vote_submit">Save</a>
   <%#= form.commit_button %>
 <% end  %>

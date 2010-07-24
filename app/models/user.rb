@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     MAX_PROFILE_IMAGE_SIZE = 1.megabyte
     SEX = {0 => "M", 1 => "F"}
 
-    has_attached_file :image, :styles => {:small => "50x50"},
+    has_attached_file :image, :styles => {:small => Constants::USER_PROFILE_IMAGE_SIZE},
       :path => ":rails_root/public/assets/images/users/:id/:style.:extension",
       :url => "/assets/images/users/:id/:style.:extension",
       :whiny_thumbnails => true

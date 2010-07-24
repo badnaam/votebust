@@ -18,3 +18,11 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = {:host => "localhost", :port => "3000"}
 config.action_mailer.default_charset = "utf-8"
+ENV['RPX_KEY'] = '18c3db9c36e3ce844af615637cfc9ffbac08448f'
+ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
+ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
+ config.gem(
+        'thinking-sphinx',
+        :lib     => 'thinking_sphinx',
+        :version => '1.3.16'
+    )
