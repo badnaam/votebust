@@ -1,8 +1,0 @@
-<div class="" id ="div_cancel_vote">
-  <%= "Your vote #{@selected_response.option}" %>
-  <% form_tag cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "cancel_vote_form" do |f| %>
-  <%#= color_link_with_icon("cancel_vote_link", "#", "ui-icon-closethick", "Cancel Your Vote") %>
-    <%#= link_to "Cancel Your Vote", "", :id => "cancel_vote_link", :class => "tiny" %>
-    <a href="#" id="cancel_vote_link" >Cancel your vote</a>
-  <% end  %>
-</div>
