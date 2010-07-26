@@ -2,7 +2,7 @@
   <ul class="list_no_pad_no_style top-mar">
     <% @vote_items.each do |v| %>
       <li class="ui-widget-content">
-        <span class="ui-icon ui-icon-document list-icon"></span><%= (get_vote_percent v, @total_v) %>
+        <span class="ui-icon ui-icon-document list-icon"></span><%= (get_vote_percent v, @vote_topic.total_votes) %>
       </li>
     <% end %>
     <li>

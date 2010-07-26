@@ -29,7 +29,7 @@ class VoteTopicsController < ApplicationController
     def update_stats
         @vote_topic = VoteTopic.find(params[:id], :conditions => ['status = ?', VoteTopic::STATUS['approved']])
         if @vote_topic.total_votes > 0
-            @total_v = @vote_topic.total_votes
+#            @total_v = @vote_topic.total_votes
             @vote_items = @vote_topic.get_sorted_vi
             @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
             @p_chart = @vote_topic.make_flash_pie_graph(true)
@@ -42,6 +42,7 @@ class VoteTopicsController < ApplicationController
     def cancel_vote
         @vote_topic = VoteTopic.find(params[:id])
         @vote_items = @vote_topic.get_sorted_vi
+#        @total_v = @vote_topic.total_votes
         @selected_option = @vote_topic.what_vi_user_voted_for(current_user)
         if Vote.find_by_voteable_id_and_voter_id(@selected_option.id, current_user.id).destroy
             flash[:success] = "Your vote has been cancelled."
@@ -69,6 +70,7 @@ class VoteTopicsController < ApplicationController
         @vote_topic = VoteTopic.find(params[:id])
         if !@vote_topic.nil? && !params[:response].nil? && !current_user.nil?
             @vote_items = @vote_topic.get_sorted_vi
+#            @total_v = @vote_topic.total_votes
             @selected_response = @vote_topic.vote_items.find_by_id(params[:response])
             if !current_user.voted_for?(@selected_response)
                 if current_user.vote_for(@selected_response)

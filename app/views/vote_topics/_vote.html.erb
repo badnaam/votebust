@@ -41,6 +41,15 @@
     });
   }
 
+  function update_chars_left(max_len, target_input, display_element) {
+    var text_len = target_input.value.length;
+    if (text_len >= max_len) {
+      target_input.value = target_input.value.substring(0, max_len); // truncate
+      display_element.html("0 characters left");
+    } else {
+      display_element.html((max_len - text_len) + " characters left");
+    }
+  }
 
   
   $j(document).ready(function() {
@@ -54,7 +63,7 @@
     }
     var refreshId = setInterval(function(){
       updatePageElems();
-    }, 10000);
+    }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
     
     $j('.pagination a').live("click", function () {
       showLoading('#com_prog_loading');
@@ -121,6 +130,11 @@
     $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
     $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
 
+    $j('#comment_body').keyup(function() {
+      update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
+    });
+    //and fire it on doc ready, too
+    update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
   });
   //]]>
 </script>
@@ -140,7 +154,7 @@
   </div>
   <div id="tags" class=""bld top-mar"> <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category), :class => 'tag' %></div>
   <div id="tot_prog_loading" class="progress" style="opacity:0;"></div>
-  <div class="prepend-top bottom-mar bld big special-text right_mar_small" id="tot_votes"><%= "#{@total_v} Votes" %></div>
+  <div class="prepend-top bottom-mar bld big special-text right_mar_small" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></div>
 </div>
 
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
@@ -157,7 +171,7 @@
 
 
 <div id="vote_dlg" class="span-18 last" >
-  <% if !(@total_v == 0) %>
+  <% if !(@vote_topic.total_votes == 0) %>
     <%= render :partial => "vote_tally"%>
   <% end  %>
 </div>
@@ -174,6 +188,7 @@
       <% form_for ([@vote_topic, Comment.new]) do |f| %>
         <ul class="list_no_pad_no_style">
           <li><%= f.text_area :body %></li>
+          <li id="limit_status"></li>
           <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
         </ul>
       <% end %>

@@ -1,12 +1,8 @@
-$j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals =>
-    {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'process'}) %>");
 
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
-$j('#vote_link').button({icons:{primary:'ui-icon-person'}});
-$j('#vote_form').submit(function (){
-showLoading('#vote_prog_loading')
-$j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
-hideLoading('#vote_prog_loading');
-}, "script");
-return false;
-});
+if ($j('#cancel_vote_link').closest('li').hasClass('ui-state-active')) {
+  $j('#cancel_vote_link').closest('li').removeClass('ui-state-active').addClass('ui-widget-content');
+} 
+$j('#cancel_vote_link').remove();
+$j('#goto_comment_link').remove();
+

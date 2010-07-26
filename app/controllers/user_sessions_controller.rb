@@ -42,6 +42,7 @@ class UserSessionsController < ApplicationController
         @user_session = current_user_session
         @user_session.destroy if @user_session
         flash[:notice] = "Sign out successful!"
-        redirect_back_or_default root_url
+#        redirect_back_or_default root_url
+        redirect_to root_url
     end
 end

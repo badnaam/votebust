@@ -17,7 +17,8 @@ class UsersController < ApplicationController
             if @user.save_without_session_maintenance
                 @user.send_later :deliver_activation_instructions!
                 flash[:notice] = t('users.create.confirmation')
-                redirect_back_or_default root_url
+#                redirect_back_or_default root_url
+                redirect_to root_url
             else
                 render :action => :new
             end

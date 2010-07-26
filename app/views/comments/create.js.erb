@@ -1,6 +1,8 @@
 if ($j('#comments .pagination').length > 0) {
-  $j('#comments .pagination').after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+  $j('#comments .pagination').first().after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
 } else {
   $j('#comments').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
 }
 
+$j('#comment_body').val("");
+update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));

@@ -1,14 +1,2 @@
-$j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url =>
-      cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'}) %>");
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
-
-$j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
-$j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
-
-$j('#vote_form').submit(function (){
-showLoading('#vote_prog_loading')
-$j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
-hideLoading('#vote_prog_loading');
-}, "script");
-return false;
-});
+$j('#vote_link').remove();
