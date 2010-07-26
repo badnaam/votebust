@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
         a.account_mapping_mode :internal
     end
 
-    attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image
+    attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
     has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
 
     acts_as_voter
@@ -25,7 +25,21 @@ class User < ActiveRecord::Base
     has_many :comments
     has_many :votes, :foreign_key => :voter_id
     
-    validates_presence_of :email, :sex, :age
+    validates_presence_of :email, :message => "Please enter a valid email"
+    validates_presence_of :sex, :message => "Please select a gender"
+    validates_presence_of :age, :message => "Please enter your age"
+    validates_presence_of :zip, :message => "Can't be blank"
+#    validates_format_of :zip, :with => /^\d{5}(-\d{4})?$/, :message => "should be in the form 12345"
+   validates_format_of :zip,
+      :with => /^[\d]{5}+$/,
+      :message => "Not a valid zip code"
+
+
+    #    validates_format_of :zip,
+    #                    :with => %r{\d{5}(-\d{4})?},
+    #                    :message => "Should be 5 digits"
+#        validates_format_of :zip, :with => /^[0-9]{5}(-[0-9]{4})?$/, :message => "Invalid Zipcode"
+    #    validates_length_of :zip, :is => 5, :message => "Zipcode should be 5 digits"
 
     scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count.all(:limit => Constants::SMART_COL_LIMIT)}
         

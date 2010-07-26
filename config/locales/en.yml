@@ -57,10 +57,12 @@ en:
          sex: "Never displayed or shared. Used for processing votes."
          age: "Never displayed or shared. Used for processing votes."
          image: "Upload a profile image. Less than 1MB"
+         zip: "Please enter a 5 digit zip code. Never displayed or shared. Used for processing votes."
        edit:
          sex: "Never displayed or shared. Used for processing votes."
          age: "Never displayed or shared. Used for processing votes."
          image: "Upload a profile image. Less than 1MB"
+         zip: "Please enter a 5 digit zip code. Never displayed or shared. Used for processing votes."
      vote_topic:
        new:
          header: "What should people vote on?"

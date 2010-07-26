@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    layout proc { |controller| controller.action_name == 'new' ? 'login' : 'main' }
+    layout proc { |controller| controller.action_name == 'show' ? 'main' : 'login' }
     before_filter :require_no_user, :only => [:new, :create]
     before_filter :require_user, :except => [:new, :create]
     filter_access_to [:edit, :update], :attribute_check => true
@@ -12,12 +12,18 @@ class UsersController < ApplicationController
     def create
         @user = User.new(params[:user])
         @user.role = Role.find_by_name('user')
-        v = verify_recaptcha(:model => @user, :message => "Image verification failure!")
-        if v & @user.save_without_session_maintenance
-            @user.send_later :deliver_activation_instructions!
-            flash[:notice] = t('users.create.confirmation')
-            redirect_back_or_default root_url
+        v = verify_recaptcha(:model => @user, :message => "Text entered did not match the image!")
+        if v 
+            if @user.save_without_session_maintenance
+                @user.send_later :deliver_activation_instructions!
+                flash[:notice] = t('users.create.confirmation')
+                redirect_back_or_default root_url
+            else
+                render :action => :new
+            end
         else
+#            @user.errors.add()
+#            flash[:error] = "Text entered did not match the image"
             render :action => :new
         end
     end
@@ -32,10 +38,10 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = @current_user # makes our views "cleaner" and more consistent
+        @user = current_user # makes our views "cleaner" and more consistent
         if @user.update_attributes(params[:user])
             flash[:notice] = "Account updated!"
-#            redirect_to current_user
+            #            redirect_to current_user
             redirect_back_or_default current_user
         else
             render :action => :edit

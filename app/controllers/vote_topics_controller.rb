@@ -29,7 +29,8 @@ class VoteTopicsController < ApplicationController
     def update_stats
         @vote_topic = VoteTopic.find(params[:id], :conditions => ['status = ?', VoteTopic::STATUS['approved']])
         if @vote_topic.total_votes > 0
-            @vote_items = @vote_topic.vote_items
+            @total_v = @vote_topic.total_votes
+            @vote_items = @vote_topic.get_sorted_vi
             @selected_response = @vote_topic.what_vi_user_voted_for(current_user) if current_user
             @p_chart = @vote_topic.make_flash_pie_graph(true)
         end

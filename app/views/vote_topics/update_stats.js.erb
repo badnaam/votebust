@@ -1,3 +1,4 @@
+
 $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
 <% unless (@vote_topic.total_votes == 0) %>
   if ($j('#vote_dlg').children().size() == 0) {
@@ -5,13 +6,34 @@ $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %
   $j("#chart_controls a:contains('Pie')").button({icons:{primary:'ui-icon-document'}, text:false});
   $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
   $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
+  } else {
+    $j("#chart_controls a:contains('Pie')").trigger('click');
   }
- <%if current_user && !@vote_items.nil? && !@selected_response.nil? %>
-    $j('div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'process'}) %>");
+  <%if current_user && !@vote_items.nil? && !@selected_response%>
+    $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'process'}) %>");
+    $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
+    $j('#vote_form').submit(function (){
+    showLoading('#vote_prog_loading')
+    $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
+    hideLoading('#vote_prog_loading');
+    }, "script");
+    return false;
+    });
+
   <% elsif current_user && @selected_response %>
-    $j('div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'}) %>");
+    $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'}) %>");
+    $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+    $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
+    $j('#vote_form').submit(function (){
+    showLoading('#vote_prog_loading')
+    $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
+    hideLoading('#vote_prog_loading');
+    }, "script");
+    return false;
+    });
   <% elsif !current_user %>
-    $j('div_vote_form').html("<%= escape_javascript(render :partial => "vote_form_need_login", :locals => {:action => 'login'}) %>");
+    $j('#div_vote_form').html("<%= escape_javascript(render :partial => "vote_form_need_login", :locals => {:action => 'login'}) %>");
+    $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
   <% end  %>
 <% else %>
   $j('#vote_dlg').empty();

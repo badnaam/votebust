@@ -17,6 +17,6 @@ authorization do
     end
 
     role :admin do
-        has_permission_on [:user, :vote_topic], :to => [:index, :show, :new, :create, :update, :destroy, :edit, :deactivate, :activate]
+        has_permission_on [:users, :vote_topics], :to => [:index, :show, :new, :create, :update, :destroy, :edit, :deactivate, :activate]
     end
 end

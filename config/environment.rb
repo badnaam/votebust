@@ -13,7 +13,9 @@ Rails::Initializer.run do |config|
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','*.{rb,yml}')]
     config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
+    APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
 
     # Specify gems that this application depends on and have them installed with rake gems:install
     # config.gem "bj"
@@ -36,31 +38,29 @@ Rails::Initializer.run do |config|
     # Run "rake -D time" for a list of tasks for finding time zone names.
     config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
 
-#    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
-#    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
-
-#    ENV['RPX_KEY'] = '18c3db9c36e3ce844af615637cfc9ffbac08448f'
+    #    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
+    #    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
+    ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG['recap_pub_key']
+    ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG['recap_priv_key']
+    ENV['GOOGLE_JS_API'] = APP_CONFIG['google_js_api']
+    ENV['RPX_KEY'] = APP_CONFIG['rpx_key']
+    #    ENV['RPX_KEY'] = '18c3db9c36e3ce844af615637cfc9ffbac08448f'
     
     config.time_zone = 'Pacific Time (US & Canada)'
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','*.{rb,yml}')]
     
-#    config.action_mailer.default_url_options({:host => "localhost:3000"})
+    
     #    config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
     %w(middleware).each do |dir|
         config.load_paths << "#{RAILS_ROOT}/app/#{dir}"
     end
-    #prod - get new recaptcha keys?
-#    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
-#    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
-    #prod: have to install sphinx first?
-#    config.gem(
-#        'thinking-sphinx',
-#        :lib     => 'thinking_sphinx',
-#        :version => '1.3.16'
-#    )
-    #prod: run friendly_id migration
+    
     config.gem "friendly_id"
     #    config.gem "geokit", :source => "gems.github.com"
+    config.gem(
+        'thinking-sphinx',
+        :lib     => 'thinking_sphinx',
+        :version => '1.3.16'
+    )
     config.gem 'mime-types', :lib => "mime/types",     :version => '1.16'
     config.gem "authlogic", :source => "gems.github.com"
     config.gem "rpx_now"
@@ -68,13 +68,13 @@ Rails::Initializer.run do |config|
     config.gem "formtastic"
     config.gem "validation_reflection"
     #    config.gem "ym4r"
-    # prod: run delayed job migration
+    
     config.gem 'delayed_job'
     config.gem "simple-navigation"
-    #prod: run declarative authorization migration
+    
     config.gem "declarative_authorization"
     config.gem "searchlogic"
-#    config.gem "geokit", :source => "gems.github.com"
+    #    config.gem "geokit", :source => "gems.github.com"
     config.gem 'will_paginate', :lib => 'will_paginate',  :source => 'http://gemcutter.org'
 
 
