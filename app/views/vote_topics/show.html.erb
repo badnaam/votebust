@@ -1,6 +1,6 @@
-<% if @preview %>
+<% if @status == 'preview' %>
   <%= render :partial => "prev" %>
-<% elsif  @approved%>
+<% elsif  @status == 'approved'%>
   <%= render :partial => "vote" %>
   <% content_for :right_nav do %>
     <% if @related.total_entries > 0 %>
@@ -10,7 +10,7 @@
       <%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @same_user, :header => "More from #{@vote_topic.user.username}"} %>
     <% end  %>
   <% end  %>
-<% elsif @waiting %>
+<% elsif @status == 'waiting' %>
 <% end  %>
 
 

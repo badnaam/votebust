@@ -29,19 +29,28 @@ class User < ActiveRecord::Base
     validates_presence_of :sex, :message => "Please select a gender"
     validates_presence_of :age, :message => "Please enter your age"
     validates_presence_of :zip, :message => "Can't be blank"
-#    validates_format_of :zip, :with => /^\d{5}(-\d{4})?$/, :message => "should be in the form 12345"
-   validates_format_of :zip,
+    validates_format_of :zip,
       :with => /^[\d]{5}+$/,
       :message => "Not a valid zip code"
 
+    attr_accessor :skip_profile_update
 
-    #    validates_format_of :zip,
-    #                    :with => %r{\d{5}(-\d{4})?},
-    #                    :message => "Should be 5 digits"
-#        validates_format_of :zip, :with => /^[0-9]{5}(-[0-9]{4})?$/, :message => "Invalid Zipcode"
-    #    validates_length_of :zip, :is => 5, :message => "Zipcode should be 5 digits"
-
-    scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count.all(:limit => Constants::SMART_COL_LIMIT)}
+    before_save :check_what_changed
+    
+    def check_what_changed
+        if self.changed.sort == ["last_request_at", "perishable_token"]
+            self.skip_profile_update = true
+            return true
+        else
+            self.skip_profile_update = false
+            return true
+        end
+    end
+    
+#    scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count(:limit => Constants::SMART_COL_LIMIT)}
+    named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT,
+            :select => 'id, username, votes_count, image_file_name, processing, image_updated_at, image_content_type, image_file_size'}
+    }
         
     before_image_post_process do |user|
         if user.image_changed?
@@ -51,8 +60,10 @@ class User < ActiveRecord::Base
     end
 
     after_save do |user|
-        if user.image_changed?
-            Delayed::Job.enqueue ImageJob.new(user.id)
+        unless user.skip_profile_update
+            if user.image_changed?
+                Delayed::Job.enqueue ImageJob.new(user.id)
+            end
         end
     end
 

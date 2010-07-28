@@ -4,7 +4,8 @@
     <%users.each do |r|  %>
       <li>
         <% if !missing_user_image?(r) %>
-          <%=image_tag r.image.url(:small), :class => 'profile-image'%>
+        <img src="<%= r.image.url(:small) %>" class="profile-image" alt="<%= r.username %>"/>
+          <%#=image_tag r.image.url(:small), :class => 'profile-image'%>
         <% end  %>
         <%#= link_to "#{r.username}(#{r.votes_count} votes)", r %>
       </li>

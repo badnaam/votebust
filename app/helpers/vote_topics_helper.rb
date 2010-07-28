@@ -54,7 +54,8 @@ module VoteTopicsHelper
 #        end
 #    end
     def get_vote_percent(v, total_votes)
-        votes = v.votes_count
+#        votes = v.votes_count
+        votes = v.votes.size
         if votes == 0
             return "#{v.option} - 0%"
         elsif total_votes == 0

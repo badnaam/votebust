@@ -24,25 +24,63 @@ class VoteTopic < ActiveRecord::Base
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
     after_destroy :destroy_graphs
-    #    after_save :send_friendly_emails, :if => Proc.new { |vote_topic| !vote_topic.friend_emails.nil? }
-    attr_accessible :topic, :header, :vote_items_attributes, :cached_slug, :friend_emails, :anon, :header, :category_id
+    attr_accessible :topic, :header, :vote_items_attributes, :cached_slug, :friend_emails, :anon, :header, :category_id, :website
     has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
+    
+    
+    
     #    acts_as_mappable :through => :merchant
 
     #    scope_procedure :latest, lambda {created_at_gte(p[0]).created_at_lt(p[1]) }
     scope_procedure :latest, lambda {created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago) }
     scope_procedure :unanimous_votes, lambda {unan_equals(true).descend_by_created_at.all(:limit => Constants::SMART_COL_LIMIT)}
-    scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT) }
+    scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes(:limit => Constants::SMART_COL_LIMIT, :select => "id, header, total_votes, created_at") }
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
     scope_procedure :in_preview, lambda {status_equals(STATUS['preview']).ascend_by_created_at}
+    scope_procedure :by_category_listing, lambda {|cid|status_equals(STATUS['approved']).category_id_equals(cid).descend_by_created_at(:include => [{:vote_items => :votes}, :user, :category])}
+    scope_procedure :all_approved, lambda {status_equals(STATUS['approved']).descend_by_created_at(:include => [{:vote_items => :votes}, :user, :category])}
 
+
+    def self.category_list cid, page
+        VoteTopic.paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
+            :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+        vote_items.option')
+    end
+
+    def self.general_list page
+        VoteTopic.paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
+            :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+        vote_items.option')
+    end
+
+    def self.find_for_processing(id)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}])
+    end
+    def self.find_for_comments(id)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => :comments)
+    end
+    
+    def self.find_for_show(id)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments])
+    end
+    def self.find_for_stats(id)
+        #        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}])
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}], :select => ("id,
+    total_votes"))
+    end
+
+    def self.find_for_graphs(id)
+        find(id, :include => [{:vote_items => :votes}])
+    end
+    
     def send_friendly_emails
         self.send_later :deliver_friendly_vote_emails!
     end
     
     def self.get_top_votes
         h = Hash.new
-        coll = VoteTopic.status_equals('a').descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => :vote_items)
+        coll = VoteTopic.status_equals('a').descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => [{:vote_items => :votes},
+                :user, :category])
         coll.each do |vt|
             arr = Array.new
             vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
@@ -55,7 +93,8 @@ class VoteTopic < ActiveRecord::Base
 
     def self.get_all_votes_user (user)
         h = Hash.new
-        coll = VoteTopic.user_id_equals(user.id).descend_by_total_votes.all(:include => :vote_items)
+        coll = VoteTopic.user_id_equals(user.id).descend_by_total_votes.all(:include => [{:vote_items => :votes},
+                :user, :category])
         coll.each do |vt|
             arr = Array.new
             vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
@@ -65,6 +104,7 @@ class VoteTopic < ActiveRecord::Base
         end
         return h
     end
+
     def get_sorted_vi
         arr = Array.new
         self.vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
@@ -86,15 +126,7 @@ class VoteTopic < ActiveRecord::Base
         return h
     end
 
-    #    def get_sorted_vi
-    #        arr = Array.new
-    #        self.vote_items.all(:joins => :votes, :select => "vote_items.*, count(vote_items.id) AS vote_count",
-    #            :group => :id, :order => "vote_count DESC").each do |vi|
-    #            arr << vi
-    #        end
-    #        return arr
-    #    end
-
+    
     def valid_email?
         if !self.friend_emails.nil?
             emails = self.friend_emails.split(",")
@@ -111,11 +143,12 @@ class VoteTopic < ActiveRecord::Base
     define_index do
         indexes :header
         indexes :topic
+        indexes :status
         indexes vote_items.option, :as => :option
         indexes category.name, :as => :category_name
         
         has created_at, updated_at, :total_votes
-        has category_id, user_id
+        has category_id, user_id, :status
     end
 
     def destroy_graphs
@@ -196,7 +229,7 @@ class VoteTopic < ActiveRecord::Base
         totals = Array.new
 
         vi.each do |vv|
-            tv = vv.votes_for
+            tv = vv.votes.size
             totals << tv
             male_val =  vv.male_votes
             female_val =  vv.female_votes
@@ -253,7 +286,7 @@ class VoteTopic < ActiveRecord::Base
         totals = Array.new
 
         vi.each do |vv|
-            totals << vv.votes_for
+            totals << vv.votes.size
             ag1 =  vv.ag_1_v
             ag2 = vv.ag_2_v
             ag3 = vv.ag_3_v
@@ -317,7 +350,7 @@ class VoteTopic < ActiveRecord::Base
         
         vals = Array.new
         vi.each do |x|
-            vals << PieValue.new(x.votes_for, "#{x.option}")
+            vals << PieValue.new(x.votes.size, "#{x.option}")
 
         end
         pie.values = vals
@@ -348,14 +381,18 @@ class VoteTopic < ActiveRecord::Base
     end
 
     def what_vi_user_voted_for(user)
-        vi = self.vote_items
-        if !vi.nil?
-            vi.each do |v|
-                if user.voted_for?(v)
-                    return v
-                end
-            end
+        if user.nil?
             return nil
+        else
+            vi = self.vote_items
+            if !vi.nil?
+                vi.each do |v|
+                    if user.voted_for?(v)
+                        return v
+                    end
+                end
+                return nil
+            end
         end
     end
     

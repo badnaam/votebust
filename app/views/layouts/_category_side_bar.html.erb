@@ -1,7 +1,7 @@
 <div class="span-6 last  prepend-top ui-widget-content">
   <ul class="list-no-pad-no-style-close sidebox-list">
     <li class="ui-widget-header">Categories</li>
-    <%  Category.all.each do |c|  %>
+    <%  Category.get_all.each do |c|  %>
       <li><%= link_to c.name, category_vote_topics_path(c) %></li>
     <% end  %>
   </ul>

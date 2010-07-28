@@ -6,6 +6,7 @@ class Constants
     VOTE_PROCESS_FREQ = 8.hours
     VOTE_REFRESH_INTERVAL = 20000
     MAX_COMMENT_LENGTH = 500
+    LISTINGS_PER_PAGE = 10
     
     GRAPH_TITLE_STYLE = '{font-size: 12px; color: #F24062;font-weight: bold;font-family:Verdana; text-align: center;}' 
     GRAPH_X_AXIS_LABEL_COLOR = '#000000'

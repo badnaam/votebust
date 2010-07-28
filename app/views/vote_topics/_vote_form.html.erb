@@ -2,20 +2,19 @@
   //<![CDATA[
   
   
-  
-  
   //]]>
 </script>
 
 <div id="div_process_vote">
   <% form_tag submit_url, :id => "vote_form" do |f| %>
-    <%= hidden_field_tag :user_id, current_user.id %>
+    <%= hidden_field_tag :user_id, (@user).id %>
+    <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
     <ul class="list_no_pad_no_style top-mar">
       <% first = true %>
-      <% @vote_items.each do |v| %>
+      <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
         <% if !@selected_response.nil?  && @selected_response == v%>
           <li class="ui-state-active">
-            <% if first && (v.votes_for) > 0 %>
+            <% if first && (v.votes.size) > 0 %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
               <% first = false %>
             <% else %>
@@ -26,7 +25,7 @@
             <span class ="small-button"><a href="#comment_form" id="goto_comment_link">Comment</a></span>
           <% else %>
           <li class="ui-widget-content">
-            <% if first && v.votes_for > 0 %>
+            <% if first && v.votes.size > 0 %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
               <% first = false %>
             <% else %>
@@ -41,8 +40,9 @@
       <% end %>
       <li>
         <% if action == 'process' %>
-          <% if !registration_complete? %>
-            <%= link_to "Complete Registration to Vote", edit_user_path(current_user) %>
+          <%# if !registration_complete? %>
+          <% if !@reg_complete %>
+            <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
           <% else %>
             <span class="small-button"><button id="vote_link">Vote</button></span>
           <% end  %>

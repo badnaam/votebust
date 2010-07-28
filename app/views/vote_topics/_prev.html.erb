@@ -13,7 +13,7 @@
 <div class="bld">
   Please preview your vote and click Confirm if you are satisfied. <em>The vote can not be changed once it has been confirmed and active</em>.
 </div>
-<% form_tag confirm_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :id => "confirm_vote_form" do |f| %>
+<% form_tag confirm_vote_vote_topic_path(@vote_topic, :user_id => @user.id), :id => "confirm_vote_form" do |f| %>
 <div class=" span-18 last">
   <div class=" ui-state-default ui-corner-all prepend-top normal-pad right-mar append-bottom">
     <h4 class="ui-widget-header normal-pad">Preview Vote</h4>
@@ -30,14 +30,14 @@
     </div>
     <div id="div_process_vote">
       <ul class="list_no_pad_no_style top-mar">
-        <% @vote_items.each do |v| %>
+        <% @vote_topic.vote_items.each do |v| %>
           <li class="ui-widget-content">
             <span class="ui-icon ui-icon-document list-icon"></span><%= v.option %>
           </li>
         <% end %>
         <li>
           <span class=small-button style="margin-right:2em"><button id ="vote_confirm_link">Confirm</button></span>
-          <span class=small-button><%= link_to "Edit", edit_user_vote_topic_path(current_user, @vote_topic), :id => 'vote_edit_link' %></span>
+          <span class=small-button><%= link_to "Edit", edit_user_vote_topic_path(@user, @vote_topic), :id => 'vote_edit_link' %></span>
         </li>
       </ul>
     </div>

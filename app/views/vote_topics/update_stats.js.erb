@@ -9,8 +9,8 @@ $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %
   } else {
     $j("#chart_controls a:contains('Pie')").trigger('click');
   }
-  <%if current_user && !@vote_items.nil? && !@selected_response%>
-    $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'process'}) %>");
+  <%if @user && !@vote_topic.vote_items.nil? && !@selected_response%>
+    $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'process'}) %>");
     $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
     $j('#vote_form').submit(function (){
     showLoading('#vote_prog_loading')
@@ -20,8 +20,8 @@ $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %
     return false;
     });
 
-  <% elsif current_user && @selected_response %>
-    $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'}) %>");
+  <% elsif @user && @selected_response %>
+    $j('#div_vote_form').html("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'cancel'}) %>");
     $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
     $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
     $j('#vote_form').submit(function (){
@@ -31,7 +31,7 @@ $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %
     }, "script");
     return false;
     });
-  <% elsif !current_user %>
+  <% elsif !@user %>
     $j('#div_vote_form').html("<%= escape_javascript(render :partial => "vote_form_need_login", :locals => {:action => 'login'}) %>");
     $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
   <% end  %>

@@ -2,7 +2,7 @@
   <ul class="list-no-pad-no-style-close sidebox-list">
     <li class="ui-widget-header"><%= header %></li>
     <%votes.each do |r|  %>
-      <li><%= link_to truncate(r.header, :length => Constants::SIDE_BAR_LINK_LENGTH, :omission => '...'), r %></li>
+      <li><%= link_to r.header[0..Constants::SIDE_BAR_LINK_LENGTH] << "...", r %></li>
     <% end  %>
   </ul>
 </div>

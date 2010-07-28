@@ -57,7 +57,7 @@
 
     function updatePageElems() {
       showLoading($j('#tot_prog_loading'));
-      $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>', function(data){
+      $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>', function(data){
         hideLoading($j('#tot_prog_loading'));
       }, 'script');
     }
@@ -140,7 +140,7 @@
 </script>
 
 <div class=" span-18 last">
-  <% @total_v = @vote_topic.total_votes %>
+  <% @vote_topic.total_votes %>
   <div class=" ui-state-hover ui-corner-all prepend-top normal-pad right-mar">
     <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
     <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
@@ -160,11 +160,11 @@
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
 
 <div id="div_vote_form" class="span-18 last" >
-  <%if current_user && !@vote_items.nil? && !@selected_response%>
-    <%= render :partial => "vote_form", :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'process'} %>
-  <% elsif current_user && @selected_response %>
-    <%= render :partial => "vote_form", :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => current_user.id), :action => 'cancel'} %>
-  <% elsif !current_user %>
+  <%if @user && !@vote_topic.vote_items.nil? && !@selected_response%>
+    <%= render :partial => "vote_form", :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'process'} %>
+  <% elsif @user && @selected_response %>
+    <%= render :partial => "vote_form", :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'cancel'} %>
+  <% elsif !@user %>
     <%= render :partial => "vote_form_need_login", :locals => {:action => 'login'} %>
   <% end  %>
 </div>
@@ -180,7 +180,7 @@
 
 <div id="comments_container" class=" prepend-top span-18 last">
   <span class="bld clearfix bottom-mar">Comments</span>
-  <% if current_user.nil? %>
+  <% if @user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>
     <div id="com_submit_loading" class="progress" style="opacity:0;"></div>

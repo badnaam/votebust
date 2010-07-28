@@ -1,13 +1,13 @@
-<%# if local_assigns[:vi].nil? %>
-  <%# vi = vt.get_sorted_vi if !vt.nil? %>
-<%# end  %>
-<% if local_assigns[:top_vote].nil? %>
-  <% top_vote = false %>
-<% end  %>
-
 <%= page_entries_info @vote_topics, :entry_name => "Votes" %>
 <%= will_paginate @vote_topics, :class => 'pagination ' %>
-<% @vote_topics.each  do |vt| %>
+<% @vote_topics.reverse_each do |vt| %>
+  <% if local_assigns[:vi].nil? %>
+    <% vi = vt.get_sorted_vi if !vt.nil? %>
+  <% end  %>
+  <% if local_assigns[:top_vote].nil? %>
+    <% top_vote = false %>
+  <% end  %>
+
   <% if !vt.nil? %>
     <div class="ui-widget-content bottom-mar normal-pad right-mar">
       <div class="clearfix bld bottom-mar ui-widget-header normal-pad">
@@ -27,7 +27,7 @@
       </div>
       <ul>
         <% first = true %>
-        <% vt.vote_items.each do |v| %>
+        <% vi.each do |v| %>
           <li>
             <% if first %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
@@ -37,6 +37,7 @@
               <span class="ui-icon ui-icon-document list-icon"></span>
               <span><%=  get_vote_percent(v, vt.total_votes)%></span>
             <% end  %>
+
           </li>
         <% end  %>
       </ul>

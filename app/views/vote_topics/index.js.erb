@@ -1,0 +1,5 @@
+<% if @user_listing %>
+  $('#vote_list').html("<%= escape_javascript(render :partial => 'vote_list') %>");
+<% else %>
+  $('#vote_list').html("<%= escape_javascript(render :partial => 'user_vote_list') %>");
+<% end  %>
