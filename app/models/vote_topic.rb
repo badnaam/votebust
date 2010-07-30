@@ -24,16 +24,10 @@ class VoteTopic < ActiveRecord::Base
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
     after_destroy :destroy_graphs
-    attr_accessible :topic, :header, :vote_items_attributes, :cached_slug, :friend_emails, :anon, :header, :category_id, :website
+    attr_accessible :topic, :header, :vote_items_attributes, :friend_emails, :anon, :header, :category_id, :website
 #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     
-    
-    
-    #    acts_as_mappable :through => :merchant
-
-    #    scope_procedure :latest, lambda {created_at_gte(p[0]).created_at_lt(p[1]) }
-    scope_procedure :latest, lambda {created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago) }
-    scope_procedure :unanimous_votes, lambda {unan_equals(true).descend_by_created_at.all(:limit => Constants::SMART_COL_LIMIT)}
+#    scope_procedure :unanimous_votes, lambda {unan_equals(true).descend_by_created_at.all(:limit => Constants::SMART_COL_LIMIT)}
     scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes(:limit => Constants::SMART_COL_LIMIT, :select => "id, header, total_votes, created_at") }
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
     scope_procedure :in_preview, lambda {status_equals(STATUS['preview']).ascend_by_created_at}
@@ -41,15 +35,19 @@ class VoteTopic < ActiveRecord::Base
     scope_procedure :all_approved, lambda {status_equals(STATUS['approved']).descend_by_created_at(:include => [{:vote_items => :votes}, :user, :category])}
 
 
+    def self.unanimous_votes
+        find(:all, :conditions => {:unan => true}, :order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT, :select => 'id, header, unan')
+    end
+    
     def self.category_list cid, page
         VoteTopic.paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
-            :select => 'vote_topics.cached_slug, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+            :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
         vote_items.option')
     end
 
     def self.general_list page
         VoteTopic.paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
-            :select => 'vote_topics.cached_slug, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+            :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
         vote_items.option')
     end
 
@@ -63,7 +61,7 @@ class VoteTopic < ActiveRecord::Base
     def self.find_for_show(id)
 #        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments])
         VoteTopic.find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments],
-          :select => 'vote_topics.status, vote_topics.id, vote_topics.cached_slug, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
+          :select => 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
         categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option, total_votes, comments.id, comments.body, comments.user_id, comments.vote_topic_id ')
     end
     def self.find_for_stats(id)
@@ -83,8 +81,12 @@ class VoteTopic < ActiveRecord::Base
     
     def self.get_top_votes
         h = Hash.new
-        coll = VoteTopic.status_equals('a').descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => [{:vote_items => :votes},
-                :user, :category])
+        coll = VoteTopic.find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :user, :category], :limit => Constants::SMART_COL_LIMIT,
+            :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+        vote_items.option')
+        
+#        coll = VoteTopic.status_equals('a').descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => [{:vote_items => :votes},
+#                :user, :category])
         coll.each do |vt|
             arr = Array.new
             vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|

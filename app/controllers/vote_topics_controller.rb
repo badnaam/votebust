@@ -42,9 +42,9 @@ class VoteTopicsController < ApplicationController
     end
     
     def cancel_vote
-        @user = User.find(params[:user_id], :select => "users.id, users.processing_vote, users.persistence_token, users.sex, users.age, users.username, users.cached_slug")
+        @user = User.find(params[:user_id], :select => "users.id, users.processing_vote, users.persistence_token, users.sex, users.age, users.username")
         if @user.processing_vote == false
-            @selected_response = VoteItem.find(params[:sel_response], :include => [:vote_topic],:select => "vote_topics.header,vote_topics.cached_slug, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option, ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
+            @selected_response = VoteItem.find(params[:sel_response], :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option, ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
             @vote_topic = @selected_response.vote_topic
             @reg_complete = params[:reg_complete]
             if Vote.find(:first, :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy && @vote_topic.decrement!(:total_votes, 1)
@@ -61,11 +61,11 @@ class VoteTopicsController < ApplicationController
     end
 
     def process_votes
-        @user = User.find(params[:user_id], :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username, users.cached_slug")
+        @user = User.find(params[:user_id], :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username")
         @reg_complete = params[:reg_complete]
         if @user.processing_vote == false
             if  !params[:response].nil? && !@user.nil?
-                @selected_response = VoteItem.find(params[:response], :include => [:vote_topic],:select => "vote_topics.header,vote_topics.cached_slug, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option, ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
+                @selected_response = VoteItem.find(params[:response], :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option, ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
                 @vote_topic = @selected_response.vote_topic
                 if !@user.voted_for?(@selected_response)
                     if @user.vote_for(@selected_response) && @vote_topic.increment!(:total_votes, 1)
