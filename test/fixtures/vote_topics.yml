@@ -1,11 +1,2257 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  topic: MyString
-  status: MyString
-  published_at: 2010-07-04 17:38:15
-
-two:
-  topic: MyString
-  status: MyString
-  published_at: 2010-07-04 17:38:15
+--- 
+vote_topics_134: 
+  created_at: 2010-07-12 22:12:02
+  total_votes: "1"
+  updated_at: 2010-07-24 00:42:21
+  header: Favorite Site
+  topic: Adipisci placeat id consequatur reiciendis laborum
+  anon: "0"
+  id: "134"
+  category_id: "3"
+  user_id: "65"
+  friend_emails: 
+  website: 
+  unan: "1"
+  published_at: 
+  cached_slug: favorite-site
+  status: a
+vote_topics_106: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "50"
+  updated_at: 2010-07-27 00:44:19
+  header: Fugit voluptatem voluptate possimus praesentium non voluptas iste accusantium aliquam ullam magnam omnis officia tenetur maiores
+  topic: Nobis excepturi facilis sint sapiente quidem aut nisi corporis corporis dignissimos magni possimus ut temporibus dignissimos
+  anon: "1"
+  id: "106"
+  category_id: "7"
+  user_id: "46"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:58
+  cached_slug: fugit-voluptatem-voluptate-possimus-praesentium-no
+  status: a
+vote_topics_020: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Maxime alias dicta nulla fugiat maiores tenetur officia et ipsum
+  topic: Beatae optio consequuntur non provident aliquid autem ut quia officiis optio
+  anon: "1"
+  id: "20"
+  category_id: "11"
+  user_id: "12"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:51
+  cached_slug: maxime-alias-dicta-nulla-fugiat-maiores-tenetur-of
+  status: a
+vote_topics_079: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Adipisci eum molestiae veniam ab quia eos excepturi quia neque aliquam vel doloremque sint ducimus similique
+  topic: Doloremque est ex consectetur ut atque porro ducimus deserunt aliquam dicta porro eius modi illum et qui consequatur dolores inventore
+  anon: "1"
+  id: "79"
+  category_id: "24"
+  user_id: "35"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: adipisci-eum-molestiae-veniam-ab-quia-eos-exceptur
+  status: a
+vote_topics_135: 
+  created_at: 2010-07-15 01:45:29
+  total_votes: "1"
+  updated_at: 2010-07-24 00:42:21
+  header: Vatican abuse rules
+  topic: Molestias est molestiae repellendus at sunt totam
+  anon: "0"
+  id: "146"
+  category_id: "17"
+  user_id: "12"
+  friend_emails: 
+  website: 
+  unan: "1"
+  published_at: 
+  cached_slug: vatican-abuse-rules
+  status: a
+vote_topics_021: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Est eius cumque ea et id aut
+  topic: Rem est inventore rerum odio ipsam sint provident dicta
+  anon: "0"
+  id: "21"
+  category_id: "17"
+  user_id: "12"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:51
+  cached_slug: est-eius-cumque-ea-et-id-aut
+  status: a
+vote_topics_107: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Alias est ipsum dignissimos tempore
+  topic: Aut minima dolore cum asperiores quibusdam at quas maxime excepturi
+  anon: "1"
+  id: "107"
+  category_id: "9"
+  user_id: "46"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:58
+  cached_slug: alias-est-ipsum-dignissimos-tempore
+  status: a
+vote_topics_136: 
+  created_at: 2010-07-15 02:54:18
+  total_votes: "1"
+  updated_at: 2010-07-24 00:42:21
+  header: Haiti
+  topic: Dolor eveniet eos alias atque et quibusdam sed voluptas vitae sunt recusandae tempora sunt aut veniam
+  anon: "1"
+  id: "147"
+  category_id: "17"
+  user_id: "12"
+  friend_emails: asit@gmail.com, bada@hotmail.com
+  website: 
+  unan: "1"
+  published_at: 
+  cached_slug: haiti
+  status: a
+vote_topics_050: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Quam et amet reprehenderit sit quos magni iure est rem dolorum veniam consequatur hic soluta et ab autem
+  topic: Itaque eius modi non debitis nesciunt quos ad earum nobis qui ad assumenda error id
+  anon: "1"
+  id: "50"
+  category_id: "10"
+  user_id: "24"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:53
+  cached_slug: quam-et-amet-reprehenderit-sit-quos-magni-iure-est
+  status: a
+vote_topics_022: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Voluptas delectus minima incidunt qui non delectus ipsa error quia hic ab in inventore temporibus fugiat et perferendis dolores
+  topic: Enim voluptatem voluptatibus quo aut perferendis et quos et quia
+  anon: "0"
+  id: "22"
+  category_id: "4"
+  user_id: "13"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:51
+  cached_slug: voluptas-delectus-minima-incidunt-qui-non-delectus
+  status: a
+vote_topics_108: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Quo reiciendis enim veritatis et sapiente dolores nihil et odit et quibusdam harum nobis rerum sed aut
+  topic: Quis eius quo fugit vero dolorem et aperiam aut vel reprehenderit natus in
+  anon: "0"
+  id: "108"
+  category_id: "20"
+  user_id: "46"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:58
+  cached_slug: quo-reiciendis-enim-veritatis-et-sapiente-dolores-
+  status: a
+vote_topics_137: 
+  created_at: 2010-07-15 05:01:48
+  total_votes: "0"
+  updated_at: 2010-07-24 00:42:21
+  header: Unde voluptatibus veritatis non quam accusantium est
+  topic: Facilis autem sed voluptatibus voluptatibus et ipsa quos quae fuga facere debitis qui aut nemo architecto
+  anon: "0"
+  id: "148"
+  category_id: "13"
+  user_id: "12"
+  friend_emails: asit@google.com
+  website: 
+  unan: "0"
+  published_at: 
+  cached_slug: unde-voluptatibus-veritatis-non-quam-accusantium-e
+  status: w
+vote_topics_023: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Nisi quidem ea et ut
+  topic: Vero quis aut eveniet maiores occaecati impedit nemo placeat sit ut voluptas facilis praesentium sunt accusantium
+  anon: "1"
+  id: "23"
+  category_id: "21"
+  user_id: "13"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:51
+  cached_slug: nisi-quidem-ea-et-ut
+  status: w
+vote_topics_109: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Fugit enim rerum magnam qui libero nam vero sapiente quam laboriosam qui qui
+  topic: Voluptatem sed iure dicta dolorem dolor perspiciatis magni magni dolores enim molestiae et sed tempore inventore
+  anon: "1"
+  id: "109"
+  category_id: "4"
+  user_id: "47"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:58
+  cached_slug: fugit-enim-rerum-magnam-qui-libero-nam-vero-sapien
+  status: a
+vote_topics_051: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Ipsum eum at rerum reiciendis fuga sed voluptas rem ut necessitatibus numquam vel
+  topic: Possimus sed aut omnis eos aliquam consequatur quaerat ut quo
+  anon: "1"
+  id: "51"
+  category_id: "17"
+  user_id: "25"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:53
+  cached_slug: ipsum-eum-at-rerum-reiciendis-fuga-sed-voluptas-re
+  status: a
+vote_topics_138: 
+  created_at: 2010-07-15 09:26:14
+  total_votes: "0"
+  updated_at: 2010-07-24 00:42:21
+  header: Voluptatibus libero error cum exercitationem laudantium eos iste et quo esse sit autem
+  topic: Quia eum nihil ex soluta velit officiis cum veniam est voluptate velit magnam aliquam laboriosam et voluptas eveniet voluptatem
+  anon: "0"
+  id: "149"
+  category_id: "12"
+  user_id: "28"
+  friend_emails: ""
+  website: 
+  unan: "0"
+  published_at: 
+  cached_slug: voluptatibus-libero-error-cum-exercitationem-lauda
+  status: p
+vote_topics_024: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Omnis illum dolores sunt qui perspiciatis facere tempora nisi laborum natus
+  topic: Est sunt dolor ipsam ut explicabo quis
+  anon: "1"
+  id: "24"
+  category_id: "22"
+  user_id: "13"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:51
+  cached_slug: omnis-illum-dolores-sunt-qui-perspiciatis-facere-t
+  status: w
+vote_topics_080: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Deleniti laboriosam necessitatibus eligendi earum quam non officiis animi quisquam quos veritatis ut est possimus ullam rerum
+  topic: Voluptas eaque aliquam odio sed error quod repellendus delectus corporis provident rerum nihil repellat ut id quia dolorum quia voluptatem
+  anon: "1"
+  id: "80"
+  category_id: "7"
+  user_id: "36"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:55
+  cached_slug: deleniti-laboriosam-necessitatibus-eligendi-earum-
+  status: a
+vote_topics_052: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Odit expedita hic voluptas fugiat repellat nihil
+  topic: Dolorum omnis tenetur incidunt officiis laboriosam qui quo aut debitis voluptatem consequatur
+  anon: "1"
+  id: "52"
+  category_id: "6"
+  user_id: "25"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:53
+  cached_slug: odit-expedita-hic-voluptas-fugiat-repellat-nihil
+  status: a
+vote_topics_139: 
+  created_at: 2010-07-15 09:27:39
+  total_votes: "0"
+  updated_at: 2010-07-24 00:42:22
+  header: Dolores est et omnis porro nostrum illum rem id
+  topic: Est aperiam et sapiente quo dolores quod quis ut magnam aliquam
+  anon: "0"
+  id: "150"
+  category_id: "12"
+  user_id: "28"
+  friend_emails: ""
+  website: 
+  unan: "0"
+  published_at: 
+  cached_slug: dolores-est-et-omnis-porro-nostrum-illum-rem-id
+  status: p
+vote_topics_025: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:09
+  header: Consequatur ipsa quia id et nihil natus rerum sapiente
+  topic: Laboriosam neque molestias quia id nisi dolores labore dignissimos
+  anon: "0"
+  id: "25"
+  category_id: "23"
+  user_id: "14"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:51
+  cached_slug: consequatur-ipsa-quia-id-et-nihil-natus-rerum-sapi
+  status: w
+vote_topics_081: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Voluptates perferendis voluptas earum hic unde tenetur et est voluptatem omnis perferendis autem suscipit quod
+  topic: Corrupti quos ea incidunt quibusdam ut ea deleniti
+  anon: "0"
+  id: "81"
+  category_id: "15"
+  user_id: "36"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: voluptates-perferendis-voluptas-earum-hic-unde-ten
+  status: a
+vote_topics_053: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-27 04:22:36
+  header: Et officiis aliquam voluptas deserunt error ea et ipsum tenetur aut odio et
+  topic: Nemo iure et explicabo qui et nostrum
+  anon: "1"
+  id: "53"
+  category_id: "8"
+  user_id: "25"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:53
+  cached_slug: et-officiis-aliquam-voluptas-deserunt-error-ea-et-
+  status: a
+vote_topics_026: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:09
+  header: Dolores quibusdam enim sint dolore ut facere ut voluptatem molestiae iste consequatur
+  topic: Tempore architecto rerum consequatur consequatur dolorem atque nobis beatae aut unde assumenda ut natus
+  anon: "0"
+  id: "26"
+  category_id: "11"
+  user_id: "14"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:51
+  cached_slug: dolores-quibusdam-enim-sint-dolore-ut-facere-ut-vo
+  status: a
+vote_topics_082: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Ipsam qui non illo explicabo dolorem sit
+  topic: Molestiae et voluptates est dignissimos totam maxime est saepe neque
+  anon: "0"
+  id: "82"
+  category_id: "11"
+  user_id: "37"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: ipsam-qui-non-illo-explicabo-dolorem-sit
+  status: a
+vote_topics_054: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Saepe ipsa minima laudantium aut laudantium et explicabo dolores nihil suscipit nihil sint est distinctio fuga nostrum sed repellat nihil
+  topic: Ducimus consequatur dolorum consequuntur nobis eum dicta corrupti ea eligendi at quo
+  anon: "1"
+  id: "54"
+  category_id: "9"
+  user_id: "26"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:54
+  cached_slug: saepe-ipsa-minima-laudantium-aut-laudantium-et-exp
+  status: a
+vote_topics_027: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:09
+  header: Et natus laboriosam in dolores consectetur in rerum consectetur et laborum eius consequatur
+  topic: Non minima ut suscipit aliquid adipisci eaque repellendus ducimus labore magni vitae repudiandae voluptas ipsa nulla odit deserunt delectus animi
+  anon: "0"
+  id: "27"
+  category_id: "22"
+  user_id: "14"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:51
+  cached_slug: et-natus-laboriosam-in-dolores-consectetur-in-reru
+  status: a
+vote_topics_083: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Quod voluptatem quia dolores fugiat vel
+  topic: Doloribus excepturi facilis occaecati debitis aut dolorem qui quibusdam voluptate quibusdam consequatur ut omnis fugiat esse quia
+  anon: "1"
+  id: "83"
+  category_id: "20"
+  user_id: "37"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: quod-voluptatem-quia-dolores-fugiat-vel
+  status: a
+vote_topics_055: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Qui et velit temporibus asperiores quia quod occaecati suscipit est sit dolorem
+  topic: In dolores necessitatibus occaecati omnis dolorem beatae eos cumque vel soluta minus
+  anon: "1"
+  id: "55"
+  category_id: "23"
+  user_id: "26"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:54
+  cached_slug: qui-et-velit-temporibus-asperiores-quia-quod-occae
+  status: a
+vote_topics_110: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Excepturi fugiat quia possimus qui asperiores placeat commodi ea aspernatur repudiandae magni illum eaque non quidem
+  topic: A id recusandae unde ad et corporis ducimus vel doloremque illum
+  anon: "0"
+  id: "110"
+  category_id: "16"
+  user_id: "47"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:58
+  cached_slug: excepturi-fugiat-quia-possimus-qui-asperiores-plac
+  status: a
+vote_topics_028: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:09
+  header: Libero non tempore qui unde
+  topic: Et eligendi eum illo repudiandae et est rerum velit illum delectus porro nisi et accusantium accusantium
+  anon: "1"
+  id: "28"
+  category_id: "3"
+  user_id: "15"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:51
+  cached_slug: libero-non-tempore-qui-unde
+  status: a
+vote_topics_084: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Neque qui quam est quidem earum
+  topic: Est doloribus quia consequatur natus et quibusdam omnis recusandae mollitia et vel fugiat ipsum voluptatibus corrupti velit sit
+  anon: "0"
+  id: "84"
+  category_id: "16"
+  user_id: "37"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:56
+  cached_slug: neque-qui-quam-est-quidem-earum
+  status: a
+vote_topics_056: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Voluptatem fugiat tempora et totam vitae facilis id rerum est iure error ipsam aspernatur adipisci
+  topic: Inventore impedit et hic sed non facere eaque eaque est et
+  anon: "0"
+  id: "56"
+  category_id: "11"
+  user_id: "26"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:54
+  cached_slug: voluptatem-fugiat-tempora-et-totam-vitae-facilis-i
+  status: a
+vote_topics_111: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Vitae numquam pariatur minus ipsum ab
+  topic: Sit iusto rerum laboriosam quae sapiente repellendus porro quia asperiores rerum qui qui et reiciendis
+  anon: "1"
+  id: "111"
+  category_id: "13"
+  user_id: "47"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:58
+  cached_slug: vitae-numquam-pariatur-minus-ipsum-ab
+  status: a
+vote_topics_140: 
+  created_at: 2010-07-21 07:14:44
+  total_votes: "1"
+  updated_at: 2010-07-24 00:42:22
+  header: Is the inception ending real or dream?
+  topic: I think its real
+  anon: "0"
+  id: "159"
+  category_id: "7"
+  user_id: "15"
+  friend_emails: asitkmishra@gmail.com,asitm1@yahoo.com
+  website: 
+  unan: "1"
+  published_at: 
+  cached_slug: is-the-inception-ending-real-or-dream
+  status: a
+vote_topics_085: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Adipisci id ut ex non quo aut magnam adipisci et asperiores voluptatem magnam qui deserunt eum deleniti
+  topic: Aut ut aut autem aut eaque praesentium hic iste odit et sed id omnis sunt
+  anon: "1"
+  id: "85"
+  category_id: "14"
+  user_id: "38"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: adipisci-id-ut-ex-non-quo-aut-magnam-adipisci-et-a
+  status: a
+vote_topics_057: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Hic rerum recusandae blanditiis non ratione ipsa excepturi minima quis iure accusamus eos
+  topic: Reprehenderit et qui quod tempore facilis dolores incidunt illum autem blanditiis omnis assumenda laborum eaque
+  anon: "0"
+  id: "57"
+  category_id: "5"
+  user_id: "27"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:54
+  cached_slug: hic-rerum-recusandae-blanditiis-non-ratione-ipsa-e
+  status: a
+vote_topics_112: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Vero rerum in dolor dignissimos est quo repudiandae itaque et sunt architecto ducimus occaecati soluta
+  topic: Vitae architecto corporis fuga perspiciatis culpa consequatur enim
+  anon: "0"
+  id: "112"
+  category_id: "17"
+  user_id: "48"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:58
+  cached_slug: vero-rerum-in-dolor-dignissimos-est-quo-repudianda
+  status: a
+vote_topics_029: 
+  created_at: 2010-07-07 07:24:51
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:09
+  header: Iure libero optio esse eos vel ut et est architecto quia sunt et rem ipsum doloribus
+  topic: Perferendis molestiae autem possimus vero pariatur quis similique earum possimus cumque nihil
+  anon: "0"
+  id: "29"
+  category_id: "12"
+  user_id: "15"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:51
+  cached_slug: iure-libero-optio-esse-eos-vel-ut-et-est-architect
+  status: a
+vote_topics_141: 
+  created_at: 2010-07-23 22:40:28
+  total_votes: "3"
+  updated_at: 2010-07-26 07:23:16
+  header: Is Mel Gibson Crazy?
+  topic: First DUI, now this.
+  anon: "0"
+  id: "161"
+  category_id: "7"
+  user_id: "10"
+  friend_emails: asitkmishra@gmail.com,asitm1@yahoo.com
+  website: 
+  unan: "1"
+  published_at: 
+  cached_slug: is-mel-gibson-crazy
+  status: a
+vote_topics_086: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Id ducimus rerum consequuntur dolorem excepturi sit reiciendis laudantium
+  topic: Perspiciatis autem distinctio asperiores et dolorem repellat amet molestiae eum accusantium necessitatibus eum numquam fugiat nesciunt alias officia
+  anon: "0"
+  id: "86"
+  category_id: "25"
+  user_id: "38"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:56
+  cached_slug: id-ducimus-rerum-consequuntur-dolorem-excepturi-si
+  status: a
+vote_topics_058: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Perspiciatis accusantium architecto consectetur reprehenderit recusandae et est libero ea illo dolorum omnis et in nobis non explicabo labore tempore
+  topic: Molestiae qui qui unde animi deleniti atque et in temporibus in impedit quaerat et expedita officia ea voluptatibus
+  anon: "0"
+  id: "58"
+  category_id: "14"
+  user_id: "27"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:54
+  cached_slug: perspiciatis-accusantium-architecto-consectetur-re
+  status: a
+vote_topics_113: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Veritatis quibusdam asperiores sit possimus distinctio repellat voluptates voluptas molestias voluptas qui repudiandae laborum omnis nemo quia
+  topic: Quos dolores veniam maxime aut et nesciunt magni sunt delectus id consequuntur impedit cum doloribus
+  anon: "1"
+  id: "113"
+  category_id: "17"
+  user_id: "48"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:58
+  cached_slug: veritatis-quibusdam-asperiores-sit-possimus-distin
+  status: a
+vote_topics_087: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Dolores ut sit provident incidunt officiis quo aperiam et saepe assumenda dolor natus incidunt
+  topic: Ut commodi ut quis perspiciatis voluptatem quaerat voluptatum tenetur nobis adipisci error quis perferendis culpa esse consequuntur harum consequuntur
+  anon: "1"
+  id: "87"
+  category_id: "5"
+  user_id: "39"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:56
+  cached_slug: dolores-ut-sit-provident-incidunt-officiis-quo-ape
+  status: a
+vote_topics_059: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Non dolorem ut odit rerum similique qui inventore
+  topic: Explicabo dolores laudantium aut et cum odit sed earum
+  anon: "1"
+  id: "59"
+  category_id: "8"
+  user_id: "28"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:54
+  cached_slug: non-dolorem-ut-odit-rerum-similique-qui-inventore
+  status: a
+vote_topics_114: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Dolores dicta in molestiae officia voluptatibus voluptatum et
+  topic: A saepe sit deserunt dolor
+  anon: "0"
+  id: "114"
+  category_id: "4"
+  user_id: "48"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:58
+  cached_slug: dolores-dicta-in-molestiae-officia-voluptatibus-vo
+  status: a
+vote_topics_115: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Molestiae nesciunt corporis aliquid non fugit magni illum omnis laudantium commodi possimus cumque non voluptatem tempore sed voluptates temporibus
+  topic: Cupiditate voluptatem nobis esse optio voluptatem voluptate quisquam iure corporis explicabo et praesentium autem id maiores doloremque neque repellat
+  anon: "0"
+  id: "115"
+  category_id: "22"
+  user_id: "49"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:58
+  cached_slug: molestiae-nesciunt-corporis-aliquid-non-fugit-magn
+  status: a
+vote_topics_088: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Non consequatur officia earum ut sit culpa debitis quo atque
+  topic: Eius placeat culpa qui voluptas exercitationem
+  anon: "1"
+  id: "88"
+  category_id: "4"
+  user_id: "39"
+  friend_emails: 
+  website: 
+  unan: "1"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: non-consequatur-officia-earum-ut-sit-culpa-debitis
+  status: a
+vote_topics_001: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "50"
+  updated_at: 2010-07-24 00:42:06
+  header: Accusantium delectus distinctio minima adipisci itaque quo facere sapiente exercitationem
+  topic: Odit ullam nemo eveniet et cumque molestias quaerat provident libero fuga
+  anon: "0"
+  id: "1"
+  category_id: "22"
+  user_id: "5"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:49
+  cached_slug: accusantium-delectus-distinctio-minima-adipisci-it
+  status: a
+vote_topics_116: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Nobis aperiam laboriosam ex alias possimus quaerat ratione
+  topic: Consectetur soluta quas voluptatem mollitia aut commodi velit ut ut fugit est aperiam aspernatur
+  anon: "1"
+  id: "116"
+  category_id: "22"
+  user_id: "49"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:58
+  cached_slug: nobis-aperiam-laboriosam-ex-alias-possimus-quaerat
+  status: a
+vote_topics_089: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Veniam culpa dolorum pariatur ut sit aliquam assumenda fugiat ad quo voluptatem eos illo possimus velit est et aliquid
+  topic: Unde voluptatem laudantium aut unde ut vitae eos corporis nam porro aut fuga perferendis excepturi aperiam qui et optio
+  anon: "0"
+  id: "89"
+  category_id: "24"
+  user_id: "40"
+  friend_emails: 
+  website: 
+  unan: "1"
+  published_at: 2010-07-07 07:24:56
+  cached_slug: veniam-culpa-dolorum-pariatur-ut-sit-aliquam-assum
+  status: a
+vote_topics_002: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "52"
+  updated_at: 2010-07-24 00:42:06
+  header: Et sed animi reiciendis ad voluptatem amet culpa ducimus autem itaque laudantium rerum placeat rerum dolores sunt pariatur quisquam
+  topic: Molestiae accusantium sapiente necessitatibus explicabo at voluptas minima
+  anon: "1"
+  id: "2"
+  category_id: "24"
+  user_id: "5"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:49
+  cached_slug: et-sed-animi-reiciendis-ad-voluptatem-amet-culpa-d
+  status: a
+vote_topics_030: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:09
+  header: Ducimus laudantium ut ut ratione odit ut officia repellat vitae quibusdam illo explicabo sint qui
+  topic: Sit doloribus illo expedita molestiae quasi voluptas inventore delectus rerum et sed reiciendis corporis
+  anon: "0"
+  id: "30"
+  category_id: "3"
+  user_id: "15"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:52
+  cached_slug: ducimus-laudantium-ut-ut-ratione-odit-ut-officia-r
+  status: a
+vote_topics_117: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:19
+  header: Ut facere voluptas quasi voluptatum consequuntur omnis sunt omnis necessitatibus nobis
+  topic: Porro voluptas veniam vitae reiciendis in qui veritatis dolores consequatur
+  anon: "1"
+  id: "117"
+  category_id: "11"
+  user_id: "49"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:59
+  cached_slug: ut-facere-voluptas-quasi-voluptatum-consequuntur-o
+  status: a
+vote_topics_003: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "30"
+  updated_at: 2010-07-24 00:42:06
+  header: Minima ipsam non fugit qui molestiae veritatis quia quia voluptatum illo ad provident amet ullam
+  topic: Reprehenderit maxime reprehenderit aut porro commodi non ut ullam officia doloremque ullam consequatur iure accusamus pariatur rem ea neque
+  anon: "0"
+  id: "3"
+  category_id: "19"
+  user_id: "5"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:49
+  cached_slug: minima-ipsam-non-fugit-qui-molestiae-veritatis-qui
+  status: a
+vote_topics_031: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Vero deserunt recusandae ad possimus vel totam sed molestiae molestiae nam veritatis quo excepturi
+  topic: Consequuntur reprehenderit officiis quis in aut ut fugiat quis iste commodi sunt itaque reiciendis ut voluptas recusandae fuga a libero
+  anon: "0"
+  id: "31"
+  category_id: "6"
+  user_id: "16"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:52
+  cached_slug: vero-deserunt-recusandae-ad-possimus-vel-totam-sed
+  status: a
+vote_topics_118: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Rerum eos impedit magni repellat sint qui vitae
+  topic: Ducimus error iste asperiores non unde delectus in enim qui perspiciatis voluptatem soluta sapiente et molestias et odio adipisci quo
+  anon: "0"
+  id: "118"
+  category_id: "12"
+  user_id: "50"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: rerum-eos-impedit-magni-repellat-sint-qui-vitae
+  status: a
+vote_topics_004: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:06
+  header: Provident et id repellendus quia quas dicta aut sed inventore
+  topic: Assumenda corrupti magnam aliquam sunt blanditiis quo aut harum quia quam fugiat non reprehenderit
+  anon: "0"
+  id: "4"
+  category_id: "16"
+  user_id: "6"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:49
+  cached_slug: provident-et-id-repellendus-quia-quas-dicta-aut-se
+  status: a
+vote_topics_060: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "50"
+  updated_at: 2010-07-27 04:21:41
+  header: Commodi quod ut in vero aliquam saepe
+  topic: Commodi eos facere iusto hic voluptatem tenetur sint
+  anon: "1"
+  id: "60"
+  category_id: "6"
+  user_id: "28"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:54
+  cached_slug: commodi-quod-ut-in-vero-aliquam-saepe
+  status: a
+vote_topics_032: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Odit libero velit cupiditate et ea fuga beatae
+  topic: Nesciunt perspiciatis ea asperiores aut sit ut quis voluptate voluptatem voluptas ut inventore
+  anon: "0"
+  id: "32"
+  category_id: "17"
+  user_id: "16"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:52
+  cached_slug: odit-libero-velit-cupiditate-et-ea-fuga-beatae
+  status: a
+vote_topics_119: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Eos natus unde unde hic nobis beatae voluptatum nihil voluptatem deserunt sed aut maiores ut voluptatibus
+  topic: Ipsa ratione est rerum soluta ut
+  anon: "0"
+  id: "119"
+  category_id: "17"
+  user_id: "50"
+  friend_emails: 
+  website: 
+  unan: "1"
+  published_at: 2010-07-07 07:24:59
+  cached_slug: eos-natus-unde-unde-hic-nobis-beatae-voluptatum-ni
+  status: a
+vote_topics_005: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Inventore consequatur magnam molestiae inventore voluptatem assumenda modi ut tempora
+  topic: Dignissimos in similique quia nostrum architecto possimus adipisci delectus sapiente voluptatum
+  anon: "0"
+  id: "5"
+  category_id: "12"
+  user_id: "6"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:49
+  cached_slug: inventore-consequatur-magnam-molestiae-inventore-v
+  status: a
+vote_topics_061: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Neque ea repellendus dolorum illo dolorum nulla et qui quae sapiente fugit occaecati sequi error quo et
+  topic: Aut qui dolores error excepturi cumque sunt assumenda reprehenderit qui molestias at enim expedita
+  anon: "0"
+  id: "61"
+  category_id: "24"
+  user_id: "29"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:54
+  cached_slug: neque-ea-repellendus-dolorum-illo-dolorum-nulla-et
+  status: a
+vote_topics_033: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Cum quidem accusamus sapiente eos alias cumque eius
+  topic: Rem quia labore dolore consequuntur numquam quibusdam quis reprehenderit temporibus voluptatem qui
+  anon: "1"
+  id: "33"
+  category_id: "12"
+  user_id: "16"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:52
+  cached_slug: cum-quidem-accusamus-sapiente-eos-alias-cumque-eiu
+  status: a
+vote_topics_006: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Iste et qui qui sed
+  topic: Quae et occaecati consequatur quia
+  anon: "1"
+  id: "6"
+  category_id: "7"
+  user_id: "6"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:49
+  cached_slug: iste-et-qui-qui-sed
+  status: a
+vote_topics_090: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Provident eaque dolore voluptate id cumque dolor
+  topic: Non corrupti possimus molestiae pariatur voluptate facilis incidunt a aspernatur voluptatibus ducimus
+  anon: "1"
+  id: "90"
+  category_id: "11"
+  user_id: "40"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: provident-eaque-dolore-voluptate-id-cumque-dolor
+  status: a
+vote_topics_062: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Est itaque dolorum porro ut quae nihil molestias doloribus
+  topic: Explicabo voluptas reprehenderit porro eveniet nostrum sapiente delectus autem perspiciatis velit ipsa eum
+  anon: "1"
+  id: "62"
+  category_id: "14"
+  user_id: "29"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:54
+  cached_slug: est-itaque-dolorum-porro-ut-quae-nihil-molestias-d
+  status: a
+vote_topics_034: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Repudiandae voluptate quisquam quibusdam eos
+  topic: Reprehenderit sequi et sit necessitatibus consequatur laboriosam labore amet laborum cumque ab explicabo qui temporibus
+  anon: "1"
+  id: "34"
+  category_id: "4"
+  user_id: "17"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:52
+  cached_slug: repudiandae-voluptate-quisquam-quibusdam-eos
+  status: a
+vote_topics_007: 
+  created_at: 2010-07-07 07:24:49
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Et nihil dolores quisquam sed qui et odit eum molestiae quod reiciendis accusamus ab iure sit
+  topic: Animi tenetur repellendus blanditiis beatae ipsa architecto eos
+  anon: "1"
+  id: "7"
+  category_id: "13"
+  user_id: "7"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:49
+  cached_slug: et-nihil-dolores-quisquam-sed-qui-et-odit-eum-mole
+  status: a
+vote_topics_091: 
+  created_at: 2010-07-07 07:24:56
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Consequatur nihil et quo ipsum impedit aperiam maiores voluptatem
+  topic: Ab dolorem qui in voluptas laudantium velit voluptas ad numquam qui facere velit eius
+  anon: "0"
+  id: "91"
+  category_id: "12"
+  user_id: "40"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:56
+  cached_slug: consequatur-nihil-et-quo-ipsum-impedit-aperiam-mai
+  status: a
+vote_topics_063: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:13
+  header: Dolor delectus doloribus et architecto enim enim enim pariatur velit sed cumque dolores ut expedita rem
+  topic: Ea dolorum itaque similique rerum accusantium ullam sequi inventore et perferendis possimus qui dolore accusamus velit
+  anon: "1"
+  id: "63"
+  category_id: "21"
+  user_id: "29"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:54
+  cached_slug: dolor-delectus-doloribus-et-architecto-enim-enim-e
+  status: a
+vote_topics_035: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Rerum eveniet sint reiciendis eum enim dolorem perferendis impedit temporibus velit debitis enim eveniet perferendis omnis excepturi et
+  topic: Id illum et dolor quia sed non deserunt animi repellat autem dolorem natus
+  anon: "1"
+  id: "35"
+  category_id: "19"
+  user_id: "17"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:52
+  cached_slug: rerum-eveniet-sint-reiciendis-eum-enim-dolorem-per
+  status: a
+vote_topics_092: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:16
+  header: Molestiae voluptates ex aut sed autem ea sint doloremque voluptatem non ea pariatur
+  topic: Porro eos numquam ut quia voluptas esse deleniti sed doloribus vel ullam delectus et molestiae eius odit praesentium quos et
+  anon: "0"
+  id: "92"
+  category_id: "12"
+  user_id: "41"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: molestiae-voluptates-ex-aut-sed-autem-ea-sint-dolo
+  status: a
+vote_topics_064: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Molestias eum repellendus non voluptatem suscipit beatae quae neque aliquam ex numquam est quasi debitis sit magnam et
+  topic: Aut alias molestias ut odio aut
+  anon: "1"
+  id: "64"
+  category_id: "20"
+  user_id: "30"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:54
+  cached_slug: molestias-eum-repellendus-non-voluptatem-suscipit-
+  status: a
+vote_topics_036: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: At esse dolores optio sed qui aut id inventore maiores qui
+  topic: Rerum at quaerat aut tempore sit velit quibusdam eos aut
+  anon: "1"
+  id: "36"
+  category_id: "24"
+  user_id: "18"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:52
+  cached_slug: at-esse-dolores-optio-sed-qui-aut-id-inventore-mai
+  status: a
+vote_topics_008: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Minus sed cum soluta sapiente magni doloribus odio veniam est veritatis est
+  topic: Qui debitis et beatae ea sed debitis autem delectus aliquid ut repellendus aperiam repellendus enim molestiae neque fugit
+  anon: "0"
+  id: "8"
+  category_id: "16"
+  user_id: "7"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:50
+  cached_slug: minus-sed-cum-soluta-sapiente-magni-doloribus-odio
+  status: a
+vote_topics_120: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Unde atque quasi autem repellendus qui non architecto ipsam voluptatem assumenda ipsam
+  topic: Porro expedita similique soluta omnis iure rerum nostrum et quia
+  anon: "1"
+  id: "120"
+  category_id: "15"
+  user_id: "51"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:59
+  cached_slug: unde-atque-quasi-autem-repellendus-qui-non-archite
+  status: a
+vote_topics_065: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Vel voluptatem aut sunt molestias sit ea inventore delectus molestiae
+  topic: Minus libero omnis non voluptate et impedit eum illum impedit ab quia rerum ut eveniet
+  anon: "1"
+  id: "65"
+  category_id: "25"
+  user_id: "30"
+  friend_emails: 
+  website: 
+  unan: "1"
+  published_at: 2010-07-07 07:25:54
+  cached_slug: vel-voluptatem-aut-sunt-molestias-sit-ea-inventore
+  status: a
+vote_topics_037: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Excepturi error odio inventore et enim repellendus iste nulla fugiat et aut reiciendis non sed beatae voluptas tempora rem optio
+  topic: Ut deserunt rerum dignissimos est et iste atque dolorem ut harum laborum eum vel in esse
+  anon: "0"
+  id: "37"
+  category_id: "12"
+  user_id: "18"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:52
+  cached_slug: excepturi-error-odio-inventore-et-enim-repellendus
+  status: a
+vote_topics_009: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Accusantium enim deleniti est voluptatem alias omnis ducimus commodi dignissimos ea quisquam dolor enim labore nihil
+  topic: Et excepturi accusamus deleniti qui fugiat et ut quibusdam quas explicabo
+  anon: "0"
+  id: "9"
+  category_id: "21"
+  user_id: "7"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:50
+  cached_slug: accusantium-enim-deleniti-est-voluptatem-alias-omn
+  status: a
+vote_topics_093: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Eligendi quis dolor eos omnis qui in omnis quia eum ducimus ea earum est incidunt eum iste
+  topic: In dicta qui distinctio eum quia deleniti voluptas possimus architecto ipsum
+  anon: "1"
+  id: "93"
+  category_id: "7"
+  user_id: "41"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:57
+  cached_slug: eligendi-quis-dolor-eos-omnis-qui-in-omnis-quia-eu
+  status: a
+vote_topics_121: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Est perspiciatis veritatis repellat quam enim nihil ab in maxime vel numquam quas recusandae magnam magnam dolores
+  topic: Ut nostrum qui id cumque numquam odit sequi tempore laudantium facere
+  anon: "1"
+  id: "121"
+  category_id: "23"
+  user_id: "51"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:59
+  cached_slug: est-perspiciatis-veritatis-repellat-quam-enim-nihi
+  status: a
+vote_topics_066: 
+  created_at: 2010-07-07 07:24:54
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: At et voluptas deserunt ab enim minus sunt commodi cumque
+  topic: Quos tempore modi molestiae aut accusantium unde corporis sunt eaque minus aspernatur sunt aut voluptas ullam
+  anon: "0"
+  id: "66"
+  category_id: "23"
+  user_id: "31"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:54
+  cached_slug: at-et-voluptas-deserunt-ab-enim-minus-sunt-commodi
+  status: a
+vote_topics_038: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Et minus qui voluptatem suscipit voluptate eum nostrum quaerat
+  topic: Repellendus impedit sint molestiae omnis placeat qui incidunt incidunt explicabo unde et ipsum excepturi
+  anon: "1"
+  id: "38"
+  category_id: "4"
+  user_id: "19"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:52
+  cached_slug: et-minus-qui-voluptatem-suscipit-voluptate-eum-nos
+  status: a
+vote_topics_094: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Magni repudiandae cumque eos deleniti occaecati unde architecto aut neque et
+  topic: Voluptatem qui nihil ut optio ut incidunt laboriosam at
+  anon: "0"
+  id: "94"
+  category_id: "9"
+  user_id: "41"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:57
+  cached_slug: magni-repudiandae-cumque-eos-deleniti-occaecati-un
+  status: a
+vote_topics_122: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Officiis enim sunt ullam est accusamus eveniet est omnis nulla et ad ut beatae tenetur illum
+  topic: Quia est hic vel omnis omnis fuga ratione repellat et qui quaerat possimus doloremque est iusto natus quia
+  anon: "1"
+  id: "122"
+  category_id: "9"
+  user_id: "51"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: officiis-enim-sunt-ullam-est-accusamus-eveniet-est
+  status: a
+vote_topics_067: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Vel minus eos fugit reiciendis non voluptatibus quisquam non atque ut consectetur aliquam deleniti magni ea delectus ut a
+  topic: Sapiente iure aperiam porro iste nihil
+  anon: "0"
+  id: "67"
+  category_id: "12"
+  user_id: "31"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:54
+  cached_slug: vel-minus-eos-fugit-reiciendis-non-voluptatibus-qu
+  status: a
+vote_topics_039: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:10
+  header: Hic sint voluptatem molestias laboriosam
+  topic: Sint odit recusandae voluptas porro facere hic
+  anon: "1"
+  id: "39"
+  category_id: "5"
+  user_id: "19"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:52
+  cached_slug: hic-sint-voluptatem-molestias-laboriosam
+  status: a
+vote_topics_095: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Aperiam ipsa doloremque sint velit rem voluptatem exercitationem autem explicabo debitis vero sed quidem sit
+  topic: Consectetur esse sed laudantium adipisci deleniti ipsum quia aspernatur
+  anon: "0"
+  id: "95"
+  category_id: "20"
+  user_id: "42"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:57
+  cached_slug: aperiam-ipsa-doloremque-sint-velit-rem-voluptatem-
+  status: a
+vote_topics_123: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Mollitia eius labore aut hic omnis et magni cupiditate minus et unde repellat voluptates saepe qui
+  topic: Soluta ut corrupti labore possimus molestiae expedita corrupti officiis distinctio aut delectus qui quia architecto
+  anon: "1"
+  id: "123"
+  category_id: "13"
+  user_id: "52"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: mollitia-eius-labore-aut-hic-omnis-et-magni-cupidi
+  status: a
+vote_topics_068: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Laborum ducimus consectetur commodi dignissimos quis odio qui optio sed ut quis fugit odit sed rem possimus vero numquam
+  topic: Ut qui placeat dolore odio quasi delectus amet et in
+  anon: "1"
+  id: "68"
+  category_id: "3"
+  user_id: "32"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:55
+  cached_slug: laborum-ducimus-consectetur-commodi-dignissimos-qu
+  status: a
+vote_topics_096: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: In ipsa enim harum omnis blanditiis quos suscipit animi
+  topic: Culpa ex pariatur eligendi architecto pariatur quibusdam
+  anon: "0"
+  id: "96"
+  category_id: "3"
+  user_id: "42"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:57
+  cached_slug: in-ipsa-enim-harum-omnis-blanditiis-quos-suscipit-
+  status: a
+vote_topics_124: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Et nobis aliquam dolorem omnis magni ut sint commodi accusamus corrupti
+  topic: Fuga ut enim at sint nihil et maiores error dolorem aut maxime error iusto
+  anon: "1"
+  id: "124"
+  category_id: "7"
+  user_id: "53"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: et-nobis-aliquam-dolorem-omnis-magni-ut-sint-commo
+  status: a
+vote_topics_069: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Atque totam tempore praesentium deserunt corrupti voluptatem quo corrupti dolor veritatis non quasi veritatis nam necessitatibus sed
+  topic: Nesciunt ab aut fugit dolorem quis
+  anon: "0"
+  id: "69"
+  category_id: "25"
+  user_id: "32"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: atque-totam-tempore-praesentium-deserunt-corrupti-
+  status: a
+vote_topics_097: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Veritatis voluptas blanditiis molestias quia id non dicta error
+  topic: Ex mollitia nam nisi iure ut dolores labore laudantium facilis nulla est voluptatem ex illum
+  anon: "1"
+  id: "97"
+  category_id: "21"
+  user_id: "42"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: veritatis-voluptas-blanditiis-molestias-quia-id-no
+  status: a
+vote_topics_010: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Beatae et ut assumenda maxime culpa saepe autem culpa ut
+  topic: Animi cumque architecto et assumenda nihil reiciendis quia reiciendis voluptas minima
+  anon: "0"
+  id: "10"
+  category_id: "20"
+  user_id: "8"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:50
+  cached_slug: beatae-et-ut-assumenda-maxime-culpa-saepe-autem-cu
+  status: a
+vote_topics_125: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Accusantium ut sunt doloribus quas cum ea qui commodi et quisquam tempore velit minus
+  topic: Et placeat dolorem ea id commodi delectus adipisci ea molestiae possimus qui in voluptatibus soluta ipsum ut exercitationem
+  anon: "1"
+  id: "125"
+  category_id: "19"
+  user_id: "53"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: accusantium-ut-sunt-doloribus-quas-cum-ea-qui-comm
+  status: a
+vote_topics_098: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Repellendus rerum placeat quae deserunt soluta voluptatibus
+  topic: Animi ut esse aliquam debitis voluptatibus voluptate quo beatae temporibus asperiores ducimus
+  anon: "1"
+  id: "98"
+  category_id: "5"
+  user_id: "43"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: repellendus-rerum-placeat-quae-deserunt-soluta-vol
+  status: a
+vote_topics_011: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Vitae atque nihil voluptas rerum dolorum facilis minima nihil esse nulla fugit provident sit
+  topic: Et sit aut quam qui quia quaerat odit pariatur libero alias sint aut
+  anon: "0"
+  id: "11"
+  category_id: "10"
+  user_id: "8"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:50
+  cached_slug: vitae-atque-nihil-voluptas-rerum-dolorum-facilis-m
+  status: a
+vote_topics_126: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Culpa tempore aliquam ullam expedita ut similique quia est cupiditate
+  topic: Qui nesciunt quia et molestiae architecto vero beatae voluptates excepturi quidem officiis quo sed exercitationem
+  anon: "0"
+  id: "126"
+  category_id: "11"
+  user_id: "54"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: culpa-tempore-aliquam-ullam-expedita-ut-similique-
+  status: a
+vote_topics_040: 
+  created_at: 2010-07-07 07:24:52
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Earum sint aut quisquam voluptatem explicabo dicta quasi aut esse sunt nesciunt animi corporis
+  topic: Laborum sit est ea hic veritatis et inventore quia vitae vel excepturi quod ipsa voluptatem voluptatem doloremque consequatur in illum
+  anon: "1"
+  id: "40"
+  category_id: "18"
+  user_id: "20"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:52
+  cached_slug: earum-sint-aut-quisquam-voluptatem-explicabo-dicta
+  status: a
+vote_topics_099: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Iusto sed totam quis cupiditate tempora accusamus unde id autem nemo porro et
+  topic: A eaque molestias molestiae aut pariatur debitis et distinctio voluptatem itaque
+  anon: "1"
+  id: "99"
+  category_id: "22"
+  user_id: "43"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:57
+  cached_slug: iusto-sed-totam-quis-cupiditate-tempora-accusamus-
+  status: a
+vote_topics_012: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Ut ipsum neque et et ratione
+  topic: Veritatis at nam quo ut et odio ea reiciendis qui eaque ut molestiae
+  anon: "0"
+  id: "12"
+  category_id: "2"
+  user_id: "8"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:50
+  cached_slug: ut-ipsum-neque-et-et-ratione
+  status: a
+vote_topics_127: 
+  created_at: 2010-07-07 07:24:59
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Voluptatem consequatur aut ad eos inventore a occaecati dignissimos placeat
+  topic: Animi unde rem laudantium et
+  anon: "1"
+  id: "127"
+  category_id: "12"
+  user_id: "54"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:59
+  cached_slug: voluptatem-consequatur-aut-ad-eos-inventore-a-occa
+  status: a
+vote_topics_041: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Quis et nesciunt sequi perspiciatis soluta nisi non sed mollitia dolorem occaecati temporibus veniam et in beatae velit magnam
+  topic: Qui impedit eum quas eos maiores quis eveniet omnis omnis aut esse quo sed odio voluptatem veniam
+  anon: "0"
+  id: "41"
+  category_id: "3"
+  user_id: "20"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:53
+  cached_slug: quis-et-nesciunt-sequi-perspiciatis-soluta-nisi-no
+  status: a
+vote_topics_013: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:07
+  header: Quo dolor natus dolorem rerum reiciendis deleniti velit
+  topic: Dicta ex nesciunt consequatur quia voluptatem
+  anon: "1"
+  id: "13"
+  category_id: "6"
+  user_id: "9"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:50
+  cached_slug: quo-dolor-natus-dolorem-rerum-reiciendis-deleniti-
+  status: a
+vote_topics_128: 
+  created_at: 2010-07-07 07:25:00
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:20
+  header: Fuga quas optio commodi eveniet id
+  topic: Fugiat recusandae molestias a molestias a quae aut ab quam at assumenda optio sunt consequuntur
+  anon: "0"
+  id: "128"
+  category_id: "11"
+  user_id: "54"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:00
+  cached_slug: fuga-quas-optio-commodi-eveniet-id
+  status: a
+vote_topics_070: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Dolor in eaque voluptatem soluta architecto
+  topic: Non sunt necessitatibus dolores aut dolor qui ut aspernatur quis et sint quo
+  anon: "1"
+  id: "70"
+  category_id: "23"
+  user_id: "32"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: dolor-in-eaque-voluptatem-soluta-architecto
+  status: a
+vote_topics_042: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Esse necessitatibus reprehenderit minus nulla id ad dolores deserunt molestiae animi et est harum aliquam similique consequatur quis officia
+  topic: Distinctio eveniet quaerat cumque rerum quaerat architecto numquam fugiat vitae praesentium praesentium sint quia eaque et fugiat vero aspernatur quis
+  anon: "0"
+  id: "42"
+  category_id: "5"
+  user_id: "21"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:53
+  cached_slug: esse-necessitatibus-reprehenderit-minus-nulla-id-a
+  status: a
+vote_topics_014: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Saepe et vero unde enim dolores ea optio omnis eius alias vel dignissimos
+  topic: Quos dolores sit ratione voluptas
+  anon: "0"
+  id: "14"
+  category_id: "18"
+  user_id: "9"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:50
+  cached_slug: saepe-et-vero-unde-enim-dolores-ea-optio-omnis-eiu
+  status: a
+vote_topics_129: 
+  created_at: 2010-07-07 07:25:00
+  total_votes: "50"
+  updated_at: 2010-07-24 00:42:21
+  header: Sit occaecati et beatae est similique eligendi vitae cum
+  topic: Perspiciatis quibusdam eos consequuntur vitae quaerat odit aut dolor dolore ut facere et vitae autem reiciendis eos
+  anon: "0"
+  id: "129"
+  category_id: "22"
+  user_id: "55"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:00
+  cached_slug: sit-occaecati-et-beatae-est-similique-eligendi-vit
+  status: a
+vote_topics_071: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:14
+  header: Et atque minus aperiam ullam qui rerum et est eveniet suscipit omnis quod
+  topic: Corrupti ut eos cum et blanditiis ad
+  anon: "1"
+  id: "71"
+  category_id: "11"
+  user_id: "33"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: et-atque-minus-aperiam-ullam-qui-rerum-et-est-even
+  status: a
+vote_topics_043: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Culpa voluptatum ad adipisci sint et voluptas
+  topic: Placeat non et enim ex commodi est quasi consequuntur fugiat et tenetur eligendi dolores magnam qui necessitatibus qui eveniet provident
+  anon: "0"
+  id: "43"
+  category_id: "11"
+  user_id: "21"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:53
+  cached_slug: culpa-voluptatum-ad-adipisci-sint-et-voluptas
+  status: a
+vote_topics_015: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Aut in voluptas nesciunt voluptate rerum et dolorum eius quasi atque numquam similique reprehenderit animi ex error quis ut
+  topic: Doloribus perspiciatis architecto aut aut dolores et dolor voluptatum atque
+  anon: "0"
+  id: "15"
+  category_id: "14"
+  user_id: "9"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:50
+  cached_slug: aut-in-voluptas-nesciunt-voluptate-rerum-et-doloru
+  status: a
+vote_topics_044: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Dolorum molestias sint odio possimus mollitia blanditiis facere
+  topic: Placeat quo rem quidem tempore omnis libero beatae aut ea expedita temporibus molestias qui quibusdam inventore molestias
+  anon: "1"
+  id: "44"
+  category_id: "10"
+  user_id: "21"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:53
+  cached_slug: dolorum-molestias-sint-odio-possimus-mollitia-blan
+  status: a
+vote_topics_016: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Et quia dolor sequi consequatur harum labore ipsum quae nihil eligendi voluptas est iure a aut unde unde
+  topic: Reprehenderit voluptatem autem sit qui non possimus totam qui itaque non quis occaecati eveniet beatae voluptatem soluta optio dolores sint
+  anon: "1"
+  id: "16"
+  category_id: "10"
+  user_id: "10"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:50
+  cached_slug: et-quia-dolor-sequi-consequatur-harum-labore-ipsum
+  status: a
+vote_topics_072: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Perferendis laboriosam eligendi ut ea voluptate doloribus ratione reiciendis id atque omnis cum suscipit recusandae sunt excepturi sunt
+  topic: Reprehenderit atque rerum nesciunt et dolorem nihil aperiam rem esse quas praesentium
+  anon: "0"
+  id: "72"
+  category_id: "3"
+  user_id: "33"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:55
+  cached_slug: perferendis-laboriosam-eligendi-ut-ea-voluptate-do
+  status: a
+vote_topics_045: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Quas a impedit earum voluptas
+  topic: At facere nisi ea beatae voluptate ut
+  anon: "0"
+  id: "45"
+  category_id: "13"
+  user_id: "22"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:53
+  cached_slug: quas-a-impedit-earum-voluptas
+  status: a
+vote_topics_100: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Modi debitis rerum officiis quaerat adipisci praesentium nesciunt ad sapiente odio ut ea iste et veniam aspernatur ut ea voluptas
+  topic: Quia vitae magnam suscipit odio voluptatem fugit et sint illo ea rem
+  anon: "1"
+  id: "100"
+  category_id: "18"
+  user_id: "43"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: modi-debitis-rerum-officiis-quaerat-adipisci-praes
+  status: a
+vote_topics_017: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Molestiae velit optio rem dolorum quia accusamus non omnis quia
+  topic: Iusto sit atque quia architecto
+  anon: "0"
+  id: "17"
+  category_id: "2"
+  user_id: "10"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:50
+  cached_slug: molestiae-velit-optio-rem-dolorum-quia-accusamus-n
+  status: a
+vote_topics_073: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Explicabo fugiat quibusdam beatae possimus ut minima nisi
+  topic: Nihil quas ut et soluta
+  anon: "0"
+  id: "73"
+  category_id: "12"
+  user_id: "33"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:55
+  cached_slug: explicabo-fugiat-quibusdam-beatae-possimus-ut-mini
+  status: a
+vote_topics_046: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Doloremque eligendi amet dolore adipisci consequatur cum aut corrupti repellat nisi neque adipisci quia aut sit cupiditate voluptatum nostrum
+  topic: Cupiditate illum aut vel ipsum
+  anon: "0"
+  id: "46"
+  category_id: "18"
+  user_id: "23"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:53
+  cached_slug: doloremque-eligendi-amet-dolore-adipisci-consequat
+  status: a
+vote_topics_101: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:17
+  header: Autem non aperiam sunt rem ab in ut eligendi repudiandae qui accusamus est sit delectus
+  topic: Dolorum vitae dolores fugit voluptatibus non aspernatur facilis iure iusto
+  anon: "1"
+  id: "101"
+  category_id: "8"
+  user_id: "44"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:57
+  cached_slug: autem-non-aperiam-sunt-rem-ab-in-ut-eligendi-repud
+  status: a
+vote_topics_018: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Accusantium natus et accusamus nesciunt modi id repellat ut magnam voluptatem delectus voluptates cumque vel eaque id reprehenderit autem et
+  topic: Non nesciunt qui et nulla quia at sit et vel autem cumque quod consequatur non
+  anon: "0"
+  id: "18"
+  category_id: "9"
+  user_id: "11"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:50
+  cached_slug: accusantium-natus-et-accusamus-nesciunt-modi-id-re
+  status: a
+vote_topics_074: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Omnis vero a ab ullam voluptates sapiente aliquam eius ullam id optio accusantium sapiente eius inventore aut impedit ut
+  topic: Explicabo maxime consequatur molestiae debitis placeat qui amet eveniet amet tempore doloribus architecto quam non tempora occaecati
+  anon: "0"
+  id: "74"
+  category_id: "25"
+  user_id: "34"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: omnis-vero-a-ab-ullam-voluptates-sapiente-aliquam-
+  status: a
+vote_topics_130: 
+  created_at: 2010-07-07 07:25:00
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:21
+  header: Minus eum nulla eum numquam perferendis maxime quis
+  topic: Voluptatem aspernatur voluptatem minima saepe qui in vero perspiciatis eaque dicta ea veritatis accusantium omnis et et eaque
+  anon: "0"
+  id: "130"
+  category_id: "24"
+  user_id: "55"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:00
+  cached_slug: minus-eum-nulla-eum-numquam-perferendis-maxime-qui
+  status: a
+vote_topics_047: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:11
+  header: Tenetur ratione velit a consequatur ab sit ipsa minus
+  topic: Et repellendus corporis aut sunt dicta dolorum qui
+  anon: "1"
+  id: "47"
+  category_id: "13"
+  user_id: "23"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:53
+  cached_slug: tenetur-ratione-velit-a-consequatur-ab-sit-ipsa-mi
+  status: a
+vote_topics_102: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Ut molestias aut quia dolor quae
+  topic: Voluptatem iure consectetur blanditiis fugiat laudantium et non ut eius rerum quam repudiandae officia cupiditate ut nam doloremque nam ipsum
+  anon: "1"
+  id: "102"
+  category_id: "2"
+  user_id: "44"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: ut-molestias-aut-quia-dolor-quae
+  status: a
+vote_topics_019: 
+  created_at: 2010-07-07 07:24:50
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:08
+  header: Ad ea adipisci quia vel rerum debitis ut provident minima quam qui veniam earum
+  topic: Repellendus facere voluptatem possimus ipsum quo molestiae qui tempore et eum rerum dolores sapiente aliquam quaerat amet nulla
+  anon: "0"
+  id: "19"
+  category_id: "2"
+  user_id: "11"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:50
+  cached_slug: ad-ea-adipisci-quia-vel-rerum-debitis-ut-provident
+  status: a
+vote_topics_075: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Et illo ipsum eius maiores esse facilis
+  topic: Consequuntur dicta totam numquam voluptatem numquam sed eaque et id in voluptates commodi vel sint incidunt quasi
+  anon: "0"
+  id: "75"
+  category_id: "13"
+  user_id: "34"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: et-illo-ipsum-eius-maiores-esse-facilis
+  status: a
+vote_topics_131: 
+  created_at: 2010-07-07 07:25:00
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:21
+  header: Qui praesentium tempora rerum qui mollitia quia perferendis animi aut qui provident
+  topic: Error architecto optio in eum eum et enim qui et corrupti atque itaque atque tempora incidunt eligendi error qui aspernatur
+  anon: "0"
+  id: "131"
+  category_id: "9"
+  user_id: "55"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:00
+  cached_slug: qui-praesentium-tempora-rerum-qui-mollitia-quia-pe
+  status: a
+vote_topics_048: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Minima provident aspernatur ut similique sint saepe veniam ea voluptates corporis necessitatibus omnis amet debitis debitis reiciendis itaque quae maiores
+  topic: Nobis veniam provident dolor dolores
+  anon: "0"
+  id: "48"
+  category_id: "5"
+  user_id: "23"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:53
+  cached_slug: minima-provident-aspernatur-ut-similique-sint-saep
+  status: a
+vote_topics_103: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Distinctio vel quasi accusamus ipsa voluptas quia ipsa et ea nemo voluptates minima saepe eos
+  topic: Et quaerat est dolorem velit voluptatem animi expedita iste
+  anon: "0"
+  id: "103"
+  category_id: "24"
+  user_id: "44"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: distinctio-vel-quasi-accusamus-ipsa-voluptas-quia-
+  status: a
+vote_topics_076: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Possimus quia dolorum nihil aspernatur sequi et iusto pariatur et earum nobis nulla sed porro nostrum
+  topic: Iusto ducimus optio sapiente voluptatibus ea molestiae eum enim molestiae distinctio autem consequatur aut cumque culpa repellendus quo nihil quasi
+  anon: "0"
+  id: "76"
+  category_id: "2"
+  user_id: "34"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:55
+  cached_slug: possimus-quia-dolorum-nihil-aspernatur-sequi-et-iu
+  status: a
+vote_topics_132: 
+  created_at: 2010-07-07 22:47:45
+  total_votes: "3"
+  updated_at: 2010-07-24 00:42:21
+  header: Favorite drink
+  topic: Sed placeat reiciendis ut aut rem quidem laboriosam dolorum expedita eum
+  anon: "0"
+  id: "132"
+  category_id: "10"
+  user_id: "5"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 
+  cached_slug: favorite-drink
+  status: a
+vote_topics_049: 
+  created_at: 2010-07-07 07:24:53
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:12
+  header: Similique ipsam tenetur omnis velit
+  topic: Omnis laudantium quia saepe illo aut et odit quibusdam
+  anon: "1"
+  id: "49"
+  category_id: "10"
+  user_id: "24"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:53
+  cached_slug: similique-ipsam-tenetur-omnis-velit
+  status: a
+vote_topics_104: 
+  created_at: 2010-07-07 07:24:57
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Omnis quae odit et et repellat quo eius animi et alias pariatur minus delectus dolores aut dignissimos
+  topic: Ducimus qui porro eius quis magni corrupti sint quas
+  anon: "1"
+  id: "104"
+  category_id: "25"
+  user_id: "45"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:57
+  cached_slug: omnis-quae-odit-et-et-repellat-quo-eius-animi-et-a
+  status: a
+vote_topics_077: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Aut sint consectetur aspernatur deleniti incidunt sit
+  topic: Ex perspiciatis assumenda dolore numquam quibusdam autem laborum perspiciatis illo nisi ad mollitia dolorem labore dolores maiores rerum cumque
+  anon: "0"
+  id: "77"
+  category_id: "4"
+  user_id: "35"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:24:55
+  cached_slug: aut-sint-consectetur-aspernatur-deleniti-incidunt-
+  status: a
+vote_topics_133: 
+  created_at: 2010-07-08 00:13:01
+  total_votes: "3"
+  updated_at: 2010-07-24 00:42:21
+  header: Favorite Car
+  topic: Ea at facere aut rerum iste
+  anon: "0"
+  id: "133"
+  category_id: "2"
+  user_id: "7"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 
+  cached_slug: favorite-car
+  status: a
+vote_topics_105: 
+  created_at: 2010-07-07 07:24:58
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:18
+  header: Illo exercitationem eos eos rerum modi aut earum eum eaque autem totam ducimus maiores
+  topic: Ab et quis ad accusamus corporis sed minus vel nam
+  anon: "1"
+  id: "105"
+  category_id: "20"
+  user_id: "45"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:25:58
+  cached_slug: illo-exercitationem-eos-eos-rerum-modi-aut-earum-e
+  status: a
+vote_topics_078: 
+  created_at: 2010-07-07 07:24:55
+  total_votes: "51"
+  updated_at: 2010-07-24 00:42:15
+  header: Vel dicta voluptatem repudiandae voluptatem architecto magnam asperiores iure laboriosam explicabo
+  topic: Ad corrupti hic ut quod voluptas
+  anon: "1"
+  id: "78"
+  category_id: "17"
+  user_id: "35"
+  friend_emails: 
+  website: 
+  unan: "0"
+  published_at: 2010-07-07 07:26:55
+  cached_slug: vel-dicta-voluptatem-repudiandae-voluptatem-archit
+  status: a

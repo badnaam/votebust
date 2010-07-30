@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     end
 
     attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
-    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
+#    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
 
     acts_as_voter
     has_many :vote_topics
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     before_save :check_what_changed
     
     def check_what_changed
-        if self.changed.sort == ["last_request_at", "perishable_token"]
+        if self.changed.sort == ["last_request_at", "perishable_token"] || ["perishable_token" || "processing_vote"]
             self.skip_profile_update = true
             return true
         else

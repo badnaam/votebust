@@ -13,7 +13,23 @@ var showMenu = function(ev) {
     $j("#cat_menu").toggle('fast');
 }
 
+
+function checkVoteSelected() {
+    oneChecked = false
+    $j(':radio', '#vote_form').each(function() {
+        if (this.checked == true) {
+            $j('#vote_form').submit();
+            oneChecked = true
+        }
+    });
+    if (oneChecked == false) {
+        alert('Please select a vote option.');
+    }
+    return false;
+}
+    
 $j(document).ready(function(){
+
     
     $j('#close_cat_menu').click(function(){
         $j('#cat_nav a').toggleClass('hover-nav');
@@ -34,26 +50,6 @@ $j(document).ready(function(){
         text:false
     });
 
-    /**$j('#main_login_link').button({
-        icons:{
-            primary:'ui-icon-key'
-        }
-    });
-    $j('#main_sign_up_link').button({
-        icons:{
-            primary:'ui-icon-notice'
-        }
-    });
-    $j('#main_new_vote_link').button({
-        icons:{
-            primary:'ui-icon-plus'
-        }
-    });
-    $j('#main_profile_link').button({
-        icons:{
-            primary:'ui-icon-contact'
-        }
-    });**/
     $j("#cat_nav").bind('click', function(){
         showMenu();
         return false;

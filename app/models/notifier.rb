@@ -19,7 +19,7 @@ class Notifier < ActionMailer::Base
     end
 
     def friendly_vote_emails(vote_topic)
-        emails = vote_topic.friend_emails.split(",")
+        emails = vote_topic.friend_emails
         logger.debug("Notifier sending friendly_vote_emails to => " + emails)
         
         subject "Vote invitation from #{vote_topic.user.username} at Votebust"

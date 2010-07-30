@@ -11,7 +11,7 @@ class VoteItem < ActiveRecord::Base
 
 
     def get_vote_percent_num(total_votes)
-        votes = self.votes_for
+        votes = self.votes.size
         if votes == 0
             return 0
         elsif total_votes == 0

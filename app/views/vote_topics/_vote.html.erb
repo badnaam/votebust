@@ -57,10 +57,20 @@
 
     function updatePageElems() {
       showLoading($j('#tot_prog_loading'));
-      $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>', function(data){
-        hideLoading($j('#tot_prog_loading'));
-      }, 'script');
+      <%if @user%>
+      $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
+      {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
+      hideLoading($j('#tot_prog_loading'));
+      },
+      'script');
+      <%else%>
+        $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
+      {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
+      hideLoading($j('#tot_prog_loading'));
+      },'script');
+      <%end%>
     }
+    
     var refreshId = setInterval(function(){
       updatePageElems();
     }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
@@ -78,21 +88,12 @@
     $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
     $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
     
-    $j('#vote_link').live('click',function() {
-      oneChecked = false
-      $j(':radio', '#vote_form').each(function() {
-        if (this.checked == true) {
-          $j('#vote_form').submit();
-          oneChecked = true
-        }
-      });
-      if (oneChecked == false) {
-        alert('Please select a vote option.');
-      }
+    $j('#vote_link').live('click', function() {
+      checkVoteSelected();
       return false;
     });
  
-    $j('#cancel_vote_link').live('click', function() {
+    $j('#cancel_vote_link').live('click',function() {
       $j('#vote_form').submit();
       return false;
     });
@@ -167,8 +168,9 @@
   <% elsif !@user %>
     <%= render :partial => "vote_form_need_login", :locals => {:action => 'login'} %>
   <% end  %>
+  
 </div>
-
+<div id="vote_status" class="span-18 last"></div>
 
 <div id="vote_dlg" class="span-18 last" >
   <% if !(@vote_topic.total_votes == 0) %>

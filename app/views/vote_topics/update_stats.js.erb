@@ -1,4 +1,4 @@
-
+$j('#vote_status').html('');
 $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
 <% unless (@vote_topic.total_votes == 0) %>
   if ($j('#vote_dlg').children().size() == 0) {

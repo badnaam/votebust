@@ -1,7 +1,424 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  body: MyText
-
-two:
-  body: MyText
+--- 
+comments_050: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:49:18
+  body: whats going on?
+  updated_at: 2010-07-26 07:49:18
+  id: "53"
+  user_id: "13"
+comments_039: 
+  vote_topic_id: "2"
+  created_at: 2010-07-23 05:16:49
+  body: hhhhhhh
+  updated_at: 2010-07-23 05:16:49
+  id: "42"
+  user_id: "69"
+comments_028: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:59:55
+  body: again?
+  updated_at: 2010-07-12 23:03:57
+  id: "31"
+  user_id: "65"
+comments_017: 
+  vote_topic_id: "53"
+  created_at: 2010-07-10 19:01:03
+  body: ajax works?
+  updated_at: 2010-07-10 19:01:03
+  id: "20"
+  user_id: "9"
+comments_006: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:49:27
+  body: now it will
+  updated_at: 2010-07-09 06:49:27
+  id: "9"
+  user_id: "9"
+comments_051: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:50:12
+  body: fucking ft
+  updated_at: 2010-07-26 07:50:12
+  id: "54"
+  user_id: "13"
+comments_040: 
+  vote_topic_id: "2"
+  created_at: 2010-07-23 17:47:23
+  body: My 2 cents
+  updated_at: 2010-07-23 17:47:23
+  id: "43"
+  user_id: "10"
+comments_029: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 23:02:19
+  body: do this
+  updated_at: 2010-07-12 23:03:57
+  id: "32"
+  user_id: "65"
+comments_018: 
+  vote_topic_id: "53"
+  created_at: 2010-07-10 19:02:42
+  body: 1 ajax works?
+  updated_at: 2010-07-10 19:02:42
+  id: "21"
+  user_id: "9"
+comments_007: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:49:41
+  body: yes!!
+  updated_at: 2010-07-09 06:49:41
+  id: "10"
+  user_id: "9"
+comments_052: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:51:58
+  body: fdfsdfdsafdsafdsf
+  updated_at: 2010-07-26 07:51:58
+  id: "55"
+  user_id: "13"
+comments_041: 
+  vote_topic_id: "2"
+  created_at: 2010-07-23 18:29:35
+  body: Another one
+  updated_at: 2010-07-23 18:29:36
+  id: "44"
+  user_id: "10"
+comments_030: 
+  vote_topic_id: "3"
+  created_at: 2010-07-17 18:11:08
+  body: My comments
+  updated_at: 2010-07-17 18:11:08
+  id: "33"
+  user_id: "67"
+comments_019: 
+  vote_topic_id: "53"
+  created_at: 2010-07-10 19:03:48
+  body: 2 ajax works?
+  updated_at: 2010-07-10 19:03:48
+  id: "22"
+  user_id: "9"
+comments_008: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:49:58
+  body: WHAR?
+  updated_at: 2010-07-09 06:49:58
+  id: "11"
+  user_id: "9"
+comments_053: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:52:56
+  body: ok again
+  updated_at: 2010-07-26 07:52:56
+  id: "56"
+  user_id: "13"
+comments_042: 
+  vote_topic_id: "2"
+  created_at: 2010-07-23 18:31:53
+  body: Still another
+  updated_at: 2010-07-23 18:31:53
+  id: "45"
+  user_id: "10"
+comments_031: 
+  vote_topic_id: "3"
+  created_at: 2010-07-17 20:40:20
+  body: some more
+  updated_at: 2010-07-17 20:40:20
+  id: "34"
+  user_id: "67"
+comments_020: 
+  vote_topic_id: "53"
+  created_at: 2010-07-10 19:04:09
+  body: 3 ajax works?
+  updated_at: 2010-07-10 19:04:09
+  id: "23"
+  user_id: "9"
+comments_009: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:56:34
+  body: ok
+  updated_at: 2010-07-09 06:56:34
+  id: "12"
+  user_id: "9"
+comments_054: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:54:47
+  body: dfadsfdsafdsfdsafdsf now
+  updated_at: 2010-07-26 07:54:47
+  id: "57"
+  user_id: "13"
+comments_043: 
+  vote_topic_id: "161"
+  created_at: 2010-07-23 23:29:06
+  body: ok Ok
+  updated_at: 2010-07-23 23:29:06
+  id: "46"
+  user_id: "67"
+comments_032: 
+  vote_topic_id: "3"
+  created_at: 2010-07-17 20:40:31
+  body: also more
+  updated_at: 2010-07-17 20:40:31
+  id: "35"
+  user_id: "67"
+comments_021: 
+  vote_topic_id: "53"
+  created_at: 2010-07-10 19:04:51
+  body: 3 ajax works?mjlklmkl
+  updated_at: 2010-07-10 19:04:51
+  id: "24"
+  user_id: "9"
+comments_010: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:56:52
+  body: bastard
+  updated_at: 2010-07-09 06:56:52
+  id: "13"
+  user_id: "9"
+comments_055: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:55:07
+  body: "do this "
+  updated_at: 2010-07-26 07:55:07
+  id: "58"
+  user_id: "13"
+comments_044: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:45:02
+  body: Miles and miles and miles
+  updated_at: 2010-07-26 07:45:02
+  id: "47"
+  user_id: "13"
+comments_033: 
+  vote_topic_id: "3"
+  created_at: 2010-07-17 20:40:39
+  body: ok more
+  updated_at: 2010-07-17 20:40:39
+  id: "36"
+  user_id: "67"
+comments_022: 
+  vote_topic_id: "53"
+  created_at: 2010-07-10 19:05:02
+  body: |+
+    3 ajax works?mjlklmklmlkmlkmlkml,
+    mlkmkl.l
+    
+  updated_at: 2010-07-10 19:05:02
+  id: "25"
+  user_id: "9"
+comments_011: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:58:37
+  body: bastard!!!
+  updated_at: 2010-07-09 06:58:37
+  id: "14"
+  user_id: "9"
+comments_056: 
+  vote_topic_id: "106"
+  created_at: 2010-07-26 07:55:21
+  body: fresh fresh
+  updated_at: 2010-07-26 07:55:21
+  id: "59"
+  user_id: "13"
+comments_045: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:46:04
+  body: Miles and miles and miles and miles
+  updated_at: 2010-07-26 07:46:04
+  id: "48"
+  user_id: "13"
+comments_034: 
+  vote_topic_id: "27"
+  created_at: 2010-07-19 22:45:40
+  body: My comment
+  updated_at: 2010-07-19 22:45:40
+  id: "37"
+  user_id: "67"
+comments_023: 
+  vote_topic_id: "53"
+  created_at: 2010-07-11 00:10:48
+  body: Stupid
+  updated_at: 2010-07-11 00:10:48
+  id: "26"
+  user_id: "9"
+comments_012: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:59:01
+  body: yes bastard!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!to banda. maghya
+  updated_at: 2010-07-09 06:59:01
+  id: "15"
+  user_id: "9"
+comments_001: 
+  vote_topic_id: "29"
+  created_at: 2010-07-09 00:09:12
+  body: My comment
+  updated_at: 2010-07-09 00:09:15
+  id: "4"
+  user_id: "10"
+comments_057: 
+  vote_topic_id: "106"
+  created_at: 2010-07-26 07:55:25
+  body: fresh again
+  updated_at: 2010-07-26 07:55:25
+  id: "60"
+  user_id: "13"
+comments_046: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:47:30
+  body: Miles and miles and miles and miles and more miles
+  updated_at: 2010-07-26 07:47:30
+  id: "49"
+  user_id: "13"
+comments_035: 
+  vote_topic_id: "27"
+  created_at: 2010-07-19 22:45:51
+  body: Another comments
+  updated_at: 2010-07-19 22:45:51
+  id: "38"
+  user_id: "67"
+comments_024: 
+  vote_topic_id: "53"
+  created_at: 2010-07-11 01:09:13
+  body: Stupidok
+  updated_at: 2010-07-11 01:09:13
+  id: "27"
+  user_id: "9"
+comments_013: 
+  vote_topic_id: "12"
+  created_at: 2010-07-10 02:47:31
+  body: hhhh
+  updated_at: 2010-07-10 02:47:31
+  id: "16"
+  user_id: "9"
+comments_002: 
+  vote_topic_id: "29"
+  created_at: 2010-07-09 00:09:32
+  body: Another one
+  updated_at: 2010-07-09 00:09:32
+  id: "5"
+  user_id: "10"
+comments_058: 
+  vote_topic_id: "106"
+  created_at: 2010-07-26 07:55:28
+  body: very fresh
+  updated_at: 2010-07-26 07:55:28
+  id: "61"
+  user_id: "13"
+comments_047: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:47:42
+  body: Miles and miles and miles and miles and more miles and somoe more
+  updated_at: 2010-07-26 07:47:43
+  id: "50"
+  user_id: "13"
+comments_036: 
+  vote_topic_id: "27"
+  created_at: 2010-07-19 22:45:57
+  body: One more
+  updated_at: 2010-07-19 22:45:57
+  id: "39"
+  user_id: "67"
+comments_025: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:54:54
+  body: comment on my own
+  updated_at: 2010-07-12 23:03:57
+  id: "28"
+  user_id: "65"
+comments_014: 
+  vote_topic_id: "12"
+  created_at: 2010-07-10 02:51:03
+  body: jjjjj
+  updated_at: 2010-07-10 02:51:04
+  id: "17"
+  user_id: "9"
+comments_003: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:45:57
+  body: My comm
+  updated_at: 2010-07-09 06:45:57
+  id: "6"
+  user_id: "9"
+comments_060: 
+  vote_topic_id: "106"
+  created_at: 2010-07-26 07:55:50
+  body: my page
+  updated_at: 2010-07-26 07:55:50
+  id: "63"
+  user_id: "13"
+comments_059: 
+  vote_topic_id: "106"
+  created_at: 2010-07-26 07:55:33
+  body: now no pagination
+  updated_at: 2010-07-26 07:55:33
+  id: "62"
+  user_id: "13"
+comments_048: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:47:56
+  body: Miles and miles and miles and miles and more miles and somoe more and finally
+  updated_at: 2010-07-26 07:47:56
+  id: "51"
+  user_id: "13"
+comments_037: 
+  vote_topic_id: "27"
+  created_at: 2010-07-19 22:46:01
+  body: One more still
+  updated_at: 2010-07-19 22:46:01
+  id: "40"
+  user_id: "67"
+comments_026: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:55:36
+  body: another on my own
+  updated_at: 2010-07-12 23:03:57
+  id: "29"
+  user_id: "65"
+comments_015: 
+  vote_topic_id: "12"
+  created_at: 2010-07-10 02:58:49
+  body: nknkmnl
+  updated_at: 2010-07-10 02:58:49
+  id: "18"
+  user_id: "9"
+comments_004: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:46:25
+  body: not working
+  updated_at: 2010-07-09 06:46:25
+  id: "7"
+  user_id: "9"
+comments_049: 
+  vote_topic_id: "161"
+  created_at: 2010-07-26 07:48:47
+  body: Some more from me
+  updated_at: 2010-07-26 07:48:47
+  id: "52"
+  user_id: "13"
+comments_038: 
+  vote_topic_id: "53"
+  created_at: 2010-07-20 00:25:58
+  body: "I have to "
+  updated_at: 2010-07-20 00:25:58
+  id: "41"
+  user_id: "67"
+comments_027: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:59:18
+  body: trying again
+  updated_at: 2010-07-12 23:03:57
+  id: "30"
+  user_id: "65"
+comments_016: 
+  vote_topic_id: "12"
+  created_at: 2010-07-10 02:59:23
+  body: nnklnklllmklmklmlkmlk
+  updated_at: 2010-07-10 02:59:23
+  id: "19"
+  user_id: "9"
+comments_005: 
+  vote_topic_id: "53"
+  created_at: 2010-07-09 06:47:48
+  body: not working
+  updated_at: 2010-07-09 06:47:53
+  id: "8"
+  user_id: "9"

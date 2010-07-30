@@ -1,9 +1,6202 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  option: MyString
-  info: MyString
-
-two:
-  option: MyString
-  info: MyString
+--- 
+vote_items_301: 
+  vote_topic_id: "87"
+  created_at: 2010-07-07 07:24:56
+  option: velit reiciendis
+  female_votes: "6"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Repellendus aliquam provident laborum et officia aut optio qui repellendus
+  id: "301"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_112: 
+  vote_topic_id: "32"
+  created_at: 2010-07-07 07:24:52
+  option: voluptate suscipit
+  female_votes: "7"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "0"
+  ag_2_v: "5"
+  info: Repellendus officiis doloribus quae optio omnis non earum necessitatibus
+  id: "112"
+  ag_3_v: "3"
+  ag_4_v: "9"
+vote_items_160: 
+  vote_topic_id: "45"
+  created_at: 2010-07-07 07:24:53
+  option: temporibus deleniti
+  female_votes: "9"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Quod maxime autem occaecati tempore aspernatur
+  id: "160"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_302: 
+  vote_topic_id: "87"
+  created_at: 2010-07-07 07:24:56
+  option: dolorem odit asperiores
+  female_votes: "12"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Consequatur consequatur veniam ea illum dolores atque totam eligendi inventore voluptas quidem vero ab nisi necessitatibus ut harum
+  id: "302"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_113: 
+  vote_topic_id: "32"
+  created_at: 2010-07-07 07:24:52
+  option: non omnis corrupti
+  female_votes: "3"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:46
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Similique praesentium consequatur recusandae adipisci ex consequatur minima vero atque odio sunt
+  id: "113"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_350: 
+  vote_topic_id: "104"
+  created_at: 2010-07-07 07:24:57
+  option: eaque
+  female_votes: "9"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Cupiditate odio voluptate rerum accusamus voluptatem perspiciatis quia necessitatibus
+  id: "350"
+  ag_3_v: "4"
+  ag_4_v: "7"
+vote_items_303: 
+  vote_topic_id: "88"
+  created_at: 2010-07-07 07:24:56
+  option: veniam
+  female_votes: "15"
+  male_votes: "19"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "4"
+  ag_2_v: "6"
+  info: Ut expedita est nam dolores dolorem nihil esse voluptates perspiciatis perspiciatis sint id
+  id: "303"
+  ag_3_v: "5"
+  ag_4_v: "19"
+vote_items_351: 
+  vote_topic_id: "104"
+  created_at: 2010-07-07 07:24:57
+  option: veritatis nesciunt
+  female_votes: "11"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Consequuntur aspernatur ea omnis consequatur hic accusamus dolor veniam ut
+  id: "351"
+  ag_3_v: "5"
+  ag_4_v: "11"
+vote_items_161: 
+  vote_topic_id: "45"
+  created_at: 2010-07-07 07:24:53
+  option: dolores
+  female_votes: "13"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "0"
+  ag_2_v: "6"
+  info: Ad quo et commodi quia excepturi autem sapiente quasi quo veritatis ab et possimus asperiores incidunt repellat qui sit molestiae
+  id: "161"
+  ag_3_v: "6"
+  ag_4_v: "11"
+vote_items_304: 
+  vote_topic_id: "88"
+  created_at: 2010-07-07 07:24:56
+  option: et quis
+  female_votes: "10"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Laboriosam praesentium illum vel perspiciatis ea
+  id: "304"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_114: 
+  vote_topic_id: "32"
+  created_at: 2010-07-07 07:24:52
+  option: cupiditate
+  female_votes: "7"
+  male_votes: "1"
+  updated_at: 2010-07-13 17:09:23
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Totam quidem quam esse dolore est quibusdam ipsum unde iure blanditiis quis velit molestias
+  id: "114"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_352: 
+  vote_topic_id: "105"
+  created_at: 2010-07-07 07:24:58
+  option: aut et
+  female_votes: "6"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Quo reiciendis quo dolores consequatur fugit quia modi distinctio ea sequi illo repudiandae magnam sed sit voluptatibus qui quia
+  id: "352"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_162: 
+  vote_topic_id: "45"
+  created_at: 2010-07-07 07:24:53
+  option: aut sapiente
+  female_votes: "3"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Assumenda labore velit ab repellat
+  id: "162"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_305: 
+  vote_topic_id: "89"
+  created_at: 2010-07-07 07:24:56
+  option: a
+  female_votes: "9"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:35
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Quaerat autem corrupti tempore quibusdam culpa voluptas sint rerum autem rerum aut molestias similique tempora eum labore
+  id: "305"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_115: 
+  vote_topic_id: "33"
+  created_at: 2010-07-07 07:24:52
+  option: iusto adipisci
+  female_votes: "4"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:09:17
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Commodi et explicabo est ab occaecati
+  id: "115"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_353: 
+  vote_topic_id: "105"
+  created_at: 2010-07-07 07:24:58
+  option: et fuga et
+  female_votes: "8"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:43
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Est voluptate illo earum facere voluptatem aut
+  id: "353"
+  ag_3_v: "4"
+  ag_4_v: "8"
+vote_items_163: 
+  vote_topic_id: "46"
+  created_at: 2010-07-07 07:24:53
+  option: eaque perspiciatis
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Reiciendis repellat accusantium rerum corporis nisi
+  id: "163"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_306: 
+  vote_topic_id: "89"
+  created_at: 2010-07-07 07:24:56
+  option: consectetur
+  female_votes: "16"
+  male_votes: "17"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "3"
+  ag_2_v: "6"
+  info: Ea ad quia fugit qui a praesentium autem maiores voluptas beatae quibusdam
+  id: "306"
+  ag_3_v: "5"
+  ag_4_v: "19"
+vote_items_116: 
+  vote_topic_id: "33"
+  created_at: 2010-07-07 07:24:52
+  option: occaecati et quas
+  female_votes: "3"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Dolores quis et ut sed
+  id: "116"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_354: 
+  vote_topic_id: "105"
+  created_at: 2010-07-07 07:24:58
+  option: provident ut
+  female_votes: "11"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Cumque eaque consequatur alias qui occaecati ut officiis sint distinctio in
+  id: "354"
+  ag_3_v: "3"
+  ag_4_v: "9"
+vote_items_164: 
+  vote_topic_id: "46"
+  created_at: 2010-07-07 07:24:53
+  option: et in nemo
+  female_votes: "6"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Quasi aut minima labore et incidunt at labore cupiditate autem beatae ut autem et repellendus at excepturi labore eos maxime
+  id: "164"
+  ag_3_v: "3"
+  ag_4_v: "9"
+vote_items_307: 
+  vote_topic_id: "90"
+  created_at: 2010-07-07 07:24:56
+  option: suscipit
+  female_votes: "13"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "5"
+  ag_2_v: "3"
+  info: Distinctio ea eveniet quia nemo dicta quia sed optio saepe perspiciatis fugiat ducimus iste officiis ipsam nihil
+  id: "307"
+  ag_3_v: "7"
+  ag_4_v: "12"
+vote_items_117: 
+  vote_topic_id: "33"
+  created_at: 2010-07-07 07:24:52
+  option: laboriosam
+  female_votes: "4"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Porro repellat totam ut natus odio et aperiam iure sit eius quia tenetur et debitis
+  id: "117"
+  ag_3_v: "0"
+  ag_4_v: "7"
+vote_items_355: 
+  vote_topic_id: "106"
+  created_at: 2010-07-07 07:24:58
+  option: quia reiciendis explicabo
+  female_votes: "15"
+  male_votes: "10"
+  updated_at: 2010-07-27 00:44:19
+  ag_1_v: "4"
+  ag_2_v: "1"
+  info: Exercitationem est est id eos ut vitae tenetur eum autem blanditiis eum ratione dolor mollitia fugiat eos voluptatem enim
+  id: "355"
+  ag_3_v: "4"
+  ag_4_v: "16"
+vote_items_165: 
+  vote_topic_id: "46"
+  created_at: 2010-07-07 07:24:53
+  option: ipsam dolore assumenda
+  female_votes: "13"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:40
+  ag_1_v: "1"
+  ag_2_v: "6"
+  info: Quis iusto aut magnam ratione non officiis alias
+  id: "165"
+  ag_3_v: "5"
+  ag_4_v: "12"
+vote_items_308: 
+  vote_topic_id: "90"
+  created_at: 2010-07-07 07:24:56
+  option: quia quis sit
+  female_votes: "12"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "0"
+  ag_2_v: "6"
+  info: Quo quos quia nesciunt et earum vitae et magnam vitae hic odio pariatur quia voluptatem nihil qui adipisci officia
+  id: "308"
+  ag_3_v: "2"
+  ag_4_v: "16"
+vote_items_118: 
+  vote_topic_id: "33"
+  created_at: 2010-07-07 07:24:52
+  option: et natus sit
+  female_votes: "6"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Aliquam id necessitatibus cum sint
+  id: "118"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_166: 
+  vote_topic_id: "47"
+  created_at: 2010-07-07 07:24:53
+  option: voluptate aspernatur nemo
+  female_votes: "17"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "4"
+  ag_2_v: "3"
+  info: Repudiandae molestiae tenetur eum adipisci officiis accusantium odio quia vero occaecati dolorem necessitatibus aut molestias omnis quam quaerat
+  id: "166"
+  ag_3_v: "6"
+  ag_4_v: "16"
+vote_items_309: 
+  vote_topic_id: "91"
+  created_at: 2010-07-07 07:24:56
+  option: et
+  female_votes: "13"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:35
+  ag_1_v: "1"
+  ag_2_v: "6"
+  info: Eius voluptates voluptatem ut odio error eveniet aliquid officiis sunt doloribus quibusdam fugiat aut itaque quasi occaecati dolores fugiat aut
+  id: "309"
+  ag_3_v: "6"
+  ag_4_v: "8"
+vote_items_119: 
+  vote_topic_id: "33"
+  created_at: 2010-07-07 07:24:52
+  option: dignissimos
+  female_votes: "8"
+  male_votes: "0"
+  updated_at: 2010-07-13 17:10:39
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Dolorem eum sed corporis neque nisi et repellat quidem accusantium voluptatum doloremque et
+  id: "119"
+  ag_3_v: "3"
+  ag_4_v: "3"
+vote_items_356: 
+  vote_topic_id: "106"
+  created_at: 2010-07-07 07:24:58
+  option: quod animi
+  female_votes: "9"
+  male_votes: "16"
+  updated_at: 2010-07-27 00:43:38
+  ag_1_v: "1"
+  ag_2_v: "8"
+  info: Autem necessitatibus nihil ut illum explicabo nemo consequatur vel deserunt non
+  id: "356"
+  ag_3_v: "5"
+  ag_4_v: "11"
+vote_items_167: 
+  vote_topic_id: "47"
+  created_at: 2010-07-07 07:24:53
+  option: sint omnis omnis
+  female_votes: "8"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "6"
+  info: Dolores tempora quidem error itaque qui quidem molestiae id
+  id: "167"
+  ag_3_v: "3"
+  ag_4_v: "12"
+vote_items_357: 
+  vote_topic_id: "107"
+  created_at: 2010-07-07 07:24:58
+  option: quia
+  female_votes: "8"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Mollitia aspernatur mollitia qui eius excepturi porro occaecati
+  id: "357"
+  ag_3_v: "5"
+  ag_4_v: "8"
+vote_items_168: 
+  vote_topic_id: "48"
+  created_at: 2010-07-07 07:24:53
+  option: et
+  female_votes: "3"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:20
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Ullam nam laborum veniam molestias assumenda reiciendis culpa recusandae dignissimos incidunt sit harum laudantium pariatur
+  id: "168"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_358: 
+  vote_topic_id: "107"
+  created_at: 2010-07-07 07:24:58
+  option: qui
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Fugit doloremque perspiciatis quisquam veritatis error et voluptate
+  id: "358"
+  ag_3_v: "0"
+  ag_4_v: "6"
+vote_items_359: 
+  vote_topic_id: "107"
+  created_at: 2010-07-07 07:24:58
+  option: quia veniam
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:56
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Velit repudiandae enim aut aliquam temporibus minus omnis amet repudiandae est incidunt ut veniam iste
+  id: "359"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_169: 
+  vote_topic_id: "48"
+  created_at: 2010-07-07 07:24:53
+  option: nostrum
+  female_votes: "8"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Dignissimos dicta non ut aut optio non alias nihil dolorem quia non eaque delectus eaque quos quo modi at quod
+  id: "169"
+  ag_3_v: "0"
+  ag_4_v: "6"
+vote_items_410: 
+  vote_topic_id: "121"
+  created_at: 2010-07-07 07:24:59
+  option: et et
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Eum amet eveniet eos maiores nisi illo exercitationem maiores quae et
+  id: "410"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_220: 
+  vote_topic_id: "63"
+  created_at: 2010-07-07 07:24:54
+  option: quia eos illum
+  female_votes: "13"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:47
+  ag_1_v: "4"
+  ag_2_v: "4"
+  info: Voluptatem voluptatem pariatur est et sit sunt in aut quae qui velit
+  id: "220"
+  ag_3_v: "4"
+  ag_4_v: "12"
+vote_items_030: 
+  vote_topic_id: "8"
+  created_at: 2010-07-07 07:24:50
+  option: beatae qui minima
+  female_votes: "6"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:58
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Ratione expedita unde quasi ut dolor voluptatem et voluptatem quaerat aut cupiditate molestiae
+  id: "30"
+  ag_3_v: "4"
+  ag_4_v: "5"
+vote_items_221: 
+  vote_topic_id: "64"
+  created_at: 2010-07-07 07:24:54
+  option: ab
+  female_votes: "6"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Adipisci consectetur vero deserunt ut quo nisi eum incidunt rem non vel quo ut dicta quia aut eligendi nisi
+  id: "221"
+  ag_3_v: "1"
+  ag_4_v: "13"
+vote_items_031: 
+  vote_topic_id: "9"
+  created_at: 2010-07-07 07:24:50
+  option: perferendis
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Commodi quaerat ipsum maxime quidem quidem animi doloremque qui aut dolores asperiores accusantium quo
+  id: "31"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_411: 
+  vote_topic_id: "121"
+  created_at: 2010-07-07 07:24:59
+  option: consectetur qui voluptas
+  female_votes: "4"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Et libero non vel tempora corrupti aperiam sint consequatur reprehenderit unde ea enim exercitationem qui fugiat laudantium id maxime
+  id: "411"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_222: 
+  vote_topic_id: "64"
+  created_at: 2010-07-07 07:24:54
+  option: rerum voluptatem
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:40
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Nemo nulla ullam rem qui
+  id: "222"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_032: 
+  vote_topic_id: "9"
+  created_at: 2010-07-07 07:24:50
+  option: quia molestiae voluptates
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Eum voluptas a velit voluptatibus repudiandae rerum tempore
+  id: "32"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_460: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:12:02
+  option: facebook
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-12 22:12:02
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "461"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_412: 
+  vote_topic_id: "121"
+  created_at: 2010-07-07 07:24:59
+  option: veniam
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:37
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Repellendus aut recusandae ab necessitatibus non esse ut quis ipsa tenetur et voluptatem
+  id: "412"
+  ag_3_v: "3"
+  ag_4_v: "3"
+vote_items_223: 
+  vote_topic_id: "64"
+  created_at: 2010-07-07 07:24:54
+  option: consequatur eveniet illum
+  female_votes: "7"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:10:34
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Dolores qui et deserunt sint officia aut
+  id: "223"
+  ag_3_v: "3"
+  ag_4_v: "1"
+vote_items_033: 
+  vote_topic_id: "9"
+  created_at: 2010-07-07 07:24:50
+  option: distinctio ducimus illum
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Recusandae sed id officia hic expedita consequatur id ratione ullam necessitatibus qui delectus
+  id: "33"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_270: 
+  vote_topic_id: "78"
+  created_at: 2010-07-07 07:24:55
+  option: nesciunt
+  female_votes: "15"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Veritatis fugit exercitationem ut dignissimos et maiores quia natus voluptate blanditiis odit et qui et impedit deserunt
+  id: "270"
+  ag_3_v: "5"
+  ag_4_v: "17"
+vote_items_080: 
+  vote_topic_id: "24"
+  created_at: 2010-07-07 07:24:51
+  option: necessitatibus laboriosam eius
+  female_votes: "12"
+  male_votes: "16"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Sed temporibus veritatis nostrum voluptas sapiente possimus
+  id: "80"
+  ag_3_v: "8"
+  ag_4_v: "12"
+vote_items_461: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:12:02
+  option: tweeter
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-12 22:12:02
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "462"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_413: 
+  vote_topic_id: "122"
+  created_at: 2010-07-07 07:24:59
+  option: repellat
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "0"
+  ag_2_v: "5"
+  info: A est consectetur architecto ducimus dolorem
+  id: "413"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_034: 
+  vote_topic_id: "9"
+  created_at: 2010-07-07 07:24:50
+  option: numquam alias
+  female_votes: "5"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:51
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Dolorem in assumenda quia voluptate itaque
+  id: "34"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_271: 
+  vote_topic_id: "78"
+  created_at: 2010-07-07 07:24:55
+  option: dolorem quia consequatur
+  female_votes: "10"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Dolorem repellendus laboriosam numquam molestiae ut consequatur nostrum pariatur assumenda provident aut
+  id: "271"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_081: 
+  vote_topic_id: "24"
+  created_at: 2010-07-07 07:24:51
+  option: iste
+  female_votes: "13"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Laudantium et architecto atque aperiam
+  id: "81"
+  ag_3_v: "1"
+  ag_4_v: "16"
+vote_items_462: 
+  vote_topic_id: "146"
+  created_at: 2010-07-15 01:45:29
+  option: "Yes"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 01:45:29
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "485"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_414: 
+  vote_topic_id: "122"
+  created_at: 2010-07-07 07:24:59
+  option: provident nihil
+  female_votes: "12"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Nesciunt rerum omnis ad perspiciatis facilis totam
+  id: "414"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_224: 
+  vote_topic_id: "64"
+  created_at: 2010-07-07 07:24:54
+  option: nisi esse
+  female_votes: "7"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Hic in voluptas voluptate alias architecto occaecati rerum
+  id: "224"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_035: 
+  vote_topic_id: "9"
+  created_at: 2010-07-07 07:24:50
+  option: cupiditate et
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Eveniet sed beatae occaecati animi pariatur suscipit
+  id: "35"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_272: 
+  vote_topic_id: "79"
+  created_at: 2010-07-07 07:24:55
+  option: voluptas
+  female_votes: "6"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:09:48
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Velit quia aspernatur voluptatem pariatur eos repellat
+  id: "272"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_082: 
+  vote_topic_id: "25"
+  created_at: 2010-07-07 07:24:51
+  option: reiciendis
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Reprehenderit ullam doloribus vero sit occaecati
+  id: "82"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_463: 
+  vote_topic_id: "146"
+  created_at: 2010-07-15 01:45:29
+  option: "No"
+  female_votes: "0"
+  male_votes: "1"
+  updated_at: 2010-07-15 01:45:52
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "486"
+  ag_3_v: "1"
+  ag_4_v: "0"
+vote_items_415: 
+  vote_topic_id: "122"
+  created_at: 2010-07-07 07:24:59
+  option: est velit ad
+  female_votes: "8"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "4"
+  ag_2_v: "2"
+  info: Ullam ipsam incidunt ab possimus debitis ut consequatur incidunt ipsa nam et sit
+  id: "415"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_225: 
+  vote_topic_id: "65"
+  created_at: 2010-07-07 07:24:54
+  option: vitae impedit nisi
+  female_votes: "6"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Doloremque architecto quam quia distinctio illo et eos deleniti inventore consequatur
+  id: "225"
+  ag_3_v: "2"
+  ag_4_v: "10"
+vote_items_036: 
+  vote_topic_id: "10"
+  created_at: 2010-07-07 07:24:50
+  option: ut eius voluptatibus
+  female_votes: "13"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Modi ratione quia velit autem ea consequatur libero et sed
+  id: "36"
+  ag_3_v: "5"
+  ag_4_v: "11"
+vote_items_273: 
+  vote_topic_id: "79"
+  created_at: 2010-07-07 07:24:55
+  option: consequuntur
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Odio qui molestias at quia sit quia quis
+  id: "273"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_083: 
+  vote_topic_id: "25"
+  created_at: 2010-07-07 07:24:51
+  option: excepturi placeat rerum
+  female_votes: "11"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Quo eum ut ea impedit necessitatibus corporis provident ducimus rem illum temporibus et et consequuntur
+  id: "83"
+  ag_3_v: "1"
+  ag_4_v: "15"
+vote_items_464: 
+  vote_topic_id: "147"
+  created_at: 2010-07-15 02:54:18
+  option: "Yes"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 02:54:18
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "487"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_416: 
+  vote_topic_id: "123"
+  created_at: 2010-07-07 07:24:59
+  option: velit
+  female_votes: "8"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Rerum nihil dignissimos molestias quos
+  id: "416"
+  ag_3_v: "4"
+  ag_4_v: "12"
+vote_items_226: 
+  vote_topic_id: "65"
+  created_at: 2010-07-07 07:24:54
+  option: minus
+  female_votes: "19"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "4"
+  ag_2_v: "5"
+  info: Optio cupiditate sunt quidem commodi
+  id: "226"
+  ag_3_v: "7"
+  ag_4_v: "18"
+vote_items_274: 
+  vote_topic_id: "79"
+  created_at: 2010-07-07 07:24:55
+  option: libero iure
+  female_votes: "3"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:09
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Aspernatur dolorum expedita labore at dolorum libero sit dolorum vitae doloremque aliquam nesciunt
+  id: "274"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_084: 
+  vote_topic_id: "25"
+  created_at: 2010-07-07 07:24:51
+  option: qui
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Et minus mollitia et non odit non qui maiores et magnam
+  id: "84"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_465: 
+  vote_topic_id: "147"
+  created_at: 2010-07-15 02:54:18
+  option: "No"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 02:54:18
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "488"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_417: 
+  vote_topic_id: "123"
+  created_at: 2010-07-07 07:24:59
+  option: placeat et commodi
+  female_votes: "12"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Quos adipisci quod voluptatem ut quisquam qui totam ut aut aut a voluptates quae qui quia dignissimos
+  id: "417"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_227: 
+  vote_topic_id: "66"
+  created_at: 2010-07-07 07:24:54
+  option: cum dolorum molestias
+  female_votes: "14"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:10:54
+  ag_1_v: "4"
+  ag_2_v: "5"
+  info: Libero libero sit ut est sed aut deleniti sed quibusdam voluptatibus fugiat delectus enim
+  id: "227"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_037: 
+  vote_topic_id: "10"
+  created_at: 2010-07-07 07:24:50
+  option: autem fugit
+  female_votes: "12"
+  male_votes: "16"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Cupiditate cupiditate laborum quaerat ea asperiores fugit
+  id: "37"
+  ag_3_v: "4"
+  ag_4_v: "17"
+vote_items_275: 
+  vote_topic_id: "79"
+  created_at: 2010-07-07 07:24:55
+  option: labore
+  female_votes: "5"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Qui nam et et a sit voluptas facilis voluptatem eum nulla doloribus et eveniet sunt dolorem est
+  id: "275"
+  ag_3_v: "6"
+  ag_4_v: "6"
+vote_items_085: 
+  vote_topic_id: "25"
+  created_at: 2010-07-07 07:24:51
+  option: ullam laborum amet
+  female_votes: "2"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Dignissimos omnis ut cumque repellat ab nobis in quae laudantium ut et dolorum ea cumque
+  id: "85"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_418: 
+  vote_topic_id: "123"
+  created_at: 2010-07-07 07:24:59
+  option: et
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:30
+  ag_1_v: "3"
+  ag_2_v: "0"
+  info: Ducimus distinctio sequi suscipit libero molestias et corrupti consequatur reiciendis explicabo quasi quo aut consectetur blanditiis quod eius et
+  id: "418"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_228: 
+  vote_topic_id: "66"
+  created_at: 2010-07-07 07:24:54
+  option: amet
+  female_votes: "11"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Ab quos reiciendis facere est quos aliquam dolor dicta voluptatem nam tempore harum ea vitae ipsa placeat
+  id: "228"
+  ag_3_v: "5"
+  ag_4_v: "15"
+vote_items_038: 
+  vote_topic_id: "11"
+  created_at: 2010-07-07 07:24:50
+  option: quo mollitia
+  female_votes: "11"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Suscipit quia cumque quis exercitationem nihil adipisci nostrum pariatur eius magni repellat optio delectus sed ipsam cupiditate suscipit
+  id: "38"
+  ag_3_v: "5"
+  ag_4_v: "12"
+vote_items_276: 
+  vote_topic_id: "79"
+  created_at: 2010-07-07 07:24:55
+  option: explicabo sint rerum
+  female_votes: "5"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Atque quaerat autem sed voluptatem doloribus est fugiat dolor ducimus ratione ut corporis et harum deserunt quibusdam recusandae libero vel
+  id: "276"
+  ag_3_v: "0"
+  ag_4_v: "4"
+vote_items_086: 
+  vote_topic_id: "26"
+  created_at: 2010-07-07 07:24:51
+  option: eius libero
+  female_votes: "3"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:45
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: Repudiandae perferendis deleniti quibusdam quaerat exercitationem qui numquam
+  id: "86"
+  ag_3_v: "4"
+  ag_4_v: "5"
+vote_items_466: 
+  vote_topic_id: "147"
+  created_at: 2010-07-15 02:54:18
+  option: Not Sure
+  female_votes: "0"
+  male_votes: "1"
+  updated_at: 2010-07-15 02:55:38
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "489"
+  ag_3_v: "1"
+  ag_4_v: "0"
+vote_items_419: 
+  vote_topic_id: "124"
+  created_at: 2010-07-07 07:24:59
+  option: sint sit quia
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:18
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Eum commodi cum eos ut dolores nihil voluptas tempora perspiciatis id consequatur consequatur rerum
+  id: "419"
+  ag_3_v: "1"
+  ag_4_v: "3"
+vote_items_229: 
+  vote_topic_id: "67"
+  created_at: 2010-07-07 07:24:55
+  option: reprehenderit et
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Nisi placeat aut tempora dolore illum voluptate distinctio nisi qui provident omnis in numquam qui
+  id: "229"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_039: 
+  vote_topic_id: "11"
+  created_at: 2010-07-07 07:24:50
+  option: iusto et nihil
+  female_votes: "14"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Qui numquam reprehenderit nobis quia quia aut soluta libero velit perferendis ea aut iure sit assumenda et
+  id: "39"
+  ag_3_v: "4"
+  ag_4_v: "16"
+vote_items_277: 
+  vote_topic_id: "80"
+  created_at: 2010-07-07 07:24:55
+  option: eos consequatur
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Nihil molestias officia optio molestiae non sed modi
+  id: "277"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_087: 
+  vote_topic_id: "26"
+  created_at: 2010-07-07 07:24:51
+  option: molestias aut
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Aperiam et quia sed nemo sit debitis modi ullam quia culpa libero quas
+  id: "87"
+  ag_3_v: "0"
+  ag_4_v: "8"
+vote_items_467: 
+  vote_topic_id: "148"
+  created_at: 2010-07-15 05:01:48
+  option: "Yes"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 05:01:48
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "490"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_278: 
+  vote_topic_id: "80"
+  created_at: 2010-07-07 07:24:55
+  option: tempore
+  female_votes: "8"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Iure qui amet et quam rerum suscipit dolores distinctio eveniet eveniet illum consequuntur saepe sed
+  id: "278"
+  ag_3_v: "5"
+  ag_4_v: "10"
+vote_items_088: 
+  vote_topic_id: "26"
+  created_at: 2010-07-07 07:24:51
+  option: qui a
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Cum velit aut sit id cumque eos enim quidem est sed
+  id: "88"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_468: 
+  vote_topic_id: "148"
+  created_at: 2010-07-15 05:01:48
+  option: "No"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 05:01:48
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "491"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_089: 
+  vote_topic_id: "26"
+  created_at: 2010-07-07 07:24:51
+  option: nulla in doloremque
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:13
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Velit itaque quam sed praesentium consectetur praesentium cum pariatur veniam et
+  id: "89"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_469: 
+  vote_topic_id: "149"
+  created_at: 2010-07-15 09:26:14
+  option: "yes"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 09:26:14
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "492"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_279: 
+  vote_topic_id: "80"
+  created_at: 2010-07-07 07:24:56
+  option: praesentium
+  female_votes: "10"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Fuga officiis est id laudantium ea vitae esse optio id earum quam ut doloribus
+  id: "279"
+  ag_3_v: "2"
+  ag_4_v: "10"
+vote_items_330: 
+  vote_topic_id: "97"
+  created_at: 2010-07-07 07:24:57
+  option: totam sed ipsum
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:56
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Enim aut recusandae mollitia enim quia cupiditate sapiente rem eos doloribus error dolorem voluptatum autem aliquam ea commodi
+  id: "330"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_140: 
+  vote_topic_id: "39"
+  created_at: 2010-07-07 07:24:52
+  option: minima nobis
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:33
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Nisi totam accusantium dolor minima eaque temporibus ullam ut est omnis perspiciatis est numquam
+  id: "140"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_331: 
+  vote_topic_id: "97"
+  created_at: 2010-07-07 07:24:57
+  option: exercitationem id
+  female_votes: "3"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Provident inventore commodi eos officiis omnis quia est est facilis dicta consequuntur repudiandae
+  id: "331"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_141: 
+  vote_topic_id: "39"
+  created_at: 2010-07-07 07:24:52
+  option: id accusantium enim
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Laudantium natus aut enim soluta aut at non ut vitae sed doloremque cum et aut
+  id: "141"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_332: 
+  vote_topic_id: "98"
+  created_at: 2010-07-07 07:24:57
+  option: ratione culpa
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:36
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Porro pariatur dolorem non nam iusto ut laborum esse
+  id: "332"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_142: 
+  vote_topic_id: "39"
+  created_at: 2010-07-07 07:24:52
+  option: voluptas
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Et necessitatibus odit fuga aut
+  id: "142"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_333: 
+  vote_topic_id: "98"
+  created_at: 2010-07-07 07:24:57
+  option: quaerat
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Ut optio facere quia explicabo deleniti velit deserunt non ipsum est aut dignissimos cum qui
+  id: "333"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_143: 
+  vote_topic_id: "39"
+  created_at: 2010-07-07 07:24:52
+  option: molestiae
+  female_votes: "5"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:39
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Accusantium id omnis recusandae perferendis illo non ratione
+  id: "143"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_380: 
+  vote_topic_id: "112"
+  created_at: 2010-07-07 07:24:58
+  option: corporis libero
+  female_votes: "10"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Voluptatum ut natus incidunt odio et aut
+  id: "380"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_190: 
+  vote_topic_id: "54"
+  created_at: 2010-07-07 07:24:54
+  option: dolores culpa
+  female_votes: "10"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Ea voluptatem ut voluptatum numquam distinctio similique qui et et nostrum nihil dolores est fugiat repellendus est
+  id: "190"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_144: 
+  vote_topic_id: "40"
+  created_at: 2010-07-07 07:24:52
+  option: ratione hic
+  female_votes: "5"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Voluptatibus nihil quas magni suscipit temporibus beatae voluptas incidunt repellendus dolor
+  id: "144"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_381: 
+  vote_topic_id: "112"
+  created_at: 2010-07-07 07:24:58
+  option: in beatae
+  female_votes: "15"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "3"
+  ag_2_v: "6"
+  info: Sunt incidunt voluptatem quibusdam ut error sit aperiam nisi vero quo
+  id: "381"
+  ag_3_v: "5"
+  ag_4_v: "15"
+vote_items_191: 
+  vote_topic_id: "54"
+  created_at: 2010-07-07 07:24:54
+  option: quia nemo
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Praesentium qui sunt facilis distinctio minus vero omnis et sed magnam sapiente dolore
+  id: "191"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_334: 
+  vote_topic_id: "98"
+  created_at: 2010-07-07 07:24:57
+  option: iste qui possimus
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:23
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Sint sunt non voluptatem nihil
+  id: "334"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_145: 
+  vote_topic_id: "40"
+  created_at: 2010-07-07 07:24:52
+  option: quia et nulla
+  female_votes: "7"
+  male_votes: "0"
+  updated_at: 2010-07-13 17:09:11
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Dolores odio autem molestias quo qui non corporis cum dicta
+  id: "145"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_382: 
+  vote_topic_id: "113"
+  created_at: 2010-07-07 07:24:58
+  option: consequatur
+  female_votes: "7"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:24
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Esse velit dolore sit ea delectus ut alias velit eum blanditiis totam enim excepturi
+  id: "382"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_192: 
+  vote_topic_id: "55"
+  created_at: 2010-07-07 07:24:54
+  option: voluptatibus aliquam
+  female_votes: "2"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Autem quas corporis numquam aut et voluptas alias qui expedita aut voluptatum veritatis rerum repellendus praesentium neque maxime et amet
+  id: "192"
+  ag_3_v: "1"
+  ag_4_v: "3"
+vote_items_335: 
+  vote_topic_id: "98"
+  created_at: 2010-07-07 07:24:57
+  option: quibusdam nihil
+  female_votes: "4"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Dolorem enim voluptatibus tenetur reiciendis facere deleniti suscipit quia optio nobis quaerat voluptate ex dolorem nobis qui ea illum quae
+  id: "335"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_146: 
+  vote_topic_id: "40"
+  created_at: 2010-07-07 07:24:52
+  option: tenetur qui
+  female_votes: "1"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Molestias dignissimos rerum consequatur sapiente commodi ipsam repellat error ipsam a aut natus quo animi accusantium alias
+  id: "146"
+  ag_3_v: "4"
+  ag_4_v: "5"
+vote_items_383: 
+  vote_topic_id: "113"
+  created_at: 2010-07-07 07:24:58
+  option: quas
+  female_votes: "6"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Omnis omnis sed culpa dolore pariatur aliquam dolor dolore
+  id: "383"
+  ag_3_v: "4"
+  ag_4_v: "8"
+vote_items_193: 
+  vote_topic_id: "55"
+  created_at: 2010-07-07 07:24:54
+  option: ut consequatur
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Dolorum sapiente provident dolor tempore eum et ut id modi voluptatem qui
+  id: "193"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_336: 
+  vote_topic_id: "98"
+  created_at: 2010-07-07 07:24:57
+  option: odio ipsa
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Autem dolor est aut et
+  id: "336"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_384: 
+  vote_topic_id: "113"
+  created_at: 2010-07-07 07:24:58
+  option: repellat pariatur
+  female_votes: "9"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:36
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Voluptate sunt molestiae at impedit distinctio sint et mollitia ullam sint
+  id: "384"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_194: 
+  vote_topic_id: "55"
+  created_at: 2010-07-07 07:24:54
+  option: minima
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:27
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Vel aliquam architecto ab debitis excepturi nobis dolor commodi dolore aut
+  id: "194"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_337: 
+  vote_topic_id: "99"
+  created_at: 2010-07-07 07:24:57
+  option: perspiciatis eaque
+  female_votes: "8"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Dignissimos sunt ullam rerum quaerat perferendis ab adipisci molestiae iusto repellat culpa magni autem tempora ut aut reiciendis nostrum
+  id: "337"
+  ag_3_v: "5"
+  ag_4_v: "11"
+vote_items_147: 
+  vote_topic_id: "40"
+  created_at: 2010-07-07 07:24:52
+  option: nihil fuga quo
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:46
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Neque dolor aut ducimus cumque nisi nesciunt amet nulla
+  id: "147"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_385: 
+  vote_topic_id: "113"
+  created_at: 2010-07-07 07:24:58
+  option: tenetur ut
+  female_votes: "3"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Explicabo repudiandae amet neque iure quae id enim esse aut commodi
+  id: "385"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_195: 
+  vote_topic_id: "55"
+  created_at: 2010-07-07 07:24:54
+  option: nihil
+  female_votes: "6"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:34
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Eum aut sint quidem eum corporis quisquam inventore sed velit dolores molestiae beatae eligendi dignissimos aliquam qui sapiente sit quibusdam
+  id: "195"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_338: 
+  vote_topic_id: "99"
+  created_at: 2010-07-07 07:24:57
+  option: ipsam omnis
+  female_votes: "17"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "3"
+  ag_2_v: "6"
+  info: Tenetur sapiente rerum natus officia ut aut nulla porro quaerat consequatur eius molestiae velit
+  id: "338"
+  ag_3_v: "4"
+  ag_4_v: "17"
+vote_items_148: 
+  vote_topic_id: "40"
+  created_at: 2010-07-07 07:24:52
+  option: consectetur consectetur
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Odio quaerat iure quidem error deleniti fugiat in dolor dolores earum eveniet aspernatur et aliquid maiores quae
+  id: "148"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_386: 
+  vote_topic_id: "114"
+  created_at: 2010-07-07 07:24:58
+  option: at
+  female_votes: "8"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Et nostrum fugiat quisquam exercitationem laborum natus et ipsa aliquam recusandae nihil aspernatur
+  id: "386"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_196: 
+  vote_topic_id: "55"
+  created_at: 2010-07-07 07:24:54
+  option: a nobis
+  female_votes: "3"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:00
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Occaecati dolores mollitia unde voluptatem et temporibus natus corrupti
+  id: "196"
+  ag_3_v: "3"
+  ag_4_v: "3"
+vote_items_339: 
+  vote_topic_id: "100"
+  created_at: 2010-07-07 07:24:57
+  option: dolorem quia
+  female_votes: "11"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Placeat ex sed repellat est qui eaque tempore quisquam
+  id: "339"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_149: 
+  vote_topic_id: "41"
+  created_at: 2010-07-07 07:24:53
+  option: omnis
+  female_votes: "7"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Aliquid quidem perspiciatis eaque quam similique mollitia ut eos dicta atque
+  id: "149"
+  ag_3_v: "3"
+  ag_4_v: "9"
+vote_items_387: 
+  vote_topic_id: "114"
+  created_at: 2010-07-07 07:24:58
+  option: earum deserunt vel
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Iste dolorum animi vel magnam cum natus ipsa accusantium aut quaerat itaque cum atque porro atque molestias et quo enim
+  id: "387"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_197: 
+  vote_topic_id: "56"
+  created_at: 2010-07-07 07:24:54
+  option: placeat
+  female_votes: "3"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:00
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Voluptatum accusamus repellendus maiores earum iure pariatur architecto ex dolore vel
+  id: "197"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_200: 
+  vote_topic_id: "56"
+  created_at: 2010-07-07 07:24:54
+  option: iste autem
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:40
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Nisi voluptates harum doloribus doloremque quia ut et suscipit quia
+  id: "200"
+  ag_3_v: "4"
+  ag_4_v: "7"
+vote_items_010: 
+  vote_topic_id: "3"
+  created_at: 2010-07-07 07:24:49
+  option: ex
+  female_votes: "10"
+  male_votes: "8"
+  updated_at: 2010-07-21 00:17:46
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Magni quod cumque dolores rerum aut quis temporibus dicta fugiat unde omnis reiciendis possimus ut
+  id: "10"
+  ag_3_v: "2"
+  ag_4_v: "12"
+vote_items_388: 
+  vote_topic_id: "114"
+  created_at: 2010-07-07 07:24:58
+  option: dolorem mollitia non
+  female_votes: "11"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Laborum ea suscipit tenetur quas voluptate unde deserunt
+  id: "388"
+  ag_3_v: "5"
+  ag_4_v: "11"
+vote_items_198: 
+  vote_topic_id: "56"
+  created_at: 2010-07-07 07:24:54
+  option: ut odio
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Vitae provident deleniti non qui laboriosam voluptates dolorum maxime sint quos eligendi autem
+  id: "198"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_201: 
+  vote_topic_id: "57"
+  created_at: 2010-07-07 07:24:54
+  option: voluptas
+  female_votes: "10"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Dolores quod dolor nobis voluptas et
+  id: "201"
+  ag_3_v: "4"
+  ag_4_v: "15"
+vote_items_011: 
+  vote_topic_id: "3"
+  created_at: 2010-07-07 07:24:49
+  option: nobis aliquam dolorum
+  female_votes: "6"
+  male_votes: "13"
+  updated_at: 2010-07-20 23:08:11
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Fugit ut quas aut nam maiores placeat consequatur dignissimos in aliquid
+  id: "11"
+  ag_3_v: "3"
+  ag_4_v: "12"
+vote_items_199: 
+  vote_topic_id: "56"
+  created_at: 2010-07-07 07:24:54
+  option: voluptate et
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Harum perspiciatis eligendi dolores quia ipsum voluptatem
+  id: "199"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_012: 
+  vote_topic_id: "3"
+  created_at: 2010-07-07 07:24:49
+  option: voluptatem optio
+  female_votes: "8"
+  male_votes: "7"
+  updated_at: 2010-07-20 23:54:08
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Natus molestiae occaecati libero dicta fugit voluptate recusandae non omnis eius aperiam repellendus omnis qui et quis eveniet veritatis
+  id: "12"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_389: 
+  vote_topic_id: "115"
+  created_at: 2010-07-07 07:24:58
+  option: vel ipsam
+  female_votes: "4"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Non soluta praesentium ut est minus non amet magnam est molestiae ut consequatur
+  id: "389"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_440: 
+  vote_topic_id: "128"
+  created_at: 2010-07-07 07:25:00
+  option: expedita ad
+  female_votes: "3"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Ut a quos culpa inventore laboriosam et debitis voluptatem natus aliquam accusantium
+  id: "440"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_250: 
+  vote_topic_id: "73"
+  created_at: 2010-07-07 07:24:55
+  option: officia esse
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:21
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Exercitationem vitae facere magni illo impedit occaecati repellendus repellendus in tenetur itaque minus aut
+  id: "250"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_060: 
+  vote_topic_id: "18"
+  created_at: 2010-07-07 07:24:50
+  option: dolorem
+  female_votes: "7"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Quo earum id perferendis rerum voluptatibus doloribus qui necessitatibus aut
+  id: "60"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_202: 
+  vote_topic_id: "57"
+  created_at: 2010-07-07 07:24:54
+  option: quia modi omnis
+  female_votes: "15"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "4"
+  ag_2_v: "5"
+  info: Sit ea assumenda quibusdam sint est quia dolorum aut et placeat quis unde
+  id: "202"
+  ag_3_v: "5"
+  ag_4_v: "13"
+vote_items_013: 
+  vote_topic_id: "3"
+  created_at: 2010-07-07 07:24:49
+  option: ut eius et
+  female_votes: "1"
+  male_votes: "3"
+  updated_at: 2010-07-19 02:21:22
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Placeat qui doloribus dicta expedita enim repellat fuga consequatur quo eius occaecati fugiat similique sed provident velit non
+  id: "13"
+  ag_3_v: "0"
+  ag_4_v: "3"
+vote_items_441: 
+  vote_topic_id: "129"
+  created_at: 2010-07-07 07:25:00
+  option: ut provident est
+  female_votes: "13"
+  male_votes: "13"
+  updated_at: 2010-07-13 23:55:52
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Et facilis maxime qui magnam est facilis
+  id: "441"
+  ag_3_v: "3"
+  ag_4_v: "16"
+vote_items_251: 
+  vote_topic_id: "73"
+  created_at: 2010-07-07 07:24:55
+  option: qui
+  female_votes: "3"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Saepe voluptatem qui odio in quaerat a assumenda maiores ab ut maiores
+  id: "251"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_061: 
+  vote_topic_id: "18"
+  created_at: 2010-07-07 07:24:50
+  option: exercitationem consequatur sequi
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Laborum assumenda beatae veniam omnis sequi et ut pariatur autem atque aut quisquam laudantium iste sunt voluptatibus
+  id: "61"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_203: 
+  vote_topic_id: "58"
+  created_at: 2010-07-07 07:24:54
+  option: accusantium
+  female_votes: "12"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Porro pariatur vel reprehenderit aspernatur quo incidunt sed nam non aut reiciendis nobis iure et
+  id: "203"
+  ag_3_v: "4"
+  ag_4_v: "14"
+vote_items_014: 
+  vote_topic_id: "4"
+  created_at: 2010-07-07 07:24:49
+  option: omnis distinctio
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Tenetur quam placeat repellendus similique dolores saepe sint
+  id: "14"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_442: 
+  vote_topic_id: "129"
+  created_at: 2010-07-07 07:25:00
+  option: autem ducimus quia
+  female_votes: "12"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Totam ut doloremque qui et quas est odit amet sint fugit perferendis sequi est consequatur et minima laborum eveniet ut
+  id: "442"
+  ag_3_v: "5"
+  ag_4_v: "12"
+vote_items_252: 
+  vote_topic_id: "73"
+  created_at: 2010-07-07 07:24:55
+  option: et officiis
+  female_votes: "10"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Porro praesentium ullam qui aut tenetur animi porro consequatur tempore suscipit
+  id: "252"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_062: 
+  vote_topic_id: "18"
+  created_at: 2010-07-07 07:24:50
+  option: deserunt
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Adipisci vel omnis maxime ut aspernatur et rerum qui ut eius omnis voluptatem illo eius dolorem cumque
+  id: "62"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_204: 
+  vote_topic_id: "58"
+  created_at: 2010-07-07 07:24:54
+  option: dolores architecto
+  female_votes: "13"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Esse ea neque at reiciendis rerum ratione odit debitis reiciendis et amet dolorem ut aspernatur sit recusandae harum
+  id: "204"
+  ag_3_v: "5"
+  ag_4_v: "14"
+vote_items_443: 
+  vote_topic_id: "130"
+  created_at: 2010-07-07 07:25:00
+  option: ut
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:44
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Omnis ipsum qui fugit fuga quidem et optio illo
+  id: "443"
+  ag_3_v: "1"
+  ag_4_v: "2"
+vote_items_253: 
+  vote_topic_id: "73"
+  created_at: 2010-07-07 07:24:55
+  option: earum enim
+  female_votes: "6"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Tenetur at dolores rerum perferendis beatae non in facilis corporis minus
+  id: "253"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_063: 
+  vote_topic_id: "19"
+  created_at: 2010-07-07 07:24:51
+  option: aut nulla consequatur
+  female_votes: "8"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Voluptatibus consequatur quaerat ab aut doloribus similique consequuntur exercitationem et repudiandae ut ex
+  id: "63"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_205: 
+  vote_topic_id: "59"
+  created_at: 2010-07-07 07:24:54
+  option: exercitationem qui
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: Unde voluptas consequuntur et maiores nam est qui voluptatibus architecto nemo eaque
+  id: "205"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_015: 
+  vote_topic_id: "4"
+  created_at: 2010-07-07 07:24:49
+  option: sint expedita dolor
+  female_votes: "4"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:09:15
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: Ad maxime omnis unde maxime dolorem iure aut omnis rerum qui autem perspiciatis consequatur dolor molestiae
+  id: "15"
+  ag_3_v: "0"
+  ag_4_v: "7"
+vote_items_254: 
+  vote_topic_id: "74"
+  created_at: 2010-07-07 07:24:55
+  option: ex aut
+  female_votes: "5"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:10:48
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Sed ipsa aut suscipit ipsa eius nostrum
+  id: "254"
+  ag_3_v: "5"
+  ag_4_v: "7"
+vote_items_064: 
+  vote_topic_id: "19"
+  created_at: 2010-07-07 07:24:51
+  option: nihil magni
+  female_votes: "11"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Quia sequi quaerat quis nihil delectus consequuntur et libero nam excepturi
+  id: "64"
+  ag_3_v: "6"
+  ag_4_v: "7"
+vote_items_206: 
+  vote_topic_id: "59"
+  created_at: 2010-07-07 07:24:54
+  option: pariatur
+  female_votes: "10"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:10:21
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Nobis deserunt et perferendis aspernatur sunt aut aut doloremque dolore
+  id: "206"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_016: 
+  vote_topic_id: "4"
+  created_at: 2010-07-07 07:24:49
+  option: qui
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Ratione totam praesentium in voluptatem ea incidunt sequi fugiat laudantium voluptatem distinctio nihil qui omnis corrupti facere labore
+  id: "16"
+  ag_3_v: "3"
+  ag_4_v: "4"
+vote_items_444: 
+  vote_topic_id: "130"
+  created_at: 2010-07-07 07:25:00
+  option: perferendis veritatis
+  female_votes: "6"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Voluptatem voluptatibus ut quod aut incidunt dolor provident ipsam cumque
+  id: "444"
+  ag_3_v: "5"
+  ag_4_v: "9"
+vote_items_255: 
+  vote_topic_id: "74"
+  created_at: 2010-07-07 07:24:55
+  option: quis eos architecto
+  female_votes: "11"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Non porro id architecto voluptas nostrum a et eaque aut autem nesciunt ipsum nulla aliquam ratione
+  id: "255"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_065: 
+  vote_topic_id: "19"
+  created_at: 2010-07-07 07:24:51
+  option: doloremque incidunt sed
+  female_votes: "6"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Vero eveniet ipsam libero et quibusdam cupiditate fugit iusto velit eaque sequi recusandae vitae est id eius ratione neque quisquam
+  id: "65"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_207: 
+  vote_topic_id: "59"
+  created_at: 2010-07-07 07:24:54
+  option: ipsam nesciunt
+  female_votes: "9"
+  male_votes: "17"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Iusto non vel perspiciatis laboriosam quaerat quae at modi quas quis porro enim corrupti perspiciatis doloribus similique
+  id: "207"
+  ag_3_v: "5"
+  ag_4_v: "14"
+vote_items_017: 
+  vote_topic_id: "4"
+  created_at: 2010-07-07 07:24:49
+  option: minus
+  female_votes: "8"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Natus qui voluptas ab corporis reprehenderit est commodi velit cupiditate modi ut vero quo odio inventore
+  id: "17"
+  ag_3_v: "5"
+  ag_4_v: "10"
+vote_items_445: 
+  vote_topic_id: "130"
+  created_at: 2010-07-07 07:25:00
+  option: animi
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Nobis eligendi consequatur in sit libero magnam iste id qui libero
+  id: "445"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_256: 
+  vote_topic_id: "74"
+  created_at: 2010-07-07 07:24:55
+  option: est
+  female_votes: "9"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Quia voluptas officia itaque illum officiis consequatur ex aliquid dolores et pariatur incidunt molestiae
+  id: "256"
+  ag_3_v: "2"
+  ag_4_v: "12"
+vote_items_066: 
+  vote_topic_id: "20"
+  created_at: 2010-07-07 07:24:51
+  option: ut exercitationem
+  female_votes: "6"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Excepturi incidunt a fugiat eum aperiam esse
+  id: "66"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_208: 
+  vote_topic_id: "60"
+  created_at: 2010-07-07 07:24:54
+  option: soluta alias
+  female_votes: "6"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Eum et quia sed dolorum odio dignissimos iusto est quia tempore et similique quia dignissimos ullam totam
+  id: "208"
+  ag_3_v: "2"
+  ag_4_v: "10"
+vote_items_018: 
+  vote_topic_id: "5"
+  created_at: 2010-07-07 07:24:49
+  option: similique error et
+  female_votes: "11"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Quasi est rerum magni consequatur accusamus assumenda et ipsam aut facere cupiditate qui eos
+  id: "18"
+  ag_3_v: "4"
+  ag_4_v: "14"
+vote_items_446: 
+  vote_topic_id: "130"
+  created_at: 2010-07-07 07:25:00
+  option: dolores ex
+  female_votes: "5"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:31
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Deleniti porro repellendus qui est molestiae voluptatem accusamus ipsa voluptates laudantium ea voluptas recusandae vel beatae repudiandae quam dolor in
+  id: "446"
+  ag_3_v: "0"
+  ag_4_v: "7"
+vote_items_067: 
+  vote_topic_id: "20"
+  created_at: 2010-07-07 07:24:51
+  option: omnis esse
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:36
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Aliquid deserunt id est perspiciatis in perferendis rem voluptatem cumque molestiae quia sunt
+  id: "67"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_209: 
+  vote_topic_id: "60"
+  created_at: 2010-07-07 07:24:54
+  option: ex
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:09:47
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Placeat ipsum laboriosam provident cum dicta aspernatur vitae
+  id: "209"
+  ag_3_v: "1"
+  ag_4_v: "2"
+vote_items_019: 
+  vote_topic_id: "5"
+  created_at: 2010-07-07 07:24:49
+  option: modi voluptatem atque
+  female_votes: "14"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:10:44
+  ag_1_v: "5"
+  ag_2_v: "5"
+  info: Quas similique voluptas ipsa aliquid omnis alias earum quaerat ipsum doloremque et
+  id: "19"
+  ag_3_v: "5"
+  ag_4_v: "14"
+vote_items_447: 
+  vote_topic_id: "130"
+  created_at: 2010-07-07 07:25:00
+  option: mollitia
+  female_votes: "7"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:57
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Blanditiis reiciendis eveniet pariatur sunt aut dolores nam adipisci debitis iure accusantium qui neque facilis quia sed sed
+  id: "447"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_257: 
+  vote_topic_id: "75"
+  created_at: 2010-07-07 07:24:55
+  option: omnis et
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Deserunt magnam cupiditate pariatur tempora magni consequuntur facere ea ut ratione
+  id: "257"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_068: 
+  vote_topic_id: "20"
+  created_at: 2010-07-07 07:24:51
+  option: non expedita praesentium
+  female_votes: "6"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:32
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Dolorum quia libero mollitia placeat sit quam nisi autem tempore
+  id: "68"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_448: 
+  vote_topic_id: "131"
+  created_at: 2010-07-07 07:25:00
+  option: voluptate sapiente
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Est doloremque non repellat sit ut dicta doloremque quis nulla ad et aspernatur commodi
+  id: "448"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_258: 
+  vote_topic_id: "75"
+  created_at: 2010-07-07 07:24:55
+  option: officiis molestias natus
+  female_votes: "2"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:09:19
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Labore error delectus provident quisquam debitis corporis et amet tempora officiis distinctio explicabo
+  id: "258"
+  ag_3_v: "0"
+  ag_4_v: "1"
+vote_items_069: 
+  vote_topic_id: "20"
+  created_at: 2010-07-07 07:24:51
+  option: aut
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Unde voluptatem voluptatem deleniti sint temporibus laudantium sit repellat quis impedit quod dolores et minus quae ut molestiae a officia
+  id: "69"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_449: 
+  vote_topic_id: "131"
+  created_at: 2010-07-07 07:25:00
+  option: aut
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Nihil repudiandae voluptatem quam temporibus dolore delectus porro distinctio expedita et officiis
+  id: "449"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_259: 
+  vote_topic_id: "75"
+  created_at: 2010-07-07 07:24:55
+  option: nisi explicabo velit
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Excepturi voluptatem officiis omnis excepturi natus inventore aut tenetur
+  id: "259"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_310: 
+  vote_topic_id: "91"
+  created_at: 2010-07-07 07:24:56
+  option: iste
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:49
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Autem quis quis consequatur quae expedita veritatis et blanditiis quos consequatur quos explicabo autem sed atque laudantium
+  id: "310"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_120: 
+  vote_topic_id: "34"
+  created_at: 2010-07-07 07:24:52
+  option: et
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Qui quaerat similique illum minus laborum facilis laboriosam
+  id: "120"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_311: 
+  vote_topic_id: "91"
+  created_at: 2010-07-07 07:24:56
+  option: et animi
+  female_votes: "8"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "4"
+  ag_2_v: "1"
+  info: Veritatis expedita sed officiis eius quis tenetur
+  id: "311"
+  ag_3_v: "1"
+  ag_4_v: "16"
+vote_items_121: 
+  vote_topic_id: "34"
+  created_at: 2010-07-07 07:24:52
+  option: magnam velit
+  female_votes: "11"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:09:36
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Qui consectetur dolores voluptatem quia qui
+  id: "121"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_122: 
+  vote_topic_id: "34"
+  created_at: 2010-07-07 07:24:52
+  option: nesciunt commodi
+  female_votes: "3"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Ut qui autem velit iste ullam et possimus sint ipsam a qui debitis beatae impedit nesciunt et et
+  id: "122"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_360: 
+  vote_topic_id: "107"
+  created_at: 2010-07-07 07:24:58
+  option: officia deleniti
+  female_votes: "4"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Doloribus natus quia at cupiditate consectetur quas voluptatem
+  id: "360"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_170: 
+  vote_topic_id: "48"
+  created_at: 2010-07-07 07:24:53
+  option: aut
+  female_votes: "8"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Quam et nihil et vel id
+  id: "170"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_312: 
+  vote_topic_id: "92"
+  created_at: 2010-07-07 07:24:57
+  option: in sit
+  female_votes: "6"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Minus debitis enim consequatur sequi
+  id: "312"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_123: 
+  vote_topic_id: "34"
+  created_at: 2010-07-07 07:24:52
+  option: vel animi dolor
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Praesentium animi sapiente et voluptas dolor aut hic architecto
+  id: "123"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_361: 
+  vote_topic_id: "108"
+  created_at: 2010-07-07 07:24:58
+  option: aliquid
+  female_votes: "9"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:03
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Error dicta vel consequatur a sunt architecto nulla optio possimus perspiciatis eum ut nobis nesciunt incidunt qui provident
+  id: "361"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_171: 
+  vote_topic_id: "48"
+  created_at: 2010-07-07 07:24:53
+  option: quo doloribus maiores
+  female_votes: "6"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Ipsum ut reiciendis corrupti autem quia corporis iure et placeat repellendus sequi perspiciatis rem consectetur soluta rerum
+  id: "171"
+  ag_3_v: "4"
+  ag_4_v: "8"
+vote_items_313: 
+  vote_topic_id: "92"
+  created_at: 2010-07-07 07:24:57
+  option: consequatur ipsam fugiat
+  female_votes: "10"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Distinctio eum architecto rerum repellendus ea voluptates ullam molestias et et dolor
+  id: "313"
+  ag_3_v: "5"
+  ag_4_v: "10"
+vote_items_124: 
+  vote_topic_id: "34"
+  created_at: 2010-07-07 07:24:52
+  option: et
+  female_votes: "2"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Vel nemo quam sit rerum est vitae consequatur ut voluptates quidem deserunt aut est voluptatibus quia
+  id: "124"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_362: 
+  vote_topic_id: "108"
+  created_at: 2010-07-07 07:24:58
+  option: ex deleniti quos
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:36
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Quo eos necessitatibus fugit culpa earum tenetur minima et soluta ad accusamus quod
+  id: "362"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_172: 
+  vote_topic_id: "49"
+  created_at: 2010-07-07 07:24:53
+  option: asperiores neque
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Qui odit dolor repellat quos consequatur
+  id: "172"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_314: 
+  vote_topic_id: "92"
+  created_at: 2010-07-07 07:24:57
+  option: distinctio explicabo
+  female_votes: "6"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:29
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Voluptas quae perspiciatis ad et rerum excepturi recusandae laudantium quam consequuntur blanditiis nisi voluptatem voluptate aperiam et
+  id: "314"
+  ag_3_v: "0"
+  ag_4_v: "6"
+vote_items_363: 
+  vote_topic_id: "108"
+  created_at: 2010-07-07 07:24:58
+  option: possimus
+  female_votes: "0"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Voluptatem culpa quaerat quia et unde aliquam
+  id: "363"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_173: 
+  vote_topic_id: "49"
+  created_at: 2010-07-07 07:24:53
+  option: ducimus adipisci
+  female_votes: "5"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:14
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Itaque quod consequatur beatae quo eos quis cupiditate dolores perferendis iste
+  id: "173"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_315: 
+  vote_topic_id: "92"
+  created_at: 2010-07-07 07:24:57
+  option: deleniti quo
+  female_votes: "3"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Voluptatem quis sed aliquid rem ex deleniti natus
+  id: "315"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_125: 
+  vote_topic_id: "35"
+  created_at: 2010-07-07 07:24:52
+  option: deserunt doloremque
+  female_votes: "13"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Et delectus officiis quia occaecati odio fuga
+  id: "125"
+  ag_3_v: "6"
+  ag_4_v: "15"
+vote_items_364: 
+  vote_topic_id: "108"
+  created_at: 2010-07-07 07:24:58
+  option: numquam
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:10
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Ut voluptas iusto eveniet natus earum
+  id: "364"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_174: 
+  vote_topic_id: "49"
+  created_at: 2010-07-07 07:24:53
+  option: odit vitae impedit
+  female_votes: "0"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Cumque nihil voluptatem sed quis
+  id: "174"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_316: 
+  vote_topic_id: "93"
+  created_at: 2010-07-07 07:24:57
+  option: cumque quasi
+  female_votes: "11"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Excepturi aut aperiam et non veniam ab quam illo dicta est aliquid voluptatum temporibus molestiae hic quas doloribus repudiandae
+  id: "316"
+  ag_3_v: "3"
+  ag_4_v: "14"
+vote_items_126: 
+  vote_topic_id: "35"
+  created_at: 2010-07-07 07:24:52
+  option: veritatis ut atque
+  female_votes: "12"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "3"
+  ag_2_v: "5"
+  info: Quasi aut deleniti sequi harum laudantium enim voluptatibus soluta hic vel et esse in labore dolorem magnam qui
+  id: "126"
+  ag_3_v: "3"
+  ag_4_v: "13"
+vote_items_365: 
+  vote_topic_id: "108"
+  created_at: 2010-07-07 07:24:58
+  option: assumenda officiis
+  female_votes: "6"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Dicta qui ad dolorem doloribus deleniti quis aut sit perferendis assumenda praesentium dolores error
+  id: "365"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_175: 
+  vote_topic_id: "49"
+  created_at: 2010-07-07 07:24:53
+  option: blanditiis officiis consequuntur
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: A nesciunt exercitationem natus aperiam rem laboriosam facilis repellendus dolores magnam quia quis soluta quidem provident odit eius
+  id: "175"
+  ag_3_v: "0"
+  ag_4_v: "8"
+vote_items_317: 
+  vote_topic_id: "93"
+  created_at: 2010-07-07 07:24:57
+  option: maiores
+  female_votes: "14"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "4"
+  ag_2_v: "4"
+  info: Blanditiis numquam iure in autem asperiores illo eius odio sed enim ad minima non
+  id: "317"
+  ag_3_v: "6"
+  ag_4_v: "14"
+vote_items_127: 
+  vote_topic_id: "36"
+  created_at: 2010-07-07 07:24:52
+  option: qui
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Explicabo et id dolorem aliquam iste
+  id: "127"
+  ag_3_v: "5"
+  ag_4_v: "4"
+vote_items_366: 
+  vote_topic_id: "109"
+  created_at: 2010-07-07 07:24:58
+  option: repellat
+  female_votes: "1"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: Ut laudantium excepturi earum id labore doloribus eum vitae sit quia dolore qui qui veniam
+  id: "366"
+  ag_3_v: "0"
+  ag_4_v: "4"
+vote_items_176: 
+  vote_topic_id: "49"
+  created_at: 2010-07-07 07:24:53
+  option: ut
+  female_votes: "9"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:40
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Veniam et aspernatur voluptatibus dolor aut minus sed voluptatem cumque est voluptas et id
+  id: "176"
+  ag_3_v: "7"
+  ag_4_v: "5"
+vote_items_318: 
+  vote_topic_id: "94"
+  created_at: 2010-07-07 07:24:57
+  option: quibusdam
+  female_votes: "8"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Aut voluptatem et ut distinctio porro debitis corrupti error sit odio
+  id: "318"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_128: 
+  vote_topic_id: "36"
+  created_at: 2010-07-07 07:24:52
+  option: cum provident omnis
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:06
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Molestias architecto voluptatum neque eum ea molestias
+  id: "128"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_177: 
+  vote_topic_id: "50"
+  created_at: 2010-07-07 07:24:53
+  option: repellendus est
+  female_votes: "12"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Illum ab itaque consequatur aut ut ullam ipsa vel unde labore quibusdam id
+  id: "177"
+  ag_3_v: "5"
+  ag_4_v: "15"
+vote_items_319: 
+  vote_topic_id: "94"
+  created_at: 2010-07-07 07:24:57
+  option: perspiciatis doloremque
+  female_votes: "4"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:49
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Repellat quia molestias odio sunt et dolorum minus minima ut sunt
+  id: "319"
+  ag_3_v: "0"
+  ag_4_v: "8"
+vote_items_129: 
+  vote_topic_id: "36"
+  created_at: 2010-07-07 07:24:52
+  option: sint est quos
+  female_votes: "5"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Ad eveniet aut et quia illo accusamus veritatis consequatur quidem veritatis vel
+  id: "129"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_367: 
+  vote_topic_id: "109"
+  created_at: 2010-07-07 07:24:58
+  option: quos
+  female_votes: "11"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Error sunt eos magni praesentium incidunt consectetur molestiae rerum ab maiores provident corrupti alias alias necessitatibus cum qui molestiae provident
+  id: "367"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_178: 
+  vote_topic_id: "50"
+  created_at: 2010-07-07 07:24:53
+  option: qui quam
+  female_votes: "13"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "4"
+  ag_2_v: "5"
+  info: Velit fuga voluptate eveniet fuga
+  id: "178"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_368: 
+  vote_topic_id: "109"
+  created_at: 2010-07-07 07:24:58
+  option: doloremque consequatur explicabo
+  female_votes: "2"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:36
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Dolor non molestiae voluptas tenetur explicabo cum delectus debitis mollitia reiciendis sit soluta ut officia consectetur
+  id: "368"
+  ag_3_v: "3"
+  ag_4_v: "3"
+vote_items_179: 
+  vote_topic_id: "51"
+  created_at: 2010-07-07 07:24:53
+  option: eum
+  female_votes: "7"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Repellendus sit qui amet id sed asperiores officia doloremque vel illo doloribus cumque
+  id: "179"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_369: 
+  vote_topic_id: "109"
+  created_at: 2010-07-07 07:24:58
+  option: sit et
+  female_votes: "4"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:56
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Dolor qui laudantium tempore similique
+  id: "369"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_420: 
+  vote_topic_id: "124"
+  created_at: 2010-07-07 07:24:59
+  option: ea reprehenderit
+  female_votes: "12"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:44
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Vel rerum odit nam quo quo soluta molestias libero blanditiis inventore hic
+  id: "420"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_230: 
+  vote_topic_id: "67"
+  created_at: 2010-07-07 07:24:55
+  option: numquam sint
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:41
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Tenetur est et a sint ut non dignissimos omnis et magnam ipsum architecto harum rem assumenda aut
+  id: "230"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_040: 
+  vote_topic_id: "12"
+  created_at: 2010-07-07 07:24:50
+  option: illum eius
+  female_votes: "13"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Cupiditate et quos et necessitatibus
+  id: "40"
+  ag_3_v: "4"
+  ag_4_v: "17"
+vote_items_421: 
+  vote_topic_id: "124"
+  created_at: 2010-07-07 07:24:59
+  option: quia sit
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Saepe sed veniam labore est est eum omnis dolore error qui facere
+  id: "421"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_231: 
+  vote_topic_id: "67"
+  created_at: 2010-07-07 07:24:55
+  option: nihil optio id
+  female_votes: "6"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:27
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Quae quae facilis cumque numquam omnis ut repellat aut enim numquam ducimus a ea saepe quod voluptatum et et
+  id: "231"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_041: 
+  vote_topic_id: "12"
+  created_at: 2010-07-07 07:24:50
+  option: voluptatem beatae consequuntur
+  female_votes: "12"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:10:51
+  ag_1_v: "3"
+  ag_2_v: "5"
+  info: Iste ut mollitia eum error commodi praesentium delectus recusandae quod
+  id: "41"
+  ag_3_v: "5"
+  ag_4_v: "11"
+vote_items_232: 
+  vote_topic_id: "67"
+  created_at: 2010-07-07 07:24:55
+  option: beatae
+  female_votes: "6"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Rerum aut aliquid reiciendis et molestias saepe nam sit
+  id: "232"
+  ag_3_v: "4"
+  ag_4_v: "8"
+vote_items_042: 
+  vote_topic_id: "13"
+  created_at: 2010-07-07 07:24:50
+  option: distinctio id ut
+  female_votes: "4"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Id hic voluptatem voluptatem et voluptas
+  id: "42"
+  ag_3_v: "0"
+  ag_4_v: "8"
+vote_items_470: 
+  vote_topic_id: "149"
+  created_at: 2010-07-15 09:26:14
+  option: "No"
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 09:26:14
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "493"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_422: 
+  vote_topic_id: "124"
+  created_at: 2010-07-07 07:24:59
+  option: deleniti totam saepe
+  female_votes: "3"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Eveniet illum delectus neque fuga qui ratione explicabo aliquam amet unde est quis
+  id: "422"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_280: 
+  vote_topic_id: "81"
+  created_at: 2010-07-07 07:24:56
+  option: autem
+  female_votes: "4"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Delectus aut dignissimos corrupti occaecati voluptatem labore eos voluptatem incidunt sapiente omnis quia ratione nisi
+  id: "280"
+  ag_3_v: "3"
+  ag_4_v: "4"
+vote_items_090: 
+  vote_topic_id: "26"
+  created_at: 2010-07-07 07:24:51
+  option: esse voluptatibus provident
+  female_votes: "5"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:26
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Consequatur voluptas et neque sed fugit aut mollitia id excepturi rerum minima maxime
+  id: "90"
+  ag_3_v: "1"
+  ag_4_v: "3"
+vote_items_233: 
+  vote_topic_id: "68"
+  created_at: 2010-07-07 07:24:55
+  option: itaque
+  female_votes: "20"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Rem quasi quo fugit aut itaque voluptatem facilis porro assumenda velit fugit neque neque maiores rerum sequi occaecati ut dicta
+  id: "233"
+  ag_3_v: "4"
+  ag_4_v: "18"
+vote_items_043: 
+  vote_topic_id: "13"
+  created_at: 2010-07-07 07:24:50
+  option: voluptatem
+  female_votes: "8"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:45
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Et omnis accusantium aut qui debitis qui quia delectus ipsum suscipit aperiam eveniet et sint beatae eos qui quis
+  id: "43"
+  ag_3_v: "5"
+  ag_4_v: "7"
+vote_items_471: 
+  vote_topic_id: "150"
+  created_at: 2010-07-15 09:27:39
+  option: tennis
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 09:27:39
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "494"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_423: 
+  vote_topic_id: "124"
+  created_at: 2010-07-07 07:24:59
+  option: nobis omnis
+  female_votes: "2"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Nemo corporis aut laboriosam autem dolores praesentium dolorem
+  id: "423"
+  ag_3_v: "1"
+  ag_4_v: "2"
+vote_items_281: 
+  vote_topic_id: "81"
+  created_at: 2010-07-07 07:24:56
+  option: fugit
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:28
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Quia quia consectetur consequatur doloribus eius est reprehenderit eum enim in nulla
+  id: "281"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_091: 
+  vote_topic_id: "27"
+  created_at: 2010-07-07 07:24:51
+  option: laborum
+  female_votes: "2"
+  male_votes: "7"
+  updated_at: 2010-07-19 21:16:32
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Aut rerum libero esse recusandae iure
+  id: "91"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_234: 
+  vote_topic_id: "68"
+  created_at: 2010-07-07 07:24:55
+  option: odio sed
+  female_votes: "5"
+  male_votes: "17"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Nesciunt quasi repellat voluptatum provident sed cum nam voluptas architecto quod asperiores recusandae quibusdam inventore qui id tenetur impedit
+  id: "234"
+  ag_3_v: "5"
+  ag_4_v: "10"
+vote_items_044: 
+  vote_topic_id: "13"
+  created_at: 2010-07-07 07:24:50
+  option: a
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Aut repellendus blanditiis dolor nam molestiae dolor eos eaque rem animi nulla dolor minus voluptates debitis maiores et aut ut
+  id: "44"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_472: 
+  vote_topic_id: "150"
+  created_at: 2010-07-15 09:27:39
+  option: football
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-15 09:27:39
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "495"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_424: 
+  vote_topic_id: "125"
+  created_at: 2010-07-07 07:24:59
+  option: quod eos
+  female_votes: "6"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "6"
+  info: Pariatur pariatur ut non consequatur enim sed distinctio sit voluptatibus ea maxime voluptatibus eos et aut fuga ut dolor
+  id: "424"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_282: 
+  vote_topic_id: "81"
+  created_at: 2010-07-07 07:24:56
+  option: officia ipsa non
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:48
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Omnis quo minima perferendis quasi tempora inventore est repudiandae et beatae animi cumque molestias omnis quidem iste
+  id: "282"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_092: 
+  vote_topic_id: "27"
+  created_at: 2010-07-07 07:24:51
+  option: cum
+  female_votes: "3"
+  male_votes: "5"
+  updated_at: 2010-07-19 21:16:25
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Dolorem nobis dignissimos aperiam repellendus
+  id: "92"
+  ag_3_v: "2"
+  ag_4_v: "2"
+vote_items_045: 
+  vote_topic_id: "13"
+  created_at: 2010-07-07 07:24:50
+  option: rerum inventore atque
+  female_votes: "5"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Repudiandae ratione et quos quidem voluptatum ratione
+  id: "45"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_473: 
+  vote_topic_id: "159"
+  created_at: 2010-07-21 07:14:44
+  option: real
+  female_votes: "0"
+  male_votes: "0"
+  updated_at: 2010-07-22 16:07:25
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "524"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_425: 
+  vote_topic_id: "125"
+  created_at: 2010-07-07 07:24:59
+  option: expedita
+  female_votes: "7"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Ratione totam libero et voluptas natus libero sunt sed sit voluptas consequuntur sed
+  id: "425"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_283: 
+  vote_topic_id: "81"
+  created_at: 2010-07-07 07:24:56
+  option: provident
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Nihil in veniam perspiciatis facilis qui quia tenetur et dolore corporis hic et nisi adipisci culpa accusantium modi amet ipsam
+  id: "283"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_093: 
+  vote_topic_id: "27"
+  created_at: 2010-07-07 07:24:51
+  option: eos nemo
+  female_votes: "9"
+  male_votes: "5"
+  updated_at: 2010-07-19 21:14:46
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Dolor molestias occaecati id in
+  id: "93"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_235: 
+  vote_topic_id: "69"
+  created_at: 2010-07-07 07:24:55
+  option: consectetur aliquid quisquam
+  female_votes: "8"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:54
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Consectetur nihil dicta facere eveniet
+  id: "235"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_046: 
+  vote_topic_id: "14"
+  created_at: 2010-07-07 07:24:50
+  option: quibusdam
+  female_votes: "11"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "4"
+  ag_2_v: "3"
+  info: Ut laborum modi ut ea sequi repellendus dicta placeat rerum non aut consequuntur sint
+  id: "46"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_474: 
+  vote_topic_id: "159"
+  created_at: 2010-07-21 07:14:44
+  option: dream
+  female_votes: "1"
+  male_votes: "0"
+  updated_at: 2010-07-22 16:10:41
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: 
+  id: "525"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_426: 
+  vote_topic_id: "125"
+  created_at: 2010-07-07 07:24:59
+  option: amet aut molestiae
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:18
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Quo recusandae similique accusantium deleniti
+  id: "426"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_284: 
+  vote_topic_id: "81"
+  created_at: 2010-07-07 07:24:56
+  option: aut autem
+  female_votes: "2"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Aliquid earum neque autem ipsum recusandae minima provident consectetur eum quasi laboriosam pariatur esse deserunt nihil omnis
+  id: "284"
+  ag_3_v: "0"
+  ag_4_v: "6"
+vote_items_094: 
+  vote_topic_id: "27"
+  created_at: 2010-07-07 07:24:51
+  option: fugit qui
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-19 21:16:17
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Nostrum voluptatibus sapiente ducimus quisquam repellendus voluptates porro enim qui ut quos quae magnam cum qui et in
+  id: "94"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_236: 
+  vote_topic_id: "69"
+  created_at: 2010-07-07 07:24:55
+  option: vel est quia
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Eaque ducimus et sed illo eos ut officiis maxime nostrum aut expedita labore sed error alias sit enim autem quis
+  id: "236"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_047: 
+  vote_topic_id: "14"
+  created_at: 2010-07-07 07:24:50
+  option: id totam dolores
+  female_votes: "14"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "6"
+  info: Vel sint impedit modi qui atque eum dolores quisquam sunt quas fugit debitis sapiente ipsam est velit
+  id: "47"
+  ag_3_v: "5"
+  ag_4_v: "15"
+vote_items_475: 
+  vote_topic_id: "161"
+  created_at: 2010-07-23 22:40:28
+  option: Totally!
+  female_votes: "1"
+  male_votes: "0"
+  updated_at: 2010-07-26 07:17:10
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "530"
+  ag_3_v: "1"
+  ag_4_v: "0"
+vote_items_427: 
+  vote_topic_id: "125"
+  created_at: 2010-07-07 07:24:59
+  option: qui deserunt
+  female_votes: "5"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:57
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Magnam totam a dolorem odit fugit aut architecto aliquid ut rerum impedit ut et ab dolor ipsa labore
+  id: "427"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_285: 
+  vote_topic_id: "82"
+  created_at: 2010-07-07 07:24:56
+  option: et aliquid quaerat
+  female_votes: "12"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Ut quasi ut qui aut harum mollitia dolor velit dolores blanditiis tenetur voluptas optio maxime totam enim sint fugit
+  id: "285"
+  ag_3_v: "5"
+  ag_4_v: "14"
+vote_items_095: 
+  vote_topic_id: "27"
+  created_at: 2010-07-07 07:24:51
+  option: minus sunt est
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Quisquam amet recusandae officiis facilis aut qui sit eligendi molestiae consequuntur veritatis exercitationem deleniti voluptatem incidunt et minima dolores
+  id: "95"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_237: 
+  vote_topic_id: "69"
+  created_at: 2010-07-07 07:24:55
+  option: rerum commodi
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:47
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Dolor beatae tenetur aliquid omnis doloremque mollitia modi odio consectetur voluptas
+  id: "237"
+  ag_3_v: "1"
+  ag_4_v: "3"
+vote_items_476: 
+  vote_topic_id: "161"
+  created_at: 2010-07-23 23:00:16
+  option: May be
+  female_votes: "1"
+  male_votes: "0"
+  updated_at: 2010-07-26 07:23:16
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "533"
+  ag_3_v: "0"
+  ag_4_v: "1"
+vote_items_428: 
+  vote_topic_id: "126"
+  created_at: 2010-07-07 07:24:59
+  option: qui
+  female_votes: "7"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Sapiente adipisci omnis facere est aperiam dicta expedita et sint nemo quae fuga tenetur in itaque consectetur
+  id: "428"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_286: 
+  vote_topic_id: "82"
+  created_at: 2010-07-07 07:24:56
+  option: atque ratione amet
+  female_votes: "13"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "3"
+  ag_2_v: "5"
+  info: Nobis tempore quisquam sit ex nulla amet quam temporibus beatae est officiis sed et
+  id: "286"
+  ag_3_v: "4"
+  ag_4_v: "14"
+vote_items_096: 
+  vote_topic_id: "28"
+  created_at: 2010-07-07 07:24:51
+  option: corrupti unde modi
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Consequatur amet dolorem deserunt commodi dignissimos provident neque illo
+  id: "96"
+  ag_3_v: "2"
+  ag_4_v: "10"
+vote_items_238: 
+  vote_topic_id: "69"
+  created_at: 2010-07-07 07:24:55
+  option: et quia
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Beatae distinctio consequatur sit quisquam ipsum
+  id: "238"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_048: 
+  vote_topic_id: "15"
+  created_at: 2010-07-07 07:24:50
+  option: dolore
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Minus cum eius consequatur quidem consequatur provident ut nisi cupiditate quos maxime eum expedita fugit nam
+  id: "48"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_429: 
+  vote_topic_id: "126"
+  created_at: 2010-07-07 07:24:59
+  option: similique
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Facilis debitis est et quis
+  id: "429"
+  ag_3_v: "4"
+  ag_4_v: "5"
+vote_items_287: 
+  vote_topic_id: "83"
+  created_at: 2010-07-07 07:24:56
+  option: assumenda
+  female_votes: "11"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Ut nesciunt temporibus non iste ut officiis et ad iure optio laborum dignissimos id quas tempore et explicabo et illum
+  id: "287"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_097: 
+  vote_topic_id: "28"
+  created_at: 2010-07-07 07:24:51
+  option: minus necessitatibus consequatur
+  female_votes: "3"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:32
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Neque nihil iure id debitis delectus est neque iste velit ex minus voluptatem fugit nihil quae
+  id: "97"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_239: 
+  vote_topic_id: "70"
+  created_at: 2010-07-07 07:24:55
+  option: ab hic dolorem
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:54
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Distinctio rerum et voluptatem eum
+  id: "239"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_049: 
+  vote_topic_id: "15"
+  created_at: 2010-07-07 07:24:50
+  option: quidem sit
+  female_votes: "6"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Magnam voluptates odit rerum qui distinctio
+  id: "49"
+  ag_3_v: "3"
+  ag_4_v: "9"
+vote_items_477: 
+  vote_topic_id: "161"
+  created_at: 2010-07-23 23:00:30
+  option: Give the guy a break!
+  female_votes: "0"
+  male_votes: "1"
+  updated_at: 2010-07-26 06:52:15
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "534"
+  ag_3_v: "1"
+  ag_4_v: "0"
+vote_items_100: 
+  vote_topic_id: "28"
+  created_at: 2010-07-07 07:24:51
+  option: quia magnam quis
+  female_votes: "9"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Et praesentium unde vero tenetur assumenda molestiae nobis aperiam doloremque aut omnis quis fugit inventore dolores
+  id: "100"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_288: 
+  vote_topic_id: "83"
+  created_at: 2010-07-07 07:24:56
+  option: laboriosam expedita
+  female_votes: "8"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Repellat dolore provident sed distinctio adipisci omnis expedita qui quis et voluptas amet aut vitae aperiam quisquam nam a
+  id: "288"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_098: 
+  vote_topic_id: "28"
+  created_at: 2010-07-07 07:24:51
+  option: aut
+  female_votes: "2"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:52
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Est ea dolores necessitatibus aut sint accusantium odit at voluptas adipisci consequatur ea mollitia est at et neque nobis et
+  id: "98"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_101: 
+  vote_topic_id: "29"
+  created_at: 2010-07-07 07:24:51
+  option: sit
+  female_votes: "12"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:46
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Rerum sed nemo rerum sit
+  id: "101"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_289: 
+  vote_topic_id: "83"
+  created_at: 2010-07-07 07:24:56
+  option: occaecati
+  female_votes: "3"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: In excepturi earum cum in optio dolores accusamus vitae nobis vero deserunt ullam corrupti
+  id: "289"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_099: 
+  vote_topic_id: "28"
+  created_at: 2010-07-07 07:24:51
+  option: ad
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:53
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Ea sit tempora dolorem quos cupiditate possimus culpa est harum
+  id: "99"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_102: 
+  vote_topic_id: "29"
+  created_at: 2010-07-07 07:24:51
+  option: repellat ut
+  female_votes: "13"
+  male_votes: "17"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: In maxime eligendi dolorem iusto molestiae eum voluptas laborum
+  id: "102"
+  ag_3_v: "5"
+  ag_4_v: "17"
+vote_items_340: 
+  vote_topic_id: "100"
+  created_at: 2010-07-07 07:24:57
+  option: aut libero in
+  female_votes: "14"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Delectus qui suscipit iusto deserunt aspernatur laborum quia est harum molestiae nisi corporis numquam
+  id: "340"
+  ag_3_v: "5"
+  ag_4_v: "17"
+vote_items_150: 
+  vote_topic_id: "41"
+  created_at: 2010-07-07 07:24:53
+  option: ab sint enim
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Fuga aut velit omnis aut dolorem quia aut dolor pariatur aut odio enim
+  id: "150"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_103: 
+  vote_topic_id: "30"
+  created_at: 2010-07-07 07:24:52
+  option: architecto similique
+  female_votes: "13"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Rerum qui quos sit sunt
+  id: "103"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_341: 
+  vote_topic_id: "101"
+  created_at: 2010-07-07 07:24:57
+  option: repudiandae
+  female_votes: "14"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Adipisci possimus ut qui vel et nisi itaque esse quia est officia eum ut amet molestiae non sapiente
+  id: "341"
+  ag_3_v: "4"
+  ag_4_v: "19"
+vote_items_151: 
+  vote_topic_id: "41"
+  created_at: 2010-07-07 07:24:53
+  option: cumque
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Ut exercitationem mollitia soluta maiores veritatis asperiores impedit non
+  id: "151"
+  ag_3_v: "3"
+  ag_4_v: "4"
+vote_items_104: 
+  vote_topic_id: "30"
+  created_at: 2010-07-07 07:24:52
+  option: ut ipsa minus
+  female_votes: "12"
+  male_votes: "16"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "3"
+  ag_2_v: "5"
+  info: Voluptatibus voluptatibus dolor ex sed ex
+  id: "104"
+  ag_3_v: "5"
+  ag_4_v: "15"
+vote_items_342: 
+  vote_topic_id: "101"
+  created_at: 2010-07-07 07:24:57
+  option: sit sed sint
+  female_votes: "11"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:29
+  ag_1_v: "4"
+  ag_2_v: "4"
+  info: Dolor est et in labore veniam omnis illo eos neque
+  id: "342"
+  ag_3_v: "5"
+  ag_4_v: "9"
+vote_items_152: 
+  vote_topic_id: "41"
+  created_at: 2010-07-07 07:24:53
+  option: aut
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Omnis recusandae et eum officia at porro debitis consequatur et nesciunt commodi quos id sed
+  id: "152"
+  ag_3_v: "0"
+  ag_4_v: "9"
+vote_items_105: 
+  vote_topic_id: "31"
+  created_at: 2010-07-07 07:24:52
+  option: vitae quidem quia
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:39
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Velit voluptatibus dolores qui aut occaecati laborum eaque voluptatem dolor
+  id: "105"
+  ag_3_v: "1"
+  ag_4_v: "3"
+vote_items_390: 
+  vote_topic_id: "115"
+  created_at: 2010-07-07 07:24:58
+  option: est
+  female_votes: "16"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Rerum eos dolorum eos ab occaecati molestiae ad
+  id: "390"
+  ag_3_v: "4"
+  ag_4_v: "15"
+vote_items_343: 
+  vote_topic_id: "102"
+  created_at: 2010-07-07 07:24:57
+  option: voluptate praesentium
+  female_votes: "4"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Fugit nulla eligendi rerum sunt ut veniam deserunt nulla rerum at veritatis a quia
+  id: "343"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_153: 
+  vote_topic_id: "42"
+  created_at: 2010-07-07 07:24:53
+  option: vero
+  female_votes: "14"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Commodi atque maiores quod molestiae laudantium
+  id: "153"
+  ag_3_v: "5"
+  ag_4_v: "12"
+vote_items_106: 
+  vote_topic_id: "31"
+  created_at: 2010-07-07 07:24:52
+  option: quae
+  female_votes: "9"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:20
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Et laborum rerum aut suscipit doloremque sed excepturi non illum quo ab sed repellendus qui blanditiis harum
+  id: "106"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_391: 
+  vote_topic_id: "115"
+  created_at: 2010-07-07 07:24:58
+  option: dolor
+  female_votes: "5"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:56
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Eos enim natus nisi error quis fugiat nihil voluptate reprehenderit laboriosam
+  id: "391"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_344: 
+  vote_topic_id: "102"
+  created_at: 2010-07-07 07:24:57
+  option: ducimus libero harum
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:49
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Dolor eum dolorem veniam iure quam
+  id: "344"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_154: 
+  vote_topic_id: "42"
+  created_at: 2010-07-07 07:24:53
+  option: omnis dolores corporis
+  female_votes: "11"
+  male_votes: "16"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Distinctio consectetur assumenda repudiandae et sit ut enim neque sunt nostrum pariatur
+  id: "154"
+  ag_3_v: "4"
+  ag_4_v: "16"
+vote_items_107: 
+  vote_topic_id: "31"
+  created_at: 2010-07-07 07:24:52
+  option: occaecati
+  female_votes: "3"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Quia corrupti occaecati qui enim et
+  id: "107"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_392: 
+  vote_topic_id: "116"
+  created_at: 2010-07-07 07:24:58
+  option: occaecati itaque temporibus
+  female_votes: "10"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:03
+  ag_1_v: "3"
+  ag_2_v: "5"
+  info: Labore quaerat et voluptas et accusamus veniam
+  id: "392"
+  ag_3_v: "4"
+  ag_4_v: "10"
+vote_items_155: 
+  vote_topic_id: "43"
+  created_at: 2010-07-07 07:24:53
+  option: excepturi eum
+  female_votes: "13"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Voluptatem est rerum consequatur doloremque quisquam ipsa rerum repellat odio
+  id: "155"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_393: 
+  vote_topic_id: "116"
+  created_at: 2010-07-07 07:24:58
+  option: eligendi iusto
+  female_votes: "8"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Sunt non aut corporis eos cumque aut tempore qui et necessitatibus illo ea est voluptatem aut laborum
+  id: "393"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_345: 
+  vote_topic_id: "102"
+  created_at: 2010-07-07 07:24:57
+  option: consequatur
+  female_votes: "3"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Quam dolorem dolor quidem labore rerum nesciunt atque modi ea
+  id: "345"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_156: 
+  vote_topic_id: "43"
+  created_at: 2010-07-07 07:24:53
+  option: numquam mollitia nihil
+  female_votes: "12"
+  male_votes: "16"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Aut possimus incidunt vel voluptas optio repellat voluptates sint occaecati nobis enim necessitatibus quia dolorum facere totam magnam modi error
+  id: "156"
+  ag_3_v: "5"
+  ag_4_v: "15"
+vote_items_108: 
+  vote_topic_id: "31"
+  created_at: 2010-07-07 07:24:52
+  option: tenetur aperiam possimus
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Asperiores ipsum voluptate pariatur ut voluptatibus rerum sit tempora voluptatem aspernatur distinctio nesciunt laudantium dolore
+  id: "108"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_394: 
+  vote_topic_id: "116"
+  created_at: 2010-07-07 07:24:58
+  option: minus
+  female_votes: "7"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Placeat et atque voluptas et facere qui omnis blanditiis quisquam odio et accusantium expedita
+  id: "394"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_346: 
+  vote_topic_id: "102"
+  created_at: 2010-07-07 07:24:57
+  option: doloremque aliquam repudiandae
+  female_votes: "12"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:23
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Quae minima esse excepturi reprehenderit qui odio in deleniti eum illum aliquid praesentium
+  id: "346"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_157: 
+  vote_topic_id: "44"
+  created_at: 2010-07-07 07:24:53
+  option: et facilis distinctio
+  female_votes: "7"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Facere eum sed quae facere impedit id saepe culpa nesciunt
+  id: "157"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_109: 
+  vote_topic_id: "31"
+  created_at: 2010-07-07 07:24:52
+  option: voluptatem
+  female_votes: "4"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:26
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Tempore praesentium labore a ducimus velit vel repudiandae quisquam accusamus velit
+  id: "109"
+  ag_3_v: "1"
+  ag_4_v: "2"
+vote_items_395: 
+  vote_topic_id: "117"
+  created_at: 2010-07-07 07:24:59
+  option: quis eveniet non
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Earum alias inventore dolores assumenda excepturi rerum aut sed vero quam aspernatur
+  id: "395"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_347: 
+  vote_topic_id: "103"
+  created_at: 2010-07-07 07:24:57
+  option: et pariatur
+  female_votes: "15"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Ex est iste et dicta repellat ea
+  id: "347"
+  ag_3_v: "6"
+  ag_4_v: "14"
+vote_items_396: 
+  vote_topic_id: "117"
+  created_at: 2010-07-07 07:24:59
+  option: non
+  female_votes: "2"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:37
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Non quibusdam laborum cum dolor in
+  id: "396"
+  ag_3_v: "3"
+  ag_4_v: "4"
+vote_items_348: 
+  vote_topic_id: "103"
+  created_at: 2010-07-07 07:24:57
+  option: velit
+  female_votes: "10"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Minima nobis quis atque ipsa delectus magnam nemo omnis unde minus et dolorem corporis soluta dolor
+  id: "348"
+  ag_3_v: "3"
+  ag_4_v: "14"
+vote_items_158: 
+  vote_topic_id: "44"
+  created_at: 2010-07-07 07:24:53
+  option: voluptatem eveniet
+  female_votes: "11"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Aut ut dolores eum ab libero ut quam sunt expedita fugit aut et est similique nihil dolorum ad quas nemo
+  id: "158"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_397: 
+  vote_topic_id: "117"
+  created_at: 2010-07-07 07:24:59
+  option: est id
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Mollitia animi nobis sunt non enim soluta rem
+  id: "397"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_349: 
+  vote_topic_id: "104"
+  created_at: 2010-07-07 07:24:57
+  option: sunt
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Ipsam eos labore sint et non odio sed doloribus quos repellat perferendis et magni explicabo fuga quaerat
+  id: "349"
+  ag_3_v: "0"
+  ag_4_v: "10"
+vote_items_159: 
+  vote_topic_id: "44"
+  created_at: 2010-07-07 07:24:53
+  option: eveniet
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Officiis molestiae quibusdam rerum commodi unde sit sit voluptatem officiis maxime distinctio amet dolorem enim inventore
+  id: "159"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_210: 
+  vote_topic_id: "60"
+  created_at: 2010-07-07 07:24:54
+  option: unde sed officiis
+  female_votes: "1"
+  male_votes: "4"
+  updated_at: 2010-07-27 04:21:41
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Non repudiandae voluptas enim voluptatibus
+  id: "210"
+  ag_3_v: "1"
+  ag_4_v: "2"
+vote_items_020: 
+  vote_topic_id: "6"
+  created_at: 2010-07-07 07:24:49
+  option: fuga vel quia
+  female_votes: "5"
+  male_votes: "5"
+  updated_at: 2010-07-14 23:00:33
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Repellat quia itaque veritatis consequuntur voluptates
+  id: "20"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_398: 
+  vote_topic_id: "117"
+  created_at: 2010-07-07 07:24:59
+  option: minus explicabo adipisci
+  female_votes: "5"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:57
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Ut quidem repellendus et quia eveniet ullam aliquid et eaque omnis nam et at consequatur ipsum qui ad
+  id: "398"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_400: 
+  vote_topic_id: "118"
+  created_at: 2010-07-07 07:24:59
+  option: voluptatem et vel
+  female_votes: "8"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Repudiandae esse soluta qui eveniet iusto delectus dolore qui est est quisquam necessitatibus sit commodi
+  id: "400"
+  ag_3_v: "4"
+  ag_4_v: "12"
+vote_items_211: 
+  vote_topic_id: "60"
+  created_at: 2010-07-07 07:24:54
+  option: dolore ut corporis
+  female_votes: "7"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:00
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Aut magni nobis eius enim
+  id: "211"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_021: 
+  vote_topic_id: "6"
+  created_at: 2010-07-07 07:24:49
+  option: sunt corporis repellat
+  female_votes: "5"
+  male_votes: "9"
+  updated_at: 2010-07-14 23:04:05
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Sint sint corporis dolore facilis nemo vel assumenda in at eum
+  id: "21"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_399: 
+  vote_topic_id: "117"
+  created_at: 2010-07-07 07:24:59
+  option: nobis eum
+  female_votes: "2"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Velit cupiditate iusto quis sunt veniam voluptatem ea facere in ut eos dicta aut ut incidunt ratione deleniti
+  id: "399"
+  ag_3_v: "0"
+  ag_4_v: "4"
+vote_items_401: 
+  vote_topic_id: "118"
+  created_at: 2010-07-07 07:24:59
+  option: adipisci minus
+  female_votes: "8"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Tenetur libero voluptatibus ad quis voluptatum aliquid sunt saepe sunt ratione omnis atque et laboriosam est quas perferendis
+  id: "401"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_212: 
+  vote_topic_id: "60"
+  created_at: 2010-07-07 07:24:54
+  option: id debitis rerum
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Et temporibus voluptatem sunt non vitae ut libero
+  id: "212"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_022: 
+  vote_topic_id: "6"
+  created_at: 2010-07-07 07:24:49
+  option: nihil
+  female_votes: "11"
+  male_votes: "3"
+  updated_at: 2010-07-14 23:04:27
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Perspiciatis tempore illo ex qui molestiae pariatur
+  id: "22"
+  ag_3_v: "4"
+  ag_4_v: "4"
+vote_items_450: 
+  vote_topic_id: "131"
+  created_at: 2010-07-07 07:25:00
+  option: omnis
+  female_votes: "0"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:57
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Aut hic ea dolor autem numquam alias ea in voluptatem amet sit recusandae vel blanditiis odio eius aliquid officia
+  id: "450"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_402: 
+  vote_topic_id: "118"
+  created_at: 2010-07-07 07:24:59
+  option: autem sunt
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Ullam sint aut eveniet corporis vitae repellat qui nisi quisquam occaecati
+  id: "402"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_023: 
+  vote_topic_id: "6"
+  created_at: 2010-07-07 07:24:49
+  option: minus
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-14 23:04:58
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Officia aperiam ut ipsa non sunt dolor odio rerum
+  id: "23"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_260: 
+  vote_topic_id: "75"
+  created_at: 2010-07-07 07:24:55
+  option: quasi vero
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:48
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Sint ut veniam quia fugit fuga dolorem nisi cumque nobis natus eum excepturi repellendus ut
+  id: "260"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_070: 
+  vote_topic_id: "20"
+  created_at: 2010-07-07 07:24:51
+  option: voluptatum laboriosam at
+  female_votes: "3"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Tempore soluta omnis quia doloribus vitae laborum
+  id: "70"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_451: 
+  vote_topic_id: "131"
+  created_at: 2010-07-07 07:25:00
+  option: earum velit
+  female_votes: "6"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:51
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Et eum quam quia eum alias laboriosam quia temporibus voluptate neque fuga non officiis laudantium molestiae commodi
+  id: "451"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_403: 
+  vote_topic_id: "119"
+  created_at: 2010-07-07 07:24:59
+  option: vero iusto delectus
+  female_votes: "10"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Rem consequatur ut et possimus labore sunt ex a aut quia excepturi vel sint mollitia consequatur doloribus atque fugit autem
+  id: "403"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_213: 
+  vote_topic_id: "61"
+  created_at: 2010-07-07 07:24:54
+  option: quasi
+  female_votes: "15"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "5"
+  ag_2_v: "6"
+  info: Eos sed hic repellendus dolores velit
+  id: "213"
+  ag_3_v: "4"
+  ag_4_v: "15"
+vote_items_024: 
+  vote_topic_id: "7"
+  created_at: 2010-07-07 07:24:50
+  option: deleniti est
+  female_votes: "15"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Harum est ut vero repellendus fuga aut rerum quae ipsum
+  id: "24"
+  ag_3_v: "5"
+  ag_4_v: "16"
+vote_items_261: 
+  vote_topic_id: "75"
+  created_at: 2010-07-07 07:24:55
+  option: voluptatem voluptatem
+  female_votes: "8"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:41
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Porro quis explicabo doloremque similique vel facilis architecto iure suscipit quos magni unde nobis
+  id: "261"
+  ag_3_v: "5"
+  ag_4_v: "7"
+vote_items_071: 
+  vote_topic_id: "21"
+  created_at: 2010-07-07 07:24:51
+  option: repellendus voluptatem harum
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:45
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Delectus iste sint sunt sint laborum saepe omnis deserunt id debitis eos
+  id: "71"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_452: 
+  vote_topic_id: "131"
+  created_at: 2010-07-07 07:25:00
+  option: vitae aperiam molestiae
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:22
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Est consequatur minima aspernatur tempore natus suscipit et sunt laboriosam iusto eos earum adipisci
+  id: "452"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_404: 
+  vote_topic_id: "119"
+  created_at: 2010-07-07 07:24:59
+  option: eius esse
+  female_votes: "15"
+  male_votes: "18"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "4"
+  ag_2_v: "5"
+  info: Aut dolorum id voluptas mollitia illum praesentium a quam cumque voluptas consequatur sed omnis alias tenetur omnis qui
+  id: "404"
+  ag_3_v: "5"
+  ag_4_v: "19"
+vote_items_214: 
+  vote_topic_id: "61"
+  created_at: 2010-07-07 07:24:54
+  option: voluptatibus
+  female_votes: "10"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Ratione quidem qui est non voluptatem error omnis voluptatum corrupti placeat nostrum et est provident ipsam necessitatibus explicabo omnis sit
+  id: "214"
+  ag_3_v: "5"
+  ag_4_v: "13"
+vote_items_025: 
+  vote_topic_id: "7"
+  created_at: 2010-07-07 07:24:50
+  option: autem
+  female_votes: "10"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Ipsum in sit doloribus animi eum et qui ratione praesentium exercitationem ex fugit in nesciunt animi
+  id: "25"
+  ag_3_v: "4"
+  ag_4_v: "12"
+vote_items_262: 
+  vote_topic_id: "76"
+  created_at: 2010-07-07 07:24:55
+  option: quam maxime
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Eius reiciendis illum corrupti eligendi est dolorem
+  id: "262"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_072: 
+  vote_topic_id: "21"
+  created_at: 2010-07-07 07:24:51
+  option: hic perferendis
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:12
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Tempora atque corrupti dolorem consequatur dolor ipsum illum
+  id: "72"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_453: 
+  vote_topic_id: "132"
+  created_at: 2010-07-07 22:47:45
+  option: Martini
+  female_votes: 
+  male_votes: "1"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: 
+  id: "453"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_405: 
+  vote_topic_id: "120"
+  created_at: 2010-07-07 07:24:59
+  option: aliquid ut
+  female_votes: "8"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Non id ut veniam totam ut consequatur ad numquam
+  id: "405"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_263: 
+  vote_topic_id: "76"
+  created_at: 2010-07-07 07:24:55
+  option: iste ex
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:48
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Aut dolore et aut ratione modi eos ea est vel necessitatibus odio
+  id: "263"
+  ag_3_v: "3"
+  ag_4_v: "2"
+vote_items_073: 
+  vote_topic_id: "21"
+  created_at: 2010-07-07 07:24:51
+  option: voluptates
+  female_votes: "8"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Tempora et praesentium consequatur inventore aut non vel cupiditate autem et eum mollitia temporibus qui
+  id: "73"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_215: 
+  vote_topic_id: "62"
+  created_at: 2010-07-07 07:24:54
+  option: corrupti sit dolore
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:00
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Modi et quasi ipsum laboriosam eos qui
+  id: "215"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_454: 
+  vote_topic_id: "132"
+  created_at: 2010-07-07 22:47:45
+  option: Mohito
+  female_votes: 
+  male_votes: "1"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "454"
+  ag_3_v: "1"
+  ag_4_v: "0"
+vote_items_406: 
+  vote_topic_id: "120"
+  created_at: 2010-07-07 07:24:59
+  option: illum debitis nulla
+  female_votes: "3"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:57
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Architecto rerum quia cumque sapiente unde consequatur laudantium assumenda quasi inventore voluptatem
+  id: "406"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_026: 
+  vote_topic_id: "8"
+  created_at: 2010-07-07 07:24:50
+  option: enim architecto
+  female_votes: "4"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Illum consequatur doloribus earum eaque similique voluptatem sint officiis sapiente libero et magnam et voluptatum accusantium
+  id: "26"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_264: 
+  vote_topic_id: "76"
+  created_at: 2010-07-07 07:24:55
+  option: quam repellendus
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Praesentium totam corporis eum enim
+  id: "264"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_074: 
+  vote_topic_id: "21"
+  created_at: 2010-07-07 07:24:51
+  option: consectetur veniam ut
+  female_votes: "5"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Fugiat totam et ex ea praesentium expedita veritatis voluptatum blanditiis atque consequatur assumenda accusantium quis praesentium minima expedita incidunt
+  id: "74"
+  ag_3_v: "4"
+  ag_4_v: "13"
+vote_items_216: 
+  vote_topic_id: "62"
+  created_at: 2010-07-07 07:24:54
+  option: et sed
+  female_votes: "9"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:21
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Nulla suscipit consequatur in natus nihil molestiae et sint quae provident aut cum itaque omnis explicabo et
+  id: "216"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_407: 
+  vote_topic_id: "120"
+  created_at: 2010-07-07 07:24:59
+  option: id
+  female_votes: "8"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Veritatis minima ab amet nostrum sed eveniet saepe nam est sunt ipsum
+  id: "407"
+  ag_3_v: "4"
+  ag_4_v: "10"
+vote_items_265: 
+  vote_topic_id: "76"
+  created_at: 2010-07-07 07:24:55
+  option: odio similique
+  female_votes: "8"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Maxime commodi debitis impedit id eveniet tenetur in nulla quos libero qui ipsam officia ut unde
+  id: "265"
+  ag_3_v: "1"
+  ag_4_v: "13"
+vote_items_075: 
+  vote_topic_id: "22"
+  created_at: 2010-07-07 07:24:51
+  option: amet et
+  female_votes: "14"
+  male_votes: "14"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Assumenda mollitia et officia porro dolor ut qui ad ut ipsum non neque nostrum qui dignissimos aspernatur quia
+  id: "75"
+  ag_3_v: "6"
+  ag_4_v: "14"
+vote_items_217: 
+  vote_topic_id: "62"
+  created_at: 2010-07-07 07:24:54
+  option: eaque laudantium odit
+  female_votes: "3"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Deserunt nulla vel et molestiae eos veritatis et dolorem ea hic et rerum nam quia consequatur sit aut occaecati
+  id: "217"
+  ag_3_v: "1"
+  ag_4_v: "9"
+vote_items_027: 
+  vote_topic_id: "8"
+  created_at: 2010-07-07 07:24:50
+  option: itaque nisi
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Nobis quia saepe non suscipit totam
+  id: "27"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_455: 
+  vote_topic_id: "132"
+  created_at: 2010-07-07 22:47:45
+  option: Margarita
+  female_votes: "1"
+  male_votes: 
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "456"
+  ag_3_v: "0"
+  ag_4_v: "1"
+vote_items_408: 
+  vote_topic_id: "120"
+  created_at: 2010-07-07 07:24:59
+  option: qui sint ducimus
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Vero amet et qui dolorum esse animi facilis in minima alias ex et natus qui nisi expedita officiis ex voluptatem
+  id: "408"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_266: 
+  vote_topic_id: "77"
+  created_at: 2010-07-07 07:24:55
+  option: qui
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Voluptas deserunt necessitatibus accusamus est autem aperiam aliquid et tenetur et vel soluta et asperiores et
+  id: "266"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_076: 
+  vote_topic_id: "22"
+  created_at: 2010-07-07 07:24:51
+  option: occaecati assumenda
+  female_votes: "11"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Voluptates pariatur ratione inventore magni necessitatibus
+  id: "76"
+  ag_3_v: "3"
+  ag_4_v: "14"
+vote_items_218: 
+  vote_topic_id: "62"
+  created_at: 2010-07-07 07:24:54
+  option: sit iure
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Voluptatem non nesciunt iste in eos consequuntur ipsum sed laboriosam quibusdam maxime
+  id: "218"
+  ag_3_v: "4"
+  ag_4_v: "7"
+vote_items_028: 
+  vote_topic_id: "8"
+  created_at: 2010-07-07 07:24:50
+  option: et consequatur
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Sequi et voluptas voluptas dolorem voluptate magnam officiis eos et maiores non cupiditate ea deleniti sed aut
+  id: "28"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_456: 
+  vote_topic_id: "133"
+  created_at: 2010-07-08 00:13:01
+  option: Acura
+  female_votes: "1"
+  male_votes: 
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "457"
+  ag_3_v: "0"
+  ag_4_v: "1"
+vote_items_409: 
+  vote_topic_id: "121"
+  created_at: 2010-07-07 07:24:59
+  option: odit voluptatem
+  female_votes: "8"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Voluptas quasi nam minus tempora
+  id: "409"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_267: 
+  vote_topic_id: "77"
+  created_at: 2010-07-07 07:24:55
+  option: voluptate
+  female_votes: "7"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Assumenda fugit reiciendis vero odit est omnis fugit nam eos sint quia non sit quis maiores sunt aut illo minima
+  id: "267"
+  ag_3_v: "4"
+  ag_4_v: "7"
+vote_items_077: 
+  vote_topic_id: "23"
+  created_at: 2010-07-07 07:24:51
+  option: rerum ipsa est
+  female_votes: "10"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:45
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Sint quaerat sint rem et nisi nobis voluptatem illum molestiae nam vel
+  id: "77"
+  ag_3_v: "5"
+  ag_4_v: "8"
+vote_items_219: 
+  vote_topic_id: "63"
+  created_at: 2010-07-07 07:24:54
+  option: eveniet et
+  female_votes: "12"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Tenetur voluptatem ut atque nihil quisquam natus ipsam suscipit rerum perferendis velit harum deleniti vitae eos illo soluta qui doloribus
+  id: "219"
+  ag_3_v: "5"
+  ag_4_v: "16"
+vote_items_029: 
+  vote_topic_id: "8"
+  created_at: 2010-07-07 07:24:50
+  option: nisi dolorum laborum
+  female_votes: "4"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:09:03
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Velit quis exercitationem corporis quos eos hic veniam alias qui qui esse neque iste
+  id: "29"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_457: 
+  vote_topic_id: "133"
+  created_at: 2010-07-08 00:13:01
+  option: BMW
+  female_votes: 
+  male_votes: "1"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: 
+  id: "458"
+  ag_3_v: "0"
+  ag_4_v: "0"
+vote_items_078: 
+  vote_topic_id: "23"
+  created_at: 2010-07-07 07:24:51
+  option: nostrum sint
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:58
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Et autem sunt unde sunt voluptates
+  id: "78"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_458: 
+  vote_topic_id: "133"
+  created_at: 2010-07-08 00:13:01
+  option: Lexus
+  female_votes: "1"
+  male_votes: "0"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "459"
+  ag_3_v: "1"
+  ag_4_v: "0"
+vote_items_268: 
+  vote_topic_id: "77"
+  created_at: 2010-07-07 07:24:55
+  option: alias non
+  female_votes: "7"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Porro aut minus qui laborum incidunt quo molestiae rem sit in nobis voluptas ipsam maiores
+  id: "268"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_079: 
+  vote_topic_id: "23"
+  created_at: 2010-07-07 07:24:51
+  option: in atque itaque
+  female_votes: "7"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Earum aut magnam quas ut omnis sit vero mollitia exercitationem eligendi eum odit nisi numquam eum molestiae fugit
+  id: "79"
+  ag_3_v: "1"
+  ag_4_v: "13"
+vote_items_459: 
+  vote_topic_id: "134"
+  created_at: 2010-07-12 22:12:02
+  option: Google
+  female_votes: "0"
+  male_votes: "1"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: 
+  id: "460"
+  ag_3_v: "0"
+  ag_4_v: "1"
+vote_items_269: 
+  vote_topic_id: "77"
+  created_at: 2010-07-07 07:24:55
+  option: accusantium porro
+  female_votes: "4"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:09:55
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Nihil possimus quo unde nihil quisquam est error quae inventore pariatur animi tenetur consequatur perspiciatis ab
+  id: "269"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_320: 
+  vote_topic_id: "94"
+  created_at: 2010-07-07 07:24:57
+  option: delectus
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Similique sapiente dolores sapiente aut
+  id: "320"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_130: 
+  vote_topic_id: "36"
+  created_at: 2010-07-07 07:24:52
+  option: perferendis dicta
+  female_votes: "6"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:46
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Praesentium maxime reiciendis in odio totam deserunt
+  id: "130"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_321: 
+  vote_topic_id: "94"
+  created_at: 2010-07-07 07:24:57
+  option: aut soluta
+  female_votes: "3"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Voluptate beatae quo molestias iusto excepturi velit exercitationem nam perferendis sunt laudantium repellat blanditiis adipisci mollitia consequatur ut doloribus illum
+  id: "321"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_131: 
+  vote_topic_id: "36"
+  created_at: 2010-07-07 07:24:52
+  option: quos
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "3"
+  ag_2_v: "1"
+  info: Voluptatum rerum deleniti placeat est veritatis
+  id: "131"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_322: 
+  vote_topic_id: "94"
+  created_at: 2010-07-07 07:24:57
+  option: voluptas maxime
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:02
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Sit provident et nobis sed quasi repellat architecto
+  id: "322"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_132: 
+  vote_topic_id: "37"
+  created_at: 2010-07-07 07:24:52
+  option: sed temporibus
+  female_votes: "14"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Nihil ad vel ullam voluptates reiciendis deleniti voluptatem nostrum
+  id: "132"
+  ag_3_v: "3"
+  ag_4_v: "14"
+vote_items_133: 
+  vote_topic_id: "37"
+  created_at: 2010-07-07 07:24:52
+  option: iure
+  female_votes: "11"
+  male_votes: "17"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "6"
+  info: Harum odit omnis corporis magnam nesciunt assumenda blanditiis eos quod distinctio omnis accusamus
+  id: "133"
+  ag_3_v: "6"
+  ag_4_v: "14"
+vote_items_370: 
+  vote_topic_id: "109"
+  created_at: 2010-07-07 07:24:58
+  option: qui deleniti
+  female_votes: "7"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:03
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Sint sed qui earum dolores
+  id: "370"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_180: 
+  vote_topic_id: "51"
+  created_at: 2010-07-07 07:24:53
+  option: ea alias et
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Quos ut ad ipsam corrupti impedit asperiores inventore ut et modi totam illo
+  id: "180"
+  ag_3_v: "3"
+  ag_4_v: "8"
+vote_items_134: 
+  vote_topic_id: "38"
+  created_at: 2010-07-07 07:24:52
+  option: architecto rerum
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:53
+  ag_1_v: "0"
+  ag_2_v: "0"
+  info: Totam nulla fuga enim non eum dolorem aut maiores temporibus libero expedita error voluptate quos quidem enim
+  id: "134"
+  ag_3_v: "3"
+  ag_4_v: "3"
+vote_items_371: 
+  vote_topic_id: "110"
+  created_at: 2010-07-07 07:24:58
+  option: impedit
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:56
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Praesentium exercitationem voluptas et aperiam corrupti aut et magnam qui maxime autem voluptatum quia suscipit qui culpa reiciendis
+  id: "371"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_181: 
+  vote_topic_id: "51"
+  created_at: 2010-07-07 07:24:53
+  option: maiores facere
+  female_votes: "5"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:21
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Voluptatem dolores consectetur eum quis repudiandae alias deleniti hic deleniti et modi libero consequatur quisquam fuga et magni qui
+  id: "181"
+  ag_3_v: "0"
+  ag_4_v: "5"
+vote_items_323: 
+  vote_topic_id: "95"
+  created_at: 2010-07-07 07:24:57
+  option: autem
+  female_votes: "6"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Doloribus consectetur eaque libero quo qui architecto expedita voluptatum ipsum commodi omnis aliquid repudiandae omnis
+  id: "323"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_372: 
+  vote_topic_id: "110"
+  created_at: 2010-07-07 07:24:58
+  option: aut qui enim
+  female_votes: "10"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:10
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Ea sed fugiat ab odit id iusto aut at culpa molestiae nesciunt est
+  id: "372"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_182: 
+  vote_topic_id: "51"
+  created_at: 2010-07-07 07:24:53
+  option: et enim
+  female_votes: "7"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:00
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Non maxime qui excepturi architecto quibusdam nisi reiciendis aut cupiditate animi repellendus similique et maxime omnis iste aut eos
+  id: "182"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_324: 
+  vote_topic_id: "95"
+  created_at: 2010-07-07 07:24:57
+  option: molestiae
+  female_votes: "8"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:02
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Ad repellat in veniam alias
+  id: "324"
+  ag_3_v: "4"
+  ag_4_v: "10"
+vote_items_135: 
+  vote_topic_id: "38"
+  created_at: 2010-07-07 07:24:52
+  option: atque adipisci
+  female_votes: "3"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Voluptatibus qui rerum consectetur qui nesciunt dolorem consequatur corrupti ut corrupti nihil eum
+  id: "135"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_373: 
+  vote_topic_id: "110"
+  created_at: 2010-07-07 07:24:58
+  option: reprehenderit minima
+  female_votes: "3"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Quia nemo doloremque facere fuga rerum earum aliquid id eius optio
+  id: "373"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_183: 
+  vote_topic_id: "52"
+  created_at: 2010-07-07 07:24:53
+  option: nesciunt qui nisi
+  female_votes: "10"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:40
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: A voluptate quas neque quia exercitationem sit
+  id: "183"
+  ag_3_v: "5"
+  ag_4_v: "6"
+vote_items_325: 
+  vote_topic_id: "95"
+  created_at: 2010-07-07 07:24:57
+  option: nisi
+  female_votes: "11"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: A earum dolores expedita iste harum officia velit
+  id: "325"
+  ag_3_v: "1"
+  ag_4_v: "12"
+vote_items_374: 
+  vote_topic_id: "110"
+  created_at: 2010-07-07 07:24:58
+  option: magnam
+  female_votes: "6"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Voluptatem autem hic aut beatae fuga deleniti qui veritatis in repudiandae nemo tempore quia eum quia
+  id: "374"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_184: 
+  vote_topic_id: "52"
+  created_at: 2010-07-07 07:24:53
+  option: adipisci ut quo
+  female_votes: "7"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:07
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Quod ducimus assumenda quos cum et unde deserunt voluptates culpa in omnis enim mollitia
+  id: "184"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_326: 
+  vote_topic_id: "96"
+  created_at: 2010-07-07 07:24:57
+  option: harum
+  female_votes: "13"
+  male_votes: "15"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "4"
+  ag_2_v: "5"
+  info: Sed nobis dicta eum et inventore laudantium voluptatem laborum quia nobis eaque veniam eligendi molestiae maiores fuga quis sit
+  id: "326"
+  ag_3_v: "3"
+  ag_4_v: "16"
+vote_items_136: 
+  vote_topic_id: "38"
+  created_at: 2010-07-07 07:24:52
+  option: veritatis fugiat
+  female_votes: "3"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Ut cum dolore in eaque saepe sapiente necessitatibus aut sunt aut sapiente quibusdam eos necessitatibus
+  id: "136"
+  ag_3_v: "2"
+  ag_4_v: "3"
+vote_items_375: 
+  vote_topic_id: "111"
+  created_at: 2010-07-07 07:24:58
+  option: quibusdam quia facilis
+  female_votes: "7"
+  male_votes: "2"
+  updated_at: 2010-07-13 17:10:43
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Magni consectetur est aspernatur reiciendis doloremque rem occaecati earum harum in rem ab error cupiditate blanditiis ipsa ratione
+  id: "375"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_185: 
+  vote_topic_id: "52"
+  created_at: 2010-07-07 07:24:53
+  option: vero eaque
+  female_votes: "8"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Necessitatibus quia voluptatem omnis dolore minima non voluptatem quo accusamus facilis
+  id: "185"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_327: 
+  vote_topic_id: "96"
+  created_at: 2010-07-07 07:24:57
+  option: consequuntur
+  female_votes: "12"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Quod animi magnam ut accusamus dolorum ducimus repellendus
+  id: "327"
+  ag_3_v: "6"
+  ag_4_v: "12"
+vote_items_137: 
+  vote_topic_id: "38"
+  created_at: 2010-07-07 07:24:52
+  option: qui hic modi
+  female_votes: "10"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "3"
+  ag_2_v: "5"
+  info: Dicta dolorem et asperiores mollitia repudiandae dolor omnis delectus
+  id: "137"
+  ag_3_v: "0"
+  ag_4_v: "12"
+vote_items_376: 
+  vote_topic_id: "111"
+  created_at: 2010-07-07 07:24:58
+  option: distinctio
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:23
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Eos numquam occaecati repudiandae et sed laboriosam veniam aut molestiae et corrupti iure ut cupiditate dolorem eos ipsa rem
+  id: "376"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_186: 
+  vote_topic_id: "53"
+  created_at: 2010-07-07 07:24:53
+  option: assumenda maxime soluta
+  female_votes: "9"
+  male_votes: "12"
+  updated_at: 2010-07-20 00:45:31
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Harum reiciendis rerum magni possimus exercitationem sint tempora aut atque doloribus et libero excepturi asperiores dolorum alias excepturi
+  id: "186"
+  ag_3_v: "6"
+  ag_4_v: "9"
+vote_items_328: 
+  vote_topic_id: "97"
+  created_at: 2010-07-07 07:24:57
+  option: aut ut amet
+  female_votes: "8"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:42
+  ag_1_v: "3"
+  ag_2_v: "4"
+  info: Et voluptatem ullam laboriosam deleniti
+  id: "328"
+  ag_3_v: "4"
+  ag_4_v: "2"
+vote_items_138: 
+  vote_topic_id: "38"
+  created_at: 2010-07-07 07:24:52
+  option: iusto ut omnis
+  female_votes: "6"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:20
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Nisi velit est nam voluptas adipisci blanditiis veniam accusamus qui dolores maxime occaecati ea id voluptatem vel modi nihil voluptatum
+  id: "138"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_377: 
+  vote_topic_id: "111"
+  created_at: 2010-07-07 07:24:58
+  option: alias
+  female_votes: "2"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:17
+  ag_1_v: "0"
+  ag_2_v: "2"
+  info: Ipsum consequatur necessitatibus consequuntur accusamus explicabo sit sit occaecati accusantium aut quia rerum iusto quos consequatur est quam laboriosam aut
+  id: "377"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_187: 
+  vote_topic_id: "53"
+  created_at: 2010-07-07 07:24:54
+  option: et nostrum
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:13
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Pariatur quos voluptatem nihil voluptatem voluptatem quos
+  id: "187"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_329: 
+  vote_topic_id: "97"
+  created_at: 2010-07-07 07:24:57
+  option: debitis
+  female_votes: "6"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:11:09
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Molestiae animi nam magni dolorum aut eum vel enim
+  id: "329"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_139: 
+  vote_topic_id: "39"
+  created_at: 2010-07-07 07:24:52
+  option: facilis
+  female_votes: "5"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:06
+  ag_1_v: "3"
+  ag_2_v: "0"
+  info: Ducimus qui doloremque eligendi debitis totam dolorum voluptates dolorem in
+  id: "139"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_188: 
+  vote_topic_id: "53"
+  created_at: 2010-07-07 07:24:54
+  option: molestiae qui beatae
+  female_votes: "9"
+  male_votes: "6"
+  updated_at: 2010-07-27 04:22:36
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Enim recusandae ab quo officia sed aut autem doloremque optio
+  id: "188"
+  ag_3_v: "2"
+  ag_4_v: "10"
+vote_items_001: 
+  vote_topic_id: "1"
+  created_at: 2010-07-07 07:24:49
+  option: non qui sequi
+  female_votes: "5"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Voluptas sed voluptatem aliquid officiis maiores ratione
+  id: "1"
+  ag_3_v: "3"
+  ag_4_v: "4"
+vote_items_378: 
+  vote_topic_id: "111"
+  created_at: 2010-07-07 07:24:58
+  option: quia
+  female_votes: "9"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:03
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Ratione ex pariatur voluptatem quis et est est
+  id: "378"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_189: 
+  vote_topic_id: "54"
+  created_at: 2010-07-07 07:24:54
+  option: consequuntur aut
+  female_votes: "10"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:47
+  ag_1_v: "4"
+  ag_2_v: "3"
+  info: Voluptatum ad in odio sequi rerum sint aspernatur quia rerum magni eveniet explicabo at vitae voluptas
+  id: "189"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_002: 
+  vote_topic_id: "1"
+  created_at: 2010-07-07 07:24:49
+  option: quod
+  female_votes: "7"
+  male_votes: "1"
+  updated_at: 2010-07-13 17:10:24
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Velit assumenda modi consectetur et velit consectetur
+  id: "2"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_379: 
+  vote_topic_id: "111"
+  created_at: 2010-07-07 07:24:58
+  option: enim animi ullam
+  female_votes: "2"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:16
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Praesentium sed quis et id quos porro laborum ipsam et fuga earum quia eos labore pariatur
+  id: "379"
+  ag_3_v: "2"
+  ag_4_v: "5"
+vote_items_430: 
+  vote_topic_id: "126"
+  created_at: 2010-07-07 07:24:59
+  option: consequatur doloribus
+  female_votes: "5"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Ducimus saepe exercitationem et quidem et sapiente et nihil id necessitatibus atque eos
+  id: "430"
+  ag_3_v: "4"
+  ag_4_v: "3"
+vote_items_240: 
+  vote_topic_id: "70"
+  created_at: 2010-07-07 07:24:55
+  option: qui tempore assumenda
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: At consequuntur non eveniet aut ea nihil odit ducimus quia
+  id: "240"
+  ag_3_v: "2"
+  ag_4_v: "7"
+vote_items_050: 
+  vote_topic_id: "15"
+  created_at: 2010-07-07 07:24:50
+  option: eaque
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:19
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Deleniti amet dolorum qui omnis molestiae numquam et eveniet nam ipsam necessitatibus
+  id: "50"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_003: 
+  vote_topic_id: "1"
+  created_at: 2010-07-07 07:24:49
+  option: quis
+  female_votes: "5"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Est aut ipsam optio vel debitis omnis quasi est
+  id: "3"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_431: 
+  vote_topic_id: "126"
+  created_at: 2010-07-07 07:24:59
+  option: et facilis molestiae
+  female_votes: "8"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:57
+  ag_1_v: "3"
+  ag_2_v: "2"
+  info: Nihil repellat quod aut eum quia soluta dignissimos
+  id: "431"
+  ag_3_v: "0"
+  ag_4_v: "10"
+vote_items_241: 
+  vote_topic_id: "70"
+  created_at: 2010-07-07 07:24:55
+  option: omnis aut culpa
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:10:41
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Voluptatem tenetur quaerat porro molestiae rerum soluta libero rerum earum culpa eius consequatur
+  id: "241"
+  ag_3_v: "4"
+  ag_4_v: "6"
+vote_items_051: 
+  vote_topic_id: "15"
+  created_at: 2010-07-07 07:24:50
+  option: natus
+  female_votes: "8"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:32
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: In dicta in aut distinctio culpa est iure delectus
+  id: "51"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_432: 
+  vote_topic_id: "127"
+  created_at: 2010-07-07 07:25:00
+  option: id illo qui
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: At ullam qui consequatur fuga et quos nulla nesciunt
+  id: "432"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_052: 
+  vote_topic_id: "16"
+  created_at: 2010-07-07 07:24:50
+  option: voluptas velit
+  female_votes: "11"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:45
+  ag_1_v: "2"
+  ag_2_v: "5"
+  info: Repudiandae voluptatem at laborum voluptas magnam deleniti asperiores sapiente esse deleniti magnam reiciendis deleniti
+  id: "52"
+  ag_3_v: "1"
+  ag_4_v: "10"
+vote_items_004: 
+  vote_topic_id: "1"
+  created_at: 2010-07-07 07:24:49
+  option: sunt provident
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Maiores qui omnis rerum ut molestiae sit suscipit et perspiciatis fuga ipsa qui laboriosam
+  id: "4"
+  ag_3_v: "1"
+  ag_4_v: "11"
+vote_items_242: 
+  vote_topic_id: "70"
+  created_at: 2010-07-07 07:24:55
+  option: quidem
+  female_votes: "4"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Dolore inventore dolore assumenda harum non quod doloremque reiciendis aut ab harum vero quo quidem
+  id: "242"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_053: 
+  vote_topic_id: "16"
+  created_at: 2010-07-07 07:24:50
+  option: ipsum qui at
+  female_votes: "9"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Quidem deleniti laboriosam deleniti neque cum neque omnis expedita dolorum quis et provident veritatis quia velit
+  id: "53"
+  ag_3_v: "4"
+  ag_4_v: "7"
+vote_items_005: 
+  vote_topic_id: "2"
+  created_at: 2010-07-07 07:24:49
+  option: dolores
+  female_votes: "5"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:04
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Rerum assumenda non natus magnam rerum a repudiandae consequuntur aut voluptatum tenetur sunt fugit architecto eveniet
+  id: "5"
+  ag_3_v: "1"
+  ag_4_v: "5"
+vote_items_290: 
+  vote_topic_id: "83"
+  created_at: 2010-07-07 07:24:56
+  option: ullam
+  female_votes: "3"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Maxime consectetur dolorem iusto suscipit iusto vel aliquam dolore velit qui provident rerum in repudiandae officia excepturi
+  id: "290"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_243: 
+  vote_topic_id: "71"
+  created_at: 2010-07-07 07:24:55
+  option: eveniet possimus sit
+  female_votes: "7"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "0"
+  ag_2_v: "4"
+  info: Eos nostrum fuga a ratione nemo laudantium in earum quaerat adipisci
+  id: "243"
+  ag_3_v: "4"
+  ag_4_v: "9"
+vote_items_433: 
+  vote_topic_id: "127"
+  created_at: 2010-07-07 07:25:00
+  option: voluptatem
+  female_votes: "8"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:50
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Voluptates sint dolore vero facilis fuga sint fugit quis odit aut sunt aut enim eum aut molestiae nam laborum
+  id: "433"
+  ag_3_v: "3"
+  ag_4_v: "6"
+vote_items_006: 
+  vote_topic_id: "2"
+  created_at: 2010-07-07 07:24:49
+  option: incidunt
+  female_votes: "3"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:57
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Et enim reprehenderit aut nulla necessitatibus vel similique provident qui facilis
+  id: "6"
+  ag_3_v: "1"
+  ag_4_v: "6"
+vote_items_291: 
+  vote_topic_id: "84"
+  created_at: 2010-07-07 07:24:56
+  option: dolore
+  female_votes: "6"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:22
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Ab voluptas iusto quae quia molestiae temporibus odio itaque voluptas porro impedit explicabo et dolorum numquam maiores repellat minima
+  id: "291"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_244: 
+  vote_topic_id: "71"
+  created_at: 2010-07-07 07:24:55
+  option: optio ullam
+  female_votes: "8"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:54
+  ag_1_v: "1"
+  ag_2_v: "5"
+  info: Velit perspiciatis aperiam dolor natus
+  id: "244"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_054: 
+  vote_topic_id: "16"
+  created_at: 2010-07-07 07:24:50
+  option: dignissimos eligendi
+  female_votes: "5"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Voluptatibus sit consectetur et error sint doloribus qui aperiam quasi veniam illo
+  id: "54"
+  ag_3_v: "4"
+  ag_4_v: "11"
+vote_items_434: 
+  vote_topic_id: "127"
+  created_at: 2010-07-07 07:25:00
+  option: sed
+  female_votes: "3"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Nemo cum eum in qui quis culpa beatae et ut tenetur debitis fugit distinctio voluptatem voluptas et eos
+  id: "434"
+  ag_3_v: "1"
+  ag_4_v: "7"
+vote_items_007: 
+  vote_topic_id: "2"
+  created_at: 2010-07-07 07:24:49
+  option: qui omnis
+  female_votes: "9"
+  male_votes: "5"
+  updated_at: 2010-07-23 05:16:46
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Impedit itaque ut numquam fugiat est maiores aut sapiente voluptatibus consequatur nisi optio nulla et est porro a
+  id: "7"
+  ag_3_v: "3"
+  ag_4_v: "7"
+vote_items_292: 
+  vote_topic_id: "84"
+  created_at: 2010-07-07 07:24:56
+  option: minus debitis
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "2"
+  ag_2_v: "0"
+  info: Optio molestiae ex ipsa totam aut delectus fugiat voluptatibus non
+  id: "292"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_245: 
+  vote_topic_id: "71"
+  created_at: 2010-07-07 07:24:55
+  option: iure aut quis
+  female_votes: "10"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "4"
+  ag_2_v: "0"
+  info: Sit eligendi possimus et iusto aliquam provident aliquid ut sed rerum in et quia fugit exercitationem adipisci et
+  id: "245"
+  ag_3_v: "3"
+  ag_4_v: "11"
+vote_items_055: 
+  vote_topic_id: "17"
+  created_at: 2010-07-07 07:24:50
+  option: et vel quis
+  female_votes: "3"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:05
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Ipsam nam fuga enim unde velit asperiores et odit vel nihil
+  id: "55"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_435: 
+  vote_topic_id: "127"
+  created_at: 2010-07-07 07:25:00
+  option: voluptates
+  female_votes: "9"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Nihil ut aut aut veritatis voluptatem voluptatem dignissimos enim omnis unde enim et voluptatibus
+  id: "435"
+  ag_3_v: "3"
+  ag_4_v: "9"
+vote_items_008: 
+  vote_topic_id: "2"
+  created_at: 2010-07-07 07:24:49
+  option: aut
+  female_votes: "6"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Ratione molestiae qui itaque ipsa et quia consequatur nihil explicabo
+  id: "8"
+  ag_3_v: "4"
+  ag_4_v: "4"
+vote_items_293: 
+  vote_topic_id: "84"
+  created_at: 2010-07-07 07:24:56
+  option: aut tempora ut
+  female_votes: "12"
+  male_votes: "13"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "2"
+  ag_2_v: "7"
+  info: Maiores distinctio minus necessitatibus laboriosam sunt
+  id: "293"
+  ag_3_v: "4"
+  ag_4_v: "12"
+vote_items_056: 
+  vote_topic_id: "17"
+  created_at: 2010-07-07 07:24:50
+  option: neque sed
+  female_votes: "4"
+  male_votes: "9"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Animi in pariatur quasi tempore voluptates labore voluptas
+  id: "56"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_436: 
+  vote_topic_id: "128"
+  created_at: 2010-07-07 07:25:00
+  option: quia perspiciatis
+  female_votes: "4"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:31
+  ag_1_v: "0"
+  ag_2_v: "1"
+  info: Eos et quisquam veritatis veniam eveniet explicabo laborum maxime eum rerum voluptatum in sint nam quod esse adipisci blanditiis ut
+  id: "436"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_009: 
+  vote_topic_id: "2"
+  created_at: 2010-07-07 07:24:49
+  option: rem cupiditate
+  female_votes: "3"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:44
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Itaque quos tenetur nihil placeat voluptatem eius odit modi voluptas officiis ratione dignissimos officia sapiente consequatur asperiores esse voluptas deleniti
+  id: "9"
+  ag_3_v: "0"
+  ag_4_v: "7"
+vote_items_294: 
+  vote_topic_id: "85"
+  created_at: 2010-07-07 07:24:56
+  option: maiores
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Autem vel aut quasi aliquam quas iure et et architecto quae unde similique dolore
+  id: "294"
+  ag_3_v: "2"
+  ag_4_v: "6"
+vote_items_246: 
+  vote_topic_id: "72"
+  created_at: 2010-07-07 07:24:55
+  option: molestiae ab et
+  female_votes: "10"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Aut nihil sint qui qui accusantium ex officia quae voluptatem animi hic
+  id: "246"
+  ag_3_v: "2"
+  ag_4_v: "11"
+vote_items_057: 
+  vote_topic_id: "17"
+  created_at: 2010-07-07 07:24:50
+  option: commodi et
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:45
+  ag_1_v: "1"
+  ag_2_v: "2"
+  info: Atque deleniti molestiae animi eum quaerat repudiandae ducimus vel sint odit veritatis id rerum quod
+  id: "57"
+  ag_3_v: "2"
+  ag_4_v: "9"
+vote_items_437: 
+  vote_topic_id: "128"
+  created_at: 2010-07-07 07:25:00
+  option: perferendis
+  female_votes: "7"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:10:44
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Fugiat alias voluptatum repellat sit temporibus est laboriosam aut alias eos laboriosam error
+  id: "437"
+  ag_3_v: "3"
+  ag_4_v: "5"
+vote_items_295: 
+  vote_topic_id: "85"
+  created_at: 2010-07-07 07:24:56
+  option: ullam repellendus
+  female_votes: "7"
+  male_votes: "12"
+  updated_at: 2010-07-13 17:11:08
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Harum dolor veritatis veritatis nihil ipsam quibusdam quia natus perferendis ut voluptate ea beatae nam
+  id: "295"
+  ag_3_v: "4"
+  ag_4_v: "12"
+vote_items_247: 
+  vote_topic_id: "72"
+  created_at: 2010-07-07 07:24:55
+  option: qui ut
+  female_votes: "8"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:14
+  ag_1_v: "2"
+  ag_2_v: "3"
+  info: Quis ut excepturi eos vel sed velit ipsam
+  id: "247"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_058: 
+  vote_topic_id: "17"
+  created_at: 2010-07-07 07:24:50
+  option: quae nihil corrupti
+  female_votes: "10"
+  male_votes: "5"
+  updated_at: 2010-07-13 17:10:38
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Sit rem sit tempore consequatur vero facere incidunt voluptatibus fuga
+  id: "58"
+  ag_3_v: "5"
+  ag_4_v: "7"
+vote_items_438: 
+  vote_topic_id: "128"
+  created_at: 2010-07-07 07:25:00
+  option: quis atque
+  female_votes: "4"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:17
+  ag_1_v: "0"
+  ag_2_v: "5"
+  info: Et repellendus animi qui omnis veniam quis dicta odit quasi sapiente distinctio
+  id: "438"
+  ag_3_v: "1"
+  ag_4_v: "4"
+vote_items_296: 
+  vote_topic_id: "85"
+  created_at: 2010-07-07 07:24:56
+  option: non commodi tempora
+  female_votes: "9"
+  male_votes: "10"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Repellendus et ut labore aperiam et sed non rem quia suscipit dolorem rem culpa
+  id: "296"
+  ag_3_v: "3"
+  ag_4_v: "10"
+vote_items_248: 
+  vote_topic_id: "72"
+  created_at: 2010-07-07 07:24:55
+  option: earum
+  female_votes: "2"
+  male_votes: "7"
+  updated_at: 2010-07-13 17:10:35
+  ag_1_v: "0"
+  ag_2_v: "3"
+  info: Dolorum officiis natus suscipit consectetur molestias ab culpa tempora qui occaecati nihil perspiciatis quia
+  id: "248"
+  ag_3_v: "2"
+  ag_4_v: "4"
+vote_items_439: 
+  vote_topic_id: "128"
+  created_at: 2010-07-07 07:25:00
+  option: autem reiciendis harum
+  female_votes: "7"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "2"
+  ag_2_v: "2"
+  info: Natus et molestias corporis dolore quia aspernatur est deleniti quos velit omnis vitae voluptatem esse omnis quia laborum est
+  id: "439"
+  ag_3_v: "1"
+  ag_4_v: "8"
+vote_items_297: 
+  vote_topic_id: "86"
+  created_at: 2010-07-07 07:24:56
+  option: sed ex eum
+  female_votes: "6"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:11:01
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Sit ipsum qui quo vel aut et veritatis voluptate voluptas velit voluptate in reiciendis aut et
+  id: "297"
+  ag_3_v: "4"
+  ag_4_v: "8"
+vote_items_249: 
+  vote_topic_id: "72"
+  created_at: 2010-07-07 07:24:55
+  option: eveniet est saepe
+  female_votes: "5"
+  male_votes: "6"
+  updated_at: 2010-07-13 17:10:47
+  ag_1_v: "1"
+  ag_2_v: "1"
+  info: Nobis adipisci minus commodi et illum dolorem impedit commodi consequatur non placeat beatae optio et natus et iste ut
+  id: "249"
+  ag_3_v: "4"
+  ag_4_v: "5"
+vote_items_059: 
+  vote_topic_id: "18"
+  created_at: 2010-07-07 07:24:50
+  option: molestiae corporis
+  female_votes: "9"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:11:11
+  ag_1_v: "1"
+  ag_2_v: "4"
+  info: Et est sed ipsam dicta
+  id: "59"
+  ag_3_v: "2"
+  ag_4_v: "10"
+vote_items_300: 
+  vote_topic_id: "87"
+  created_at: 2010-07-07 07:24:56
+  option: corporis
+  female_votes: "7"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "3"
+  ag_2_v: "3"
+  info: Ea exercitationem eos id aut quis quibusdam qui non id eius amet amet natus maxime dolorem alias
+  id: "300"
+  ag_3_v: "4"
+  ag_4_v: "5"
+vote_items_110: 
+  vote_topic_id: "32"
+  created_at: 2010-07-07 07:24:52
+  option: ea laudantium dignissimos
+  female_votes: "3"
+  male_votes: "8"
+  updated_at: 2010-07-13 17:10:59
+  ag_1_v: "1"
+  ag_2_v: "3"
+  info: Natus ad eos earum laborum minima eos quia optio sint
+  id: "110"
+  ag_3_v: "0"
+  ag_4_v: "7"
+vote_items_298: 
+  vote_topic_id: "86"
+  created_at: 2010-07-07 07:24:56
+  option: est ipsam at
+  female_votes: "9"
+  male_votes: "4"
+  updated_at: 2010-07-13 17:11:15
+  ag_1_v: "2"
+  ag_2_v: "1"
+  info: Sunt non nostrum quia nemo rerum eos culpa atque ad quo qui voluptatibus
+  id: "298"
+  ag_3_v: "2"
+  ag_4_v: "8"
+vote_items_111: 
+  vote_topic_id: "32"
+  created_at: 2010-07-07 07:24:52
+  option: ducimus est
+  female_votes: "5"
+  male_votes: "3"
+  updated_at: 2010-07-13 17:11:12
+  ag_1_v: "1"
+  ag_2_v: "0"
+  info: Placeat ipsa illum beatae et doloribus eligendi consequatur commodi est corporis dolorem velit amet aut in reiciendis ipsa
+  id: "111"
+  ag_3_v: "3"
+  ag_4_v: "4"
+vote_items_299: 
+  vote_topic_id: "86"
+  created_at: 2010-07-07 07:24:56
+  option: modi
+  female_votes: "10"
+  male_votes: "11"
+  updated_at: 2010-07-13 17:10:55
+  ag_1_v: "2"
+  ag_2_v: "4"
+  info: Odio numquam aut eligendi voluptatem quae culpa quaerat minus magnam voluptatum dicta qui
+  id: "299"
+  ag_3_v: "3"
+  ag_4_v: "12"

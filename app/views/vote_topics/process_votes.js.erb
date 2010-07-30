@@ -1,2 +1,19 @@
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
-$j('#vote_link').remove();
+$j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
+<% if !@vote_topic.nil? %>
+  $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
+<% end  %>
+<%if @vote_topic && @selected_response %>
+  $j('#vote_link').closest('li').remove();
+  $j('#sel_response').attr('value', '<%= @selected_response.id %>');
+  $j('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
+  $j('#rt_<%= @selected_response.id %>').closest('li').removeClass('ui-widget-content').addClass('ui-state-active');
+  $j("<span class ='small-button'><a href='#comment_form' id='goto_comment_link'>Comment</a></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
+  $j("<span class ='small-button'><button id='cancel_vote_link'>Cancel Vote</button></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
+  $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+  $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
+  $j('#vote_form').attr('action', '<%= cancel_vote_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
+  $j(':radio', '#vote_form').each(function() {
+  $j(this).remove();
+  });
+<% end  %>

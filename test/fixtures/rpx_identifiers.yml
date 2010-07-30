@@ -1,0 +1,57 @@
+--- 
+rpx_identifiers_001: 
+  created_at: 2010-07-12 19:57:11
+  updated_at: 2010-07-12 21:13:19
+  provider_name: Google
+  id: "6"
+  user_id: "64"
+  identifier: https://www.google.com/accounts/o8/id?id=AItOawnFpRU-gbMSN2juKu7zTyD905QqdxJNT_U
+rpx_identifiers_002: 
+  created_at: 2010-07-12 20:59:59
+  updated_at: 2010-07-12 20:59:59
+  provider_name: Yahoo!
+  id: "7"
+  user_id: "64"
+  identifier: https://me.yahoo.com/a/dWcMTkAKss6h.O2BVUnsLDBgpQ--#9d648
+rpx_identifiers_003: 
+  created_at: 2010-07-12 21:59:39
+  updated_at: 2010-07-12 21:59:39
+  provider_name: Facebook
+  id: "8"
+  user_id: "65"
+  identifier: http://www.facebook.com/profile.php?id=100000578934300
+rpx_identifiers_004: 
+  created_at: 2010-07-12 22:00:39
+  updated_at: 2010-07-12 23:03:57
+  provider_name: Twitter
+  id: "9"
+  user_id: "65"
+  identifier: http://twitter.com/account/profile?user_id=165918421
+rpx_identifiers_005: 
+  created_at: 2010-07-23 05:11:40
+  updated_at: 2010-07-23 05:11:40
+  provider_name: Google
+  id: "10"
+  user_id: "68"
+  identifier: https://www.google.com/accounts/o8/id?id=AItOawkwV2ATEOyOyR94p44N_GRPS44BJi6LtxA
+rpx_identifiers_006: 
+  created_at: 2010-07-23 05:11:56
+  updated_at: 2010-07-23 05:11:56
+  provider_name: Twitter
+  id: "11"
+  user_id: "69"
+  identifier: http://twitter.com/account/profile?user_id=165913346
+rpx_identifiers_007: 
+  created_at: 2010-07-24 03:09:37
+  updated_at: 2010-07-24 03:09:37
+  provider_name: Facebook
+  id: "12"
+  user_id: "70"
+  identifier: http://www.facebook.com/profile.php?id=100000602003987
+rpx_identifiers_008: 
+  created_at: 2010-07-24 19:21:45
+  updated_at: 2010-07-24 19:21:45
+  provider_name: Facebook
+  id: "21"
+  user_id: "79"
+  identifier: http://www.facebook.com/profile.php?id=100001417770024

@@ -7,9 +7,10 @@
 
 <div id="div_process_vote">
   <% form_tag submit_url, :id => "vote_form" do |f| %>
-    <%= hidden_field_tag :user_id, (@user).id %>
+    <%= hidden_field_tag :user_id, (@user).id if !@user.nil?%>
     <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
-    <ul class="list_no_pad_no_style top-mar">
+    <%= hidden_field_tag :sel_response, @selected_response.nil? ? nil: @selected_response.id %>
+    <ul class="list_no_pad_no_style top-mar" id="vote_items_list">
       <% first = true %>
       <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
         <% if !@selected_response.nil?  && @selected_response == v%>
@@ -20,7 +21,7 @@
             <% else %>
               <span class="ui-icon ui-icon-document list-icon"></span>
             <% end  %>
-            <%= (get_vote_percent v, @vote_topic.total_votes) %>
+            <span id="rt_<%= @selected_response.id %>" class="vote-item"><%= (get_vote_percent @selected_response, @vote_topic.total_votes) %></span>
             <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
             <span class ="small-button"><a href="#comment_form" id="goto_comment_link">Comment</a></span>
           <% else %>
@@ -31,7 +32,7 @@
             <% else %>
               <span class="ui-icon ui-icon-document list-icon"></span>
             <% end  %>
-            <%= (get_vote_percent v, @vote_topic.total_votes) %>
+            <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
           <% end  %>
           <% if action == 'process' %>
             <%= radio_button_tag "response", v.id %>
@@ -40,7 +41,7 @@
       <% end %>
       <li>
         <% if action == 'process' %>
-          <%# if !registration_complete? %>
+    <%# if !registration_complete? %>
           <% if !@reg_complete %>
             <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
           <% else %>

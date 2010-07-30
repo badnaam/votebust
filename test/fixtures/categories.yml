@@ -1,7 +1,136 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: MyString
-
-two:
-  name: MyString
+--- 
+categories_020: 
+  name: Relationship Advice
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "21"
+categories_009: 
+  name: Food & Dining
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "10"
+categories_021: 
+  name: Religion
+  created_at: 2010-07-07 07:17:47
+  updated_at: 2010-07-07 07:17:47
+  id: "22"
+categories_010: 
+  name: Games
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "11"
+categories_022: 
+  name: Science
+  created_at: 2010-07-07 07:17:47
+  updated_at: 2010-07-07 07:17:47
+  id: "23"
+categories_011: 
+  name: Health & Fitness
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "12"
+categories_023: 
+  name: Social Sciences
+  created_at: 2010-07-07 07:17:47
+  updated_at: 2010-07-07 07:17:47
+  id: "24"
+categories_012: 
+  name: Hobbies
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "13"
+categories_001: 
+  name: Autos & Motorcyles
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "2"
+categories_024: 
+  name: Transportation
+  created_at: 2010-07-07 07:17:47
+  updated_at: 2010-07-07 07:17:47
+  id: "25"
+categories_013: 
+  name: Home & Garden
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "14"
+categories_002: 
+  name: Business
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "3"
+categories_025: 
+  name: Travel & Places
+  created_at: 2010-07-07 07:17:47
+  updated_at: 2010-07-07 07:17:47
+  id: "26"
+categories_014: 
+  name: Kids
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "15"
+categories_003: 
+  name: Computers
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "4"
+categories_026: 
+  name: Arts
+  created_at: 2010-07-22 23:09:12
+  updated_at: 2010-07-22 23:09:12
+  id: "27"
+categories_015: 
+  name: Legal
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "16"
+categories_004: 
+  name: Education
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "5"
+categories_027: 
+  name: Hobby
+  created_at: 2010-07-22 23:31:08
+  updated_at: 2010-07-22 23:31:08
+  id: "28"
+categories_016: 
+  name: Life & Society
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "17"
+categories_005: 
+  name: Electronics
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "6"
+categories_017: 
+  name: Pets
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "18"
+categories_006: 
+  name: Entertainment
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "7"
+categories_018: 
+  name: Real Estate
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "19"
+categories_007: 
+  name: Environmentalism
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "8"
+categories_019: 
+  name: Recreation & Sports
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "20"
+categories_008: 
+  name: Finance
+  created_at: 2010-07-07 07:17:46
+  updated_at: 2010-07-07 07:17:46
+  id: "9"

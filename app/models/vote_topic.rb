@@ -25,7 +25,7 @@ class VoteTopic < ActiveRecord::Base
 
     after_destroy :destroy_graphs
     attr_accessible :topic, :header, :vote_items_attributes, :cached_slug, :friend_emails, :anon, :header, :category_id, :website
-    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
+#    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     
     
     
@@ -43,13 +43,13 @@ class VoteTopic < ActiveRecord::Base
 
     def self.category_list cid, page
         VoteTopic.paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
-            :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+            :select => 'vote_topics.cached_slug, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
         vote_items.option')
     end
 
     def self.general_list page
         VoteTopic.paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
-            :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+            :select => 'vote_topics.cached_slug, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
         vote_items.option')
     end
 
@@ -61,12 +61,16 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def self.find_for_show(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments])
+#        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments])
+        VoteTopic.find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments],
+          :select => 'vote_topics.status, vote_topics.id, vote_topics.cached_slug, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
+        categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option, total_votes, comments.id, comments.body, comments.user_id, comments.vote_topic_id ')
     end
     def self.find_for_stats(id)
         #        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}])
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}], :select => ("id,
-    total_votes"))
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}], :select => ("vote_topics.id,
+    vote_topics.total_votes, vote_items.id, vote_items.option, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v,vote_items.ag_2_v,vote_items.ag_3_v
+                vote_items.ag_4_v,"))
     end
 
     def self.find_for_graphs(id)
@@ -179,13 +183,14 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def post_process(selected_response, user, add)
+        
         if add == true
             inc = 1
         else
             inc = -1
         end
 
-        self.increment!(:total_votes, inc)
+#        self.increment!(:total_votes, inc)
         #update male/female
         if !user.sex.nil? && user.sex == 0
             selected_response.increment!(:male_votes, inc)
@@ -204,6 +209,7 @@ class VoteTopic < ActiveRecord::Base
         end
 
         determine_devided
+        user.update_attribute(:processing_vote, false)
     end
 
     def determine_devided
