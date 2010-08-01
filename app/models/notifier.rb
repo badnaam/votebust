@@ -4,6 +4,7 @@ class Notifier < ActionMailer::Base
         :address => "smtp.gmail.com",
         :port => 587,
 #        :domain => I18n.translate('notifier.domain'),
+        :domain => 'gmail.com',
         :user_name => I18n.translate('notifier.from_email_admin'),
         :password => "badnaam1",
         :authentication => :plain,
