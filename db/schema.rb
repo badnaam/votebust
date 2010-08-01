@@ -84,7 +84,8 @@ ActiveRecord::Schema.define(:version => 20100711213423) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "zip",                 :limit => 5,                     :null => false
+    t.string   "zip",                 :limit => 5,                      :null => false
+    t.boolean  "processing_vote",                    :default => false, :null => false
     t.string   "cached_slug",         :limit => 100
     t.string   "username"
     t.integer  "sex"
@@ -92,17 +93,17 @@ ActiveRecord::Schema.define(:version => 20100711213423) do
     t.float    "lat"
     t.float    "lng"
     t.integer  "role_id"
-    t.integer  "votes_count",                        :default => 0,    :null => false
+    t.integer  "votes_count",                        :default => 0,     :null => false
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"
     t.string   "password_salt"
-    t.string   "persistence_token",                                    :null => false
-    t.string   "single_access_token",                                  :null => false
-    t.string   "perishable_token",                                     :null => false
-    t.integer  "login_count",                        :default => 0,    :null => false
-    t.integer  "failed_login_count",                 :default => 0,    :null => false
+    t.string   "persistence_token",                                     :null => false
+    t.string   "single_access_token",                                   :null => false
+    t.string   "perishable_token",                                      :null => false
+    t.integer  "login_count",                        :default => 0,     :null => false
+    t.integer  "failed_login_count",                 :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
