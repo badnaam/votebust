@@ -29,7 +29,13 @@ namespace :deploy do
     end
    
     after "deploy:symlink" do
-        run "chmod -R 0666 #{current_path}/log"
-        run "chmod -R 755 #{current_path}/log"
+        chown_to_www_data
+#        run "sudo chmod -R 0666 #{current_path}/log"
+#        run "sudo chmod -R 755 #{current_path}/log"
     end
+
+    desc "Change group to www-data"
+    task :chown_to_www_data, :roles => [ :app, :db, :web ] do
+        sudo "chown -R #{user}:www-data #{deploy_to}"
+    end 
 end
