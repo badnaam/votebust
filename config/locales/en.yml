@@ -11,8 +11,8 @@ en:
 #Models
   notifier:
     from_email_admin: pjointadm@gmail.com
-    domain: ballotbust.com
-    act_sub: "BallotBust Account Activation Instructions"
+    domain: gmail.com
+    act_sub: "Votecheck Account Activation Instructions"
     act_conf: "Account Activated!"
 
 #View
