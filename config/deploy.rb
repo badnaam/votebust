@@ -42,7 +42,7 @@ namespace :deploy do
     task :check_in_git do
         system 'git add .'
         system "git commit -m 'automated check in'"
-        system "git push origin master'"
+        system "git push origin master"
     end
 
     desc "Change group to www-data"

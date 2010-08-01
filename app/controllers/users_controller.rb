@@ -13,6 +13,8 @@ class UsersController < ApplicationController
         @user = User.new(params[:user])
         @user.role = Role.find_by_name('user')
         v = verify_recaptcha(:model => @user, :message => "Text entered did not match the image!")
+        logger.debug 'Recaptcha verification result #{v}'
+        logger.debug @user.inspect
         if v 
             if @user.save_without_session_maintenance
                 @user.send_later :deliver_activation_instructions!
