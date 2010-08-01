@@ -32,6 +32,7 @@ class UserSessionsController < ApplicationController
                 end
             end
         else
+            logger.debug @user_session.inspect
             flash[:error] = "Login Failed. Please make sure username/password is correct."
             #            render :action => :new
             redirect_to new_user_sessions_path
