@@ -18,10 +18,15 @@ role :db,  "server", :primary => true # This is where Rails migrations will run
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
 
- namespace :deploy do
-   task :start do ; end
-   task :stop do ; end
-   task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
- end
+namespace :deploy do
+    task :start do ; end
+    task :stop do ; end
+    task :restart, :roles => :app, :except => { :no_release => true } do
+        run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+    end
+   
+    after "deploy:symlink" do
+        run "chmod -R 0666 #{current_path}/log"
+        run "chmod -R 755 #{current_path}/log"
+    end
+end
