@@ -4,6 +4,9 @@ set :scm, :git
 set :repository, "git@github.com:badnaam/votebust.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
+default_run_options[:pty] = true
+
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :user, 'asit'

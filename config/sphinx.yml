@@ -1,3 +1,13 @@
 development:
   mem_limit: 20M
   enable_star: true
+production:
+  mem_limit: 20M
+  enable_star: true
+  port: 9312
+  indexer_binary_name: "/usr/local/bin/indexer"
+  searchd_binary_name: "/usr/local/bin/searchd"
+  bin_path: "/usr/local/bin/"
+  pid_file: "/var/www/votechek/shared/tmp/searchd.pid"
+  searchd_file_path: "/var/www/votecheck/shared/db/sphinx"
+  
