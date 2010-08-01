@@ -37,5 +37,6 @@ namespace :deploy do
     desc "Change group to www-data"
     task :chown_to_www_data, :roles => [ :app, :db, :web ] do
         sudo "chown -R #{user}:www-data #{deploy_to}"
+        sudo "chmod -R 755 #{deploy_to}"
     end 
 end
