@@ -34,6 +34,17 @@ namespace :deploy do
 #        run "sudo chmod -R 755 #{current_path}/log"
     end
 
+    before "deploy:update" do
+        check_in_git
+    end
+
+    desc 'Check in pending work to git'
+    task :check_in_git do
+        system 'git add .'
+        system "git commit -m 'automated check in'"
+        system "git push origin master'"
+    end
+
     desc "Change group to www-data"
     task :chown_to_www_data, :roles => [ :app, :db, :web ] do
         sudo "chown -R #{user}:www-data #{deploy_to}"
