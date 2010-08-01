@@ -12,8 +12,8 @@ production:
   #good for http://server
   rpx_key: 18c3db9c36e3ce844af615637cfc9ffbac08448f
 #good for http://server
-  recap_pub_key: 6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H
-  recap_priv_key: 6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG 
+  recap_pub_key: 6Lfy_LsSAAAAAGC0SsG1poLUSUjTv2X28wIzo3I4
+  recap_priv_key: 6Lfy_LsSAAAAAM6D2GfohESk5qMkcIiP7CyZFy3L
    #good for http://server
   google_js_api: ABQIAAAAi_F8JNAI9__oCG-KzCfTYhQaOzcbF5ealenFI9Pv5eWXfr2UbRT6PT_rSQkEp3MO8jJPIzz7SFwwLw
 
