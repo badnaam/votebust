@@ -3,6 +3,7 @@ nbproject/*
 log
 log/*
 public/assets/*
+public/images/*
 tmp
 tmp/*
 
