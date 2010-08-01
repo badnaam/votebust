@@ -1,4 +1,4 @@
-<% cache(:top_voters, :expires_in => 5.minutes) do %>
+<%# cache(:top_voters, :expires_in => 5.minutes) do %>
   <% voters = User.top_voters %>
   <%= render :partial => "/layouts/user_side_bar", :locals => {:users => voters, :header => "Top Voters"} %>
-<% end  %>
+<%# end  %>

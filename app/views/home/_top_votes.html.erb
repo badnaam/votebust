@@ -1,4 +1,4 @@
-<% cache(:top_votes, :expires_in => 5.minutes) do %>
+<%# cache(:top_votes, :expires_in => 5.minutes) do %>
   <div class="span-18 last">
     <% votes = VoteTopic.get_top_votes %>
   <%#= render :partial => "vote_topics/vote_preview", :collection => votes.keys.sort_by{|k|k.total_votes}, :as => :vt %>
@@ -7,4 +7,4 @@
     <%#= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt], :top_vote => true} %>
     <% end  %>
   </div>
-<% end  %>
+<%# end  %>

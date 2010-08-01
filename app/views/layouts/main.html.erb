@@ -10,7 +10,7 @@
           <div class="span-24 last"
                <div class="ui-corner-bl ui-corner-br ui-state-hover">
               <ul class="header_links">
-                <% cache(@current_user_session) do %>
+                <%# cache(@current_user_session) do %>
                   <% unless  current_user %>
                     <li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
                     <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
@@ -19,7 +19,7 @@
                     <li><%= link_to current_user.username.titleize, current_user, :id => 'main_profile_link' %></li>
                     <li><%= link_to "Logout", logout_path  %></li>
                   <% end %>
-                <% end  %>
+                <%# end  %>
               </ul>
             </div>
           </div>
