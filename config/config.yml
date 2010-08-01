@@ -12,12 +12,12 @@ production:
   #good for http://server
   rpx_key: 18c3db9c36e3ce844af615637cfc9ffbac08448f
 #good for http://server
-#  recap_pub_key: 6Lfy_LsSAAAAAGC0SsG1poLUSUjTv2X28wIzo3I4
+  recap_pub_key: 6Lfy_LsSAAAAAGC0SsG1poLUSUjTv2X28wIzo3I4
 #goof for http://server.local
-  recap_pub_key: 6LdI_LsSAAAAAIEP4BT0eP_J5efdN0Ci_gZl5rJF
-#  recap_priv_key: 6Lfy_LsSAAAAAM6D2GfohESk5qMkcIiP7CyZFy3L
+#  recap_pub_key: 6LdI_LsSAAAAAIEP4BT0eP_J5efdN0Ci_gZl5rJF
+  recap_priv_key: 6Lfy_LsSAAAAAM6D2GfohESk5qMkcIiP7CyZFy3L
 #goof for http://server.local
-  recap_priv_key: 6LdI_LsSAAAAACzhwfwEP0i6PdWhj0XJKO0iEHkH
+#  recap_priv_key: 6LdI_LsSAAAAACzhwfwEP0i6PdWhj0XJKO0iEHkH
 
    #good for http://server
   google_js_api: ABQIAAAAi_F8JNAI9__oCG-KzCfTYhQaOzcbF5ealenFI9Pv5eWXfr2UbRT6PT_rSQkEp3MO8jJPIzz7SFwwLw
