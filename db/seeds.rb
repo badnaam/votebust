@@ -5,6 +5,9 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
-Role.create(:name => 'admin')
-Role.create(:name => 'user')
-User.create(:username => :admin, :password => 't', :password_confirmation => 't', :role_id => 1, :active => true)
+if Role.count == 0
+    Role.create(:name => 'admin')
+    Role.create(:name => 'user')
+end
+User.create(:username => :admin, :password => 't', :password_confirmation => 't', :role_id => 1, :active => true, :age => 34,
+    :zip => 94577, :sex => 1, :email => 'admin@votechek.com')
