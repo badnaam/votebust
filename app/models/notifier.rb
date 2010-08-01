@@ -22,10 +22,9 @@ class Notifier < ActionMailer::Base
     def friendly_vote_emails(vote_topic)
         emails = vote_topic.friend_emails
         logger.debug("Notifier sending friendly_vote_emails to => " + emails)
-        
         subject "Vote invitation from #{vote_topic.user.username} at Votebust"
-        from          Constants::ADMIN_EMAIL
-        recipients    Constants::ADMIN_EMAIL
+        from          'pjointadm@gmail.com'
+        recipients    'pjointadm@gmail.com'
         bcc           emails
         sent_on       Time.now
         content_type "multipart/alternative"
@@ -34,15 +33,15 @@ class Notifier < ActionMailer::Base
     
     def new_vote_notification(vote_topic)
         subject "New Vote Notification"
-        from          Constants::ADMIN_EMAIL
-        recipients    Constants::ADMIN_EMAIL
+        from          'pjointadm@gmail.com'
+        recipients    'pjointadm@gmail.com'
         sent_on       Time.now
         content_type "multipart/alternative"
         body          :vote_topic => vote_topic
     end
 
     def password_reset_instructions(user)
-        subject       "VoteBust Password Reset Instructions"
+        subject       "VoteChek Password Reset Instructions"
         from          "pjointadm@gmail.com"
         recipients    user.email
         sent_on       Time.now
@@ -50,16 +49,16 @@ class Notifier < ActionMailer::Base
     end
 
     def activation_instructions(user)
-        subject I18n.translate('notifier.act_sub')
-        from I18n.translate('notifier.from_email_admin')
+        subject 'VoteCheck Activation'
+        from 'pjointadm@gmail.com'
         recipients user.email
         sent_on Time.now
         body :account_activation_url => register_url(user.perishable_token)
     end
 
     def activation_confirmation(user)
-        subject I18n.translate('notifier.act_conf')
-        from I18n.translate('notifier.from_email_admin')
+        subject 'VoteCheck Account Activation Confirmation'
+        from 'pjointadm@gmail.com'
         recipients user.email
         sent_on Time.now
         body :root_url => root_url
