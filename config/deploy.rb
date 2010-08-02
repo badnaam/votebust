@@ -33,9 +33,15 @@ namespace :deploy do
         run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
     end
 
-    after "deploy:stop", "delayed_job_stop"
-     after "deploy:start", "delayed_job_start"
-     after "deploy:restart", "delayed_job_restart"
+    after "deploy:stop" do
+        delayed_job_stop
+    end
+    after "deploy:start" do
+        delayed_job_start
+    end
+    after "deploy:restart" do
+        delayed_job_restart
+    end
 
     after "deploy:symlink" do
         chown_to_www_data
