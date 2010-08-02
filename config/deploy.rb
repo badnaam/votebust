@@ -7,6 +7,10 @@ set :deploy_via, :remote_cache
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
 default_run_options[:pty] = true
 
+set :default_env,  'staging'
+
+set :rails_env,     ENV['rails_env'] || ENV['RAILS_ENV'] || default_env
+
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :user, 'asit'
@@ -56,10 +60,13 @@ namespace :deploy do
     task :symlink_shared, :roles => :app  do
         #Copy the files firest
         top.upload("config/database.yml", "#{shared_path}/config", :via => :scp)
-        top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
+        generate_sphinx_config_yaml
+#        top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
         top.upload("config/config.yml", "#{shared_path}/config", :via => :scp)
+        run "ln -nfs #{shared_path}/sphinx             #{release_path}/db/sphinx"
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/sphinx.yml"
+        run "ln -nfs #{shared_path}/config/sphinx.conf #{release_path}/config/sphinx.conf"
         run "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
         run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
     end
@@ -67,13 +74,20 @@ namespace :deploy do
     desc "Create additional shared directories"
     task :create_shared_dirs do
         run "mkdir -p #{shared_path}/assets/images/users"
+        run "run if [[ -d #{shared_path}/assets/images/users ]] then; else mkdir -p #{shared_path}/assets/images/users; fi"
         run "mkdir #{shared_path}/config"
+        run "mkdir #{shared_path}/db"
+
     end
 
     desc "Change group to www-data"
     task :chown_to_www_data, :roles => [ :app, :db, :web ] do
         sudo "chown -R #{user}:www-data #{deploy_to}"
         sudo "chmod -R 755 #{deploy_to}"
+    end
+
+    task :create_sphinx_db_dir, :roles => :app do
+        run "mkdir -p #{shared_path}/sphinx"
     end
 
     task :install_log_rotate_script, :roles => :app do
@@ -104,4 +118,30 @@ namespace :deploy do
         set :rake_cmd, "tmp:cache:clear"
         rake_exec
     end
+
+
+    ######################Sphinx configuration#####################
+
+    desc 'Generate a config yaml in shared path'
+    task :generate_sphinx_config_yaml, :roles => :app do
+        sphinx_yaml = <<-EOF
+development: &base
+  morphology: stem_en
+  config_file: #{shared_path}/config/sphinx.conf
+searchd_log_file: #{shared_path}/log/searchd.log
+  query_log_file: #{shared_path}/log/searchd.query.log
+  pid_file: #{shared_path}/log/searchd.#{rails_env}.pid
+   mem_limit: 20M
+  enable_star: true
+searchd_file_path:#{shared_path}/sphinx
+test:
+  <<: *base
+production:
+  <<: *base
+staging:
+  <<: *base
+        EOF
+        put sphinx_yaml, "#{shared_path}/config/sphinx.yml"
+    end
+
 end
