@@ -43,6 +43,8 @@ namespace :deploy do
     
     after "deploy:update_code" do
         symlink_shared
+        sphinx_configure
+        sphinx_restart
     end
 
     before "deploy:update" do
@@ -133,6 +135,27 @@ namespace :deploy do
             "searchd_file_path" => "#{shared_path}/sphinx"
         }
         put config.to_yaml, "#{shared_path}/config/sphinx.yml"
+    end
+
+    desc "Generate the ThinkingSphinx configuration file"
+    task :sphinx_configure do
+        run "cd #{release_path} && rake thinking_sphinx:configure"
+    end
+
+    desc "Stop the sphinx server"
+    task :stop_sphinx , :roles => :app do
+        run "cd #{current_path} && rake thinking_sphinx:stop RAILS_ENV=#{rails_env}"
+    end
+
+    desc "Start the sphinx server”"
+    task :start_sphinx, :roles => :app do
+        run "cd #{current_path} && rake thinking_sphinx:configure RAILS_ENV=#{rails_env} && rake thinking_sphinx:start RAILS_ENV=#{rails_env}"
+    end
+
+    desc "Restart the sphinx server"
+    task :restart_sphinx, :roles => :app do
+        stop_sphinx
+        start_sphinx
     end
 
 end

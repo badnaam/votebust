@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         v = verify_recaptcha(:model => @user, :message => "Text entered did not match the image!")
         if v 
             if @user.save_without_session_maintenance
-                @user.send_later :deliver_activation_instructions!
+               ashi
                 flash[:notice] = t('users.create.confirmation')
 #                redirect_back_or_default root_url
                 redirect_to root_url
