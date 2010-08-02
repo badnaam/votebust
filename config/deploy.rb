@@ -1,4 +1,4 @@
-require 'delayed_job.rb'
+
 
 set :application, "votechek"
 set :deploy_to, "/var/www/#{application}"
