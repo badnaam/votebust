@@ -7,7 +7,7 @@ set :deploy_via, :remote_cache
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
 default_run_options[:pty] = true
 
-set :default_env,  'staging'
+set :default_env,  'production'
 
 set :rails_env,     ENV['rails_env'] || ENV['RAILS_ENV'] || default_env
 
