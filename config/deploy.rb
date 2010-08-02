@@ -36,19 +36,19 @@ namespace :deploy do
     end
 
     after "deploy:stop" do
-                delayed_job_stop
-#        "dj:stop"
+        delayed_job_stop
+        #        "dj:stop"
     end
     after "deploy:start" do
-                delayed_job_start
-#        "dj:start"
+        delayed_job_start
+        #        "dj:start"
     end
     after "deploy:restart" do
-                delayed_job_restart
-#        "dj:restart"
+        delayed_job_restart
+        #        "dj:restart"
     end
 
-#    before "deploy:update_code", "dj:stop"
+    #    before "deploy:update_code", "dj:stop"
     
     after "deploy:symlink" do
         chown_to_www_data
@@ -187,7 +187,35 @@ namespace :deploy do
     desc "Restart the delayed_job process"
     task :delayed_job_restart, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job restart"
+        dj_ensure
     end
-   
+
+    desc "Show delayed_job daemon status."
+    task :dj_status, :roles => :app do
+        run "if [ -d #{current_path} ]; then cd #{current_path} && sudo RAILS_ENV=#{rails_env} script/delayed_job status; fi"
+    end
+
+    desc "List the PIDs of all running delayed_job daemons."
+    task :dj_pids, :roles => :app do
+        run "sudo lsof | grep '#{deploy_to}/shared/log/delayed_job.log' | cut -c 1-21 | uniq | awk '/^ruby/ {if(NR > 0){system(\"echo \" $2)}}'"
+    end
+
+    desc "Kill all running delayed_job daemons."
+    task :dj_kill, :roles => :app do
+        run "sudo lsof | grep '#{deploy_to}/shared/log/delayed_job.log' | cut -c 1-21 | uniq | awk '/^ruby/ {if(NR > 0){system(\"kill -9 \" $2)}}'"
+        run "if [-d #{current_path} ]; then cd #{current_path} && sudo RAILS_ENV=#{rails_env} script/delayed_job stop; fi" # removes orphaned pid file(s)
+    end
+
+    task :dj_ensure, :roles => :app do
+        pid_from_file = capture("cat #{current_path}/tmp/pids/delayed_job.pid").strip
+        running_pids = capture("ps -ef | grep [d]elayed_job").split("\n").map { |x| x.split[1] }
+        if pid_from_file != running_pids.first || running_pids.size != 1
+            puts ("-"*80).console_purple
+            puts "Something is terribly wrong with delayed job!".console_red
+            puts "Running_pid: #{pid_from_file}"
+            puts "Running delayed job processes: #{capture("ps -ef | grep [d]elayed_job")}"
+            puts ("-"*80).console_purple
+        end
+    end
 end
 
