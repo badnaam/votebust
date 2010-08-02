@@ -49,6 +49,7 @@ class Notifier < ActionMailer::Base
     end
 
     def activation_instructions(user)
+        logger.debug "delivering activation instructions to #{user.email}"
         subject 'VoteCheck Activation'
         from 'pjointadm@gmail.com'
         recipients user.email
