@@ -34,15 +34,20 @@ namespace :deploy do
     end
 
     after "deploy:stop" do
-        delayed_job_stop
+        #        delayed_job_stop
+        "dj:stop"
     end
     after "deploy:start" do
-        delayed_job_start
+        #        delayed_job_start
+        "dj:start"
     end
     after "deploy:restart" do
-        delayed_job_restart
+        #        delayed_job_restart
+        "dj:restart"
     end
 
+    before "deploy:update_code", "dj:stop"
+    
     after "deploy:symlink" do
         chown_to_www_data
     end

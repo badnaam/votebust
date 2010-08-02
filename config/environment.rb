@@ -72,6 +72,9 @@ Rails::Initializer.run do |config|
     
 #    config.gem 'delayed_job'
     config.gem 'delayed_job', :source => 'http://rubygems.org', :version => "2.1.0.pre"
+    config.gem "ghazel-daemons", :lib => "daemons", :source => 'http://gems.github.com'
+    gem "ghazel-daemons"
+    require "daemons"
     config.gem "simple-navigation"
     
     config.gem "declarative_authorization"
