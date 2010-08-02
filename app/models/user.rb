@@ -62,6 +62,7 @@ class User < ActiveRecord::Base
     after_save do |user|
         unless user.skip_profile_update
             if user.image_changed?
+                logger.debug 'queing user image processing job'
                 Delayed::Job.enqueue ImageJob.new(user.id)
             end
         end

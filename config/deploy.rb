@@ -32,7 +32,11 @@ namespace :deploy do
     task :restart, :roles => :app, :except => { :no_release => true } do
         run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
     end
-   
+
+    after "deploy:stop", "delayed_job:stop"
+     after "deploy:start", "delayed_job:start"
+     after "deploy:restart", "delayed_job:restart"
+
     after "deploy:symlink" do
         chown_to_www_data
     end
@@ -67,7 +71,7 @@ namespace :deploy do
         run "ln -nfs #{shared_path}/sphinx #{release_path}/db/sphinx"
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
         run "ln -nfs #{shared_path}/config/sphinx.yml #{release_path}/config/sphinx.yml"
-        run "ln -nfs #{shared_path}/config/sphinx.conf #{release_path}/config/sphinx.conf"
+        #        run "ln -nfs #{shared_path}/config/sphinx.conf #{release_path}/config/sphinx.conf"
         run "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
         run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
     end
@@ -150,6 +154,26 @@ namespace :deploy do
     task :restart_sphinx, :roles => :app do
         stop_sphinx
         start_sphinx
+    end
+
+    #################Delayed job#############################################################
+    def get_rails_env
+        fetch(:rails_env, false) ? "RAILS_ENV=#{fetch(:rails_env)}" : ''
+    end
+
+    desc "Stop the delayed_job process"
+    task :stop, :roles => :app do
+        run "cd #{current_path};#{get_rails_env} script/delayed_job stop"
+    end
+
+    desc "Start the delayed_job process"
+    task :start, :roles => :app do
+        run "cd #{current_path};#{get_rails_env} script/delayed_job start"
+    end
+
+    desc "Restart the delayed_job process"
+    task :restart, :roles => :app do
+        run "cd #{current_path};#{get_rails_env} script/delayed_job restart"
     end
 
 end
