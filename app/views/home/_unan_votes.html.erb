@@ -1,4 +1,4 @@
-<% cache(:unan_votes, :expires_in => 5.minutes) do %>
+<%# cache(:unan_votes, :expires_in => 5.minutes) do %>
   <% votes = VoteTopic.unanimous_votes %>
   <%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => votes, :header => "No Contest"} %>
-<% end  %>
+<%# end  %>

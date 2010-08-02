@@ -7,6 +7,6 @@ class Delayed::Job
         Delayed::Worker.logger
     end
 end
-if JobsCommon::check_job_exists("VoteProcessJob").blank?
+#if JobsCommon::check_job_exists("VoteProcessJob").blank?
 #    Delayed::Job.enqueue VoteProcessJob.new(), 0, Constants::VOTE_PROCESS_FREQ.from_now
-end
+#end

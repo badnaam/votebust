@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'gruff'
+#require 'gruff'
 include ActionView::Helpers::TextHelper
 
 class VoteProcessJob

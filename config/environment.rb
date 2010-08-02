@@ -63,7 +63,7 @@ Rails::Initializer.run do |config|
         :version => '1.3.16'
     )
     config.gem 'mime-types', :lib => "mime/types",     :version => '1.16'
-    config.gem "authlogic", :source => "gems.github.com"
+    config.gem "authlogic", :source => "http://gems.github.com"
     config.gem "rpx_now"
     config.gem "authlogic_rpx"
     config.gem "formtastic"

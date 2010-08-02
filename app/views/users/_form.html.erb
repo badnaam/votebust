@@ -8,6 +8,7 @@
   });
   //]]>
 </script>
+<div><%=  flash[:recaptcha_error] %></div>
 <% semantic_form_for @user, :html => {:multipart => true} do |form| %>
   <%= form.semantic_errors%>
   <% form.inputs do  %>
