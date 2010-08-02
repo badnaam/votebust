@@ -129,7 +129,7 @@ namespace :deploy do
             "query_log_file" => "#{shared_path}/log/searchd.query.log",
             "pid_file" =>  "#{shared_path}/log/searchd.#{rails_env}.pid",
             "mem_limit"=> "20M",
-            "enable_star" => "true",
+            "enable_star" => true,
             "searchd_file_path" => "#{shared_path}/sphinx"
         }
         put config.to_yaml, "#{shared_path}/config/sphinx.yml"
