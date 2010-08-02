@@ -57,8 +57,10 @@ namespace :deploy do
         #Copy the files firest
         top.upload("config/database.yml", "#{shared_path}/config", :via => :scp)
         top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
+        top.upload("config/config.yml", "#{shared_path}/config", :via => :scp)
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/sphinx.yml"
+        run "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
         run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
     end
 
