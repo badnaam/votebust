@@ -3,7 +3,9 @@ nbproject/*
 log
 log/*
 public/assets/*
-public/images/*
 tmp
 tmp/*
-
+config/database.yml
+config/development.sphinx.conf
+config/sphinx.yml
+config/config.yml

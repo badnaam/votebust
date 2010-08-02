@@ -9,3 +9,5 @@ config/database.yml
 config/development.sphinx.conf
 config/sphinx.yml
 config/config.yml
+db/sphinx
+
