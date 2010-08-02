@@ -14,7 +14,8 @@ class VoteTopicsController < ApplicationController
             @vote_topic.status = 'a'
             if @vote_topic.save
                 if !@vote_topic.friend_emails.nil?
-                    @vote_topic.send_later :deliver_friendly_vote_emails!
+#                    @vote_topic.send_later :deliver_friendly_vote_emails!
+                    @vote_topic.delay.deliver_friendly_vote_emails!
                 end
                 flash[:success] = 'Change vote status to approved'
             end
@@ -50,7 +51,8 @@ class VoteTopicsController < ApplicationController
             if Vote.find(:first, :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy && @vote_topic.decrement!(:total_votes, 1)
                 flash[:success] = "Your vote has been cancelled."
                 @user.update_attribute(:processing_vote, true)
-                @vote_topic.send_later(:post_process, @selected_response, @user, false)
+#                @vote_topic.send_later(:post_process, @selected_response, @user, false)
+                @vote_topic.delay.post_process(@selected_response, @user, false)
             end
         else
             flash[:notice] = "Please wait while we process your previous vote"
@@ -78,7 +80,7 @@ class VoteTopicsController < ApplicationController
                 end
                 #initiate post processing
                 @user.update_attribute(:processing_vote, true)
-                @vote_topic.send_later(:post_process, @selected_response, @user, true)
+                @vote_topic.delay.post_process( @selected_response, @user, true)
             else
                 flash[:notice] = "Please wait while we process your previous vote"
             end
@@ -94,7 +96,8 @@ class VoteTopicsController < ApplicationController
         @vote_topic = VoteTopic.find(params[:id])
         if @vote_topic.update_attribute(:status, 'w')
             flash[:notice] = 'Vote was successfully created and sent for moderator approval.'
-            @vote_topic.send_later :deliver_new_vote_notification!
+#            @vote_topic.send_later :deliver_new_vote_notification!
+            @vote_topic.delay.deliver_new_vote_notification!
         else
             flash[:error] = 'Something went wrong.'
         end

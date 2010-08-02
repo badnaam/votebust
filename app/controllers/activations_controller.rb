@@ -11,7 +11,8 @@ class ActivationsController < ApplicationController
         raise Exception if @user.active?
 
         if @user.activate!
-            @user.send_later :deliver_activation_confirmation!
+#            @user.send_later :deliver_activation_confirmation!
+            @user.delay.deliver_activation_confirmation!
             flash[:notice] = t('notifier.act_conf')
             redirect_to login_path
         else

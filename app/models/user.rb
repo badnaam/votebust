@@ -110,6 +110,7 @@ class User < ActiveRecord::Base
         reset_perishable_token!
         Notifier.deliver_password_reset_instructions(self)
     end
+
     def activate!
         self.active = true
         save

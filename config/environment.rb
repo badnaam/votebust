@@ -70,7 +70,8 @@ Rails::Initializer.run do |config|
     config.gem "validation_reflection"
     #    config.gem "ym4r"
     
-    config.gem 'delayed_job'
+#    config.gem 'delayed_job'
+    config.gem 'delayed_job', :source => 'http://rubygems.org', :version => "2.1.0.pre"
     config.gem "simple-navigation"
     
     config.gem "declarative_authorization"

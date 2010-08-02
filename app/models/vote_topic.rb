@@ -76,7 +76,7 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def send_friendly_emails
-        self.send_later :deliver_friendly_vote_emails!
+        self.delay.deliver_friendly_vote_emails!
     end
     
     def self.get_top_votes
