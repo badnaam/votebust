@@ -61,7 +61,7 @@ namespace :deploy do
         #Copy the files firest
         top.upload("config/database.yml", "#{shared_path}/config", :via => :scp)
         generate_sphinx_config_yaml
-#        top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
+        #        top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
         top.upload("config/config.yml", "#{shared_path}/config", :via => :scp)
         run "ln -nfs #{shared_path}/sphinx             #{release_path}/db/sphinx"
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
@@ -124,24 +124,15 @@ namespace :deploy do
 
     desc 'Generate a config yaml in shared path'
     task :generate_sphinx_config_yaml, :roles => :app do
-        sphinx_yaml = <<-EOF
-development: &base
-  morphology: stem_en
-  config_file: #{shared_path}/config/sphinx.conf
-searchd_log_file: #{shared_path}/log/searchd.log
-  query_log_file: #{shared_path}/log/searchd.query.log
-  pid_file: #{shared_path}/log/searchd.#{rails_env}.pid
-   mem_limit: 20M
-  enable_star: true
-searchd_file_path:#{shared_path}/sphinx
-test:
-  <<: *base
-production:
-  <<: *base
-staging:
-  <<: *base
-        EOF
-        put sphinx_yaml, "#{shared_path}/config/sphinx.yml"
+        config = {"morphology" => "stem_en", "config_file" => "#{shared_path}/config/sphinx.conf",
+            "searchd_log_file" => "#{shared_path}/log/searchd.log",
+            "query_log_file" => "#{shared_path}/log/searchd.query.log",
+            "pid_file" =>  "#{shared_path}/log/searchd.#{rails_env}.pid",
+            "mem_limit"=> "20M",
+            "enable_star" => "true",
+            "searchd_file_path" => "#{shared_path}/sphinx"
+        }
+        put config.to_yaml, "#{shared_path}/config/sphinx.yml"
     end
 
 end
