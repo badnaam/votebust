@@ -134,3 +134,5 @@ categories_008:
   created_at: 2010-07-07 07:17:46
   updated_at: 2010-07-07 07:17:46
   id: "9"
+categories__new:
+  name: Sex
