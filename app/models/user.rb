@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     before_save :check_what_changed
     
     def check_what_changed
-        if self.changed.sort == ["last_request_at", "perishable_token"] || ["perishable_token" || "processing_vote"]
+        if self.changed.sort == ["last_request_at", "perishable_token"] || self.changed.sort == ["perishable_token" || "processing_vote"]
             self.skip_profile_update = true
             return true
         else
