@@ -33,9 +33,9 @@ namespace :deploy do
         run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
     end
 
-    after "deploy:stop", "delayed_job:stop"
-     after "deploy:start", "delayed_job:start"
-     after "deploy:restart", "delayed_job:restart"
+    after "deploy:stop", "delayed_job_stop"
+     after "deploy:start", "delayed_job_start"
+     after "deploy:restart", "delayed_job_restart"
 
     after "deploy:symlink" do
         chown_to_www_data
@@ -162,17 +162,17 @@ namespace :deploy do
     end
 
     desc "Stop the delayed_job process"
-    task :stop, :roles => :app do
+    task :delayed_job_stop, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job stop"
     end
 
     desc "Start the delayed_job process"
-    task :start, :roles => :app do
+    task :delayed_job_start, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job start"
     end
 
     desc "Restart the delayed_job process"
-    task :restart, :roles => :app do
+    task :delayed_job_restart, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job restart"
     end
 
