@@ -29,8 +29,6 @@ function checkVoteSelected() {
 }
     
 $j(document).ready(function(){
-
-    
     $j('#close_cat_menu').click(function(){
         $j('#cat_nav a').toggleClass('hover-nav');
         $j("#cat_menu").toggle('fast');

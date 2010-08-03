@@ -38,7 +38,7 @@
     //]]>
   </script>
   <% if controller.controller_name == 'vote_topics' && controller.action_name == 'show' %>
-    <%= javascript_include_tag 'common_alt.js',  'swfobject.js', :cache => 'base' %>
+    <%= javascript_include_tag 'common_alt.js',  'swfobject.js', :cache => 'base_alt' %>
   <% else %>
     <%= javascript_include_tag 'common.js', 'application.js', :cache => 'base' %>
   <% end  %>
