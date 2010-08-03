@@ -75,7 +75,7 @@ Rails::Initializer.run do |config|
     config.gem "ghazel-daemons", :lib => "daemons", :source => 'http://gems.github.com'
     gem "ghazel-daemons"
     require "daemons"
-    require 'daemon_fix.rb'
+#    require 'daemon_fix.rb'
     
     config.gem "simple-navigation"
     
