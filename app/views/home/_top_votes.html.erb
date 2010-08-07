@@ -1,10 +1,9 @@
 <%# cache(:top_votes, :expires_in => 5.minutes) do %>
-  <div class="span-18 last">
-    <% votes = VoteTopic.get_top_votes %>
-  <%#= render :partial => "vote_topics/vote_preview", :collection => votes.keys.sort_by{|k|k.total_votes}, :as => :vt %>
+  <div class="">
+    <% votes = VoteTopic.get_top_votes true, nil %>
     <% votes.keys.sort_by{|k|k.total_votes}.reverse_each do |vt| %>
       <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt], :top_vote => true} %>
-    <%#= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt], :top_vote => true} %>
     <% end  %>
+    <%= link_to "More..", vote_topics_path(:top_listing_all => true) %>
   </div>
 <%# end  %>

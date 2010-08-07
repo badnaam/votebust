@@ -7,12 +7,19 @@ class ApplicationController < ActionController::Base
     helper :all # include all helpers, all the time
     protect_from_forgery # See ActionController::RequestForgeryProtection for details
     after_filter :discard_flash_if_xhr
-#    before_filter :set_current_user
+    #    before_filter :set_current_user
 
     # Scrub sensitive parameters from your log
     # filter_parameter_logging :password
     helper_method :current_user_session, :current_user, :current_role, :registration_complete?
     filter_parameter_logging :password, :password_confirmation
+
+    EXCEPTIONS_NOT_LOGGED = ['ActionController::UnknownAction',
+        'ActionController::RoutingError']
+
+    def log_error(exc)
+        super unless EXCEPTIONS_NOT_LOGGED.include?(exc.class.name)
+    end
 
     def header_exempt
         @header_exempt_page = true
@@ -55,7 +62,7 @@ class ApplicationController < ActionController::Base
     end
 
     def registration_complete?
-       current_user_session.registration_complete? if current_user_session
+        current_user_session.registration_complete? if current_user_session
     end
 
     def require_registration

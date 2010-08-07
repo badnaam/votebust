@@ -31,11 +31,14 @@
 
 <div id="com_prog_loading" class="progress" style="opacity:0;"></div>
 <div id="vote_list" class="span-18 last">
-  <% if @user_listing %>
-    <%= render :partial => "user_vote_list"%>
-  <% elsif @category_listing || @general_listing %>
-      <%= render :partial => "vote_list"%>
+  <% @vote_topics.keys.each do |vt| %>
+    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => @vote_topics[vt], :top_vote => true} %>
   <% end  %>
+<%# if @user_listing %>
+<%#= render :partial => "user_vote_list"%>
+<%# elsif @category_listing || @general_listing %>
+<%#= render :partial => "vote_list"%>
+<%# end  %>
 </div>
 
 <% content_for :right_nav do %>

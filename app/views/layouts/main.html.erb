@@ -15,7 +15,7 @@
                     <li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
                     <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
                   <% else %>
-                    <li><%= link_to "New Vote", new_user_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text' %></li>
+                    <li><%= link_to "New Vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text' %></li>
                     <li><%= link_to current_user.username.titleize, current_user, :id => 'main_profile_link' %></li>
                     <li><%= link_to "Logout", logout_path  %></li>
                   <% end %>

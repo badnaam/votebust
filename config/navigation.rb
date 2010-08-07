@@ -47,11 +47,11 @@ SimpleNavigation::Configuration.run do |navigation|
                 a.item :u_show, current_user.username, user_path(current_user)
                 a.item :u_edit, "Edit Profile", edit_user_path(current_user)
                 if @vote_topic && !@vote_topic.nil?
-                    a.item :uv_new, "New Vote", new_user_vote_topic_path(current_user)
+                    a.item :uv_new, "New Vote", new_user_posted_vote_topic_path(current_user)
                 end
                 if @vote_topics 
                     #                    a.item :uv_new, @vote_topic.header, new_user_vote_topic_path(current_user)
-                    a.item :uv_show, "My Votes", user_vote_topics_path(current_user)
+                    a.item :uv_show, "My Votes", user_posted_vote_topics_path(current_user)
                 end
             end
         end

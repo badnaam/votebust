@@ -7,6 +7,7 @@ class Constants
     VOTE_REFRESH_INTERVAL = 500000
     MAX_COMMENT_LENGTH = 500
     LISTINGS_PER_PAGE = 10
+    PROXIMITY = 50
     
     GRAPH_TITLE_STYLE = '{font-size: 12px; color: #F24062;font-weight: bold;font-family:Verdana; text-align: center;}' 
     GRAPH_X_AXIS_LABEL_COLOR = '#000000'
@@ -44,7 +45,7 @@ class Constants
     RPX_APP_NAME = "votebust"
 
     SMART_COL_LIMIT = 5
-    SMART_COL_LATEST_LIMIT = 14.days
+    SMART_COL_LATEST_LIMIT = 24.days
 
     USER_AGE_RANGE = (10..99)
     AGE_GROUP_1 = (10..19)
@@ -61,4 +62,12 @@ class Constants
 
     UNAN_LIMIT = 60
 
+    OTHER_VI = "99OTHER99"
+
+    ########Points#############
+    REGISTRATION_COMPLETE_POINTS = 10
+    NEW_VOTE_POINTS = 10
+    VOTE_POINTS = 1
+    TRACK_POINTS = 1
+    #########End Points########
 end

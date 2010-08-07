@@ -1,3 +1,15 @@
+<script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
+<script type="text/javascript">
+  (function() {
+    var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://widgets.digg.com/buttons.js';
+    s1.parentNode.insertBefore(s, s1);
+  })();
+</script>
+
+
 <script type="text/javascript">
   //<![CDATA[
   google.load("prototype", "1.6.1.0");
@@ -54,21 +66,27 @@
   
   $j(document).ready(function() {
     //update page elements every now and then
+    
+    $j('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$j(anchor.hash).html("Couldn't load this tab. \n\
+        We'll try to fix this as soon as possible.");
+        },  dataType:'script', success:function(){
+         // $j('#loading').hide();
+        }}});
 
     function updatePageElems() {
       showLoading($j('#tot_prog_loading'));
-      <%if @user%>
-      $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
-      {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
-      hideLoading($j('#tot_prog_loading'));
-      },
-      'script');
-      <%else%>
+<%if @user%>
+        $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
+        {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
+          hideLoading($j('#tot_prog_loading'));
+        },
+        'script');
+<%else%>
         $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
-      {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
-      hideLoading($j('#tot_prog_loading'));
-      },'script');
-      <%end%>
+        {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
+          hideLoading($j('#tot_prog_loading'));
+        },'script');
+<%end%>
     }
     
     var refreshId = setInterval(function(){
@@ -103,6 +121,11 @@
       return false;
     });
 
+    $j('#track_link').live('click', function() {
+      $j.post($j(this).attr('href'), function(){});
+      return false;
+    });
+    
     $j('#vote_form').submit(function (){
       showLoading('#vote_prog_loading')
       $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
@@ -131,11 +154,13 @@
     $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
     $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
 
-    $j('#comment_body').keyup(function() {
+<% if @user %>
+      $j('#comment_body').keyup(function() {
+        update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
+      });
+      //and fire it on doc ready, too
       update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
-    });
-    //and fire it on doc ready, too
-    update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
+<%end%>
   });
   //]]>
 </script>
@@ -147,15 +172,36 @@
     <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
     <span class="small">
       <% if !@vote_topic.anon %>
-        <%= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+  <%#= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+        <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% else %>
         <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% end  %>
     </span>
+    <span class="go-right" id="tracking_count"><%= @vote_topic.trackings.size %> trackings.</span>
+    <% if @user %>
+      <% if @vote_topic.is_being_tracked? @user.id%>
+        <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span><a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >Untrack</a></span>
+      <% else %>
+        <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span><a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >Track</a></span>
+      <% end  %>
+    <% end  %>
   </div>
-  <div id="tags" class=""bld top-mar"> <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category), :class => 'tag' %></div>
+  <div id="tags" class="bld top-mar span-6"> <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category), :class => 'tag' %></div>
+  <div id="social_share" class="bld top-mar span-12 last">
+    <ul class="somed-list-inline">
+      <li></li>
+      <li><a name="fb_share" type="icon_link" share_url="<%= url_for(@vote_topic) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
+      <li>    <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=(url_for(@vote_topic)) %>"></a></li>
+      <li>
+        <a href="<%= "http://twitter.com/home?status=#{@vote_topic.header} #{url_for(@vote_topic)}"%>">
+          <span class="so-med tw-icon">
+          </span></a>
+      </li>
+    </ul>
+  </div>
   <div id="tot_prog_loading" class="progress" style="opacity:0;"></div>
-  <div class="prepend-top bottom-mar bld big special-text right_mar_small" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></div>
+  <div class="prepend-top bottom-mar bld big special-text right_mar_small span-18 last" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></div>
 </div>
 
 <div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
@@ -168,9 +214,19 @@
   <% elsif !@user %>
     <%= render :partial => "vote_form_need_login", :locals => {:action => 'login'} %>
   <% end  %>
-  
+
 </div>
 <div id="vote_status" class="span-18 last"></div>
+
+<div id ="facets" class="span-18 last">
+  <div class="ui-state-default right-mar ui-corner-all normal-pad">
+    <ul class="list_no_pad_no_style top-mar">
+      <% @vote_topic.vote_facets.each do |f| %>
+        <li><span class="ui-icon ui-icon-lightbulb right_mar_small" ></span><%= f.desc %></li>
+      <% end  %>
+    </ul>
+  </div>
+</div>
 
 <div id="vote_dlg" class="span-18 last" >
   <% if !(@vote_topic.total_votes == 0) %>
@@ -179,8 +235,7 @@
 </div>
 
 
-
-<div id="comments_container" class=" prepend-top span-18 last">
+<div id="comments_container" class=" prepend-top span-18 last append-bottom">
   <span class="bld clearfix bottom-mar">Comments</span>
   <% if @user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
@@ -189,7 +244,7 @@
     <div id ="comment_form" class=" right-mar ">
       <% form_for ([@vote_topic, Comment.new]) do |f| %>
         <ul class="list_no_pad_no_style">
-          <li><%= f.text_area :body %></li>
+          <li><%= f.text_area :body, :id => "comment_body" %></li>
           <li id="limit_status"></li>
           <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
         </ul>
@@ -198,11 +253,11 @@
   <% end  %>
 
   <div id="com_prog_loading" class="progress" style="opacity:0;"></div>
+  <div id="comment_status"></div>
   <div id ="comments" class="right-mar">
     <%= render :partial => "comments/comments" %>
   </div>
 </div>
-
 
 
 

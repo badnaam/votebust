@@ -22,7 +22,8 @@
       <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
       <span class="small">
         <% if !@vote_topic.anon %>
-          <%= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+          <%#= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
+          <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
         <% else %>
           <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
         <% end  %>
@@ -37,7 +38,7 @@
         <% end %>
         <li>
           <span class=small-button style="margin-right:2em"><button id ="vote_confirm_link">Confirm</button></span>
-          <span class=small-button><%= link_to "Edit", edit_user_vote_topic_path(@user, @vote_topic), :id => 'vote_edit_link' %></span>
+          <span class=small-button><%= link_to "Edit", edit_user_posted_vote_topic_path(@user, @vote_topic), :id => 'vote_edit_link' %></span>
         </li>
       </ul>
     </div>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100711213423) do
+ActiveRecord::Schema.define(:version => 20100806074844) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,20 @@ ActiveRecord::Schema.define(:version => 20100711213423) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "geocode_caches", :force => true do |t|
+    t.string   "address"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "state"
+  end
+
+  add_index "geocode_caches", ["address"], :name => "address"
+  add_index "geocode_caches", ["lat"], :name => "lat"
+  add_index "geocode_caches", ["lng"], :name => "lng"
 
   create_table "notifiers", :force => true do |t|
     t.datetime "created_at"
@@ -81,6 +95,13 @@ ActiveRecord::Schema.define(:version => 20100711213423) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "trackings", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "vote_topic_id"
+    t.integer  "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -122,6 +143,14 @@ ActiveRecord::Schema.define(:version => 20100711213423) do
   add_index "users", ["role_id"], :name => "role_id"
   add_index "users", ["username"], :name => "username"
   add_index "users", ["votes_count"], :name => "votes_count"
+
+  create_table "vote_facets", :force => true do |t|
+    t.string   "desc"
+    t.text     "fkey"
+    t.integer  "vote_topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "vote_items", :force => true do |t|
     t.string   "option"

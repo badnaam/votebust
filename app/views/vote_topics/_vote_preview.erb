@@ -13,14 +13,20 @@
       <% end  %>
       <span class="big"><%= link_to vt.header, vt %></span>
       <span class="special-text"><%= "(#{vt.total_votes} votes)"  %></span>
-      <span class="ui-icon ui-icon-tag"></span><span class="bld tag"><%= link_to "In #{vt.category.name}", category_vote_topics_path(vt.category) %></span>
+      <span class="clearfix">
+        <span class="ui-icon ui-icon-tag "></span><span class="bld tag"><%= link_to "In #{vt.category.name}", category_vote_topics_path(vt.category) %></span>
+      </span>
+      <% if @tracking_listing || @most_tracked_listing %>
+        <span class="go-right"><%= vt.trackings.size %> trackings.</span>
+      <% end  %>
       <span class="small clearfix">
         <% if !vt.anon %>
-          <%= "By #{link_to vt.user.username, vt.user} on #{vt.created_at.strftime('%b %d %Y')}" %>
+          <%= "By #{link_to vt.poster.username, vt.poster} on #{vt.created_at.strftime('%b %d %Y')}" %>
         <% else %>
           <%= "By Anonymous on #{vt.created_at.strftime('%b %d %Y')}" %>
         <% end  %>
       </span>
+
     </div>
     <ul>
       <% first = true %>

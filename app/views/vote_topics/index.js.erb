@@ -1,5 +1,11 @@
 <% if @user_listing %>
   $('#vote_list').html("<%= escape_javascript(render :partial => 'vote_list') %>");
+<% elsif @tracking_listing %>
+  <%= render :partial => 'home/tracked_votes', :locals => {:votes => @vote_topics} %>
+<% elsif @most_tracked_listing %>
+  <%= render :partial => 'home/most_tracked_votes', :locals => {:votes => @vote_topics} %>
+<% elsif @local_listing %>
+  <%= render :partial => 'home/local_votes', :locals => {:votes => @vote_topics} %>
 <% else %>
   $('#vote_list').html("<%= escape_javascript(render :partial => 'user_vote_list') %>");
 <% end  %>

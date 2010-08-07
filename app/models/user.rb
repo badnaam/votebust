@@ -17,13 +17,20 @@ class User < ActiveRecord::Base
     end
 
     attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
-#    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
+    #    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
 
     acts_as_voter
-    has_many :vote_topics
+    #    has_many :vote_topics
+    has_many :posted_vote_topics, :foreign_key => :user_id, :class_name => 'VoteTopic'
+    has_many :trackings, :dependent => :destroy
+    has_many :vote_topics, :through => :trackings
+    has_many :voteables, :foreign_key => :voter_id, :class_name => "Vote"
     belongs_to :role
     has_many :comments
     has_many :votes, :foreign_key => :voter_id
+
+#    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
+    acts_as_mappable 
     
     validates_presence_of :email, :message => "Please enter a valid email"
     validates_presence_of :sex, :message => "Please select a gender"
@@ -36,9 +43,32 @@ class User < ActiveRecord::Base
     attr_accessor :skip_profile_update
 
     before_save :check_what_changed
-    
+
+    def self.find_for_vote_processing id
+        find(id, :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username")
+    end
+
+    def award_points points
+        self.increment!(:voting_power, points)
+    end
+
+    def geocode_address
+        geo = Geokit::Geocoders::MultiGeocoder.geocode(self.zip)
+#        errors.add(:zip, "Could not locate that zip code") if !geo.success
+        logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
+        if geo.success
+            self.lat, self.lng = geo.lat,geo.lng
+            self.zip = geo.zip if ((self.zip).blank? && geo.zip != nil)
+            self.city = geo.city
+            self.state = geo.state
+        else
+            #set it to nil to force the user to complete registration
+            self.zip = nil
+        end
+    end
+
     def check_what_changed
-        if self.changed.sort == ["last_request_at", "perishable_token"] || self.changed.sort == ["perishable_token" || "processing_vote"]
+        if self.changed.sort == ["last_request_at", "perishable_token"] || self.changed.sort == ["perishable_token" , "processing_vote"]
             self.skip_profile_update = true
             return true
         else
@@ -47,7 +77,7 @@ class User < ActiveRecord::Base
         end
     end
     
-#    scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count(:limit => Constants::SMART_COL_LIMIT)}
+    #    scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count(:limit => Constants::SMART_COL_LIMIT)}
     named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT,
             :select => 'id, username, votes_count, image_file_name, processing, image_updated_at, image_content_type, image_file_size'}
     }
@@ -61,6 +91,8 @@ class User < ActiveRecord::Base
 
     after_save do |user|
         unless user.skip_profile_update
+            #update lat lng position
+            self.delay.geocode_address
             if user.image_changed?
                 logger.debug 'queing user image processing job'
                 Delayed::Job.enqueue ImageJob.new(user.id)
@@ -145,7 +177,8 @@ class User < ActiveRecord::Base
         RAILS_DEFAULT_LOGGER.info "in before_merge_rpx_data: migrate articles and comments from #{from_user.username} to #{to_user.username}"
         to_user.votes << from_user.votes
         to_user.comments << from_user.comments
-        to_user.vote_topics << from_user.vote_topics
+#        to_user.vote_topics << from_user.vote_topics
+        to_user.posted_vote_topics << from_user.posted_vote_topics
     end
 
     # after_merge_rpx_data provides a hook for application developers to perform account clean-up after authlogic_rpx has

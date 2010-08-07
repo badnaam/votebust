@@ -23,14 +23,14 @@ module ApplicationHelper
                 return '<li>' + (link_to (image_tag user.image.url(:small)), user, :class => 'profile-image') + '</li><li>' +
                   (link_to user.username, user, :class => 'user-profile-link') + '</li>'
             else
-                return '<li>' + (image_tag user.image.url(:small), :class => 'profile-image') + '</li><li>' + user.username + '</li>'
+                return '<li>' + (image_tag user.image.url(:small), :class => 'profile-image') + '</li><li>' + "#{user.username} (#{user.votes.count}) votes"  + '</li>'
             end
         else
             if current_user
                 return '<li>' + (link_to (image_tag Constants::MISSING_IMAGE_FILE), user, :class => 'profile-image') + '</li><li>' +
                   (link_to user.username, user, :class => 'user-profile-link') + '</li>'
             else
-                return '<li>' + (image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image') + '</li><li>' + user.username + '</li>'
+                return '<li>' + (image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image') + '</li><li>' +  "#{user.username} (#{user.votes.count}) votes"  + '</li>'
             end
         end
     end

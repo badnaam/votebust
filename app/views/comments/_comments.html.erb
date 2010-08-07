@@ -1,3 +1,8 @@
-<%= will_paginate @comments, :params => {:comment_only => true} %>
-<%= render :partial=> "comments/comment", :collection => @comments, :as => :comment %>
-<%= will_paginate @comments %>
+<div id="tabs">
+  <ul>
+    <% @vote_topic.vote_items.each do |vi| %>
+      <li><a href="<%= url_for(:controller => :comments, :action => :index, :option => vi.option, :vid => @vote_topic.id) %>"><span><%= vi.option[0..10] + "..." %></span></a></li>
+    <% end  %>
+    <li><a href="<%= url_for(:controller => :comments, :action => :index, :option => Constants::OTHER_VI, :vid => @vote_topic.id) %>"><span>Others</span></a></li>
+  </ul>
+</div>

@@ -22,7 +22,8 @@ class Notifier < ActionMailer::Base
     def friendly_vote_emails(vote_topic)
         emails = vote_topic.friend_emails
         logger.debug("Notifier sending friendly_vote_emails to => " + emails)
-        subject "Vote invitation from #{vote_topic.user.username} at Votebust"
+#        subject "Vote invitation from #{vote_topic.user.username} at Votebust"
+        subject "Vote invitation from #{vote_topic.poster.username} at Votebust"
         from          'pjointadm@gmail.com'
         recipients    'pjointadm@gmail.com'
         bcc           emails

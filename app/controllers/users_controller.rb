@@ -9,22 +9,22 @@ class UsersController < ApplicationController
         #        @user_session = UserSession.new
     end
 
+    
     def create
         @user = User.new(params[:user])
         @user.role = Role.find_by_name('user')
         v = verify_recaptcha(:model => @user, :message => "Text entered did not match the image!")
         if v 
             if @user.save_without_session_maintenance
-               ashi
                 flash[:notice] = t('users.create.confirmation')
-#                redirect_back_or_default root_url
+                #                redirect_back_or_default root_url
                 redirect_to root_url
             else
                 render :action => :new
             end
         else
-#            @user.errors.add()
-#            flash[:error] = "Text entered did not match the image"
+            #            @user.errors.add()
+            #            flash[:error] = "Text entered did not match the image"
             render :action => :new
         end
     end
@@ -42,6 +42,12 @@ class UsersController < ApplicationController
         @user = current_user # makes our views "cleaner" and more consistent
         if @user.update_attributes(params[:user])
             flash[:notice] = "Account updated!"
+            if @user.voting_power == 0
+                @user.increment!(:voting_power, Constants::REGISTRATION_COMPLETE_POINTS)
+                flash[:notice] = "Account updated!. You have earned #{Constants::REGISTRATION_COMPLETE_POINTS} points"
+            else
+                flash[:notice] = "Account updated!"
+            end
             #            redirect_to current_user
             redirect_back_or_default current_user
         else

@@ -3,18 +3,41 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics.xml
     layout "main"
     filter_access_to [:edit, :update, :confirm_vote], :attribute_check => true
-    before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote, :approve_vote]
+    before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote, :approve_vote, :track]
     before_filter :store_location, :only => [:show]
+    before_filter :require_registration, :only => [:new]
     #    cache_sweeper :home_sweeper, :only => [:create]
     ########## Security hole, control access!
 
+    def track
+        @user = current_user
+        @vote_topic = VoteTopic.find(params[:id])
+        if params[:untrack]
+            unless @user.trackings.find(:first, :conditions => ['vote_topic_id = ?',params[:id]]).destroy
+                flash[:error] = "Something went wrong, please try later"
+            else
+                @vote_topic.poster.award_points(Constants::TRACK_POINTS * -1)
+            end
+        else
+            if @user.trackings.create(:vote_topic_id => params[:id])
+                @tracked = true
+                @vote_topic.poster.award_points(Constants::TRACK_POINTS)
+            else
+                flash[:error] = "Something went wrong, please try later"
+            end
+        end
+        respond_to do |format|
+            format.js
+        end
+    end
+ 
     def approve_vote
         @vote_topic = VoteTopic.find(params[:id])
         if current_role == 'admin'
             @vote_topic.status = 'a'
             if @vote_topic.save
                 if !@vote_topic.friend_emails.nil?
-#                    @vote_topic.send_later :deliver_friendly_vote_emails!
+                    #                    @vote_topic.send_later :deliver_friendly_vote_emails!
                     @vote_topic.delay.deliver_friendly_vote_emails!
                 end
                 flash[:success] = 'Change vote status to approved'
@@ -43,15 +66,15 @@ class VoteTopicsController < ApplicationController
     end
     
     def cancel_vote
-        @user = User.find(params[:user_id], :select => "users.id, users.processing_vote, users.persistence_token, users.sex, users.age, users.username")
+        @user = User.find_for_vote_processing(params[:user_id])
         if @user.processing_vote == false
-            @selected_response = VoteItem.find(params[:sel_response], :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option, ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
+            @selected_response = VoteTopic.find_selected_response(params[:sel_response])
             @vote_topic = @selected_response.vote_topic
             @reg_complete = params[:reg_complete]
             if Vote.find(:first, :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy && @vote_topic.decrement!(:total_votes, 1)
                 flash[:success] = "Your vote has been cancelled."
                 @user.update_attribute(:processing_vote, true)
-#                @vote_topic.send_later(:post_process, @selected_response, @user, false)
+                #                @vote_topic.send_later(:post_process, @selected_response, @user, false)
                 @vote_topic.delay.post_process(@selected_response, @user, false)
             end
         else
@@ -63,11 +86,11 @@ class VoteTopicsController < ApplicationController
     end
 
     def process_votes
-        @user = User.find(params[:user_id], :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username")
+        @user = User.find_for_vote_processing(params[:user_id])
         @reg_complete = params[:reg_complete]
         if @user.processing_vote == false
             if  !params[:response].nil? && !@user.nil?
-                @selected_response = VoteItem.find(params[:response], :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option, ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
+                @selected_response = VoteTopic.find_selected_response(params[:response])
                 @vote_topic = @selected_response.vote_topic
                 if !@user.voted_for?(@selected_response)
                     if @user.vote_for(@selected_response) && @vote_topic.increment!(:total_votes, 1)
@@ -96,7 +119,6 @@ class VoteTopicsController < ApplicationController
         @vote_topic = VoteTopic.find(params[:id])
         if @vote_topic.update_attribute(:status, 'w')
             flash[:notice] = 'Vote was successfully created and sent for moderator approval.'
-#            @vote_topic.send_later :deliver_new_vote_notification!
             @vote_topic.delay.deliver_new_vote_notification!
         else
             flash[:error] = 'Something went wrong.'
@@ -112,21 +134,32 @@ class VoteTopicsController < ApplicationController
         if !params[:user_id].nil?
             @user_listing = true
             user = User.find(params[:user_id])
-            @result_set = VoteTopic.get_all_votes_user(user) #todo : pagination?
-            @vote_topics = @result_set.keys.sort_by {|k| k.total_votes}.paginate(:page => params[:page], :per_page => 2)
+            @vote_topics = VoteTopic.get_all_votes_user(user) #todo : pagination?
+        elsif !params[:tracking].nil?
+            @tracking_listing = true
+            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, true, nil)
+        elsif !params[:tracking_all].nil?
+            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
+        elsif !params[:local_all].nil?
+            @vote_topics = VoteTopic.get_local_votes current_user.zip, false, params[:page]
+        elsif !params[:local].nil?
+            @local_listing = true
+            @vote_topics = VoteTopic.get_local_votes current_user.zip, true, nil
+        elsif !params[:most_tracked].nil?
+            @most_tracked_listing = true
+            @vote_topics = VoteTopic.get_most_tracked_votes true, nil
+        elsif !params[:most_tracked_all].nil?
+            @vote_topics = VoteTopic.get_most_tracked_votes false, params[:page]
         elsif !params[:category_id].nil?
             @category_listing = true
-            #            @vote_topics = (VoteTopic.by_category_listing params[:category_id]).paginate(:page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
             @vote_topics = (VoteTopic.category_list params[:category_id], params[:page])
+        elsif !params[:top_listing_all].nil?
+            @top_listing_all = true
+            @vote_topics = VoteTopic.get_top_votes false, params[:page] || 1
         else
             @general_listing = true
-            #            @vote_topics = VoteTopic.all_approved.paginate(:page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
-            #            @vote_topics = VoteTopic.status_equals('a').descend_by_created_at(:include => [{:vote_items => :votes}, :user, :category]).paginate(:page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
-            #           @vote_topics = VoteTopic.status_equals('a').descend_by_created_at(:joins => [{:vote_items => :votes}, :user, :category]).paginate(:page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
-            #            @vote_topics = VoteTopic.find(:all, :conditions => ['status = ?', 'a'], :order => 'created_at DESC', :include => [{:vote_items => :votes}, :user, :category]).paginate(:page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
-            #            @vote_topics = VoteTopic.paginate(:conditions => ['status = ?', 'a'], :order => 'created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
-            #            @vote_topics = VoteTopic.find(:all, :conditions => ['status = ?', 'a'], :order => 'created_at DESC', :joins => [{:vote_items => :votes}, :user, :category]).paginate(:page => params[:page], :per_page => Constants::LISTINGS_PER_PAGE)
             @vote_topics = VoteTopic.general_list params[:page]
+
         end
         respond_to do |format|
             format.html # index.html.erb
@@ -157,10 +190,11 @@ class VoteTopicsController < ApplicationController
             @reg_complete = registration_complete?
             @status = 'approved'
             @p_chart = @vote_topic.make_flash_pie_graph(true) #only get this if total_votes > 0?
-            @comments = @vote_topic.comments.paginate(:page => params[:page],
-                :per_page => Constants::COMMENTS_PER_PAGE, :order => 'created_at DESC', :include => {:user => :votes})
-            @selected_response = @vote_topic.what_vi_user_voted_for(@user) if @user #todo : persist this?
+#            @comments = @vote_topic.comments.paginate(:page => params[:page],
+#                :per_page => Constants::COMMENTS_PER_PAGE, :order => 'created_at DESC', :include => {:user => :votes})
+            @selected_response = @vote_topic.what_vi_user_voted_for(@user) if @user 
             #Gather related
+            #todo find out if search is better or  not
             @related = VoteTopic.search "", :with => {:category_id => @vote_topic.category_id},
               :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT
             @same_user = VoteTopic.search "", :with => {:user_id => @vote_topic.user_id},
@@ -178,8 +212,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/new.xml
     def new
         @user = User.find(params[:user_id])
-        @vote_topic = @user.vote_topics.build
-        #        @vote_items = 5.times {@vote_topic.vote_items.build}
+        @vote_topic = @user.posted_vote_topics.build
         @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
@@ -213,10 +246,11 @@ class VoteTopicsController < ApplicationController
     # POST /vote_topics.xml
     def create
         @user = User.find(params[:vote_topic][:user_id].to_i)
-        @vote_topic = @user.vote_topics.create(params[:vote_topic])
+        @vote_topic = @user.posted_vote_topics.create(params[:vote_topic])
         @vote_topic.status = 'p'
         respond_to do |format|
             if @vote_topic.save
+                @user.award_points(Constants::NEW_VOTE_POINTS)
                 format.html { redirect_to(:action => :show, :id => @vote_topic.id, :preview_only => true, :user_id => @user.id) }
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else

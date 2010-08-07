@@ -7,7 +7,7 @@
 
 <%= page_entries_info @vote_topics, :entry_name => "Votes" %>
 <%= will_paginate @vote_topics, :class => 'pagination ' %>
-<% @vote_topics.each  do |vt| %>
+<% @vote_topics.keys.each  do |vt| %>
   <% if !vt.nil? %>
     <div class="ui-widget-content bottom-mar normal-pad right-mar">
       <div class="clearfix bld bottom-mar ui-widget-header normal-pad">
@@ -19,7 +19,8 @@
         <span class="ui-icon ui-icon-tag"></span><span class="bld tag"><%= link_to "In #{vt.category.name}", category_vote_topics_path(vt.category) %></span>
         <span class="small clearfix">
           <% if !vt.anon %>
-            <%= "By #{link_to vt.user.username, vt.user} on #{vt.created_at.strftime('%b %d %Y')}" %>
+            <%#= "By #{link_to vt.user.username, vt.user} on #{vt.created_at.strftime('%b %d %Y')}" %>
+            <%= "By #{link_to vt.poster.username, vt.poster} on #{vt.created_at.strftime('%b %d %Y')}" %>
           <% else %>
             <%= "By Anonymous on #{vt.created_at.strftime('%b %d %Y')}" %>
           <% end  %>
@@ -27,7 +28,7 @@
       </div>
       <ul>
         <% first = true %>
-        <% vt.vote_items.each do |v| %>
+        <% @vote_topics[vt].vote_items.each do |v| %>
           <li>
             <% if first %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>

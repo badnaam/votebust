@@ -21,12 +21,14 @@ if defined? Geokit
 	# This is your yahoo application key for the Yahoo Geocoder.
 	# See http://developer.yahoo.com/faq/index.html#appid
 	# and http://developer.yahoo.com/maps/rest/V1/geocode.html
-    Geokit::Geocoders::yahoo = '3JVKXcvV34GeDldCLLrB01S1Lo.XukcaSbm9mbyZXmf9fn6VnhW6dAlX.Agk'
+#    Geokit::Geocoders::yahoo = '3JVKXcvV34GeDldCLLrB01S1Lo.XukcaSbm9mbyZXmf9fn6VnhW6dAlX.Agk'
+    Geokit::Geocoders::yahoo = APP_CONFIG['yahoo_map']
     
 	# This is your Google Maps geocoder key. 
 	# See http://www.google.com/apis/maps/signup.html
 	# and http://www.google.com/apis/maps/documentation/#Geocoding_Examples
-	Geokit::Geocoders::google = 'ABQIAAAAi_F8JNAI9__oCG-KzCfTYhTJQa0g3IQ9GZqIMmInSLzwtGDKaBQ6kTvHNGROiENaALqema6YZJEh2Q'
+#	Geokit::Geocoders::google = 'ABQIAAAAi_F8JNAI9__oCG-KzCfTYhTJQa0g3IQ9GZqIMmInSLzwtGDKaBQ6kTvHNGROiENaALqema6YZJEh2Q'
+	Geokit::Geocoders::google = APP_CONFIG['google_map']
     
 	# This is your username and password for geocoder.us.
 	# To use the free service, the value can be set to nil or false.  For 
@@ -44,7 +46,8 @@ if defined? Geokit
 	Geokit::Geocoders::geocoder_ca = false
 
 	# Uncomment to use a username with the Geonames geocoder
-	#Geokit::Geocoders::geonames="REPLACE_WITH_YOUR_GEONAMES_USERNAME"
+    #pwd - votechekadmin
+	Geokit::Geocoders::geonames=false
 
 	# This is the order in which the geocoders are called in a failover scenario
 	# If you only want to use a single geocoder, put a single symbol in the array.
@@ -53,7 +56,7 @@ if defined? Geokit
 	# various geocoders.  Make sure you read up on relevant Terms of Use for each
 	# geocoder you are going to use.
     #	Geokit::Geocoders::provider_order = [:google,:us]
-    Geokit::Geocoders::provider_order = [:cache,:google,:yahoo, :us, :ca]
+    Geokit::Geocoders::provider_order = [:cache,:google,:yahoo,:geonames]
 
 	# The IP provider order. Valid symbols are :ip,:geo_plugin.
 	# As before, make sure you read up on relevant Terms of Use for each

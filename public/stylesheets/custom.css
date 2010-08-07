@@ -119,6 +119,28 @@ table.borderless tr {
     width:50%;
     z-index:200;
 }
+.rel-pos {
+    position:relative;
+}
+.loading-inner-top {
+    background:transparent url(/images/loading_big.gif) no-repeat scroll center center;
+    font-size:16px;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    height:100px;
+    left:40%;
+    line-height:normal;
+    margin-left:-50px;
+    margin-top:-50px;
+    overflow:auto;
+    padding:10px;
+    position:absolute;
+    text-align:center;
+    top:10%;
+    width:100px;
+    z-index:200;
+}
 .content_header {
     position:relative;
 }
@@ -456,6 +478,15 @@ img.ui-icon {
     margin-right:.1em;
     display: inline;
 }
+.somed-list-inline li {
+    margin-right:1em;
+    display: inline;
+}
+.somed-list-inline {
+    float:right;
+    margin-right:0;
+}
+
 .slide-progress {
     background-color:black;
     margin:0.5em auto;

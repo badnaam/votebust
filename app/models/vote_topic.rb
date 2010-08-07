@@ -1,73 +1,145 @@
 require 'rubygems'
-#require 'gruff'
 include ActionView::Helpers::TextHelper
 
 class VoteTopic < ActiveRecord::Base
     MAX_VOTE_ITEMS = 5
     STATUS = {'approved' => 'a', 'waiting' => 'w', 'preview' => 'p'}
-    belongs_to :user
+    FACET_KEYS = {'m' => "Men vote for ", 'w' => "Women vote for ", 'ag1' => "Voters aged between #{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last} vote for",
+        'ag2' => "Voters aged between  #{Constants::AGE_GROUP_2.first} - #{Constants::AGE_GROUP_2.last} vote for",
+        'ag3' => "Voters aged between  #{Constants::AGE_GROUP_3.first} - #{Constants::AGE_GROUP_3.last} vote for",
+        'ag4' => "Voters aged between  #{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last} vote for"
+    }
+    #    belongs_to :user
+    belongs_to :poster, :class_name => "User", :foreign_key => :user_id
+    has_many :trackings, :dependent => :destroy
+    has_many :users, :through => :tracking
+    has_many :vote_facets
     belongs_to :category
+    
+    
     has_many :comments
     has_many :vote_items, :dependent => :destroy
     has_many :votes, :through => :vote_items
 
+    acts_as_mappable :through => :poster
 
     #\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b
     validates_presence_of :header, :message => "Topic can not be blank"
     validates_presence_of :category, :message => "Please select a category"
-    validates_length_of :header, :maximum => Constants::MAX_VOTE_HEADER_LENGTH, :message => "Please keep the topic description within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"
-    validates_length_of :topic, :maximum => Constants::MAX_VOTE_TOPIC_LENGTH, :allow_nil => true, :message => "Please keep the details within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters"
-    validates_length_of :website, :maximum => Constants::MAX_VOTE_EXT_LINK_LENGTH, :allow_nil => true, :message => "Please keep the link within #{Constants::MAX_VOTE_EXT_LINK_LENGTH} characters or make it short at http://tinyurl.com/"
-    validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true, :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
+    validates_length_of :header, :maximum => Constants::MAX_VOTE_HEADER_LENGTH,
+      :message => "Please keep the topic description within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"
+    validates_length_of :topic, :maximum => Constants::MAX_VOTE_TOPIC_LENGTH, :allow_nil => true,
+      :message => "Please keep the details within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters"
+    validates_length_of :website, :maximum => Constants::MAX_VOTE_EXT_LINK_LENGTH, :allow_nil => true,
+      :message => "Please keep the link within #{Constants::MAX_VOTE_EXT_LINK_LENGTH} characters or make it short at http://tinyurl.com/"
+    validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true,
+      :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
     validate :valid_email?
     validate :min_vote_items, :if => :its_new?
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
     after_destroy :destroy_graphs
     attr_accessible :topic, :header, :vote_items_attributes, :friend_emails, :anon, :header, :category_id, :website
-#    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
+    #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     
-#    scope_procedure :unanimous_votes, lambda {unan_equals(true).descend_by_created_at.all(:limit => Constants::SMART_COL_LIMIT)}
-    scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes(:limit => Constants::SMART_COL_LIMIT, :select => "id, header, total_votes, created_at") }
+    scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(
+            Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes(:limit => Constants::SMART_COL_LIMIT,
+            :select => "id, header, total_votes, created_at") }
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
-    scope_procedure :in_preview, lambda {status_equals(STATUS['preview']).ascend_by_created_at}
-    scope_procedure :by_category_listing, lambda {|cid|status_equals(STATUS['approved']).category_id_equals(cid).descend_by_created_at(:include => [{:vote_items => :votes}, :user, :category])}
-    scope_procedure :all_approved, lambda {status_equals(STATUS['approved']).descend_by_created_at(:include => [{:vote_items => :votes}, :user, :category])}
 
 
+    def is_being_tracked? id
+        self.trackings.find(:first, :conditions => ['user_id = ?', id])
+    end
+    
     def self.unanimous_votes
         find(:all, :conditions => {:unan => true}, :order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT, :select => 'id, header, unan')
     end
     
     def self.category_list cid, page
-        VoteTopic.paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
-            :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-        vote_items.option')
+        coll = paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes},
+                :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => 'vote_topics.id, vote_topics.header, vote_topic.topic,
+                vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon,
+                 users.id, users.username, vote_items.option')
+        sort_collection_vote_items coll
     end
 
     def self.general_list page
-        VoteTopic.paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :user, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE,
-            :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-        vote_items.option')
+        coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :poster, :category],
+            :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id,
+            vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+             vote_items.option')
+        sort_collection_vote_items coll
     end
 
     def self.find_for_processing(id)
         find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}])
     end
     def self.find_for_comments(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => :comments)
+        #todo the :select doesn't work
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => {:comments => :user},
+            :select => ("vote_topics.id, comments.body, users.username, users.votes_count, users.image_file_size, users.image_file_name, users.image_content_type"))
+    end
+
+    def self.find_selected_response id
+        VoteItem.find(id, :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option,
+                 ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
+    end
+
+    def self.get_most_tracked_votes limit, page
+        h = Hash.new
+        if limit
+            coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category, 
+                    :trackings], :limit => Constants::SMART_COL_LIMIT, :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id,
+                    vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+                    vote_items.option, trackings.count')
+        else
+            coll = paginate( :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category,
+                    :trackings], :per_page => Constants::LISTINGS_PER_PAGE, :page => page, :select => ' vote_topics.id, vote_topics.header, vote_topic.topic,
+             vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id,
+            users.username,vote_items.option')
+        end
+
+        sort_collection_vote_items coll
     end
     
-    def self.find_for_show(id)
-#        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments])
-        VoteTopic.find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :user, :category, :comments],
-          :select => 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
-        categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option, total_votes, comments.id, comments.body, comments.user_id, comments.vote_topic_id ')
+    def self.get_tracked_votes id, limit, page
+        if limit
+            coll = trackings_user_id_equals(id).all(:include => [{:vote_items => :votes}, :poster, :trackings, :category], :limit => Constants::SMART_COL_LIMIT)
+        else
+            coll = trackings_user_id_equals(id).paginate(:per_page => Constants::LISTINGS_PER_PAGE, :page => page, :include => [{:vote_items => :votes}, :poster,
+                    :trackings, :category])
+        end
+        
+        sort_collection_vote_items coll
     end
+    
+    def self.get_local_votes origin, limit, page
+        h = Hash.new
+        if limit
+            coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category], 
+                :limit => Constants::SMART_COL_LIMIT, :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id,
+                vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+                vote_items.option', :origin => origin, :within => Constants::PROXIMITY)
+        else
+            coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
+                :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
+                categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option', :origin => origin, :within => Constants::PROXIMITY,
+                :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+        end
+        sort_collection_vote_items coll
+    end
+
+    def self.find_for_show(id)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :poster, :category, :comments],
+            :select => 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, 
+            vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option, total_votes, comments.id,
+            comments.body, comments.user_id, comments.vote_topic_id ')
+    end
+    
     def self.find_for_stats(id)
-        #        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}])
         find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}], :select => ("vote_topics.id,
-    vote_topics.total_votes, vote_items.id, vote_items.option, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v,vote_items.ag_2_v,vote_items.ag_3_v
+        vote_topics.total_votes, vote_items.id, vote_items.option, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v,vote_items.ag_2_v,vote_items.ag_3_v
                 vote_items.ag_4_v,"))
     end
 
@@ -75,32 +147,30 @@ class VoteTopic < ActiveRecord::Base
         find(id, :include => [{:vote_items => :votes}])
     end
     
-    def send_friendly_emails
-        self.delay.deliver_friendly_vote_emails!
-    end
     
-    def self.get_top_votes
+    def self.get_top_votes limit, page
         h = Hash.new
-        coll = VoteTopic.find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :user, :category], :limit => Constants::SMART_COL_LIMIT,
-            :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-        vote_items.option')
-        
-#        coll = VoteTopic.status_equals('a').descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT, :include => [{:vote_items => :votes},
-#                :user, :category])
-        coll.each do |vt|
-            arr = Array.new
-            vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
-                arr << vi
-            end
-            h[vt] = arr
+        if limit
+            coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
+                :limit => Constants::SMART_COL_LIMIT, :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id,
+                vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username, vote_items.option')
+        else
+            coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
+                :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id,
+                vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
+                vote_items.option')
         end
-        return h
+        sort_collection_vote_items coll
     end
 
     def self.get_all_votes_user (user)
+        coll = user_id_equals(user.id).descend_by_total_votes.all(:include => [{:vote_items => :votes},
+                :poster, :category])
+        sort_collection_vote_items coll
+    end
+
+    def self.sort_collection_vote_items coll
         h = Hash.new
-        coll = VoteTopic.user_id_equals(user.id).descend_by_total_votes.all(:include => [{:vote_items => :votes},
-                :user, :category])
         coll.each do |vt|
             arr = Array.new
             vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
@@ -110,7 +180,7 @@ class VoteTopic < ActiveRecord::Base
         end
         return h
     end
-
+    
     def get_sorted_vi
         arr = Array.new
         self.vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
@@ -119,20 +189,10 @@ class VoteTopic < ActiveRecord::Base
         return arr
     end
 
-    def self.get_top_sorted_vi
-        h = Hash.new
-        VoteTopic.descend_by_total_votes.all(:limit => Constants::SMART_COL_LIMIT).each do |vt|
-            arr = Array.new
-            vt.vote_items.all(:joins => :votes, :select => "vote_items.*, count(vote_items.id) AS vote_count",
-                :group => :id, :order => "vote_count DESC").each do |vi|
-                arr << vi
-            end
-            h[vt] = arr
-        end
-        return h
+    def send_friendly_emails
+        self.delay.deliver_friendly_vote_emails!
     end
 
-    
     def valid_email?
         if !self.friend_emails.nil?
             emails = self.friend_emails.split(",")
@@ -145,7 +205,6 @@ class VoteTopic < ActiveRecord::Base
         end
     end
 
-    
     define_index do
         indexes :header
         indexes :topic
@@ -185,15 +244,14 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def post_process(selected_response, user, add)
-        
         if add == true
             inc = 1
+            user.award_points(Constants::VOTE_POINTS)
         else
             inc = -1
+            user.award_points(Constants::VOTE_POINTS * -1)
         end
 
-#        self.increment!(:total_votes, inc)
-        #update male/female
         if !user.sex.nil? && user.sex == 0
             selected_response.increment!(:male_votes, inc)
         else
@@ -209,11 +267,53 @@ class VoteTopic < ActiveRecord::Base
         else
             selected_response.increment!(:ag_4_v, inc)
         end
-
+        #add lat/lng to the vote
+        if add == true
+            update_location selected_response, user
+        end
+        vt = vote_items_id_equals(selected_response.id).first(:include => :vote_items)
+        vt.update_facets(vt)
         determine_devided
         user.update_attribute(:processing_vote, false)
+        
     end
 
+    def update_location selected_response, user
+        vote = Vote.voteable_id_equals(selected_response.id).voter_id_equals(user.id)
+#        v.lat = user.lat
+#        v.lng = user.lng
+        v.city = user.city
+        v.state = user.state
+        vote.save
+    end
+
+    def update_facets
+        vi = self.vote_items
+        f_desc = vi.sort_by{|x| x.female_votes}.reverse.first.option
+        m_desc = vi.sort_by{|x| x.male_votes}.reverse.first.option
+        ag1_desc = vi.sort_by{|x| x.ag_1_v}.reverse.first.option
+        ag2_desc = vi.sort_by{|x| x.ag_2_v}.reverse.first.option
+        ag3_desc = vi.sort_by{|x| x.ag_3_v}.reverse.first.option
+        ag4_desc = vi.sort_by{|x| x.ag_4_v}.reverse.first.option
+        
+        f = VoteFacet.vote_topic_id_equals(self.id)
+        if f.nil? || f.blank?
+            VoteFacet.create(:vote_topic_id => self.id, :fkey => FACET_KEYS.keys[0], :desc => FACET_KEYS["m"] + " " + m_desc)
+            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[1], :desc => FACET_KEYS["w"] + " " + f_desc)
+            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[2], :desc => FACET_KEYS["ag1"] + " " + ag1_desc)
+            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[3], :desc => FACET_KEYS["ag2"] + " " + ag2_desc)
+            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[4], :desc => FACET_KEYS["ag3"] + " " + ag3_desc)
+            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[5], :desc => FACET_KEYS["ag4"] + " " + ag4_desc)
+        else
+            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[0]).first.update_attribute(:desc, FACET_KEYS["m"] + " " + m_desc)
+            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[1]).first.update_attribute(:desc, FACET_KEYS["w"] + " " + f_desc)
+            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[2]).first.update_attribute(:desc, FACET_KEYS["ag1"] + " " + ag1_desc)
+            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[3]).first.update_attribute(:desc, FACET_KEYS["ag2"] + " " + ag2_desc)
+            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[4]).first.update_attribute(:desc, FACET_KEYS["ag3"] + " " + ag3_desc)
+            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[5]).first.update_attribute(:desc, FACET_KEYS["ag4"] + " " + ag4_desc)
+        end
+    end
+    
     def determine_devided
         vis = self.vote_items
         vis.each do |v|
@@ -300,7 +400,8 @@ class VoteTopic < ActiveRecord::Base
             ag3 = vv.ag_3_v
             ag4 = vv.ag_4_v
             bar_stack.append_stack(Array.new([BarStackValue.new(ag1,Constants::GRAPH_AG1_COLOR),
-                        BarStackValue.new(ag2,Constants::GRAPH_AG2_COLOR), BarStackValue.new(ag3, Constants::GRAPH_AG3_COLOR), BarStackValue.new(ag4,Constants::GRAPH_AG4_COLOR)]))
+                        BarStackValue.new(ag2,Constants::GRAPH_AG2_COLOR), BarStackValue.new(ag3, Constants::GRAPH_AG3_COLOR),
+                        BarStackValue.new(ag4,Constants::GRAPH_AG4_COLOR)]))
             labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_AXIS_LABEL_LENGTH, :omission => '~'),
                 Constants::GRAPH_X_AXIS_LABEL_COLOR, Constants::GRAPH_X_AXIS_LABEL_FONT_SIZE, Constants::GRAPH_X_AXIS_LABEL_ANGLE)
         end
@@ -427,7 +528,5 @@ class VoteTopic < ActiveRecord::Base
     def its_new?
         self.new_record?
     end
-
-
     
 end

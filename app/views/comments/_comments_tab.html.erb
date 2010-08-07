@@ -1,0 +1,8 @@
+<div id="comments_<%= @active_option %>">
+  <% if @comments.size == 0 %>
+    No comments.
+  <% end  %>
+  <%= will_paginate(@comments, :params => {:paginated => 1}) %>
+  <%= render :partial=> "comments/comment", :collection => @comments, :as => :comment %>
+  <%= will_paginate(@comments, :params => {:paginated => 1}) %>
+</div>

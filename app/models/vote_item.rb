@@ -2,7 +2,13 @@ class VoteItem < ActiveRecord::Base
     belongs_to :vote_topic
     acts_as_voteable
     after_update :destroy_if_option_blank
+    has_many :voters, :class_name => "Vote", :foreign_key => :voteable_id
+#    belongs_to :user, :through => :vote_topic
 
+    def get_voters
+        Vote.voteable_id_equals(self.id)
+    end
+    
     def destroy_if_option_blank
         if self.option.blank?
             self.destroy

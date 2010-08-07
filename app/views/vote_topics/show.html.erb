@@ -7,7 +7,8 @@
       <%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @related, :header => "Related"} %>
     <% end  %>
     <% if @same_user.total_entries > 0 %>
-      <%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @same_user, :header => "More from #{@vote_topic.user.username}"} %>
+      <%#= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @same_user, :header => "More from #{@vote_topic.user.username}"} %>
+      <%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @same_user, :header => "More from #{@vote_topic.poster.username}"} %>
     <% end  %>
   <% end  %>
 <% elsif @status == 'waiting' %>

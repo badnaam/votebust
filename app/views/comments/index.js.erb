@@ -1,0 +1,5 @@
+<% if @paginated %>
+  $j("#comments_<%= @active_option %>").replaceWith("<%= escape_javascript((render :partial => 'comments/comments_tab').gsub("\"", "\'")) %>");
+<% else %>
+  <%= render :partial => "comments/comments_tab" %>
+<% end  %>

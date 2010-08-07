@@ -17,7 +17,9 @@ Rails::Initializer.run do |config|
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','*.{rb,yml}')]
     config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
     APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
-    
+
+   config.logger = Logger.new("#{RAILS_ROOT}/log/#{ENV['RAILS_ENV']}.log", 'daily')
+   
     # Specify gems that this application depends on and have them installed with rake gems:install
     # config.gem "bj"
     # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
@@ -56,7 +58,7 @@ Rails::Initializer.run do |config|
     end
     
     config.gem "friendly_id"
-    #    config.gem "geokit", :source => "gems.github.com"
+    config.gem "geokit"
     config.gem(
         'thinking-sphinx',
         :lib     => 'thinking_sphinx',
@@ -70,12 +72,12 @@ Rails::Initializer.run do |config|
     config.gem "validation_reflection"
     #    config.gem "ym4r"
     
-#    config.gem 'delayed_job'
+    #    config.gem 'delayed_job'
     config.gem 'delayed_job', :source => 'http://rubygems.org', :version => "2.1.0.pre"
     config.gem "ghazel-daemons", :lib => "daemons", :source => 'http://gems.github.com'
     gem "ghazel-daemons"
     require "daemons"
-#    require 'daemon_fix.rb'
+    #    require 'daemon_fix.rb'
     
     config.gem "simple-navigation"
     

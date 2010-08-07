@@ -47,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     map.resources :comments
     map.resources :graphs, :member => {:gender_graph => :get, :age_graph => :get, :pie_graph => :get}
-    map.resources :vote_topics, :belongs_to => [:user, :category], :has_many => [:comments],  :member => {:confirm_vote => :post,
+    map.resources :vote_topics, :belongs_to => [:poster, :category], :has_many => [:comments],  :member => {:confirm_vote => :post,
         :process_votes => :post, :update_stats => :get, :cancel_vote => :post, :approve_vote => :post}
     map.resources :vote_items, :belongs_to => :vote_topic
     map.resource :user_sessions
@@ -59,7 +59,7 @@ ActionController::Routing::Routes.draw do |map|
     map.activate "activate/:id", :controller => "activations", :action => "create"
     map.addrpxauth "addrpxauth", :controller => "users", :action => "addrpxauth", :method => :post
     map.resources :users do |users|
-        users.resources :vote_topics
+        users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
         users.resources :comments
         #        users.resources :roles
         #        users.resources :events
