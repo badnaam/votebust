@@ -4,10 +4,17 @@ include ActionView::Helpers::TextHelper
 class VoteTopic < ActiveRecord::Base
     MAX_VOTE_ITEMS = 5
     STATUS = {'approved' => 'a', 'waiting' => 'w', 'preview' => 'p'}
-    FACET_KEYS = {'m' => "Men vote for ", 'w' => "Women vote for ", 'ag1' => "Voters aged between #{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last} vote for",
-        'ag2' => "Voters aged between  #{Constants::AGE_GROUP_2.first} - #{Constants::AGE_GROUP_2.last} vote for",
-        'ag3' => "Voters aged between  #{Constants::AGE_GROUP_3.first} - #{Constants::AGE_GROUP_3.last} vote for",
-        'ag4' => "Voters aged between  #{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last} vote for"
+    FACET_KEYS = {'m' => "Men vote for <option>", 'w' => "Women vote for <option>",
+        'ag1' => "Voters aged between #{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last} vote for <option>",
+        'ag2' => "Voters aged between  #{Constants::AGE_GROUP_2.first} - #{Constants::AGE_GROUP_2.last} vote for <option>",
+        'ag3' => "Voters aged between  #{Constants::AGE_GROUP_3.first} - #{Constants::AGE_GROUP_3.last} vote for <option>",
+        'ag4' => "Voters aged between  #{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last} vote for <option>",
+        'dag' => "Most people who voted were from <thing> ",
+        'ws' => "Voter who vote for <option> are from <states>",
+        'wc' => "Voter who vote for <option> are from <cities>",
+        'ls' => "Voter who vote for <option> are from <states>",
+        'lc' => "Voter who vote for <option> are from <cities>",
+        'vl' => "Voter near you vote for <option> ",
     }
     #    belongs_to :user
     belongs_to :poster, :class_name => "User", :foreign_key => :user_id
@@ -46,6 +53,8 @@ class VoteTopic < ActiveRecord::Base
             Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes(:limit => Constants::SMART_COL_LIMIT,
             :select => "id, header, total_votes, created_at") }
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
+    scope_procedure :not_expired, lambda {expires_gt(DateTime.now).status_equals(STATUS['approved']).descend_by_expires}
+    scope_procedure :expired, lambda {expires_gt(DateTime.now).status_equals(STATUS['approved']).descend_by_expires}
 
 
     def is_being_tracked? id
@@ -272,7 +281,7 @@ class VoteTopic < ActiveRecord::Base
             update_location selected_response, user
         end
         vt = vote_items_id_equals(selected_response.id).first(:include => :vote_items)
-        vt.update_facets(vt)
+        #        vt.update_facets(vt, user)
         determine_devided
         user.update_attribute(:processing_vote, false)
         
@@ -280,37 +289,67 @@ class VoteTopic < ActiveRecord::Base
 
     def update_location selected_response, user
         vote = Vote.voteable_id_equals(selected_response.id).voter_id_equals(user.id)
-#        v.lat = user.lat
-#        v.lng = user.lng
+        v.lat = user.lat
+        v.lng = user.lng
         v.city = user.city
         v.state = user.state
         vote.save
     end
 
-    def update_facets
+    
+    def update_facets 
+        return if self.total_votes == 0
+        puts "processing for id - #{self.id}"
         vi = self.vote_items
-        f_desc = vi.sort_by{|x| x.female_votes}.reverse.first.option
+        sorted_vi = vote_items.sort_by {|v|v.votes.size}.reverse
+        winner = sorted_vi.first
+        looser = sorted_vi.last
+        votes = self.votes
+        sorted_votes = votes.group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
+        local_votes = self.votes.find(:all, :origin => poster.zip, :within => Constants::PROXIMITY)
+        local_winner = local_votes.group_by {|x| x.voteable_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
+        
+        w_desc = vi.sort_by{|x| x.female_votes}.reverse.first.option
         m_desc = vi.sort_by{|x| x.male_votes}.reverse.first.option
         ag1_desc = vi.sort_by{|x| x.ag_1_v}.reverse.first.option
         ag2_desc = vi.sort_by{|x| x.ag_2_v}.reverse.first.option
         ag3_desc = vi.sort_by{|x| x.ag_3_v}.reverse.first.option
         ag4_desc = vi.sort_by{|x| x.ag_4_v}.reverse.first.option
-        
-        f = VoteFacet.vote_topic_id_equals(self.id)
-        if f.nil? || f.blank?
-            VoteFacet.create(:vote_topic_id => self.id, :fkey => FACET_KEYS.keys[0], :desc => FACET_KEYS["m"] + " " + m_desc)
-            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[1], :desc => FACET_KEYS["w"] + " " + f_desc)
-            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[2], :desc => FACET_KEYS["ag1"] + " " + ag1_desc)
-            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[3], :desc => FACET_KEYS["ag2"] + " " + ag2_desc)
-            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[4], :desc => FACET_KEYS["ag3"] + " " + ag3_desc)
-            VoteFacet.create(:vote_topic_id => self.id,:fkey => FACET_KEYS.keys[5], :desc => FACET_KEYS["ag4"] + " " + ag4_desc)
-        else
-            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[0]).first.update_attribute(:desc, FACET_KEYS["m"] + " " + m_desc)
-            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[1]).first.update_attribute(:desc, FACET_KEYS["w"] + " " + f_desc)
-            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[2]).first.update_attribute(:desc, FACET_KEYS["ag1"] + " " + ag1_desc)
-            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[3]).first.update_attribute(:desc, FACET_KEYS["ag2"] + " " + ag2_desc)
-            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[4]).first.update_attribute(:desc, FACET_KEYS["ag3"] + " " + ag3_desc)
-            VoteFacet.vote_topic_id_equals(self.id).fkey_equals(FACET_KEYS.keys[5]).first.update_attribute(:desc, FACET_KEYS["ag4"] + " " + ag4_desc)
+        dag_desc = sorted_votes.collect {|x| x.first.titleize}.join(', ')
+        if winner.votes.size > 0
+            ws_desc =  winner.option + "$$" + winner.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
+
+            wc_desc =  winner.option + "$$" + winner.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
+        end
+        if looser.votes.size
+            ls_desc = looser.option + "$$" + winner.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
+            lc_desc = looser.option + "$$" + winner.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
+        end
+        if !local_winner.nil?
+            vl_desc = VoteItem.find(local_winner).option
+        end
+        create_or_update_facet id, "w", w_desc
+        create_or_update_facet id, "m", m_desc
+        create_or_update_facet id, "ag1", ag1_desc
+        create_or_update_facet id, "ag2", ag2_desc
+        create_or_update_facet id, "ag3", ag3_desc
+        create_or_update_facet id, "ag4", ag4_desc
+        create_or_update_facet id, "dag", dag_desc
+        create_or_update_facet id, "ws", ws_desc
+        create_or_update_facet id, "wc",wc_desc
+        create_or_update_facet id, "ls", ls_desc
+        create_or_update_facet id, "lc", lc_desc
+        create_or_update_facet id, "vl", vl_desc
+    end
+
+    def create_or_update_facet id, key, desc
+        if !desc.nil?
+            f = VoteFacet.vote_topic_id_equals(id).fkey_equals(key).first
+            if f.nil?
+                VoteFacet.create(:vote_topic_id => id, :fkey => key, :desc => desc)
+            else
+                f.update_attribute(:desc,  desc)
+            end
         end
     end
     

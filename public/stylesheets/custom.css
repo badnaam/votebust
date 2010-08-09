@@ -1,3 +1,17 @@
+.suggestions {
+    overflow-y:scroll;
+    height:150px;
+}
+.suggestions h4 {
+    font-weight: bold;
+}
+.vote-box-small {
+    margin-right:.5em;
+    padding:.2em;
+    background-color:#38385c;
+    color:white;
+    font-weight: bold;
+}
 .ui-icon
 {
     display: inline-block !important;
@@ -440,6 +454,10 @@ img.ui-icon {
 .list-no-pad-no-style-close {
     list-style-type:none;
     padding:0;
+}
+.facet-list li {
+    list-style-type: disc;
+    margin-bottom: .5em;
 }
 .list-no-pad-no-style-close li {
     padding:.2em;

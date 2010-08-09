@@ -1,6 +1,13 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
+    $("input#vote_topic_header").blur(function(){
+      value = $("input#vote_topic_header").val()
+      if (value != "") {
+        $.get("<%= url_for(:controller => :vote_topics, :action => :auto_comp) %>", {term : value}, function(){});
+      }
+    });
+
     $('#vote_submit').button({icons:{primary:'ui-icon-circle-check'}}).click(function(){
       $('#new_vote_topic').submit();
       $('form.vote_topic').submit();
@@ -15,6 +22,11 @@
     <li class="bld">Fields marked with (*) are required.</li>
     <%= form.input :user_id, :as => :hidden %>
     <%= form.input :header, :label => "Topic", :input_html => {:style => "width:50%"}, :hint => "What should people vote on? For example: How do you like your Martini?. Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
+    <li>
+      <div id="suggestions" class="suggestions" style="display:none">
+        
+      </div>
+    </li>
     <%= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
     <%= form.input :topic, :label => "Details", :as => :text, :input_html => {:style => "width:50%" }, :hint => "More details about the topic for your voters.
     For example: A dry martini you always shake to waltz time and Smoky Martini is where the dry vermouth is substituted with a dash of Scotch whisky and a lemon peel. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>

@@ -1,0 +1,4 @@
+<% if @search_res.total_entries > 0 %>
+  $('#suggestions').show();
+  $("#suggestions").html("<%= escape_javascript(render :partial => "suggestions", :locals => {:res => @search_res}) %>");
+<% end  %>

@@ -3,7 +3,7 @@ class Constants
     USER_PROFILE_IMAGE_SIZE = "32x32"
     MISSING_IMAGE_FILE = 'small/missing.png'
     GRAPHS_PATH = File.join(Rails.root, "public/assets/images/graphs")
-    VOTE_PROCESS_FREQ = 8.hours
+    VOTE_PROCESS_FREQ = 30.seconds
     VOTE_REFRESH_INTERVAL = 500000
     MAX_COMMENT_LENGTH = 500
     LISTINGS_PER_PAGE = 10

@@ -48,7 +48,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :comments
     map.resources :graphs, :member => {:gender_graph => :get, :age_graph => :get, :pie_graph => :get}
     map.resources :vote_topics, :belongs_to => [:poster, :category], :has_many => [:comments],  :member => {:confirm_vote => :post,
-        :process_votes => :post, :update_stats => :get, :cancel_vote => :post, :approve_vote => :post}
+        :process_votes => :post, :update_stats => :get, :cancel_vote => :post, :approve_vote => :post}, :collection => {:auto_comp => :get}
     map.resources :vote_items, :belongs_to => :vote_topic
     map.resource :user_sessions
     map.resource :account, :controller => "users"

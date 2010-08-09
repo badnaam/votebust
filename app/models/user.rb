@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     has_many :comments
     has_many :votes, :foreign_key => :voter_id
 
-#    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
+    #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
     
     validates_presence_of :email, :message => "Please enter a valid email"
@@ -54,21 +54,28 @@ class User < ActiveRecord::Base
 
     def geocode_address
         geo = Geokit::Geocoders::MultiGeocoder.geocode(self.zip)
-#        errors.add(:zip, "Could not locate that zip code") if !geo.success
+        #        errors.add(:zip, "Could not locate that zip code") if !geo.success
         logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
         if geo.success
+            logger.info "Geocoding success for #{self.username}"
             self.lat, self.lng = geo.lat,geo.lng
-            self.zip = geo.zip if ((self.zip).blank? && geo.zip != nil)
+            #            self.zip = geo.zip if ((self.zip).blank? && geo.zip != nil)
+            logger.info "Setting user city to #{geo.city}"
             self.city = geo.city
+            logger.info "Setting user state to #{geo.state}"
             self.state = geo.state
         else
             #set it to nil to force the user to complete registration
             self.zip = nil
         end
+        save
+        logger.info "User's city set to #{self.city}"
+        logger.info "User's state set to #{self.state}"
     end
 
     def check_what_changed
-        if self.changed.sort == ["last_request_at", "perishable_token"] || self.changed.sort == ["perishable_token" , "processing_vote"]
+        if self.changed.sort == ["last_request_at", "perishable_token"] || self.changed.sort == ["perishable_token" , "processing_vote"] ||
+              self.changed.sort == ["current_login_at", "last_login_at", "last_request_at", "login_count", "perishable_token"]
             self.skip_profile_update = true
             return true
         else
@@ -92,7 +99,9 @@ class User < ActiveRecord::Base
     after_save do |user|
         unless user.skip_profile_update
             #update lat lng position
-            self.delay.geocode_address
+            if user.zip_changed?
+                user.delay.geocode_address
+            end
             if user.image_changed?
                 logger.debug 'queing user image processing job'
                 Delayed::Job.enqueue ImageJob.new(user.id)
@@ -177,7 +186,7 @@ class User < ActiveRecord::Base
         RAILS_DEFAULT_LOGGER.info "in before_merge_rpx_data: migrate articles and comments from #{from_user.username} to #{to_user.username}"
         to_user.votes << from_user.votes
         to_user.comments << from_user.comments
-#        to_user.vote_topics << from_user.vote_topics
+        #        to_user.vote_topics << from_user.vote_topics
         to_user.posted_vote_topics << from_user.posted_vote_topics
     end
 

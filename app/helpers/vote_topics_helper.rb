@@ -1,5 +1,18 @@
 module VoteTopicsHelper
 
+    def get_facet_message key, opt, locations=nil
+        fkeys = VoteTopic::FACET_KEYS
+        if ['m', 'w', 'ag1','ag2', 'ag3', 'ag4', 'vl' ].include?(key)
+            fkeys[key].gsub('<option>', opt)
+        elsif ['ws', 'ls'].include?(key)
+            fkeys[key].gsub('<option>', opt).gsub('<states>', locations)
+        elsif ['wc', 'lc'].include?(key)
+            fkeys[key].gsub('<option>', opt).gsub('<cities>', locations)
+        elsif ['dag'].include?(key) 
+            fkeys[key].gsub('<thing>', opt)
+        end
+    end
+    
     def add_object_link(name, form, object, partial, where)
         options = Hash.new
         options = {:parent => true}.merge(options)
@@ -43,18 +56,18 @@ module VoteTopicsHelper
         end
     end
 
-#    def get_vote_percent(v, total_votes)
-#        votes = v.votes_for
-#        if votes == 0
-#            return "#{v.option} - 0%"
-#        elsif total_votes == 0
-#            return 'N/A'
-#        else
-#            return "#{v.option.titleize} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
-#        end
-#    end
+    #    def get_vote_percent(v, total_votes)
+    #        votes = v.votes_for
+    #        if votes == 0
+    #            return "#{v.option} - 0%"
+    #        elsif total_votes == 0
+    #            return 'N/A'
+    #        else
+    #            return "#{v.option.titleize} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
+    #        end
+    #    end
     def get_vote_percent(v, total_votes)
-#        votes = v.votes_count
+        #        votes = v.votes_count
         votes = v.votes.size
         if votes == 0
             return "#{v.option} - 0%"

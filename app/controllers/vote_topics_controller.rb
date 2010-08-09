@@ -9,6 +9,13 @@ class VoteTopicsController < ApplicationController
     #    cache_sweeper :home_sweeper, :only => [:create]
     ########## Security hole, control access!
 
+    def auto_comp
+        @search_res = VoteTopic.search :conditions => {:header => params[:term]}, :with => {:status => 'a'}, :match_mode => :any, :limit => 10
+        respond_to do |format|
+            format.js
+        end
+    end
+    
     def track
         @user = current_user
         @vote_topic = VoteTopic.find(params[:id])
@@ -35,6 +42,7 @@ class VoteTopicsController < ApplicationController
         @vote_topic = VoteTopic.find(params[:id])
         if current_role == 'admin'
             @vote_topic.status = 'a'
+            @vote_topic.expires = 2.weeks.from_now
             if @vote_topic.save
                 if !@vote_topic.friend_emails.nil?
                     #                    @vote_topic.send_later :deliver_friendly_vote_emails!
@@ -159,7 +167,6 @@ class VoteTopicsController < ApplicationController
         else
             @general_listing = true
             @vote_topics = VoteTopic.general_list params[:page]
-
         end
         respond_to do |format|
             format.html # index.html.erb
@@ -189,6 +196,9 @@ class VoteTopicsController < ApplicationController
             @user = current_user
             @reg_complete = registration_complete?
             @status = 'approved'
+            if @vote_topic.expires > DateTime.now
+                @vote_open = true
+            end
             @p_chart = @vote_topic.make_flash_pie_graph(true) #only get this if total_votes > 0?
 #            @comments = @vote_topic.comments.paginate(:page => params[:page],
 #                :per_page => Constants::COMMENTS_PER_PAGE, :order => 'created_at DESC', :include => {:user => :votes})

@@ -20,7 +20,8 @@ class UserSession < Authlogic::Session::Base
         # map some other columns explicitly
         self.attempted_record.active = true if attempted_record.active.blank?
         self.attempted_record.role_id = Role.find_by_name('user').id  if attempted_record.role_id.blank?
-              self.attempted_record.sex = @rpx_data['profile']['gender'] if attempted_record.sex.blank?
+        self.attempted_record.sex = @rpx_data['profile']['gender'] if attempted_record.sex.blank?
+
         #      self.attempted_record.fullname = @rpx_data['profile']['displayName'] if attempted_record.fullname.blank?
 
         if rpx_extended_info?
