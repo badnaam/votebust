@@ -1,12 +1,11 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
-    //    $('#tabs').tabs();
-    $('#loading').hide();
-    $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", select:function(event, ui){$('#loading').show();},
+    $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", select:function(event, ui){$('#tabs').animate({opacity:.3}, 'slow', function() {});},
       ajaxOptions:{error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
         },  dataType:'script', success:function(){
-          $('#loading').hide();
+          //$('#loading').hide();
+          $('#tabs').animate({opacity:1.0}, 'slow', function() {});
         }
         }});
   });
@@ -14,39 +13,21 @@
 </script>
 
 <div id="top_tab_container" class="span-18 last rel-pos">
-  <div id ="loading">
+  <div id ="loading" class="home-loading" style="display:none">
     <div class ="loading-inner-top">
-      Loading...
     </div>
   </div>
   <div id="tabs" class="normal-pad  ui-widget-content">
     <ul>
-      <li><a href="#tabs-1">Most Voted</a></li>
+      <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "top")%>"><span>Most Voted</span></a></li>
       <% if current_user %>
-        <li><a  title="tabs2" href="<%= url_for(:controller => :vote_topics, :action => :index, :local => true)%>"><span>Near You <%= current_user.zip %></span></a></li>
-        <li><a  title="tabs3" href="<%= url_for(:controller => :vote_topics, :action => :index, :tracking => true)%>"><span>You are Tracking</span></a></li>
+        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "local")%>"><span>Near You <%= current_user.zip %></span></a></li>
+        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
       <% end  %>
-      <li><a  title="tabs4" href="<%= url_for(:controller => :vote_topics, :action => :index, :most_tracked => true) %>"><span>Most Tracked</span></a></li>
+      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
     </ul>
-    <div id="tabs-1">
-      <%= render :partial => "top_votes" %>
-    </div>
-    <% if current_user %>
-      <div id="tabs-2">
-      </div>
-      <div id="tabs3">
-        <div id="tracked_votes"></div>
-      </div>
-    <% end  %>
-    <div id="tabs4">
-      <div id="most_tracked_votes"></div>
-    </div>
   </div>
 </div>
-<%#*<div class="span-18 last">%>
-<%#= render :partial => "top_votes" %>
-<%#*</div>%>
-
 <% content_for :right_nav do %>
   <%= render :partial => "latest_votes" %>
   <%= render :partial => "unan_votes" %>

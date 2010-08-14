@@ -17,18 +17,20 @@ class VoteTopicsController < ApplicationController
     end
     
     def track
-        @user = current_user
-        @vote_topic = VoteTopic.find(params[:id])
+        @user = User.find_for_vote_processing(params[:user_id])
+        @vt = params[:id]
         if params[:untrack]
-            unless @user.trackings.find(:first, :conditions => ['vote_topic_id = ?',params[:id]]).destroy
+            unless Tracking.find(:first, :conditions => ['vote_topic_id = ? AND user_id = ?', params[:id], params[:user_id]]).destroy
                 flash[:error] = "Something went wrong, please try later"
             else
-                @vote_topic.poster.award_points(Constants::TRACK_POINTS * -1)
+                @vote_topic = VoteTopic.find_for_tracking params[:id]
+                @vote_topic.delay.award_tracking(1)
             end
         else
             if @user.trackings.create(:vote_topic_id => params[:id])
                 @tracked = true
-                @vote_topic.poster.award_points(Constants::TRACK_POINTS)
+                @vote_topic = VoteTopic.find_for_tracking params[:id]
+                @vote_topic.delay.award_tracking(1)
             else
                 flash[:error] = "Something went wrong, please try later"
             end
@@ -61,6 +63,7 @@ class VoteTopicsController < ApplicationController
     def update_stats
         @vote_topic = VoteTopic.find_for_stats(params[:id])
         @reg_complete = params[:reg_complete]
+        
         if @vote_topic.total_votes > 0
             @user = User.find_by_id(params[:user_id], :select => :id) if !params[:user_id].nil?
             if !params[:sel_response].blank?
@@ -79,10 +82,9 @@ class VoteTopicsController < ApplicationController
             @selected_response = VoteTopic.find_selected_response(params[:sel_response])
             @vote_topic = @selected_response.vote_topic
             @reg_complete = params[:reg_complete]
-            if Vote.find(:first, :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy && @vote_topic.decrement!(:total_votes, 1)
+            if Vote.find(:first, :select => "id", :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy && @vote_topic.decrement!(:total_votes, 1)
                 flash[:success] = "Your vote has been cancelled."
                 @user.update_attribute(:processing_vote, true)
-                #                @vote_topic.send_later(:post_process, @selected_response, @user, false)
                 @vote_topic.delay.post_process(@selected_response, @user, false)
             end
         else
@@ -136,38 +138,38 @@ class VoteTopicsController < ApplicationController
         end
     end
     
-    
-    
     def index
-        if !params[:user_id].nil?
-            @user_listing = true
-            user = User.find(params[:user_id])
-            @vote_topics = VoteTopic.get_all_votes_user(user) #todo : pagination?
-        elsif !params[:tracking].nil?
-            @tracking_listing = true
-            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, true, nil)
-        elsif !params[:tracking_all].nil?
-            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
-        elsif !params[:local_all].nil?
-            @vote_topics = VoteTopic.get_local_votes current_user.zip, false, params[:page]
-        elsif !params[:local].nil?
-            @local_listing = true
-            @vote_topics = VoteTopic.get_local_votes current_user.zip, true, nil
-        elsif !params[:most_tracked].nil?
-            @most_tracked_listing = true
-            @vote_topics = VoteTopic.get_most_tracked_votes true, nil
-        elsif !params[:most_tracked_all].nil?
-            @vote_topics = VoteTopic.get_most_tracked_votes false, params[:page]
-        elsif !params[:category_id].nil?
-            @category_listing = true
+        @listing_type = params[:listing_type]
+        case @listing_type
+        when "category"
             @vote_topics = (VoteTopic.category_list params[:category_id], params[:page])
-        elsif !params[:top_listing_all].nil?
-            @top_listing_all = true
+        when "tracked_all"
+            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
+        when "tracked"
+            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, true, nil)
+        when "local"
+            @vote_topics = VoteTopic.get_local_votes current_user.zip, true, nil
+        when "local_all"
+            @vote_topics = VoteTopic.get_local_votes current_user.zip, false, params[:page]
+        when "top"
+            @top_vote = true
+            @vote_topics = (VoteTopic.get_top_votes true, params[:page])
+        when "top_all"
+            @top_vote = true
             @vote_topics = VoteTopic.get_top_votes false, params[:page] || 1
+        when "most_tracked"
+            @vote_topics = VoteTopic.get_most_tracked_votes true, nil
+        when "most_tracked_all"
+            @vote_topics = VoteTopic.get_most_tracked_votes false, params[:page]
+        when "user"
+            @vote_topics = VoteTopic.get_all_votes_user(params[:user_id], params[:page]) #todo : pagination?
+        when "voted"
+            @vote_topics = VoteTopic.get_voted_vote_topics(params[:user_id], false, params[:page]) #todo : pagination?
         else
-            @general_listing = true
+            @listing_type = "all"
             @vote_topics = VoteTopic.general_list params[:page]
         end
+        
         respond_to do |format|
             format.html # index.html.erb
             format.js
@@ -200,11 +202,7 @@ class VoteTopicsController < ApplicationController
                 @vote_open = true
             end
             @p_chart = @vote_topic.make_flash_pie_graph(true) #only get this if total_votes > 0?
-#            @comments = @vote_topic.comments.paginate(:page => params[:page],
-#                :per_page => Constants::COMMENTS_PER_PAGE, :order => 'created_at DESC', :include => {:user => :votes})
             @selected_response = @vote_topic.what_vi_user_voted_for(@user) if @user 
-            #Gather related
-            #todo find out if search is better or  not
             @related = VoteTopic.search "", :with => {:category_id => @vote_topic.category_id},
               :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT
             @same_user = VoteTopic.search "", :with => {:user_id => @vote_topic.user_id},

@@ -1,5 +1,5 @@
 <% if local_assigns[:vi].nil? %>
-  <% vi = vt.get_sorted_vi if !vt.nil? %>
+  <% vi = vt.vote_items if !vt.nil? %>
 <% end  %>
 <% if local_assigns[:top_vote].nil? %>
   <% top_vote = false %>
@@ -8,31 +8,40 @@
 <% if !vt.nil? %>
   <div class="ui-widget-content bottom-mar normal-pad right-mar">
     <div class="clearfix bld bottom-mar ui-widget-header normal-pad">
-      <% if top_vote %>
+
+      <% if @top_vote %>
         <span class="ui-icon ui-icon-star"></span>
       <% end  %>
       <span class="big"><%= link_to vt.header, vt %></span>
-      <span class="special-text"><%= "(#{vt.total_votes} votes)"  %></span>
-      <span class="clearfix">
-        <span class="ui-icon ui-icon-tag "></span><span class="bld tag"><%= link_to "In #{vt.category.name}", category_vote_topics_path(vt.category) %></span>
-      </span>
-      <% if @tracking_listing || @most_tracked_listing %>
-        <span class="go-right"><%= vt.trackings.size %> trackings.</span>
-      <% end  %>
-      <span class="small clearfix">
-        <% if !vt.anon %>
-          <%= "By #{link_to vt.poster.username, vt.poster} on #{vt.created_at.strftime('%b %d %Y')}" %>
-        <% else %>
-          <%= "By Anonymous on #{vt.created_at.strftime('%b %d %Y')}" %>
-        <% end  %>
-      </span>
 
+      <span class="clearfix">
+        <span class="ui-icon ui-icon-tag "></span>
+        <span class="bld tag">
+          <%= link_to "In #{vt.category.name}, ", category_vote_topics_path(vt.category,
+            :listing_type => "category") %>
+          <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
+          <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
+        </span>
+      </span>
+      <div>
+        <span class="small">
+          <% if !vt.anon %>
+            <%= "By #{link_to vt.poster.username, vt.poster} on #{vt.created_at.strftime('%b %d %Y')}" %>
+          <% else %>
+            <%= "By Anonymous on #{vt.created_at.strftime('%b %d %Y')}" %>
+          <% end  %>
+        </span>
+        <span class="go-right">
+          <span class="special-text "><%= "(#{vt.total_votes} votes)"  %></span>
+          <span class="special-text">(<%= vt.trackings_count %> trackings)</span>
+        </span>
+      </div>
     </div>
     <ul>
       <% first = true %>
       <% vi.each do |v| %>
         <li>
-          <% if first %>
+          <% if first && v.v_count > 0 %>
             <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
             <span class="bld"><%=  get_vote_percent(v, vt.total_votes)%></span>
             <% first = false %>

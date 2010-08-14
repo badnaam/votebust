@@ -8,7 +8,7 @@ class Delayed::Job
         Delayed::Worker.logger
     end
 end
-#if JobsCommon::check_job_exists("PeriodicJob").blank?
-#    Delayed::Job.enqueue PeriodicJob.new(), 0, 30.seconds.from_now
-#end
+if JobsCommon::check_job_exists("PeriodicFacetJob").blank?
+    Delayed::Job.enqueue PeriodicFacetJob.new(), 0, 120.seconds.from_now
+end
 #end

@@ -34,7 +34,7 @@ SimpleNavigation::Configuration.run do |navigation|
         end
         primary.item :cat_nav, 'Categories', "#" do|ct|
             if !@category.nil? && !@vote_topics.nil?
-                ct.item :ct_vt_index, @category.name, category_vote_topics_path(@category)
+                ct.item :ct_vt_index, @category.name, category_vote_topics_path(@category, :listing_type => "category")
             end
         end
         primary.item :vote_nav, 'Votes', vote_topics_path do|v|
@@ -51,7 +51,7 @@ SimpleNavigation::Configuration.run do |navigation|
                 end
                 if @vote_topics 
                     #                    a.item :uv_new, @vote_topic.header, new_user_vote_topic_path(current_user)
-                    a.item :uv_show, "My Votes", user_posted_vote_topics_path(current_user)
+                    a.item :uv_show, "My Votes", user_posted_vote_topics_path(current_user, :listing_type => "user")
                 end
             end
         end

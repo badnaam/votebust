@@ -3,6 +3,6 @@
   <% votes.keys.sort_by{|k|k.total_votes}.reverse_each do |vt| %>
     <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt], :top_vote => true} %>
   <% end  %>
-  <%= link_to "More..", vote_topics_path(:most_tracked_all=> true) %>
+  <%= link_to "More..", vote_topics_path(:listing_type => "most_tracked_all") %>
 </div>
 <%# end  %>

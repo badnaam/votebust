@@ -1,9 +1,13 @@
 <div id="comment" class="append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
     <div>
-      <ul class="sidebox-list-inline profile-list-avataar">
-       <%= get_user_icon_image_link(comment.user) %>
-      </ul>
+      <div class="span-5 last bottom-mar">
+        <div id="user_image" class="user-image"><%= get_user_icon(comment.user)%></div>
+        <div class="user-info">
+          <span><%= comment.user.username %></span>
+          <span>(<%= comment.user.voting_power %>)</span>
+        </div>
+      </div>
       <hr/>
       <p>
         <%= comment.body %>

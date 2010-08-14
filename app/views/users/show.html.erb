@@ -3,36 +3,64 @@
   $(document).ready(function(){
 
     $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
+    $('#tabs').tabs({
+      spinner:"<img src='/images/loading.gif'/>",
+      ajaxOptions:{
+        error:function(xhr, status,index, anchor){
+          $(anchor.hash).html("Couldn't load this tab. \n\
+        We'll try to fix this as soon as possible.");
+        },
+        dataType:'script',
+        success:function(){
+        }
+      }
+    });
   });
   //]]>
 </script>
 
-<div class=" prepend-top normal-pad span-15 ui-widget-content">
-  
-  <ul class="profile-list prepend-top">
-    <li style="list-style: none">
-      <% if !missing_user_image?(@user) %>
-      <%= image_tag @user.image.url(:small), :id => 'profile_image' %>
-  <% end  %>
-    </li>
-    <li>Username:
-      <%=h @user.username %></li>
-    <li>
-      Email:
-      <%=h @user.email %>
-    </li>
-    <li>
-      Gender:
-      <%=h User::SEX[@user.sex] %>
-    </li>
-    <li>
-      Age:
-      <%=h @user.age %>
-    </li>
-  </ul>
-  <% permitted_to? :update, @user do %>
-    <span class="small-button"><%= link_to 'Edit', edit_user_path(@user), :id => 'profile_edit' %></span>
-  <% end  %>
+<div class="span-18 last">
+  <div class="right-mar prepend-top normal-pad ui-widget-content append-bottom">
+    <div id="tabs" class="prepend-top">
+      <ul>
+        <li><a href="#user_tab"><span>Account</span></a></li>
+        <li  title="Votes you have started."><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user', :user_id => @user.id)%>"><span>My Vote Topics</span></a></li>
+        <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :voted_vote_topics, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>My Votes </span></a></li>
+      </ul>
 
+      <div id ="user_tab">
+        <ul class="profile-list prepend-top">
+          <li class="bld">
+            <%= get_user_icon_only(@user) %>
+            <%=h @user.username %>
+            <span class="special-text left-mar big">Voting Power - <%= @user.voting_power %></span>
+          </li>
+
+          <li>
+            Email:
+            <%=h @user.email %>
+          </li>
+          <li>
+            Gender:
+            <%=h User::SEX[@user.sex] %>
+          </li>
+          <li>
+            Age:
+            <%=h @user.age %>
+          </li>
+          <li>
+            Zip:
+            <%=h "#{@user.zip} (#{@user.city}, #{@user.state})"   %>
+          </li>
+          <% permitted_to? :update, @user do %>
+            <li>
+              <span class="small-button"><%= link_to 'Edit', edit_user_path(@user), :id => 'profile_edit' %></span>
+            </li>
+          <% end  %>
+        </ul>
+
+      </div>
+    </div>
+  </div>
 </div>
-
+<div class="push"></div>

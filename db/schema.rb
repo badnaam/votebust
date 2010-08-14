@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100806074844) do
+ActiveRecord::Schema.define(:version => 20100814004851) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20100806074844) do
   end
 
   create_table "comments", :force => true do |t|
-    t.text     "body",          :null => false
+    t.text     "body",                          :null => false
     t.datetime "created_at"
+    t.string   "vi_option",     :default => ""
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
     t.integer  "user_id"
@@ -111,10 +112,13 @@ ActiveRecord::Schema.define(:version => 20100806074844) do
     t.string   "username"
     t.integer  "sex"
     t.integer  "age"
+    t.integer  "voting_power",                       :default => 0
     t.float    "lat"
     t.float    "lng"
     t.integer  "role_id"
     t.integer  "votes_count",                        :default => 0,     :null => false
+    t.string   "state",               :limit => 15
+    t.string   "city",                :limit => 50
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -140,17 +144,29 @@ ActiveRecord::Schema.define(:version => 20100806074844) do
   add_index "users", ["active"], :name => "active"
   add_index "users", ["cached_slug"], :name => "cached_slug"
   add_index "users", ["image_file_name"], :name => "image_file_name"
+  add_index "users", ["lat"], :name => "lat"
+  add_index "users", ["lng"], :name => "lng"
   add_index "users", ["role_id"], :name => "role_id"
   add_index "users", ["username"], :name => "username"
   add_index "users", ["votes_count"], :name => "votes_count"
 
   create_table "vote_facets", :force => true do |t|
-    t.string   "desc"
-    t.text     "fkey"
     t.integer  "vote_topic_id"
+    t.string   "m"
+    t.string   "w"
+    t.string   "ag1"
+    t.string   "ag2"
+    t.string   "ag3"
+    t.string   "ag4"
+    t.string   "dag"
+    t.string   "wl"
+    t.string   "ll"
+    t.string   "vl"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "vote_facets", ["vote_topic_id"], :name => "vote_topic_id"
 
   create_table "vote_items", :force => true do |t|
     t.string   "option"
@@ -158,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20100806074844) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
+    t.integer  "v_count",       :default => 0
     t.integer  "male_votes",    :default => 0
     t.integer  "female_votes",  :default => 0
     t.integer  "ag_1_v",        :default => 0
@@ -172,19 +189,22 @@ ActiveRecord::Schema.define(:version => 20100806074844) do
 
   create_table "vote_topics", :force => true do |t|
     t.text     "topic"
-    t.string   "website",       :limit => 150
-    t.string   "cached_slug",   :limit => 100
+    t.string   "website",         :limit => 150
+    t.string   "cached_slug",     :limit => 100
     t.text     "friend_emails"
-    t.string   "status",        :limit => 4,   :default => "p",   :null => false
+    t.string   "status",          :limit => 4,   :default => "p",   :null => false
     t.datetime "published_at"
     t.datetime "created_at"
+    t.datetime "expires",                                           :null => false
+    t.integer  "power_offered"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "anon"
-    t.string   "header",        :limit => 500, :default => "",    :null => false
+    t.string   "header",          :limit => 500, :default => "",    :null => false
     t.integer  "category_id"
-    t.integer  "total_votes",                  :default => 0
-    t.boolean  "unan",                         :default => false
+    t.integer  "total_votes",                    :default => 0
+    t.integer  "trackings_count",                :default => 0
+    t.boolean  "unan",                           :default => false
   end
 
   add_index "vote_topics", ["cached_slug"], :name => "cached_slug"
@@ -195,10 +215,21 @@ ActiveRecord::Schema.define(:version => 20100806074844) do
   add_index "vote_topics", ["unan"], :name => "unan"
   add_index "vote_topics", ["user_id"], :name => "index_vote_topics_on_user_id"
 
+  create_table "voted_vote_topics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "vote_topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "votes", :force => true do |t|
-    t.boolean  "vote",          :default => false
-    t.integer  "voteable_id",                      :null => false
-    t.string   "voteable_type",                    :null => false
+    t.boolean  "vote",                         :default => false
+    t.string   "city",          :limit => 100
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "state",         :limit => 10
+    t.integer  "voteable_id",                                     :null => false
+    t.string   "voteable_type",                                   :null => false
     t.integer  "voter_id"
     t.string   "voter_type"
     t.datetime "created_at"

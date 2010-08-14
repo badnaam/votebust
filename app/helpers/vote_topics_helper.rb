@@ -1,15 +1,56 @@
 module VoteTopicsHelper
 
+    def get_percent_div percent, color
+        if percent == 0
+            return ""
+        else
+            return "<li class='ui-corner-all' style='width:#{percent}%; background-color:#{color};height:12px'>&nbsp;</li>"
+        end
+    end
+    
     def get_facet_message key, opt, locations=nil
         fkeys = VoteTopic::FACET_KEYS
         if ['m', 'w', 'ag1','ag2', 'ag3', 'ag4', 'vl' ].include?(key)
             fkeys[key].gsub('<option>', opt)
-        elsif ['ws', 'ls'].include?(key)
-            fkeys[key].gsub('<option>', opt).gsub('<states>', locations)
-        elsif ['wc', 'lc'].include?(key)
-            fkeys[key].gsub('<option>', opt).gsub('<cities>', locations)
+        elsif ['wl', 'll'].include?(key)
+            arr = opt.split('$$')
+            fkeys[key].gsub('<option>', arr[0]).gsub('<states>', arr[1]).gsub('<cities>', arr[2])
         elsif ['dag'].include?(key) 
             fkeys[key].gsub('<thing>', opt)
+        end
+    end
+
+    def print_facet facet
+        str = ""
+        if !facet.m.nil?
+            str << "<li>#{get_facet_message 'm', facet.m}</li>"
+        end
+        if !facet.w.nil?
+            str << "<li>#{get_facet_message 'w', facet.w}</li>"
+        end
+        if !facet.dag.nil?
+            str << "<li>#{get_facet_message 'dag', facet.dag}</li>"
+        end
+        if !facet.vl.nil?
+            str << "<li>#{get_facet_message 'vl', facet.vl}</li>"
+        end
+        if !facet.wl.nil?
+            str << "<li>#{get_facet_message 'wl', facet.wl}</li>"
+        end
+        if !facet.ll.nil?
+            str << "<li>#{get_facet_message 'll', facet.ll}</li>"
+        end
+        if !facet.ag1.nil?
+            str << "<li>#{get_facet_message 'ag1', facet.ag1}</li>"
+        end
+        if !facet.ag2.nil?
+            str << "<li>#{get_facet_message 'ag2', facet.ag2}</li>"
+        end
+        if !facet.ag3.nil?
+            str << "<li>#{get_facet_message 'ag3', facet.ag3}</li>"
+        end
+        if !facet.ag4.nil?
+            str << "<li>#{get_facet_message 'ag4', facet.ag4}</li>"
         end
     end
     

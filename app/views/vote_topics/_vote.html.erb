@@ -1,3 +1,4 @@
+
 <script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
 <script type="text/javascript">
   (function() {
@@ -8,7 +9,6 @@
     s1.parentNode.insertBefore(s, s1);
   })();
 </script>
-
 
 <script type="text/javascript">
   //<![CDATA[
@@ -37,22 +37,6 @@
     });
   });
   
-  function showLoading(elem) {
-    $j(elem).animate({opacity:1.0}, 'slow', function(){});
-    $j(elem).next('div').animate({
-      opacity: 0.3
-    }, 'slow', function() {
-    });
-  }
-
-  function hideLoading(elem) {
-    $j(elem).animate({opacity:0.0}, 'slow', function(){});
-    $j(elem).next('div').animate({
-      opacity: 1.0
-    }, 'slow', function() {
-    });
-  }
-
   function update_chars_left(max_len, target_input, display_element) {
     var text_len = target_input.value.length;
     if (text_len >= max_len) {
@@ -65,42 +49,32 @@
 
   
   $j(document).ready(function() {
-    //update page elements every now and then
-    
     $j('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$j(anchor.hash).html("Couldn't load this tab. \n\
         We'll try to fix this as soon as possible.");
         },  dataType:'script', success:function(){
-          // $j('#loading').hide();
         }}});
 
-    function updatePageElems() {
-      showLoading($j('#tot_prog_loading'));
-<%if @user%>
-        $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
-        {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
-          hideLoading($j('#tot_prog_loading'));
-        },
-        'script');
-<%else%>
-        $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
-        {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
-          hideLoading($j('#tot_prog_loading'));
-        },'script');
-<%end%>
-    }
-    
-    var refreshId = setInterval(function(){
-      updatePageElems();
-    }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
-    
-    $j('.pagination a').live("click", function () {
-      showLoading('#com_prog_loading');
-      $j.get(this.href, null, function (data) {
-        hideLoading('#com_prog_loading')
-      }, 'script');
-      return false;
-    }); 
 
+<%if @vote_open%>
+      function updatePageElems() {
+        showLoading($j('#vote_loading'));
+  <%if @user%>
+          $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
+          {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
+            hideLoading($j('#vote_loading'));
+          },
+          'script');
+  <%else%>
+          $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
+          {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
+            hideLoading($j('#vote_loading'));
+          },'script');
+  <%end%>
+      }
+      var refreshId = setInterval(function(){
+        updatePageElems();
+      }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
+<%end%>
     $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
     $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
     $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
@@ -127,17 +101,17 @@
     });
     
     $j('#vote_form').submit(function (){
-      showLoading('#vote_prog_loading')
+      showLoading('#vote_loading')
       $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
-        hideLoading('#vote_prog_loading');
+        hideLoading('#vote_loading');
       }, "script");
       return false;
     });
 
     $j('#cancel_vote_form').submit(function (){
-      showLoading('#vote_prog_loading')
+      showLoading('#vote_loading')
       $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
-        hideLoading('#vote_prog_loading');
+        hideLoading('#vote_loading');
       }, "script");
       return false;
     });
@@ -172,41 +146,63 @@
     <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
     <span class="small">
       <% if !@vote_topic.anon %>
-  <%#= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
         <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% else %>
         <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% end  %>
     </span>
-    <span class="go-right" id="tracking_count"><%= @vote_topic.trackings.size %> trackings.</span>
-    <% if @user %>
-      <% if @vote_topic.is_being_tracked? @user.id%>
-        <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span><a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >Untrack</a></span>
-      <% else %>
-        <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span><a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >Track</a></span>
-      <% end  %>
-    <% end  %>
   </div>
-  <div id="tags" class="bld top-mar span-6"> <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category), :class => 'tag' %></div>
-  <div id="social_share" class="bld top-mar span-12 last">
-    <ul class="somed-list-inline">
-      <li></li>
-      <li><a name="fb_share" type="icon_link" share_url="<%= url_for(@vote_topic) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
-      <li>    <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=(url_for(@vote_topic)) %>"></a></li>
-      <li>
-        <a href="<%= "http://twitter.com/home?status=#{@vote_topic.header} #{url_for(@vote_topic)}"%>">
-          <span class="so-med tw-icon">
-          </span></a>
-      </li>
-    </ul>
+
+  <div class="top-mar right-mar">
+    <table class="track-table">
+      <tr>
+        <td style="vertical-align:top;text-align: left">
+          <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category, :listing_type => "category"),
+            :class => 'tag bld' %>
+        </td>
+        <td style="text-align:right">
+          <ul class="somed-list-inline">
+            <li>
+              <% if @user %>
+                <% if @vote_topic.is_being_tracked? @user.id%>
+                  <span class="" id="tracking"><span class="ui-icon ui-icon-heart"></span>
+                    <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
+                      Untrack</a>
+                  </span>
+                <% else %>
+                  <span class="" id="tracking">
+                    <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >
+                      <span class="ui-icon ui-icon-heart"></span>Track</a>
+                  </span>
+                <% end  %>
+              <% end  %>
+            </li>
+            <li><a name="fb_share" type="icon_link" share_url="<%= url_for(@vote_topic) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
+            <li>
+              <a href="<%= "http://twitter.com/home?status=#{@vote_topic.header} #{url_for(@vote_topic)}"%>">
+                <span class="so-med tw-icon">
+                </span>
+              </a>
+            </li>
+            <li style="margin-right:0"><a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=(url_for(@vote_topic)) %>"></a></li>
+          </ul>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div id="tot_prog_loading" class="progress" style="opacity:0;"></div>
-  <div class="prepend-top bottom-mar bld big special-text right_mar_small span-18 last" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></div>
+
+  <div class="prepend-top bottom-mar bld big special-text right_mar_small span-18 last">
+    <div class="vote-box-large span-9 ui-corner-all">
+      <div class="span-4" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></div>
+      <div class="span-4 last tracking-div" id="tot_tracking"><%= @vote_topic.trackings_count %> Tracking</div>
+    </div>
+  </div>
 </div>
 
-<div id="vote_prog_loading" class="progress" style="opacity:0;"></div>
-
-<div id="div_vote_form" class="span-18 last" >
+<div id="div_vote_form" class="span-18 last rel-pos" >
+  <div id="vote_loading" style="display:none">
+    <div class="loading-inner-center"></div>
+  </div>
   <% if @vote_open %>
     <%if @user && !@vote_topic.vote_items.nil? && !@selected_response%>
       <%= render :partial => "vote_form", :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'process'} %>
@@ -222,24 +218,18 @@
 </div>
 <div id="vote_status" class="span-18 last"></div>
 
-<div id ="facets" class="span-18 last">
-  <div class="ui-state-default right-mar ui-corner-all normal-pad">
-    <h4 class="bld">About your voters</h4>
-    <hr/>
-    <ul class="facet-list">
-      <% @vote_topic.vote_facets.each do |f| %>
-        <% if !f.desc.index("$$").nil?
-          arr = f.desc.split("$$")
-          opt = arr[0]
-          location = arr[1]
-        else
-          opt = f.desc
-        end  %>
-        <li><%= get_facet_message f.fkey, opt, location %></li>
-      <% end  %>
-    </ul>
+
+<% if !@vote_topic.vote_facet.nil? %>
+  <div id ="facets" class="span-18 last">
+    <div class="ui-state-default right-mar ui-corner-all normal-pad">
+      <h4 class="bld">About your voters</h4>
+      <hr/>
+      <ul class="facet-list">
+        <%= print_facet @vote_topic.vote_facet %>
+      </ul>
+    </div>
   </div>
-</div>
+<% end  %>
 
 <div id="vote_dlg" class="span-18 last" >
   <% if !(@vote_topic.total_votes == 0) %>
@@ -253,8 +243,10 @@
   <% if @user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>
-    <div id="com_submit_loading" class="progress" style="opacity:0;"></div>
-    <div id ="comment_form" class=" right-mar ">
+    <div id ="comment_form" class=" rel-pos right-mar ">
+      <div id="com_submit_loading" style="display:none">
+        <div class="loading-inner-center" ></div>
+      </div>
       <% form_for ([@vote_topic, Comment.new]) do |f| %>
         <ul class="list_no_pad_no_style">
           <li><%= f.text_area :body, :id => "comment_body" %></li>
@@ -265,12 +257,14 @@
     </div>
   <% end  %>
 
-  <div id="com_prog_loading" class="progress" style="opacity:0;"></div>
+
   <div id="comment_status"></div>
-  <div id ="comments" class="right-mar">
+  <div id ="comments" class="rel-pos right-mar">
+    <div id="com_prog_loading" style="display:none">
+      <div class="loading-inner-center" ></div>
+    </div>
     <%= render :partial => "comments/comments" %>
   </div>
 </div>
-
 
 

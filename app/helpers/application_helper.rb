@@ -17,6 +17,31 @@ module ApplicationHelper
         end
     end
 
+    def get_user_icon_only(user)
+        if !missing_user_image?(user)
+            return image_tag user.image.url(:small), :class => 'profile-image'
+        else
+            return image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image'
+        end
+    end
+    
+    def get_user_icon (user)
+        if !missing_user_image?(user)
+            if current_user
+                return link_to((image_tag (user.image.url(:small))), user, :class => 'profile-image')
+            else
+                return image_tag user.image.url(:small), :class => 'profile-image'
+            end
+        else
+            if current_user
+                return link_to((image_tag (Constants::MISSING_IMAGE_FILE)), user, :class => 'profile-image')
+            else
+                return image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image'
+            end
+        end
+    end
+
+    
     def get_user_icon_image_link (user)
         if !missing_user_image?(user)
             if current_user

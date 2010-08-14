@@ -28,7 +28,9 @@ class User < ActiveRecord::Base
     belongs_to :role
     has_many :comments
     has_many :votes, :foreign_key => :voter_id
-
+    has_many :voted_vote_topics, :dependent => :destroy
+    has_many :vote_topics, :through => :voted_vote_topics
+    
     #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
     
@@ -84,10 +86,9 @@ class User < ActiveRecord::Base
         end
     end
     
-    #    scope_procedure :top_voters, lambda {active_equals(true).descend_by_votes_count(:limit => Constants::SMART_COL_LIMIT)}
-    named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT,
-            :select => 'id, username, votes_count, image_file_name, processing, image_updated_at, image_content_type, image_file_size'}
-    }
+    named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'voting_power DESC', :limit => Constants::SMART_COL_LIMIT,
+            :select => 'users.id, users.username, users.voting_power, users.image_file_name, users.processing, users.image_updated_at, users.image_content_type,
+            users.image_file_size'}}
         
     before_image_post_process do |user|
         if user.image_changed?

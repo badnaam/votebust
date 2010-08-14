@@ -1,0 +1,2 @@
+module VotedVoteTopicsHelper
+end

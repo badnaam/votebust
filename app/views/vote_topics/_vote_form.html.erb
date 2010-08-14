@@ -10,11 +10,11 @@
     <%= hidden_field_tag :user_id, (@user).id if !@user.nil?%>
     <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
     <%= hidden_field_tag :sel_response, @selected_response.nil? ? nil: @selected_response.id %>
-    <ul class="list_no_pad_no_style top-mar" id="vote_items_list">
+    <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
       <% first = true %>
-      <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
+      <% sort_vote_items(@vote_topic.vote_items).each_with_index do |v, i| %>
         <% if !@selected_response.nil?  && @selected_response == v%>
-          <li class="ui-state-active">
+          <li class="ui-state-active vi">
             <% if first && (v.votes.size) > 0 %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
               <% first = false %>
@@ -24,8 +24,8 @@
             <span id="rt_<%= @selected_response.id %>" class="vote-item"><%= (get_vote_percent @selected_response, @vote_topic.total_votes) %></span>
             <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
             <span class ="small-button"><a href="#comment_form" id="goto_comment_link">Comment</a></span>
-          <% else %>
-          <li class="ui-widget-content">
+        <% else %>
+          <li class="ui-widget-content vi">
             <% if first && v.votes.size > 0 %>
               <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
               <% first = false %>
@@ -36,16 +36,18 @@
           <% end  %>
           <% if action == 'process' %>
             <%= radio_button_tag "response", v.id %>
-          <% end  %>
+          <% end #end of if selected_response.nil? %>
         </li>
+        <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes), Constants::PERCENT_COLOR[i] %>
       <% end %>
       <li>
         <% if action == 'process' %>
-    <%# if !registration_complete? %>
-          <% if !@reg_complete %>
-            <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
-          <% else %>
-            <span class="small-button"><button id="vote_link">Vote</button></span>
+          <% if @vote_open == true %>
+            <% if !@reg_complete %>
+              <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
+            <% else %>
+              <span class="small-button"><button id="vote_link">Vote</button></span>
+            <% end  %>
           <% end  %>
         <% end  %>
       </li>

@@ -4,10 +4,11 @@ class Constants
     MISSING_IMAGE_FILE = 'small/missing.png'
     GRAPHS_PATH = File.join(Rails.root, "public/assets/images/graphs")
     VOTE_PROCESS_FREQ = 30.seconds
-    VOTE_REFRESH_INTERVAL = 500000
+    VOTE_REFRESH_INTERVAL = 200000
     MAX_COMMENT_LENGTH = 500
-    LISTINGS_PER_PAGE = 10
+    LISTINGS_PER_PAGE = 3
     PROXIMITY = 50
+    WIDE_PROXIMITY = 1000
     
     GRAPH_TITLE_STYLE = '{font-size: 12px; color: #F24062;font-weight: bold;font-family:Verdana; text-align: center;}' 
     GRAPH_X_AXIS_LABEL_COLOR = '#000000'
@@ -28,6 +29,7 @@ class Constants
     GRAPH_AG2_COLOR = '#50284A'
     GRAPH_AG3_COLOR = '#2AB597'
     GRAPH_AG4_COLOR = '#B00E21'
+    PERCENT_COLOR = ["#6BFF41", "#179DD9", "#E3DA23", "#CC5B20", "#E34018"]
 
     LARGE_GRAPH_WIDTH = 650
     LARGE_GRAPH_HEIGHT = 450

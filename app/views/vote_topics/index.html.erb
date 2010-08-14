@@ -1,48 +1,20 @@
 <script type="text/javascript">
   //<![CDATA[
-
-  function showLoading(elem) {
-    $(elem).animate({opacity:1.0}, 'slow', function(){});
-    $(elem).next('div').animate({
-      opacity: 0.3
-    }, 'slow', function() {
-    });
-  }
-
-  function hideLoading(elem) {
-    $(elem).animate({opacity:0.0}, 'slow', function(){});
-    $(elem).next('div').animate({
-      opacity: 1.0
-    }, 'slow', function() {
-    });
-  }
-
   $(document).ready(function() {
-    $('.pagination a').live("click", function () {
-      showLoading('#vote_prog_loading');
-      $.get(this.href, null, function (data) {
-        hideLoading('#com_prog_loading')
-      }, 'script');
-      return false;
-    }); 
   });
   //]]>
 </script>
 
-<div id="com_prog_loading" class="progress" style="opacity:0;"></div>
-<div id="vote_list" class="span-18 last">
-  <% @vote_topics.keys.each do |vt| %>
-    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => @vote_topics[vt], :top_vote => true} %>
-  <% end  %>
-<%# if @user_listing %>
-<%#= render :partial => "user_vote_list"%>
-<%# elsif @category_listing || @general_listing %>
-<%#= render :partial => "vote_list"%>
-<%# end  %>
+<div id="vote_list" class="rel-pos span-18 last">
+  <div id="com_prog_loading" style="display:none">
+    <div class="loading-inner-top" ></div>
+  </div>
+  <div id="votes">
+    <%= render :partial => 'vote_list' %>
+  </div>
 </div>
-
 <% content_for :right_nav do %>
-  <%= render :partial => '/layouts/category_side_bar' if @general_listing %>
+  <%= render :partial => '/layouts/category_side_bar' if @listing_type == 'all' %>
   <%= render :partial => "/home/latest_votes" %>
   <%= render :partial => "/home/top_voters" %>
 <% end %>

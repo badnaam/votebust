@@ -13,6 +13,24 @@ var showMenu = function(ev) {
     $j("#cat_menu").toggle('fast');
 }
 
+function showLoading(elem) {
+    $j(elem).show();
+    $j(elem).parent('div').animate({
+        opacity: 0.3
+    }, 'slow', function() {
+        // Animation complete.
+        });
+}
+
+function hideLoading(elem) {
+    $j(elem).hide();
+    //alert($j(elem).parent('div').html());
+    $j(elem).parent('div').animate({
+        opacity: 1.0
+    }, 'slow', function() {
+        // Animation complete.
+        });
+}
 
 function checkVoteSelected() {
     oneChecked = false
@@ -29,6 +47,13 @@ function checkVoteSelected() {
 }
     
 $j(document).ready(function(){
+    $j('.pagination a').live("click", function () {
+        showLoading('#com_prog_loading');
+        $j.get(this.href, null, function (data) {
+            hideLoading('#com_prog_loading')
+        }, 'script');
+        return false;
+    });
     $j('#close_cat_menu').click(function(){
         $j('#cat_nav a').toggleClass('hover-nav');
         $j("#cat_menu").toggle('fast');

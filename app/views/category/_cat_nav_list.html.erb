@@ -18,7 +18,7 @@
       <ul class="category-list">
         <% col_num = last_col_num if n == 4 && !last_col_num.nil? %>
         <% col_num.times do |i| %>
-          <li ><%= link_to categories[counter].name, category_vote_topics_path(categories[counter]) %></li>
+          <li ><%= link_to categories[counter].name, category_vote_topics_path(categories[counter], :listing_type => "category") %></li>
 
           <% counter += 1 %>
         <% end  %>

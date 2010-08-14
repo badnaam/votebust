@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
     map.resources :searches
-
+    map.resources :voted_vote_topics
     # The priority is based upon order of creation: first created -> highest priority.
 
     # Sample of regular route:

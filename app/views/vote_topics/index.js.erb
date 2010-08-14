@@ -1,11 +1,15 @@
-<% if @user_listing %>
-  $('#vote_list').html("<%= escape_javascript(render :partial => 'vote_list') %>");
-<% elsif @tracking_listing %>
-  <%= render :partial => 'home/tracked_votes', :locals => {:votes => @vote_topics} %>
-<% elsif @most_tracked_listing %>
-  <%= render :partial => 'home/most_tracked_votes', :locals => {:votes => @vote_topics} %>
-<% elsif @local_listing %>
-  <%= render :partial => 'home/local_votes', :locals => {:votes => @vote_topics} %>
+<% if ["category", "tracked_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
+  <%print_paginate = true%>
+  $('#votes').html("<%= escape_javascript(render :partial => 'vote_list')%>");
+<%# elsif "voted" == @listing_type %>
+  //$('#voted').html("<%= escape_javascript(render :partial => 'vote_list')%>");
 <% else %>
-  $('#vote_list').html("<%= escape_javascript(render :partial => 'user_vote_list') %>");
-<% end  %>
+  <% if @vote_topics.size > 0 %>
+    <% @vote_topics.each do |vt| %>
+      <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
+    <% end  %>
+  <% else %>
+    <div>Sorry no votes found.</div>
+  <% end  %>
+<%end  %>
+

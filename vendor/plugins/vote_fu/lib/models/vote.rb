@@ -9,6 +9,7 @@ class Vote < ActiveRecord::Base
     belongs_to :voteable, :polymorphic => true
     belongs_to :voter, :polymorphic => true
 
+
     acts_as_mappable
     attr_accessible :vote, :voter, :voteable
 
