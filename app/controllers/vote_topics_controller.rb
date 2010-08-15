@@ -201,7 +201,7 @@ class VoteTopicsController < ApplicationController
             if @vote_topic.expires > DateTime.now
                 @vote_open = true
             end
-            @p_chart = @vote_topic.make_flash_pie_graph(true) #only get this if total_votes > 0?
+#            @p_chart = @vote_topic.make_flash_pie_graph(true) #only get this if total_votes > 0?
             @selected_response = @vote_topic.what_vi_user_voted_for(@user) if @user 
             @related = VoteTopic.search "", :with => {:category_id => @vote_topic.category_id},
               :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT

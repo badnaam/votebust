@@ -10,16 +10,15 @@
           <div class="span-24 last"
                <div class="ui-corner-bl ui-corner-br ui-state-hover">
               <ul class="header_links">
-                <%# cache(@current_user_session) do %>
-                  <% unless  current_user %>
-                    <li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
-                    <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
-                  <% else %>
-                    <li><%= link_to "New Vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text' %></li>
-                    <li><%= link_to current_user.username.titleize, current_user, :id => 'main_profile_link' %></li>
-                    <li><%= link_to "Logout", logout_path  %></li>
-                  <% end %>
-                <%# end  %>
+                <% unless  current_user %>
+                  <li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
+                  <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
+                <% else %>
+                  <li><%= link_to "New Vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text' %></li>
+                  <li><%= link_to current_user.username.titleize, current_user, :id => 'main_profile_link' %><span id="main_link_vote_power" class="vote-power" style="margin-left:.5em;">
+                      <%= current_user.voting_power %> </span></li>
+                  <li><%= link_to "Logout", logout_path  %></li>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -66,7 +65,7 @@
           <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
             <%= text_field_tag :search_term, "Search",  :class => 'search-term' %>
                  <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
-                 <% end  %>
+            <% end  %>
           </div>
           <%= yield :right_nav %>
         </div>

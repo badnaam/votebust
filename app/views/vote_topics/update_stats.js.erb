@@ -2,14 +2,7 @@ $j('#vote_status').html('');
 $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
 $j('#tot_tracking').html("<%= @vote_topic.trackings_count %> Tracking");
 <% unless (@vote_topic.total_votes == 0) %>
-  if ($j('#vote_dlg').children().size() == 0) {
-  $j('#vote_dlg').html("<%= escape_javascript(render :partial => "vote_tally") %>");
-  $j("#chart_controls a:contains('Pie')").button({icons:{primary:'ui-icon-document'}, text:false});
-  $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
-  $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
-  } else {
-    $j("#chart_controls a:contains('Pie')").trigger('click');
-  }
+ 
   <%if @user && !@vote_topic.vote_items.nil? && !@selected_response%>
     $j('#div_process_vote').replaceWith("<%= escape_javascript(render :partial => 'vote_form', :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'process'}) %>");
     $j('#vote_link').button({icons:{primary:'ui-icon-person'}});

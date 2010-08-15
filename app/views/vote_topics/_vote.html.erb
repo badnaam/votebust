@@ -141,8 +141,8 @@
 
 <div class=" span-18 last">
   <% @vote_topic.total_votes %>
-  <div class=" ui-state-hover ui-corner-all prepend-top normal-pad right-mar">
-    <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
+  <div class=" ui-state-header ui-corner-all prepend-top normal-pad right-mar">
+    <span class="clearfix xlrg bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
     <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
     <span class="small">
       <% if !@vote_topic.anon %>
@@ -151,32 +151,17 @@
         <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
       <% end  %>
     </span>
+    <span class="clearfix">
+      <span class="ui-icon ui-icon-tag"></span>
+      <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category, :listing_type => "category"),
+        :class => 'tag bld' %>
+    </span>
   </div>
-
   <div class="top-mar right-mar">
     <table class="track-table">
       <tr>
         <td style="vertical-align:top;text-align: left">
-          <span class="ui-icon ui-icon-tag"></span> <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category, :listing_type => "category"),
-            :class => 'tag bld' %>
-        </td>
-        <td style="text-align:right">
           <ul class="somed-list-inline">
-            <li>
-              <% if @user %>
-                <% if @vote_topic.is_being_tracked? @user.id%>
-                  <span class="" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-                    <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
-                      Untrack</a>
-                  </span>
-                <% else %>
-                  <span class="" id="tracking">
-                    <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >
-                      <span class="ui-icon ui-icon-heart"></span>Track</a>
-                  </span>
-                <% end  %>
-              <% end  %>
-            </li>
             <li><a name="fb_share" type="icon_link" share_url="<%= url_for(@vote_topic) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
             <li>
               <a href="<%= "http://twitter.com/home?status=#{@vote_topic.header} #{url_for(@vote_topic)}"%>">
@@ -187,15 +172,27 @@
             <li style="margin-right:0"><a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=(url_for(@vote_topic)) %>"></a></li>
           </ul>
         </td>
+        <td style="text-align:right">
+          <div class="vote-box-large ui-corner-all">
+            <span class="big" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></span>
+            <span class="tracking-div big" id="tot_tracking"><%= @vote_topic.trackings_count %> Tracking</span>
+            <% if @user %>
+              <% if @vote_topic.is_being_tracked? @user.id%>
+                <span class="" id="tracking"><span class="ui-icon ui-icon-heart"></span>
+                  <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
+                    Untrack</a>
+                </span>
+              <% else %>
+                <span class="" id="tracking">
+                  <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >
+                    <span class="ui-icon ui-icon-heart"></span>Track</a>
+                </span>
+              <% end  %>
+            <% end  %>
+          </div>
+        </td>
       </tr>
     </table>
-  </div>
-
-  <div class="prepend-top bottom-mar bld big special-text right_mar_small span-18 last">
-    <div class="vote-box-large span-9 ui-corner-all">
-      <div class="span-4" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></div>
-      <div class="span-4 last tracking-div" id="tot_tracking"><%= @vote_topic.trackings_count %> Tracking</div>
-    </div>
   </div>
 </div>
 
@@ -221,7 +218,7 @@
 
 <% if !@vote_topic.vote_facet.nil? %>
   <div id ="facets" class="span-18 last">
-    <div class="ui-state-default right-mar ui-corner-all normal-pad">
+    <div class="ui-state-header right-mar ui-corner-all normal-pad">
       <h4 class="bld">About your voters</h4>
       <hr/>
       <ul class="facet-list">
@@ -230,12 +227,6 @@
     </div>
   </div>
 <% end  %>
-
-<div id="vote_dlg" class="span-18 last" >
-  <% if !(@vote_topic.total_votes == 0) %>
-    <%= render :partial => "vote_tally"%>
-  <% end  %>
-</div>
 
 
 <div id="comments_container" class=" prepend-top span-18 last append-bottom">
@@ -267,4 +258,4 @@
   </div>
 </div>
 
-
+<div class="push"></div>

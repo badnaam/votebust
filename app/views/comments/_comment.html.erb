@@ -1,17 +1,28 @@
-<div id="comment" class="append-bottom ui-widget-content normal-pad">
+<div id="comment" class="comment append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
-    <div>
-      <div class="span-5 last bottom-mar">
-        <div id="user_image" class="user-image"><%= get_user_icon(comment.user)%></div>
-        <div class="user-info">
-          <span><%= comment.user.username %></span>
-          <span>(<%= comment.user.voting_power %>)</span>
+    <ul class="comment-list">
+      <li class="go_left right_mar_small" style="width:100px;">
+        <table class="user-info">
+          <tr>
+            <td rowspan="2" class="bordered-td">
+              <div id="user_image" class="user-image"><%= get_user_icon(comment.user)%></div>
+            </td>
+            <td class="uname">
+              <%= link_to comment.user.username, comment.user %>
+            </td>
+          </tr>
+          <tr>
+            <td class="vote-power bld">
+              <%= comment.user.voting_power %>
+            </td>
+          </tr>
+        </table>
+      </li>
+      <li style="display:inline">
+        <div>
+          <%= comment.body %>
         </div>
-      </div>
-      <hr/>
-      <p>
-        <%= comment.body %>
-      </p>
-    </div>
+      </li>
+    </ul>
   <% end  %>
 </div>

@@ -1,5 +1,18 @@
+.comment-list {
+    padding-left: 0;
+}
+.comment {
+    min-height: 55px;
+}
+.comment-list li {
+    list-style-type: none;
+}
+.ui-state-header {
+    /*    background-color:#A3C8F0;*/
+    border:1px solid #dddddd;
+}
 .vi-list {
-    border: 1px solid;
+    border-top: 1px solid #dddddd;
     padding:.3em;
     list-style-type:none;
 }
@@ -35,10 +48,9 @@
 .vote-box-large {
     /*    width:30%;*/
     padding:.2em;
-    border:1px solid;
+    border:1px solid #dddddd;
     text-align: center;
     /*    background-color: #F5722C;*/
-    color:black;
     font-weight:bold;
     margin:0;
 }
@@ -100,9 +112,12 @@ div.pagination span.disabled {
 .right {
     float:right;
 }
+.bordered-td {
+    border: 1px solid #dddddd;
+}
 .bordered {
-    border-right: 1px solid #dddddd;
     border-top: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
 }
 .full-bordered {
     border :1px solid #dddddd;
@@ -125,6 +140,7 @@ table.borderless tr {
 
 .crumb a {
     color:#38385c;
+    font-weight: normal !important;
     /*text-decoration:underline;*/
 }
 .normal-pad {
@@ -255,7 +271,7 @@ body a.action_link {
 
 body a {
     color:#598F49;
-    font-weight:bold;
+    /*    font-weight:bold;*/
     text-decoration:none;
 }
 body a:hover {
@@ -476,13 +492,13 @@ body a:hover {
     font-size:3em;
 }
 .xlrg {
-    font-size:3em;
+    font-size:1.8em;
 }
 .lrg {
-    font-size:1.2em;
+    font-size:1.6em;
 }
 .big {
-    font-size:1.1em;
+    font-size:1.3em;
 }
 
 .small {
@@ -562,7 +578,7 @@ img.ui-icon {
     display: inline;
 }
 .somed-list-inline {
-    float:right;
+    padding-left:0;
     margin-right:0;
     margin-bottom: 0;
     /*    margin-top:1em;*/
@@ -676,11 +692,22 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 .profile-list li {
     margin-bottom: 1.5em;
 }
-.user-info span {
-    margin-left: .3em;
-    /*    float:left;*/
-    /*    overflow: hidden;*/
+.user-info  {
+    margin-bottom: 0;
 }
+.vote-power {
+    background-color: yellow;
+    color:black;
+    text-align: center;
+}
+.user-info .uname {
+    background-color: gray;
+    text-align:center;
+}
+.user-info span {
+    padding: .3em;
+}
+
 .user-image {
     float:left;
     overflow:hidden;

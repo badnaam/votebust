@@ -1,16 +1,16 @@
 <div class="span-6 last  prepend-top ui-state-default">
   <h6 class="ui-widget-header bottom-mar"><%= header %></h6>
-  <!--  <ul class="list-no-pad-no-style-close sidebox-list-inline">-->
   <%users.each do |r|  %>
-    <!--<li>-->
-    <div class="span-5 last bottom-mar">
-      <div id="user_image" class="user-image"><%= get_user_icon(r)%></div>
-      <div class="user-info">
-        <span><%= r.username %></span>
-        <span>(<%= r.voting_power %>)</span>
-      </div>
-    </div>
-    <!--</li>-->
+    <table style="width:40%">
+      <tr>
+        <td rowspan="2">
+          <%= get_user_icon(r)%>
+        </td>
+        <td><%= r.username %></td>
+      </tr>
+      <tr>
+        <td><%= r.voting_power %></td>
+      </tr>
+    </table>
   <% end  %>
-  <!--</ul>-->
 </div>
