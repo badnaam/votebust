@@ -1,3 +1,17 @@
+.alt-link {
+    color:#f794e8;
+}
+.vote-stats-table td, th, caption {
+    padding:0 !important;
+}
+.ui-slider-handle {
+  width: 8px;
+  height: 14px;
+  position: absolute;
+  top: -4px;
+  background: #478AFF;
+  border: solid 1px black;
+}
 .comment-list {
     padding-left: 0;
 }
@@ -9,19 +23,31 @@
 }
 .ui-state-header {
     /*    background-color:#A3C8F0;*/
-    border:1px solid #dddddd;
+    border:2px solid #dddddd;
+}
+.vote-action {
+    border-top:1px solid #DDDDDD;
+margin-top:1em;
+padding-top:0.5em !important;
+
 }
 .vi-list {
-    border-top: 1px solid #dddddd;
+    border: 2px solid #dddddd;
     padding:.3em;
     list-style-type:none;
 }
+.indicator-list {
+    width:90%;margin-bottom:0 !important;
+}
+.indicator-div {
+    background-color:#43444A;height:12px;
+}
 .vi-list li {
     padding:.2em;
-    margin-bottom: 1em;
+/*    margin-bottom: .5em;*/
 }
 .vi {
-    margin-bottom:0 !important;
+/*    margin-bottom:0 !important;*/
     border:0 !important;
     font-weight: bold;
 }
@@ -116,8 +142,11 @@ div.pagination span.disabled {
     border: 1px solid #dddddd;
 }
 .bordered {
-    border-top: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
+    border-top: 2px solid #dddddd;
+    border-right: 2px solid #dddddd;
+}
+.bordered-all {
+        border: 2px solid #dddddd;
 }
 .full-bordered {
     border :1px solid #dddddd;
@@ -242,6 +271,7 @@ table.borderless tr {
 }
 body {
     font-family:sans-serif,"Helvetica Neue",Arial,Helvetica, !important;
+    color:#444444;
 }
 .push {
     clear:both;
@@ -428,20 +458,20 @@ body a:hover {
     background:#38385c none repeat scroll 0 0;
     height:10em;
     padding:4em 0 0;
-    text-align:center;
+    text-align:left;
 }
 .footer_links {
-    display:inline;
     overflow:hidden;
     white-space:nowrap;
+    list-style-type: none;
 }
 .footer_links li {
-    display:inline;
 }
 .footer a {
-    color:#8F8F8F;
-    padding:0 0.4em;
+/*    color:#8F8F8F;*/
+color:white;
     text-decoration:none;
+/*    font-weight: bold;*/
 }
 .fieldWithErrors {
     background-color:red;
@@ -500,7 +530,9 @@ body a:hover {
 .big {
     font-size:1.3em;
 }
-
+.medium {
+    font-size:1.1em;
+}
 .small {
     font-size:.8em;
 }
@@ -553,7 +585,7 @@ img.ui-icon {
 }
 .topic-header {
     /*color:#E80C7A;*/
-    color:#F5722C;
+/*    color:#F5722C;*/
 }
 .chart-box {
     border:2px solid #38385c;
@@ -695,10 +727,18 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 .user-info  {
     margin-bottom: 0;
 }
+.vote-power-user-info {
+    background-color: yellow;
+    color:black;
+    text-align: center;
+    padding:.1em .2em .1em .2em;
+}
 .vote-power {
     background-color: yellow;
     color:black;
     text-align: center;
+    padding:.1em .2em .1em .2em;
+    border: 2px solid black;
 }
 .user-info .uname {
     background-color: gray;

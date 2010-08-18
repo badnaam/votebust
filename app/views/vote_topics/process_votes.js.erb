@@ -7,7 +7,13 @@ $j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash
   $j('#vote_link').closest('li').remove();
   $j('#sel_response').attr('value', '<%= @selected_response.id %>');
   $j('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
-  $j('#rt_<%= @selected_response.id %>').closest('li').removeClass('ui-widget-content').addClass('ui-state-active');
+  if ($j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').length > 0) {
+    $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
+    '<%=  @selected_response.get_vote_percent_num @vote_topic.total_votes%>%');
+  } else {
+    ($j('#rt_<%= @selected_response.id %>').closest('li')).after("<%= escape_javascript(get_percent_div (@selected_response.get_vote_percent_num @vote_topic.total_votes))%>");
+  }
+
   $j("<span class ='small-button'><a href='#comment_form' id='goto_comment_link'>Comment</a></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
   $j("<span class ='small-button'><button id='cancel_vote_link'>Cancel Vote</button></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
   $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});

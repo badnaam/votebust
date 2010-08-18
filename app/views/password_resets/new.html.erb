@@ -1,17 +1,34 @@
-<h1>Forgot your password?</h1>
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function() {
+    $('#reset_submit').button({icons:{primary:'ui-icon-key'}}).click(function(){
+      $('#pwd_reset').submit();
+      return false;
+    });
+  });
+  //]]>
+</script>
+<div class="span-24 last">
+  <div class="normal-pad ui-widget-content left-mar prepend-top " id="">
+    <h4 class="ui-widget-header">Forgot your password?</h4>
+    <p>
+      Please fill out the form below with the email address you used during registration and the password reset instructions will be emailed to you.
+    </p>
 
-<p>
-  Please fill out the form below and the password reset instructions will be emailed to you
-</p>
+    <% form_tag password_resets_path, :id => "pwd_reset" do %>
+      <p>
+        <label>
+          Email
+        </label>
+        <%= text_field_tag "email" %>
+      </p>
+      <p>
+         <span class="small-button"><button id="reset_submit">Request Password Reset</button></span>
+      </p>
+    <% end  %>
+  </div>
 
-<% form_tag password_resets_path do %>
-  <p>
-    <label>
-      Email
-    </label>
-    <%= text_field_tag "email" %>
-  </p>
-  <p>
-    <%= submit_tag "Request password reset" %>
-  </p>
-<% end  %>
+</div>
+<div class="push" id="">
+
+</div>

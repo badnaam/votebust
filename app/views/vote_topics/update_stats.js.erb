@@ -1,6 +1,6 @@
 $j('#vote_status').html('');
 $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
-$j('#tot_tracking').html("<%= @vote_topic.trackings_count %> Tracking");
+$j('#tot_tracking').html("<%= @vote_topic.trackings_count %>");
 <% unless (@vote_topic.total_votes == 0) %>
  
   <%if @user && !@vote_topic.vote_items.nil? && !@selected_response%>

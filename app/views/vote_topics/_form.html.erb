@@ -24,14 +24,18 @@
     <%= form.input :header, :label => "Topic", :input_html => {:style => "width:50%"}, :hint => "What should people vote on? For example: How do you like your Martini?. Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
     <li>
       <div id="suggestions" class="suggestions" style="display:none">
-        
+
       </div>
     </li>
-    <%= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
     <%= form.input :topic, :label => "Details", :as => :text, :input_html => {:style => "width:50%" }, :hint => "More details about the topic for your voters.
     For example: A dry martini you always shake to waltz time and Smoky Martini is where the dry vermouth is substituted with a dash of Scotch whisky and a lemon peel. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
-    <%= form.input :anon, :label => "Keep it anonymous", :hint => "Should we show your username in the Vote listing?." %>
-    <%= form.input :category, :as => :radio, :hint => "Please categorize the vote." %>
+    <% if current_user.voting_power > 0 %>
+      <%= form.input :power_offered,:as => :select, :collection => (1..current_user.voting_power).collect{|x| x},
+        :hint => "You can offer some of your voting power to put your vote on the featured votes list. 
+        You currently have <span class='vote-power bld'>#{current_user.voting_power}</span> voting  power" %>
+    <% end  %>
+    <%= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
+    <%= form.input :category, :as => :select, :hint => "Please categorize the vote." %>
     <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:50%" }, :hint => "Invite friends to vote, enter comma separated valid emails. For example <b>joe@gmail.com,susan@yahoo.com,gary@hotmail.com</b>"  %>
     <li class="bld">Add up to 5 options(Minimum 2) for your voters to vote on.</li>
     <% if !form.object.errors.on(:vote_items).nil? && form.object.errors.on(:vote_items).length > 0 %>

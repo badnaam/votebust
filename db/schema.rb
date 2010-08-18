@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100814004851) do
+ActiveRecord::Schema.define(:version => 20100818001113) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(:version => 20100814004851) do
 
   add_index "comments", ["user_id"], :name => "user_id"
   add_index "comments", ["vote_topic_id"], :name => "vote_topic_id"
+
+  create_table "contact_messages", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "subject"
+    t.string   "body"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -82,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20100814004851) do
 
   create_table "searches", :force => true do |t|
     t.datetime "created_at"
+    t.string   "term"
     t.datetime "updated_at"
   end
 
@@ -152,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20100814004851) do
 
   create_table "vote_facets", :force => true do |t|
     t.integer  "vote_topic_id"
+    t.integer  "last_update_tv", :default => 0
     t.string   "m"
     t.string   "w"
     t.string   "ag1"
@@ -195,8 +207,8 @@ ActiveRecord::Schema.define(:version => 20100814004851) do
     t.string   "status",          :limit => 4,   :default => "p",   :null => false
     t.datetime "published_at"
     t.datetime "created_at"
-    t.datetime "expires",                                           :null => false
-    t.integer  "power_offered"
+    t.datetime "expires"
+    t.integer  "power_offered",                  :default => 0
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "anon"

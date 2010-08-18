@@ -59,20 +59,14 @@ class User < ActiveRecord::Base
         #        errors.add(:zip, "Could not locate that zip code") if !geo.success
         logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
         if geo.success
-            logger.info "Geocoding success for #{self.username}"
             self.lat, self.lng = geo.lat,geo.lng
-            #            self.zip = geo.zip if ((self.zip).blank? && geo.zip != nil)
-            logger.info "Setting user city to #{geo.city}"
-            self.city = geo.city
-            logger.info "Setting user state to #{geo.state}"
-            self.state = geo.state
+            self.city = geo.city.titleize
+            self.state = geo.state.titleize
         else
             #set it to nil to force the user to complete registration
             self.zip = nil
         end
         save
-        logger.info "User's city set to #{self.city}"
-        logger.info "User's state set to #{self.state}"
     end
 
     def check_what_changed

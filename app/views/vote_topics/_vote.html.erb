@@ -142,25 +142,55 @@
 <div class=" span-18 last">
   <% @vote_topic.total_votes %>
   <div class=" ui-state-header ui-corner-all prepend-top normal-pad right-mar">
-    <span class="clearfix xlrg bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
+    <span class="clearfix xlrg bld bottom-mar">&quot;<%= @vote_topic.header %>&quot;</span>
     <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
+    <span class="clearfix"><%= @vote_topic.website %></span>
     <span class="small">
-      <% if !@vote_topic.anon %>
-        <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
-      <% else %>
-        <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
-      <% end  %>
+      <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
     </span>
-    <span class="clearfix">
-      <span class="ui-icon ui-icon-tag"></span>
-      <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category, :listing_type => "category"),
-        :class => 'tag bld' %>
-    </span>
+
+    <% if !@vote_topic.power_offered.nil? && @vote_topic.power_offered > 0
+      powered = true
+     end  %>
+    <table class="vote-stats-table" style="margin-bottom: 0">
+      <tr>
+        <td rowspan ="<%= powered == true ? 2 : 1 %>" style="vertical-align:bottom;text-align:left">
+          <span class="ui-icon ui-icon-tag"></span>
+          <%= link_to "In #{@vote_topic.category.name}", category_vote_topics_path(@vote_topic.category, :listing_type => "category"),
+            :class => 'tag bld' %>
+        </td>
+        <td style="text-align:right">
+          <span class="big" id="tot_votes"><%= "#{@vote_topic.total_votes}" %></span> Votes
+          <span class="tracking-div big" id="tot_tracking"><%= @vote_topic.trackings_count %> </span> Tracking
+          <% if @user %>
+            <% if @vote_topic.is_being_tracked? @user.id%>
+              <span class="" id="tracking"><span class="ui-icon ui-icon-heart"></span>
+                <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
+                  Untrack</a>
+              </span>
+            <% else %>
+              <span class="" id="tracking">
+                <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >
+                  <span class="ui-icon ui-icon-heart"></span>Track</a>
+              </span>
+            <% end  %>
+          <% end  %>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:right;padding-top:6px !important;">
+          <% if powered == true %>
+            <span class="bld vote-power"><%= (@vote_topic.power_offered / 10)  %></span><span class="bld"> Voting Power</span>
+          <% end  %>
+        </td>
+      </tr>
+    </table>
   </div>
+
   <div class="top-mar right-mar">
     <table class="track-table">
       <tr>
-        <td style="vertical-align:top;text-align: left">
+        <td style="vertical-align:top;text-align:right">
           <ul class="somed-list-inline">
             <li><a name="fb_share" type="icon_link" share_url="<%= url_for(@vote_topic) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
             <li>
@@ -171,25 +201,6 @@
             </li>
             <li style="margin-right:0"><a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=(url_for(@vote_topic)) %>"></a></li>
           </ul>
-        </td>
-        <td style="text-align:right">
-          <div class="vote-box-large ui-corner-all">
-            <span class="big" id="tot_votes"><%= "#{@vote_topic.total_votes} Votes" %></span>
-            <span class="tracking-div big" id="tot_tracking"><%= @vote_topic.trackings_count %> Tracking</span>
-            <% if @user %>
-              <% if @vote_topic.is_being_tracked? @user.id%>
-                <span class="" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-                  <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
-                    Untrack</a>
-                </span>
-              <% else %>
-                <span class="" id="tracking">
-                  <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >
-                    <span class="ui-icon ui-icon-heart"></span>Track</a>
-                </span>
-              <% end  %>
-            <% end  %>
-          </div>
         </td>
       </tr>
     </table>

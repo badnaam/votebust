@@ -41,6 +41,15 @@ class Notifier < ActionMailer::Base
         body          :vote_topic => vote_topic
     end
 
+    def contact_message(cm)
+        subject "Contact Message - #{cm.subject} - #{ContactMessage::MESSAGE_TYPE[cm.msg_type]}"
+        from "pjointadm@gmail.com"
+        recipients "asitkmishra@gmail.com"
+        sent_on Time.now
+        content_type "multipart/alternative"
+        body :cm => cm
+    end
+    
     def password_reset_instructions(user)
         subject       "VoteChek Password Reset Instructions"
         from          "pjointadm@gmail.com"

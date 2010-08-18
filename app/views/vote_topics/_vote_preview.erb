@@ -8,7 +8,6 @@
 <% if !vt.nil? %>
   <div class="ui-widget-content bottom-mar normal-pad right-mar">
     <div class="clearfix bld bottom-mar ui-widget-header normal-pad">
-
       <% if @top_vote %>
         <span class="ui-icon ui-icon-star"></span>
       <% end  %>
@@ -25,11 +24,7 @@
       </span>
       <div>
         <span class="small">
-          <% if !vt.anon %>
             <%= "By #{link_to vt.poster.username, vt.poster} on #{vt.created_at.strftime('%b %d %Y')}" %>
-          <% else %>
-            <%= "By Anonymous on #{vt.created_at.strftime('%b %d %Y')}" %>
-          <% end  %>
         </span>
         <span class="go-right">
           <span class="special-text "><%= "(#{vt.total_votes} votes)"  %></span>

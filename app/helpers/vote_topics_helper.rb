@@ -1,10 +1,11 @@
 module VoteTopicsHelper
 
-    def get_percent_div percent, color
+    def get_percent_div percent
         if percent == 0
-            return ""
+            return nil
         else
-            return "<li class='ui-corner-all' style='width:#{percent}%; background-color:#{color};height:12px'>&nbsp;</li>"
+            return "<li id= 'indicator' class='indicator-list'><div id = 'div_indicator' class='ui-corner-all indicator-div' style='width:#{percent}%;'>
+            </div></li>"
         end
     end
     
@@ -97,23 +98,17 @@ module VoteTopicsHelper
         end
     end
 
-    #    def get_vote_percent(v, total_votes)
-    #        votes = v.votes_for
-    #        if votes == 0
-    #            return "#{v.option} - 0%"
-    #        elsif total_votes == 0
-    #            return 'N/A'
-    #        else
-    #            return "#{v.option.titleize} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
-    #        end
-    #    end
+    def get_the_vote_button
+        return "<li class='vote-action'><span class='small-button'><button id='vote_link'>Vote</button></span><h6 style='margin-bottom:0;margin-top:.5em;color:#43444A'>Select an option and click on Vote</h6></li>"
+    end
+    
     def get_vote_percent(v, total_votes)
         #        votes = v.votes_count
         votes = v.votes.size
         if votes == 0
-            return "#{v.option} - 0%"
+            return "#{v.option.titleize} - 0%"
         elsif total_votes == 0
-            return "#{v.option} - 0%"
+            return "#{v.option.titleize} - 0%"
         else
             return "#{v.option.titleize} - #{votes} votes - #{number_to_percentage((votes.to_f / total_votes.to_f) * 100, :precision => 2)}"
         end

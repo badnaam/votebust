@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Someone tried to contact you at Votechek</title>
+  </head>
+  <body>
+    <p>
+      From : <%= "#{@cm.name} at #{@cm.email}" %>
+    </p>
+    <p>
+      Subject: <%= @cm.subject %>
+    </p>
+    <p>
+      Message Body : 
+      <br/>
+      <%= @cm.body %>
+    </p>
+  </body>
+</html>

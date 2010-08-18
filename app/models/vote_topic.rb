@@ -45,19 +45,20 @@ class VoteTopic < ActiveRecord::Base
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
     after_destroy :destroy_graphs
-    attr_accessible :topic, :header, :vote_items_attributes, :friend_emails, :anon, :header, :category_id, :website
+    attr_accessible :topic, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered
     #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     
     scope_procedure :latest_votes, lambda {status_equals(STATUS['approved']).created_at_gte(
             Constants::SMART_COL_LATEST_LIMIT.ago).descend_by_created_at.descend_by_total_votes(:limit => Constants::SMART_COL_LIMIT,
             :select => "id, header, total_votes, created_at") }
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
-    #    scope_procedure :not_expired, lambda {expires_gt(DateTime.now).status_equals(STATUS['approved']).descend_by_expires}
-    #    scope_procedure :expired, lambda {expires_gt(DateTime.now).status_equals(STATUS['approved']).descend_by_expires(:select => "vote_topic.id, vote_topics.expires")}
+    
     named_scope :exp, lambda {{:conditions => ['expires < ? AND status = ?', DateTime.now, STATUS['approved']], :select => "vote_topics.id",
             :order => 'expires DESC'}}
-    named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']], :select => "vote_topics.id",
+    named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']], :select => "vote_topics.id, vote_topics.total_votes",
             :order => 'expires DESC'}}
+    #    named_scope :featured_all, lambda {|page|{:conditions => ['status = ? AND expires > ? AND power_offered > 0', 'a', DateTime.now], :select => Constants::VOTE_TOPIC_FIELDS,
+    #                :order => 'vote_topics.power_offered DESC', :include => [{:vote_items => :votes}, :poster, :category]}}
 
     def is_being_tracked? id
         self.trackings.find(:first, :conditions => ['user_id = ?', id])
@@ -69,17 +70,13 @@ class VoteTopic < ActiveRecord::Base
 
     def self.category_list cid, page
         coll = paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes},
-                :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => 'vote_topics.id, vote_topics.header, vote_topic.topic,
-                vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon,
-                 users.id, users.username, vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip')
+                :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => Constants::VOTE_TOPIC_FIELDS)
         #sort_collection_vote_items coll
     end
 
     def self.general_list page
         coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :poster, :category],
-            :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id,
-            vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-             vote_items.option, vote_items.v_count, vote_topics.trackings_count, vote_topics.trackings_count, users.city, users.state, users.zip')
+            :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => Constants::VOTE_TOPIC_FIELDS)
         #sort_collection_vote_items coll
     end
 
@@ -102,15 +99,11 @@ class VoteTopic < ActiveRecord::Base
         if limit
             coll = VotedVoteTopic.find(:all, :conditions => ['voted_vote_topics.user_id = ?', user_id],  :order => 'vote_topics.trackings_count DESC', 
                 :include => [{:vote_topic => {:vote_items => :votes}}, {:vote_topic => :poster}, {:vote_topic => :category}], :limit => Constants::SMART_COL_LIMIT,
-                :select => ' vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
-                 categories.id, categories.name, vote_topics.anon, users.id, users.username, vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city,
-                users.state, users.zip')
+                :select => Constants::VOTE_TOPIC_FIELDS)
         else
             coll = VotedVoteTopic.paginate( :conditions => ['voted_vote_topics.user_id = ?', user_id], :order => 'vote_topics.trackings_count DESC', 
                 :include => [{:vote_topic => [{:vote_items => :votes}, :poster, :category]}], :per_page => Constants::LISTINGS_PER_PAGE,
-                :page => page, :select => ' vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at,
-                vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option,  vote_items.v_count,
-                vote_topics.trackings_count, users.city, users.state, users.zip')
+                :page => page, :select => Constants::VOTE_TOPIC_FIELDS)
         end
         vote_topics = Array.new
         coll.each do |c|
@@ -123,16 +116,11 @@ class VoteTopic < ActiveRecord::Base
         h = Hash.new
         if limit
             coll = find(:all, :conditions => ['status = ?', 'a'],  :order => 'trackings_count DESC', :include => [{:vote_items => :votes}, :poster,
-                    :category], :limit => Constants::SMART_COL_LIMIT, :select => ' vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id,
-                    vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-                    vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip')
+                    :category], :limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS)
         else
             coll = paginate( :conditions => ['status = ?', 'a'], :order => 'trackings_count DESC', :include => [{:vote_items => :votes}, :poster,
-                    :category], :per_page => Constants::LISTINGS_PER_PAGE, :page => page, :select => ' vote_topics.id, vote_topics.header, vote_topics.topic,
-             vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id,
-            users.username,vote_items.option,  vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip')
+                    :category], :per_page => Constants::LISTINGS_PER_PAGE, :page => page, :select => Constants::VOTE_TOPIC_FIELDS)
         end
-        #sort_collection_vote_items coll
     end
     
     def self.get_tracked_votes id, limit, page
@@ -147,17 +135,13 @@ class VoteTopic < ActiveRecord::Base
     
     def self.get_local_votes origin, limit, page
         h = Hash.new
+        bounds= Geokit::Bounds.from_point_and_radius(origin, Constants::PROXIMITY)
         if limit
-            bounds= Geokit::Bounds.from_point_and_radius(origin, Constants::PROXIMITY)
             coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category], 
-                :limit => Constants::SMART_COL_LIMIT, :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id,
-                vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-                vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip', :bounds => bounds)
+                :limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS, :bounds => bounds)
         else
             coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
-                :select => 'vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
-                categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city, 
-                users.state, users.zip',  :bounds => bounds,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+                :select => Constants::VOTE_TOPIC_FIELDS,  :bounds => bounds,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
         end
         #sort_collection_vote_items coll
     end
@@ -169,10 +153,7 @@ class VoteTopic < ActiveRecord::Base
     
     def self.find_for_show(id)
         find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [{:vote_items => :votes}, :poster, :category, :comments, :vote_facet],
-            :select => 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at,
-            vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,vote_items.option, total_votes, comments.id,
-            comments.body, comments.user_id, comments.vote_topic_id, vote_facets.m, vote_facets.w, vote_facets.ag1, vote_facets.ag2, vote_facets.ag3, vote_facets.ag4,
-            vote_facets.dag, vote_facets.wl, vote_facets.ll, vote_facets.vl,, vote_topics.trackings_count')
+            :select => Constants::VOTE_TOPIC_FIELDS_SHOW)
     end
     
     def self.find_for_stats(id)
@@ -190,46 +171,52 @@ class VoteTopic < ActiveRecord::Base
         votes.city, votes.voteable_id, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v, vote_items.ag_2_v, vote_items.ag_3_v, vote_items.ag_4_v,
         users.zip, vote_items.option")
     end
+
+    #todo : fix the expires timestamp issue
+    def self.get_featured_votes limit, page
+        h = Hash.new
+        if limit
+            coll = find(:all,:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', 'a'], :order => 'vote_topics.power_offered DESC',
+                :include => [{:vote_items => :votes}, :poster, :category],:limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS)
+        else
+            coll = paginate(:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', 'a'], :select => Constants::VOTE_TOPIC_FIELDS,
+                :order => 'vote_topics.power_offered DESC', :include => [{:vote_items => :votes}, :poster, :category], :per_page => Constants::LISTINGS_PER_PAGE,
+                :page => page)
+        end
+    end
+
+    def self.get_current_time
+        lambda {DateTime.now}
+    end
     
+    def self.get_featured_votes_2 limit, page
+        h = Hash.new
+        if limit
+            coll = find(:all,:conditions => ['status = ? AND expires > ? AND power_offered > 0', 'a', get_current_time.call], :order => 'vote_topics.power_offered DESC', :include => [{:vote_items => :votes},
+                    :poster, :category],:limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS)
+        else
+            coll = paginate(:all, :conditions => ['status = ? AND expires > ? AND power_offered > 0', 'a', get_current_time.call], :select => Constants::VOTE_TOPIC_FIELDS,
+                :order => 'vote_topics.power_offered DESC', :include => [{:vote_items => :votes}, :poster, :category], :per_page => Constants::LISTINGS_PER_PAGE,
+                :page => page)
+        end
+    end
+
     def self.get_top_votes limit, page
         h = Hash.new
         if limit
-            coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
-                :limit => Constants::SMART_COL_LIMIT, :select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id, vote_topics.category_id,
-                vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username, vote_items.option,
-                vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip')
+            coll = find(:all, :conditions => ['status = ? AND expires > ? ', 'a', DateTime.now], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
+                :limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS)
         else
-            coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
-                :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id,
-                vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-                vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip')
+            coll = paginate(:conditions => ['status = ? AND expires > ?', 'a', DateTime.now], :order => 'vote_topics.total_votes DESC', :include => [{:vote_items => :votes}, :poster, :category],
+                :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => Constants::VOTE_TOPIC_FIELDS)
         end
-        #sort_collection_vote_items coll
     end
 
     def self.get_all_votes_user (id, page)
         coll = paginate(:conditions => ['user_id = ?', id], :order => 'vote_topics.created_at DESC', :include => [{:vote_items => :votes}, :poster, :category],
-            :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => ' vote_topics.id, vote_topics.header, vote_topic.topic, vote_topics.user_id,
-                vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes, categories.id, categories.name, vote_topics.anon, users.id, users.username,
-                vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city, users.state, users.zip')
-        #        coll = user_id_equals(user.id).descend_by_total_votes.all(:include => [{:vote_items => :votes},
-        #                :poster, :category])
-        #sort_collection_vote_items coll
+            :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => Constants::VOTE_TOPIC_FIELDS)
     end
 
-    def self.sort_collection_vote_items coll
-        #        return self
-        #        h = Hash.new
-        #        coll.each do |vt|
-        #            arr = Array.new
-        #            vt.vote_items.sort_by{|vi| vi.votes.size}.reverse_each do |vi|
-        #                arr << vi
-        #            end
-        #            h[vt] = arr
-        #        end
-        #        return h
-    end
-    
     def get_sorted_vi
         arr = Array.new
         self.vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
@@ -296,12 +283,19 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def post_process(selected_response, user, add)
+        vtpic = selected_response.vote_topic
+        if !vtpic.power_offered.nil? && vtpic.power_offered > 0
+            factor = vtpic.power_offered  / 10
+        else
+            factor = 1
+        end
+        
         if add == true
             inc = 1
-            user.award_points(Constants::VOTE_POINTS)
+            user.award_points(Constants::VOTE_POINTS * factor)
         else
             inc = -1
-            user.award_points(Constants::VOTE_POINTS * -1)
+            user.award_points(Constants::VOTE_POINTS * factor * -1)
         end
 
         selected_response.increment!(:v_count, inc)
@@ -325,8 +319,7 @@ class VoteTopic < ActiveRecord::Base
             update_location selected_response, user
         end
         determine_devided
-        vtpic = selected_response.vote_topic
-        vtpic.update_voted_vote_topic
+        vtpic.update_voted_vote_topic user
         user.update_attribute(:processing_vote, false)
     end
 
@@ -346,70 +339,115 @@ class VoteTopic < ActiveRecord::Base
         vote.save
     end
 
+    def ram? str
+        #        num = number_to_human_size ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
+        #        Delayed::Worker.logger.info str + ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
+        #        logger.info str +  ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
+    end
+
     
     def update_facets 
-        return if self.total_votes == 0
+        if self.total_votes == 0
+            if !self.vote_facet.nil?
+                self.vote_facet.destroy
+            end
+            return
+        end
+
         vi = self.vote_items
         sorted_vi = vote_items.sort_by {|v|v.votes.size}.reverse
         winner = sorted_vi.first
         looser = sorted_vi.last
         
         votes = Array.new
-        vi.each do |vote_item|
-            votes << vote_item.votes
-        end
-        votes = votes.flatten
+        #        ram? "Before creating Votes Array "
+        #        vi.each do |vote_item|
+        #            votes << vote_item.votes
+        #            ram? "While creating Votes Array "
+        #        end
+        #        votes = votes.flatten
         #        votes = self.votes
-        sorted_votes = votes.group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
+#        ram? "Before sorted Votes  "
+#        sorted_votes = self.votes.group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
+#        ram? "After sorted Votes  "
+        ram? "Before sorted Votes  "
+        sorted_votes = self.votes.find(:all, :select => "votes.id, votes.state").group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
+        ram? "After sorted Votes  "
+
+        ram? "Before dag"
+        dag_desc = sorted_votes.collect {|x| x.first}.join(', ')
+        ram? "After dag"
+        
         local_votes = self.votes.find(:all, :origin => poster.zip, :within => Constants::PROXIMITY)
         local_winner = local_votes.group_by {|x| x.voteable_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
-        
+
+        ram? "Before w_desc"
         w_desc = vi.sort_by{|x| x.female_votes}.reverse.first.option
+        ram? "After w_desc"
+        ram? "Before m_desc"
         m_desc = vi.sort_by{|x| x.male_votes}.reverse.first.option
+        ram? "After m_desc"
+        ram? "Before ag1_desc"
         ag1_desc = vi.sort_by{|x| x.ag_1_v}.reverse.first.option
+        ram? "After ag1_desc"
+        ram? "Before ag2_desc"
         ag2_desc = vi.sort_by{|x| x.ag_2_v}.reverse.first.option
+        ram? "After ag2_desc"
+        ram? "Before ag3_desc"
         ag3_desc = vi.sort_by{|x| x.ag_3_v}.reverse.first.option
+        ram? "After ag3_desc"
+        ram? "Before ag4_desc"
         ag4_desc = vi.sort_by{|x| x.ag_4_v}.reverse.first.option
         
-        dag_desc = sorted_votes.collect {|x| x.first.titleize}.join(', ')
+        ram? "After ag4_desc"
+
+        
+        ram? "Before winner grouping"
         if winner.votes.size > 0
-            w_states =  winner.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
-            w_cities =   winner.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
+            w_states =  winner.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
+            w_cities =   winner.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
             wl_desc = winner.option + "$$" + w_states + "$$" + w_cities
         end
+        ram? "After winner grouping"
+        ram? "Before looser grouping"
+
         if looser.votes.size > 0
-            l_states = looser.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
-            l_cities = looser.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first.titleize}.join(', ')
+            l_states = looser.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
+            l_cities = looser.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
             ll_desc = looser.option + "$$" + l_states + "$$" + l_cities
         end
+        ram? "After looser grouping"
         
         if !local_winner.nil?
             vl_desc = VoteItem.find(local_winner, :select => "vote_items.option").option
         end
 
         f = VoteFacet.find_by_vote_topic_id(self.id)
+        ram? "Before create or update facet"
         if f.nil?
             VoteFacet.create(:m => m_desc, :w => w_desc, :ag1 => ag1_desc, :ag2 => ag2_desc, :ag3 => ag3_desc, :ag4 => ag4_desc, :dag => dag_desc,
-                :wl => wl_desc, :ll => ll_desc, :vl => vl_desc, :vote_topic_id => self.id)
+                :wl => wl_desc, :ll => ll_desc, :vl => vl_desc, :vote_topic_id => self.id, :last_update_tv => self.total_votes)
         else
             f.update_attributes(:m => m_desc, :w => w_desc, :ag1 => ag1_desc, :ag2 => ag2_desc, :ag3 => ag3_desc, :ag4 => ag4_desc, :dag => dag_desc,
-                :wl => wl_desc, :ll => ll_desc, :vl => vl_desc)
+                :wl => wl_desc, :ll => ll_desc, :vl => vl_desc, :last_update_tv => self.total_votes)
             f.save
         end
-        #        create_or_update_facet id, "w", w_desc
-        #        create_or_update_facet id, "m", m_desc
-        #        create_or_update_facet id, "ag1", ag1_desc
-        #        create_or_update_facet id, "ag2", ag2_desc
-        #        create_or_update_facet id, "ag3", ag3_desc
-        #        create_or_update_facet id, "ag4", ag4_desc
-        #        create_or_update_facet id, "dag", dag_desc
-        #        create_or_update_facet id, "ws", ws_desc
-        #        create_or_update_facet id, "wc",wc_desc
-        #        create_or_update_facet id, "ls", ls_desc
-        #        create_or_update_facet id, "lc", lc_desc
-        #        create_or_update_facet id, "vl", vl_desc
+        ram? "After create or update facet"
     end
 
+    def facet_update_eligible?
+        vf = self.vote_facet
+        if self.total_votes > 0 && vf.nil?
+            return true
+        elsif !vf.nil? && vf.last_update_tv > 0
+            ratio = self.total_votes / vf.last_update_tv
+            if (ratio - 1) >= Constants::FACET_UPDATE_ELIGIBILITY_DELTA
+                return true
+            end
+        end
+        return false
+    end
+    
     def create_or_update_facet id, key, desc
         if !desc.nil?
             f = VoteFacet.vote_topic_id_equals(id).fkey_equals(key).first
@@ -431,158 +469,7 @@ class VoteTopic < ActiveRecord::Base
         end
         return true
     rescue
-        
     end
-
-    
-    def make_flash_gender_graph_stacked
-        title = Title.new(Constants::GENDER_GRAPH_TITLE)
-        title.set_style(Constants::GRAPH_TITLE_STYLE);
-        bar_stack = BarStack.new
-        vi = self.vote_items
-        labels_arr = Array.new
-        totals = Array.new
-
-        vi.each do |vv|
-            tv = vv.votes.size
-            totals << tv
-            male_val =  vv.male_votes
-            female_val =  vv.female_votes
-            
-            bar_male = BarStackValue.new(male_val, Constants::GRAPH_MALE_COLOR)
-            bar_female = BarStackValue.new(female_val, Constants::GRAPH_FEMALE_COLOR)
-
-            bar_stack.append_stack(Array.new([bar_male, bar_female]))
-            labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_AXIS_LABEL_LENGTH, :omission => '~'),Constants::GRAPH_X_AXIS_LABEL_COLOR,
-                Constants::GRAPH_X_AXIS_LABEL_FONT_SIZE, Constants::GRAPH_X_AXIS_LABEL_ANGLE)
-        end
-        #Make keys
-        keys_arr = Array.new
-        keys_arr << BarStackKey.new(Constants::GRAPH_MALE_COLOR, "Men", Constants::GRAPH_KEY_SIZE)
-        keys_arr << BarStackKey.new(Constants::GRAPH_FEMALE_COLOR, "Women", Constants::GRAPH_KEY_SIZE)
-        bar_stack.set_keys(keys_arr)
-        
-        #        bar_stack.set_tooltip('X label [#x_label#], Value [#val#]<br>Total [#total#]' )
-        bar_stack.set_tooltip('#val# of #total#')
-        
-        y = YAxis.new();
-        n = (totals.sort{|x, z| z <=> x})[0]
-        y.set_range( 0, n, (n / 5).ceil);
-        x = XAxis.new();
-
-        x.labels = labels_arr
-        
-        x.set_colour(Constants::GRAPH_AXIS_COLOR)
-        x.set_grid_colour(Constants::GRAPH_GRID_COLOR)
-        y.set_colour(Constants::GRAPH_AXIS_COLOR)
-        y.set_grid_colour(Constants::GRAPH_GRID_COLOR)
-
-        x.set_labels_from_array(labels_arr);
-
-        tooltip = Tooltip.new;
-        tooltip.set_hover();
-        chart = OpenFlashChart.new
-        chart.bg_colour = Constants::GRAPHS_BG_COLOR
-        chart.set_title(title)
-        chart.add_element(bar_stack)
-        chart.x_axis = x ;
-        chart.y_axis = y ;
-        chart.set_tooltip( tooltip );
-        return chart.to_s
-    end
-
-    def make_flash_age_graph_stacked
-        title = Title.new Constants::AGE_GRAPH_TITLE
-        title.set_style(Constants::GRAPH_TITLE_STYLE);
-        bar_stack = BarStack.new
-        
-        vi = self.vote_items
-        labels_arr= Array.new
-        totals = Array.new
-
-        vi.each do |vv|
-            totals << vv.votes.size
-            ag1 =  vv.ag_1_v
-            ag2 = vv.ag_2_v
-            ag3 = vv.ag_3_v
-            ag4 = vv.ag_4_v
-            bar_stack.append_stack(Array.new([BarStackValue.new(ag1,Constants::GRAPH_AG1_COLOR),
-                        BarStackValue.new(ag2,Constants::GRAPH_AG2_COLOR), BarStackValue.new(ag3, Constants::GRAPH_AG3_COLOR),
-                        BarStackValue.new(ag4,Constants::GRAPH_AG4_COLOR)]))
-            labels_arr << XAxisLabel.new(truncate(vv.option, :length => Constants::GRAPH_X_AXIS_LABEL_LENGTH, :omission => '~'),
-                Constants::GRAPH_X_AXIS_LABEL_COLOR, Constants::GRAPH_X_AXIS_LABEL_FONT_SIZE, Constants::GRAPH_X_AXIS_LABEL_ANGLE)
-        end
-        #Make keys
-        sag1 = "#{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last}"
-        sag2 = "#{Constants::AGE_GROUP_2.first} - #{Constants::AGE_GROUP_2.last}"
-        sag3 = "#{Constants::AGE_GROUP_3.first} - #{Constants::AGE_GROUP_3.last}"
-        sag4 = "#{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last}"
-
-        keys_arr = Array.new
-        keys_arr << BarStackKey.new(Constants::GRAPH_AG1_COLOR, sag1, Constants::GRAPH_KEY_SIZE)
-        keys_arr << BarStackKey.new(Constants::GRAPH_AG2_COLOR, sag2, Constants::GRAPH_KEY_SIZE)
-        keys_arr << BarStackKey.new(Constants::GRAPH_AG3_COLOR, sag3, Constants::GRAPH_KEY_SIZE)
-        keys_arr << BarStackKey.new(Constants::GRAPH_AG4_COLOR, sag4, Constants::GRAPH_KEY_SIZE)
-        bar_stack.set_keys(keys_arr)
-        
-        #        bar_stack.set_tooltip('X label [#x_label#], Value [#val#]<br>Total [#total#]' )
-        bar_stack.set_tooltip('#val# of #total#' )
-
-        y = YAxis.new();
-        n = (totals.sort{|x, z| z <=> x})[0]
-        y.set_range( 0, n, (n / 5).ceil);
-        x = XAxis.new();
-        x.labels = labels_arr
-
-        x.set_colour(Constants::GRAPH_AXIS_COLOR)
-        x.set_grid_colour(Constants::GRAPH_GRID_COLOR)
-        y.set_colour(Constants::GRAPH_AXIS_COLOR)
-        y.set_grid_colour(Constants::GRAPH_GRID_COLOR)
-        
-        tooltip = Tooltip.new;
-        tooltip.set_hover();
-
-        chart = OpenFlashChart.new
-        chart.bg_colour = Constants::GRAPHS_BG_COLOR
-        chart.set_title(title)
-        chart.add_element(bar_stack)
-
-        chart.x_axis = x ;
-        chart.y_axis = y ;
-        chart.set_tooltip( tooltip );
-        return chart.to_s
-    end
-
-    def make_flash_pie_graph(return_object)
-        pie = Pie.new
-        pie.start_angle = 35
-        pie.animate = true
-        
-        pie.colours = ["#504F7D", "#68BC52", "#47703C", "#7E271B", "#BC7E5C"]
-
-        total_votes = self.total_votes
-        vals = Array.new
-        vi = self.vote_items
-        
-        vals = Array.new
-        vi.each do |x|
-            vals << PieValue.new(x.votes.size, "#{x.option}")
-
-        end
-        pie.values = vals
-        pie.tooltip = '#val# of #total#<br>#percent# of 100%'
-        chart = OpenFlashChart.new
-        chart.bg_colour = "#ffffff"
-        chart.add_element(pie)
-        chart.x_axis = nil
-        if return_object
-            return chart
-        else
-            return chart.to_s
-        end
-    end
-
-    
 
     def what_user_voted_for(user)
         vi = self.vote_items

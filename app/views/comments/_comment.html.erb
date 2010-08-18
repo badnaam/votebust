@@ -1,7 +1,7 @@
 <div id="comment" class="comment append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
     <ul class="comment-list">
-      <li class="go_left right_mar_small" style="width:100px;">
+      <li class="go_left right-mar">
         <table class="user-info">
           <tr>
             <td rowspan="2" class="bordered-td">
@@ -12,7 +12,7 @@
             </td>
           </tr>
           <tr>
-            <td class="vote-power bld">
+            <td class="vote-power-user-info bld">
               <%= comment.user.voting_power %>
             </td>
           </tr>

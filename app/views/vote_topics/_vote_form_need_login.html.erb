@@ -1,20 +1,13 @@
 <div id="div_process_vote">
   <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
-    <% first = true %>
-    <% sort_vote_items(@vote_topic.vote_items).each_with_index do |v, i| %>
+    <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
       <li class="ui-widget-content vi">
-        <% if first && v.votes.size > 0 %>
-          <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
-          <% first = false %>
-        <% else %>
           <span class="ui-icon ui-icon-document list-icon"></span>
-        <% end  %>
         <% percent = get_vote_percent v, @vote_topic.total_votes %>
         <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
       </li>
-      <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes), Constants::PERCENT_COLOR[i] %>
+      <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes) %>
     <% end %>
-
     <% if @vote_open %>
       <li>
         <span class=small-button><%= link_to "Login to Vote", login_path, :id => 'vote_login_link' %></span>

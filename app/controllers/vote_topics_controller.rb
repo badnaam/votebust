@@ -46,6 +46,8 @@ class VoteTopicsController < ApplicationController
             @vote_topic.status = 'a'
             @vote_topic.expires = 2.weeks.from_now
             if @vote_topic.save
+                @vote_topic.poster.delay.award_points(@vote_topic.power_offered * -1) if @vote_topic.power_offered > 0
+                @vote_topic.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
                 if !@vote_topic.friend_emails.nil?
                     #                    @vote_topic.send_later :deliver_friendly_vote_emails!
                     @vote_topic.delay.deliver_friendly_vote_emails!
@@ -69,7 +71,7 @@ class VoteTopicsController < ApplicationController
             if !params[:sel_response].blank?
                 @selected_response = VoteItem.find(params[:sel_response]) 
             end
-            @p_chart = @vote_topic.make_flash_pie_graph(true)
+#            @p_chart = @vote_topic.make_flash_pie_graph(true)
         end
         respond_to do |format|
             format.js
@@ -113,7 +115,7 @@ class VoteTopicsController < ApplicationController
                 end
                 #initiate post processing
                 @user.update_attribute(:processing_vote, true)
-                @vote_topic.delay.post_process( @selected_response, @user, true)
+                @vote_topic.delay.post_process(@selected_response, @user, true)
             else
                 flash[:notice] = "Please wait while we process your previous vote"
             end
@@ -165,6 +167,10 @@ class VoteTopicsController < ApplicationController
             @vote_topics = VoteTopic.get_all_votes_user(params[:user_id], params[:page]) #todo : pagination?
         when "voted"
             @vote_topics = VoteTopic.get_voted_vote_topics(params[:user_id], false, params[:page]) #todo : pagination?
+        when "featured"
+            @vote_topics = VoteTopic.get_featured_votes(true, nil) #todo : pagination?
+        when "featured_all"
+            @vote_topics = VoteTopic.get_featured_votes(false, params[:page]) #todo : pagination?
         else
             @listing_type = "all"
             @vote_topics = VoteTopic.general_list params[:page]
@@ -258,7 +264,6 @@ class VoteTopicsController < ApplicationController
         @vote_topic.status = 'p'
         respond_to do |format|
             if @vote_topic.save
-                @user.award_points(Constants::NEW_VOTE_POINTS)
                 format.html { redirect_to(:action => :show, :id => @vote_topic.id, :preview_only => true, :user_id => @user.id) }
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else

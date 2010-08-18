@@ -46,30 +46,13 @@
             <%= render :partial => 'layouts/page_header' %>
           <% end  %>
         </div> <!-- end search yield -->
-        <div class="content span-18  bordered" id="content">
+        <div class="content span-24 last" id="content">
           <div class="span-18 last" id="flash_messages">
             <%= render :partial => 'layouts/flash_msg' %>
           </div>
-
-         <!-- <div class="span-18 last">
-            <div class="crumb ui-widget-header   normal-pad right-mar"> -->
-              <%# unless controller.controller_name == 'home' && controller.action_name == 'index' %>
-                <%#= render_navigation :renderer => :breadcrumbs, :join_with => "&nbsp;&gt;&nbsp;" %>
-              <%# end  %>
-           <!-- </div>
-          </div> -->
           <%= yield %>
         </div> <!-- end content div -->
 
-        <div class="right_nav span-6 last">
-          <div class="span-6 last div-search-form"
-          <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
-            <%= text_field_tag :search_term, "Search",  :class => 'search-term' %>
-                 <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
-            <% end  %>
-          </div>
-          <%= yield :right_nav %>
-        </div>
         <!-- <div class="push"> </div>-->
       </div> <!-- end content_container -->
       <%= render :partial => "/layouts/footer" %>

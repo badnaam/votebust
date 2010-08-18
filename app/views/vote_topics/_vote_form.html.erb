@@ -11,46 +11,32 @@
     <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
     <%= hidden_field_tag :sel_response, @selected_response.nil? ? nil: @selected_response.id %>
     <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
-      <% first = true %>
-      <% sort_vote_items(@vote_topic.vote_items).each_with_index do |v, i| %>
-        <% if !@selected_response.nil?  && @selected_response == v%>
-          <li class="ui-state-active vi">
-            <% if first && (v.votes.size) > 0 %>
-              <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
-              <% first = false %>
-            <% else %>
-              <span class="ui-icon ui-icon-document list-icon"></span>
-            <% end  %>
-            <span id="rt_<%= @selected_response.id %>" class="vote-item"><%= (get_vote_percent @selected_response, @vote_topic.total_votes) %></span>
+      <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
+        <li class="ui-widget-content vi">
+          <span class="ui-icon ui-icon-document list-icon"></span>
+          <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
+          <% if !@selected_response.nil?  && @selected_response == v%>
             <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
             <span class ="small-button"><a href="#comment_form" id="goto_comment_link">Comment</a></span>
-        <% else %>
-          <li class="ui-widget-content vi">
-            <% if first && v.votes.size > 0 %>
-              <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
-              <% first = false %>
-            <% else %>
-              <span class="ui-icon ui-icon-document list-icon"></span>
-            <% end  %>
-            <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
-          <% end  %>
-          <% if action == 'process' %>
+          <% elsif action == 'process'%>
             <%= radio_button_tag "response", v.id %>
-          <% end #end of if selected_response.nil? %>
+          <% end %>
         </li>
-        <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes), Constants::PERCENT_COLOR[i] %>
+        <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes) %>
       <% end %>
-      <li>
-        <% if action == 'process' %>
-          <% if @vote_open == true %>
-            <% if !@reg_complete %>
+
+      <% if action == 'process' %>
+
+        <% if @vote_open == true %>
+          <% if !@reg_complete %>
+            <li class="vote-action">
               <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
-            <% else %>
-              <span class="small-button"><button id="vote_link">Vote</button></span>
-            <% end  %>
+            </li>
+          <% else %>
+            <%= get_the_vote_button %>
           <% end  %>
         <% end  %>
-      </li>
+      <% end  %>
     </ul>
   <% end  %>
 </div>

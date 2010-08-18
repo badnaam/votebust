@@ -3,8 +3,8 @@ class Constants
     USER_PROFILE_IMAGE_SIZE = "32x32"
     MISSING_IMAGE_FILE = 'small/missing.png'
     GRAPHS_PATH = File.join(Rails.root, "public/assets/images/graphs")
-    VOTE_PROCESS_FREQ = 30.seconds
-    VOTE_REFRESH_INTERVAL = 200000
+    VOTE_PROCESS_FREQ = 30.minutes
+    VOTE_REFRESH_INTERVAL = 2000000
     MAX_COMMENT_LENGTH = 500
     LISTINGS_PER_PAGE = 3
     PROXIMITY = 50
@@ -29,7 +29,6 @@ class Constants
     GRAPH_AG2_COLOR = '#50284A'
     GRAPH_AG3_COLOR = '#2AB597'
     GRAPH_AG4_COLOR = '#B00E21'
-    PERCENT_COLOR = ["#6766A8", "#6766A8", "#6766A8", "#6766A8", "#6766A8"]
 
     LARGE_GRAPH_WIDTH = 650
     LARGE_GRAPH_HEIGHT = 450
@@ -71,5 +70,16 @@ class Constants
     NEW_VOTE_POINTS = 10
     VOTE_POINTS = 1
     TRACK_POINTS = 1
+    MIN_VOTE_FOR_FEATURED = 50
     #########End Points########
+
+    FACET_UPDATE_ELIGIBILITY_DELTA = 0.15
+    VOTE_TOPIC_FIELDS = 'vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
+                        categories.id, categories.name, users.id, users.username, vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city,
+                        users.state, users.zip, vote_topics.power_offered, vote_topics.website'
+    VOTE_TOPIC_FIELDS_SHOW = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
+                             vote_topics.created_at,vote_topics.total_votes, categories.id, categories.name,  users.id, users.username,vote_items.option, total_votes,
+                             comments.id, comments.body, comments.user_id, comments.vote_topic_id, vote_facets.m, vote_facets.w, vote_facets.ag1, vote_facets.ag2, vote_facets.ag3,
+                             vote_facets.ag4, vote_facets.dag, vote_facets.wl, vote_facets.ll, vote_facets.vl,, vote_topics.trackings_count, vote_topics.power_offered,
+                             vote_topics.website'
 end

@@ -19,16 +19,22 @@ $j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash
     var id_val = elem_id.slice("rt_".length, elem_id.length);
     var id = "response_" + id_val;
     $j("<input type=radio id=" + id + " value= " + id_val + " name=response " + "/>").insertAfter($j(this));
+
                });
+               <% if (@selected_response.get_vote_percent_num @vote_topic.total_votes) > 0 %>
+               $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
+    '<%=  @selected_response.get_vote_percent_num @vote_topic.total_votes%>%');
+               <% else %>
+                 $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').remove();
+               <% end  %>
                $j('#vote_form').attr('action', '<%= process_votes_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
                <% if !@reg_complete %>
                  $j('#vote_items_list').append("<li>" + <%= link_to "Complete Registration to Vote", edit_user_path(@user) %> + "</li>");
                <% else %>
-      $j('#vote_items_list').append("<li><span class='small-button'<button id='vote_link'>Vote</button></span></li>");
+    
+          $j('#vote_items_list').append("<%= escape_javascript(get_the_vote_button) %>");
     <% end  %>
-
     $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
-
   <% end  %>
 <% else %>
 

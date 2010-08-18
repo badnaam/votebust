@@ -7,7 +7,7 @@
           //$('#loading').hide();
           $('#tabs').animate({opacity:1.0}, 'slow', function() {});
         }
-        }});
+      }});
   });
   //]]>
 </script>
@@ -20,16 +20,16 @@
   <div id="tabs" class="normal-pad  ui-widget-content">
     <ul>
       <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "top")%>"><span>Most Voted</span></a></li>
+      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
+      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "featured") %>"><span>Featured</span></a></li>
       <% if current_user %>
-        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "local")%>"><span>Near You <%= current_user.zip %></span></a></li>
+        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "local")%>"><span>In <%= current_user.city.titleize %></span></a></li>
         <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
       <% end  %>
-      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
     </ul>
   </div>
 </div>
 <% content_for :right_nav do %>
   <%= render :partial => "latest_votes" %>
   <%= render :partial => "unan_votes" %>
-  <%= render :partial => "top_voters" %>
 <% end %>

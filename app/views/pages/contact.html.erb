@@ -1,0 +1,31 @@
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function() {
+    $('#contact_submit').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
+      $('#contact_form').submit();
+      return false;
+    });
+  });
+  //]]>
+</script>
+<div class="span-24 last">
+  <div class="normal-pad ui-widget-content prepend-top " id="">
+    <h4 class="ui-widget-header top-pad bottom-pad">Contact Us</h4>
+    <% semantic_form_for @c, :url => contact_receive_path, :html => {:id => "contact_form"} do |f| %>
+      <%= f.semantic_errors %>
+      <% f.inputs do %>
+        <%= f.input :name,  :input_html => {:style => "width:30%"} %>
+        <%= f.input :email,  :input_html => {:style => "width:30%"} %>
+        <%= f.input :subject,  :input_html => {:style => "width:30%"} %>
+        <%= f.input :msg_type,  :input_html => {:style => "width:30%"}, :label => "Message Type", :collection => ContactMessage::MESSAGE_TYPE, :as => :select %>
+        <%= f.input :body,  :input_html => {:style => "width:400px;height:100px"}, :label => "Message" %>
+        <li class="bld">Please enter the text as it appears in the image.</li>
+        <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
+        <li>
+          <span class="small-button"><button id="contact_submit">Send Message</button></span>
+        </li>
+      <% end  %>
+    <% end  %>
+
+  </div>
+</div>

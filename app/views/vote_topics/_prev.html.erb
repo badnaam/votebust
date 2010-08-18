@@ -2,7 +2,6 @@
   //<![CDATA[
   $j(document).ready(function(){
     $j("#vote_confirm_link").button({icons:{primary:'ui-icon-circle-check'}}).click(function() {
-      //$('#confirm_vote_form').trigger("submit");
       $j('#confirm_vote_form').submit();
     });
     $j('#vote_edit_link').button({icons:{primary:'ui-icon-bookmark'}});
@@ -21,12 +20,7 @@
       <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
       <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
       <span class="small">
-        <% if !@vote_topic.anon %>
-          <%#= "By #{link_to @vote_topic.user.username, @vote_topic.user} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
           <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
-        <% else %>
-          <%= "By Anonymous on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
-        <% end  %>
       </span>
     </div>
     <div id="div_process_vote">
