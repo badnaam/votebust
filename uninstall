@@ -18547,4 +18547,94 @@ RAM USAGE Job End: 199668K
 RAM USAGE Job Start: 200124K
 RAM USAGE Job End: 200388K
 2010-08-17T23:06:42-0700: [Worker(delayed_job host:ubuntu pid:17214)] PeriodicFacetJob completed after 0.4885
-2010-08-17T23:06:42-0700: [Worker(delayed_job host:ubuntu 
+2010-08-17T23:06:42-0700: [Worker(delayed_job host:ubuntu pid:17214)] 1 jobs processed at 1.8269 j/s, 0 failed ...
+2010-08-17T23:08:43-0700: [Worker(delayed_job host:ubuntu pid:17214)] acquired lock on PeriodicFacetJob
+RAM USAGE Job Start: 200388K
+RAM USAGE Job End: 200388K
+2010-08-17T23:08:43-0700: [Worker(delayed_job host:ubuntu pid:17214)] PeriodicFacetJob completed after 0.5044
+2010-08-17T23:08:43-0700: [Worker(delayed_job host:ubuntu pid:17214)] 1 jobs processed at 1.7914 j/s, 0 failed ...
+2010-08-17T23:10:43-0700: [Worker(delayed_job host:ubuntu pid:17214)] acquired lock on PeriodicFacetJob
+RAM USAGE Job Start: 200388K
+RAM USAGE Job End: 200388K
+2010-08-17T23:10:44-0700: [Worker(delayed_job host:ubuntu pid:17214)] PeriodicFacetJob completed after 0.5844
+2010-08-17T23:10:44-0700: [Worker(delayed_job host:ubuntu pid:17214)] 1 jobs processed at 1.5012 j/s, 0 failed ...
+2010-08-17T23:12:44-0700: [Worker(delayed_job host:ubuntu pid:17214)] acquired lock on PeriodicFacetJob
+RAM USAGE Job Start: 200388K
+RAM USAGE Job End: 200652K
+2010-08-17T23:12:45-0700: [Worker(delayed_job host:ubuntu pid:17214)] PeriodicFacetJob completed after 0.4884
+2010-08-17T23:12:45-0700: [Worker(delayed_job host:ubuntu pid:17214)] 1 jobs processed at 1.8224 j/s, 0 failed ...
+^C
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ clear
+[H[2J]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ git add ..[K
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ git commit -m 'static pages, feedback'
+[master d835d0e] static pages, feedback
+ 55 files changed, 20561 insertions(+), 499 deletions(-)
+ create mode 100644 app/controllers/pages_controller.rb
+ create mode 100644 app/helpers/pages_helper.rb
+ create mode 100644 app/models/contact_message.rb
+ rewrite app/views/layouts/_footer.html.erb (80%)
+ create mode 100644 app/views/layouts/normal_page.html.erb
+ create mode 100644 app/views/notifier/contact_message.text.html.erb
+ create mode 100644 app/views/pages/about.html.erb
+ create mode 100644 app/views/pages/contact.html.erb
+ create mode 100644 app/views/pages/disclaimer.html.erb
+ create mode 100644 app/views/pages/faq.html.erb
+ create mode 100644 app/views/pages/privacy.html.erb
+ create mode 100644 app/views/pages/terms.html.erb
+ rewrite app/views/password_resets/edit.html.erb (99%)
+ rewrite app/views/password_resets/new.html.erb (99%)
+ rewrite app/views/vote_topics/_vote_form.html.erb (61%)
+ create mode 100644 db/migrate/20100818001113_create_contact_messages.rb
+ rewrite lib/periodic_facet_job.rb (76%)
+ create mode 100644 lib/periodic_small_job.rb
+ create mode 100644 test/fixtures/contact_messages.yml
+ create mode 100644 test/functional/pages_controller_test.rb
+ create mode 100644 test/unit/contact_message_test.rb
+ create mode 100644 test/unit/helpers/pages_helper_test.rb
+ create mode 100644 uninstall
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ clear
+[H[2J]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ git push origin master
+Counting objects: 139, done.
+Delta compression using up to 2 threads.
+Compressing objects:   1% (1/79)   Compressing objects:   2% (2/79)   Compressing objects:   3% (3/79)   Compressing objects:   5% (4/79)   Compressing objects:   6% (5/79)   Compressing objects:   7% (6/79)   Compressing objects:   8% (7/79)   Compressing objects:  10% (8/79)   Compressing objects:  11% (9/79)   Compressing objects:  12% (10/79)   Compressing objects:  13% (11/79)   Compressing objects:  15% (12/79)   Compressing objects:  16% (13/79)   Compressing objects:  17% (14/79)   Compressing objects:  18% (15/79)   Compressing objects:  20% (16/79)   Compressing objects:  21% (17/79)   Compressing objects:  22% (18/79)   Compressing objects:  24% (19/79)   Compressing objects:  25% (20/79)   Compressing objects:  26% (21/79)   Compressing objects:  27% (22/79)   Compressing objects:  29% (23/79)   Compressing objects:  30% (24/79)   Compressing objects:  31% (25/79)   Compressing objects:  32% (26/79)   Compressing objects:  34% (27/79)   Compressing objects:  35% (28/79)   Compressing objects:  36% (29/79)   Compressing objects:  37% (30/79)   Compressing objects:  39% (31/79)   Compressing objects:  40% (32/79)   Compressing objects:  41% (33/79)   Compressing objects:  43% (34/79)   Compressing objects:  44% (35/79)   Compressing objects:  45% (36/79)   Compressing objects:  46% (37/79)   Compressing objects:  48% (38/79)   Compressing objects:  49% (39/79)   Compressing objects:  50% (40/79)   Compressing objects:  51% (41/79)   Compressing objects:  53% (42/79)   Compressing objects:  54% (43/79)   Compressing objects:  55% (44/79)   Compressing objects:  56% (45/79)   Compressing objects:  58% (46/79)   Compressing objects:  59% (47/79)   Compressing objects:  60% (48/79)   Compressing objects:  62% (49/79)   Compressing objects:  63% (50/79)   Compressing objects:  64% (51/79)   Compressing objects:  65% (52/79)   Compressing objects:  67% (53/79)   Compressing objects:  68% (54/79)   Compressing objects:  69% (55/79)   Compressing objects:  70% (56/79)   Compressing objects:  72% (57/79)   Compressing objects:  73% (58/79)   Compressing objects:  74% (59/79)   Compressing objects:  75% (60/79)   Compressing objects:  77% (61/79)   Compressing objects:  78% (62/79)   Compressing objects:  79% (63/79)   Compressing objects:  81% (64/79)   Compressing objects:  82% (65/79)   Compressing objects:  83% (66/79)   Compressing objects:  84% (67/79)   Compressing objects:  86% (68/79)   Compressing objects:  87% (69/79)   Compressing objects:  88% (70/79)   Compressing objects:  89% (71/79)   Compressing objects:  91% (72/79)   Compressing objects:  92% (73/79)   Compressing objects:  93% (74/79)   Compressing objects:  94% (75/79)   Compressing objects:  96% (76/79)   Compressing objects:  97% (77/79)   Compressing objects:  98% (78/79)   Compressing objects: 100% (79/79)   Compressing objects: 100% (79/79), done.
+Writing objects:   1% (1/81)   Writing objects:   2% (2/81)   Writing objects:   3% (3/81)   Writing objects:   4% (4/81)   Writing objects:   6% (5/81)   Writing objects:   7% (6/81)   Writing objects:   8% (7/81)   Writing objects:   9% (8/81)   Writing objects:  11% (9/81)   Writing objects:  12% (10/81)   Writing objects:  13% (11/81)   Writing objects:  14% (12/81)   Writing objects:  16% (13/81)   Writing objects:  17% (14/81)   Writing objects:  18% (15/81)   Writing objects:  19% (16/81)   Writing objects:  20% (17/81)   Writing objects:  22% (18/81)   Writing objects:  23% (19/81)   Writing objects:  24% (20/81)   Writing objects:  25% (21/81)   Writing objects:  27% (22/81)   Writing objects:  28% (23/81)   Writing objects:  29% (24/81)   Writing objects:  30% (25/81)   Writing objects:  32% (26/81)   Writing objects:  33% (27/81)   Writing objects:  34% (28/81)   Writing objects:  35% (29/81)   Writing objects:  37% (30/81)   Writing objects:  38% (31/81)   Writing objects:  39% (32/81)   Writing objects:  40% (33/81)   Writing objects:  41% (34/81)   Writing objects:  43% (35/81)   Writing objects:  44% (36/81)   Writing objects:  45% (37/81)   Writing objects:  46% (38/81)   Writing objects:  48% (39/81)   Writing objects:  49% (40/81)   Writing objects:  50% (41/81)   Writing objects:  51% (42/81)   Writing objects:  53% (43/81)   Writing objects:  54% (44/81)   Writing objects:  55% (45/81)   Writing objects:  56% (46/81)   Writing objects:  58% (47/81)   Writing objects:  59% (48/81)   Writing objects:  60% (49/81)   Writing objects:  61% (50/81)   Writing objects:  62% (51/81)   Writing objects:  64% (52/81)   Writing objects:  65% (53/81)   Writing objects:  66% (54/81)   Writing objects:  67% (55/81)   Writing objects:  69% (56/81)   Writing objects:  70% (57/81)   Writing objects:  71% (58/81)   Writing objects:  72% (59/81)   Writing objects:  74% (60/81)   Writing objects:  75% (61/81)   Writing objects:  76% (62/81)   Writing objects:  77% (63/81)   Writing objects:  79% (64/81)   Writing objects:  80% (65/81)   Writing objects:  81% (66/81)   Writing objects:  82% (67/81)   Writing objects:  83% (68/81)   Writing objects:  85% (69/81)   Writing objects:  86% (70/81)   Writing objects:  87% (71/81)   Writing objects:  88% (72/81)   Writing objects:  90% (73/81)   Writing objects:  91% (74/81)   Writing objects:  92% (75/81)   Writing objects:  93% (76/81)   Writing objects:  95% (77/81)   Writing objects:  96% (78/81)   Writing objects:  97% (79/81)   Writing objects:  98% (80/81)   Writing objects: 100% (81/81)   Writing objects: 100% (81/81), 73.11 KiB, done.
+Total 81 (delta 50), reused 0 (delta 0)
+To git@github.com:badnaam/votebust.git
+   826361e..d835d0e  master -> master
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ scrp[Kipt/delayed_job stop
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+/home/asit/Apps/nap_on_it/config/initializers/geokit_for_named_scope.rb:40: warning: already initialized constant VALID_FIND_OPTIONS
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ra[Kake ts:stop
+(in /home/asit/Apps/nap_on_it)
+Stopped search daemon (pid 26644).
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ clear
+[H[2J]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ s[Kls-[K -al /usr/local/
+bin/     etc/     games/   include/ lib/     man/     sbin/    share/   src/     var/     
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/local/bin/ruby 
+lrwxrwxrwx 1 root root 16 2010-04-22 17:09 [0m[01;36m/usr/local/bin/ruby[0m -> [01;32m/usr/bin/ruby1.8[0m
+[m]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls =[K-al/[K /ur[Ksr/bin/ru
+ruby         ruby1.8      ruby-prof    runcon       run_erl      run-mailcap  
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ru
+ruby         ruby1.8      ruby-prof    runcon       run_erl      run-mailcap  
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ru
+ruby         ruby1.8      ruby-prof    runcon       run_erl      run-mailcap  
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ru[K[K
+Display all 1541 possibilities? (y or n)
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ru
+ruby         ruby1.8      ruby-prof    runcon       run_erl      run-mailcap  
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ruby
+ruby       ruby1.8    ruby-prof  
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ruby
+ruby       ruby1.8    ruby-prof  
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ruby
+lrwxrwxrwx 1 root root 7 2010-04-22 17:08 [0m[01;36m/usr/bin/ruby[0m -> [01;32mruby1.8[0m
+[m]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/ruby[K[K[K[Ken
+enc2xs         enchant        enchant-lsmod  env            envsubst       
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/en
+enc2xs         enchant        enchant-lsmod  env            envsubst       
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ ls -al /usr/bin/en[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kscript/plugin --help
+ruby: /lib/libc.so.6: version `GLIBC_2.11' not found (required by ruby)
+]0;asit@ubuntu: ~/Apps/nap_on_itasit@ubuntu:~/Apps/nap_on_it$ exit
+exit
+
+Script done on Wed 18 Aug 2010 12:01:43 AM PDT

@@ -8,6 +8,10 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+    RUBY_HEAP_MIN_SLOTS=500000
+    RUBY_HEAP_SLOTS_INCREMENT=250000
+    RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+    RUBY_GC_MALLOC_LIMIT=50000000
     #    Rails.cache.clear
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -40,6 +44,13 @@ Rails::Initializer.run do |config|
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names.
     config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
+    config.gem "mogli"
+    config.gem "facebooker2"
+    config.gem "json"
+    config.gem "authlogic"
+    config.gem "oauth"
+    config.gem "oauth2"
+    config.gem "authlogic-connect"
 
     #    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
     #    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
@@ -57,12 +68,12 @@ Rails::Initializer.run do |config|
         config.load_paths << "#{RAILS_ROOT}/app/#{dir}"
     end
     
-    config.gem "friendly_id"
+    #    config.gem "friendly_id"
     config.gem "geokit"
     config.gem(
         'thinking-sphinx',
         :lib     => 'thinking_sphinx',
-        :version => '1.3.16'
+        :version => '1.3.18'
     )
     config.gem 'mime-types', :lib => "mime/types",     :version => '1.16'
     config.gem "authlogic", :source => "http://gems.github.com"

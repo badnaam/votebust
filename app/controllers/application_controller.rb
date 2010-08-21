@@ -3,9 +3,10 @@
 
 class ApplicationController < ActionController::Base
     layout "main"
+    include Facebooker2::Rails::Controller
     
     helper :all # include all helpers, all the time
-    protect_from_forgery # See ActionController::RequestForgeryProtection for details
+#    protect_from_forgery # See ActionController::RequestForgeryProtection for details
     after_filter :discard_flash_if_xhr
     #    before_filter :set_current_user
 

@@ -1,4 +1,4 @@
-<% if ["category", "tracked_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
+<% if ["category", "featured_all", "tracked_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
   <%print_paginate = true%>
   $('#votes').html("<%= escape_javascript(render :partial => 'vote_list')%>");
   <%# elsif "voted" == @listing_type %>
