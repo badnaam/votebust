@@ -1,4 +1,12 @@
-
+<%content_for :fb_metas do %>
+  <meta property="og:title" content="<%= @vote_topic.header %>"/>
+  <meta property="og:type" content="<%= @vote_topic.category.name %>"/>
+  <meta property="og:url" content="http://web1.tunnlr.com:11299<%= url_for(:controller => "vote_topics", :action => "show", :id => @vote_topic.id) %>"/>
+  <meta property="og:site_name" content="votechek"/>
+  <meta property="og:description" content="<%= @vote_topic.topic[0..20]%>"/>
+  <meta property="fb:app_id" content="<%= APP_CONFIG['facebook_app_id'] %>"/>
+<% end  %>
+  
 <script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
 <script type="text/javascript">
   (function() {
@@ -151,7 +159,7 @@
 
     <% if !@vote_topic.power_offered.nil? && @vote_topic.power_offered > 0
       powered = true
-     end  %>
+    end  %>
     <table class="vote-stats-table" style="margin-bottom: 0">
       <tr>
         <td rowspan ="<%= powered == true ? 2 : 1 %>" style="vertical-align:bottom;text-align:left">
@@ -192,7 +200,9 @@
       <tr>
         <td style="vertical-align:top;text-align:right">
           <ul class="somed-list-inline">
-            <li><a name="fb_share" type="icon_link" share_url="<%= url_for(@vote_topic) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
+            <li>
+              <fb:like href="http://web1.tunnlr.com:11299<%= url_for(:controller => "vote_topics", :action => "show", :id => @vote_topic.id) %>"></fb:like>
+            </li>
             <li>
               <a href="<%= "http://twitter.com/home?status=#{@vote_topic.header} #{url_for(@vote_topic)}"%>">
                 <span class="so-med tw-icon">
@@ -270,3 +280,25 @@
 </div>
 
 <div class="push"></div>
+<div id="fb-root">
+</div>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: "<%= APP_CONFIG['facebook_app_id']%>"  ,
+      status: true,
+      cookie: true,
+      xfbml: true}
+  );
+  };
+  (function() {
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }()
+);
+</script>

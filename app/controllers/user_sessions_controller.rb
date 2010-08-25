@@ -25,7 +25,6 @@ class UserSessionsController < ApplicationController
                 if @user_session.registration_complete?
                     flash[:notice] = "Welcome #{current_user.username}"
                     #award points for completing registration
-                    
                     redirect_back_or_default root_url
                 else
                     flash[:notice] = "Welcome back! Please complete required registration details before continuing.."

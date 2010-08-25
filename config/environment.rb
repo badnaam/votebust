@@ -44,13 +44,13 @@ Rails::Initializer.run do |config|
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names.
     config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
-    config.gem "mogli"
-    config.gem "facebooker2"
+#    config.gem "mogli"
+#    config.gem "facebooker2"
     config.gem "json"
     config.gem "authlogic"
-    config.gem "oauth"
-    config.gem "oauth2"
-    config.gem "authlogic-connect"
+#    config.gem "oauth"
+#    config.gem "oauth2"
+#    config.gem "authlogic-connect"
 
     #    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
     #    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'

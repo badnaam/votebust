@@ -1,5 +1,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <%= yield :fb_metas %>
   <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
   <% unless (yield :title).blank? || (yield :title) == t("logo") %>

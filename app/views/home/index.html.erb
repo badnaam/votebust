@@ -23,6 +23,7 @@
       <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
       <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "featured") %>"><span>Featured</span></a></li>
       <% if current_user %>
+        <% local = current_user.city.nil? ? "Local" : current_user.city.titleize %>
         <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "local")%>"><span>In <%= current_user.city.titleize %></span></a></li>
         <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
       <% end  %>
@@ -30,6 +31,35 @@
   </div>
 </div>
 <% content_for :right_nav do %>
+  <div class="span-6 last  prepend-top ui-widget-content">
+    <fb:activity site="web1.tunnlr.com" recommendations="true" width="230" height="500" border_color="#DDDDDD" ></fb:activity>
+  </div>
   <%= render :partial => "latest_votes" %>
   <%= render :partial => "unan_votes" %>
+  <div class="span-6 last  prepend-top ui-widget-content">
+    <fb:facepile max-rows="5" width="230"></fb:facepile>
+  </div>
 <% end %>
+
+<div id="fb-root">
+</div>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: "<%= APP_CONFIG['facebook_app_id']%>"  ,
+      status: true,
+      cookie: true,
+      xfbml: true}
+  );
+  };
+  (function() {
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }()
+);
+</script>
