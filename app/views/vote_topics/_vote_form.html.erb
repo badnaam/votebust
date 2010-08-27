@@ -1,9 +1,3 @@
-<script type="text/javascript">
-  //<![CDATA[
-  
-  
-  //]]>
-</script>
 
 <div id="div_process_vote">
   <% form_tag submit_url, :id => "vote_form" do |f| %>
@@ -13,7 +7,7 @@
     <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
       <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
         <li class="">
-          <span class="ui-icon ui-icon-document list-icon"></span>
+          <span class="ui-icon ui-icon-document list-icon selected-vote" id=<%= v.id %>></span>
           <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
           <% if !@selected_response.nil?  && @selected_response == v%>
             <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
@@ -26,7 +20,6 @@
       <% end %>
 
       <% if action == 'process' %>
-
         <% if @vote_open == true %>
           <% if !@reg_complete %>
             <li class="vote-action">

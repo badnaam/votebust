@@ -1,9 +1,9 @@
-if ($j('#comments_<%= @comment.vi_option.gsub(/\s/,'') %> .pagination').length > 0) {
-  $j('#comments_<%= @comment.vi_option.gsub(/\s/,'') %> .pagination').first().after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+if ($('#comments_<%= @comment.vi_option.gsub(/\s/,'') %> .pagination').length > 0) {
+  $('#comments_<%= @comment.vi_option.gsub(/\s/,'') %> .pagination').first().after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
 } else {
-  $j('#comments_<%= @comment.vi_option.gsub(/\s/,'') %>').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
+  $('#comments_<%= @comment.vi_option.gsub(/\s/,'') %>').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
 }
 
-$j('#comment_body').val("");
-update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
-$j('#comment_status').html('Comment posted under <%= @comment.vi_option %>');
+$('#comment_body').val("");
+update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
+$('#comment_status').html('Comment posted under <%= @comment.vi_option %>');

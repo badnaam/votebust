@@ -27,26 +27,25 @@
   }
 
   
-  $j(document).ready(function() {
-    $j('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$j(anchor.hash).html("Couldn't load this tab. \n\
+  $(document).ready(function() {
+    $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. \n\
         We'll try to fix this as soon as possible.");
         },  dataType:'script', success:function(){
         }}});
 
-
 <%if @vote_open%>
       function updatePageElems() {
-        showLoading($j('#vote_loading'));
+        showLoading($('#vote_loading'));
   <%if @user%>
-          $j.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
-          {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
-            hideLoading($j('#vote_loading'));
+          $.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
+          {sel_response:$('#sel_response').val(), reg_complete:$('#reg_complete').val()}, function(data){
+            hideLoading($('#vote_loading'));
           },
           'script');
   <%else%>
-          $j.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
-          {sel_response:$j('#sel_response').val(), reg_complete:$j('#reg_complete').val()}, function(data){
-            hideLoading($j('#vote_loading'));
+          $.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
+          {sel_response:$('#sel_response').val(), reg_complete:$('#reg_complete').val()}, function(data){
+            hideLoading($('#vote_loading'));
           },'script');
   <%end%>
       }
@@ -54,50 +53,51 @@
         updatePageElems();
       }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
 <%end%>
-    $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
-    $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}, text : false});
-    $j('#goto_comment_link').button({text:false, icons:{primary:'ui-icon-comment'}});
-    $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
+
+    $('#vote_link').button({icons:{primary:'ui-icon-person'}});
+    $('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}, text : false});
+    $('#goto_comment_link').button({text:false, icons:{primary:'ui-icon-comment'}});
+    $('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
     
-    $j('#vote_link').live('click', function() {
+    $('#vote_link').live('click', function() {
       checkVoteSelected();
       return false;
     });
  
-    $j('#cancel_vote_link').live('click',function() {
-      $j('#vote_form').submit();
+    $('#cancel_vote_link').live('click',function() {
+      $('#vote_form').submit();
       return false;
     });
 
-    $j('#comment_submit').button({icons:{primary:'ui-icon-comment'}}).click(function() {
-      $j('#new_comment').submit();
+    $('#comment_submit').button({icons:{primary:'ui-icon-comment'}}).click(function() {
+      $('#new_comment').submit();
       return false;
     });
 
-    $j('#track_link').live('click', function() {
-      $j.post($j(this).attr('href'), function(){});
+    $('#track_link').live('click', function() {
+      $.post($(this).attr('href'), function(){});
       return false;
     });
     
-    $j('#vote_form').submit(function (){
+    $('#vote_form').submit(function (){
       showLoading('#vote_loading')
-      $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
+      $.post($(this).attr('action'), $(this).serialize(), function(data) {
         hideLoading('#vote_loading');
       }, "script");
       return false;
     });
 
-    $j('#cancel_vote_form').submit(function (){
+    $('#cancel_vote_form').submit(function (){
       showLoading('#vote_loading')
-      $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
+      $.post($(this).attr('action'), $(this).serialize(), function(data) {
         hideLoading('#vote_loading');
       }, "script");
       return false;
     });
 
-    $j('#new_comment').submit(function (){
+    $('#new_comment').submit(function (){
       showLoading('#com_submit_loading')
-      $j.post($j(this).attr('action'), $j(this).serialize(), function(data) {
+      $.post($(this).attr('action'), $(this).serialize(), function(data) {
         hideLoading('#com_submit_loading');
       }, "script");
       return false;
@@ -105,11 +105,11 @@
 
 
 <% if @user %>
-      $j('#comment_body').keyup(function() {
-        update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
+      $('#comment_body').keyup(function() {
+        update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
       });
       //and fire it on doc ready, too
-      update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $j('#comment_body')[0], $j('#limit_status'));
+      update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
 <%end%>
   });
   //]]>

@@ -11,10 +11,10 @@
   <% end  %>
   <title><%= @title %> </title>
 
-  <%#= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes","/stylesheets/css/bb/jquery-ui-1.8.2.custom.css", :cache => "base" %>
+<%#= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes","/stylesheets/css/bb/jquery-ui-1.8.2.custom.css", :cache => "base" %>
   <%= stylesheet_link_tag "screen", "custom", "formtastic", "jquery-ui-1.8.2.custom.css", :cache => "base" %>
   <%= stylesheet_link_tag "print", :media => "print" %>
-  
+
   <!--[if IE]>
 <style type="text/css">
 .clearfix {
@@ -41,9 +41,5 @@
     });
     //]]>
   </script>
-  <% if controller.controller_name == 'vote_topics' && controller.action_name == 'show' %>
-    <%= javascript_include_tag 'common_alt.js',  'swfobject.js', :cache => 'base_alt' %>
-  <% else %>
-    <%= javascript_include_tag 'common.js', 'application.js', :cache => 'base' %>
-  <% end  %>
+  <%= javascript_include_tag 'common.js', 'application.js', :cache => 'base' %>
 </head>

@@ -1,39 +1,39 @@
-$j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
-$j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
+$('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
+$('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 <% if !@vote_topic.nil? %>
-  $j('#tot_votes').html("<%= @vote_topic.total_votes %>");
+  $('#tot_votes').html("<%= @vote_topic.total_votes %>");
 <% end  %>
 <% if !@vote_topic.nil? %>
   <%if @user && !@vote_topic.nil? && !@selected_response.nil?%>
-    if ($j('#cancel_vote_link').closest('li').hasClass('ui-state-active')) {
-    $j('#cancel_vote_link').closest('li').removeClass('ui-state-active').addClass('ui-widget-content');
+    if ($('#cancel_vote_link').closest('li').hasClass('ui-state-active')) {
+    $('#cancel_vote_link').closest('li').removeClass('ui-state-active').addClass('ui-widget-content');
     }
-    $j('#cancel_vote_link').remove();
-    $j('#goto_comment_link').remove();
+    $('#cancel_vote_link').remove();
+    $('#goto_comment_link').remove();
     <% if @vote_topic.total_votes == 0 %>
-      $j('#vote_dlg').empty();
+      $('#vote_dlg').empty();
     <% end  %>
-    $j('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
-    $j('#vote_items_list .vote-item').each(function() {
-    var elem_id = $j(this).attr('id');
+    $('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
+    $('#vote_items_list .vote-item').each(function() {
+    var elem_id = $(this).attr('id');
     var id_val = elem_id.slice("rt_".length, elem_id.length);
     var id = "response_" + id_val;
-    $j("<input type=radio id=" + id + " value= " + id_val + " name=response " + "/>").insertAfter($j(this));
+    $("<input type=radio id=" + id + " value= " + id_val + " name=response " + "/>").insertAfter($(this));
                });
                <% if (@selected_response.get_vote_percent_num @vote_topic.total_votes) > 0 %>
-               $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
+               $('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
     '<%=  @selected_response.get_vote_percent_num @vote_topic.total_votes%>%');
                <% else %>
-                 $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').remove();
+                 $('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').remove();
                <% end  %>
-               $j('#vote_form').attr('action', '<%= process_votes_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
+               $('#vote_form').attr('action', '<%= process_votes_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
                <% if !@reg_complete %>
-                 $j('#vote_items_list').append("<li>" + <%= link_to "Complete Registration to Vote", edit_user_path(@user) %> + "</li>");
+                 $('#vote_items_list').append("<li>" + <%= link_to "Complete Registration to Vote", edit_user_path(@user) %> + "</li>");
                <% else %>
     
-          $j('#vote_items_list').append("<%= escape_javascript(get_the_vote_button) %>");
+          $('#vote_items_list').append("<%= escape_javascript(get_the_vote_button) %>");
     <% end  %>
-    $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
+    $('#vote_link').button({icons:{primary:'ui-icon-person'}});
   <% end  %>
 <% else %>
 

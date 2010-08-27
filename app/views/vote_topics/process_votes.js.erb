@@ -1,25 +1,25 @@
-$j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
-$j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
+$('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
+$('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 <% if !@vote_topic.nil? %>
-  $j('#tot_votes').html("<%= @vote_topic.total_votes %>");
+  $('#tot_votes').html("<%= @vote_topic.total_votes %>");
 <% end  %>
 <%if @vote_topic && @selected_response %>
-  $j('#vote_link').closest('li').remove();
-  $j('#sel_response').attr('value', '<%= @selected_response.id %>');
-  $j('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
-  if ($j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').length > 0) {
-    $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
+  $('#vote_link').closest('li').remove();
+  $('#sel_response').attr('value', '<%= @selected_response.id %>');
+  $('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
+  if ($('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').length > 0) {
+    $('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
     '<%=  @selected_response.get_vote_percent_num @vote_topic.total_votes%>%');
   } else {
-    ($j('#rt_<%= @selected_response.id %>').closest('li')).after("<%= escape_javascript(get_percent_div (@selected_response.get_vote_percent_num @vote_topic.total_votes))%>");
+    ($('#rt_<%= @selected_response.id %>').closest('li')).after("<%= escape_javascript(get_percent_div (@selected_response.get_vote_percent_num @vote_topic.total_votes))%>");
   }
 
-  $j("<span class ='small-button'><a href='#comment_form' id='goto_comment_link'>Comment</a></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
-  $j("<span class ='small-button'><button id='cancel_vote_link'>Cancel Vote</button></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
-  $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
-  $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
-  $j('#vote_form').attr('action', '<%= cancel_vote_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
-  $j(':radio', '#vote_form').each(function() {
-  $j(this).remove();
+  $("<span class ='small-button'><a href='#comment_form' id='goto_comment_link'>Comment</a></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
+  $("<span class ='small-button'><button id='cancel_vote_link'>Cancel Vote</button></span>").insertAfter(('#rt_<%= @selected_response.id %>'));
+  $('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
+  $('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
+  $('#vote_form').attr('action', '<%= cancel_vote_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
+  $(':radio', '#vote_form').each(function() {
+  $(this).remove();
   });
 <% end  %>
