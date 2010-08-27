@@ -1,7 +1,7 @@
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
 $j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 <% if !@vote_topic.nil? %>
-  $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
+  $j('#tot_votes').html("<%= @vote_topic.total_votes %>");
 <% end  %>
 <%if @vote_topic && @selected_response %>
   $j('#vote_link').closest('li').remove();

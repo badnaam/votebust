@@ -11,43 +11,10 @@
   <meta property="fb:app_id" content="<%= APP_CONFIG['facebook_app_id'] %>"/>
 <% end  %>
 
-<script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
-<script type="text/javascript">
-  (function() {
-    var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'http://widgets.digg.com/buttons.js';
-    s1.parentNode.insertBefore(s, s1);
-  })();
-</script>
+
 
 <script type="text/javascript">
   //<![CDATA[
-  google.load("prototype", "1.6.1.0");
-  
-  google.setOnLoadCallback(function() {
-    if ($('pic_loading_g') != null) {
-      $('pic_loading_g').setStyle({
-        opacity: 0.0
-      });
-    }
-
-    Ajax.Responders.register({
-      onCreate: function() {
-        $('pic_loading_g').setStyle({
-          opacity: 1.0
-        });
-        return false;
-      },
-      onComplete: function() {
-        $('pic_loading_g').setStyle({
-          opacity: 0.0
-        });
-        return false;
-      }
-    });
-  });
   
   function update_chars_left(max_len, target_input, display_element) {
     var text_len = target_input.value.length;
@@ -88,8 +55,8 @@
       }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
 <%end%>
     $j('#vote_link').button({icons:{primary:'ui-icon-person'}});
-    $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}});
-    $j('#goto_comment_link').button({icons:{primary:'ui-icon-comment'}});
+    $j('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}, text : false});
+    $j('#goto_comment_link').button({text:false, icons:{primary:'ui-icon-comment'}});
     $j('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
     
     $j('#vote_link').live('click', function() {
@@ -136,9 +103,6 @@
       return false;
     });
 
-    $j("#chart_controls a:contains('Pie')").button({icons:{primary:'ui-icon-document'}, text:false});
-    $j("#chart_controls a:contains('Age')").button({icons:{primary:'ui-icon-person'}, text:false});
-    $j("#chart_controls a:contains('Gender')").button({icons:{primary:'ui-icon-close'}, text:false});
 
 <% if @user %>
       $j('#comment_body').keyup(function() {
@@ -301,4 +265,15 @@
     document.getElementById('fb-root').appendChild(e);
   }()
 );
+</script>
+
+<script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
+<script type="text/javascript">
+  (function() {
+    var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://widgets.digg.com/buttons.js';
+    s1.parentNode.insertBefore(s, s1);
+  })();
 </script>

@@ -1,7 +1,7 @@
 $j('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 $j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 <% if !@vote_topic.nil? %>
-  $j('#tot_votes').html("<%= escape_javascript(render :partial => "total_votes") %>");
+  $j('#tot_votes').html("<%= @vote_topic.total_votes %>");
 <% end  %>
 <% if !@vote_topic.nil? %>
   <%if @user && !@vote_topic.nil? && !@selected_response.nil?%>
@@ -19,7 +19,6 @@ $j('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash
     var id_val = elem_id.slice("rt_".length, elem_id.length);
     var id = "response_" + id_val;
     $j("<input type=radio id=" + id + " value= " + id_val + " name=response " + "/>").insertAfter($j(this));
-
                });
                <% if (@selected_response.get_vote_percent_num @vote_topic.total_votes) > 0 %>
                $j('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
