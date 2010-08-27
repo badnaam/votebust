@@ -1,5 +1,11 @@
 module VoteTopicsHelper
 
+    def power_points vt
+        if !vt.power_offered.nil? && vt.power_offered > 10
+            return "<span class='bld power-points'>#{vt.power_offered / 10} Power Points</span>"
+        end
+    end
+    
     def get_percent_div percent
         if percent == 0
             return nil
@@ -103,7 +109,6 @@ module VoteTopicsHelper
     end
     
     def get_vote_percent(v, total_votes)
-        #        votes = v.votes_count
         votes = v.votes.size
         if votes == 0
             return "#{v.option.titleize} - 0%"

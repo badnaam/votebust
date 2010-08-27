@@ -1,3 +1,46 @@
+#content {
+    border-top:1px solid #dddddd;
+}
+.power-points {
+    padding:.3em;
+    color:white;
+    background-color: #dddddd;
+}
+.preview-table {
+    margin-bottom: 0;
+}
+.preview-table td {
+    vertical-align: top;
+}
+.right-border {
+    border-right: 1px solid #dddddd;
+}
+.list-no-pad-no-mar-no-style {
+    list-style-type: none;
+    padding-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.preview-box-left {
+ width:200px;
+ max-width: 200px;
+}
+table.vote-preview {
+    margin-bottom: 0;
+}
+td.top-al {
+    vertical-align: top;
+}
+blockquote {
+    background:transparent url(http://www.facebook.com/images/start_quote_small.gif)
+                 no-repeat scroll -1px 0; . line-height:14px; margin:14px 0; padding:0 0 0 16px; }
+blockquote.preview {
+    background:transparent url(http://www.facebook.com/images/start_quote_small.gif)
+                 no-repeat scroll -1px 0;  line-height:14px; margin-top:0 !important; padding:0 0 0 16px; }
+
+blockquote span {
+    background:transparent url(http://www.facebook.com/images/end_quote_small.gif) no-repeat scroll right bottom; padding:0 15px 0 0; }
+
 .alt-link {
     color:#f794e8;
 }
@@ -5,15 +48,16 @@
     padding:0 !important;
 }
 .ui-slider-handle {
-  width: 8px;
-  height: 14px;
-  position: absolute;
-  top: -4px;
-  background: #478AFF;
-  border: solid 1px black;
+    width: 8px;
+    height: 14px;
+    position: absolute;
+    top: -4px;
+    background: #478AFF;
+    border: solid 1px black;
 }
 .comment-list {
     padding-left: 0;
+    margin-bottom: 0;
 }
 .comment {
     min-height: 55px;
@@ -21,35 +65,33 @@
 .comment-list li {
     list-style-type: none;
 }
-.ui-state-header {
-    /*    background-color:#A3C8F0;*/
-    border:2px solid #dddddd;
-}
 .vote-action {
     border-top:1px solid #DDDDDD;
-margin-top:1em;
-padding-top:0.5em !important;
+    margin-top:1em;
+    padding-top:0.5em !important;
 
 }
 .vi-list {
-    border: 2px solid #dddddd;
+/*    border: 1px solid #dddddd;*/
     padding:.3em;
     list-style-type:none;
 }
 .indicator-list {
     width:90%;margin-bottom:0 !important;
+    background-color: #dddddd;
+    padding:0 !important;
 }
 .indicator-div {
-    background-color:#43444A;height:12px;
+    background-color:#666666;
+    height:13px;
 }
 .vi-list li {
     padding:.2em;
-/*    margin-bottom: .5em;*/
+    /*    margin-bottom: .5em;*/
 }
 .vi {
-/*    margin-bottom:0 !important;*/
-    border:0 !important;
-    font-weight: bold;
+    /*    margin-bottom:0 !important;*/
+/*    border:0 !important;*/
 }
 .suggestions {
     overflow-y:scroll;
@@ -140,13 +182,11 @@ div.pagination span.disabled {
 }
 .bordered-td {
     border: 1px solid #dddddd;
+    padding-right: 0 !important;
 }
-.bordered {
-    border-top: 2px solid #dddddd;
-    border-right: 2px solid #dddddd;
-}
+
 .bordered-all {
-        border: 2px solid #dddddd;
+    border: 1px solid #dddddd;
 }
 .full-bordered {
     border :1px solid #dddddd;
@@ -348,7 +388,7 @@ body a:hover {
 }
 .logo_msg {
     color:#598F49;
-    display:block;
+/*    display:block;*/
 }
 .header_logo_div {
     color:black;
@@ -468,10 +508,10 @@ body a:hover {
 .footer_links li {
 }
 .footer a {
-/*    color:#8F8F8F;*/
-color:white;
+    /*    color:#8F8F8F;*/
+    color:white;
     text-decoration:none;
-/*    font-weight: bold;*/
+    /*    font-weight: bold;*/
 }
 .fieldWithErrors {
     background-color:red;
@@ -496,17 +536,23 @@ color:white;
 .bottom-pad {
     padding-bottom:.5em;
 }
+.bottom-mar-small {
+    margin-bottom: .3em;
+}
 .bottom-mar {
     margin-bottom:0.5em;
 }
-.left_mar_small {
-    margin-left:0.5em;
+.bottom-border {
+    border-bottom: 1px solid #dddddd;
+}
+.left-mar-small {
+    margin-left:0.3em;
 }
 .right-mar {
     margin-right:1.5em;
 }
-.right_mar_small {
-    margin-right:0.5em;
+.right-mar-small {
+    margin-right:0.3em;
 }
 .left-mar {
     margin-left:1em;
@@ -540,6 +586,9 @@ color:white;
     font-size:0.5em;
 }
 .special-text {
+    color:#F5722C !important;
+}
+.special-text a {
     color:#F5722C !important;
 }
 img.ui-icon {
@@ -585,7 +634,7 @@ img.ui-icon {
 }
 .topic-header {
     /*color:#E80C7A;*/
-/*    color:#F5722C;*/
+    /*    color:#F5722C;*/
 }
 .chart-box {
     border:2px solid #38385c;
@@ -596,30 +645,28 @@ img.ui-icon {
 }
 .sidebox-list {
     margin-right:0;
+    list-style-type: none;
+    padding-left: 0;
 }
-.sidebox-list-inline li {
+.sidebox-list li {
     margin-right:.1em;
-    display: inline;
+
+    /*    display: inline;*/
 }
-.sidebox-list-inline-2 > li {
+.sidebox-list > li {
     margin-right:.1em;
-    display: inline;
+    /*    display: inline;*/
 }
-.somed-list-inline li {
-    margin-right:1em;
-    display: inline;
+.somed-list {
+    list-style-type: none;
+    padding-left: 0;
 }
-.somed-list-inline {
-    padding-left:0;
-    margin-right:0;
-    margin-bottom: 0;
-    /*    margin-top:1em;*/
+.somed-list li {
+    /*    margin-right:1em;*/
+    /*    display: inline;*/
 }
 
-.slide-progress {
-    background-color:black;
-    margin:0.5em auto;
-}
+
 .left {
     float:left;
 }
@@ -726,23 +773,26 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 }
 .user-info  {
     margin-bottom: 0;
+/*    width:150px;*/
+    max-width: 150px;
 }
 .vote-power-user-info {
-    background-color: yellow;
-    color:black;
+    background-color: #FF0084;
+    color:#F0EBEB;
     text-align: center;
     padding:.1em .2em .1em .2em;
 }
 .vote-power {
-    background-color: yellow;
-    color:black;
+    background-color: #FF0084;
+    color:#F0EBEB;
     text-align: center;
     padding:.1em .2em .1em .2em;
-    border: 2px solid black;
+/*    border: 2px solid black;*/
 }
 .user-info .uname {
-    background-color: gray;
+    background-color: #dddddd;
     text-align:center;
+    color:#38385C;
 }
 .user-info span {
     padding: .3em;
@@ -754,8 +804,8 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 }
 .profile-image {
     /*border: 1px solid;*/
-    height: 32px;
-    width:32px;
+    height: 50px;
+    width:50px;
 }
 
 .category-list {

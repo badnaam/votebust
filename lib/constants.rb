@@ -1,6 +1,9 @@
 class Constants
+
+    RPX_PROVIDERS = ["Facebook", "Twitter", "Google"]
+    SHARE_URL_PREFIX = "http://web1.tunnlr.com:11299"
     SITE_COLOR = '#38385c'
-    USER_PROFILE_IMAGE_SIZE = "32x32"
+    USER_PROFILE_IMAGE_SIZE = "50x50"
     MISSING_IMAGE_FILE = 'small/missing.png'
     GRAPHS_PATH = File.join(Rails.root, "public/assets/images/graphs")
     VOTE_PROCESS_FREQ = 30.minutes
@@ -76,10 +79,11 @@ class Constants
     FACET_UPDATE_ELIGIBILITY_DELTA = 0.15
     VOTE_TOPIC_FIELDS = 'vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.category_id, vote_topics.created_at, vote_topics.total_votes,
                         categories.id, categories.name, users.id, users.username, vote_items.option, vote_items.v_count, vote_topics.trackings_count, users.city,
-                        users.state, users.zip, vote_topics.power_offered, vote_topics.website'
+                        users.state, users.zip, vote_topics.power_offered, vote_topics.website, users.image_url, users.image_file_name, users.image_content_type,
+                        users.voting_power'
     VOTE_TOPIC_FIELDS_SHOW = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
                              vote_topics.created_at,vote_topics.total_votes, categories.id, categories.name,  users.id, users.username,vote_items.option, total_votes,
                              comments.id, comments.body, comments.user_id, comments.vote_topic_id, vote_facets.m, vote_facets.w, vote_facets.ag1, vote_facets.ag2, vote_facets.ag3,
                              vote_facets.ag4, vote_facets.dag, vote_facets.wl, vote_facets.ll, vote_facets.vl,, vote_topics.trackings_count, vote_topics.power_offered,
-                             vote_topics.website'
+                             vote_topics.website, users.image_url, users.image_file_name, users.image_content_type, users.voting_power, users.city, users.state'
 end

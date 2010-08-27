@@ -6,47 +6,71 @@
 <% end  %>
 
 <% if !vt.nil? %>
-  <div class="ui-widget-content bottom-mar normal-pad right-mar">
-    <div class="clearfix bld bottom-mar ui-widget-header normal-pad">
-      <% if @top_vote %>
-        <span class="ui-icon ui-icon-star"></span>
-      <% end  %>
-      <span class="big"><%= link_to vt.header, vt %></span>
-
-      <span class="clearfix">
-        <span class="ui-icon ui-icon-tag "></span>
-        <span class="bld tag">
-          <%= link_to "In #{vt.category.name}, ", category_vote_topics_path(vt.category,
-            :listing_type => "category") %>
-          <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
-          <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
-        </span>
-      </span>
-      <div>
-        <span class="small">
-            <%= "By #{link_to vt.poster.username, vt.poster} on #{vt.created_at.strftime('%b %d %Y')}" %>
-        </span>
-        <span class="go-right">
-          <span class="special-text "><%= "(#{vt.total_votes} votes)"  %></span>
-          <span class="special-text">(<%= vt.trackings_count %> trackings)</span>
-        </span>
-      </div>
+  <div class="ui-widget-content bottom-mar normal-pad right-mar" style="clear:both;">
+    <div class="">
+      <table class="preview-table" id="">
+        <tr>
+          <td class="preview-box-left right-border">
+            <div>
+              <div class="bottom-mar-small bottom-border">
+                <span class="" id="">
+                  <%= "#{vt.total_votes} votes"  %>
+                </span>
+                <span class="go-right" id="">
+                  <%= vt.trackings_count %> trackings
+                </span>
+              </div>
+              <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster} %>
+              <div class="clear tag">
+                <span class="ui-icon ui-icon-tag "></span>
+                <%= link_to "In #{vt.category.name}, ", category_vote_topics_path(vt.category,
+                  :listing_type => "category") %>
+                <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
+                <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
+              </div>
+              <div class="top-mar">
+                <%= power_points vt %>
+              </div>
+            </div>
+          </td>
+          <td>
+            <table border="1" class="vote-preview">
+              <tr>
+                <td class="top-al">
+                  <blockquote class="preview">
+                    <% if top_vote == true %>
+                      <span class="ui-icon ui-icon-star" style="padding-right:0 !important;"></span>
+                    <% end  %>
+                    <span class="big"><%= link_to vt.header, vt %></span>
+                  </blockquote>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul class="list-no-pad-no-mar-no-style">
+                    <% first = true %>
+                    <% vi.each do |v| %>
+                      <li>
+                        <% if first && v.v_count > 0 %>
+                          <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
+                          <span class="bld"><%=  get_vote_percent(v, vt.total_votes)%></span>
+                          <% first = false %>
+                        <% else %>
+                          <span class="ui-icon ui-icon-document list-icon"></span>
+                          <span><%=  get_vote_percent(v, vt.total_votes)%></span>
+                        <% end  %>
+                      </li>
+                    <% end  %>
+                    <li>
+                      <%= link_to "Vote Now", vt, :class => "go-right bld" %>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
     </div>
-    <ul>
-      <% first = true %>
-      <% vi.each do |v| %>
-        <li>
-          <% if first && v.v_count > 0 %>
-            <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
-            <span class="bld"><%=  get_vote_percent(v, vt.total_votes)%></span>
-            <% first = false %>
-          <% else %>
-            <span class="ui-icon ui-icon-document list-icon"></span>
-            <span><%=  get_vote_percent(v, vt.total_votes)%></span>
-          <% end  %>
-
-        </li>
-      <% end  %>
-    </ul>
   </div>
 <% end  %>

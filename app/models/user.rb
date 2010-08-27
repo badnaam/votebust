@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     has_attached_file :image, :styles => {:small => Constants::USER_PROFILE_IMAGE_SIZE},
       :path => ":rails_root/public/assets/images/users/:id/:style.:extension",
       :url => "/assets/images/users/:id/:style.:extension",
-      :whiny_thumbnails => true
+      :whiny_thumbnails => true, :default_url => '/images/missing.png'
 
     acts_as_authentic do |a|
         a.validates_length_of_password_field_options = { :within => 1..15, :on =>:update, :if => :has_no_credential?}
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
         if geo.success
             self.lat, self.lng = geo.lat,geo.lng
             self.city = geo.city.titleize
-            self.state = geo.state.titleize
+            self.state = (GeocodeCache.full_state_name geo.state).titleize
         else
             #set it to nil to force the user to complete registration
             self.zip = nil
@@ -158,6 +158,27 @@ class User < ActiveRecord::Base
         return arr
     end
 
+    def unused_rpx_providers
+        (Constants::RPX_PROVIDERS - self.get_rpx_providers.split(",")).join(', ')
+    end
+    
+    def get_rpx_providers
+        self.rpx_identifiers.collect {|x| x.provider_name}.join(',')
+    end
+
+    def self.p1
+        logger.info 'p1'
+        puts "p1"
+    end
+    def self.p2
+        logger.info "p2"
+        puts "p2"
+    end
+    def self.p3
+        User.delay(:priority => 10).p1
+        User.delay(:priority => 1).p2
+
+    end
     private
 
     # map_added_rpx_data maps additional fields from the RPX response into the user object during the "add RPX to existing account" process.
@@ -166,10 +187,45 @@ class User < ActiveRecord::Base
     #
     # "self" at this point is the user model. Map details as appropriate from the rpx_data structure provided.
     #
+    def self.migrate_user (from_user, to_user)
+        if from_user.nil? || to_user.nil?
+            logger.info "Fishy fishy"
+        end
+        logger.info "Migrating #{from_user.id} to #{to_user.id}"
+        if !from_user.voting_power.nil?
+            to_user.increment!(:voting_power, from_user.voting_power)
+        end
+        if from_user.votes.size > 0
+            to_user.votes << from_user.votes
+        end
+        if from_user.comments.size > 0
+            to_user.comments << from_user.comments
+        end
+        #        to_user.vote_topics << from_user.vote_topics
+        if from_user.posted_vote_topics.size > 0
+            to_user.posted_vote_topics << from_user.posted_vote_topics
+        end
+    end
+
     def map_added_rpx_data( rpx_data )
         # map some additional fields, e.g. photo_url
-        #        self.photo_url = rpx_data['profile']['photo'] if photo_url.blank?
+        self.image_url = rpx_data['profile']['photo'] if image_url.blank?
+        if self.sex.blank?
+            if @rpx_data['profile']['gender'] == 'male'
+                self.sex = 0
+            elsif @rpx_data['profile']['gender'] == 'female'
+                self.sex = 1
+            else
+                self.sex = 0
+            end
+        end
+        #todo -review this
+        self.email = rpx_data['profile']['email'] if self.email.blank?
+        self.username = rpx_data['profile']['displayName'] if self.username.blank?
+#        self.send("#{klass.email_field}=", @rpx_data['profile']['email'] )
+#        self.send("#{klass.login_field}=", @rpx_data['profile']['displayName'] )
     end
+
 
     # before_merge_rpx_data provides a hook for application developers to perform data migration prior to the merging of user accounts.
     # This method is called just before authlogic_rpx merges the user registration for 'from_user' into 'to_user'
@@ -177,12 +233,9 @@ class User < ActiveRecord::Base
     #
     # By default, it does not merge any other details (e.g. application data ownership)
     #
-    def before_merge_rpx_data( from_user, to_user )
-        RAILS_DEFAULT_LOGGER.info "in before_merge_rpx_data: migrate articles and comments from #{from_user.username} to #{to_user.username}"
-        to_user.votes << from_user.votes
-        to_user.comments << from_user.comments
-        #        to_user.vote_topics << from_user.vote_topics
-        to_user.posted_vote_topics << from_user.posted_vote_topics
+    def before_merge_rpx_data( from_user, to_user)
+        RAILS_DEFAULT_LOGGER.info "Before Merging RPX_Data: migrate VoteTopics, Votes and comments from #{from_user.username} to #{to_user.username}"
+        User.delay(:priority => 1).migrate_user(from_user, to_user)
     end
 
     # after_merge_rpx_data provides a hook for application developers to perform account clean-up after authlogic_rpx has
@@ -190,8 +243,13 @@ class User < ActiveRecord::Base
     #
     # By default, does nothing. It could, for example, be used to delete or disable the 'from_user' account
     #
+
+    def self.destroy_user user
+        user.destroy
+    end
+    
     def after_merge_rpx_data( from_user, to_user )
-        RAILS_DEFAULT_LOGGER.info "in after_merge_rpx_data: destroy #{from_user.inspect}"
-        from_user.destroy
+        RAILS_DEFAULT_LOGGER.info "After Merging RPX_Data: destroy #{from_user.inspect}"
+        User.delay.destroy_user(from_user)
     end
 end

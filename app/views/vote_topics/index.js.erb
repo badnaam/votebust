@@ -1,15 +1,16 @@
 <% if ["category", "featured_all", "tracked_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
   <%print_paginate = true%>
   $('#votes').html("<%= escape_javascript(render :partial => 'vote_list')%>");
-  <%# elsif "voted" == @listing_type %>
-  //$('#voted').html("<%= escape_javascript(render :partial => 'vote_list')%>");
 <% else %>
   <% if @vote_topics.size > 0 %>
+    <% if ["local", "most_tracked", "top", "featured", "tracked"].include?(@listing_type) %>
+      <%= link_to "More...", vote_topics_path(:listing_type => @listing_type + "_all"), :class => "bld go-right bottom-mar" %>
+    <% end  %>
     <% @vote_topics.each do |vt| %>
       <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
     <% end  %>
     <% if ["local", "most_tracked", "top", "featured", "tracked"].include?(@listing_type) %>
-      <%= link_to "More", vote_topics_path(:listing_type => @listing_type + "_all") %>
+      <%= link_to "More...", vote_topics_path(:listing_type => @listing_type + "_all"), :class => "bld go-right bottom-mar" %>
     <% end  %>
   <% else %>
     <div>Sorry no votes found.</div>

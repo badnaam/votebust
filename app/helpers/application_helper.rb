@@ -17,6 +17,22 @@ module ApplicationHelper
         end
     end
 
+    def get_user_avatar user
+        if !user.image_url.nil?
+            return "<img src=#{user.image_url} class='profile-image' alt='avatar'/>"
+        else
+            return "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>"
+        end
+    end
+
+    def get_user_avatar_link user
+        if !user.image_url.nil?
+            return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user
+        else
+            return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user
+        end
+    end
+
     def get_user_icon_only(user)
         if !missing_user_image?(user)
             return image_tag user.image.url(:small), :class => 'profile-image'

@@ -3,10 +3,11 @@
 
 en:
   hello: "Hello world"
-  n: "Votebust"
-  site_main_msg: "What's the public opinion?"
-  site_main_logo_msg: "Logo"
-  logo: "BB"
+  site_name: "Voteable"
+  site_main_msg: "Wonder what people think?"
+  site_learn_more: "Get the Collective Opinion"
+  site_logo_msg: "Wonder what people think?"
+  title_bar: "Voteable"
 
 #Models
   notifier:

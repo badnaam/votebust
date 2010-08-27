@@ -23,8 +23,8 @@
       <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
       <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "featured") %>"><span>Featured</span></a></li>
       <% if current_user %>
-        <% local = current_user.city.nil? ? "Local" : current_user.city.titleize %>
-        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "local")%>"><span>In <%= current_user.city.titleize %></span></a></li>
+        <% local = current_user.city.nil? ? "Local" : "In " + current_user.city.titleize %>
+        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "local")%>"><span><%= local %></span></a></li>
         <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
       <% end  %>
     </ul>
@@ -36,9 +36,9 @@
   </div>
   <%= render :partial => "latest_votes" %>
   <%= render :partial => "unan_votes" %>
-  <div class="span-6 last  prepend-top ui-widget-content">
+  <!--<div class="span-6 last  prepend-top ui-widget-content">
     <fb:facepile max-rows="5" width="230"></fb:facepile>
-  </div>
+  </div> -->
 <% end %>
 
 <div id="fb-root">

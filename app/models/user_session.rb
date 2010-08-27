@@ -39,4 +39,7 @@ class UserSession < Authlogic::Session::Base
         end
     end
 
+    def map_rpx_data_each_login
+        self.attempted_record.image_url = @rpx_data['profile']['photo']
+    end
 end

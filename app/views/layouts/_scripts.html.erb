@@ -3,10 +3,11 @@
   <%= yield :fb_metas %>
   <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <!-- favicon and part of the logo by Dawghouse Design Studio -->
   <% unless (yield :title).blank? || (yield :title) == t("logo") %>
-    <% @title = t("logo") + " " + (yield :title) %>
+    <% @title = t("site_name") + " " + (yield :title) %>
   <% else %>
-    <% @title = t("logo") %>
+    <% @title = t("site_name") %>
   <% end  %>
   <title><%= @title %> </title>
 
@@ -32,6 +33,7 @@
     google.load("jqueryui", "1.8.2");
     google.setOnLoadCallback(function() {
       jQuery.ajaxSetup({
+        cache: false,
         'beforeSend': function (xhr) {
           xhr.setRequestHeader("Accept", "text/javascript")
         }

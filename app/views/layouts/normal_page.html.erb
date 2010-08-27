@@ -23,9 +23,14 @@
             </div>
           </div>
         </div>
-        <div class="last span-24 header_logo_div"> <!-- header logo -->
-          <%= link_to image_tag ('/images/logo.png'), root_path %>
-          <span class="logo_msg"><%= t 'site_main_msg' %><sup>&trade;</sup></span>
+        <div class="last span-24 header_logo_div append-bottom"> <!-- header logo -->
+          <div class="span-8">
+            <%= link_to image_tag ('/images/logo.png'), root_path, :class => "clearfix"%>
+            <span class="logo_msg"><%= t 'site_logo_msg' %></span>
+            <a href="/faq" class="special-text bld" id="" >
+              <%= t ('site_learn_more') %>
+            </a>
+          </div>
           <div class="span-24 last nav_container ui-state-default">
             <div class="span-24 last">
               <div class="main_links_div">
@@ -40,12 +45,6 @@
         <div class="span-24 last">
           <%= yield :page_headers %>
         </div>
-        <div class="span-22 prepend-1 last">
-          <%= yield :page_top %>
-          <% unless @header_exempt_page %>
-            <%= render :partial => 'layouts/page_header' %>
-          <% end  %>
-        </div> <!-- end search yield -->
         <div class="content span-24 last" id="content">
           <div class="span-18 last" id="flash_messages">
             <%= render :partial => 'layouts/flash_msg' %>

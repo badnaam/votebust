@@ -12,7 +12,7 @@
     <%= hidden_field_tag :sel_response, @selected_response.nil? ? nil: @selected_response.id %>
     <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
       <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
-        <li class="ui-widget-content vi">
+        <li class="">
           <span class="ui-icon ui-icon-document list-icon"></span>
           <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
           <% if !@selected_response.nil?  && @selected_response == v%>

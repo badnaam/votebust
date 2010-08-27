@@ -24,10 +24,11 @@ class VoteTopicsController < ApplicationController
                 flash[:error] = "Something went wrong, please try later"
             else
                 @vote_topic = VoteTopic.find_for_tracking params[:id]
-                @vote_topic.delay.award_tracking(1)
+                @vote_topic.delay.award_tracking(-1)
             end
         else
             if @user.trackings.create(:vote_topic_id => params[:id])
+                logger.info "Creted tracking for user #{@user.id } and vote_topic #{params[:id]}"
                 @tracked = true
                 @vote_topic = VoteTopic.find_for_tracking params[:id]
                 @vote_topic.delay.award_tracking(1)
@@ -46,7 +47,7 @@ class VoteTopicsController < ApplicationController
             @vote_topic.status = 'a'
             @vote_topic.expires = 2.weeks.from_now
             if @vote_topic.save
-                @vote_topic.poster.delay.award_points(@vote_topic.power_offered * -1) if @vote_topic.power_offered > 0
+                @vote_topic.poster.delay.award_points(@vote_topic.power_offered * -1) if !@vote_topic.power_offered.nil? && @vote_topic.power_offered > 0
                 @vote_topic.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
                 if !@vote_topic.friend_emails.nil?
                     #                    @vote_topic.send_later :deliver_friendly_vote_emails!

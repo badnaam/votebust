@@ -29,20 +29,15 @@
         <li  title="Votes you have started."><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user', :user_id => @user.id)%>"><span>Your Votes</span></a></li>
         <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :voted_vote_topics, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>You Voted </span></a></li>
       </ul>
+
       <% permitted_to? :update, @user do %>
         <div id ="user_tab">
           <ul class="profile-list prepend-top">
-            <li class="bld" style="width:100px">
-              <table class="user-info">
-                <tr>
-                  <td class="bordered-td">
-                    <%= get_user_icon_only(@user) %>
-                  </td>
-                  <td class="vote-power bld">
-                    <%= @user.voting_power %>
-                  </td>
-                </tr>
-              </table>
+            <li class="bld" style="width:150px">
+              <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
+            </li>
+            <li>
+              Authentication Provider: <%= h @user.using_rpx? ? @user.get_rpx_providers : (t 'site_name') %>
             </li>
             <li>
               Email:
