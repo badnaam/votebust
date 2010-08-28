@@ -91,7 +91,7 @@ class VoteTopic < ActiveRecord::Base
 
     def self.find_selected_response id
         VoteItem.find(id, :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.total_votes, vote_items.id, vote_items.option,
-                 ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes")
+                 ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes, vote_topics.trackings_count")
     end
     
 

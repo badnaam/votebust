@@ -1,35 +1,38 @@
 
 <div id="div_process_vote">
-  <% form_tag submit_url, :id => "vote_form" do |f| %>
-    <%= hidden_field_tag :user_id, (@user).id if !@user.nil?%>
-    <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
-    <%= hidden_field_tag :sel_response, @selected_response.nil? ? nil: @selected_response.id %>
-    <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
-      <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
-        <li class="">
-          <span class="ui-icon ui-icon-document list-icon selected-vote" id=<%= v.id %>></span>
-          <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
-          <% if !@selected_response.nil?  && @selected_response == v%>
-            <span class ="small-button"><button id="cancel_vote_link">Cancel Vote</button></span>
-            <span class ="small-button"><a href="#comment_form" id="goto_comment_link">Comment</a></span>
-          <% elsif action == 'process'%>
-            <%= radio_button_tag "response", v.id %>
-          <% end %>
-        </li>
-        <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes) %>
-      <% end %>
+  <%= hidden_field_tag :user_id, (@user).id if !@user.nil?%>
+  <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
 
-      <% if action == 'process' %>
-        <% if @vote_open == true %>
-          <% if !@reg_complete %>
-            <li class="vote-action">
-              <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
-            </li>
+  <ul class="top-mar vi-list" id="vote_items_list">
+    <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
+      <% if !@selected_response.nil?  && @selected_response == v
+        selected = true
+        icon = 'ui-icon-close'
+      else
+        icon = 'ui-icon-check'
+      end  %>
+      <li id="v-item-<%= v.id %>" class=" <%= selected ? 'sel' : 'non-sel' %> ">
+        <% if @user && @reg_complete && @vote_open %>
+          <% if !@selected_response.nil? && !selected %>
+            <%= (get_vote_percent v, @vote_topic.total_votes) %>
           <% else %>
-            <%= get_the_vote_button %>
+            <a href="#" id="<%= v.id %>" class="<%= selected ? 'cancel' : 'vote'%> take-action">
+              <span class="ui-icon <%= icon %> vote-icon" ></span>
+              <%= (get_vote_percent v, @vote_topic.total_votes) %></a>
+            <% end  %>
+          <% else %>
+            <%= (get_vote_percent v, @vote_topic.total_votes) %>
           <% end  %>
-        <% end  %>
-      <% end  %>
-    </ul>
-  <% end  %>
+      </li>
+      <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes) %>
+    <% end %>
+  </ul>
+  
+  <% if !@user %>
+    <div><%= link_to "Login to Vote", login_path %></div>
+  <% elsif @user && !@reg_complete %>
+    <div class="" id="">
+      <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
+    </div>
+  <% end %>
 </div>

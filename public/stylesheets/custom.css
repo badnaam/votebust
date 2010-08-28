@@ -689,18 +689,25 @@ img.ui-icon {
     overflow:hidden;
     padding-left:30px;
 }
-.fb-icon {
-    background-position:-1px -2px;
+.sprite {
+    background:transparent url(/images/sprite.png) no-repeat scroll center center;
+    overflow:hidden;
 }
-.tw-icon {
-    background-position:-1px -20px;
+.logo-image {
+    background-position:1px -4px;
+    padding-bottom: 35px;
 }
-.dig-icon {
-    background-position:-1px -40px;
+.negative {
+    background-position:1px -51px;
+    padding-right: 20px
+
 }
-.del-icon {
-    background-position:-1px -56px;
+.positive {
+    background-position:1px -76px;
+    padding-right: 20px
+
 }
+
 .link-with-gicon {
     padding:1em 1em 1em 20px;
     position:relative;

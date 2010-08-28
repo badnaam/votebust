@@ -84,8 +84,8 @@ class VoteTopicsController < ApplicationController
         if @user.processing_vote == false
             @selected_response = VoteTopic.find_selected_response(params[:sel_response])
             @vote_topic = @selected_response.vote_topic
-            @reg_complete = params[:reg_complete]
-            if Vote.find(:first, :select => "id", :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy && @vote_topic.decrement!(:total_votes, 1)
+            if Vote.find(:first, :select => "id", :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy &&
+                  @vote_topic.decrement!(:total_votes, 1)
                 flash[:success] = "Your vote has been cancelled."
                 @user.update_attribute(:processing_vote, true)
                 @vote_topic.delay.post_process(@selected_response, @user, false)
@@ -100,7 +100,6 @@ class VoteTopicsController < ApplicationController
 
     def process_votes
         @user = User.find_for_vote_processing(params[:user_id])
-        @reg_complete = params[:reg_complete]
         if @user.processing_vote == false
             if  !params[:response].nil? && !@user.nil?
                 @selected_response = VoteTopic.find_selected_response(params[:response])
@@ -121,7 +120,6 @@ class VoteTopicsController < ApplicationController
                 flash[:notice] = "Please wait while we process your previous vote"
             end
             respond_to do |format|
-                format.html
                 format.js
             end
         end

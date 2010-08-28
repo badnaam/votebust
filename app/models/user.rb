@@ -55,18 +55,20 @@ class User < ActiveRecord::Base
     end
 
     def geocode_address
-        geo = Geokit::Geocoders::MultiGeocoder.geocode(self.zip)
-        #        errors.add(:zip, "Could not locate that zip code") if !geo.success
-        logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
-        if geo.success
-            self.lat, self.lng = geo.lat,geo.lng
-            self.city = geo.city.titleize
-            self.state = (GeocodeCache.full_state_name geo.state).titleize
-        else
-            #set it to nil to force the user to complete registration
-            self.zip = nil
+        if !self.zip.nil?
+            geo = Geokit::Geocoders::MultiGeocoder.geocode(self.zip)
+            #        errors.add(:zip, "Could not locate that zip code") if !geo.success
+            logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
+            if geo.success
+                self.lat, self.lng = geo.lat,geo.lng
+                self.city = geo.city.titleize
+                self.state = (GeocodeCache.full_state_name geo.state).titleize
+            else
+                #set it to nil to force the user to complete registration
+                self.zip = nil
+            end
+            save
         end
-        save
     end
 
     def check_what_changed
@@ -222,8 +224,8 @@ class User < ActiveRecord::Base
         #todo -review this
         self.email = rpx_data['profile']['email'] if self.email.blank?
         self.username = rpx_data['profile']['displayName'] if self.username.blank?
-#        self.send("#{klass.email_field}=", @rpx_data['profile']['email'] )
-#        self.send("#{klass.login_field}=", @rpx_data['profile']['displayName'] )
+        #        self.send("#{klass.email_field}=", @rpx_data['profile']['email'] )
+        #        self.send("#{klass.login_field}=", @rpx_data['profile']['displayName'] )
     end
 
 

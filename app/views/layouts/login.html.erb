@@ -6,9 +6,13 @@
     <div class="container" id="main_container">
       <div class="header span-24 last">
         <div class="last span-24 header_logo_div"> <!-- header logo -->
-          <%= link_to image_tag ('/images/logo.png'), root_path %>
-          <span class="logo_msg"><%= t 'site_logo_msg' %><sup>&trade;</sup></span>
-         
+          <div class="span-8">
+            <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
+            <span class="logo_msg"><%= t 'site_logo_msg' %></span>
+            <a href="/faq" class="special-text bld" id="" >
+              <%= t ('site_learn_more') %>
+            </a>
+          </div>
         </div>
       </div>
       <div class ="span-24 last content_container">
@@ -18,7 +22,7 @@
           </div>
           <%= yield %>
         </div> <!-- end content div -->
-       <!-- <div class="push"> </div>-->
+        <!-- <div class="push"> </div>-->
       </div> <!-- end content_container -->
       <%= render :partial => "/layouts/footer" %>
     </div>

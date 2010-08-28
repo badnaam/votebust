@@ -1,41 +1,20 @@
 $('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
-$('#vote_status').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 <% if !@vote_topic.nil? %>
   $('#tot_votes').html("<%= @vote_topic.total_votes %>");
 <% end  %>
+
 <% if !@vote_topic.nil? %>
   <%if @user && !@vote_topic.nil? && !@selected_response.nil?%>
-    if ($('#cancel_vote_link').closest('li').hasClass('ui-state-active')) {
-    $('#cancel_vote_link').closest('li').removeClass('ui-state-active').addClass('ui-widget-content');
-    }
-    $('#cancel_vote_link').remove();
-    $('#goto_comment_link').remove();
-    <% if @vote_topic.total_votes == 0 %>
-      $('#vote_dlg').empty();
-    <% end  %>
-    $('#rt_<%= @selected_response.id %>').html('<%= get_vote_percent(@selected_response, @vote_topic.total_votes)%> ');
-    $('#vote_items_list .vote-item').each(function() {
-    var elem_id = $(this).attr('id');
-    var id_val = elem_id.slice("rt_".length, elem_id.length);
-    var id = "response_" + id_val;
-    $("<input type=radio id=" + id + " value= " + id_val + " name=response " + "/>").insertAfter($(this));
-               });
-               <% if (@selected_response.get_vote_percent_num @vote_topic.total_votes) > 0 %>
-               $('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').children('#div_indicator').css('width',
-    '<%=  @selected_response.get_vote_percent_num @vote_topic.total_votes%>%');
-               <% else %>
-                 $('#rt_<%= @selected_response.id %>').closest('li').next('#indicator').remove();
-               <% end  %>
-               $('#vote_form').attr('action', '<%= process_votes_vote_topic_path(@vote_topic, :user_id => @user.id) %>');
-               <% if !@reg_complete %>
-                 $('#vote_items_list').append("<li>" + <%= link_to "Complete Registration to Vote", edit_user_path(@user) %> + "</li>");
-               <% else %>
-    
-          $('#vote_items_list').append("<%= escape_javascript(get_the_vote_button) %>");
-    <% end  %>
-    $('#vote_link').button({icons:{primary:'ui-icon-person'}});
+    $('#<%= @selected_response.id %>').removeClass('cancel').addClass('vote');
+    $('#<%= @selected_response.id %> span').removeClass('ui-icon-close').addClass('ui-icon-check');
+    $(".vi-list [class *='non-sel']").each(function() {
+    var txt = $(this).html();
+    var str = $(this).attr('id');
+    var id = str.slice('v-item-'.length, str.length);
+    var toAppend = "<a href='#' id='" + id + "' class='take-action vote'><span class='ui-icon ui-icon-check'></span>" + txt + "</a>"
+    $(this).html('');
+    $(this).append(toAppend);
+    })
+    $('#<%= @selected_response.id %>').parent('li').removeClass('sel').addClass('non-sel');
   <% end  %>
-<% else %>
-
-
 <% end %>

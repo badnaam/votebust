@@ -28,6 +28,46 @@
 
   
   $(document).ready(function() {
+    $('.take-action').live('click', function() {
+      if ($(this).hasClass('vote')) {
+        //post vote
+        $.ajax({type: 'POST',
+          url:'<%= process_votes_vote_topic_path(@vote_topic) %>',
+          data: {reg_complete : $('#reg_complete').val(), response : $(this).attr('id'), user_id : $('#user_id').val()},
+          success : function() {
+            $('#vote_status').html('Vote Accepted.');
+          },
+          error:function(){
+            $('#vote_status').html('Sorry. An error occured. Please try later.');
+          },
+          beforeSend : function() {
+            showLoading($('#vote_loading'))
+          },
+          complete: function() {
+            hideLoading($('#vote_loading'))
+          }
+        });
+      } else {
+        //cancel vote
+        $.ajax({type: 'POST',
+          url:'<%= cancel_vote_vote_topic_path(@vote_topic) %>',
+          data: {sel_response : $(this).attr('id'), user_id : $('#user_id').val()},
+          success : function() {
+            $('#vote_status').html('Vote Cancelled.');
+          },
+          error:function(){
+            $('#vote_status').html('Sorry. An error occured. Please try later.');
+          },
+          beforeSend : function() {
+            showLoading($('#vote_loading'))
+          },
+          complete: function() {
+            hideLoading($('#vote_loading'))
+          }
+        });
+      }
+      return false;
+    });
     $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. \n\
         We'll try to fix this as soon as possible.");
         },  dataType:'script', success:function(){
@@ -54,21 +94,10 @@
       }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
 <%end%>
 
-    $('#vote_link').button({icons:{primary:'ui-icon-person'}});
-    $('#cancel_vote_link').button({icons:{primary:'ui-icon-close'}, text : false});
     $('#goto_comment_link').button({text:false, icons:{primary:'ui-icon-comment'}});
     $('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
     
-    $('#vote_link').live('click', function() {
-      checkVoteSelected();
-      return false;
-    });
  
-    $('#cancel_vote_link').live('click',function() {
-      $('#vote_form').submit();
-      return false;
-    });
-
     $('#comment_submit').button({icons:{primary:'ui-icon-comment'}}).click(function() {
       $('#new_comment').submit();
       return false;
@@ -79,22 +108,7 @@
       return false;
     });
     
-    $('#vote_form').submit(function (){
-      showLoading('#vote_loading')
-      $.post($(this).attr('action'), $(this).serialize(), function(data) {
-        hideLoading('#vote_loading');
-      }, "script");
-      return false;
-    });
-
-    $('#cancel_vote_form').submit(function (){
-      showLoading('#vote_loading')
-      $.post($(this).attr('action'), $(this).serialize(), function(data) {
-        hideLoading('#vote_loading');
-      }, "script");
-      return false;
-    });
-
+ 
     $('#new_comment').submit(function (){
       showLoading('#com_submit_loading')
       $.post($(this).attr('action'), $(this).serialize(), function(data) {
@@ -173,17 +187,10 @@
               <div id="vote_loading" style="display:none">
                 <div class="loading-inner-center"></div>
               </div>
-              <% if @vote_open %>
-                <%if @user && !@vote_topic.vote_items.nil? && !@selected_response%>
-                  <%= render :partial => "vote_form", :locals => {:submit_url => process_votes_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'process'} %>
-                <% elsif @user && @selected_response %>
-                  <%= render :partial => "vote_form", :locals => {:submit_url => cancel_vote_vote_topic_path(@vote_topic, :user_id => @user.id), :action => 'cancel'} %>
-                <% elsif !@user %>
-                  <%= render :partial => "vote_form_need_login", :locals => {:action => 'login'} %>
-                <% end  %>
-              <% else %>
-                <%= render :partial => "vote_form_need_login", :locals => {:action => 'login'} %>
+                <%if !@vote_topic.vote_items.nil? %>
+                  <%= render :partial => "vote_form"%>
               <% end  %>
+              <div id="vote_status"></div>
             </div>
           </td>
         </tr>
@@ -195,11 +202,6 @@
 <div class="top-mar right-mar span-18 last">
     <fb:like href="<%= share_url %>"></fb:like>
 </div>
-
-
-
-<div id="vote_status" class="span-18 last"></div>
-
 
 <% if !@vote_topic.vote_facet.nil? %>
   <div id ="facets" class="span-18 last">
@@ -277,3 +279,4 @@
     s1.parentNode.insertBefore(s, s1);
   })();
 </script>
+`
