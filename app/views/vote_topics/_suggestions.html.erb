@@ -2,6 +2,6 @@
 <h4>Related Votes</h4>
 <ul>
 <% res.each do |r| %>
-  <li><span class="vote-box-small"><%= "#{r.total_votes} votes"  %></span><%= link_to r.header, r %></li>
+  <li><span class="vote-box-small"><%= "#{r.votes_count} votes"  %></span><%= link_to r.header, r %></li>
 <% end  %>
 </ul>

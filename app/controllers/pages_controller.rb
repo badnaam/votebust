@@ -42,4 +42,10 @@ class PagesController < ApplicationController
     def contact
         @c = ContactMessage.new
     end
+
+    def voting_power
+        respond_to do |format|
+            format.js
+        end
+    end
 end

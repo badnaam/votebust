@@ -1,0 +1,8 @@
+<ul class="top-mar list-no-pad-no-mar " id="vote_items_list">
+  <%@vote_topic.vote_items.each do |v| %>
+    <li >
+      <%= v.option.titleize %>
+    </li>
+  <% end  %>
+  <li class="go-right no-style-no-border">Vote to see results</li>
+</ul>

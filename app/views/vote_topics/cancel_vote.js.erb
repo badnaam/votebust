@@ -1,20 +1,6 @@
 $('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
 <% if !@vote_topic.nil? %>
-  $('#tot_votes').html("<%= @vote_topic.total_votes %>");
+  $('#tot_votes').html("<%= @vote_topic.votes_count %>");
 <% end  %>
 
-<% if !@vote_topic.nil? %>
-  <%if @user && !@vote_topic.nil? && !@selected_response.nil?%>
-    $('#<%= @selected_response.id %>').removeClass('cancel').addClass('vote');
-    $('#<%= @selected_response.id %> span').removeClass('ui-icon-close').addClass('ui-icon-check');
-    $(".vi-list [class *='non-sel']").each(function() {
-    var txt = $(this).html();
-    var str = $(this).attr('id');
-    var id = str.slice('v-item-'.length, str.length);
-    var toAppend = "<a href='#' id='" + id + "' class='take-action vote'><span class='ui-icon ui-icon-check'></span>" + txt + "</a>"
-    $(this).html('');
-    $(this).append(toAppend);
-    })
-    $('#<%= @selected_response.id %>').parent('li').removeClass('sel').addClass('non-sel');
-  <% end  %>
-<% end %>
+  $('#div_vote_form').replaceWith("<%= escape_javascript(render :partial => 'vote_control') %>");

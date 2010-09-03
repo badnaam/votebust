@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="last span-24 header_logo_div append-bottom"> <!-- header logo -->
           <div class="span-8">
             <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
@@ -34,10 +34,14 @@
           </div>
           <!-- <sup>&trade;</sup> -->
           <div class="span-24 last nav_container ui-state-default">
-            <div class="span-24 last">
-              <div class="main_links_div">
-                <%= render_navigation :level => 1 %>
-              </div>
+            <div class="main_links_div span-18">
+              <%= render_navigation :level => 1 %>
+            </div>
+            <div class="span-6 last div-search-form"
+            <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
+              <%= text_field_tag :search_term, "Search",  :class => 'search-term' %>
+                   <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
+                   <% end  %>
             </div>
           </div>
         </div>
@@ -47,7 +51,7 @@
         <div class="span-24 last">
           <%= yield :page_headers %>
         </div>
-        
+
         <div class="content span-18" id="content">
           <div class="span-18 last" id="flash_messages">
             <%= render :partial => 'layouts/flash_msg' %>
@@ -64,12 +68,7 @@
         </div> <!-- end content div -->
 
         <div class="right_nav span-6 last">
-          <div class="span-6 last div-search-form"
-          <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
-            <%= text_field_tag :search_term, "Search",  :class => 'search-term' %>
-                 <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
-            <% end  %>
-          </div>
+          
           <%= yield :right_nav %>
         </div>
         <!-- <div class="push"> </div>-->

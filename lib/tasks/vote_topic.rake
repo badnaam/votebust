@@ -8,3 +8,8 @@ task :compute_devided_counter => :environment do
         end
     end
 end
+
+desc 'starts facet update'
+task :facet_update_start => :environment do
+    VoteTopic.start_facet_update
+end

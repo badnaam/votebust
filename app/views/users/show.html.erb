@@ -27,7 +27,7 @@
           <li><a href="#user_tab"><span>Account</span></a></li>
         <% end  %>
         <li  title="Votes you have started."><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user', :user_id => @user.id)%>"><span>Your Votes</span></a></li>
-        <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :voted_vote_topics, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>You Voted </span></a></li>
+        <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>You Voted </span></a></li>
       </ul>
 
       <% permitted_to? :update, @user do %>

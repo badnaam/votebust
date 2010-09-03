@@ -1,19 +1,19 @@
 class Notifier < ActionMailer::Base
 
     ActionMailer::Base.smtp_settings = {
-        :address => "smtp.gmail.com",
-        :port => 587,
-#        :domain => I18n.translate('notifier.domain'),
-        :domain => 'gmail.com',
-        :user_name => 'pjointadm@gmail.com',
-        :password => "badnaam1",
+        :address => APP_CONFIG['smtp_server_host'],
+        :port => APP_CONFIG['smtp_server_port'],
+        :domain => APP_CONFIG['smtp_server_domain'],
+        :user_name => APP_CONFIG['site_admin_email'],
+        :password => APP_CONFIG['smtp_server_pwd'],
         :authentication => :plain,
-        :enable_starttls_auto => true
+        :enable_starttls_auto => true,
+        :content_type => "multipart/alternative"
     }
 
     def hello_world(email)
         recipients email
-        from "pjointadm@gmail.com"
+        from APP_CONFIG['site_admin_email']
         subject "Hello"
         sent_on Time.now
         body "Here is the body"
@@ -21,55 +21,61 @@ class Notifier < ActionMailer::Base
 
     def friendly_vote_emails(vote_topic)
         emails = vote_topic.friend_emails
-        logger.debug("Notifier sending friendly_vote_emails to => " + emails)
-#        subject "Vote invitation from #{vote_topic.user.username} at Votebust"
-        subject "Vote invitation from #{vote_topic.poster.username} at Votebust"
-        from          'pjointadm@gmail.com'
-        recipients    'pjointadm@gmail.com'
+        subject "Vote invitation from #{vote_topic.poster.username} at #{APP_CONFIG['site_name']}"
+        from          APP_CONFIG['site_admin_email']
+        recipients    APP_CONFIG['site_admin_email']
         bcc           emails
         sent_on       Time.now
         content_type "multipart/alternative"
-        body          :vote_topic => vote_topic
+        body          :vote_topic => vote_topic, :site_name => APP_CONFIG['site_name']
     end
     
     def new_vote_notification(vote_topic)
-        subject "New Vote Notification"
-        from          'pjointadm@gmail.com'
-        recipients    'pjointadm@gmail.com'
+        subject "#{APP_CONFIG['site_name']} - New Vote Notification"
+        from          APP_CONFIG['site_admin_email']
+        recipients    APP_CONFIG['site_admin_email']
         sent_on       Time.now
         content_type "multipart/alternative"
         body          :vote_topic => vote_topic
     end
 
+    def denied_vote_notification(vote_topic, reason)
+        subject "#{APP_CONFIG['site_name']} - Vote Topic not approved"
+        from          APP_CONFIG['site_admin_email']
+        recipients    vote_topic.poster.email
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :vote_topic => vote_topic, :reason => reason, :terms_url => terms_url, :faq_url => faq_url, :site_name => APP_CONFIG['site_name']
+    end
+
     def contact_message(cm)
         subject "Contact Message - #{cm.subject} - #{ContactMessage::MESSAGE_TYPE[cm.msg_type]}"
-        from "pjointadm@gmail.com"
-        recipients "asitkmishra@gmail.com"
+        from APP_CONFIG['site_admin_email']
+        recipients APP_CONFIG['personal_email']
         sent_on Time.now
         content_type "multipart/alternative"
         body :cm => cm
     end
     
     def password_reset_instructions(user)
-        subject       "VoteChek Password Reset Instructions"
-        from          "pjointadm@gmail.com"
+        subject       "#{APP_CONFIG['site_name']} Password Reset Instructions"
+        from          APP_CONFIG['site_admin_email']
         recipients    user.email
         sent_on       Time.now
         body          :edit_password_reset_url => edit_password_reset_url(user.perishable_token)
     end
 
     def activation_instructions(user)
-        logger.debug "delivering activation instructions to #{user.email}"
-        subject 'VoteCheck Activation'
-        from 'pjointadm@gmail.com'
+        subject "#{APP_CONFIG['site_name']} Activation"
+        from APP_CONFIG['site_admin_email']
         recipients user.email
         sent_on Time.now
         body :account_activation_url => register_url(user.perishable_token)
     end
 
     def activation_confirmation(user)
-        subject 'VoteCheck Account Activation Confirmation'
-        from 'pjointadm@gmail.com'
+        subject "#{APP_CONFIG['site_name']} Account Activation Confirmation"
+        from APP_CONFIG['site_admin_email']
         recipients user.email
         sent_on Time.now
         body :root_url => root_url

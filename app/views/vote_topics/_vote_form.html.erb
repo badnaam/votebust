@@ -1,38 +1,21 @@
-
-<div id="div_process_vote">
-  <%= hidden_field_tag :user_id, (@user).id if !@user.nil?%>
-  <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
-
-  <ul class="top-mar vi-list" id="vote_items_list">
-    <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
-      <% if !@selected_response.nil?  && @selected_response == v
+  <ul class="top-mar vi-list-voted" id="vote_items_list">
+    <% @vote_topic.vote_items.each do |v| %>
+      <% if !@selected_response.nil?  && @selected_response.to_i == v.id
         selected = true
         icon = 'ui-icon-close'
       else
         icon = 'ui-icon-check'
       end  %>
       <li id="v-item-<%= v.id %>" class=" <%= selected ? 'sel' : 'non-sel' %> ">
-        <% if @user && @reg_complete && @vote_open %>
-          <% if !@selected_response.nil? && !selected %>
-            <%= (get_vote_percent v, @vote_topic.total_votes) %>
-          <% else %>
-            <a href="#" id="<%= v.id %>" class="<%= selected ? 'cancel' : 'vote'%> take-action">
-              <span class="ui-icon <%= icon %> vote-icon" ></span>
-              <%= (get_vote_percent v, @vote_topic.total_votes) %></a>
-            <% end  %>
-          <% else %>
-            <%= (get_vote_percent v, @vote_topic.total_votes) %>
+        <% if !@selected_response.nil? && !selected %>
+          <%= (get_vote_percent v, @vote_topic.votes_count) %>
+        <% else %>
+          <a href="#" id="<%= v.id %>" class="<%= selected ? 'cancel' : 'vote'%> take-action">
+            <span class="ui-icon <%= icon %> vote-icon" ></span>
+            <%= (get_vote_percent v, @vote_topic.votes_count) %></a>
           <% end  %>
       </li>
-      <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes) %>
+      <%= get_percent_div (v.get_vote_percent_num @vote_topic.votes_count) %>
+      <li class="option-separator"></li>
     <% end %>
   </ul>
-  
-  <% if !@user %>
-    <div><%= link_to "Login to Vote", login_path %></div>
-  <% elsif @user && !@reg_complete %>
-    <div class="" id="">
-      <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
-    </div>
-  <% end %>
-</div>

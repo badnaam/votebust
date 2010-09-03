@@ -1,12 +1,11 @@
 <div id="div_process_vote">
   <ul class="ui-corner-all top-mar vi-list" id="vote_items_list">
-    <% sort_vote_items(@vote_topic.vote_items).each do |v| %>
+    <% @vote_topic.vote_items.each do |v| %>
       <li class="">
-          <span class="ui-icon ui-icon-document list-icon"></span>
-        <% percent = get_vote_percent v, @vote_topic.total_votes %>
-        <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.total_votes) %></span>
+        <span class="ui-icon ui-icon-document list-icon"></span>
+        <span id="rt_<%= v.id %>" class="vote-item"><%= (get_vote_percent v, @vote_topic.votes_count) %></span>
       </li>
-      <%= get_percent_div (v.get_vote_percent_num @vote_topic.total_votes) %>
+      <%= get_percent_div (v.get_vote_percent_num @vote_topic.votes_count) %>
     <% end %>
     <% if @vote_open %>
       <li>

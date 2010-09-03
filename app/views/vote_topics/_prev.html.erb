@@ -5,36 +5,87 @@
       $('#confirm_vote_form').submit();
     });
     $('#vote_edit_link').button({icons:{primary:'ui-icon-bookmark'}});
+    $('#track_link').tooltip({
+      relative : true
+    });
+    $('#track_link').click(function() {
+      return false;
+    })
   });
     
   //]]>
 </script>
-<div class="bld">
-  Please preview your vote and click Confirm if you are satisfied. <em>The vote can not be changed once it has been confirmed and active</em>.
+<div class="span-18 last" id="">
+  <div class="normal-pad right-mar prepend-top generic-box">
+    Please preview your vote and click Confirm if you are satisfied.
+    <br/>
+    <em class="clearfix special-text bld">The vote can not be changed once it has been confirmed and active</em>.
+  </div>
+
 </div>
+
 <% form_tag confirm_vote_vote_topic_path(@vote_topic, :user_id => @user.id), :id => "confirm_vote_form" do |f| %>
-<div class=" span-18 last">
-  <div class=" ui-state-default ui-corner-all prepend-top normal-pad right-mar append-bottom">
-    <h4 class="ui-widget-header normal-pad">Preview Vote</h4>
-    
-      <span class="clearfix big bld bottom-mar topic-header">&quot;<%= @vote_topic.header %>&quot;</span>
-      <span class="top-mar clearfix" style="font-weight: normal"><%= @vote_topic.topic %></span>
-      <span class="small">
-          <%= "By #{link_to @vote_topic.poster.username, @vote_topic.poster} on #{@vote_topic.created_at.strftime('%b %d %Y')}" %>
-      </span>
+  <div class=" span-18 last append-bottom">
+    <div class="ui-widget-content prepend-top normal-pad right-mar">
+      <div class="">
+        <table class="preview-table" id="">
+          <tr>
+            <td class="preview-box-left right-border">
+              <div>
+                <div class="bottom-mar-small bottom-border">
+                  <span class="" id="">
+                    <span id="tot_votes"><%= @vote_topic.votes_count%></span> votes
+                  </span>
+                  <span class="go-right tracking-count" id="">
+                    <span id="tot_tracking" ><%= @vote_topic.trackings_count %></span> trackings
+                  </span>
+                  <%= render :partial => "/shared/tracking_tooltip" %>
+                </div>
+                <div>
+                  <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span>
+                    <a href="#" id = "track_link" >
+                      Track</a>
+                  </span>
+                  <%= render :partial => "/shared/add_tracking_tooltip" %>
+                </div>
+                <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster} %>
+                <div class="clear tag top-mar">
+                  <span class="ui-icon ui-icon-tag "></span>
+                  <%= link_to "#{@vote_topic.category.name}, ", category_vote_topics_path(@vote_topic.category,
+                    :listing_type => "category") %>
+                  <%= link_to "#{@vote_topic.poster.city.titleize}, ", searches_path(:city => @vote_topic.poster.city) %>
+                  <%= link_to "#{@vote_topic.poster.state.titleize}", searches_path(:state => @vote_topic.poster.state) %>
+                </div>
+                <div class="top-mar">Started - <%= @vote_topic.created_at.strftime('%b %d %Y') %></div>
+                <div class="top-mar">Ends - <%= (DateTime.now + 2.weeks).strftime('%b %d %Y') %></div>
+                <div class="top-mar">
+                  <%= power_points @vote_topic %>
+                </div>
+              </div>
+            </td>
+            <td>
+              <blockquote class="preview">
+                <span class="big"><%=  @vote_topic.header%></span>
+              </blockquote>
+              <p>
+                <%= @vote_topic.topic %>
+              </p>
+              <p>
+                <a href="<%= @vote_topic.website %>" class="" target ="_blank" id="">
+                  Source
+                  <span class="ui-icon ui-icon-extlink" id="">
+                  </span>
+                </a>
+              </p>
+              <%= render :partial => "vote_options" %>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div id="div_process_vote">
-      <ul class="list_no_pad_no_style top-mar">
-        <% @vote_topic.vote_items.each do |v| %>
-          <li class="ui-widget-content">
-            <span class="ui-icon ui-icon-document list-icon"></span><%= v.option %>
-          </li>
-        <% end %>
-        <li>
-          <span class=small-button style="margin-right:2em"><button id ="vote_confirm_link">Confirm</button></span>
-          <span class=small-button><%= link_to "Edit", edit_user_posted_vote_topic_path(@user, @vote_topic), :id => 'vote_edit_link' %></span>
-        </li>
-      </ul>
-    </div>
+  </div>
+  <div class="span-18 last prepend-top append-bottom" id="">
+    <span class=small-button style="margin-right:2em"><button id ="vote_confirm_link">Confirm</button></span>
+    <span class=small-button><%= link_to "Edit", edit_user_posted_vote_topic_path(@user, @vote_topic), :id => 'vote_edit_link' %></span>
   </div>
 <% end  %>

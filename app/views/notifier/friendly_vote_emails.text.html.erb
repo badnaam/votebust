@@ -1,20 +1,18 @@
 <html>
   <head>
-    <title>Friendly vote invitation from Votebust</title>
+    <title>Friendly vote invitation from <%= @site_name  %></title>
   </head>
   <body>
     <p>
-      <%#*Your friend <%= @vote_topic.user.username %> at <%= link_to "Votebust", root_url  %> has invited you to a vote about <%= @vote_topic.header %>.%>
-      <%#= link_to "Please click on this link to be taken directly to the vote", vote_topic_url(@vote_topic) %>
-      <%#*<br/>%>
-      Your friend <%= @vote_topic.poster.username %> at <%= link_to "Votebust", root_url  %> has invited you to a vote about <%= @vote_topic.header %>.
-      <%= link_to "Please click on this link to be taken directly to the vote", vote_topic_url(@vote_topic) %>
-      <br/>
-      See you there!
+      Your friend at <%= link_to @site_name, root_url  %> has invited you to a vote on "<%= @vote_topic.header %>".
     </p>
     <p>
-      Best,<br/>
-      The Votebust team.
+      <%= @site_name %> is a community for gathering collective opinion and trending the the public voice on any topic. See you there!
+    </p>
+    
+    <p>
+      Sincerely,<br/>
+      The <%= @site_name %> team.
     </p>
   </body>
 </html>

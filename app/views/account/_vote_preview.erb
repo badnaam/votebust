@@ -1,0 +1,78 @@
+<% if local_assigns[:vi].nil? %>
+  <% vi = vt.vote_items if !vt.nil? %>
+<% end  %>
+<% if local_assigns[:top_vote].nil? %>
+  <% top_vote = false %>
+<% end  %>
+
+<% if !vt.nil? %>
+  <div class="ui-widget-content bottom-mar normal-pad right-mar" style="clear:both;" id="<%= vt.id%>">
+    <div class="">
+      <table class="preview-table" id="">
+        <tr>
+          <td class="preview-box-left right-border">
+            <div>
+              <div class="bottom-mar-small bottom-border">
+                <span class="" id="">
+                  <%= "#{vt.votes_count} votes"  %>
+                </span>
+                <span class="go-right tracking-count" id="">
+                  <%= vt.trackings_count %> trackings
+                </span>
+                <%= render :partial => "/shared/tracking_tooltip" %>
+              </div>
+              <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster} %>
+              <div class="clear tag">
+                <span class="ui-icon ui-icon-tag "></span>
+                <%= link_to "In #{vt.category.name}, ", category_vote_topics_path(vt.category,
+                  :listing_type => "category") %>
+                <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
+                <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
+              </div>
+              <div class="top-mar">
+                <%= power_points vt %>
+              </div>
+            </div>
+          </td>
+          <td>
+            <table border="1" class="vote-preview">
+              <tr>
+                <td class="top-al">
+                  <blockquote class="preview">
+                    <% if top_vote == true %>
+                      <span class="ui-icon ui-icon-star" style="padding-right:0 !important;"></span>
+                    <% end  %>
+                    <span class="big"><%= link_to vt.header, vt %></span>
+                  </blockquote>
+                  <p>
+                    <%= vt.topic %>
+                  </p>
+                  <% unless vt.website.nil? %>
+                    <a href="<%= vt.website %>" class="clearfix"><%= vt.website %></a>
+                  <% end  %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul class="list-no-pad-no-mar">
+                    <% vi.each do |v| %>
+                      <li>
+                        <%= v.option %>
+                      </li>
+                    <% end  %>
+                  </ul>
+                  <% if current_role == 'admin' %>
+                    <a href="<%= approve_vote_account_path(:id => vt.id) %>" class="approve-link" id="">
+                      Approve
+                    </a>
+                    <%= select_tag 'deny', options_for_select (VoteTopic::DENIAL.to_a.insert(0, '')), :class => 'denial' %>
+                  <% end  %>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+<% end  %>

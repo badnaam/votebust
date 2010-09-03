@@ -1,0 +1,12 @@
+
+<ul class="top-mar vi-list" id="vote_items_list">
+  <%@vote_topic.vote_items.each do |v| %>
+    <li id="v-item-<%= v.id %>" class="non-sel">
+      <a href="#" id="<%= v.id %>" class="vote take-action">
+        <span class="ui-icon-check ui-icon vote-icon" ></span>
+        <%= v.option.titleize %>
+      </a>
+    <% end  %>
+  </li>
+  <li class="go-right no-style-no-border">Vote to see results</li>
+</ul>

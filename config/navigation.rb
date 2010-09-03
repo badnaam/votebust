@@ -42,11 +42,12 @@ SimpleNavigation::Configuration.run do |navigation|
                 v.item :v_show, @vote_topic.header,vote_topic_path(@vote_topic)
             end
         end
-#        primary.item :profile_nav, 'Profile', user_path(current_user), :if => Proc.new {!current_user.nil?} do|a|
-#            if current_user
-#                a.item :u_edit, "Edit Profile", edit_user_path(current_user)
-#            end
-#        end
+        
+        primary.item :profile_nav, 'Admin', account_path, :if => Proc.new {!current_user.nil? && current_role == 'admin'} do|a|
+            if current_user
+                a.item :u_edit, "Edit Profile", edit_user_path(current_user)
+            end
+        end
 
         #    primary.item :account_nav, "Account", gaccount_path, :if => Proc.new {current_user}
 

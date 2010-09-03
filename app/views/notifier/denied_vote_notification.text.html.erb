@@ -1,0 +1,22 @@
+<html>
+  <head>
+  <body>
+    <p>
+      Dear <%= @vote_topic.poster.username  %>,
+    </p>
+    <p>
+      We are sorry, your vote topic "<%= @vote_topic.header %>" has been dissapproved by the moderator at <%= @site_name %> because it was
+      considered <%= @reason %>. Please see the  <a href="<%= @terms_url %>" class="" id=""> Terms of Use </a> for more information and future consideration.
+      The <a href="<%= @faq_url %>" class="" id="">FAQ</a> section also explains general guidelines for posting Vote Topics.
+    </p>
+    <p>
+      We hope we will see you at <%= @site_name %> soon!
+    </p>
+    <p>
+      Sincerly,
+      <br/>
+      The <%= @site_name %> team.
+    </p>
+  </body>
+</head>
+</html>

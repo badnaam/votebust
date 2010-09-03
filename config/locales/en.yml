@@ -1,4 +1,4 @@
-# Sample localization file for English. Add more files in this directory for other locales.
+ # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
@@ -19,7 +19,12 @@ en:
 #View
   vote_topic:
     new:
-      header: 'Bust a Vote!'
+      header: 'Start a Vote!'
+      header_hint: 'What should people vote on? For example: Who should be the next mayor of Springfield?'
+      topic_hint: 'More details about the topic for your voters. For example:
+                  It needs to be someone responsible and heroic like Homer.'
+      email_hints: "Invite friends to vote, enter comma separated valid emails.
+    For example: homer@springfield.com<strong>,</strong> bart@springfieldelementary.com, marge@evergreenterrace.com"
   #Controllers
   users:
     create:
@@ -71,7 +76,6 @@ en:
          topic: "More details about the topic for your voters. "
          anon: "Should we show your username?"
          option: "Options to choose"
-         friend_emails: "Invite friends to vote, enter comma separated valid emails. For example <b>joe@gmail.com,susan@yahoo.com,gary@hotmail.com></b>"
        edit:
          header: "What should people vote one?"
          ext_link: "Link to the source of the topic i.e. News headline, Article etc."

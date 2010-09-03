@@ -1,0 +1,7 @@
+<% if !@user %>
+  <div><%= link_to "Login to Vote", login_path %></div>
+<% elsif @user && !@reg_complete %>
+  <div class="" id="">
+    <%= link_to "Complete Registration to Vote", edit_user_path(@user) %>
+  </div>
+<% end %>

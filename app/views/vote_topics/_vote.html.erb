@@ -15,7 +15,7 @@
 
 <script type="text/javascript">
   //<![CDATA[
-  
+
   function update_chars_left(max_len, target_input, display_element) {
     var text_len = target_input.value.length;
     if (text_len >= max_len) {
@@ -26,19 +26,19 @@
     }
   }
 
-  
+
   $(document).ready(function() {
     $('.take-action').live('click', function() {
       if ($(this).hasClass('vote')) {
         //post vote
         $.ajax({type: 'POST',
           url:'<%= process_votes_vote_topic_path(@vote_topic) %>',
-          data: {reg_complete : $('#reg_complete').val(), response : $(this).attr('id'), user_id : $('#user_id').val()},
+          data: {vote_open: $('#vote_open').val(), reg_complete : $('#reg_complete').val(), response : $(this).attr('id'), user_id : $('#user_id').val(), id:$('#vote_id').val()},
           success : function() {
-            $('#vote_status').html('Vote Accepted.');
+            //$('#vote_status').html('Vote Accepted.');
           },
           error:function(){
-            $('#vote_status').html('Sorry. An error occured. Please try later.');
+            $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
           },
           beforeSend : function() {
             showLoading($('#vote_loading'))
@@ -51,12 +51,12 @@
         //cancel vote
         $.ajax({type: 'POST',
           url:'<%= cancel_vote_vote_topic_path(@vote_topic) %>',
-          data: {sel_response : $(this).attr('id'), user_id : $('#user_id').val()},
+          data: {vote_open: $('#vote_open').val(),reg_complete:$('#reg_complete').val(),response : $(this).attr('id'), user_id : $('#user_id').val(), id:$('#vote_id').val()},
           success : function() {
-            $('#vote_status').html('Vote Cancelled.');
+            //$('#vote_status').html('Vote Cancelled.');
           },
           error:function(){
-            $('#vote_status').html('Sorry. An error occured. Please try later.');
+            $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
           },
           beforeSend : function() {
             showLoading($('#vote_loading'))
@@ -73,42 +73,39 @@
         },  dataType:'script', success:function(){
         }}});
 
-<%if @vote_open%>
-      function updatePageElems() {
-        showLoading($('#vote_loading'));
-  <%if @user%>
-          $.get('<%=  update_stats_vote_topic_path(@vote_topic, :user_id => @user.id)  %>',
-          {sel_response:$('#sel_response').val(), reg_complete:$('#reg_complete').val()}, function(data){
-            hideLoading($('#vote_loading'));
-          },
-          'script');
-  <%else%>
-          $.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
-          {sel_response:$('#sel_response').val(), reg_complete:$('#reg_complete').val()}, function(data){
-            hideLoading($('#vote_loading'));
-          },'script');
-  <%end%>
-      }
-      var refreshId = setInterval(function(){
+    function updatePageElems() {
+      showLoading($('#vote_loading'));
+      $.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
+      {user_id: $('#user_id').val(), reg_complete:$('#reg_complete').val()},
+      function(data){
+        hideLoading($('#vote_loading'));
+      },
+      'script');
+    }
+    var refreshId = setInterval(function(){
+      //check if the user has voted, logged in, registered and vote is open
+      if ($('#user_id').val() != "" &&  $('#reg_complete').val != "" && $('#vote_open').val () == "true") {
         updatePageElems();
-      }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
-<%end%>
+      }
+    }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
 
     $('#goto_comment_link').button({text:false, icons:{primary:'ui-icon-comment'}});
     $('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
-    
- 
+
     $('#comment_submit').button({icons:{primary:'ui-icon-comment'}}).click(function() {
       $('#new_comment').submit();
       return false;
     });
 
-    $('#track_link').live('click', function() {
+    $('#trackings').live('click', function() {
       $.post($(this).attr('href'), function(){});
       return false;
     });
-    
- 
+
+    $('#track_link').tooltip({
+      relative : true
+    });
+
     $('#new_comment').submit(function (){
       showLoading('#com_submit_loading')
       $.post($(this).attr('action'), $(this).serialize(), function(data) {
@@ -138,11 +135,12 @@
             <div>
               <div class="bottom-mar-small bottom-border">
                 <span class="" id="">
-                  <span id="tot_votes"><%= @vote_topic.total_votes  %></span> votes
+                  <span id="tot_votes"><%= @vote_topic.votes_count%></span> votes
                 </span>
-                <span class="go-right" id="">
-                  <span id="tot_tracking"><%= @vote_topic.trackings_count %></span> trackings
+                <span class="go-right tracking-count" id="">
+                  <span id="tot_tracking" ><%= @vote_topic.trackings_count %></span> trackings
                 </span>
+                <%= render :partial => "/shared/tracking_tooltip" %>
               </div>
               <div>
                 <% if @user %>
@@ -150,11 +148,13 @@
                     <% if @vote_topic.is_being_tracked? @user.id%>
                       <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
                         Untrack</a>
+
                     <% else %>
-                      <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link" >
+                      <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link">
                         Track</a>
                     <% end  %>
                   </span>
+                  <%= render :partial => "/shared/add_tracking_tooltip" %>
                 <% end  %>
               </div>
               <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster} %>
@@ -170,28 +170,26 @@
               <div class="top-mar">
                 <%= power_points @vote_topic %>
               </div>
-              <div class="top-mar" id="">
-                <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
-                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-              </div>
-              <div class="top-mar" id="">
-                <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
-              </div>
+
             </div>
           </td>
           <td>
             <blockquote class="preview">
               <span class="big"><%=  @vote_topic.header%></span>
             </blockquote>
-            <div id="div_vote_form" class=" rel-pos" >
-              <div id="vote_loading" style="display:none">
-                <div class="loading-inner-center"></div>
-              </div>
-                <%if !@vote_topic.vote_items.nil? %>
-                  <%= render :partial => "vote_form"%>
-              <% end  %>
-              <div id="vote_status"></div>
-            </div>
+            <p>
+              <%= @vote_topic.topic %>
+            </p>
+            <% unless @vote_topic.website.nil? %>
+              <p>
+                <a href="<%= @vote_topic.website %>" class="" target ="_blank" id="">
+                  External link
+                  <span class="ui-icon ui-icon-extlink" id="">
+                  </span>
+                </a>
+              </p>
+            <% end  %>
+            <%= render :partial => "vote_control" %>
           </td>
         </tr>
       </table>
@@ -199,8 +197,23 @@
   </div>
 </div>
 
-<div class="top-mar right-mar span-18 last">
-    <fb:like href="<%= share_url %>"></fb:like>
+<div class="top-mar right-mar span-18 last append-bottom">
+  <div class="right-mar">
+    <table class="generic-box" id="">
+      <tr>
+        <td class="top-al">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+          <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </td>
+        <td class="top-al">
+          <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
+        </td>
+        <td class="top-al">
+      <fb:like href="<%= share_url %>" width="450"></fb:like>
+      </td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <% if !@vote_topic.vote_facet.nil? %>
@@ -279,4 +292,3 @@
     s1.parentNode.insertBefore(s, s1);
   })();
 </script>
-`

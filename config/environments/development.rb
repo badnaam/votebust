@@ -5,6 +5,10 @@
 # since you don't have to restart the webserver when you make code changes.
 config.cache_classes = false
 
+require 'active_support/cache/dalli_store23'
+config.cache_store = :dalli_store
+CACHE = Dalli::Client.new('localhost:11211')
+
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
 
@@ -18,7 +22,7 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = {:host => "localhost", :port => "3000"}
 config.action_mailer.default_charset = "utf-8"
-config.cache_store = :mem_cache_store
+#config.cache_store = :mem_cache_store
 config.gem "rails-footnotes"
 config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 #if defined?(Footnotes)

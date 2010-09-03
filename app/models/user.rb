@@ -19,17 +19,13 @@ class User < ActiveRecord::Base
     attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
     #    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
 
-    acts_as_voter
-    #    has_many :vote_topics
+    #    acts_as_voter
     has_many :posted_vote_topics, :foreign_key => :user_id, :class_name => 'VoteTopic'
     has_many :trackings, :dependent => :destroy
     has_many :vote_topics, :through => :trackings
-    has_many :voteables, :foreign_key => :voter_id, :class_name => "Vote"
     belongs_to :role
     has_many :comments
     has_many :votes, :foreign_key => :voter_id
-    has_many :voted_vote_topics, :dependent => :destroy
-    has_many :vote_topics, :through => :voted_vote_topics
     
     #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
@@ -47,7 +43,8 @@ class User < ActiveRecord::Base
     before_save :check_what_changed
 
     def self.find_for_vote_processing id
-        find(id, :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username")
+        find(id, :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username, users.city, users.state,
+            users.lat, users.lng")
     end
 
     def award_points points
@@ -154,6 +151,33 @@ class User < ActiveRecord::Base
         save
     end
 
+    def voted_for? vid, vtid
+        Vote.exists?(:vote_topic_id => vid, :voteable_id => vtid, :user_id => self.id)
+    end
+
+    def vote_for(vid, vtid)
+        v = Vote.create(:user_id => self.id, :vote_item_id => vid, :vote_topic_id => vtid, :lat => self.lat, :lng => self.lng, :city => self.city, :state => self.state)
+        if (v.valid?)
+            return true
+        else
+            return false
+        end
+    end
+
+    def cancel_vote(vid, vtid)
+        v = Vote.find(:first, :select => "id, vote_topic_id, vote_item_id, user_id", :conditions => ['vote_item_id = ? AND vote_topic_id = ? AND user_id = ?',
+                vid, vtid, self.id])
+        if !v.nil?
+            if v.destroy
+                return true
+            else
+                return false
+            end
+        else
+            return false
+        end
+    end
+    
     def role_symbols
         arr = Array.new
         arr << self.role.name.to_sym
@@ -197,7 +221,7 @@ class User < ActiveRecord::Base
         if !from_user.voting_power.nil?
             to_user.increment!(:voting_power, from_user.voting_power)
         end
-        if from_user.votes.size > 0
+        if from_user.votes_count > 0
             to_user.votes << from_user.votes
         end
         if from_user.comments.size > 0

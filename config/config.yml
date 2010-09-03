@@ -12,6 +12,15 @@ development:
   google_map: ABQIAAAAi_F8JNAI9__oCG-KzCfTYhTJQa0g3IQ9GZqIMmInSLzwtGDKaBQ6kTvHNGROiENaALqema6YZJEh2Q
   facebook_app_api_key: dabaa5ee23cd2acb8c46f1320313db78
   facebook_app_id: 152722804740985
+  smtp_server_host: 'smtp.gmail.com'
+  smtp_server_port: '587'
+  smtp_server_domain: 'gmail.com'
+  smtp_server_pwd: badnaam1
+  site_admin_email: 'pjointadm@gmail.com'
+  personal_email: 'asitkmishra@gmail.com'
+  smtp_server_domain:
+  site_name: "Voteable"
+  
 staging:
   #good for http://server
   rpx_key: 18c3db9c36e3ce844af615637cfc9ffbac08448f

@@ -14,6 +14,10 @@ authorization do
             to :edit, :update
             if_permitted_to :update, :vote_topic
         end
+        has_permission_on :vote do
+            to :destroy
+            if_attribute :user_id => is {user.id}
+        end
     end
 
     role :admin do

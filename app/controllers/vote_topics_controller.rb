@@ -47,10 +47,10 @@ class VoteTopicsController < ApplicationController
             @vote_topic.status = 'a'
             @vote_topic.expires = 2.weeks.from_now
             if @vote_topic.save
-                @vote_topic.poster.delay.award_points(@vote_topic.power_offered * -1) if !@vote_topic.power_offered.nil? && @vote_topic.power_offered > 0
+                @vote_topic.poster.delay.award_points(@vote_topic.power_offered * -1) if !@vote_topic.power_offered.nil? &&
+                  @vote_topic.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
                 @vote_topic.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
                 if !@vote_topic.friend_emails.nil?
-                    #                    @vote_topic.send_later :deliver_friendly_vote_emails!
                     @vote_topic.delay.deliver_friendly_vote_emails!
                 end
                 flash[:success] = 'Change vote status to approved'
@@ -60,19 +60,18 @@ class VoteTopicsController < ApplicationController
         end
         respond_to do |format|
             format.html {redirect_to :controller => :account, :action => :index}
+            format.js 
         end
     end
 
     def update_stats
-        @vote_topic = VoteTopic.find_for_stats(params[:id])
-        @reg_complete = params[:reg_complete]
+        @user = params[:user_id].blank? ? false : true
+        @reg_complete = params[:reg_complete] if !params[:reg_complete].blank?
         
-        if @vote_topic.total_votes > 0
-            @user = User.find_by_id(params[:user_id], :select => :id) if !params[:user_id].nil?
-            if !params[:sel_response].blank?
-                @selected_response = VoteItem.find(params[:sel_response]) 
-            end
-#            @p_chart = @vote_topic.make_flash_pie_graph(true)
+        @vote_topic = VoteTopic.find_for_stats(params[:id])
+        #just use the id
+        if @vote_topic.expires > DateTime.now
+            @vote_open = true
         end
         respond_to do |format|
             format.js
@@ -82,14 +81,14 @@ class VoteTopicsController < ApplicationController
     def cancel_vote
         @user = User.find_for_vote_processing(params[:user_id])
         if @user.processing_vote == false
-            @selected_response = VoteTopic.find_selected_response(params[:sel_response])
-            @vote_topic = @selected_response.vote_topic
-            if Vote.find(:first, :select => "id", :conditions => ['voteable_id = ? AND voter_id = ?', @selected_response.id, @user.id]).destroy &&
-                  @vote_topic.decrement!(:total_votes, 1)
-                flash[:success] = "Your vote has been cancelled."
-                @user.update_attribute(:processing_vote, true)
-                @vote_topic.delay.post_process(@selected_response, @user, false)
-            end
+            selected_response = params[:response]
+            @vote_open = params[:vote_open]
+            @reg_complete = params[:reg_complete]
+            #            @vote_topic = @selected_response.vote_topic
+            @user.update_attribute(:processing_vote, true)
+            @vote_topic = VoteTopic.find_for_processing(params[:id])
+            @vote_topic.delay.post_process(selected_response, @user, false)
+            flash[:success] = "Your vote has submitted for cancellation."
         else
             flash[:notice] = "Please wait while we process your previous vote"
         end
@@ -102,32 +101,29 @@ class VoteTopicsController < ApplicationController
         @user = User.find_for_vote_processing(params[:user_id])
         if @user.processing_vote == false
             if  !params[:response].nil? && !@user.nil?
-                @selected_response = VoteTopic.find_selected_response(params[:response])
-                @vote_topic = @selected_response.vote_topic
-                if !@user.voted_for?(@selected_response)
-                    if @user.vote_for(@selected_response) && @vote_topic.increment!(:total_votes, 1)
-                        flash[:success] = "Thanks for voting. Your vote is being processed."
-                    else
-                        flash[:error] = "Something went wrong, we couldn't process your vote."
-                    end
-                else
-                    flash[:notice] = "You already voted."
-                end
-                #initiate post processing
+                @selected_response = params[:response]
+                @vote_open = params[:vote_open]
+                @reg_complete = params[:reg_complete]
+                @vote_processing = true
+                #todo optimize this find
                 @user.update_attribute(:processing_vote, true)
+                @vote_topic = VoteTopic.find_for_processing(params[:id])
                 @vote_topic.delay.post_process(@selected_response, @user, true)
+                flash[:success] = "Thanks for voting. Your vote is being processed."
             else
-                flash[:notice] = "Please wait while we process your previous vote"
+                flash[:error] = "Something went wrong, we couldn't process your vote."
             end
-            respond_to do |format|
-                format.js
-            end
+        else
+            flash[:notice] = "Please wait while we process your previous vote"
+        end
+        respond_to do |format|
+            format.js
         end
     end
 
 
     def confirm_vote
-        @vote_topic = VoteTopic.find(params[:id])
+        @vote_topic = VoteTopic.find(params[:id], :select => "vote_topics.id, vote_topics.status")
         if @vote_topic.update_attribute(:status, 'w')
             flash[:notice] = 'Vote was successfully created and sent for moderator approval.'
             @vote_topic.delay.deliver_new_vote_notification!
@@ -191,27 +187,30 @@ class VoteTopicsController < ApplicationController
             @comments = @vote_topic.comments(:order => 'created_at DESC').paginate(:page => params[:page],
                 :per_page => Constants::COMMENTS_PER_PAGE)
         elsif params[:preview_only] == 'true'
-            @vote_topic = VoteTopic.find(params[:id])
-            @user = User.find(params[:user_id])
+            #todo :optimize this
+            @vote_topic = VoteTopic.find_for_preview_save(params[:id])
+            @user = current_user
             if @vote_topic.status == 'p'
                 @status = 'preview'
             end
         elsif params[:waiting] == 'true'
             #            @vote_topic = VoteTopic.find(params[:id])
         else
-            @vote_topic = VoteTopic.find_for_show(params[:id])
-            @user = current_user
-            @reg_complete = registration_complete?
             @status = 'approved'
+            @user = current_user
+            if @user
+                @selected_response = VoteTopic.what_user_voted_for?(params[:id], @user.id)
+            end
+            if @selected_response
+                @vote_topic = VoteTopic.find_for_show(params[:id])
+            else
+                @vote_topic = VoteTopic.find_for_show_preview(params[:id])
+            end
+            @reg_complete = registration_complete?
+            
             if @vote_topic.expires > DateTime.now
                 @vote_open = true
             end
-#            @p_chart = @vote_topic.make_flash_pie_graph(true) #only get this if total_votes > 0?
-            @selected_response = @vote_topic.what_vi_user_voted_for(@user) if @user 
-            @related = VoteTopic.search "", :with => {:category_id => @vote_topic.category_id},
-              :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT
-            @same_user = VoteTopic.search "", :with => {:user_id => @vote_topic.user_id},
-              :order => :created_at, :sort_mode => :desc, :limit => Constants::SMART_COL_LIMIT
         end
         
         respond_to do |format|
@@ -221,6 +220,24 @@ class VoteTopicsController < ApplicationController
         end
     end
 
+    def side_bar_index
+        @listing_type = params[:type]
+        
+        case @listing_type
+        when "same_category"
+            @vote_topics = VoteTopic.same_category params[:category_id]
+        when "latest"
+            @vote_topics = VoteTopic.latest_votes
+        when "unan"
+            @vote_topics = VoteTopic.unanimous_votes
+        when "same_user"
+            @vote_topics = VoteTopic.same_user params[:user_id]
+        end
+        respond_to do |format|
+            format.js
+        end
+    end
+    
     # GET /vote_topics/new
     # GET /vote_topics/new.xml
     def new

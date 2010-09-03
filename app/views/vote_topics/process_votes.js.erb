@@ -1,16 +1,6 @@
-$('#<%= @selected_response.id %>').removeClass('vote').addClass('cancel');
-$('#<%= @selected_response.id %> span').removeClass('ui-icon-check').addClass('ui-icon-close');
-$('a.vote').each(function(){
-$(this).children('span').remove();
-var txt = $(this).html();
-$(this).parent('li').html(txt);
-$(this).remove();
-});
-$('#<%= @selected_response.id %>').parent('li').removeClass('non-sel').addClass('sel');
-
 $('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
-
 <% if !@vote_topic.nil? %>
-  $('#tot_votes').html("<%= @vote_topic.total_votes %>");
+  $('#tot_votes').html("<%= @vote_topic.votes_count %>");
 <% end  %>
 
+$('#div_vote_form').replaceWith("<%= escape_javascript(render :partial => 'vote_control') %>");

@@ -15,6 +15,7 @@
 </div>
 <% content_for :right_nav do %>
   <%= render :partial => '/layouts/category_side_bar' if @listing_type == 'all' %>
-  <%= render :partial => "/home/latest_votes" %>
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
+      side_bar_index_vote_topics_path(:type => "latest"), :l_type => "latest", :first => false} %>
   <%= render :partial => "/home/top_voters" %>
 <% end %>

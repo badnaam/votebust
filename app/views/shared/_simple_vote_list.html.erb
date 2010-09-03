@@ -1,0 +1,3 @@
+<%  votes.each do |r| %>
+  <li><%= link_to r.header[0..Constants::SIDE_BAR_LINK_LENGTH] << "...", r %></li>
+<% end %>

@@ -1,14 +1,8 @@
 class VoteItem < ActiveRecord::Base
     belongs_to :vote_topic
-    acts_as_voteable
+    has_many :votes, :dependent => :destroy
     after_update :destroy_if_option_blank
-    has_many :voters, :class_name => "Vote", :foreign_key => :voteable_id
-#    belongs_to :user, :through => :vote_topic
 
-    def get_voters
-        Vote.voteable_id_equals(self.id)
-    end
-    
     def destroy_if_option_blank
         if self.option.blank?
             self.destroy
@@ -17,13 +11,12 @@ class VoteItem < ActiveRecord::Base
 
 
     def get_vote_percent_num(total_votes)
-        votes = self.votes.size
-        if votes == 0
+        if self.votes_count == 0
             return 0
         elsif total_votes == 0
             return 0
         else
-            return ((votes.to_f / total_votes.to_f) * 100).to_f
+            return ((self.votes_count.to_f / total_votes.to_f) * 100).to_f
         end
     end
 

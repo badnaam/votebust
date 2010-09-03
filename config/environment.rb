@@ -47,6 +47,7 @@ Rails::Initializer.run do |config|
 #    config.gem "mogli"
 #    config.gem "facebooker2"
     config.gem "json"
+    config.gem 'dalli'
     config.gem "authlogic"
 #    config.gem "oauth"
 #    config.gem "oauth2"

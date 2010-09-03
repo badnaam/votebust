@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
     map.resources :searches
-    map.resources :voted_vote_topics
+    map.resources :votes
     # The priority is based upon order of creation: first created -> highest priority.
 
     # Sample of regular route:
@@ -49,16 +49,19 @@ ActionController::Routing::Routes.draw do |map|
         page.contact_receive '/contact_receive', :action => 'contact_receive', :method => :post
         page.privacy '/privacy', :action => 'privacy'
         page.disclaimer '/disclaimer', :action => 'disclaimer'
+        page.voting_power '/voting_power', :action => 'voting_power'
     end
     
     map.account "account", :controller => :account, :action => "index"
+    map.resources :account, :member => {:approve_vote => :post}
+    
     map.resources :categories do |categories|
         categories.resources :vote_topics
     end
     map.resources :comments
     map.resources :graphs, :member => {:gender_graph => :get, :age_graph => :get, :pie_graph => :get}
     map.resources :vote_topics, :belongs_to => [:poster, :category], :has_many => [:comments],  :member => {:confirm_vote => :post,
-        :process_votes => :post, :update_stats => :get, :cancel_vote => :post, :approve_vote => :post}, :collection => {:auto_comp => :get}
+        :process_votes => :post, :update_stats => :get, :cancel_vote => :post}, :collection => {:auto_comp => :get, :side_bar_index => :get}
     map.resources :vote_items, :belongs_to => :vote_topic
     map.resource :user_sessions
     map.resource :account, :controller => "users"
@@ -72,14 +75,6 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :users do |users|
         users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
         users.resources :comments
-        #        users.resources :roles
-        #        users.resources :events
-        #        users.resources :articles
-        #        users.resources :comments
-        #        users.resources :images
-        #        users.resources :owned_merchants, :controller => :merchants
-        #        users.resources :merchant_memberships
-        #        users.resource :address
     end
     map.connect ':controller/:action/:id'
     map.connect ':controller/:action/:id.:format'

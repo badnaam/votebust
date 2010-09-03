@@ -1,5 +1,4 @@
-$('#vote_status').html('');
-$('#tot_votes').html("<%= @vote_topic.total_votes %>");
+$('#tot_votes').html("<%= @vote_topic.votes_count %>");
 $('#tot_tracking').html("<%= @vote_topic.trackings_count %>");
 
-$('#div_process_vote').replaceWith("<%= escape_javascript(render :partial => 'vote_form') %>");
+$('#div_process_vote').replaceWith("<%= escape_javascript(render :partial => 'vote_control') %>");

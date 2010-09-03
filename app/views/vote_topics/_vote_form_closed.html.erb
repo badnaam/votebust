@@ -1,0 +1,12 @@
+<ul class="top-mar vi-list-voted" id="vote_items_list">
+  <% @vote_topic.vote_items.each do |v| %>
+    <% if !@selected_response.nil?  && @selected_response == v.id
+      selected = true
+    end  %>
+    <li id="v-item-<%= v.id %>" class=" <%= selected ? 'selected-vi' : 'non-selected-vi' %> ">
+      <%= (get_vote_percent v, @vote_topic.votes_count) %>
+    </li>
+    <%= get_percent_div (v.get_vote_percent_num @vote_topic.votes_count) %>
+    <li class="option-separator"></li>
+  <% end %>
+</ul>

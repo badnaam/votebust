@@ -6,7 +6,7 @@
 <% end  %>
 
 <% if !vt.nil? %>
-  <div class="ui-widget-content bottom-mar normal-pad right-mar" style="clear:both;">
+  <div class="ui-widget-content bottom-mar normal-pad" style="clear:both;" id="<%= vt.id%> ">
     <div class="">
       <table class="preview-table" id="">
         <tr>
@@ -14,11 +14,12 @@
             <div>
               <div class="bottom-mar-small bottom-border">
                 <span class="" id="">
-                  <%= "#{vt.total_votes} votes"  %>
+                  <%= "#{vt.votes_count} votes"  %>
                 </span>
-                <span class="go-right" id="">
+                <span class="go-right tracking-count" id="">
                   <%= vt.trackings_count %> trackings
                 </span>
+                <%= render :partial => "/shared/tracking_tooltip" %>
               </div>
               <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster} %>
               <div class="clear tag">
@@ -47,22 +48,14 @@
               </tr>
               <tr>
                 <td>
-                  <ul class="list-no-pad-no-mar-no-style">
-                    <% first = true %>
+                  <ul class="list-no-pad-no-mar">
                     <% vi.each do |v| %>
                       <li>
-                        <% if first && v.v_count > 0 %>
-                          <span class="ui-icon ui-icon-arrowthick-1-n list-icon"></span>
-                          <span class="bld"><%=  get_vote_percent(v, vt.total_votes)%></span>
-                          <% first = false %>
-                        <% else %>
-                          <span class="ui-icon ui-icon-document list-icon"></span>
-                          <span><%=  get_vote_percent(v, vt.total_votes)%></span>
-                        <% end  %>
+                        <%= v.option %>
                       </li>
                     <% end  %>
-                    <li>
-                      <%= link_to "Vote Now", vt, :class => "go-right bld" %>
+                    <li style="list-style-type: none">
+                      <%= link_to "More..", vt, :class => "go-right bld" %>
                     </li>
                   </ul>
                 </td>

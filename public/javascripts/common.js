@@ -32,9 +32,13 @@ function hideLoading(elem) {
 $(document).ready(function(){
     $('.pagination a').live("click", function () {
         showLoading('#com_prog_loading');
-        $.get(this.href, null, function (data) {
+        /**$.get(this.href, null, function (data) {
             hideLoading('#com_prog_loading')
-        }, 'script');
+        }, 'script');**/
+        $.ajax({type : 'GET', url : this.href,
+            complete : function() {
+                hideLoading('#com_prog_loading')
+            },dataType : 'script' })
         return false;
     });
     

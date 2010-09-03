@@ -1,31 +1,46 @@
-<div class="prepend-top span-18 last">
-  <div class="ui-widget-content right-mar normal-pad append-bottom">
-    <h4 class="normal-pad ui-widget-header">Account</h4>
-    <ul class="profile-list">
-      <li>  <%= link_to "Your profile", current_user %></li>
-      <li>  <%= link_to "Your Votes", user_posted_vote_topics_path(current_user, :listing_type => "user") %></li>
-      <li>  <%= rpx_popup( :link_text => "Add RPX authentication for this account", :app_name => Constants::RPX_APP_NAME,
-          :return_url => addrpxauth_url, :add_rpx => true, :unobtrusive => false ) %></li>
-    </ul>
-  </div>
-  <% if current_role == 'admin' %>
-    <div class="span-18 last">
-      <p>
-        Vote Topics waiting for approval
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function() {
+    $('.denial').live('change', function() {
+      if ($(this).val() > 0) {
+        var con = confirm('Are you sure you want to deny this Vote Topic?');
+        if (con) {
+          d_url = $(this).prev('.approve-link').attr('href');
+          $.ajax({
+            type : 'POST',
+            url : d_url,
+            dataType : 'script',
+            data : 'vote_action=deny&reason='+$(this).val(),
+            global : false
+          });
+        } 
+      }
+    });
+    $('.approve-link').live('click', function() {
+      $.ajax({
+        type : 'POST',
+        url: this.href,
+        dataType : 'script',
+        global : false,
+        success : function() {
+          
+        },
+        error : function() {
 
-        <% VoteTopic.status_equals('w').all.each do |v| %>
-        <ul>
-          <li><%= link_to 'Approve', approve_vote_vote_topic_path(v), :method => :post %></li>
-          <li><%= v.topic %></li>
-          <li><%= v.header %></li>
-          <ul>
-            <% v.vote_items.each do |vi| %>
-              <li><%= vi.option %></li>
-            <% end  %>
-          </ul>
-        </ul>
-      <% end  %>
-      </p>
+        }
+      });
+      return false;
+    });
+  });
+  //]]>
+</script>
+<div class="prepend-top span-18 last">
+  <% if current_role == 'admin' %>
+    <div class="normal-pad">
+      <h2>Vote Topics waiting for approval</h2>
+      <div id="votes">
+        <%= render :partial => 'vote_list' %>
+      </div>
     </div>
   <% end  %>
 </div>

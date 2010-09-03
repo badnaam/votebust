@@ -1,0 +1,24 @@
+<div id="div_vote_form" class=" rel-pos" >
+  <div id="vote_loading" style="display:none">
+    <div class="loading-inner-center"></div>
+  </div>
+  <%= hidden_field_tag :user_id, @user.nil? ? nil: @user.id%>
+  <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
+  <%= hidden_field_tag :vote_open, @vote_open.nil? ? nil : @vote_open %>
+  <%= hidden_field_tag :vote_id, @vote_topic.nil? ? nil : @vote_topic.id %>
+
+  <% if @vote_open %>
+    <% if @user && @reg_complete %>
+      <% if @selected_response%>
+        <%= render :partial => "vote_form" %>
+      <% else %>
+        <%= render :partial => "unvoted" %>
+      <% end  %>
+    <% else %>
+      <%= render :partial => "vote_options" %>
+    <% end  %>
+    <%= render :partial => "login_or_register_prompt"   %>
+  <% else %>
+    <%= render :partial => "vote_form_closed" %>
+  <% end  %>
+</div>
