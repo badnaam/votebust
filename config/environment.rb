@@ -43,6 +43,7 @@ Rails::Initializer.run do |config|
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names.
+    config.gem 'net-ssh', :lib => "net/ssh"
     config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
 #    config.gem "mogli"
 #    config.gem "facebooker2"
