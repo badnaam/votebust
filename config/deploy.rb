@@ -61,6 +61,7 @@ namespace :deploy do
     after "deploy:update_code" do
         symlink_shared
         restart_sphinx
+        package_assets
     end
 
     before "deploy:update" do
@@ -122,6 +123,11 @@ namespace :deploy do
         delete "#{shared_path}/logrotate_script"
     end
 
+    task :package_assets do
+        set :rake_cmd, "rake asset:packager:build_all"
+        rake_exec
+    end
+    
     set :rake_cmd, (ENV['RAKE_CMD'] || nil)
 
     task :rake_exec do

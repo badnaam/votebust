@@ -1,0 +1,16 @@
+--- 
+javascripts: 
+- base: 
+  - common
+  - jquery.tools.min
+  - application
+stylesheets: 
+- base: 
+  - screen
+  - print
+  - reset
+  - ie
+  - custom
+  - formtastic
+  - jquery-ui-1.8.2.custom
+  

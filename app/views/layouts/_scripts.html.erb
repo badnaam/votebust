@@ -12,8 +12,9 @@
   <title><%= @title %> </title>
 
 <%#= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes","/stylesheets/css/bb/jquery-ui-1.8.2.custom.css", :cache => "base" %>
-  <%= stylesheet_link_tag "screen", "custom", "formtastic", "jquery-ui-1.8.2.custom.css", :cache => "base" %>
-  <%= stylesheet_link_tag "print", :media => "print" %>
+  <%#= stylesheet_link_tag "screen", "custom", "formtastic", "jquery-ui-1.8.2.custom.css", :cache => "base" %>
+  <%#= stylesheet_link_tag "print", :media => "print", :cache => 'base' %>
+<%= stylesheet_link_merged :base %>
 
   <!--[if IE]>
 <style type="text/css">
@@ -41,6 +42,8 @@
     });
     //]]>
   </script>
-  <%= javascript_include_tag 'common.js', 'jquery.tools.min.js', 'application.js', :cache => 'base' %>
+  <%= javascript_include_merged :base %>
+
+<%#= javascript_include_tag 'common.js', 'jquery.tools.min.js', 'application.js', :cache => 'base' %>
 
 </head>
