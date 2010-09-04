@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.string   "name"
     t.string   "email"
     t.string   "subject"
-    t.string   "body"
-    t.integer  "type"
+    t.text     "body"
+    t.integer  "msg_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.string   "address"
     t.float    "lat"
     t.float    "lng"
+    t.string   "provider",   :limit => 50
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
@@ -117,7 +118,7 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "zip",                 :limit => 5,                      :null => false
+    t.string   "zip",                 :limit => 5
     t.boolean  "processing_vote",                    :default => false, :null => false
     t.string   "cached_slug",         :limit => 100
     t.string   "username"
@@ -140,7 +141,6 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.string   "perishable_token",                                      :null => false
     t.integer  "login_count",                        :default => 0,     :null => false
     t.integer  "failed_login_count",                 :default => 0,     :null => false
-    t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image_url",           :limit => 300
     t.boolean  "processing",                         :default => true
   end
 
@@ -186,7 +187,7 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
-    t.integer  "v_count",       :default => 0
+    t.integer  "votes_count",   :default => 0
     t.integer  "male_votes",    :default => 0
     t.integer  "female_votes",  :default => 0
     t.integer  "ag_1_v",        :default => 0
@@ -211,10 +212,9 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.integer  "power_offered",                  :default => 0
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "anon"
     t.string   "header",          :limit => 500, :default => "",    :null => false
     t.integer  "category_id"
-    t.integer  "total_votes",                    :default => 0
+    t.integer  "votes_count",                    :default => 0
     t.integer  "trackings_count",                :default => 0
     t.boolean  "unan",                           :default => false
   end
@@ -223,32 +223,31 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
   add_index "vote_topics", ["category_id"], :name => "category_id"
   add_index "vote_topics", ["created_at"], :name => "created_at"
   add_index "vote_topics", ["status"], :name => "index_vote_topics_on_status"
-  add_index "vote_topics", ["total_votes"], :name => "total_votes"
   add_index "vote_topics", ["unan"], :name => "unan"
   add_index "vote_topics", ["user_id"], :name => "index_vote_topics_on_user_id"
+  add_index "vote_topics", ["votes_count"], :name => "total_votes"
 
   create_table "voted_vote_topics", :force => true do |t|
     t.integer  "user_id"
     t.integer  "vote_topic_id"
+    t.integer  "vote_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "votes", :force => true do |t|
-    t.boolean  "vote",                         :default => false
     t.string   "city",          :limit => 100
     t.float    "lat"
     t.float    "lng"
     t.string   "state",         :limit => 10
-    t.integer  "voteable_id",                                     :null => false
-    t.string   "voteable_type",                                   :null => false
-    t.integer  "voter_id"
-    t.string   "voter_type"
+    t.integer  "vote_item_id",                 :null => false
+    t.integer  "vote_topic_id",                :null => false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["voteable_id", "voteable_type"], :name => "fk_voteables"
-  add_index "votes", ["voter_id", "voter_type"], :name => "fk_voters"
+  add_index "votes", ["user_id"], :name => "fk_voters"
+  add_index "votes", ["vote_item_id"], :name => "fk_voteables"
 
 end
