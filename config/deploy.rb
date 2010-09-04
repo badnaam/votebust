@@ -61,7 +61,7 @@ namespace :deploy do
     after "deploy:update_code" do
         symlink_shared
         restart_sphinx
-#        package_assets
+        package_assets
     end
 
     before "deploy:update" do
