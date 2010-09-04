@@ -43,7 +43,7 @@ namespace :deploy do
         #        "dj:start"
     end
     after "deploy:restart" do
-        dj_restart
+#        dj_restart
         #        "dj:restart"
     end
 
