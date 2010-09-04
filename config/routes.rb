@@ -72,7 +72,7 @@ ActionController::Routing::Routes.draw do |map|
     map.register "register/:activation_code", :controller => "activations", :action => "new"
     map.activate "activate/:id", :controller => "activations", :action => "create"
     map.addrpxauth "addrpxauth", :controller => "users", :action => "addrpxauth", :method => :post
-    map.resources :users do |users|
+    map.resources :users, :collection => {:top_voters => :get} do |users|
         users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
         users.resources :comments
     end

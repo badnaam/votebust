@@ -5,9 +5,11 @@
 # since you don't have to restart the webserver when you make code changes.
 config.cache_classes = false
 
-require 'active_support/cache/dalli_store23'
-config.cache_store = :dalli_store
-CACHE = Dalli::Client.new('localhost:11211')
+#require 'active_support/cache/dalli_store23'
+require 'no_store'
+config.cache_store = :no_store
+#CACHE = Dalli::Client.new('localhost:11211')
+CACHE = ActiveSupport::Cache::NoStore.new
 
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true

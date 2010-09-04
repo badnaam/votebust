@@ -4,7 +4,7 @@
 <% else %>
   <% if @vote_topics.size > 0 %>
     <% if ["local", "most_tracked", "top", "featured", "tracked"].include?(@listing_type) %>
-      <%= link_to "More...", vote_topics_path(:listing_type => @listing_type + "_all"), :class => "bld go-right bottom-mar" %>
+      <%= link_to get_more_listing_str(@listing_type), vote_topics_path(:listing_type => @listing_type + "_all"), :class => "bld go-right bottom-mar" %>
     <% end  %>
     <% @vote_topics.each do |vt| %>
       <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>

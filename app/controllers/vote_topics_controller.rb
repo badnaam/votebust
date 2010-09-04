@@ -140,6 +140,7 @@ class VoteTopicsController < ApplicationController
         case @listing_type
         when "category"
             @vote_topics = (VoteTopic.category_list params[:category_id], params[:page])
+            @listing_context = Category.find(params[:category_id], :select => 'name').name
         when "tracked_all"
             @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
         when "tracked"
@@ -148,6 +149,7 @@ class VoteTopicsController < ApplicationController
             @vote_topics = VoteTopic.get_local_votes current_user.zip, true, nil
         when "local_all"
             @vote_topics = VoteTopic.get_local_votes current_user.zip, false, params[:page]
+            @listing_context = cookies[:voteable_user_city]
         when "top"
             @top_vote = true
             @vote_topics = (VoteTopic.get_top_votes true, params[:page])

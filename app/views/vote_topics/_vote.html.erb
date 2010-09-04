@@ -145,6 +145,7 @@
               <div>
                 <% if @user %>
                   <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span>
+                    <!--#todo optimize thhis -->
                     <% if @vote_topic.is_being_tracked? @user.id%>
                       <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
                         Untrack</a>

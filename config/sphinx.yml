@@ -4,6 +4,15 @@ development:
 production:
   mem_limit: 20M
   enable_star: true
+  searchd_file_path: /var/www/votechek/shared/sphinx
+  enable_star: true
+  query_log_file: /var/www/votechek/shared/log/searchd.query.log
+  config_file: /var/www/votechek/shared/config/sphinx.conf
+  mem_limit: 20M
+  searchd_log_file: /var/www/votechek/shared/log/searchd.log
+  morphology: stem_en
+  pid_file: /var/www/votechek/shared/log/searchd.production.pid
+
 #  port: 9312
 #  indexer_binary_name: "/usr/local/bin/indexer"
 #  searchd_binary_name: "/usr/local/bin/searchd"

@@ -10,12 +10,15 @@
     <div class="loading-inner-top" ></div>
   </div>
   <div id="votes">
-    <%= render :partial => 'vote_list' %>
+    <%= render :partial => 'vote_list', :locals => {:what_listing => get_listing_str(@listing_type, @listing_context )} %>
   </div>
 </div>
 <% content_for :right_nav do %>
-  <%= render :partial => '/layouts/category_side_bar' if @listing_type == 'all' %>
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Categories", :load_path =>
+      categories_path(:type => "category_all"), :l_type => "category_all", :first => true} %>
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
       side_bar_index_vote_topics_path(:type => "latest"), :l_type => "latest", :first => false} %>
-  <%= render :partial => "/home/top_voters" %>
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
+      top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => false} %>
+  <%#= render :partial => "/home/top_voters" %>
 <% end %>

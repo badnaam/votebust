@@ -22,11 +22,13 @@
 #v_env = 'development'
 
 set :path, '/home/asit/Apps/nap_on_it'
+
 every 10.minutes do
-    rake "facet_update_start", :environment => 'development'
+    rake "facet_update_start"
 end
 
 every :reboot do
-  rake "ts:start", :environment => 'development'
-  command "cd #{path} && script/delayed_job start", :environment => 'development'
+  rake "ts:start"
+  command "cd #{path} && script/delayed_job start"
+  command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
 end

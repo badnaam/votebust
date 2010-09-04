@@ -1,3 +1,13 @@
-<%  votes.each do |r| %>
-  <li><%= link_to r.header[0..Constants::SIDE_BAR_LINK_LENGTH] << "...", r %></li>
-<% end %>
+<% if coll_type == 'vote_topic' %>
+  <%  coll.each do |item| %>
+    <li><%= link_to item.header[0..Constants::SIDE_BAR_LINK_LENGTH] << "...", item %></li>
+  <% end %>
+<% elsif coll_type == 'category'%>
+  <%  coll.each do |item| %>
+    <li><%= link_to item.name, category_vote_topics_path(item, :listing_type => "category") %></li>
+  <% end %>
+<% elsif coll_type == 'user'%>
+  <%  coll.each do |item| %>
+    <li><%= render :partial => '/shared/ubox', :locals => {:user => item} %></li>
+  <% end %>
+<% end  %>

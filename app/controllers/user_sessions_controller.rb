@@ -24,6 +24,7 @@ class UserSessionsController < ApplicationController
             else
                 if @user_session.registration_complete?
                     flash[:notice] = "Welcome #{current_user.username}"
+                    cookies[:voteable_user_city] = current_user.city if !current_user.city.nil?
                     #award points for completing registration
                     redirect_back_or_default root_url
                 else

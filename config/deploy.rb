@@ -1,11 +1,10 @@
-
-
 set :application, "votechek"
 set :deploy_to, "/var/www/#{application}"
 set :scm, :git
 set :repository, "git@github.com:badnaam/votebust.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
+
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
 default_run_options[:pty] = true
 
@@ -36,21 +35,22 @@ namespace :deploy do
     end
 
     after "deploy:stop" do
-        delayed_job_stop
+        dj_stop
         #        "dj:stop"
     end
     after "deploy:start" do
-        delayed_job_start
+        dj_start
         #        "dj:start"
     end
     after "deploy:restart" do
-        delayed_job_restart
+        dj_restart
         #        "dj:restart"
     end
 
     #    before "deploy:update_code", "dj:stop"
     
     after "deploy:symlink" do
+        update_crontab
         chown_to_www_data
     end
 
@@ -78,8 +78,8 @@ namespace :deploy do
     task :symlink_shared, :roles => :app  do
         #Copy the files firest
         top.upload("config/database.yml", "#{shared_path}/config", :via => :scp)
-        generate_sphinx_config_yaml
-        #        top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
+        #generate_sphinx_config_yaml
+        top.upload("config/sphinx.yml", "#{shared_path}/config", :via => :scp)
         top.upload("config/config.yml", "#{shared_path}/config", :via => :scp)
         run "ln -nfs #{shared_path}/sphinx #{release_path}/db/sphinx"
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
@@ -169,25 +169,32 @@ namespace :deploy do
         start_sphinx
     end
 
+    ###########################update cron tab with whenever ################################
+    desc "Update the crontab file"
+    task :update_crontab, :roles => :db do
+        run "cd #{release_path} && whenever --set environment=production --update-crontab #{application}"
+    end
+
+    ##########################################################################################
     #################Delayed job#############################################################
     def get_rails_env
         fetch(:rails_env, false) ? "RAILS_ENV=#{fetch(:rails_env)}" : ''
     end
 
     desc "Stop the delayed_job process"
-    task :delayed_job_stop, :roles => :app do
+    task :dj_stop, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job stop"
     end
 
     desc "Start the delayed_job process"
-    task :delayed_job_start, :roles => :app do
+    task :dj_start, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job start"
     end
 
     desc "Restart the delayed_job process"
-    task :delayed_job_restart, :roles => :app do
+    task :dj_restart, :roles => :app do
         run "cd #{current_path};#{get_rails_env} script/delayed_job restart"
-#        dj_ensure
+        #        dj_ensure
     end
 
     desc "Show delayed_job daemon status."

@@ -20,18 +20,18 @@ config.log_level = :debug
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
-config.action_mailer.default_url_options = {:host => "server"}
+config.action_mailer.default_url_options = {:host => "web1.tunnlr.com:11299"}
 config.action_mailer.default_charset = "utf-8"
-ActionMailer::Base.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    #        :domain => I18n.translate('notifier.domain'),
-    :domain => 'gmail.com',
-    :user_name => 'pjointadm@gmail.com',
-    :password => "badnaam1",
-    :authentication => :plain,
-    :enable_starttls_auto => true
-}
+#ActionMailer::Base.smtp_settings = {
+#    :address => "smtp.gmail.com",
+#    :port => 587,
+#    #        :domain => I18n.translate('notifier.domain'),
+#    :domain => 'gmail.com',
+#    :user_name => 'pjointadm@gmail.com',
+#    :password => "badnaam1",
+#    :authentication => :plain,
+#    :enable_starttls_auto => true
+#}
 
 # Use a different logger for distributed setups
 # config.logger = SyslogLogger.new

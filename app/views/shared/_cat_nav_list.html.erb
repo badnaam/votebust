@@ -1,0 +1,30 @@
+<%# cache(:category_list, :expires_in => 5.minutes) do %>
+<div  class=" category-menu-div span-24 last" id="cat_menu">
+  <span class="go-right ui-icon ui-icon-close" id="close_cat_menu"></span>
+  <hr class="clear prepend-top"/>
+  <% categories = Category.all(:select => 'id, name')
+  count = categories.length
+  if count % 4 == 0
+    col_num = count / 4
+  else
+    col_num = count / 4
+    last_col_num = count - (3 * col_num)
+  end
+%>
+  <% counter = 0 %>
+  <% (1..4).each do |n| %>
+    <% last = 'last' if n == 4 %>
+    <div class="span-6  <%= last %>">
+      <ul class="category-list">
+        <% col_num = last_col_num if n == 4 && !last_col_num.nil? %>
+        <% col_num.times do |i| %>
+          <li ><%= link_to categories[counter].name, category_vote_topics_path(categories[counter], :listing_type => "category") %></li>
+
+          <% counter += 1 %>
+        <% end  %>
+      </ul>
+    </div>
+  <% end %>
+  <div class=".clear"></div>
+</div>
+<%# end  %>

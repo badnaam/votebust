@@ -711,6 +711,10 @@ img.ui-icon {
     background-position:1px -4px;
     padding-bottom: 35px;
 }
+.power-image {
+    background-position:1px -101px;
+    padding-bottom: 20px;
+}
 .negative {
     background-position:1px -51px;
     padding-right: 20px

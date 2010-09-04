@@ -70,7 +70,7 @@ Rails::Initializer.run do |config|
     end
     
     #    config.gem "friendly_id"
-    config.gem "geokit"
+    config.gem "badnaam-geokit", :lib => 'geokit'
     config.gem(
         'thinking-sphinx',
         :lib     => 'thinking_sphinx',

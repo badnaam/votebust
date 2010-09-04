@@ -1,5 +1,45 @@
 module VoteTopicsHelper
 
+    def get_more_listing_str listing_type
+        if ["local", "most_tracked", "top", "featured", "tracked"].include?(listing_type) 
+            case listing_type
+            when "local"
+                listing_str = "All Local"
+            when "most_tracked"
+                listing_str = "More Most Tracked"
+            when "top"
+                listing_str = "More Most Voted"
+            when "featured"
+                listing_str = "All Featured"
+            when "tracked"
+                listing_str = "All Tracked"
+            end
+        else
+            listing_str = "More"
+        end
+        return listing_str
+    end
+
+    def get_listing_str listing_type, context
+        case listing_type
+        when "category"
+            listing_str = "In #{context}"
+        when "tracked_all"
+            listing_str = "Tracked"
+        when "local_all"
+            listing_str = "In #{context}"
+        when "top_all"
+            listing_str = "Most Voted"
+        when "featured_all"
+            listing_str = "All Featured"
+        when "featured_all"
+            listing_str = "Featured"
+        else
+            listing_str = "All"
+        end
+        return listing_str
+    end
+
     def power_points vt
         if !vt.power_offered.nil? && vt.power_offered > 10
             points = vt.power_offered / 10
@@ -24,7 +64,7 @@ module VoteTopicsHelper
         elsif ['wl', 'll'].include?(key)
             arr = opt.split('$$')
             fkeys[key].gsub('<option>', arr[0]).gsub('<states>', arr[1]).gsub('<cities>', arr[2])
-        elsif ['dag'].include?(key) 
+        elsif ['dag'].include?(key)
             fkeys[key].gsub('<thing>', opt)
         end
     end
@@ -75,16 +115,16 @@ module VoteTopicsHelper
     
     
     
-#    def get_vote_percent(v, total_votes)
-#        if v.votes_count == 0
-#            return "#{v.option.titleize} - 0%"
-#        elsif total_votes == 0
-#            return "#{v.option.titleize} - 0%"
-#        else
-#            return "#{v.option.titleize} - #{v.votes_count} votes - #{number_to_percentage((v.votes_count.to_f / total_votes.to_f) * 100, :precision => 2)}"
-#        end
-#    end
-#
+    #    def get_vote_percent(v, total_votes)
+    #        if v.votes_count == 0
+    #            return "#{v.option.titleize} - 0%"
+    #        elsif total_votes == 0
+    #            return "#{v.option.titleize} - 0%"
+    #        else
+    #            return "#{v.option.titleize} - #{v.votes_count} votes - #{number_to_percentage((v.votes_count.to_f / total_votes.to_f) * 100, :precision => 2)}"
+    #        end
+    #    end
+    #
     def get_vote_percent(v, total_votes)
         if v.votes_count  > 0 && total_votes > 0
             return "#{v.option.titleize} - #{v.votes_count} votes - #{number_to_percentage((v.votes_count.to_f / total_votes.to_f) * 100, :precision => 2)}"

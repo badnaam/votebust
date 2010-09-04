@@ -1,7 +1,6 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
-
     $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
     $('#tabs').tabs({
       spinner:"<img src='/images/loading.gif'/>",
@@ -20,14 +19,18 @@
 </script>
 
 <div class="span-18 last">
-  <div class="right-mar prepend-top normal-pad ui-widget-content append-bottom">
+  <div class="prepend-top normal-pad ui-widget-content append-bottom">
+    <% if current_user != @user %>
+      <h3 class="prepend-top append-bottom normal-pad ui-widget-header"><%= "#{@user.username}'s Activity" %></h3>
+    <% end  %>
     <div id="tabs" class="prepend-top">
       <ul>
         <% permitted_to? :update, @user do %>
-          <li><a href="#user_tab"><span>Account</span></a></li>
+          <li><a title ="Your account" href="#user_tab"><span>Account</span></a></li>
+          <li><a   title ="Votes you are tracking" href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "tracked")%>"><span>Tracking</span></a></li>
         <% end  %>
-        <li  title="Votes you have started."><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user', :user_id => @user.id)%>"><span>Your Votes</span></a></li>
-        <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>You Voted </span></a></li>
+        <li  title="Votes you have started."><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user', :user_id => @user.id)%>"><span>Votes Started</span></a></li>
+        <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>Voted </span></a></li>
       </ul>
 
       <% permitted_to? :update, @user do %>
@@ -36,7 +39,7 @@
             <li class="bld" style="width:150px">
               <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
             </li>
-            <li>
+            <li class="clear">
               Authentication Provider: <%= h @user.using_rpx? ? @user.get_rpx_providers : (t 'site_name') %>
             </li>
             <li>

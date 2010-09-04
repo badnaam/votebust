@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
         a.account_merge_enabled true
         # set Authlogic_RPX account mapping mode
         a.account_mapping_mode :internal
+        a.disable_perishable_token_maintenance = true
     end
 
     attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
@@ -25,7 +26,7 @@ class User < ActiveRecord::Base
     has_many :vote_topics, :through => :trackings
     belongs_to :role
     has_many :comments
-    has_many :votes, :foreign_key => :voter_id
+    has_many :votes
     
     #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
@@ -80,7 +81,7 @@ class User < ActiveRecord::Base
     end
     
     named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'voting_power DESC', :limit => Constants::SMART_COL_LIMIT,
-            :select => 'users.id, users.username, users.voting_power, users.image_file_name, users.processing, users.image_updated_at, users.image_content_type,
+            :select => 'users.id, users.username, users.voting_power, users.image_file_name, users.image_url, users.image_updated_at, users.image_content_type,
             users.image_file_size'}}
         
     before_image_post_process do |user|
@@ -201,8 +202,8 @@ class User < ActiveRecord::Base
         puts "p2"
     end
     def self.p3
-        User.delay(:priority => 10).p1
-        User.delay(:priority => 1).p2
+        User.delay(:priority => 1).p1
+        User.delay(:priority => 10).p2
 
     end
     private
@@ -262,6 +263,7 @@ class User < ActiveRecord::Base
     def before_merge_rpx_data( from_user, to_user)
         RAILS_DEFAULT_LOGGER.info "Before Merging RPX_Data: migrate VoteTopics, Votes and comments from #{from_user.username} to #{to_user.username}"
         User.delay(:priority => 1).migrate_user(from_user, to_user)
+
     end
 
     # after_merge_rpx_data provides a hook for application developers to perform account clean-up after authlogic_rpx has
@@ -276,6 +278,6 @@ class User < ActiveRecord::Base
     
     def after_merge_rpx_data( from_user, to_user )
         RAILS_DEFAULT_LOGGER.info "After Merging RPX_Data: destroy #{from_user.inspect}"
-        User.delay.destroy_user(from_user)
+        User.delay(:priority => 20).destroy_user(from_user)
     end
 end

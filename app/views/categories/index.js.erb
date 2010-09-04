@@ -1,0 +1,5 @@
+<% if @categories.size > 0 && @listing_type == 'category_all' %>
+  $("#widget_<%=@listing_type%>").append("<%= escape_javascript (render :partial => '/shared/simple_vote_list', :locals => {:coll => @categories, :coll_type => 'category'}) %>");
+<% else %>
+  $("#widget_<%=@listing_type%>").parent('.widget-div').remove();
+<% end  %>

@@ -1,4 +1,5 @@
 <% if @vote_topics.size > 0 %>
+  <h3 class="normal-pad append-bottom prepend-top ui-widget-header"><%= what_listing %></h3>
 <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
 <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
 <% @vote_topics.each do |vt| %>
