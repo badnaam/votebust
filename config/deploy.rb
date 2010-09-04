@@ -43,7 +43,7 @@ namespace :deploy do
         #        "dj:start"
     end
     after "deploy:restart" do
-#        dj_restart
+        dj_restart
         #        "dj:restart"
     end
 
@@ -60,7 +60,7 @@ namespace :deploy do
     
     after "deploy:update_code" do
         symlink_shared
-#        restart_sphinx
+        restart_sphinx
     end
 
     before "deploy:update" do
