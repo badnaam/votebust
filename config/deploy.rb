@@ -132,7 +132,7 @@ namespace :deploy do
 
     task :rake_exec do
         if rake_cmd
-            run "cd #{current_path} && #{rake} #{rake_cmd} RAILS_ENV=#{rails_env}"
+            run "cd #{current_path} && rake #{rake_cmd} RAILS_ENV=#{rails_env}"
         end
     end
 
