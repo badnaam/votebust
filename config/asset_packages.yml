@@ -5,9 +5,9 @@ javascripts:
   - jquery.tools.min
   - application
 stylesheets: 
-- base: 
-  - screen
+- base:
   - custom
+  - screen
   - formtastic
   - jquery-ui-1.8.2.custom
 #  - reset
