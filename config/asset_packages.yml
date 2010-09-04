@@ -7,10 +7,11 @@ javascripts:
 stylesheets: 
 - base: 
   - screen
-  - print
-  - reset
-  - ie
   - custom
   - formtastic
   - jquery-ui-1.8.2.custom
+  - print
+#  - reset
+#  - ie
+
   
