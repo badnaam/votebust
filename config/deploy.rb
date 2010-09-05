@@ -42,6 +42,10 @@ namespace :deploy do
         dj_start
         #        "dj:start"
     end
+
+    before "deploy:restart" do
+        package_assets
+    end
     after "deploy:restart" do
         dj_restart
         #        "dj:restart"
@@ -61,7 +65,7 @@ namespace :deploy do
     after "deploy:update_code" do
         symlink_shared
         restart_sphinx
-        package_assets
+
     end
 
     before "deploy:update" do
