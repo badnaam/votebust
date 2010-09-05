@@ -64,6 +64,12 @@ class VoteTopic < ActiveRecord::Base
     named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
 
+    def self.all_vt
+        CACHE.fetch VoteTopic.count  {
+                all
+            }
+    end
+    
     def is_being_tracked? id
         self.trackings.find(:first, :conditions => ['user_id = ?', id])
     end
