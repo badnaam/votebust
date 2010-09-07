@@ -129,12 +129,12 @@
   });
 
   $('.pagination a').live("click", function () {
-    showLoading('#com_prog_loading');
+        $(this).addClass('loading-link');
     $.ajax({
       type : 'GET',
       url : this.href,
       complete : function() {
-        hideLoading('#com_prog_loading')
+        $(this).removeClass('loading-link');
       },
       dataType : 'script'
     })

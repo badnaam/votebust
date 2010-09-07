@@ -1,4 +1,8 @@
-<h4 class="ui-widget-header normal-pad">In a hurry? Sign in with RPX. No registration needed!</h4>
-<p>RPX is a secure way of logging into Votebust using your existing Google, Yahoo, Facebook or Twitter account. After you login via RPX, your Votebust account will
-  automatically be created using your Google, Yahoo, Facebook or Twitter username. If prompted, please allow Votebust to access your username and email details.</p>
+<h4 class="ui-widget-header normal-pad">In a hurry? Sign up using an existing account. No registration needed!</h4>
+<p>Use your existing Google, Yahoo, Facebook or Twitter account. After you login  your <%= t 'site_name' %> account will
+  automatically be created using your Google, Yahoo, Facebook or Twitter username. If prompted, please allow <%= t 'site_name' %> to access your account details.
+  <a href="/faq#signup" class="" id="">
+  Learn more about using an existing account.
+  </a>
+</p>
 <%= rpx_embed( :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url ) %>

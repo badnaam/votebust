@@ -13,7 +13,8 @@ namespace :dg do
                     :age => rand(45) + 13,
                     :sex => rand(0),
                     :zip => JobsCommon::ZIP_CODES[rand(zip_length)],
-                    :perishable_token => Authlogic::Random.friendly_token
+                    :perishable_token => Authlogic::Random.friendly_token,
+                    :email => 'aaaaaaaaa@aaaaaaaa.com'
                 )
             rescue => exp
                 puts exp.message

@@ -1,6 +1,16 @@
-<% #todo - style this %>
-<h1><%= @user.username %> Activate Your Account</h1>
-<% form_for @user, :url => activate_path(@user.id), :html => {:method => :post} do |f| %>
-  <%= f.error_messages %>
-  <%= f.submit "Activate" %>
-<% end  %>
+<script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function() {
+    $('#activation_submit').button({icons:{primary:'ui-icon-check'}});
+  });
+  //]]>
+</script>
+<div class="span-24 last">
+  <h4 class="normal-pad ui-widget-header prepend-top append-bottom"><%= @user.username %> Activate Your Account</h4>
+  <div class="normal-pad ui-widget-content prepend-top append-bottom" id="">
+    <% form_for @user, :url => activate_path(@user.id), :html => {:method => :post} do |f| %>
+      <%= f.error_messages %>
+      <%= f.submit "Activate", :id => "activation_submit" %>
+    <% end  %>
+  </div>
+</div>

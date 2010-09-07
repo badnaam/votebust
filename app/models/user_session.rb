@@ -21,6 +21,7 @@ class UserSession < Authlogic::Session::Base
         # map some other columns explicitly
         self.attempted_record.active = true if attempted_record.active.blank?
         self.attempted_record.role_id = Role.find_by_name('user').id  if attempted_record.role_id.blank?
+        self.attempted_record.perishable_token = Authlogic::Random.friendly_token
         if attempted_record.sex.blank?
             if @rpx_data['profile']['gender'] == 'male'
                 self.attempted_record.sex = 0

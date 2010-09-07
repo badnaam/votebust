@@ -1,6 +1,12 @@
-<% if ["category", "featured_all", "tracked_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
+<% if ["category", "featured_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
   <%print_paginate = true%>
   $('#votes').html("<%= escape_javascript(render :partial => 'vote_list')%>");
+<% elsif ['user_all', 'user_tracked_all'].include?@listing_type%>
+  <% if request.parameters[:paginated] == 'yes' %>
+    $('#votes').html("<%= escape_javascript(render :partial => 'vote_list_html') %>");
+  <% else %>
+    <%= render :partial => 'vote_list_html' %>
+  <% end  %>
 <% else %>
   <% if @vote_topics.size > 0 %>
     <% if ["local", "most_tracked", "top", "featured", "tracked"].include?(@listing_type) %>

@@ -47,12 +47,7 @@
 .right-border {
     border-right: 1px solid #dddddd;
 }
-.list-no-pad-no-mar-no-style {
-    list-style-type: none;
-    padding-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-}
+
 .list-no-pad {
     /*    padding-left: 0;*/
     margin-right: 0;
@@ -315,6 +310,9 @@ table.borderless tr {
     top:10%;
     width:100px;
     z-index:200;
+}
+.loading-link {
+    background:transparent url(/images/loading-link.gif) no-repeat scroll center center;
 }
 .loading-inner-center {
     background:transparent url(/images/loading_big.gif) no-repeat scroll center center;

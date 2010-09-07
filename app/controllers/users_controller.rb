@@ -21,18 +21,21 @@ class UsersController < ApplicationController
     def create
         @user = User.new(params[:user])
         @user.role = Role.find_by_name('user')
+        @user.perishable_token = Authlogic::Random.friendly_token
         v = verify_recaptcha(:model => @user, :message => "Text entered did not match the image!")
         if v 
             if @user.save_without_session_maintenance
                 flash[:notice] = t('users.create.confirmation')
+                if @user.voting_power == 0
+                    @user.increment!(:voting_power, Constants::REGISTRATION_COMPLETE_POINTS)
+                end
                 #                redirect_back_or_default root_url
+                @user.delay.deliver_activation_instructions!
                 redirect_to root_url
             else
                 render :action => :new
             end
         else
-            #            @user.errors.add()
-            #            flash[:error] = "Text entered did not match the image"
             render :action => :new
         end
     end
@@ -52,7 +55,7 @@ class UsersController < ApplicationController
             flash[:notice] = "Account updated!"
             if @user.voting_power == 0
                 @user.increment!(:voting_power, Constants::REGISTRATION_COMPLETE_POINTS)
-                flash[:notice] = "Account updated!. You have earned #{Constants::REGISTRATION_COMPLETE_POINTS} points"
+                flash[:notice] = "Account updated!. You have earned #{Constants::REGISTRATION_COMPLETE_POINTS} Voting Power"
             else
                 flash[:notice] = "Account updated!"
             end

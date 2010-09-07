@@ -1,17 +1,21 @@
+<% if local_assigns[:what_listing].nil? %>
+  <% what_listing = nil %>
+<% end %>
 <% if @vote_topics.size > 0 %>
-  <h5 class="normal-pad append-bottom prepend-top ui-widget-header"><%= what_listing %></h5>
+  <% if what_listing %>
+    <h5 class="normal-pad append-bottom prepend-top ui-widget-header"><%= what_listing %></h5>
+  <% end  %>
   <div>
     <%= link_to "Recent", vote_topics_path(request.parameters.merge({'order', 'recent'})) %>
     <%= link_to "Votes", vote_topics_path(request.parameters.merge({'order', 'votes'})) %>
     <%= link_to "Featured", vote_topics_path(request.parameters.merge({'order', 'featured'})) %>
-
   </div>
-<%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
-<%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
-<% @vote_topics.each do |vt| %>
-  <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
-<% end  %>
-<%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
+  <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
+  <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
+  <% @vote_topics.each do |vt| %>
+    <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
+  <% end  %>
+  <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
 <% else %>
-<div>Sorry, no votes found.</div>
+  <div>Sorry, no votes found.</div>
 <% end  %>
