@@ -12,7 +12,8 @@ namespace :dg do
                 :active => true,
                 :age => rand(45) + 13,
                 :sex => rand(0),
-                :zip => JobsCommon::ZIP_CODES[rand(zip_length)]
+                :zip => JobsCommon::ZIP_CODES[rand(zip_length)],
+                :perishable_token => Authlogic::Random.friendly_token
             )
         }
     end
@@ -98,6 +99,9 @@ namespace :dg do
         end
     end
 
+    task :test => :environment do
+        puts Authlogic::Random.friendly_token
+    end
     desc 'Generate Votes'
     task :gen_votes => :environment do
         VoteTopic.all.each do |v|
