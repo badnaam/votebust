@@ -19,7 +19,11 @@ namespace :dg do
                 u.perishable_token = Authlogic::Random.friendly_token
                 u.voting_power = 10
                 u.save
-                puts "Created user #{i}"
+                if !u.valid?
+                    puts u.errors.join("\n")
+                else
+                    puts "Created user #{i}"
+                end
             rescue => exp
                 puts exp.message
                 puts u.inspect

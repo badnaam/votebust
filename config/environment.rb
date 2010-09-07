@@ -11,7 +11,7 @@ Rails::Initializer.run do |config|
     require 'custom_logger'
     #todo change log level in production
     config.log_level = ENV['RAILS_ENV']=='production' ?
-      ActiveSupport::BufferedLogger::Severity::DEBUG :
+      ActiveSupport::BufferedLogger::Severity::INFO :
       ActiveSupport::BufferedLogger::Severity::DEBUG
 
     #   # initializing custom logger
