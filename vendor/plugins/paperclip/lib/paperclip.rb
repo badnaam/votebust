@@ -389,7 +389,7 @@ module Paperclip
                     attachment.send(:save)
                 end
             else
-                Paperclip.log("Not a profile update, skipping Saving attachments.")
+#                Paperclip.log("Not a profile update, skipping Saving attachments.")
             end
         end
 

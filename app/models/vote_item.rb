@@ -27,5 +27,6 @@ class VoteItem < ActiveRecord::Base
         self.update_attribute(:ag_2_v, 0)
         self.update_attribute(:ag_3_v, 0)
         self.update_attribute(:ag_4_v, 0)
+        self.update_attribute(:votes_count, 0)
     end
 end

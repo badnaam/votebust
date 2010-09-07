@@ -11,9 +11,9 @@ class VoteTopic < ActiveRecord::Base
         'ag3' => "Voters aged between  #{Constants::AGE_GROUP_3.first} - #{Constants::AGE_GROUP_3.last} vote for <option>",
         'ag4' => "Voters aged between  #{Constants::AGE_GROUP_4.first} - #{Constants::AGE_GROUP_4.last} vote for <option>",
         'dag' => "Most people who voted were from <thing> ",
-        'wl' => "Voter who vote for <option> are from <states> (<cities>)",
-        'll' => "Voter who vote for <option> are from <states> (<cities>)",
-        'vl' => "Voter near you vote for <option> ",
+        'wl' => "Voters who vote for <option> are from <states> (<cities>)",
+        'll' => "Voters who vote for <option> are from <states> (<cities>)",
+        'vl' => "Voters near you vote for <option> ",
     }
     #    belongs_to :user
     belongs_to :poster, :class_name => "User", :foreign_key => :user_id
@@ -42,7 +42,8 @@ class VoteTopic < ActiveRecord::Base
     validate :min_vote_items, :if => :its_new?
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
-    after_destroy :destroy_graphs
+    #    after_save :post_save_processing
+    
     attr_accessible :topic, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered
     #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     
@@ -64,10 +65,21 @@ class VoteTopic < ActiveRecord::Base
     named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
 
+    def post_save_processing
+        if self.status_changed? && self.status == 'a'
+            self.poster.delay.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
+              self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
+            self.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
+            if !self.friend_emails.nil?
+                self.delay.deliver_friendly_vote_emails!
+            end
+        end 
+    end
+
     def self.all_vt
-        CACHE.fetch VoteTopic.count  {
-                all
-            }
+        CACHE.fetch "#{VoteTopic.count}" do
+            all
+        end
     end
     
     def is_being_tracked? id
@@ -78,8 +90,20 @@ class VoteTopic < ActiveRecord::Base
     #        find(:all, :conditions => ['unan = ? && expires > ?'], :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :select => 'id, header, unan, votes_count')
     #    end
 
-    def self.category_list cid, page
-        coll = paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => 'vote_topics.created_at DESC', :include => [:vote_items,
+    def self.determine_order order
+        case order
+        when 'recent'
+            'vote_topics.created_at DESC'
+        when 'votes'
+            'vote_topics.votes_count DESC'
+        when 'featured'
+            'vote_topics.power_offered DESC'
+        else
+            'vote_topics.created_at DESC'
+        end
+    end
+    def self.category_list cid, page, order
+        coll = paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => (determine_order order), :include => [:vote_items,
                 :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => Constants::VOTE_TOPIC_FIELDS)
     end
 
@@ -266,66 +290,7 @@ class VoteTopic < ActiveRecord::Base
         end
         self.update_attribute(:votes_count, 0)
     end
-    
-    def post_process(response, user,  add)
-        if add == true
-            success = user.vote_for(response, self.id)
-        else
-            success = user.cancel_vote(response, self.id)
-        end
-        
-        if success == true
-            factor = 1
-            if add == true
-                inc = 1
-                user.award_points(Constants::VOTE_POINTS * factor)
-            else
-                inc = -1
-                user.award_points(Constants::VOTE_POINTS * factor * -1)
-            end
 
-            selected_response = VoteTopic.find_selected_response(response)
-            #        vtpic = selected_response.vote_topic
-
-            if !self.power_offered.nil? && self.power_offered > 0
-                #constanize the factor, rethink the whole game
-                factor = vtpic.power_offered  / 10
-            else
-                factor = 1
-            end
-
-            if add == true
-                inc = 1
-                user.award_points(Constants::VOTE_POINTS * factor)
-            else
-                inc = -1
-                user.award_points(Constants::VOTE_POINTS * factor * -1)
-            end
-
-            if !user.sex.nil? && user.sex == 0
-                selected_response.increment!(:male_votes, inc)
-            else
-                selected_response.increment!(:female_votes, inc)
-            end
-            age = user.age
-            if Constants::AGE_GROUP_1.include?(age)
-                selected_response.increment!(:ag_1_v, inc)
-            elsif Constants::AGE_GROUP_2.include?(age)
-                selected_response.increment!(:ag_2_v, inc)
-            elsif Constants::AGE_GROUP_3.include?(age)
-                selected_response.increment!(:ag_3_v, inc)
-            else
-                selected_response.increment!(:ag_4_v, inc)
-            end
-        end
-        user.update_attribute(:processing_vote, false)
-    end
-
-    def ram? str
-        #        num = number_to_human_size ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
-        #        Delayed::Worker.logger.info str + ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
-        #        logger.info str +  ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
-    end
     
     def update_facets (print_only)
         if self.votes_count == 0
@@ -340,12 +305,11 @@ class VoteTopic < ActiveRecord::Base
         looser = vi.last
         
         votes = Array.new
-        sorted_votes = self.votes.find(:all, :select => "votes.id, votes.state").group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
+        sorted_votes = self.votes.find(:all, :select => "votes.id, votes.state", :conditions => ['del <> ?', 1]).group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
 
         dag_desc = sorted_votes.collect {|x| x.first}.join(', ')
 
-        local_votes = self.votes.find(:all, :origin => self.poster.zip, :within => Constants::PROXIMITY)
-        local_winner = local_votes.group_by {|x| x.vote_item_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
+        
 
         w_desc = vi.sort_by{|x| x.female_votes}.reverse.first.option
         m_desc = vi.sort_by{|x| x.male_votes}.reverse.first.option
@@ -355,16 +319,19 @@ class VoteTopic < ActiveRecord::Base
         ag4_desc = vi.sort_by{|x| x.ag_4_v}.reverse.first.option
         
         if winner.votes_count> 0
-            w_states =  winner.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
-            w_cities =   winner.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
+            w_states =  winner.votes.find(:all, :conditions => ['del <> ?', 1]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
+            w_cities =   winner.votes.find(:all, :conditions => ['del <> ?', 1]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
             wl_desc = winner.option + "$$" + w_states + "$$" + w_cities
         end
 
         if looser.votes_count > 0
-            l_states = looser.votes.group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
-            l_cities = looser.votes.group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
+            l_states = looser.votes.find(:all, :conditions => ['del <> ?', 1]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
+            l_cities = looser.votes.find(:all, :conditions => ['del <> ?', 1]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
             ll_desc = looser.option + "$$" + l_states + "$$" + l_cities
         end
+
+        local_votes = self.votes.find(:all,  :conditions => ['del <> ?', 1],:origin => self.poster.zip, :within => Constants::PROXIMITY)
+        local_winner = local_votes.group_by {|x| x.vote_item_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
         
         if !local_winner.nil?
             vl_desc = VoteItem.find(local_winner, :select => "vote_items.option").option

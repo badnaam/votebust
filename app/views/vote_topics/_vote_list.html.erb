@@ -1,5 +1,11 @@
 <% if @vote_topics.size > 0 %>
-  <h3 class="normal-pad append-bottom prepend-top ui-widget-header"><%= what_listing %></h3>
+  <h5 class="normal-pad append-bottom prepend-top ui-widget-header"><%= what_listing %></h5>
+  <div>
+    <%= link_to "Recent", vote_topics_path(request.parameters.merge({'order', 'recent'})) %>
+    <%= link_to "Votes", vote_topics_path(request.parameters.merge({'order', 'votes'})) %>
+    <%= link_to "Featured", vote_topics_path(request.parameters.merge({'order', 'featured'})) %>
+
+  </div>
 <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
 <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
 <% @vote_topics.each do |vt| %>

@@ -43,8 +43,11 @@ module VoteTopicsHelper
     def power_points vt
         if !vt.power_offered.nil? && vt.power_offered > 10
             points = vt.power_offered / 10
-            return "Power Points  <span class='bld power-points'>#{points} </span><span class='tooltip'>Earn #{points} Voting Power for voting on this topic.
-            <a href = '#' class='clearfix'>What's Voting Power?</a></span>"
+            return "<span class='power-wrapper'>
+                        <span class='ui-icon ui-icon-power'></span>
+                        <span class='bld power-points'>#{points} </span>
+                    </span>
+                    <span class='tooltip'>Earn #{points} Voting Power for voting on this topic.<a href = '#' class='clearfix'>What's Voting Power?</a></span>"
         end
     end
     

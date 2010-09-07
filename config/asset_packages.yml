@@ -1,7 +1,6 @@
 --- 
 javascripts: 
 - base: 
-  - common
   - jquery.tools.min
   - application
 stylesheets: 

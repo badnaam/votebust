@@ -2,7 +2,8 @@ class UserSession < Authlogic::Session::Base
     #    rpx_key ENV['RPX_API_KEY']
     rpx_key ENV['RPX_KEY']
     auto_register true
-
+    consecutive_failed_logins_limit 3
+    failed_login_ban_for 10.seconds
 
     private
 

@@ -14,6 +14,20 @@
         }
       }
     });
+
+
+    $('.pagination a').live("click", function () {
+      showLoading('#com_prog_loading');
+      $.ajax({
+        type : 'GET',
+        url : this.href,
+        complete : function() {
+          hideLoading('#com_prog_loading')
+        },
+        dataType : 'script'
+      })
+      return false;
+    });
   });
   //]]>
 </script>

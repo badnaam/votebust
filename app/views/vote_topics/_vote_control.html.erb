@@ -6,14 +6,12 @@
   <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
   <%= hidden_field_tag :vote_open, @vote_open.nil? ? nil : @vote_open %>
   <%= hidden_field_tag :vote_id, @vote_topic.nil? ? nil : @vote_topic.id %>
+  <%= hidden_field_tag :vote_count, 0 %>
 
   <% if @vote_open %>
     <% if @user && @reg_complete %>
-      <% if @selected_response%>
         <%= render :partial => "vote_form" %>
-      <% else %>
         <%= render :partial => "unvoted" %>
-      <% end  %>
     <% else %>
       <%= render :partial => "vote_options" %>
     <% end  %>

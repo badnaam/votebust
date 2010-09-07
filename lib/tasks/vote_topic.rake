@@ -11,5 +11,18 @@ end
 
 desc 'starts facet update'
 task :facet_update_start => :environment do
+    Rails.logger.info "Starting Facet Update Rake Task"
     VoteTopic.start_facet_update
+end
+
+desc 'start vote processing'
+
+task :process_votes => :environment do
+    Rails.logger.info "Starting Process Vote Rake Task"
+    Vote.process_votes
+end
+
+desc 'test'
+task :log_test => :environment do
+    Vote.test_log
 end

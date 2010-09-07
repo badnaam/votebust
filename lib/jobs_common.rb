@@ -1,20 +1,30 @@
 require 'populator'
 class JobsCommon
     CATEGORIES = ["Arts","Autos & Motorcyles","Business","Computers","Education","Electronics","Entertainment","Environmentalism","Finance","Food & Dining","Games","Health & Fitness",
-    "Hobbies",
-    "Home & Garden",
-    "Kids",
-    "Legal",
-    "Life & Society",
-    "Pets",
-    "Real Estate",
-    "Recreation & Sports",
-    "Relationship Advice",
-    "Religion",
-    "Science",
-    "Social Sciences",
-    "Transportation",
-    "Travel & Places"]
+        "Hobbies",
+        "Home & Garden",
+        "Kids",
+        "Legal",
+        "Life & Society",
+        "Pets",
+        "Real Estate",
+        "Recreation & Sports",
+        "Relationship Advice",
+        "Religion",
+        "Science",
+        "Social Sciences",
+        "Transportation",
+        "Travel & Places"]
+
+    ZIP_CODES =  ["78789", "94501", "11361", "11717", "94043", "11256", "94602", "94577", "94085", "94536", "94022", "94118", "94701", "94010", "78799", "94131",
+        "98101", "98102", "98103", "97212", "97205", "90201", "46303", "70112", "85001", "10001", "90077"]
+
+
+    def ram? str
+        #        num = number_to_human_size ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
+        #        Delayed::Worker.logger.info str + ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
+        #        logger.info str +  ('RAM USAGE: ' + `pmap #{Process.pid} | tail -1`[10,40].strip)
+    end
 
     def self.check_job_exists (job_name)
         Delayed::Backend::ActiveRecord::Job.first(:conditions => "handler LIKE '%#{job_name}%'")

@@ -51,8 +51,12 @@ class Constants
     TRACK_POINTS = 1
     MIN_VOTE_FOR_FEATURED = 50
     VOTING_POWER_OFFER_INCREMENT = 10
+    VOTING_POWER_OFFER_DEVIDER = 10
     #########End Points########
 
+    VOTING_COUNTER_RESET_INTERVAL = 30000
+    MAX_VOTES_PER_INTERVAL = 3
+    
     FACET_UPDATE_ELIGIBILITY_DELTA = 0.15
     #remove vote_items.v_count
     VOTE_TOPIC_FIELDS = 'vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.expires, vote_topics.category_id, vote_topics.created_at,
@@ -74,4 +78,6 @@ class Constants
                                vote_items.votes_count, vote_topics.votes_count'
     VOTE_TOPIC_FIELDS_APPROVAL = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.user_id,
                              vote_topics.created_at, vote_topics.power_offered, users.id, users.username, users.email, users.voting_power, vote_topics.friend_emails'
+
+
 end

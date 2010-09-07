@@ -16,58 +16,63 @@
 <script type="text/javascript">
   //<![CDATA[
 
-  function update_chars_left(max_len, target_input, display_element) {
-    var text_len = target_input.value.length;
-    if (text_len >= max_len) {
-      target_input.value = target_input.value.substring(0, max_len); // truncate
-      display_element.html("0 characters left");
-    } else {
-      display_element.html((max_len - text_len) + " characters left");
-    }
-  }
-
 
   $(document).ready(function() {
+    setVotingCounter(<%= Constants::VOTING_COUNTER_RESET_INTERVAL%>);
+
     $('.take-action').live('click', function() {
-      if ($(this).hasClass('vote')) {
-        //post vote
-        $.ajax({type: 'POST',
-          url:'<%= process_votes_vote_topic_path(@vote_topic) %>',
-          data: {vote_open: $('#vote_open').val(), reg_complete : $('#reg_complete').val(), response : $(this).attr('id'), user_id : $('#user_id').val(), id:$('#vote_id').val()},
-          success : function() {
-            //$('#vote_status').html('Vote Accepted.');
-          },
-          error:function(){
-            $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
-          },
-          beforeSend : function() {
-            showLoading($('#vote_loading'))
-          },
-          complete: function() {
-            hideLoading($('#vote_loading'))
-          }
-        });
+      var count_val = $('#vote_count').val();
+      if (count_val > <%= Constants::MAX_VOTES_PER_INTERVAL %> ) {
+        $('#flash_messages').append('<div></div>').attr('class', 'error').text('Vote Slowly.');
       } else {
-        //cancel vote
-        $.ajax({type: 'POST',
-          url:'<%= cancel_vote_vote_topic_path(@vote_topic) %>',
-          data: {vote_open: $('#vote_open').val(),reg_complete:$('#reg_complete').val(),response : $(this).attr('id'), user_id : $('#user_id').val(), id:$('#vote_id').val()},
-          success : function() {
-            //$('#vote_status').html('Vote Cancelled.');
-          },
-          error:function(){
-            $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
-          },
-          beforeSend : function() {
-            showLoading($('#vote_loading'))
-          },
-          complete: function() {
-            hideLoading($('#vote_loading'))
-          }
-        });
+        $('#vote_count').val(++count_val);
+        if ($(this).hasClass('vote')) {
+          //post vote
+          $.ajax({type: 'POST',
+            url:'<%= votes_path() %>',
+            data: {
+              id: '<%= @vote_topic.id %>',vote_open: $('#vote_open').val(), reg_complete : $('#reg_complete').val(), response : $(this).attr('id'),
+              user_id : $('#user_id').val(), id:$('#vote_id').val()
+            },
+            success : function() {
+              //$('#vote_status').html('Vote Accepted.');
+            },
+            error:function(){
+              $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
+            },
+            beforeSend : function() {
+              showProgress($('#vote_loading'))
+            },
+            complete: function() {
+              hideProgress($('#vote_loading'))
+            }
+          });
+        } else {
+          //cancel vote
+          $.ajax({type: 'DELETE',
+            url:'<%= url_for(:controller => 'votes', :action => 'destroy', :only_path => true, :id => @vote_topic.id) %>',
+            data: {
+              id: '<%= @vote_topic.id %>', vote_open: $('#vote_open').val(),reg_complete:$('#reg_complete').val(),response : $(this).attr('id'),
+              user_id : $('#user_id').val(), id:$('#vote_id').val()
+            },
+            success : function() {
+              //$('#vote_status').html('Vote Cancelled.');
+            },
+            error:function(){
+              $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
+            },
+            beforeSend : function() {
+              showProgress($('#vote_loading'))
+            },
+            complete: function() {
+              hideProgress($('#vote_loading'))
+            }
+          });
+        }
       }
       return false;
     });
+    
     $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. \n\
         We'll try to fix this as soon as possible.");
         },  dataType:'script', success:function(){
@@ -82,6 +87,7 @@
       },
       'script');
     }
+    
     var refreshId = setInterval(function(){
       //check if the user has voted, logged in, registered and vote is open
       if ($('#user_id').val() != "" &&  $('#reg_complete').val != "" && $('#vote_open').val () == "true") {
@@ -113,8 +119,6 @@
       }, "script");
       return false;
     });
-
-
 <% if @user %>
       $('#comment_body').keyup(function() {
         update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
@@ -122,6 +126,19 @@
       //and fire it on doc ready, too
       update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
 <%end%>
+  });
+
+  $('.pagination a').live("click", function () {
+    showLoading('#com_prog_loading');
+    $.ajax({
+      type : 'GET',
+      url : this.href,
+      complete : function() {
+        hideLoading('#com_prog_loading')
+      },
+      dataType : 'script'
+    })
+    return false;
   });
   //]]>
 </script>
@@ -260,6 +277,14 @@
 </div>
 
 <div class="push span-18 last"></div>
+
+
+
+
+
+
+
+
 <div id="fb-root">
 </div>
 

@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
         # set Authlogic_RPX account mapping mode
         a.account_mapping_mode :internal
         a.disable_perishable_token_maintenance = true
+        a.login_field = 'username'
     end
 
     attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
@@ -44,8 +45,7 @@ class User < ActiveRecord::Base
     before_save :check_what_changed
 
     def self.find_for_vote_processing id
-        find(id, :select => "users.id, users.processing_vote, users.persistence_token, users.age, users.sex, users.username, users.city, users.state,
-            users.lat, users.lng")
+        find(id, :select => "users.id, users.voting_power")
     end
 
     def award_points points
@@ -70,8 +70,9 @@ class User < ActiveRecord::Base
     end
 
     def check_what_changed
-        if self.changed.sort == ["last_request_at", "perishable_token"] || self.changed.sort == ["perishable_token" , "processing_vote"] ||
-              self.changed.sort == ["current_login_at", "last_login_at", "last_request_at", "login_count", "perishable_token"]
+        arr = self.changed.sort
+        if arr == ["last_request_at", "perishable_token"] || arr == ["perishable_token" , "processing_vote"] ||
+              arr == ["current_login_at", "last_login_at", "last_request_at", "login_count", "perishable_token"] || arr ==  ["voting_power"] || arr ==  ["votes_count"]
             self.skip_profile_update = true
             return true
         else

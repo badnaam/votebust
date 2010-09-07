@@ -47,13 +47,7 @@ class VoteTopicsController < ApplicationController
             @vote_topic.status = 'a'
             @vote_topic.expires = 2.weeks.from_now
             if @vote_topic.save
-                @vote_topic.poster.delay.award_points(@vote_topic.power_offered * -1) if !@vote_topic.power_offered.nil? &&
-                  @vote_topic.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
-                @vote_topic.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
-                if !@vote_topic.friend_emails.nil?
-                    @vote_topic.delay.deliver_friendly_vote_emails!
-                end
-                flash[:success] = 'Change vote status to approved'
+                    flash[:success] = 'Change vote status to approved'
             end
         else
             flash[:error] = "Sorry can't do that"
@@ -139,7 +133,7 @@ class VoteTopicsController < ApplicationController
         @listing_type = params[:listing_type]
         case @listing_type
         when "category"
-            @vote_topics = (VoteTopic.category_list params[:category_id], params[:page])
+            @vote_topics = (VoteTopic.category_list params[:category_id], params[:page], params[:order])
             @listing_context = Category.find(params[:category_id], :select => 'name').name
         when "tracked_all"
             @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
@@ -201,7 +195,8 @@ class VoteTopicsController < ApplicationController
             @status = 'approved'
             @user = current_user
             if @user
-                @selected_response = VoteTopic.what_user_voted_for?(params[:id], @user.id)
+#                @selected_response = VoteTopic.what_user_voted_for?(params[:id], @user.id)
+                @selected_response = Vote.user_voted?(@user.id, params[:id])
             end
             if @selected_response
                 @vote_topic = VoteTopic.find_for_show(params[:id])

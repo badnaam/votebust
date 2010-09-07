@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     layout "main"
     
     helper :all # include all helpers, all the time
-#    protect_from_forgery # See ActionController::RequestForgeryProtection for details
+    #    protect_from_forgery # See ActionController::RequestForgeryProtection for details
     after_filter :discard_flash_if_xhr
     #    before_filter :set_current_user
 
@@ -37,8 +37,12 @@ class ApplicationController < ActionController::Base
     private
     def current_role
         unless current_user.nil?
-            unless current_user.role.blank?
-                current_user.role.name
+            if session[:current_role]
+                session[:current_role]
+            else
+                unless current_user.role.blank?
+                    current_user.role.name
+                end
             end
         end
     end

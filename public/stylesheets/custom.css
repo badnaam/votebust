@@ -29,9 +29,14 @@
     border-top:1px solid #dddddd;
 }
 .power-points {
-    padding:.3em;
-    color:white;
-    background-color: #FF0084;
+/*    padding:.3em;*/
+    color:#FF0084;
+    height:16px;
+/*    background-color: #FF0084;*/
+}
+.power-wrapper {
+    padding:0.4em 0.2em 0.1em 0.1em;
+    background-color: #dddddd;
 }
 .preview-table {
     margin-bottom: 0;
