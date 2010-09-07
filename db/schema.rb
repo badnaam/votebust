@@ -97,18 +97,6 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.datetime "updated_at"
   end
 
-  create_table "slugs", :force => true do |t|
-    t.string   "name"
-    t.integer  "sluggable_id"
-    t.integer  "sequence",                     :default => 1, :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
-  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
-
   create_table "trackings", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -152,10 +140,13 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
   end
 
   add_index "users", ["active"], :name => "active"
+  add_index "users", ["city"], :name => "city"
   add_index "users", ["image_file_name"], :name => "image_file_name"
   add_index "users", ["lat"], :name => "lat"
   add_index "users", ["lng"], :name => "lng"
   add_index "users", ["role_id"], :name => "role_id"
+  add_index "users", ["role_id"], :name => "role_id_2"
+  add_index "users", ["state"], :name => "state"
   add_index "users", ["username"], :name => "username"
   add_index "users", ["votes_count"], :name => "votes_count"
 
@@ -246,7 +237,12 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.datetime "updated_at"
   end
 
+  add_index "votes", ["del"], :name => "del"
+  add_index "votes", ["lat"], :name => "lat"
+  add_index "votes", ["lng"], :name => "lng"
   add_index "votes", ["user_id"], :name => "fk_voters"
   add_index "votes", ["vote_item_id"], :name => "fk_voteables"
+  add_index "votes", ["vote_item_id"], :name => "vote_item_id"
+  add_index "votes", ["vote_topic_id"], :name => "vote_topic_id"
 
 end
