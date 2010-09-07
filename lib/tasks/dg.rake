@@ -1,5 +1,5 @@
 namespace :dg do
-    desc 'generate a bunch of users'
+    desc 'generate a bunch of users. Supply count=number'
     task :gen_users => :environment do
         require 'populator'
         count = ENV['count'].to_i
@@ -38,8 +38,9 @@ namespace :dg do
         end
     end
     
-    desc 'create VoteTopics'
+    desc 'create VoteTopics. Supply per_user=number'
     task :gen_vote_topics => :environment do
+        require 'populator'
         if ENV['per_user']
             per_user = ENV['per_user'].to_i
         else
@@ -61,19 +62,21 @@ namespace :dg do
         end
     end
 
-    desc 'Generate Comment'
+    desc 'Generate Comment. Supply count=number'
     task :gen_comments => :environment do
         require 'populator'
         count = ENV[:count].to_i
         user_ids = User.all.collect {|x| x.id}
         VoteTopic.all.each do |v|
             vi = v.vote_items
-            Comment.create(
-                :body => Populator.sentences(3),
-                :vote_topic_id => v.id,
-                :vi_option => vi[rand(vi.length)].option,
-                :user_id => user_ids[rand(user_ids.length)]
-            )
+            count.times {
+                Comment.create(
+                    :body => Populator.sentences(rand(3)),
+                    :vote_topic_id => v.id,
+                    :vi_option => vi[rand(vi.length)].option,
+                    :user_id => user_ids[rand(user_ids.length)]
+                )
+            }
         end
     end
 
