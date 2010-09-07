@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
                 self.zip = nil
             end
             begin
-                save
+                save(false)
             rescue => exp
                 logger.error "Error saving user after geocoding failed with #{exp.message}"
             end
