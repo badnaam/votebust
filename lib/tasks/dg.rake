@@ -1,11 +1,6 @@
 namespace :dg do
     desc 'generate a bunch of users. Supply count=number'
     task :gen_users => :environment do
-        begin
-            require 'populator'
-        rescue
-        end
-        
         count = ENV['count'].to_i
         zip_length = JobsCommon::ZIP_CODES.length
         
@@ -13,7 +8,7 @@ namespace :dg do
             begin
                 u = User.new
                 u.username = "user#{i}"
-                u.email = Populator.words(1)+"@gmail.com"
+                u.email = "user#{i}.gmail.com"
                 u.password = APP_CONFIG['stock_pwd']
                 u.password_confirmation = APP_CONFIG['stock_pwd']
                 u.role_id = 2
