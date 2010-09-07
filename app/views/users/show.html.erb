@@ -2,7 +2,8 @@
   //<![CDATA[
   $(document).ready(function(){
     $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
-    $('#tabs').tabs({
+    $('#tabs').tabs(
+    {
       spinner:"<img src='/images/loading.gif'/>",
       ajaxOptions:{
         error:function(xhr, status,index, anchor){

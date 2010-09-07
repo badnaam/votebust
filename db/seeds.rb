@@ -10,4 +10,7 @@ if Role.count == 0
     Role.create(:name => 'user')
 end
 User.create(:username => 'admin', :password => 't', :password_confirmation => 't', :active => 1, :age => 34,
-    :zip => 94577, :sex => 1, :email => 'admin@votechek.com', :role_id => Role.find_by_name('admin').id)
+    :zip => 94577, :sex => 1, :email => 'pjointadm@gmail.com', :role_id => Role.find_by_name('admin').id)
+JobsCommon::CATEGORIES.each do |c|
+    Category.create(:name => c)
+end

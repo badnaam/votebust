@@ -119,8 +119,6 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "zip",                 :limit => 5
-    t.boolean  "processing_vote",                    :default => false, :null => false
-    t.string   "cached_slug",         :limit => 100
     t.string   "username"
     t.integer  "sex"
     t.integer  "age"
@@ -128,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.float    "lat"
     t.float    "lng"
     t.integer  "role_id"
-    t.integer  "votes_count",                        :default => 0,     :null => false
+    t.integer  "votes_count",                        :default => 0,    :null => false
     t.string   "state",               :limit => 15
     t.string   "city",                :limit => 50
     t.boolean  "active"
@@ -136,11 +134,11 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
     t.datetime "updated_at"
     t.string   "crypted_password"
     t.string   "password_salt"
-    t.string   "persistence_token",                                     :null => false
-    t.string   "single_access_token",                                   :null => false
-    t.string   "perishable_token",                                      :null => false
-    t.integer  "login_count",                        :default => 0,     :null => false
-    t.integer  "failed_login_count",                 :default => 0,     :null => false
+    t.string   "persistence_token",                                    :null => false
+    t.string   "single_access_token",                                  :null => false
+    t.string   "perishable_token",                                     :null => false
+    t.integer  "login_count",                        :default => 0,    :null => false
+    t.integer  "failed_login_count",                 :default => 0,    :null => false
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
@@ -154,7 +152,6 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
   end
 
   add_index "users", ["active"], :name => "active"
-  add_index "users", ["cached_slug"], :name => "cached_slug"
   add_index "users", ["image_file_name"], :name => "image_file_name"
   add_index "users", ["lat"], :name => "lat"
   add_index "users", ["lng"], :name => "lng"
@@ -236,13 +233,15 @@ ActiveRecord::Schema.define(:version => 20100818001113) do
   end
 
   create_table "votes", :force => true do |t|
-    t.string   "city",          :limit => 100
+    t.string   "city",            :limit => 100
     t.float    "lat"
     t.float    "lng"
-    t.string   "state",         :limit => 10
-    t.integer  "vote_item_id",                 :null => false
-    t.integer  "vote_topic_id",                :null => false
+    t.string   "state",           :limit => 10
+    t.integer  "vote_item_id",                                     :null => false
+    t.integer  "vote_topic_id",                                    :null => false
     t.integer  "user_id"
+    t.integer  "del",             :limit => 2,   :default => 0
+    t.boolean  "never_processed",                :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
