@@ -49,7 +49,7 @@ class Vote < ActiveRecord::Base
 
     def self.test_log
         begin
-        Rails.logger.info "Testing logging"
+       Rails.logger.info "Testing logging"
         a = 4
         a.dsfadsfasdfds
         rescue => exp

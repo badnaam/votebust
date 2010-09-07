@@ -65,7 +65,11 @@ class User < ActiveRecord::Base
                 #set it to nil to force the user to complete registration
                 self.zip = nil
             end
-            save
+            begin
+                save
+            rescue => exp
+                logger.error "Error saving user after geocoding failed with #{exp.message}"
+            end
         end
     end
 

@@ -9,10 +9,10 @@ namespace :dg do
         count = ENV['count'].to_i
         zip_length = JobsCommon::ZIP_CODES.length
         
-        (1..count).each {
+        (1..count).each do |i|
             begin
                 u = User.new
-                u.username = Populator.words(1)
+                u.username = "user#{i}"
                 u.email = Populator.words(1)+"@gmail.com"
                 u.role_id = 2
                 u.active = true
@@ -28,7 +28,7 @@ namespace :dg do
             if count % 500 == 0
                 GC.start
             end
-        }
+        end
     end
 
 

@@ -8,6 +8,15 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+    require 'custom_logger'
+    #todo change log level in production
+    config.log_level = ENV['RAILS_ENV']=='production' ?
+      ActiveSupport::BufferedLogger::Severity::DEBUG :
+      ActiveSupport::BufferedLogger::Severity::DEBUG
+
+    #   # initializing custom logger
+    config.logger = CustomLogger.new(config.log_path, config.log_level)
+
     RUBY_HEAP_MIN_SLOTS=500000
     RUBY_HEAP_SLOTS_INCREMENT=250000
     RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
@@ -22,8 +31,8 @@ Rails::Initializer.run do |config|
     config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
     APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
 
-#    config.logger = RAILS_DEFAULT_LOGGER = Logger.new("#{RAILS_ROOT}/log/#{ENV['RAILS_ENV']}.log", 'daily')
-#    
+    #    config.logger = RAILS_DEFAULT_LOGGER = Logger.new("#{RAILS_ROOT}/log/#{ENV['RAILS_ENV']}.log", 'daily')
+    #
     # Specify gems that this application depends on and have them installed with rake gems:install
     # config.gem "bj"
     # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
@@ -45,14 +54,14 @@ Rails::Initializer.run do |config|
     # Run "rake -D time" for a list of tasks for finding time zone names.
     config.gem 'net-ssh', :lib => "net/ssh"
     config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
-#    config.gem "mogli"
-#    config.gem "facebooker2"
+    #    config.gem "mogli"
+    #    config.gem "facebooker2"
     config.gem "json"
     config.gem 'dalli'
     config.gem "authlogic"
-#    config.gem "oauth"
-#    config.gem "oauth2"
-#    config.gem "authlogic-connect"
+    #    config.gem "oauth"
+    #    config.gem "oauth2"
+    #    config.gem "authlogic-connect"
 
     #    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
     #    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
