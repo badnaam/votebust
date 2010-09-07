@@ -10,6 +10,7 @@ namespace :dg do
         zip_length = JobsCommon::ZIP_CODES.length
         
         (1..count).each do |i|
+            puts "Creating user #{i}"
             begin
                 u = User.new
                 u.username = "user#{i}"
@@ -28,19 +29,8 @@ namespace :dg do
                 puts exp.message
                 puts u.inspect
             end
-            if count % 500 == 0
+            if count % 150 == 0
                 GC.start
-            end
-        end
-    end
-
-
-    desc 'Make each user vote on each vote_topic'
-    task :generate_votes => :environment do
-        VoteTopic.all.each do |v|
-            vi = v.vote_items
-            User.all.each do |u|
-                Vote.do_vote(v.id, vi[rand(vi.length)], u.id, true)
             end
         end
     end
@@ -65,22 +55,21 @@ namespace :dg do
         end
         cat_length = Category.count
 
-        gen_count = 0
-        User.all.each do |u|
-            gen_count += 1
-            if gen_count % 500 == 0
-                GC.start
+        User.find_in_batches({:batch_size => 50}) do |group|
+            group.each do |u|
+                puts "Creating VT for user #{u.id}"
+                per_user.times {
+                    a = Array.new
+                    v = u.posted_vote_topics.create(:topic => Populator.sentences(5), :header => Populator.sentences(1), :status => 'a',
+                        :category_id => rand(cat_length - 1) + 1, :expires => 2.weeks.from_now)
+                    (rand(4) + 1).times do |y|
+                        a << {:option => Populator.words(rand(3) + 1)}
+                    end
+                    v.vote_items_attributes = a
+                    v.save
+                }
             end
-            per_user.times {
-                a = Array.new
-                v = u.posted_vote_topics.create(:topic => Populator.sentences(5), :header => Populator.sentences(1), :status => 'a',
-                    :category_id => rand(cat_length - 1) + 1, :expires => 2.weeks.from_now)
-                (rand(4) + 1).times do |y|
-                    a << {:option => Populator.words(rand(3) + 1)}
-                end
-                v.vote_items_attributes = a
-                v.save
-            }
+            GC.start
         end
     end
 
@@ -125,12 +114,20 @@ namespace :dg do
     end
     desc 'Generate Votes'
     task :gen_votes => :environment do
-        VoteTopic.all.each do |v|
-            vis = v.vote_items.collect {|x| x.id}
-            User.all.each do |u|
-                v.votes.create(:user_id => u.id, vote_item_id => vis[rand(vis.length)])
+        VoteTopic.find_in_batches({:batch_size => 50}) do |vgroup|
+            vgroup.each do |v|
+                puts "Creating votes for vote topic #{v.id}"
+                vis = v.vote_items.collect {|x| x.id}
+                User.find_in_batches({:batch_size => 150}) do |group|
+                    group.each do |u|
+                        v.votes.create(:user_id => u.id, vote_item_id => vis[rand(vis.length)])
+                    end
+                    GC.start
+                end
             end
+            GC.start
         end
+        
     end
     
     desc 'create categories'
