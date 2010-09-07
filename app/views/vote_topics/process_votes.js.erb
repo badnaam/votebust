@@ -1,6 +1,0 @@
-$('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
-<% if !@vote_topic.nil? %>
-  $('#tot_votes').html("<%= @vote_topic.votes_count %>");
-<% end  %>
-
-$('#div_vote_form').replaceWith("<%= escape_javascript(render :partial => 'vote_control') %>");

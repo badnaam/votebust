@@ -85,25 +85,6 @@ module ApplicationHelper
         end
     end
     
-    def color_link_with_icon(id, href, icon, text)
-        return "<a id= '#{id}' class='ui-state-default ui-corner-all link-with-icon' href='#{href}'><span class='ui-icon #{icon}'></span>#{text}</a>"
-    end
-
-    def plain_link_with_icon(id, href, icon, text)
-        return "<a id= '#{id}' href='#{href}' class='link-with-icon'><span class='ui-icon #{icon}'></span>#{text}</a>"
-    end
-    def text_with_icon(icon, text)
-        return "<div><span class='link-with-icon'><span class='ui-icon #{icon}'></span>#{text}</div>"
-    end
-
-    def inline_text_with_icon(icon, text)
-        return "<span class='link-with-icon'><span class='ui-icon #{icon}'></span>#{text}"
-    end
-
-    def icon_header(element, icon_class, icon, text)
-        return " <#{element}  class='#{icon_class} #{icon} icon-header'>#{text} </#{element}>"
-    end
-
     def select_options_tag(name='',select_options={},options={})
         #set selected from value
         selected = ''

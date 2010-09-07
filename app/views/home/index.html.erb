@@ -1,11 +1,18 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
-    $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", select:function(event, ui){$('#tabs').animate({opacity:.3}, 'slow', function() {});},
-      ajaxOptions:{error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
-        },  dataType:'script', success:function(){
+    $('#tabs').tabs(
+    {
+      spinner:"<img src='/images/loading.gif'/>",
+      //select:function(event, ui){$('#tabs').animate({opacity:.3}, 'slow', function() {});},
+      ajaxOptions:
+        {
+        error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
+        },  
+        dataType:'script',
+        success:function(){
           //$('#loading').hide();
-          $('#tabs').animate({opacity:1.0}, 'slow', function() {});
+          // $('#tabs').animate({opacity:1.0}, 'slow', function() {});
         }
       }});
   });
@@ -13,10 +20,7 @@
 </script>
 
 <div id="top_tab_container" class="span-18 last rel-pos">
-  <div id ="loading" class="home-loading" style="display:none">
-    <div class ="loading-inner-top">
-    </div>
-  </div>
+
   <div id="tabs" class="normal-pad  ui-widget-content">
     <ul>
       <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "top")%>"><span>Most Voted</span></a></li>

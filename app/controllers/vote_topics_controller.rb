@@ -3,7 +3,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics.xml
     layout "main"
     filter_access_to [:edit, :update, :confirm_vote], :attribute_check => true
-    before_filter :require_user, :only => [ :new, :create, :process_votes, :cancel_vote, :approve_vote, :track]
+    before_filter :require_user, :only => [ :new, :create,  :approve_vote, :track]
     before_filter :store_location, :only => [:show]
     before_filter :require_registration, :only => [:new]
     #    cache_sweeper :home_sweeper, :only => [:create]
@@ -72,49 +72,6 @@ class VoteTopicsController < ApplicationController
         end
     end
     
-    def cancel_vote
-        @user = User.find_for_vote_processing(params[:user_id])
-        if @user.processing_vote == false
-            selected_response = params[:response]
-            @vote_open = params[:vote_open]
-            @reg_complete = params[:reg_complete]
-            #            @vote_topic = @selected_response.vote_topic
-            @user.update_attribute(:processing_vote, true)
-            @vote_topic = VoteTopic.find_for_processing(params[:id])
-            @vote_topic.delay.post_process(selected_response, @user, false)
-            flash[:success] = "Your vote has submitted for cancellation."
-        else
-            flash[:notice] = "Please wait while we process your previous vote"
-        end
-        respond_to do |format|
-            format.js
-        end
-    end
-
-    def process_votes
-        @user = User.find_for_vote_processing(params[:user_id])
-        if @user.processing_vote == false
-            if  !params[:response].nil? && !@user.nil?
-                @selected_response = params[:response]
-                @vote_open = params[:vote_open]
-                @reg_complete = params[:reg_complete]
-                @vote_processing = true
-                #todo optimize this find
-                @user.update_attribute(:processing_vote, true)
-                @vote_topic = VoteTopic.find_for_processing(params[:id])
-                @vote_topic.delay.post_process(@selected_response, @user, true)
-                flash[:success] = "Thanks for voting. Your vote is being processed."
-            else
-                flash[:error] = "Something went wrong, we couldn't process your vote."
-            end
-        else
-            flash[:notice] = "Please wait while we process your previous vote"
-        end
-        respond_to do |format|
-            format.js
-        end
-    end
-
 
     def confirm_vote
         @vote_topic = VoteTopic.find(params[:id], :select => "vote_topics.id, vote_topics.status")
