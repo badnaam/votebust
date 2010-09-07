@@ -161,29 +161,6 @@ class User < ActiveRecord::Base
         Vote.exists?(:vote_topic_id => vid, :voteable_id => vtid, :user_id => self.id)
     end
 
-    def vote_for(vid, vtid)
-        v = Vote.create(:user_id => self.id, :vote_item_id => vid, :vote_topic_id => vtid, :lat => self.lat, :lng => self.lng, :city => self.city, :state => self.state)
-        if (v.valid?)
-            return true
-        else
-            return false
-        end
-    end
-
-    def cancel_vote(vid, vtid)
-        v = Vote.find(:first, :select => "id, vote_topic_id, vote_item_id, user_id", :conditions => ['vote_item_id = ? AND vote_topic_id = ? AND user_id = ?',
-                vid, vtid, self.id])
-        if !v.nil?
-            if v.destroy
-                return true
-            else
-                return false
-            end
-        else
-            return false
-        end
-    end
-    
     def role_symbols
         arr = Array.new
         arr << self.role.name.to_sym
@@ -198,19 +175,7 @@ class User < ActiveRecord::Base
         self.rpx_identifiers.collect {|x| x.provider_name}.join(',')
     end
 
-    def self.p1
-        logger.info 'p1'
-        puts "p1"
-    end
-    def self.p2
-        logger.info "p2"
-        puts "p2"
-    end
-    def self.p3
-        User.delay(:priority => 1).p1
-        User.delay(:priority => 10).p2
 
-    end
     private
 
     # map_added_rpx_data maps additional fields from the RPX response into the user object during the "add RPX to existing account" process.
