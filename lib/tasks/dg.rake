@@ -1,26 +1,30 @@
 namespace :dg do
     desc 'generate a bunch of users. Supply count=number'
     task :gen_users => :environment do
-        require 'populator'
+        begin
+            require 'populator'
+        rescue
+        end
+        
         count = ENV['count'].to_i
         zip_length = JobsCommon::ZIP_CODES.length
+        
         (1..count).each {
             begin
-                u = User.create(
-                    :username => Populator.words(1),
-                    :role_id => 2,
-                    :active => true,
-                    :age => rand(45) + 13,
-                    :sex => rand(0),
-                    :zip => JobsCommon::ZIP_CODES[rand(zip_length)],
-                    :perishable_token => Authlogic::Random.friendly_token,
-                    :email => 'aaaaaaaaa@aaaaaaaa.com'
-                )
+                u = User.new
+                u.username = Populator.words(1)
+                u.email = Populator.words(1)+"@gmail.com"
+                u.role_id = 2
+                u.active = true
+                u.age = rand(45) + 13
+                u.sex = rand(0)
+                u.zip = JobsCommonu.u.ZIP_CODES[rand(zip_length)]
+                u.perishable_token = Authlogicu::Random.friendly_token
+                u.save
             rescue => exp
                 puts exp.message
                 puts u.inspect
             end
-            
         }
     end
 

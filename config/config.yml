@@ -21,7 +21,10 @@ production:
   personal_email: 'asitkmishra@gmail.com'
   smtp_server_domain:
   site_name: "Voteable"
-
+  admin_pwd: 't'
+  admin_uname: 'admin'
+  admin_role_name: 'admin'
+  user_role_name: 'user'
 development:
   rpx_key: 18c3db9c36e3ce844af615637cfc9ffbac08448f
   recap_pub_key: 6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H
@@ -39,7 +42,10 @@ development:
   personal_email: 'asitkmishra@gmail.com'
   smtp_server_domain:
   site_name: "Voteable"
-  
+  admin_pwd: 't'
+  admin_uname: 'admin'
+  admin_role_name: 'admin'
+  user_role_name: 'user'
 staging:
   #good for http://server
   rpx_key: 18c3db9c36e3ce844af615637cfc9ffbac08448f
