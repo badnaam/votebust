@@ -14,6 +14,8 @@ namespace :dg do
                 u = User.new
                 u.username = "user#{i}"
                 u.email = Populator.words(1)+"@gmail.com"
+                u.password = APP_CONFIG['stock_pwd']
+                u.password_confirmation = APP_CONFIG['stock_pwd']
                 u.role_id = 2
                 u.active = true
                 u.age = rand(45) + 13
