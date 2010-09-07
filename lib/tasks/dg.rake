@@ -5,16 +5,21 @@ namespace :dg do
         count = ENV['count'].to_i
         zip_length = JobsCommon::ZIP_CODES.length
         (1..count).each {
-            puts "#{Populator.words(rand(2) + 1)} age - #{rand(45) + 13} sex - #{User::SEX[rand(1)]} zip - #{JobsCommon::ZIP_CODES[rand(zip_length)]}"
-            User.create(
-                :username => Populator.words(1),
-                :role_id => 2,
-                :active => true,
-                :age => rand(45) + 13,
-                :sex => rand(0),
-                :zip => JobsCommon::ZIP_CODES[rand(zip_length)],
-                :perishable_token => Authlogic::Random.friendly_token
-            )
+            begin
+                u = User.create(
+                    :username => Populator.words(1),
+                    :role_id => 2,
+                    :active => true,
+                    :age => rand(45) + 13,
+                    :sex => rand(0),
+                    :zip => JobsCommon::ZIP_CODES[rand(zip_length)],
+                    :perishable_token => Authlogic::Random.friendly_token
+                )
+            rescue => exp
+                puts exp.message
+                puts u.inspect
+            end
+            
         }
     end
 
