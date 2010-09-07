@@ -10,7 +10,6 @@ namespace :dg do
         zip_length = JobsCommon::ZIP_CODES.length
         
         (1..count).each do |i|
-            puts "Creating user #{i}"
             begin
                 u = User.new
                 u.username = "user#{i}"
@@ -25,6 +24,7 @@ namespace :dg do
                 u.perishable_token = Authlogic::Random.friendly_token
                 u.voting_power = 10
                 u.save
+                puts "Created user #{i}"
             rescue => exp
                 puts exp.message
                 puts u.inspect
