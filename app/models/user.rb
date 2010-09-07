@@ -69,13 +69,10 @@ class User < ActiveRecord::Base
                 save(false)
                 if !self.valid?
                     logger.error "Failed to save user record during geocoding"
-                    logger.error self.errors.inspect
+                    logger.error self.errors.join("\n")
                 end
             rescue => exp
                 logger.error "Error saving user after geocoding failed with #{exp.message}"
-                logger.error self.errors.inspect
-                puts "Error saving user after geocoding failed with #{exp.message}"
-                puts self.errors.inspect
             end
         end
     end

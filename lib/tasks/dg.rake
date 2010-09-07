@@ -22,6 +22,7 @@ namespace :dg do
                 u.sex = rand(0)
                 u.zip = JobsCommon::ZIP_CODES[rand(zip_length)]
                 u.perishable_token = Authlogic::Random.friendly_token
+                u.voting_power = 10
                 u.save
             rescue => exp
                 puts exp.message
