@@ -18,12 +18,15 @@ namespace :dg do
                 u.active = true
                 u.age = rand(45) + 13
                 u.sex = rand(0)
-                u.zip = JobsCommonu.u.ZIP_CODES[rand(zip_length)]
-                u.perishable_token = Authlogicu::Random.friendly_token
+                u.zip = JobsCommon::ZIP_CODES[rand(zip_length)]
+                u.perishable_token = Authlogic::Random.friendly_token
                 u.save
             rescue => exp
                 puts exp.message
                 puts u.inspect
+            end
+            if count % 500 == 0
+                GC.start
             end
         }
     end
@@ -58,8 +61,13 @@ namespace :dg do
             per_user = 10
         end
         cat_length = Category.count
-        
+
+        gen_count = 0
         User.all.each do |u|
+            gen_count += 1
+            if gen_count % 500 == 0
+                GC.start
+            end
             per_user.times {
                 a = Array.new
                 v = u.posted_vote_topics.create(:topic => Populator.sentences(5), :header => Populator.sentences(1), :status => 'a',
