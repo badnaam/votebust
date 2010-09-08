@@ -15,10 +15,38 @@
           // $('#tabs').animate({opacity:1.0}, 'slow', function() {});
         }
       }});
+
+    /****************************/
+    var dialogOpts = {
+      modal: true,
+      bgiframe: true,
+      autoOpen: false,
+      height: 500,
+      width: 500,
+      draggable: true,
+      resizeable: true
+    };
+
+    $("#new_vt").dialog(dialogOpts);   //end dialog
+
+    $('#showdialog').click( function() {
+      alert('clicked');
+      $("#new_vt").load('<%= new_user_posted_vote_topic_path(current_user)%>'  , [], function(){
+        $("#new_vt").dialog("open");
+      }); //end load
+      return false;
+    });
+    /***************************/
   });
   //]]>
 </script>
 
+<a href="#" class="" id="showdialog">
+  Show
+</a>
+<div class="" id="new_vt">
+
+</div>
 <div id="top_tab_container" class="span-18 last rel-pos">
 
   <div id="tabs" class="normal-pad  ui-widget-content">

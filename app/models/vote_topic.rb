@@ -48,7 +48,7 @@ class VoteTopic < ActiveRecord::Base
     #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
     
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
-    
+
     named_scope :latest_votes, lambda {{:conditions => ['status = ? AND created_at > ?',  STATUS['approved'], Constants::SMART_COL_LATEST_LIMIT.ago],
             :select => "vote_topics.id, header, created_at",:order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT}}
 

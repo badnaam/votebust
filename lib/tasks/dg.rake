@@ -111,6 +111,27 @@ namespace :dg do
     task :test => :environment do
         puts Authlogic::Random.friendly_token
     end
+
+    desc 'Generate Votes for some users only. Supply count=number i.e how many votes per vote_topic.'
+    task :gen_votes_some => :environment do
+        count = ENV['count'].to_i
+        ucount = User.count
+        VoteTopic.find_in_batches({:batch_size => 50}) do |vgroup|
+            vgroup.each do |v|
+                puts "Creating votes for vote topic #{v.id}"
+                vis = v.vote_items.collect {|x| x.id}
+                arr = Array.new
+                count.times {
+                    arr << rand(ucount - 1) + 1
+                }
+                arr.each do |i|
+                        v.votes.create(:user_id => i, vote_item_id => vis[rand(vis.length)])
+                end
+            end
+            GC.start
+        end
+    end
+    
     desc 'Generate Votes'
     task :gen_votes => :environment do
         VoteTopic.find_in_batches({:batch_size => 50}) do |vgroup|
