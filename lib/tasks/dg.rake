@@ -20,7 +20,7 @@ namespace :dg do
                 u.voting_power = 10
                 u.save
                 if !u.valid?
-                    puts u.errors.join("\n")
+                    u.errors.each{|attr,msg| puts "#{attr} - #{msg}" }
                 else
                     puts "Created user #{i}"
                 end
