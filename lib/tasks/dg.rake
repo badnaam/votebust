@@ -8,7 +8,7 @@ namespace :dg do
             begin
                 u = User.new
                 u.username = "user#{i}"
-                u.email = "user#{i}.gmail.com"
+                u.email = "user#{i}@gmail.com"
                 u.password = APP_CONFIG['stock_pwd']
                 u.password_confirmation = APP_CONFIG['stock_pwd']
                 u.role_id = 2
