@@ -114,16 +114,15 @@ namespace :dg do
 
     desc 'Generate Votes for some users only. Supply count=number i.e how many votes per vote_topic.'
     task :gen_votes_random => :environment do
-        count = ENV['count'].to_i
         from  = ENV['from'].to_i
         ucount = User.count
         VoteTopic.find_in_batches({:batch_size => 50, :conditions => ['id > ?', from]}) do |vgroup|
             vgroup.each do |v|
                 puts "Creating votes for vote topic #{v.id}"
                 vis = v.vote_items.collect {|x| x.id}
-                (rand(ucount - 1) + 1).times {
+                (rand(ucount - 1) + 1).times do |i|
                     v.votes.create(:user_id => i, :vote_item_id => vis[rand(vis.length)])
-                }
+                end
             end
             GC.start
         end
