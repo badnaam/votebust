@@ -16,7 +16,6 @@
         }
       }});
 
-    /****************************/
     var dialogOpts = {
       modal: true,
       bgiframe: true,
@@ -29,14 +28,16 @@
 
     $("#new_vt").dialog(dialogOpts);   //end dialog
 
-    $('#showdialog').click( function() {
-      alert('clicked');
-      $("#new_vt").load('<%= new_user_posted_vote_topic_path(current_user)%>'  , [], function(){
-        $("#new_vt").dialog("open");
-      }); //end load
+    $('#showdialog').click(function() {
+      $('#new_vt').load(
+      "<%= edit_vote_topic_path(VoteTopic.first)%>",
+      "name=fake",
+      function() {
+        $('#new_vt').dialog('open');
+      }
+    );
       return false;
     });
-    /***************************/
   });
   //]]>
 </script>

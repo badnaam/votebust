@@ -134,7 +134,8 @@ namespace :dg do
     
     desc 'Generate Votes'
     task :gen_votes => :environment do
-        VoteTopic.find_in_batches({:batch_size => 50}) do |vgroup|
+        start_from = ENV['from'].to_s
+        VoteTopic.find_in_batches({:batch_size => 50, :conditions => ['id > ?', start_from]}) do |vgroup|
             vgroup.each do |v|
                 puts "Creating votes for vote topic #{v.id}"
                 vis = v.vote_items.collect {|x| x.id}
