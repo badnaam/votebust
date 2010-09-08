@@ -140,7 +140,7 @@ namespace :dg do
                 vis = v.vote_items.collect {|x| x.id}
                 User.find_in_batches({:batch_size => 150}) do |group|
                     group.each do |u|
-                        v.votes.create(:user_id => u.id, vote_item_id => vis[rand(vis.length)])
+                        v.votes.create(:user_id => u.id, :vote_item_id => vis[rand(vis.length)])
                     end
                     GC.start
                 end
