@@ -112,6 +112,13 @@ namespace :dg do
         puts Authlogic::Random.friendly_token
     end
 
+    desc 'sets the expires date to 2 weeks from now'
+    task :update_expires => :environment do
+        VoteTopic.all.each do |v|
+            v.update_attribute(:expires, 2.weeks.from_now)
+        end
+    end
+    
     desc 'Generate Votes for some users only. Supply count=number i.e how many votes per vote_topic.'
     task :gen_votes_random => :environment do
         from  = ENV['from'].to_i
