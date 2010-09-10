@@ -104,6 +104,13 @@ blockquote span {
     background:transparent url(http://www.facebook.com/images/end_quote_small.gif) no-repeat scroll right bottom; padding:0 15px 0 0; }
 
 
+.comment-list {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.comment-list li {
+    list-style-type: none;
+}
 .comment {
     min-height: 55px;
 }
