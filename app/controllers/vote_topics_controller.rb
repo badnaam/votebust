@@ -9,6 +9,15 @@ class VoteTopicsController < ApplicationController
     #    cache_sweeper :home_sweeper, :only => [:create]
     ########## Security hole, control access!
 
+    def rss  
+        @vote_topics = VoteTopic.rss
+        respond_to do |format|
+            format.rss
+        end
+#        response.headers["Content-Type"] = "application/xml; charset=utf-8"
+#        render :action=>"rss", :layout=>false
+    end
+    
     def auto_comp
         @search_res = VoteTopic.search :conditions => {:header => params[:term]}, :with => {:status => 'a'}, :match_mode => :any, :limit => 10
         respond_to do |format|
@@ -203,6 +212,7 @@ class VoteTopicsController < ApplicationController
 
         respond_to do |format|
             format.html # new.html.erb
+            format.js
             format.xml  { render :xml => @vote_topic }
         end
     end

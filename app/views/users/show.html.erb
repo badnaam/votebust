@@ -40,20 +40,30 @@
     <% end  %>
     <div id="tabs" class="prepend-top">
       <ul>
+        <li><a title ="Your account" href="#user_tab">Profile</a></li>
         <% permitted_to? :update, @user do %>
-          <li><a title ="Your account" href="#user_tab"><span>Account</span></a></li>
           <li><a   title ="votes" href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "user_tracked_all")%>"><span>Tracking</span></a></li>
         <% end  %>
-        <li  title="Votes you have started."><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>"><span>Votes Started</span></a></li>
-        <li  title ="Votes you have voted on"><a  href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>"><span>Voted </span></a></li>
+        <li  title="Votes you have started.">
+          <a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
+            <span>Votes Started <span class="" id="">
+              <%= @user.posted_vote_topics.size %>
+            </span></span>
+          </a>
+        </li>
+        <li  title ="Votes you have voted on">
+          <a  href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>">
+            <span>Votes Posted <span class=""><%= @user.votes.size %></span> </span>
+          </a>
+        </li>
       </ul>
 
-      <% permitted_to? :update, @user do %>
-        <div id ="user_tab">
-          <ul class="profile-list prepend-top">
-            <li class="bld" style="width:150px">
-              <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
-            </li>
+      <div id ="user_tab">
+        <ul class="profile-list prepend-top">
+          <li class="bld" style="width:150px">
+            <%= render :partial => "/shared/ubox_alt", :locals => {:user => @user} %>
+          </li>
+          <% permitted_to? :update, @user do %>
             <li class="clear">
               Authentication Provider: <%= h @user.using_rpx? ? @user.get_rpx_providers : (t 'site_name') %>
             </li>

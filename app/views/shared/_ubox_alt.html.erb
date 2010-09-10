@@ -1,0 +1,20 @@
+<table class="" id="" style="width:150px">
+  <tr>
+    <td>
+      <%= get_user_avatar_link (user)%>
+    </td>
+  </tr>
+  <tr class="">
+    <td class="">
+      <%= link_to user.username, user, :class => "bld" %>
+    </td>
+  </tr>
+  <tr class="">
+    <td class="">
+      <span class="vote-power-ubox" id="">
+        <%= user.voting_power %>
+      </span>
+      <%= render :partial => "/shared/user_vp_tooltip", :locals => {:user => user} %>
+    </td>
+  </tr>
+</table>

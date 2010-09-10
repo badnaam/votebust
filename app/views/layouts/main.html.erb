@@ -19,6 +19,12 @@
                       <%= current_user.voting_power %> </span></li>
                   <li><%= link_to "Logout", logout_path  %></li>
                 <% end %>
+                <li>
+                  <a href="/vote_topics/rss" class="sprite rss-image" id="">
+                    &nbsp;
+                  </a>
+                    <%= auto_discovery_link_tag(:rss, rss_vote_topics_url(:format => 'rss')) %>
+                </li>
               </ul>
             </div>
           </div>

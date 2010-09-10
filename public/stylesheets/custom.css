@@ -458,6 +458,16 @@ body a:hover {
     background-position:1px -4px;
     padding-bottom: 35px;
 }
+.rss-image {
+    background-position:1px -45px;
+    padding-right: 16px;
+    
+}
+.hot-image {
+    background-position:1px -86px;
+    padding-right: 16px;
+
+}
 .search-term {
     padding:1px 0 4px 0;
     width:194px;
@@ -479,6 +489,7 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 
 .profile-list {
     list-style-type: none;
+    padding-left: 0 !important;
 
 }
 .profile-list li {
@@ -489,7 +500,8 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 }
 .vote-power-ubox {
 /*    background-color: #FF0084;*/
-    background-color: #0096c9;
+/*    background-color: #0096c9;*/
+    background-color: #8a9e37;
     cursor: pointer;
     color:#F0EBEB;
     text-align: center;

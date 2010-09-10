@@ -1,5 +1,6 @@
 class Constants
 
+    RSS_TIME_HORIZON = 4.weeks
     RPX_PROVIDERS = ["Facebook", "Twitter", "Google"]
     SHARE_URL_PREFIX = "http://web1.tunnlr.com:11299"
 
@@ -7,6 +8,7 @@ class Constants
     USER_PROFILE_IMAGE_SIZE = "50x50"
     MISSING_IMAGE_FILE = 'small/missing.png'
     VOTE_PROCESS_FREQ = 30.minutes
+    MOST_FLAG_TIME_HORIZON = 4.weeks
     VOTE_REFRESH_INTERVAL = 50000000
     MAX_COMMENT_LENGTH = 500
 
@@ -58,24 +60,25 @@ class Constants
     MAX_VOTES_PER_INTERVAL = 3
     
     FACET_UPDATE_ELIGIBILITY_DELTA = 0.15
+    MOST_VOTED_LIST_SIZE = 50
     #remove vote_items.v_count
     VOTE_TOPIC_FIELDS = 'vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.expires, vote_topics.category_id, vote_topics.created_at,
                         categories.id, categories.name, users.id, users.username, vote_items.option, vote_topics.trackings_count, users.city,
                         users.state, users.zip, vote_topics.power_offered, vote_topics.website, users.image_url, users.image_file_name, users.image_content_type,
-                        users.voting_power, vote_items.votes_count, vote_topics.votes_count'
+                        users.voting_power, vote_items.votes_count, vote_topics.votes_count, vote_topics.flags'
 
     VOTE_TOPIC_FIELDS_SHOW = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
                              vote_topics.created_at, categories.id, categories.name,  users.id, users.username,vote_items.option, 
                              comments.id, comments.body, comments.user_id, comments.vote_topic_id, vote_facets.m, vote_facets.w, vote_facets.ag1, vote_facets.ag2, vote_facets.ag3,
                              vote_facets.ag4, vote_facets.dag, vote_facets.wl, vote_facets.ll, vote_facets.vl, vote_topics.trackings_count, vote_topics.power_offered,
                              vote_topics.website, users.image_url, users.image_file_name, users.image_content_type, users.voting_power, users.city, users.state,
-                               vote_items.votes_count, vote_topics.votes_count'
+                               vote_items.votes_count, vote_topics.votes_count, vote_topics.flags'
 
     VOTE_TOPIC_FIELDS_PREV_SAVE = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
                              vote_topics.created_at, categories.id, categories.name,  users.id, users.username,vote_items.option,
                               vote_topics.trackings_count, vote_topics.power_offered,
                              vote_topics.website, users.image_url, users.image_file_name, users.image_content_type, users.voting_power, users.city, users.state,
-                               vote_items.votes_count, vote_topics.votes_count'
+                               vote_items.votes_count, vote_topics.votes_count, vote_topics.flags'
     VOTE_TOPIC_FIELDS_APPROVAL = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.user_id,
                              vote_topics.created_at, vote_topics.power_offered, users.id, users.username, users.email, users.voting_power, vote_topics.friend_emails'
 

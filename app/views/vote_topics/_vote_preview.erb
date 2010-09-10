@@ -29,19 +29,14 @@
                 <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
                 <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
               </div>
-              <div class="top-mar">
-                <%= power_points vt %>
-              </div>
             </div>
           </td>
           <td>
             <table border="1" class="vote-preview">
               <tr>
                 <td class="top-al">
+                  <span class="go-right"><%= flags vt %></span>
                   <blockquote class="preview">
-                    <% if top_vote == true %>
-                      <span class="ui-icon ui-icon-star" style="padding-right:0 !important;"></span>
-                    <% end  %>
                     <span class="big"><%= link_to vt.header, vt %></span>
                   </blockquote>
                 </td>

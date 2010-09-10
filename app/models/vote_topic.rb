@@ -65,6 +65,14 @@ class VoteTopic < ActiveRecord::Base
     named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
 
+    named_scope :featured, lambda {{:conditions => ['expires > ? AND status = ? AND power_offered > ?', DateTime.now, STATUS['approved'], 0]}}
+    named_scope :most_voted, lambda {{:conditions => ['expires > ? AND status = ? AND votes_count > ?', DateTime.now, STATUS['approved'], 0],
+            :order => 'votes_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
+    named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ?', DateTime.now, STATUS['approved'], 0],
+            :order => 'trackings_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
+    
+    named_scope :rss, lambda{{:conditions => ['created_at > ?', Constants::RSS_TIME_HORIZON.ago], :order => 'created_at DESC'}}
+
     def post_save_processing
         if self.status_changed? && self.status == 'a'
             self.poster.delay.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
@@ -417,5 +425,30 @@ class VoteTopic < ActiveRecord::Base
     
     def award_tracking pos
         self.poster.award_points(Constants::TRACK_POINTS * pos)
+    end
+
+    def self.process_vote_topic_flags
+        featured.each do |v|
+            v.process_flag('featured')
+        end
+
+        most_voted.each do |v|
+            v.process_flag('most_voted')
+        end
+        most_tracked.each do |v|
+            v.process_flag('most_tracked')
+        end
+    end
+    
+    def process_flag flag_name
+        if self.flags.nil? || self.flags.blank?
+            self.update_attribute(:flags, 'featured')
+        else
+            a = self.flags.split(',')
+            if !a.include?(flag_name)
+                a << flag_name
+                self.update_attribute(:flags, a.join(','))
+            end
+        end
     end
 end

@@ -16,12 +16,14 @@
         }
       }});
 
+/**
     var dialogOpts = {
       modal: true,
+      title : "Start a Vote!",
       bgiframe: true,
       autoOpen: false,
       height: 500,
-      width: 500,
+      width: 700,
       draggable: true,
       resizeable: true
     };
@@ -29,27 +31,27 @@
     $("#new_vt").dialog(dialogOpts);   //end dialog
 
     $('#showdialog').click(function() {
-      $('#new_vt').load(
-      "<%= edit_vote_topic_path(VoteTopic.first)%>",
-      "name=fake",
-      function() {
+      $.get(
+      " new_user_posted_vote_topic_path(current_user)",
+      "",
+      function(data, textStatus, XMLHttpRequest) {
+        $('#new_vt').html(data);
         $('#new_vt').dialog('open');
       }
     );
       return false;
-    });
+    }); **/
   });
   //]]>
 </script>
 
+<!-- to do in future may be?
 <a href="#" class="" id="showdialog">
-  Show
 </a>
 <div class="" id="new_vt">
 
-</div>
+</div> -->
 <div id="top_tab_container" class="span-18 last rel-pos">
-
   <div id="tabs" class="normal-pad  ui-widget-content">
     <ul>
       <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => "top")%>"><span>Most Voted</span></a></li>
@@ -77,7 +79,6 @@
     <fb:facepile max-rows="5" width="230"></fb:facepile>
   </div> -->
 <% end %>
-
 <div id="fb-root">
 </div>
 

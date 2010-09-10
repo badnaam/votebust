@@ -22,7 +22,7 @@
   <% form.inputs do %>
     <li class="bld">Fields marked with (*) are required.</li>
     <%= form.input :user_id, :as => :hidden %>
-    <%= form.input :header, :label => "Topic", :input_html => {:style => "width:50%"}, :hint => "#{t 'vote_topic.new.header_hint'}.
+    <%= form.input :header, :label => "Topic", :input_html => {:style => "width:60%"}, :hint => "#{t 'vote_topic.new.header_hint'}.
     Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
     <li>
       <div id="suggestions" class="suggestions" style="display:none">
@@ -36,12 +36,12 @@
       <% form.semantic_fields_for :vote_items do |f| %>
         <%= f.semantic_errors %>
         <div class="vote_item">
-          <%= f.input :option, :input_html => {:style => "width:50%" }, :hint => "Option to vote on." %>
+          <%= f.input :option, :input_html => {:style => "width:60%" }, :hint => "Option to vote on." %>
         </div>
       <% end  %>
     </div>
-    <%= form.input :category, :as => :select, :hint => "Please categorize the vote." %>
-    <%= form.input :topic, :label => "Details", :as => :text, :input_html => {:style => "width:50%" }, :hint =>
+    <%= form.input :category, :as => :select, :input_html => {:style => "width:60%" }, :hint => "Please categorize the vote." %>
+    <%= form.input :topic, :label => "Details", :as => :text, :input_html => {:style => "width:60%;height:80px" }, :hint =>
       "#{t 'vote_topic.new.topic_hint'}. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
     <% if current_user.voting_power > Constants::MIN_VOTE_FOR_FEATURED %>
       <%= form.input :power_offered,:as => :select, :collection => (1..current_user.voting_power).select{|x| x % Constants::VOTING_POWER_OFFER_INCREMENT == 0 },
@@ -54,7 +54,7 @@
       </li>
     <% end  %>
     <%= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
-    <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:50%" } %>
+    <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:60%;height:80px" } %>
     <li class="form-hint">
       <%=  "#{t 'vote_topic.new.email_hints'}" %>
     </li>

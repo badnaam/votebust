@@ -1,5 +1,24 @@
 module VoteTopicsHelper
 
+    def flags v
+        if v.flags.nil?
+            return nil
+        else
+            a = v.flags.split(',')
+            str = ""
+            if a.include?('featured')
+                str.concat(power_points v)
+            end
+            if a.include?('most_voted')
+                str.concat("<span class='ui-icon ui-icon-star'></span>")
+            end
+            if a.include?('most_tracked')
+                str.concat("<span class='ui-icon ui-icon-copy'></span>")
+            end
+            str.concat('</span>')
+        end
+    end
+    
     def get_more_listing_str listing_type
         if ["local", "most_tracked", "top", "featured", "tracked"].include?(listing_type) 
             case listing_type
@@ -40,6 +59,7 @@ module VoteTopicsHelper
         return listing_str
     end
 
+    
     def power_points vt
         if !vt.power_offered.nil? && vt.power_offered > 10
             points = vt.power_offered / 10
@@ -49,6 +69,7 @@ module VoteTopicsHelper
                     </span>
                     <span class='tooltip'>Earn #{points} Voting Power for voting on this topic.<a href = '#' class='clearfix'>What's Voting Power?</a></span>"
         end
+        return ""
     end
     
     def get_percent_div percent
