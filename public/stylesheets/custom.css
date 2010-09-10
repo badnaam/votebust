@@ -1,3 +1,36 @@
+.vam {
+    vertical-align: middle;
+}
+.left-mar {
+    margin-left: 18px;
+}
+.vi-list {
+    /* border: 1px solid #dddddd;*/
+    padding:.3em;
+    list-style-type:none;
+}
+
+.vi-list-voted {
+    padding:.3em;
+    list-style-type:none;
+}
+.vi-list-voted li {
+    padding:.2em .2em .5em .2em;
+}
+.ui-state-normal .ui-icon { background-image: url(images/ui-icons_666666_256x240.png) !important; }
+.ui-widget-vote-preview {
+    border:1px solid #ABA9A9;
+    color:#444444;
+}
+.ui-widget-vote-preview a {
+    color:#444444;
+}
+
+.vote-info-table {
+    margin-bottom: 0;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
 
 .tracking-count {
     cursor: pointer;
@@ -6,7 +39,8 @@
     margin-left: 25% !important;
 }
 .tooltip {
-    background-color:#38385c;
+    /*    background-color:#38385c;*/
+    background-color:#969595;
     border:1px solid #fff;
     padding:10px 15px;
     width:200px;
@@ -26,14 +60,10 @@
     border-top:1px solid #dddddd;
 }
 .power-points {
-/*    padding:.3em;*/
+    /*    padding:.3em;*/
     color:#FF0084;
     height:16px;
-/*    background-color: #FF0084;*/
-}
-.power-wrapper {
-    padding:0.4em 0.2em 0.1em 0.1em;
-    background-color: #dddddd;
+    /*    background-color: #FF0084;*/
 }
 .preview-table {
     margin-bottom: 0;
@@ -180,6 +210,9 @@ div.pagination span.disabled {
     border: 1px solid #dddddd;
 }
 
+.small-pad {
+    padding:.2em;
+}
 .normal-pad {
     padding:.4em;
 }
@@ -188,6 +221,9 @@ div.pagination span.disabled {
 }
 .go-right {
     float:right;
+}
+.go-left {
+    float:left;
 }
 .rel-pos {
     position:relative;
@@ -397,7 +433,7 @@ body a:hover {
     margin-right:0.3em;
 }
 .big {
-    font-size:1.3em;
+    font-size:1.2em;
 }
 .small {
     font-size:.8em;
@@ -461,7 +497,7 @@ body a:hover {
 .rss-image {
     background-position:1px -45px;
     padding-right: 16px;
-    
+
 }
 .hot-image {
     background-position:1px -86px;
@@ -487,6 +523,9 @@ body a:hover {
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #38385c !important}
 
 
+.power-wrapper, .most-voted, .most-tracked {
+    cursor: pointer;
+}
 .profile-list {
     list-style-type: none;
     padding-left: 0 !important;
@@ -499,8 +538,8 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
     margin-bottom: 1.5em;
 }
 .vote-power-ubox {
-/*    background-color: #FF0084;*/
-/*    background-color: #0096c9;*/
+    /*    background-color: #FF0084;*/
+    /*    background-color: #0096c9;*/
     background-color: #8a9e37;
     cursor: pointer;
     color:#F0EBEB;

@@ -11,12 +11,8 @@
   <meta property="fb:app_id" content="<%= APP_CONFIG['facebook_app_id'] %>"/>
 <% end  %>
 
-
-
 <script type="text/javascript">
   //<![CDATA[
-
-
   $(document).ready(function() {
     setVotingCounter(<%= Constants::VOTING_COUNTER_RESET_INTERVAL%>);
 
@@ -129,7 +125,7 @@
   });
 
   $('.pagination a').live("click", function () {
-        $(this).addClass('loading-link');
+    $(this).addClass('loading-link');
     $.ajax({
       type : 'GET',
       url : this.href,
@@ -144,80 +140,33 @@
 </script>
 
 <div class=" span-18 last">
-  <div class="ui-widget-content prepend-top normal-pad right-mar">
-    <div class="">
-      <table class="preview-table" id="">
-        <tr>
-          <td class="preview-box-left right-border">
-            <div>
-              <div class="bottom-mar-small bottom-border">
-                <span class="" id="">
-                  <span id="tot_votes"><%= @vote_topic.votes_count%></span> votes
-                </span>
-                <span class="go-right tracking-count" id="">
-                  <span id="tot_tracking" ><%= @vote_topic.trackings_count %></span> trackings
-                </span>
-                <%= render :partial => "/shared/tracking_tooltip" %>
-              </div>
-              <div>
-                <% if @user %>
-                  <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-                    <!--#todo optimize thhis -->
-                    <% if @vote_topic.is_being_tracked? @user.id%>
-                      <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>" id = "track_link" >
-                        Untrack</a>
-
-                    <% else %>
-                      <a href="<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>" id = "track_link">
-                        Track</a>
-                    <% end  %>
-                  </span>
-                  <%= render :partial => "/shared/add_tracking_tooltip" %>
-                <% end  %>
-              </div>
-              <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster} %>
-              <div class="clear tag top-mar">
-                <span class="ui-icon ui-icon-tag "></span>
-                <%= link_to "#{@vote_topic.category.name}, ", category_vote_topics_path(@vote_topic.category,
-                  :listing_type => "category") %>
-                <%= link_to "#{@vote_topic.poster.city.titleize}, ", searches_path(:city => @vote_topic.poster.city) %>
-                <%= link_to "#{@vote_topic.poster.state.titleize}", searches_path(:state => @vote_topic.poster.state) %>
-              </div>
-              <div class="top-mar">Started - <%= @vote_topic.created_at.strftime('%b %d %Y') %></div>
-              <div class="top-mar"><%= @vote_topic.expires < DateTime.now ? "Ended - " : "Ends - " %> <%= @vote_topic.expires.strftime('%b %d %Y') %></div>
-              <div class="top-mar">
-                <%= power_points @vote_topic %>
-              </div>
-
-            </div>
-          </td>
-          <td>
-            <blockquote class="preview">
-              <span class="big"><%=  @vote_topic.header%></span>
-            </blockquote>
-            <p>
-              <%= @vote_topic.topic %>
-            </p>
-            <% unless @vote_topic.website.nil? %>
-              <p>
-                <a href="<%= @vote_topic.website %>" class="" target ="_blank" id="">
-                  External link
-                  <span class="ui-icon ui-icon-extlink" id="">
-                  </span>
-                </a>
-              </p>
-            <% end  %>
-            <%= render :partial => "vote_control" %>
-          </td>
-        </tr>
-      </table>
+  <div class="ui-widget-vote-preview prepend-top normal-pad ">
+    <div>
+      <blockquote class="preview">
+        <span class="big"><%=  @vote_topic.header%></span>
+      </blockquote>
+      <p class="left-mar">
+        <%= @vote_topic.topic %>
+      </p>
+      <% unless @vote_topic.website.nil? %>
+        <p class="left-mar">
+          <a href="<%= @vote_topic.website %>" class="" target ="_blank" id="">
+            External link
+            <span class="ui-icon ui-icon-extlink" id="">
+            </span>
+          </a>
+        </p>
+      <% end  %>
+      <%= render :partial => "vote_control" %>
+    </div>
+    <div>
+      <%= render :partial => 'vote_info', :locals => {:vt => @vote_topic, :preview => false} %>
     </div>
   </div>
 </div>
 
-<div class="top-mar right-mar span-18 last append-bottom">
-  <div class="right-mar">
-    <table class="generic-box" id="">
+<div class="top-mar  span-18 last prepend-top append-bottom ">
+    <table class="ui-state-default" id="">
       <tr>
         <td class="top-al">
           <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
@@ -231,13 +180,12 @@
       </td>
       </tr>
     </table>
-  </div>
 </div>
 
 <% if !@vote_topic.vote_facet.nil? %>
   <div id ="facets" class="span-18 last">
-    <div class="bordered-all  right-mar ui-corner-all normal-pad">
-      <h4 class="bld">About your voters</h4>
+    <div class="ui-corner-all ui-widget-content">
+      <h4 class="bld normal-pad">About your voters</h4>
       <hr/>
       <ul class="facet-list">
         <%= print_facet @vote_topic.vote_facet %>
@@ -247,12 +195,12 @@
 <% end  %>
 
 
-<div id="comments_container" class=" prepend-top span-18 last append-bottom">
+<div id="comments_container" class="prepend-top span-18 last append-bottom">
   <span class="bld clearfix bottom-mar">Comments</span>
   <% if @user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>
-    <div id ="comment_form" class=" rel-pos right-mar ">
+    <div id ="comment_form" class="rel-pos  ">
       <div id="com_submit_loading" style="display:none">
         <div class="loading-inner-center" ></div>
       </div>

@@ -101,12 +101,26 @@ function prepareToolTip() {
     });
     $('.tracking-count').each(function() {
         $(this).tooltip({
-            relative : true
+            relative : true,
+            position : 'center left'
         });
     });
     $('.power-wrapper').each(function() {
         $(this).tooltip({
-            relative : true
+            relative : true,
+            position : 'center left'
+        });
+    });
+     $('.most-voted').each(function() {
+        $(this).tooltip({
+            relative : true,
+            position : 'center left'
+        });
+    });
+     $('.most-tracked').each(function() {
+        $(this).tooltip({
+            relative : true,
+            position : 'center left'
         });
     });
 }

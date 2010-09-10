@@ -10,10 +10,12 @@ module VoteTopicsHelper
                 str.concat(power_points v)
             end
             if a.include?('most_voted')
-                str.concat("<span class='ui-icon ui-icon-star'></span>")
+                str.concat("<span class='ui-icon ui-icon-star most-voted'></span>").concat("<span class='tooltip'>
+                Highly voted</span>")
             end
             if a.include?('most_tracked')
-                str.concat("<span class='ui-icon ui-icon-copy'></span>")
+                str.concat("<span class='ui-icon ui-icon-copy most-tracked'></span>").concat("<span class='tooltip'>
+                Highly tracked</span>")
             end
             str.concat('</span>')
         end
@@ -65,7 +67,7 @@ module VoteTopicsHelper
             points = vt.power_offered / 10
             return "<span class='power-wrapper'>
                         <span class='ui-icon ui-icon-power'></span>
-                        <span class='bld power-points'>#{points} </span>
+                        <span class='go-left bld power-points'>#{points} </span>
                     </span>
                     <span class='tooltip'>Earn #{points} Voting Power for voting on this topic.<a href = '#' class='clearfix'>What's Voting Power?</a></span>"
         end

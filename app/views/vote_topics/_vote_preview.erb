@@ -6,59 +6,15 @@
 <% end  %>
 
 <% if !vt.nil? %>
-  <div class="ui-widget-content bottom-mar normal-pad" style="clear:both;" id="<%= vt.id%> ">
-    <div class="">
-      <table class="preview-table" id="">
-        <tr>
-          <td class="preview-box-left right-border">
-            <div>
-              <div class="bottom-mar-small bottom-border">
-                <span class="" id="">
-                  <%= "#{vt.votes_count} votes"  %>
-                </span>
-                <span class="go-right tracking-count" id="">
-                  <%= vt.trackings_count %> trackings
-                </span>
-                <%= render :partial => "/shared/tracking_tooltip" %>
-              </div>
-              <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster} %>
-              <div class="clear tag">
-                <span class="ui-icon ui-icon-tag "></span>
-                <%= link_to "In #{vt.category.name}, ", category_vote_topics_path(vt.category,
-                  :listing_type => "category") %>
-                <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
-                <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
-              </div>
-            </div>
-          </td>
-          <td>
-            <table border="1" class="vote-preview">
-              <tr>
-                <td class="top-al">
-                  <span class="go-right"><%= flags vt %></span>
-                  <blockquote class="preview">
-                    <span class="big"><%= link_to vt.header, vt %></span>
-                  </blockquote>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <ul class="list-no-pad-no-mar">
-                    <% vi.each do |v| %>
-                      <li>
-                        <%= v.option %>
-                      </li>
-                    <% end  %>
-                    <li style="list-style-type: none">
-                      <%= link_to "More..", vt, :class => "go-right bld" %>
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
+  <div class="ui-widget-vote-preview bottom-mar normal-pad" style="clear:both;" id="<%= vt.id%> ">
+    <div class="" id="">
+      <blockquote class="preview">
+        <span class="big"><%= link_to vt.header, vt %></span>
+      </blockquote>
+    </div>
+    <div class="" id="">
+      <%= render :partial => 'vote_info', :locals => {:vt => vt} %>
     </div>
   </div>
 <% end  %>
+

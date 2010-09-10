@@ -1,0 +1,59 @@
+<%  if local_assigns[:preview].nil?
+  preview = nil
+end
+%>
+
+<table class="vote-info-table">
+  <tr>
+    <td rowspan="2" class="right-border">
+      <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster} %>
+    </td>
+    <td class="right-border">
+      <span class="ui-icon ui-icon-tag "></span>
+      <%= link_to "#{vt.category.name}, ", category_vote_topics_path(vt.category,
+        :listing_type => "category") %>
+      <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
+      <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
+    </td>
+    <td>
+      <span class="ui-state-normal">
+        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+        <span class=" small-pad" id="">
+          <%= "#{vt.votes_count} votes"  %>
+        </span>
+      </span>
+      <span class="ui-state-normal">
+        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+        <span class="small-pad tracking-count" id="">
+          <%= vt.trackings_count %> trackings
+        </span>
+        <%= render :partial => "/shared/tracking_tooltip" %>
+      </span>
+      <span class="go-right"><%= flags vt %></span>
+
+    </td>
+  </tr>
+  <tr>
+    <td class="right-border">
+      <span class="ui-state-normal">
+        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+        <span class="">Started : <%= vt.created_at.strftime('%b %d %Y') %></span>
+        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+        <% if vt.expires > DateTime.now %>
+          <span class="" id=""> Ends :
+            <%= vt.expires.strftime('%b %d %Y') %>
+          </span>
+        <% else %>
+          <span class="" id=""> Ended :
+            <%= vt.expires.strftime('%b %d %Y') %>
+          </span>
+        <% end  %>
+      </span>
+    </td>
+    <td>
+      <% if preview %>
+        <%= link_to "More..", vt, :class => "go-right bld" %>
+      <% end  %>
+    </td>
+  </tr>
+</table>
