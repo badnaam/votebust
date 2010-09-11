@@ -1,4 +1,4 @@
-<div id="comments_<%= @active_option %>">
+<div id="comments_content_<%= request.parameters['vi_id']%>">
   <% if @comments.size == 0 %>
     No comments.
   <% end  %>

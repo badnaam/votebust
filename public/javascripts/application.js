@@ -1,15 +1,8 @@
-var showMenu = function(ev) {
-    //get the position of the placeholder element
-    var pos = $("#home_nav a").offset();
-    var width = $("#home_nav").width();
-    var height = $("#home_nav a").outerHeight();
-    //show the menu directly over the placeholder
-    $("#cat_menu").css( {
-        "left": (pos.left) + "px",
-        "top":(pos.top + height) + "px"
+function handleCommentText(maxLength) {
+    $('#comment_body').keyup(
+    function() {
+        update_chars_left(maxLength, $('#comment_body')[0], $('#limit_status'));
     });
-    $('#cat_nav a').toggleClass('hover-nav');
-    $("#cat_menu").toggle('fast');
 }
 
 function showProgress(elem) {
@@ -24,7 +17,7 @@ function showLoading(elem) {
         opacity: 0.3
     }, 'slow', function() {
         // Animation complete.
-        });
+    });
 }
 
 function hideLoading(elem) {
@@ -33,7 +26,7 @@ function hideLoading(elem) {
         opacity: 1.0
     }, 'slow', function() {
         // Animation complete.
-        });
+    });
 }
 function update_chars_left(max_len, target_input, display_element) {
     var text_len = target_input.value.length;
@@ -111,19 +104,34 @@ function prepareToolTip() {
             position : 'center left'
         });
     });
-     $('.most-voted').each(function() {
+    $('.most-voted').each(function() {
         $(this).tooltip({
             relative : true,
             position : 'center left'
         });
     });
-     $('.most-tracked').each(function() {
+    $('.most-tracked').each(function() {
         $(this).tooltip({
             relative : true,
             position : 'center left'
         });
     });
 }
+
+var showMenu = function(ev) {
+    //get the position of the placeholder element
+    var pos = $("#home_nav a").offset();
+    var width = $("#home_nav").width();
+    var height = $("#home_nav a").outerHeight();
+    //show the menu directly over the placeholder
+    $("#cat_menu").css( {
+        "left": (pos.left) + "px",
+        "top":(pos.top + height) + "px"
+    });
+    $('#cat_nav a').toggleClass('hover-nav');
+    $("#cat_menu").toggle('fast');
+}
+
 $(document).ready(function() {
     setTimeout(prepareToolTip, 500)
 
@@ -131,7 +139,25 @@ $(document).ready(function() {
         prepareToolTip();
     });
 
+    /****For comments**/
+    $('#comment_submit').button({
+        icons:{
+            primary:'ui-icon-comment'
+        }
+    }).click(function() {
+        $('#new_comment').submit();
+        return false;
+    });
 
+    $('#new_comment').submit(function (){
+        showLoading('#com_submit_loading')
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            hideLoading('#com_submit_loading');
+        }, "script");
+        return false;
+    });
+
+    /**End For Comments **/
     $('#new_vote_btn').button({
         icons:{
             primary:'ui-icon-lightbulb'

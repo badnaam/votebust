@@ -27,10 +27,12 @@ case @environment
 when 'production'
     every 10.minutes do
         rake "process_votes"
-
     end
     every 30.minutes do
-        rake "facet_update_start"
+#        rake "facet_update_start"
+    end
+    every 1.days, :at => '11am' do
+        rake "update_vote_topic_flags"
     end
     every :reboot do
         rake "ts:start RAILS_ENV=production"

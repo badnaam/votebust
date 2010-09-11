@@ -1,2 +1,3 @@
 $('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg') %>");
+$('#selected_response_for_comment').val('<%= @response %>');
 handleVoting('<%= @response %>')

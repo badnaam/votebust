@@ -65,10 +65,14 @@ class VoteTopic < ActiveRecord::Base
     named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
 
-    named_scope :featured, lambda {{:conditions => ['expires > ? AND status = ? AND power_offered > ?', DateTime.now, STATUS['approved'], 0]}}
+    named_scope :daily, lambda{{:conditions => ['created_at > ? AND created_at < ?',  Date.today.beginning_of_day, Date.today.end_of_day]}}
+    
+    named_scope :featured, lambda {{:conditions => ['expires > ? AND status = ? AND power_offered > ?', DateTime.now, STATUS['approved'],
+                0]}}
     named_scope :most_voted, lambda {{:conditions => ['expires > ? AND status = ? AND votes_count > ?', DateTime.now, STATUS['approved'], 0],
             :order => 'votes_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
-    named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ?', DateTime.now, STATUS['approved'], 0],
+    named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ? ', DateTime.now, STATUS['approved'], 0,
+            DateTime.today],
             :order => 'trackings_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
     
     named_scope :rss, lambda{{:conditions => ['created_at > ?', Constants::RSS_TIME_HORIZON.ago], :order => 'created_at DESC'}}
@@ -428,14 +432,14 @@ class VoteTopic < ActiveRecord::Base
     end
 
     def self.process_vote_topic_flags
-        featured.each do |v|
+        featured.daily.each do |v|
             v.process_flag('featured')
         end
 
-        most_voted.each do |v|
+        most_voted.daily.each do |v|
             v.process_flag('most_voted')
         end
-        most_tracked.each do |v|
+        most_tracked.daily.each do |v|
             v.process_flag('most_tracked')
         end
     end

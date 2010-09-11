@@ -1,8 +1,39 @@
-<div id="tabs">
-  <ul>
-    <% @vote_topic.vote_items.each do |vi| %>
-      <li><a href="<%= url_for(:controller => :comments, :action => :index, :option => vi.option, :vid => @vote_topic.id) %>"><span><%= vi.option[0..10] + "..." %></span></a></li>
+<div id="comments_container" class="prepend-top span-18 last append-bottom">
+  <span class="bld clearfix bottom-mar">Comments</span>
+  <% if user.nil? %>
+    <%= link_to "Please login to comment", login_path  %>
+  <% else %>
+    <div id ="comment_form" class="rel-pos  ">
+      <div id="com_submit_loading" style="display:none">
+        <div class="loading-inner-center" ></div>
+      </div>
+      <% form_for (Comment.new), :vt_id => vote_topic.id do |f| %>
+        <%= hidden_field_tag :selected_response_for_comment, selected_response_for_comment%>
+        <%= hidden_field_tag :vt_id, vote_topic.id%>
+        <ul class="list_no_pad_no_style">
+          <li><%= f.text_area :body, :id => "comment_body" %></li>
+          <li id="limit_status"></li>
+          <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
+        </ul>
+      <% end %>
+    </div>
+  <% end  %>
+</div>
+
+<div id="comment_status" class="span-18 last"></div>
+
+<div id ="comments" class="rel-pos right-mar span-18 last">
+  <div id="tabs">
+    <ul>
+      <% vote_topic.vote_items.each do |vi| %>
+        <li><a title="comments_content_<%=vi.id%>" href="<%= url_for(:controller => :comments, :action => :index,  :vi_id => vi.id, :vid => vote_topic.id) %>">
+            <span><%= vi.option[0..10] + "..." %></span></a></li>
+      <% end  %>
+      <li><a title ="comments_content_" href="<%= url_for(:controller => :comments, :action => :index,  :vi_id => nil, :vid => vote_topic.id) %>"><span>Others</span></a></li>
+    </ul>
+    <% vote_topic.vote_items.each do |vi| %>
+      <div class="" id="comments_content_<%=vi.id%>">
+      </div>
     <% end  %>
-    <li><a href="<%= url_for(:controller => :comments, :action => :index, :option => Constants::OTHER_VI, :vid => @vote_topic.id) %>"><span>Others</span></a></li>
-  </ul>
+  </div>
 </div>

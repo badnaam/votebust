@@ -1,9 +1,13 @@
-if ($('#comments_<%= @comment.vi_option.gsub(/\s/,'') %> .pagination').length > 0) {
-  $('#comments_<%= @comment.vi_option.gsub(/\s/,'') %> .pagination').first().after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
-} else {
-  $('#comments_<%= @comment.vi_option.gsub(/\s/,'') %>').prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment})%>");
-}
+<% if @comment_saved == true %>
+  <% selected_tab_content = request.parameters['selected_response_for_comment'].nil? ?
+    "#comments_content_" : "#comments_content_#{request.parameters['selected_response_for_comment']}"  %>
 
-$('#comment_body').val("");
-update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
-$('#comment_status').html('Comment posted under <%= @comment.vi_option %>');
+  $('#tabs').tabs('select', "<%= selected_tab_content%>" );
+  $('#comment_body').val("");
+  update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
+  $('#comment_status').html('Comment posted');
+  //Now select the tab that the comment is posted under
+
+<% else %>
+  $('#comment_status').html('Sorry comment could not be posted. Please try again.');
+<% end  %>

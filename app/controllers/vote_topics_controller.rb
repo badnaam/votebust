@@ -146,11 +146,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1.xml
     def show
         @status = ""
-        if params[:comment_only] == "true"
-            @vote_topic = VoteTopic.find_for_comments(params[:id])
-            @comments = @vote_topic.comments(:order => 'created_at DESC').paginate(:page => params[:page],
-                :per_page => Constants::COMMENTS_PER_PAGE)
-        elsif params[:preview_only] == 'true'
+        if params[:preview_only] == 'true'
             #todo :optimize this
             @vote_topic = VoteTopic.find_for_preview_save(params[:id])
             @user = current_user
@@ -168,6 +164,7 @@ class VoteTopicsController < ApplicationController
             end
             if @selected_response
                 @vote_topic = VoteTopic.find_for_show(params[:id])
+#                @option_for_comment = @vote_topic.vote_items.select {|x| x.id == @selected_response}.first.option
             else
                 @vote_topic = VoteTopic.find_for_show_preview(params[:id])
             end

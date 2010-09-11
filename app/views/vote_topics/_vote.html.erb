@@ -91,13 +91,7 @@
       }
     }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
 
-    $('#goto_comment_link').button({text:false, icons:{primary:'ui-icon-comment'}});
     $('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
-
-    $('#comment_submit').button({icons:{primary:'ui-icon-comment'}}).click(function() {
-      $('#new_comment').submit();
-      return false;
-    });
 
     $('#trackings').live('click', function() {
       $.post($(this).attr('href'), function(){});
@@ -108,33 +102,23 @@
       relative : true
     });
 
-    $('#new_comment').submit(function (){
-      showLoading('#com_submit_loading')
-      $.post($(this).attr('action'), $(this).serialize(), function(data) {
-        hideLoading('#com_submit_loading');
-      }, "script");
-      return false;
-    });
 <% if @user %>
-      $('#comment_body').keyup(function() {
-        update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
-      });
+      handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
       //and fire it on doc ready, too
       update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
 <%end%>
-  });
-
-  $('.pagination a').live("click", function () {
-    $(this).addClass('loading-link');
-    $.ajax({
-      type : 'GET',
-      url : this.href,
-      complete : function() {
-        $(this).removeClass('loading-link');
-      },
-      dataType : 'script'
-    })
-    return false;
+    $('.pagination a').live("click", function () {
+      $(this).addClass('loading-link');
+      $.ajax({
+        type : 'GET',
+        url : this.href,
+        complete : function() {
+          $(this).removeClass('loading-link');
+        },
+        dataType : 'script'
+      })
+      return false;
+    });
   });
   //]]>
 </script>
@@ -166,20 +150,20 @@
 </div>
 
 <div class="top-mar  span-18 last prepend-top append-bottom ">
-    <table class="ui-state-default" id="">
-      <tr>
-        <td class="top-al">
-          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
-          <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-        </td>
-        <td class="top-al">
-          <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
-        </td>
-        <td class="top-al">
-      <fb:like href="<%= share_url %>" width="450"></fb:like>
+  <table class="ui-state-default" id="">
+    <tr>
+      <td class="top-al">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
       </td>
-      </tr>
-    </table>
+      <td class="top-al">
+        <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
+      </td>
+      <td class="top-al">
+    <fb:like href="<%= share_url %>" width="450"></fb:like>
+    </td>
+    </tr>
+  </table>
 </div>
 
 <% if !@vote_topic.vote_facet.nil? %>
@@ -195,43 +179,9 @@
 <% end  %>
 
 
-<div id="comments_container" class="prepend-top span-18 last append-bottom">
-  <span class="bld clearfix bottom-mar">Comments</span>
-  <% if @user.nil? %>
-    <%= link_to "Please login to comment", login_path  %>
-  <% else %>
-    <div id ="comment_form" class="rel-pos  ">
-      <div id="com_submit_loading" style="display:none">
-        <div class="loading-inner-center" ></div>
-      </div>
-      <% form_for ([@vote_topic, Comment.new]) do |f| %>
-        <ul class="list_no_pad_no_style">
-          <li><%= f.text_area :body, :id => "comment_body" %></li>
-          <li id="limit_status"></li>
-          <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
-        </ul>
-      <% end %>
-    </div>
-  <% end  %>
-</div>
-
-<div id="comment_status" class="span-18 last"></div>
-
-<div id ="comments" class="rel-pos right-mar span-18 last">
-  <div id="com_prog_loading" style="display:none">
-    <div class="loading-inner-center" ></div>
-  </div>
-  <%= render :partial => "comments/comments" %>
-</div>
+<%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => @user, :selected_response_for_comment => @selected_response} %>
 
 <div class="push span-18 last"></div>
-
-
-
-
-
-
-
 
 <div id="fb-root">
 </div>
