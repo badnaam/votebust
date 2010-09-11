@@ -6,9 +6,6 @@
 </script>
 
 <div id="vote_list" class="rel-pos span-18 last">
-  <div id="com_prog_loading" style="display:none">
-    <div class="loading-inner-top" ></div>
-  </div>
   <div id="votes">
     <%= render :partial => 'vote_list', :locals => {:what_listing => get_listing_str(@listing_type, @listing_context )} %>
   </div>

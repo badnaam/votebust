@@ -14,8 +14,8 @@ class VoteTopicsController < ApplicationController
         respond_to do |format|
             format.rss
         end
-#        response.headers["Content-Type"] = "application/xml; charset=utf-8"
-#        render :action=>"rss", :layout=>false
+        #        response.headers["Content-Type"] = "application/xml; charset=utf-8"
+        #        render :action=>"rss", :layout=>false
     end
     
     def auto_comp
@@ -164,7 +164,7 @@ class VoteTopicsController < ApplicationController
             end
             if @selected_response
                 @vote_topic = VoteTopic.find_for_show(params[:id])
-#                @option_for_comment = @vote_topic.vote_items.select {|x| x.id == @selected_response}.first.option
+                #                @option_for_comment = @vote_topic.vote_items.select {|x| x.id == @selected_response}.first.option
             else
                 @vote_topic = VoteTopic.find_for_show_preview(params[:id])
             end
@@ -209,7 +209,6 @@ class VoteTopicsController < ApplicationController
 
         respond_to do |format|
             format.html # new.html.erb
-            format.js
             format.xml  { render :xml => @vote_topic }
         end
     end

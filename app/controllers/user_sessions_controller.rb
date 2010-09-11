@@ -30,15 +30,18 @@ class UserSessionsController < ApplicationController
                     flash[:notice] = "Welcome! Please review your profile information before continuing"
                     #                redirect_to edit_user_path((current_user == nil) ? @user_session.record : current_user)
                     redirect_to edit_user_path(current_user)
+                    cookies[:registration_complete] = false
                 else
                     if @user_session.registration_complete?
                         flash[:notice] = "Welcome #{current_user.username}"
+                        cookies[:registration_complete] = true
                         cookies[:voteable_user_city] = current_user.city if !current_user.city.nil?
                         session[:current_role] = current_user.role.name if current_user && !current_user.role.nil?
                         #award points for completing registration
                         redirect_back_or_default root_url
                     else
                         flash[:notice] = "Welcome back! Please complete required registration details before continuing.."
+                        cookies[:registration_complete] = false
                         #                    redirect_to edit_user_path((current_user == nil) ? @user_session.record : current_user)
                         redirect_to edit_user_path(current_user)
                     end
@@ -72,6 +75,7 @@ class UserSessionsController < ApplicationController
         @user_session = current_user_session
         @user_session.destroy if @user_session
         session[:current_role] = nil
+        cookies[:registration_complete] = nil
         flash[:notice] = "Sign out successful!"
         #        redirect_back_or_default root_url
         redirect_to root_url

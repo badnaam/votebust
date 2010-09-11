@@ -69,10 +69,19 @@
       return false;
     });
     
-    $('#tabs').tabs( {spinner:"<img src='/images/loading.gif'/>", ajaxOptions:{error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. \n\
+    $('#tabs').tabs( {
+      spinner:"<img src='/images/loading.gif'/>",
+      select : function(event, ui) {
+
+      },
+      ajaxOptions:{
+        error:function(xhr, status,index, anchor){$(anchor.hash).html("Couldn't load this tab. \n\
         We'll try to fix this as soon as possible.");
-        },  dataType:'script', success:function(){
-        }}});
+        },
+        dataType:'html', success:function(){
+        }
+      }
+      });
 
     function updatePageElems() {
       showLoading($('#vote_loading'));
@@ -124,7 +133,7 @@
 </script>
 
 <div class=" span-18 last">
-  <div class="ui-widget-vote-preview prepend-top normal-pad ">
+  <div class="ui-widget-vote-preview  normal-pad ">
     <div>
       <blockquote class="preview">
         <span class="big"><%=  @vote_topic.header%></span>

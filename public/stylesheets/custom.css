@@ -40,12 +40,12 @@
 }
 .tooltip {
     /*    background-color:#38385c;*/
-    background-color:#969595;
+    background-color:#444444;
     border:1px solid #fff;
     padding:10px 15px;
-    width:200px;
+/*    width:200px;*/
     display:none;
-    color:#fff;
+    color:#dddddd;
     text-align:left;
     font-size:1em;
 
@@ -57,7 +57,7 @@
     color:white !important;
 }
 #content {
-    border-top:1px solid #dddddd;
+/*    border-top:1px solid #dddddd;*/
 }
 .power-points {
     /*    padding:.3em;*/

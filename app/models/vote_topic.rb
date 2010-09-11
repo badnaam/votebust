@@ -184,7 +184,7 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def self.find_for_show(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :comments, :vote_facet],
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet],
             :select => Constants::VOTE_TOPIC_FIELDS_SHOW)
     end
 

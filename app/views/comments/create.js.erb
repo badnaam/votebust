@@ -1,13 +1,27 @@
 <% if @comment_saved == true %>
+  //Figure out under what tab does this comment go
   <% selected_tab_content = request.parameters['selected_response_for_comment'].nil? ?
-    "#comments_content_" : "#comments_content_#{request.parameters['selected_response_for_comment']}"  %>
+    "comments_content_" : "comments_content_#{request.parameters['selected_response_for_comment']}"  %>
 
-  $('#tabs').tabs('select', "<%= selected_tab_content%>" );
+  var current_index = $('#tabs').tabs('option', 'selected');
+  var selector = ":eq(" + current_index + ")";
+  var current_panel_id = $("div[id^='comments_content']" + selector, '#tabs').attr('id');
+
+  //if that tab is selected, simply prepend the comment
+  if ("<%= selected_tab_content %>" == current_panel_id ) {
+    if ($("#" + current_panel_id).children(".pagination").length == 0) {
+      $("#"+current_panel_id).prepend("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment}) %>");
+    } else {
+      $("#"+current_panel_id).children(".pagination").after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment}) %>");
+    }
+  } else {
+    //load that tab so it loads with the newly posted commment, or will it? #todo
+    $('#tabs').tabs('select', "#<%= selected_tab_content%>" );
+  }
+  
   $('#comment_body').val("");
   update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
   $('#comment_status').html('Comment posted');
-  //Now select the tab that the comment is posted under
-
 <% else %>
   $('#comment_status').html('Sorry comment could not be posted. Please try again.');
 <% end  %>

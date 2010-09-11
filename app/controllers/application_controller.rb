@@ -66,7 +66,11 @@ class ApplicationController < ActionController::Base
     end
 
     def registration_complete?
-        current_user_session.registration_complete? if current_user_session
+        if cookies[:registration_complete].nil?
+            current_user_session.registration_complete? if current_user_session
+        else
+           cookies[:registration_complete]
+        end
     end
 
     def require_registration

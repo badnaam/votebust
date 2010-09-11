@@ -11,6 +11,7 @@ class Constants
     MOST_FLAG_TIME_HORIZON = 4.weeks
     VOTE_REFRESH_INTERVAL = 50000000
     MAX_COMMENT_LENGTH = 500
+    COMMENTS_AT_A_TIME = 10
 
     LISTINGS_PER_PAGE = 3
     PROXIMITY = 50
@@ -69,7 +70,7 @@ class Constants
 
     VOTE_TOPIC_FIELDS_SHOW = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
                              vote_topics.created_at, categories.id, categories.name,  users.id, users.username,vote_items.option, 
-                             comments.id, comments.body, comments.user_id, comments.vote_topic_id, vote_facets.m, vote_facets.w, vote_facets.ag1, vote_facets.ag2, vote_facets.ag3,
+                              vote_facets.m, vote_facets.w, vote_facets.ag1, vote_facets.ag2, vote_facets.ag3,
                              vote_facets.ag4, vote_facets.dag, vote_facets.wl, vote_facets.ll, vote_facets.vl, vote_topics.trackings_count, vote_topics.power_offered,
                              vote_topics.website, users.image_url, users.image_file_name, users.image_content_type, users.voting_power, users.city, users.state,
                                vote_items.votes_count, vote_topics.votes_count, vote_topics.flags'

@@ -3,7 +3,7 @@
 <% end %>
 <% if @vote_topics.size > 0 %>
   <% if what_listing %>
-    <h5 class="normal-pad append-bottom prepend-top ui-widget-header"><%= what_listing %></h5>
+    <h5 class="normal-pad append-bottom ui-widget-header"><%= what_listing %></h5>
   <% end  %>
   <div>
     <%= link_to "Recent", vote_topics_path(request.parameters.merge({'order', 'recent'})) %>

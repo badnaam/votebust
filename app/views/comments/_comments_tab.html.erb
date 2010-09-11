@@ -1,8 +1,7 @@
-<div id="comments_content_<%= request.parameters['vi_id']%>">
-  <% if @comments.size == 0 %>
-    No comments.
-  <% end  %>
+<% if @comments.size == 0 %>
+  No comments.
+<% else %>
   <%= will_paginate(@comments, :params => {:paginated => 1}) %>
   <%= render :partial=> "comments/comment", :collection => @comments, :as => :comment %>
   <%= will_paginate(@comments, :params => {:paginated => 1}) %>
-</div>
+<% end  %>

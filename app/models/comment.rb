@@ -10,9 +10,9 @@ class Comment < ActiveRecord::Base
     def self.do_comment body, vt_id, vi_id, user_id
         v = create(:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id)
         if v && v.valid?
-            return true
+            return v
         else
-            return false
+            return nil
         end
     end
     
