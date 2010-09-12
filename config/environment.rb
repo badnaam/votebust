@@ -59,6 +59,7 @@ Rails::Initializer.run do |config|
     config.gem "json"
     config.gem 'dalli'
     config.gem "authlogic"
+    config.gem "friendly_id", :version => "~> 3.1"
     #    config.gem "oauth"
     #    config.gem "oauth2"
     #    config.gem "authlogic-connect"

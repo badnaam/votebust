@@ -54,7 +54,9 @@ ActionController::Routing::Routes.draw do |map|
     
     map.account "account", :controller => :account, :action => "index"
     map.resources :account, :member => {:approve_vote => :post}
-    
+
+    map.vote_topic "/categories/:scope/:id", :controller => "vote_topics"
+
     map.resources :categories do |categories|
         categories.resources :vote_topics
     end

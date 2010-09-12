@@ -1,5 +1,18 @@
 module VoteTopicsHelper
 
+    def order_links current_order
+        orders = ["recent", "votes", "featured"]
+        str = "<div><span class='go-right order-link' id=''>"
+        orders.each do |o|
+            if current_order == o
+                str  << "<span class= 'current'>#{current_order.titleize}</span>"
+            else
+                str << (link_to o.titleize, vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link')
+            end
+        end
+        return (str << ('</span></div>'))
+    end
+    
     def flags v
         if v.flags.nil?
             return nil
@@ -22,7 +35,7 @@ module VoteTopicsHelper
     end
     
     def get_more_listing_str listing_type
-        if ["local", "most_tracked", "top", "featured", "tracked"].include?(listing_type) 
+        if ["local", "most_tracked", "top", "featured", "tracked"].include?(listing_type)
             case listing_type
             when "local"
                 listing_str = "All Local"

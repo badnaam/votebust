@@ -5,11 +5,7 @@
   <% if what_listing %>
     <h5 class="normal-pad append-bottom ui-widget-header"><%= what_listing %></h5>
   <% end  %>
-  <div>
-    <%= link_to "Recent", vote_topics_path(request.parameters.merge({'order', 'recent'})) %>
-    <%= link_to "Votes", vote_topics_path(request.parameters.merge({'order', 'votes'})) %>
-    <%= link_to "Featured", vote_topics_path(request.parameters.merge({'order', 'featured'})) %>
-  </div>
+  <%= order_links request.parameters['order'] %>
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
   <% @vote_topics.each do |vt| %>

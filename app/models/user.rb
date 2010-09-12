@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     end
 
     attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
-    #    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50
+    has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50,  :cache_column => 'user_cached_slug'
 
     #    acts_as_voter
     has_many :posted_vote_topics, :foreign_key => :user_id, :class_name => 'VoteTopic'

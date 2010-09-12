@@ -44,8 +44,8 @@ class VoteTopic < ActiveRecord::Base
 
     #    after_save :post_save_processing
     
-    attr_accessible :topic, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered
-    #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug
+    attr_accessible :topic, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered, :cached_slug 
+    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
     
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
 
@@ -72,7 +72,7 @@ class VoteTopic < ActiveRecord::Base
     named_scope :most_voted, lambda {{:conditions => ['expires > ? AND status = ? AND votes_count > ?', DateTime.now, STATUS['approved'], 0],
             :order => 'votes_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
     named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ? ', DateTime.now, STATUS['approved'], 0,
-            DateTime.today],
+                DateTime.today],
             :order => 'trackings_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
     
     named_scope :rss, lambda{{:conditions => ['created_at > ?', Constants::RSS_TIME_HORIZON.ago], :order => 'created_at DESC'}}
