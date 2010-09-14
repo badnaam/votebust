@@ -1,8 +1,8 @@
 function handleCommentText(maxLength) {
     $('#comment_body').keyup(
-    function() {
-        update_chars_left(maxLength, $('#comment_body')[0], $('#limit_status'));
-    });
+        function() {
+            update_chars_left(maxLength, $('#comment_body')[0], $('#limit_status'));
+        });
 }
 
 function showProgress(elem) {
@@ -17,7 +17,7 @@ function showLoading(elem) {
         opacity: 0.3
     }, 'slow', function() {
         // Animation complete.
-    });
+        });
 }
 
 function hideLoading(elem) {
@@ -26,7 +26,7 @@ function hideLoading(elem) {
         opacity: 1.0
     }, 'slow', function() {
         // Animation complete.
-    });
+        });
 }
 function update_chars_left(max_len, target_input, display_element) {
     var text_len = target_input.value.length;
@@ -118,8 +118,7 @@ function prepareToolTip() {
     });
 }
 
-var showMenu = function(ev) {
-    //get the position of the placeholder element
+function posMenus() {
     var pos = $("#home_nav a").offset();
     var width = $("#home_nav").width();
     var height = $("#home_nav a").outerHeight();
@@ -128,8 +127,38 @@ var showMenu = function(ev) {
         "left": (pos.left) + "px",
         "top":(pos.top + height) + "px"
     });
+    $("#city_menu").css( {
+        "left": (pos.left) + "px",
+        "top":(pos.top + height) + "px"
+    });
+}
+var showMenu = function(ev) {
+    //get the position of the placeholder element
+    //if city is open close it first
+    if ($('#city_nav a').hasClass('hover-nav')) {
+        $('#city_nav a').removeClass('hover-nav')
+        $('#city_menu').toggle('fast');
+    }
     $('#cat_nav a').toggleClass('hover-nav');
     $("#cat_menu").toggle('fast');
+
+}
+var showCityMenu = function(ev) {
+    //get the position of the placeholder element
+    /**  var pos = $("#home_nav a").offset();
+    var width = $("#home_nav").width();
+    var height = $("#home_nav a").outerHeight();
+    //show the menu directly over the placeholder
+    $("#city_menu").css( {
+        "left": (pos.left) + "px",
+        "top":(pos.top + height) + "px"
+    }); **/
+    if ($('#cat_nav a').hasClass('hover-nav')) {
+        $('#cat_nav a').removeClass('hover-nav')
+        $('#cat_menu').toggle('fast');
+    }
+    $('#city_nav a').toggleClass('hover-nav');
+    $("#city_menu").toggle('fast');
 }
 
 $(document).ready(function() {
@@ -139,6 +168,8 @@ $(document).ready(function() {
         prepareToolTip();
     });
 
+    /** set up the menus **/
+    posMenus();
     /****For comments**/
     $('#comment_submit').button({
         icons:{
@@ -180,6 +211,10 @@ $(document).ready(function() {
         showMenu();
         return false;
     });
+    $("#city_nav").bind('click', function(){
+        showCityMenu();
+        return false;
+    });
 
     
     if ($('.load-widget-link').length > 0) {
@@ -200,6 +235,10 @@ $(document).ready(function() {
     $('#close_cat_menu').click(function(){
         $('#cat_nav a').toggleClass('hover-nav');
         $("#cat_menu").toggle('fast');
+    });
+    $('#close_city_menu').click(function(){
+        $('#city_nav a').toggleClass('hover-nav');
+        $("#city_menu").toggle('fast');
     });
 
     $('#new_vote_btn').button({

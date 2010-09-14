@@ -15,6 +15,8 @@ class VoteTopic < ActiveRecord::Base
         'll' => "Voters who vote for <option> are from <states> (<cities>)",
         'vl' => "Voters near you vote for <option> ",
     }
+
+    ######################associations#########################################
     #    belongs_to :user
     belongs_to :poster, :class_name => "User", :foreign_key => :user_id
     has_many :trackings, :dependent => :destroy
@@ -24,6 +26,8 @@ class VoteTopic < ActiveRecord::Base
     has_many :comments
     has_many :vote_items, :dependent => :destroy, :order => "votes_count DESC"
     has_many :votes
+
+    #############################end associations####################################
 
     acts_as_mappable :through => :poster
 
@@ -40,27 +44,30 @@ class VoteTopic < ActiveRecord::Base
       :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
     validate :valid_email?
     validate :min_vote_items, :if => :its_new?
+    
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
     #    after_save :post_save_processing
     
     attr_accessible :topic, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered, :cached_slug 
     has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
-    
+
+    ###############################named scopes##########################################################################
+    #    default_scope :order => "#{"vote_topics"}.id DESC"
     scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
 
     named_scope :latest_votes, lambda {{:conditions => ['status = ? AND created_at > ?',  STATUS['approved'], Constants::SMART_COL_LATEST_LIMIT.ago],
-            :select => "vote_topics.id, header, created_at",:order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT}}
+            :order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT}}
 
     named_scope :same_user, lambda {|user_id|{:conditions => ['status = ? AND user_id = ?',  STATUS['approved'], user_id],
-            :select => "vote_topics.id, header, votes_count",:order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
+            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
 
     named_scope :same_category, lambda {|category_id|{:conditions => ['status = ? AND category_id = ?',  STATUS['approved'], category_id],
-            :select => "vote_topics.id, header, votes_count",:order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
+            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
     
-    named_scope :unanimous_votes, lambda {{:conditions => ['expires > ? AND status = ? AND unan = ?', DateTime.now, STATUS['approved'], true], :select => "vote_topics.id, header,
-            votes_count, unan",:order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
-    named_scope :exp, lambda {{:conditions => ['expires < ? AND status = ?', DateTime.now, STATUS['approved']], :select => "vote_topics.id",
+    named_scope :unanimous_votes, lambda {{:conditions => ['expires > ? AND status = ? AND unan = ?', DateTime.now, STATUS['approved'], true],
+            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
+    named_scope :exp, lambda {{:conditions => ['expires < ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
     named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
@@ -77,46 +84,32 @@ class VoteTopic < ActiveRecord::Base
     
     named_scope :rss, lambda{{:conditions => ['created_at > ?', Constants::RSS_TIME_HORIZON.ago], :order => 'created_at DESC'}}
 
-    def post_save_processing
-        if self.status_changed? && self.status == 'a'
-            self.poster.delay.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
-              self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
-            self.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
-            if !self.friend_emails.nil?
-                self.delay.deliver_friendly_vote_emails!
-            end
-        end 
+    #######################################end named scopes####################################################################
+
+    define_index do
+        indexes :header
+        indexes :topic
+        indexes :status
+        indexes vote_items.option, :as => :option
+        indexes category.name, :as => :category_name
+        indexes poster.city, :as => :city
+        indexes poster.state, :as => :state
+
+        has created_at, updated_at, :votes_count, :power_offered
+        has category_id, user_id, :status
+
+        has "RADIANS(users.lat)",  :as => :lat,  :type => :float
+        has "RADIANS(users.lng)", :as => :lng, :type => :float
+
+
     end
 
-    def self.all_vt
-        CACHE.fetch "#{VoteTopic.count}" do
-            all
-        end
-    end
     
-    def is_being_tracked? id
-        self.trackings.find(:first, :conditions => ['user_id = ?', id])
-    end
-    
-    #    def self.unanimous_votes
-    #        find(:all, :conditions => ['unan = ? && expires > ?'], :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :select => 'id, header, unan, votes_count')
-    #    end
-
-    def self.determine_order order
-        case order
-        when 'recent'
-            'vote_topics.created_at DESC'
-        when 'votes'
-            'vote_topics.votes_count DESC'
-        when 'featured'
-            'vote_topics.power_offered DESC'
-        else
-            'vote_topics.created_at DESC'
-        end
-    end
-    def self.category_list cid, page, order
-        coll = paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => (determine_order order), :include => [:vote_items,
-                :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => Constants::VOTE_TOPIC_FIELDS)
+    #################### index finders ###########################################
+    def self.category_list cname, page, order
+        cid = Category.find(cname).id
+        coll = paginate(:conditions => ['status = ? AND category_id = ?', 'a', cid], :order => (ModelHelpers.determine_order order), :include => [:vote_items,
+                :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
     end
 
     def self.general_list page
@@ -124,21 +117,7 @@ class VoteTopic < ActiveRecord::Base
             :page => page, :per_page => Constants::LISTINGS_PER_PAGE, :select => Constants::VOTE_TOPIC_FIELDS)
     end
 
-    def self.find_for_processing(id)
-        find(id, :include => [:vote_items],
-            :select => ("vote_topic.power_offered, vote_topics.id, vote_items.votes_count, vote_items.id, vote_items.option, vote_topics.votes_count"))
-    end
-    
-    def self.find_for_comments(id)
-        #todo the :select doesn't work
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => {:comments => :user},
-            :select => ("vote_topics.id, comments.body, users.username, users.votes_count, users.image_file_size, users.image_file_name, users.image_content_type"))
-    end
 
-    def self.find_selected_response id
-        VoteItem.find(id, :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.votes_count, vote_items.id, vote_items.option,
-                 ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes, vote_topics.trackings_count")
-    end
     
     def self.get_most_tracked_votes limit, page
         h = Hash.new
@@ -159,55 +138,6 @@ class VoteTopic < ActiveRecord::Base
                     :trackings, :category])
         end
     end
-    
-    def self.get_local_votes origin, limit, page
-        h = Hash.new
-        bounds= Geokit::Bounds.from_point_and_radius(origin, Constants::PROXIMITY)
-        if limit
-            coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.votes_count DESC', :include => [:vote_items , :poster, :category],
-                :limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS, :bounds => bounds)
-        else
-            coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.votes_count DESC', :include => [:vote_items, :poster, :category],
-                :select => Constants::VOTE_TOPIC_FIELDS,  :bounds => bounds,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
-        end
-        #sort_collection_vote_items coll
-    end
-
-    def self.find_for_tracking(id)
-        find(id, :select => "vote_topics.id, users.voting_power, users.persistence_token, users.zip,
-                users.image_file_name, users.image_content_type, users.image_updated_at, users.image_file_size, vote_topics.trackings_count", :include => [:poster])
-    end
-
-    def self.find_for_approval(id)
-        find(id, :include => [:poster],
-            :select => Constants::VOTE_TOPIC_FIELDS_APPROVAL)
-    end
-    
-    def self.find_for_show(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet],
-            :select => Constants::VOTE_TOPIC_FIELDS_SHOW)
-    end
-
-    def self.find_for_preview_save(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['preview']], :include => [:vote_items, :poster, :category],
-            :select => Constants::VOTE_TOPIC_FIELDS_PREV_SAVE)
-    end
-    
-    def self.find_for_show_preview(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :comments, :vote_facet],
-            :select => Constants::VOTE_TOPIC_FIELDS_SHOW)
-    end
-
-    def self.find_for_stats(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items], :select => ("vote_topics.id,
-        vote_topics.votes_count, vote_items.id, vote_topics.expires, vote_items.option, vote_topics.trackings_count" ))
-    end
-
-    def self.find_for_facet_update id
-        find(id, :include => [:vote_items, :poster, :votes], :select => "vote_topics.id, vote_topics.votes_count, votes.lat, votes.lng, votes.state,
-        votes.city, votes.vote_item_id, vote_items.votes_count, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v, vote_items.ag_2_v, vote_items.ag_3_v,
-        vote_items.ag_4_v, users.zip, users.id, vote_items.option")
-    end
 
     #todo : fix the expires timestamp issue
     def self.get_featured_votes limit, page
@@ -222,21 +152,6 @@ class VoteTopic < ActiveRecord::Base
         end
     end
 
-    def self.get_current_time
-        lambda {DateTime.now}
-    end
-    
-    def self.get_featured_votes_2 limit, page
-        h = Hash.new
-        if limit
-            coll = find(:all,:conditions => ['status = ? AND expires > ? AND power_offered > 0', 'a', get_current_time.call], :order => 'vote_topics.power_offered DESC',
-                :include => [:vote_items ,:poster, :category],:limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS)
-        else
-            coll = paginate(:all, :conditions => ['status = ? AND expires > ? AND power_offered > 0', 'a', get_current_time.call], :select => Constants::VOTE_TOPIC_FIELDS,
-                :order => 'vote_topics.power_offered DESC', :include => [:vote_items, :poster, :category], :per_page => Constants::LISTINGS_PER_PAGE,
-                :page => page)
-        end
-    end
 
     def self.get_top_votes limit, page
         h = Hash.new
@@ -254,33 +169,71 @@ class VoteTopic < ActiveRecord::Base
             :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => Constants::VOTE_TOPIC_FIELDS)
     end
 
-    def valid_email?
-        if !self.friend_emails.nil?
-            emails = self.friend_emails.split(",")
-            emails.each do |email|
-                if Authlogic::Regex.email.match(email.strip).nil?
-                    errors.add(:friend_emails, "Invalid email address")
-                    return false
-                end
-            end
+
+    def self.get_local_votes origin, limit, page
+        h = Hash.new
+        bounds= Geokit::Bounds.from_point_and_radius(origin, Constants::PROXIMITY)
+        if limit
+            coll = find(:all, :conditions => ['status = ?', 'a'], :order => 'vote_topics.votes_count DESC', :include => [:vote_items , :poster, :category],
+                :limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS, :bounds => bounds)
+        else
+            coll = paginate(:conditions => ['status = ?', 'a'], :order => 'vote_topics.votes_count DESC', :include => [:vote_items, :poster, :category],
+                :select => Constants::VOTE_TOPIC_FIELDS,  :bounds => bounds,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
         end
+        #sort_collection_vote_items coll
     end
 
-    define_index do
-        indexes :header
-        indexes :topic
-        indexes :status
-        indexes vote_items.option, :as => :option
-        indexes category.name, :as => :category_name
-        indexes poster.city, :as => :city
-        indexes poster.state, :as => :state
-        
-        has created_at, updated_at, :votes_count
-        has category_id, user_id, :status
+    #################### end index finders#####################################################
 
+    ################ individual finders #########################################################
+
+    def self.find_for_tracking(id)
+        find(id, :select => "vote_topics.id, users.voting_power, users.persistence_token, users.zip,
+                users.image_file_name, users.image_content_type, users.image_updated_at, users.image_file_size, vote_topics.trackings_count", :include => [:poster])
     end
+
+    def self.find_for_approval(id)
+        find(id, :include => [:poster],
+            :select => Constants::VOTE_TOPIC_FIELDS_APPROVAL)
+    end
+    
+    def self.find_for_show(id, scp)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet], :scope => scp)
+    end
+
+    def self.find_for_preview_save(id)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['preview']], :include => [:vote_items, :poster, :category])
+    end
+    
+    def self.find_for_show_preview(id, scope)
+        puts "id is #{id}"
+        puts "scope is #{scope}"
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet, :slugs],
+            :select => Constants::VOTE_TOPIC_FIELDS_SHOW, :scope => scope)
+    end
+
+    def self.find_for_stats(id)
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items], :select => ("vote_topics.id,
+        vote_topics.votes_count, vote_items.id, vote_topics.expires, vote_items.option, vote_topics.trackings_count" ))
+    end
+
+    def self.find_selected_response id
+        VoteItem.find(id, :include => [:vote_topic],:select => "vote_topics.header, vote_topics.id, vote_topics.votes_count, vote_items.id, vote_items.option,
+                 ag_1_v, ag_2_v, ag_3_v, ag_4_v, male_votes, female_votes, vote_topics.trackings_count")
+    end
+
+    def self.find_for_facet_update id
+        find(id, :include => [:vote_items, :poster, :votes], :select => "vote_topics.id, vote_topics.votes_count, votes.lat, votes.lng, votes.state,
+        votes.city, votes.vote_item_id, vote_items.votes_count, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v, vote_items.ag_2_v, vote_items.ag_3_v,
+        vote_items.ag_4_v, users.zip, users.id, vote_items.option")
+    end
+
+    ########################### end individual finders######################################################################
 
     
+    
+    
+    ############################# notifications ####################################
     def deliver_new_vote_notification!
         Notifier.deliver_new_vote_notification(self)
     end
@@ -292,6 +245,22 @@ class VoteTopic < ActiveRecord::Base
     def deliver_friendly_vote_emails!
         Notifier.deliver_friendly_vote_emails(self)
     end
+
+    ################################end notifications######################################
+
+    #############################updates/manipulations###################################
+    def determine_devided
+        vis = self.vote_items
+        vis.each do |v|
+            if (v.get_vote_percent_num self.votes_count) > Constants::UNAN_LIMIT
+                self.update_attribute(:unan, true)
+                return false
+            end
+        end
+        return true
+    rescue
+    end
+
 
     def reset
         self.votes.each do |vi|
@@ -374,7 +343,23 @@ class VoteTopic < ActiveRecord::Base
         end
     end
 
+
+    def process_flag flag_name
+        if self.flags.nil? || self.flags.blank?
+            self.update_attribute(:flags, 'featured')
+        else
+            a = self.flags.split(',')
+            if !a.include?(flag_name)
+                a << flag_name
+                self.update_attribute(:flags, a.join(','))
+            end
+        end
+    end
     
+    ####################################### end updates/manipulations##########################################################
+
+
+    ############################ called from rake tasks #################################################################
     def self.start_facet_update
         not_exp.find_in_batches(:batch_size => Constants::FACET_PROCESSING_BATCH_SIZE) do |batch|
             batch.each do |v|
@@ -383,17 +368,33 @@ class VoteTopic < ActiveRecord::Base
         end
         GC.start
     end
-    
-    def determine_devided
-        vis = self.vote_items
-        vis.each do |v|
-            if (v.get_vote_percent_num self.votes_count) > Constants::UNAN_LIMIT
-                self.update_attribute(:unan, true)
-                return false
+
+    def self.process_vote_topic_flags
+        featured.daily.each do |v|
+            v.process_flag('featured')
+        end
+
+        most_voted.daily.each do |v|
+            v.process_flag('most_voted')
+        end
+        most_tracked.daily.each do |v|
+            v.process_flag('most_tracked')
+        end
+    end
+
+    ########################################### end called from rake tasks ######################################
+
+    ###################### Misc helpers #######################################################
+    def valid_email?
+        if !self.friend_emails.nil?
+            emails = self.friend_emails.split(",")
+            emails.each do |email|
+                if Authlogic::Regex.email.match(email.strip).nil?
+                    errors.add(:friend_emails, "Invalid email address")
+                    return false
+                end
             end
         end
-        return true
-    rescue
     end
 
     def self.what_user_voted_for?(vid, user_id)
@@ -431,28 +432,22 @@ class VoteTopic < ActiveRecord::Base
         self.poster.award_points(Constants::TRACK_POINTS * pos)
     end
 
-    def self.process_vote_topic_flags
-        featured.daily.each do |v|
-            v.process_flag('featured')
-        end
-
-        most_voted.daily.each do |v|
-            v.process_flag('most_voted')
-        end
-        most_tracked.daily.each do |v|
-            v.process_flag('most_tracked')
-        end
-    end
-    
-    def process_flag flag_name
-        if self.flags.nil? || self.flags.blank?
-            self.update_attribute(:flags, 'featured')
-        else
-            a = self.flags.split(',')
-            if !a.include?(flag_name)
-                a << flag_name
-                self.update_attribute(:flags, a.join(','))
+    def post_save_processing
+        if self.status_changed? && self.status == 'a'
+            self.poster.delay.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
+              self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
+            self.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
+            if !self.friend_emails.nil?
+                self.delay.deliver_friendly_vote_emails!
             end
         end
     end
+    def is_being_tracked? id
+        self.trackings.find(:first, :conditions => ['user_id = ?', id])
+    end
+
+    
+    
+    ########### end misc helpers#######################################################
+    
 end

@@ -1,8 +1,13 @@
 <% if @vts.size > 0 %>
-  <% if @paginated %>
-    $('#voted').replaceWith("<%= escape_javascript(render :partial => "voted") %>");
+  <% if request.parameters[:paginated] == 'yes' %>
+    <% id = request.parameters['container_name'].nil? ? '#voted_votes' : '#' + request.parameters['container_name'] %>
+    $("<%= id %>").html("<%= escape_javascript(render :partial => "voted") %>");
   <% else %>
     <%= (render :partial => "voted") %>
   <% end  %>
+  <% else %>
+    <div>
+      Sorry, no votes found.
+    </div>
 <% end  %>
 

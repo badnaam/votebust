@@ -9,11 +9,11 @@
   <div class="ui-widget-vote-preview bottom-mar normal-pad" style="clear:both;" id="<%= vt.id%> ">
     <div class="" id="">
       <blockquote class="preview">
-        <span class="big"><%= link_to vt.header, vt %></span>
+        <span class="big"><%= link_to vt.header, scoped_vote_topic_path(vt.category, vt) %></span>
       </blockquote>
     </div>
     <div class="" id="">
-      <%= render :partial => 'vote_info', :locals => {:vt => vt} %>
+      <%= render :partial => 'vote_topics/vote_info', :locals => {:vt => vt} %>
     </div>
   </div>
 <% end  %>

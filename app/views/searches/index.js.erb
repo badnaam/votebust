@@ -1,1 +1,5 @@
-$("#search_results").html("<%= escape_javascript(render("search_results")) %>");  
+<% if request.parameters[:np] %>
+  <%= render :partial => "search_results" %>
+<% else %>
+  $("#search_results").html("<%= escape_javascript(render :partial => "search_results", :locals => {:paginate => true}) %>");
+<% end  %>

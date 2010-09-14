@@ -32,17 +32,22 @@ SimpleNavigation::Configuration.run do |navigation|
         primary.item :home_nav, 'New', root_path do|n| 
 
         end
+        
+        primary.item :vote_nav, 'Votes', vote_topics_path() do|v|
+            if @vote_topic && !@vote_topic.id.nil? 
+#                v.item :v_show, @vote_topic.header,vote_topic_path(@vote_topic)
+            end
+        end
         primary.item :cat_nav, 'Categories', "#" do|ct|
             if !@category.nil? && !@vote_topics.nil?
-                ct.item :ct_vt_index, @category.name, category_vote_topics_path(@category, :listing_type => "category")
+#                ct.item :ct_vt_index, @category.name, category_vote_topics_path(@category, :listing_type => "category")
             end
         end
-        primary.item :vote_nav, 'Votes', vote_topics_path do|v|
-            if @vote_topic && !@vote_topic.id.nil? 
-                v.item :v_show, @vote_topic.header,vote_topic_path(@vote_topic)
+        primary.item :city_nav, 'Cities', "#" do|ct|
+            if !@city.nil? && !@vote_topics.nil?
+                ct.item :city_vt_index, @city, searches_path(:city => @city)
             end
         end
-        
         primary.item :profile_nav, 'Admin', account_path, :if => Proc.new {!current_user.nil? && current_role == 'admin'} do|a|
             if current_user
                 a.item :u_edit, "Edit Profile", edit_user_path(current_user)

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     layout proc { |controller| controller.action_name == 'show' ? 'main' : 'login' }
-    skip_before_filter :require_no_user, :only => [:top_voters]
+#    skip_before_filter :require_user, :only => [:top_voters]
     before_filter :require_no_user, :only => [:new, :create]
-    before_filter :require_user, :except => [:new, :create]
+    before_filter :require_user, :except => [:new, :create, :top_voters]
     filter_access_to [:edit, :update], :attribute_check => true
 
     def new

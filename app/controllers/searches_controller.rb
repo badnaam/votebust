@@ -1,22 +1,26 @@
 class SearchesController < ApplicationController
     layout "main"
     def index
-        terms = params[:search_term]
-        terms ||= ""
+        term = params[:q]
+        term ||= ""
+        
         if params[:city]
-            @search_results  = VoteTopic.search terms, :conditions => {:city => params[:city]}, :page => params[:page] || 1, :per_page => Constants::LISTINGS_PER_PAGE,
-              :include => [{:vote_items => :votes}, :poster, :category], :select => Constants::VOTE_TOPIC_FIELDS
-            @search_context = params[:city]
+            @search_results  = Search.city_search term, params[:city], params[:per_page] || Constants::LISTINGS_PER_PAGE, params[:page] || 1, params[:order] || 'distance'
         elsif params[:state]
-            @search_results  = VoteTopic.search terms, :conditions => {:state => params[:state]}, :page => params[:page] || 1, :per_page => Constants::LISTINGS_PER_PAGE,
-              :include => [{:vote_items => :votes}, :poster, :category], :select => Constants::VOTE_TOPIC_FIELDS
-            @search_context = params[:state]
+            @search_results  = Search.state_search term, params[:state], params[:per_page] || Constants::LISTINGS_PER_PAGE, params[:page] || 1, params[:order] || 'recent'
         else
-            @search_results  = VoteTopic.search terms, :page => params[:page] || 1, :per_page => Constants::LISTINGS_PER_PAGE,
-              :include => [{:vote_items => :votes}, :poster, :category], :select => Constants::VOTE_TOPIC_FIELDS
-            @search_context = terms
+            @search_results  = Search.term_search term, params[:per_page] || Constants::LISTINGS_PER_PAGE, params[:page] || 1, params[:order] || 'recent'
         end
-        cookies[:search_context] = @search_context
+        cookies[:voteable_q] = term
+        if params[:city]
+            cookies[:search_context] = params[:city]
+        elsif params[:state]
+            cookies[:search_context] = params[:state]
+        elsif params[:terms]
+            cookies[:search_context] = params[:terms]
+        else
+            cookies[:search_context] = ""
+        end
         respond_to do |format|
             format.html
             format.js

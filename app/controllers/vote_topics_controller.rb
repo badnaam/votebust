@@ -2,11 +2,11 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics
     # GET /vote_topics.xml
     layout "main"
+#    before_filter :edit_vt_from_params_and_scope, :only => [:edit, :update]
     filter_access_to [:edit, :update, :confirm_vote], :attribute_check => true
-    before_filter :require_user, :only => [ :new, :create,  :approve_vote, :track]
+    before_filter :require_user, :only => [:edit, :new, :create, :approve_vote, :track]
     before_filter :store_location, :only => [:show]
-    before_filter :require_registration, :only => [:new]
-    #    cache_sweeper :home_sweeper, :only => [:create]
+    before_filter :require_registration, :only => [:new, :edit, :create]
     ########## Security hole, control access!
 
     def rss  
@@ -83,7 +83,7 @@ class VoteTopicsController < ApplicationController
     
 
     def confirm_vote
-        @vote_topic = VoteTopic.find(params[:id], :select => "vote_topics.id, vote_topics.status")
+        @vote_topic = VoteTopic.find(params[:id])
         if @vote_topic.update_attribute(:status, 'w')
             flash[:notice] = 'Vote was successfully created and sent for moderator approval.'
             @vote_topic.delay.deliver_new_vote_notification!
@@ -91,48 +91,47 @@ class VoteTopicsController < ApplicationController
             flash[:error] = 'Something went wrong.'
         end
         respond_to do |format|
-            format.html { redirect_to(:action => :show, :id => @vote_topic.id, :waiting => true) }
+            #            format.html { redirect_to(:action => :show, :id => @vote_topic.id, :waiting => true) }
+            format.html { redirect_to root_path }
         end
     end
     
     def index
-        @listing_type = params[:listing_type]
-        case @listing_type
-        when "category"
+        if params[:category_id]
             @vote_topics = (VoteTopic.category_list params[:category_id], params[:page], params[:order])
-            @listing_context = Category.find(params[:category_id], :select => 'name').name
-        when "tracked_all"
-            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
-        when "user_tracked_all"
-            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
-        when "tracked"
-            @vote_topics = VoteTopic.get_tracked_votes(current_user.id, true, nil)
-        when "local"
-            @vote_topics = VoteTopic.get_local_votes current_user.zip, true, nil
-        when "local_all"
-            @vote_topics = VoteTopic.get_local_votes current_user.zip, false, params[:page]
-            @listing_context = cookies[:voteable_user_city]
-        when "top"
-            @top_vote = true
-            @vote_topics = (VoteTopic.get_top_votes true, params[:page])
-        when "top_all"
-            @top_vote = true
-            @vote_topics = VoteTopic.get_top_votes false, params[:page] || 1
-        when "most_tracked"
-            @vote_topics = VoteTopic.get_most_tracked_votes true, nil
-        when "most_tracked_all"
-            @vote_topics = VoteTopic.get_most_tracked_votes false, params[:page]
-        when "user_all"
-            @vote_topics = VoteTopic.get_all_votes_user(params[:user_id], params[:page]) #todo : pagination?
-        when "voted"
-            @vote_topics = VoteTopic.get_voted_vote_topics(params[:user_id], false, params[:page]) #todo : pagination?
-        when "featured"
-            @vote_topics = VoteTopic.get_featured_votes(true, nil) #todo : pagination?
-        when "featured_all"
-            @vote_topics = VoteTopic.get_featured_votes(false, params[:page]) #todo : pagination?
         else
-            @listing_type = "all"
-            @vote_topics = VoteTopic.general_list params[:page]
+            listing_type = params[:listing_type]
+            case listing_type
+            when "tracked_all"
+                @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
+            when "user_tracked_all"
+                @vote_topics = VoteTopic.get_tracked_votes(current_user.id, false, params[:page])
+            when "tracked"
+                @vote_topics = VoteTopic.get_tracked_votes(current_user.id, true, nil)
+            when "local"
+                @vote_topics = VoteTopic.get_local_votes current_user.zip, true, nil
+            when "top"
+                @top_vote = true
+                @vote_topics = (VoteTopic.get_top_votes true, params[:page])
+            when "top_all"
+                @top_vote = true
+                @vote_topics = VoteTopic.get_top_votes false, params[:page] || 1
+            when "most_tracked"
+                @vote_topics = VoteTopic.get_most_tracked_votes true, nil
+            when "most_tracked_all"
+                @vote_topics = VoteTopic.get_most_tracked_votes false, params[:page]
+            when "user_all"
+                @vote_topics = VoteTopic.get_all_votes_user(params[:user_id], params[:page] )
+            when "voted"
+                @vote_topics = VoteTopic.get_voted_vote_topics(params[:user_id], false, params[:page])
+            when "featured"
+                @vote_topics = VoteTopic.get_featured_votes(true, nil)
+            when "featured_all"
+                @vote_topics = VoteTopic.get_featured_votes(false, params[:page])
+            else
+                listing_type = "all"
+                @vote_topics = VoteTopic.general_list params[:page]
+            end
         end
         
         respond_to do |format|
@@ -145,28 +144,15 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1
     # GET /vote_topics/1.xml
     def show
-        @status = ""
         if params[:preview_only] == 'true'
             #todo :optimize this
             @vote_topic = VoteTopic.find_for_preview_save(params[:id])
             @user = current_user
-            if @vote_topic.status == 'p'
-                @status = 'preview'
-            end
-        elsif params[:waiting] == 'true'
-            #            @vote_topic = VoteTopic.find(params[:id])
         else
-            @status = 'approved'
             @user = current_user
+            @vote_topic = VoteTopic.find_for_show(params[:id], params[:scope])
             if @user
-                #                @selected_response = VoteTopic.what_user_voted_for?(params[:id], @user.id)
-                @selected_response = Vote.user_voted?(@user.id, params[:id])
-            end
-            if @selected_response
-                @vote_topic = VoteTopic.find_for_show(params[:id])
-                #                @option_for_comment = @vote_topic.vote_items.select {|x| x.id == @selected_response}.first.option
-            else
-                @vote_topic = VoteTopic.find_for_show_preview(params[:id])
+                @selected_response = Vote.user_voted?(@user.id, @vote_topic.id)
             end
             @reg_complete = registration_complete?
             
@@ -203,7 +189,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/new
     # GET /vote_topics/new.xml
     def new
-        @user = User.find(params[:user_id])
+        @user = current_user
         @vote_topic = @user.posted_vote_topics.build
         @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
 
@@ -215,8 +201,8 @@ class VoteTopicsController < ApplicationController
 
     # GET /vote_topics/1/edit
     def edit
-        @user = User.find(params[:user_id])
-        @vote_topic = VoteTopic.find(params[:id])
+        @user = current_user
+#        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
         
         if @vote_topic.status == 'p'
             edit = true
@@ -237,12 +223,13 @@ class VoteTopicsController < ApplicationController
     # POST /vote_topics
     # POST /vote_topics.xml
     def create
-        @user = User.find(params[:vote_topic][:user_id].to_i)
-        @vote_topic = @user.posted_vote_topics.create(params[:vote_topic])
+#        @vote_topic = current_user.posted_vote_topics.create(params[:vote_topic])
+        @vote_topic = VoteTopic.create(params[:vote_topic])
+        @vote_topic.user_id = current_user.id
         @vote_topic.status = 'p'
         respond_to do |format|
             if @vote_topic.save
-                format.html { redirect_to(:action => :show, :id => @vote_topic.id, :preview_only => true, :user_id => @user.id) }
+                format.html { redirect_to vote_topic_path(@vote_topic.id, :preview_only => true) }
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else
                 full_counter = 0
@@ -303,5 +290,11 @@ class VoteTopicsController < ApplicationController
                 @vote_items = (VoteTopic::MAX_VOTE_ITEMS - full_counter).times {@vote_topic.vote_items.build}
             end
         end
+    end
+
+    protected
+    
+    def edit_vt_from_params_and_scope
+        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
     end
 end

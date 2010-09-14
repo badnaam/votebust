@@ -7,6 +7,7 @@
       <div class="header span-24 last">
         <div class ="span-24 header_links_div last">
           <%= render :partial => "shared/cat_nav_list" %>
+          <%= render :partial => "shared/city_nav_list" %>
           <div class="span-24 last"
                <div class="ui-corner-bl ui-corner-br ui-state-hover">
               <ul class="header_links">
@@ -38,13 +39,13 @@
             </a>
           </div>
           <!-- <sup>&trade;</sup> -->
-          <div class="span-24 last nav_container ui-state-default">
+          <div class="span-24 last nav_container ui-state-default prepend-top">
             <div class="main_links_div span-18">
               <%= render_navigation :level => 1 %>
             </div>
             <div class="span-6 last div-search-form"
-            <% form_tag searches_path, :method => :get, :class => 'right', :id => "search_form" do %>
-              <%= text_field_tag :search_term, cookies[:search_context].nil? ? "Search" : cookies[:search_context],  :class => 'search-term' %>
+            <% form_tag searches_path, :method => :get, :class => '', :id => "search_form" do %>
+              <%= text_field_tag :q, cookies[:voteable_q].nil? ? "Search" : cookies[:voteable_q],  :class => 'search-term' %>
                    <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
                    <% end  %>
             </div>
@@ -68,7 +69,7 @@
           
           <%= yield :right_nav %>
         </div>
-        <!-- <div class="push"> </div>-->
+        <div class="push"> </div>
       </div> <!-- end content_container -->
       <%= render :partial => "/layouts/footer" %>
     </div>

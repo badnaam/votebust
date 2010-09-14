@@ -1,6 +1,6 @@
-<% if @status == 'preview' %>
+<% if request.parameters['preview_only'] == 'true' %>
   <%= render :partial => "prev" %>
-<% elsif  @status == 'approved'%>
+<% else  %>
   <%= render :partial => "vote" %>
   <% content_for :right_nav do %>
     <%#= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @related, :header => "Related"} %>
@@ -10,7 +10,6 @@
     <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "More from #{@vote_topic.poster.username}", :load_path =>
         side_bar_index_vote_topics_path(:user_id => @vote_topic.poster.id, :type => "same_user"),:l_type => "same_user"} %>
   <% end  %>
-<% elsif @status == 'waiting' %>
 <% end  %>
 
 

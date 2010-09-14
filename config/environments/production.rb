@@ -4,7 +4,7 @@
 # Code is not reloaded between requests
 require 'active_support/cache/dalli_store23'
 config.cache_store = :dalli_store
-CACHE = Dalli::Client.new('localhost:11211')
+CACHE = Dalli::Client.new('127.0.0.1:11211')
 
 config.cache_classes = true
 

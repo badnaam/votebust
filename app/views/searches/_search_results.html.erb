@@ -1,8 +1,28 @@
-<%= page_entries_info @search_results, :entry_name => "Search Result" %>
-<%= will_paginate @search_results, :class => 'pagination' %>
+<% if local_assigns[:paginate].nil?
+  paginate = nil
+end  %>
+
+<% if paginate %>
+  <%= order_links_s request.parameters['order'] %>
+  <%= page_entries_info @search_results, :entry_name => "Search Result" %>
+  <%= will_paginate @search_results, :class => 'pagination' %>
+
+<% end %>
 <% if !@search_results.nil? %>
-    <% @search_results.each do |s| %>
-      <%= render :partial => '/vote_topics/vote_preview', :locals => {:vt => s, :si => s.vote_items} %>
-    <% end %>
+  <% if paginate.nil? %>
+    <div>
+      <%= get_more_listing_str request.parameters %>
+    </div>
+  <% end  %>
+  <% @search_results.each do |s| %>
+    <%= render :partial => '/vote_topics/vote_preview', :locals => {:vt => s, :si => s.vote_items} %>
+  <% end %>
 <% end  %>
-<%= will_paginate @search_results, :class => 'pagination ' %>
+<% if paginate.nil? %>
+  <div>
+    <%= get_more_listing_str request.parameters %>
+  </div>
+<% end  %>
+<% if paginate %>
+  <%= will_paginate @search_results, :class => 'pagination ' %>
+<% end  %>

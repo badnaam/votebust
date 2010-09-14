@@ -55,18 +55,37 @@ ActionController::Routing::Routes.draw do |map|
     map.account "account", :controller => :account, :action => "index"
     map.resources :account, :member => {:approve_vote => :post}
 
-    map.vote_topic "/categories/:scope/:id", :controller => "vote_topics"
+    
 
-    map.resources :categories do |categories|
-        categories.resources :vote_topics
+    #    map.resources :categories, :has_many => [:vote_topics]
+    map.resources :categories do |category|
+        category.resources :vote_topics
     end
+#    map.category_vote_topics '/vote_topics/:scope', :controller => "vote_topics", :action => 'index'
     map.resources :comments
-    map.resources :graphs, :member => {:gender_graph => :get, :age_graph => :get, :pie_graph => :get}
-    map.resources :vote_topics, :belongs_to => [:poster, :category], :has_many => [:comments],  :member => {:confirm_vote => :post,
-        :process_votes => :post, :update_stats => :get, :cancel_vote => :post}, :collection => {:auto_comp => :get, :side_bar_index => :get, :rss => :get}
+#    map.resources :graphs, :member => {:gender_graph => :get, :age_graph => :get, :pie_graph => :get}
+    #    map.resources :vote_topics, :belongs_to => [:poster, :category], :has_many => [:comments],  :member => {:confirm_vote => :post,
+    #        :update_stats => :get}, :collection => {:auto_comp => :get, :side_bar_index => :get, :rss => :get}
+    map.resources :vote_topics, :belongs_to => [:poster, :category],:member => {:confirm_vote => :post,
+        :update_stats => :get}, :collection => {:auto_comp => :get, :side_bar_index => :get, :rss => :get}
+    map.scoped_vote_topic "/vote_topics/:scope/:id", :controller => "vote_topics", :action => 'show'
+    
+    
+#    map.category_vote_topics "/vote_topics/categories/:category_scope", :controller => "vote_topics", :action => 'index'
+#    map.city_vote_topics "/searches/cities/:city", :controller => "searches", :action => 'index'
+#    map.state_vote_topics "/searches/states/:state", :controller => "searches", :action => 'index'
+    map.city_vote_topics "/cities/:city", :controller => "searches", :action => 'index'
+    map.state_vote_topics "/states/:state", :controller => "searches", :action => 'index'
+    
     map.resources :vote_items, :belongs_to => :vote_topic
     map.resource :user_sessions
     map.resource :account, :controller => "users"
+
+    map.resources :users, :collection => {:top_voters => :get} do |users|
+        users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
+        users.resources :comments
+    end
+    
     map.login "login", :controller =>:user_sessions, :action => "new"
     map.logout "logout", :controller =>:user_sessions, :action => "destroy"
     map.resources :password_resets
@@ -74,10 +93,8 @@ ActionController::Routing::Routes.draw do |map|
     map.register "register/:activation_code", :controller => "activations", :action => "new"
     map.activate "activate/:id", :controller => "activations", :action => "create"
     map.addrpxauth "addrpxauth", :controller => "users", :action => "addrpxauth", :method => :post
-    map.resources :users, :collection => {:top_voters => :get} do |users|
-        users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
-        users.resources :comments
-    end
+
+    
     map.connect ':controller/:action/:id'
     map.connect ':controller/:action/:id.:format'
 end

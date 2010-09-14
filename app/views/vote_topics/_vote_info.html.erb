@@ -10,10 +10,9 @@ end
     </td>
     <td class="right-border">
       <span class="ui-icon ui-icon-tag "></span>
-      <%= link_to "#{vt.category.name}, ", category_vote_topics_path(vt.category,
-        :listing_type => "category") %>
-      <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
-      <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
+      <%= link_to "#{vt.category.name}, ", category_vote_topics_path(vt.category, vt) %>
+      <%= link_to "#{vt.poster.city.titleize}, ", city_vote_topics_path(vt.poster.city, :order => 'distance') %>
+      <%= link_to "#{vt.poster.state.titleize}", state_vote_topics_path(vt.poster.state, :order => 'recent') %>
     </td>
     <td>
       <span class="ui-state-normal">
@@ -38,15 +37,17 @@ end
       <span class="ui-state-normal">
         <span class="ui-icon ui-icon-bullet vam" id=""> </span>
         <span class="">Started : <%= vt.created_at.strftime('%b %d %Y') %></span>
-        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
-        <% if vt.expires > DateTime.now %>
-          <span class="" id=""> Ends :
-            <%= vt.expires.strftime('%b %d %Y') %>
-          </span>
-        <% else %>
-          <span class="" id=""> Ended :
-            <%= vt.expires.strftime('%b %d %Y') %>
-          </span>
+        <% if vt.expires %>
+          <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+          <% if vt.expires > DateTime.now %>
+            <span class="" id=""> Ends :
+              <%= vt.expires.strftime('%b %d %Y') %>
+            </span>
+          <% else %>
+            <span class="" id=""> Ended :
+              <%= vt.expires.strftime('%b %d %Y') %>
+            </span>
+          <% end  %>
         <% end  %>
       </span>
     </td>

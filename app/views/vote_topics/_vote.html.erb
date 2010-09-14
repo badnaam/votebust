@@ -1,7 +1,8 @@
 <% content_for :title do %>
   <%= @vote_topic.header %>
 <% end  %>
-<% share_url = Constants::SHARE_URL_PREFIX.concat(url_for(:controller => "vote_topics", :action => "show", :id => @vote_topic.id)) %>
+<%# share_url = Constants::SHARE_URL_PREFIX.concat(url_for(:controller => "vote_topics", :action => "show", :id => @vote_topic.id)) %>
+<% share_url = Constants::SHARE_URL_PREFIX.concat(vote_topic_url(@vote_topic.category, @vote_topic)) %>
 <%content_for :fb_metas do %>
   <meta property="og:title" content="<%= @vote_topic.header %>"/>
   <meta property="og:type" content="<%= @vote_topic.category.name %>"/>
@@ -141,15 +142,6 @@
       <p class="left-mar">
         <%= @vote_topic.topic %>
       </p>
-      <% unless @vote_topic.website.nil? %>
-        <p class="left-mar">
-          <a href="<%= @vote_topic.website %>" class="" target ="_blank" id="">
-            External link
-            <span class="ui-icon ui-icon-extlink" id="">
-            </span>
-          </a>
-        </p>
-      <% end  %>
       <%= render :partial => "vote_control" %>
     </div>
     <div>

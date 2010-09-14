@@ -17,7 +17,15 @@
   });
   //]]>
 </script>
-<% semantic_form_for @vote_topic do |form| %>
+<% if @vote_topic.new_record? %>
+  <% url = { :action => "create", :id => @vote_topic.id } %>
+<% else %>
+    <% url = { :action => "update", :id => @vote_topic.id } %>
+<% end  %>
+<% semantic_form_for @vote_topic, :url => url  do |form| %>
+  <% if !@vote_topic.new_record? %>
+    <%= hidden_field_tag :scope, @vote_topic.category.to_param %>
+  <% end  %>
   <%= form.semantic_errors %>
   <% form.inputs do %>
     <li class="bld">Fields marked with (*) are required.</li>

@@ -1,29 +1,14 @@
-<% if ["category", "featured_all", "local_all", "top_all", "most_tracked_all", "all", "location"].include? @listing_type %>
-  <%print_paginate = true%>
-  $('#votes').html("<%= escape_javascript(render :partial => 'vote_list')%>");
-<% elsif ['user_all', 'user_tracked_all'].include?@listing_type%>
-  <% if request.parameters[:paginated] == 'yes' %>
-    $('#votes').html("<%= escape_javascript(render :partial => 'vote_list_html') %>");
+<% listing_type = request.parameters['listing_type'] %>
+<% if @vote_topics.size > 0 %>
+  <% if request.parameters[:paginated]%>
+    <% id = request.parameters['container_name'].nil? ? '#votes' : '#' + request.parameters['container_name'] %>
+    $("<%= id %>").html("<%= escape_javascript(render :partial => 'vote_list_html', :locals => {:listing_type => listing_type}) %>");
+  <% elsif request.parameters[:limited] %>
+    <%= render :partial => 'limited_vote_list', :locals => {:listing_type => listing_type} %>
   <% else %>
-    <%= render :partial => 'vote_list_html' %>
+    <%= render :partial => 'vote_list_html', :locals => {:listing_type => listing_type} %>
   <% end  %>
 <% else %>
-  <% if @vote_topics.size > 0 %>
-    <% if ["local", "most_tracked", "top", "featured", "tracked"].include?(@listing_type) %>
-      <div>
-        <%= link_to get_more_listing_str(@listing_type), vote_topics_path(:listing_type => @listing_type + "_all"), :class => "bld go-right bottom-mar" %>
-      </div>
-    <% end  %>
-    <% @vote_topics.each do |vt| %>
-      <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
-    <% end  %>
-    <% if ["local", "most_tracked", "top", "featured", "tracked"].include?(@listing_type) %>
-      <div class="append-bottom">
-        <%= link_to get_more_listing_str(@listing_type), vote_topics_path(:listing_type => @listing_type + "_all"), :class => "bld go-right bottom-mar" %>
-      </div>
-    <% end  %>
-  <% else %>
-    <div>Sorry no votes found.</div>
-  <% end  %>
+  <div>Sorry no votes found.</div>
 <%end  %>
 

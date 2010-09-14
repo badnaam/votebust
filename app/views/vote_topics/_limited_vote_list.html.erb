@@ -1,0 +1,9 @@
+<div>
+  <%= link_to get_more_listing_str_vt(listing_type), vote_topics_path(:listing_type => listing_type + "_all"), :class => "bld go-right bottom-mar" %>
+</div>
+<% @vote_topics.each do |vt| %>
+  <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => vt.vote_items} %>
+<% end  %>
+<div class="append-bottom">
+  <%= link_to get_more_listing_str_vt(listing_type), vote_topics_path(:listing_type => listing_type + "_all"), :class => "bld go-right bottom-mar" %>
+</div>

@@ -1,15 +1,10 @@
-<div id="voted">
-  <div id="com_prog_loading" style="display:none">
-    <div class="loading-inner-center" ></div>
-  </div>
-  <% if @vts.size > 0 %>
-    <%= page_entries_info @vts, :entry_name => "Vote Topics" %>
-    <%= will_paginate @vts, :class => 'pagination', :params => {:listing_type => @listing_type, :paginated => "yes"} %>
-    <% @vts.each do |vt| %>
-      <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt.vote_topic, :vi => vt.vote_topic.vote_items, :top_vote => @top_vote} %>
-    <% end  %>
-    <%= will_paginate @vts, :class => 'pagination', :params => {:listing_type => @listing_type, :paginated => "yes"} %>
-  <% else %>
-    <div>Sorry, no votes found.</div>
+<% if @vts.size > 0 %>
+  <%= page_entries_info @vts, :entry_name => "Vote Topics" %>
+  <%= will_paginate @vts, :class => 'pagination', :params => {:listing_type => @listing_type, :paginated => "yes"} %>
+  <% @vts.each do |vt| %>
+    <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt.vote_topic, :vi => vt.vote_topic.vote_items, :top_vote => @top_vote} %>
   <% end  %>
-</div>
+  <%= will_paginate @vts, :class => 'pagination', :params => {:listing_type => @listing_type, :paginated => "yes"} %>
+<% else %>
+  <div>Sorry, no votes found.</div>
+<% end  %>

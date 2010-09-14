@@ -1,5 +1,10 @@
 class Constants
 
+    METERS_PER_MILE = 1609.344
+
+    SORT_ORDERS = ["recent", "votes", "featured"]
+    SEARCH_SORT_ORDERS = ["recent", "votes", "featured", "distance"]
+    
     RSS_TIME_HORIZON = 4.weeks
     RPX_PROVIDERS = ["Facebook", "Twitter", "Google"]
     SHARE_URL_PREFIX = "http://web1.tunnlr.com:11299"
@@ -39,14 +44,8 @@ class Constants
 
 
     SIDE_BAR_LINK_LENGTH = 50
-
-    DEVIDED_BUFFER = 5
-    DEVIDED_QUORUM = 100
-
-    UNAN_LIMIT = 60
-
-    OTHER_VI = "99OTHER99"
-
+######## vote listings ################
+    AJAX_VOTE_TOPICS_LISTING_TYPE = ["local", "most_tracked", "top", "featured", "user_tracked_all", "recent", "user_all", "voted"]
     ########Points#############
     REGISTRATION_COMPLETE_POINTS = 10
     NEW_VOTE_POINTS = 10
@@ -66,7 +65,9 @@ class Constants
     VOTE_TOPIC_FIELDS = 'vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.expires, vote_topics.category_id, vote_topics.created_at,
                         categories.id, categories.name, users.id, users.username, vote_items.option, vote_topics.trackings_count, users.city,
                         users.state, users.zip, vote_topics.power_offered, vote_topics.website, users.image_url, users.image_file_name, users.image_content_type,
-                        users.voting_power, vote_items.votes_count, vote_topics.votes_count, vote_topics.flags'
+                        users.voting_power, vote_items.votes_count, vote_topics.votes_count, vote_topics.flags, vote_topics.cached_slug, categories.cached_slug,
+                        users.user_cached_slug'
+
 
     VOTE_TOPIC_FIELDS_SHOW = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
                              vote_topics.created_at, categories.id, categories.name,  users.id, users.username,vote_items.option, 
@@ -77,11 +78,14 @@ class Constants
 
     VOTE_TOPIC_FIELDS_PREV_SAVE = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.topic, vote_topics.user_id, vote_topics.category_id,
                              vote_topics.created_at, categories.id, categories.name,  users.id, users.username,vote_items.option,
-                              vote_topics.trackings_count, vote_topics.power_offered,
+                              vote_topics.trackings_count, vote_topics.power_offered,slugs.scope, slugs.sluggable_id, slugs.sequence, slugs.id, slugs.name, slugs.sluggable_type,
                              vote_topics.website, users.image_url, users.image_file_name, users.image_content_type, users.voting_power, users.city, users.state,
-                               vote_items.votes_count, vote_topics.votes_count, vote_topics.flags'
+                               vote_items.votes_count, vote_topics.votes_count, vote_topics.flags, vote_topics.cached_slug, categories.cached_slug, users.user_cached_slug'
+    
     VOTE_TOPIC_FIELDS_APPROVAL = 'vote_topics.status, vote_topics.id, vote_topics.header, vote_topics.expires, vote_topics.user_id,
-                             vote_topics.created_at, vote_topics.power_offered, users.id, users.username, users.email, users.voting_power, vote_topics.friend_emails'
+                             vote_topics.created_at, vote_topics.power_offered, users.id, users.username, users.email, users.voting_power, vote_topics.friend_emails,
+                            , vote_topics.cached_slug, categories.cached_slug, users.user_cached_slug, slugs.scope, slugs.sluggable_id, slugs.sequence, slugs.id, slugs.name,
+                        slugs.sluggable_type'
 
 
 end

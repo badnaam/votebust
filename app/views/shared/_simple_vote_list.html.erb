@@ -1,6 +1,6 @@
 <% if coll_type == 'vote_topic' %>
   <%  coll.each do |item| %>
-    <li><%= link_to item.header[0..Constants::SIDE_BAR_LINK_LENGTH] << "...", item %></li>
+    <li><%= link_to item.header[0..Constants::SIDE_BAR_LINK_LENGTH] << "...", scoped_vote_topic_path(item.category, item) %></li>
   <% end %>
 <% elsif coll_type == 'category'%>
   <%  coll.each do |item| %>

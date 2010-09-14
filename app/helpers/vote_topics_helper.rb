@@ -34,7 +34,7 @@ module VoteTopicsHelper
         end
     end
     
-    def get_more_listing_str listing_type
+    def get_more_listing_str_vt listing_type
         if ["local", "most_tracked", "top", "featured", "tracked"].include?(listing_type)
             case listing_type
             when "local"
@@ -54,24 +54,42 @@ module VoteTopicsHelper
         return listing_str
     end
 
-    def get_listing_str listing_type, context
-        case listing_type
-        when "category"
-            listing_str = "In #{context}"
-        when "tracked_all"
-            listing_str = "Tracked"
-        when "local_all"
-            listing_str = "In #{context}"
-        when "top_all"
-            listing_str = "Most Voted"
-        when "featured_all"
-            listing_str = "All Featured"
-        when "featured_all"
-            listing_str = "Featured"
+    #    def get_listing_str listing_type, context
+    #        case listing_type
+    #        when "category"
+    #            listing_str = "In #{context}"
+    #        when "tracked_all"
+    #            listing_str = "Tracked"
+    #        when "local_all"
+    #            listing_str = "In #{context}"
+    #        when "top_all"
+    #            listing_str = "Most Voted"
+    #        when "featured_all"
+    #            listing_str = "All Featured"
+    #        when "featured_all"
+    #            listing_str = "Featured"
+    #        else
+    #            listing_str = "All"
+    #        end
+    #        return listing_str
+    #    end
+    def get_listing_str params
+        if params[:city_scope]
+            listing_str = "In #{params[:city_scope]}"
+        elsif params[:category_scope]
+            listing_str = "In #{params[:category_scope]}"
         else
-            listing_str = "All"
+            case params[:listing_type]
+            when "tracked_all"
+                listing_str = "Tracked"
+            when "top_all"
+                listing_str = "Most Voted"
+            when "featured_all"
+                listing_str = "Featured"
+            else
+                listing_str = "All"
+            end
         end
-        return listing_str
     end
 
     

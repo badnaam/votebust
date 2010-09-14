@@ -1,17 +1,18 @@
 <% if local_assigns[:what_listing].nil? %>
   <% what_listing = nil %>
 <% end %>
+<% listing_type = request.parameters[:listing_type] %>
 <% if @vote_topics.size > 0 %>
   <% if what_listing %>
     <h5 class="normal-pad append-bottom ui-widget-header"><%= what_listing %></h5>
   <% end  %>
   <%= order_links request.parameters['order'] %>
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
-  <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
+  <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type} %>
   <% @vote_topics.each do |vt| %>
     <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
   <% end  %>
-  <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => @listing_type} %>
+  <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type} %>
 <% else %>
   <div>Sorry, no votes found.</div>
 <% end  %>

@@ -303,11 +303,7 @@ div.pagination span.disabled {
 .content_container {
 }
 .nav_container {
-    border-bottom:1px solid;
-    border-top:1px solid;
-    margin-top:1em;
-    padding-top:5px;
-    vertical-align:bottom;
+    overflow: auto;
 }
 body {
     font-family:sans-serif,"Helvetica Neue",Arial,Helvetica !important;
@@ -359,14 +355,14 @@ body a:hover {
 }
 
 .main_links_div ul {
-    display:inline;
+    list-style-type: none;
     margin-bottom:0 !important;
-    padding-left:0;
-    white-space:nowrap;
+    padding-left:0 !important;
 }
 .main_links_div li a {
-    padding:0.7em 0.8em;
+    padding:1em 0.8em;
     font-size:1em;
+    vertical-align: bottom;
 }
 .main_links_div li a:hover {
     -moz-background-clip:border;
@@ -390,10 +386,12 @@ body a:hover {
 }
 .main_links_div li {
     display:inline;
+    float: left;
+    margin-top: .2em;
 }
 .main_links_div {
     margin-bottom:0.4em;
-    vertical-align:baseline;
+    margin-top:0.4em;
 }
 .content_container {
     background-color:white;
@@ -539,9 +537,15 @@ body a:hover {
     width:194px;
 }
 
+.div-search-form {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
 .div-search-form input[type="text"] {
     margin-bottom:0;
     margin-top:0;
+    vertical-align: bottom;
+    height: 16px;
 }
 
 #comment_form textarea {
@@ -617,6 +621,13 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 
 }
 .category-menu-div a {
+    color:white;
+}
+.city-menu-div {
+    display: none;position:absolute;z-index: 190;text-align: left;background-color: #38385c;
+
+}
+.city-menu-div a {
     color:white;
 }
 
