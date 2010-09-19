@@ -11,8 +11,9 @@
   </div>
 </div>
 <% content_for :right_nav do %>
-  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Categories", :load_path =>
-      categories_path(:type => "category_all"), :l_type => "category_all", :first => true} %>
+  <%#= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Categories", :load_path => categories_path(:type => "category_all"), :l_type => "category_all", :first => true} %>
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Most Voted", :load_path => side_bar_index_vote_topics_path(:type => "top_votes_min"),
+    :l_type => "top_votes_min", :first => true} %>
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
       side_bar_index_vote_topics_path(:type => "latest"), :l_type => "latest", :first => false} %>
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>

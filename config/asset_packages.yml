@@ -3,13 +3,13 @@ javascripts:
 - base: 
   - jquery.tools.min
   - application
+  - cook
 stylesheets: 
-- base:
+- base: 
   - custom
   - screen
   - formtastic
   - jquery-ui-1.8.2.custom
+#  - print
 #  - reset
-#  - ie
-
-  
+ # - ie

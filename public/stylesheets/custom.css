@@ -1,3 +1,35 @@
+
+.flash-error{
+    background:#6B1411;color:#ffffff;border-color:#510F0D;
+}
+.flash-notice {
+    background:#A89645;color:#ffffff;border-color:#8E7F3B;
+}
+.flash-success{
+    background:#8A9E37;color:#ffffff;border-color:#69782C;
+}
+#close_flash {
+    cursor:pointer;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+#flash_messages_content {
+    padding-top:  .5em;
+    padding-bottom: .5em;
+    font-size:1.2em;
+/*    border-bottom: 2px solid red;*/
+    font-weight: bold;
+}
+#flash_messages_container {
+    position: fixed;
+    overflow-y:hidden;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 400;
+}
 .order-link span.current {
     background-color:#ffffff;
     color:#ff0084;
@@ -58,20 +90,21 @@
 }
 .form-hint {
     margin-left: 25% !important;
+    font-size:.8em;
 }
 .tooltip {
     /*    background-color:#38385c;*/
-/*    background-color:#444444;*/
+    /*    background-color:#444444;*/
     background-color:#f6f6f6;
     border:1px solid #fff;
     padding:10px 15px;
     /*    width:200px;*/
     display:none;
     color:#38385c;
-/*    color:#dddddd;*/
+    /*    color:#dddddd;*/
     text-align:left;
     font-size:1em;
-
+    z-index: 10;
     /* outline radius for mozilla/firefox only */
     -moz-box-shadow:0 0 10px #000;
     -webkit-box-shadow:0 0 10px #000;
@@ -126,7 +159,16 @@ blockquote.preview {
 blockquote span {
     background:transparent url(http://www.facebook.com/images/end_quote_small.gif) no-repeat scroll right bottom; padding:0 15px 0 0; }
 
-
+blockquote span a {
+    color:#356AA0 !important;
+    font-weight: bold;
+    font-style: normal !important;
+}
+blockquote span  {
+    color:#356AA0 !important;
+    font-weight: bold;
+    font-style: normal !important;
+}
 .comment-list {
     padding-left: 0;
     margin-bottom: 0;
@@ -226,14 +268,14 @@ div.pagination span.current {
 div.pagination span.disabled {
     display:none;
 }
+.right {
+    text-align: right;
+}
 .center {
     text-align:center;
 }
 .bld {
     font-weight:bold;
-}
-.right {
-    float:right;
 }
 
 .bordered-all {
@@ -416,10 +458,15 @@ body a:hover {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
+    margin-top: 1em;
     background:#38385c none repeat scroll 0 0;
     height:10em;
-    padding:4em 0 0;
-    text-align:left;
+    padding:1em 0 1em 0;
+    text-align:right;
+    bottom: 0;
+    position: static;
+    width:100%;
+    left:0;
 }
 .footer_links {
     overflow:hidden;
@@ -461,10 +508,10 @@ body a:hover {
     margin-right:0.3em;
 }
 .big {
-    font-size:1.2em;
+    font-size:1.1em;
 }
 .small {
-    font-size:.8em;
+    font-size:.9em;
 }
 .special-text {
     color:#F5722C !important;

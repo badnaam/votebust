@@ -3,8 +3,9 @@
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
 require 'active_support/cache/dalli_store23'
-config.cache_store = :dalli_store
-CACHE = Dalli::Client.new('127.0.0.1:11211')
+#config.cache_store = :dalli_store
+config.cache_store = :dalli_store, '127.0.0.1:11211'
+#DC = Dalli::Client.new
 
 config.cache_classes = true
 
@@ -25,6 +26,8 @@ config.action_mailer.default_charset = "utf-8"
 
 
 config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+
+#config.gem "rails-footnotes"
 
 #ActionMailer::Base.smtp_settings = {
 #    :address => "smtp.gmail.com",

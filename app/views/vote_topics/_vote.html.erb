@@ -82,7 +82,7 @@
         dataType:'html', success:function(){
         }
       }
-      });
+    });
 
     function updatePageElems() {
       showLoading($('#vote_loading'));
@@ -101,10 +101,29 @@
       }
     }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
 
-    $('#vote_login_link').button({icons:{primary:'ui-icon-key'}});
-
-    $('#trackings').live('click', function() {
-      $.post($(this).attr('href'), function(){});
+    $('#track_link').live('click', function() {
+      $(this).addClass('loading-link')
+      if ($(this).hasClass('untrack')) {
+        $.ajax({
+          type :'DELETE',
+          url : $(this).attr('href'),
+          dataType : 'script',
+          complete : function() {
+            $(this).removeClass('loading-link')
+          }
+        }
+      );
+      } else {
+        $.ajax({
+          type : 'POST',
+          url:$(this).attr('href'),
+          dataType : 'script',
+          complete : function() {
+            $(this).removeClass('loading-link')
+          }
+        }
+      );
+      }
       return false;
     });
 
@@ -112,7 +131,7 @@
       relative : true
     });
 
-<% if @user %>
+<% if current_user %>
       handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
       //and fire it on doc ready, too
       update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
@@ -180,7 +199,7 @@
 <% end  %>
 
 
-<%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => @user, :selected_response_for_comment => @selected_response} %>
+<%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => current_user, :selected_response_for_comment => @selected_response} %>
 
 <div class="push span-18 last"></div>
 

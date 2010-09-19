@@ -1,0 +1,5 @@
+<% if @saved %>
+$('#invitation_status').html('Sent invitations to friend, feel free to send some more!');
+  <% else %>
+$('#invitation_status').html('Failed to send invitation, please try again');
+<% end  %>

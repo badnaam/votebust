@@ -29,7 +29,7 @@ when 'production'
         rake "process_votes"
     end
     every 30.minutes do
-#        rake "facet_update_start"
+        rake "facet_update_start"
     end
     every 1.days, :at => '11am' do
         rake "update_vote_topic_flags"
@@ -38,13 +38,13 @@ when 'production'
         rake "ts:start RAILS_ENV=production"
         command "cd #{path} && script/delayed_job start RAILS_ENV=production"
         #todo change memcached parameters
-        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
+#        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
     end
 when 'development'
     every :reboot do
         rake "ts:start RAILS_ENV=development"
         command "cd #{path} && script/delayed_job start RAILS_ENV=development"
-        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
+#        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
     end
     every 10.minutes do
         rake "process_votes"

@@ -1,17 +1,20 @@
-<div  class=" city-menu-div span-24 last" id="city_menu">
-  <span class="go-right ui-icon ui-icon-close" id="close_city_menu"></span>
-  <hr class="clear prepend-top"/>
-  <% cities = User.all(:select => 'distinct city').collect {|x| x.city}%>
-  <table class="" id="">
-    <% cities.each_with_index do |c, i| %>
-      <% if i == 0 || i % 5 == 0 %>
-        <tr>
-        <% end %>
-        <td><%= link_to c, city_vote_topics_path(c, :order => 'distance') %></td>
-        <%if (i + 1) %  5 == 0 %>
-        </tr>
+<%  # todo expiration of city nav%>
+<% cache('city_nav', :expires => 30.minutes) do  -%>
+  <div  class=" city-menu-div span-24 last" id="city_menu">
+    <span class="go-right ui-icon ui-icon-close" id="close_city_menu"></span>
+    <hr class="clear prepend-top"/>
+    <% cities = User.all(:select => 'distinct city').collect {|x| x.city}%>
+    <table class="" id="">
+      <% cities.each_with_index do |c, i| %>
+        <% if i == 0 || i % 5 == 0 %>
+          <tr>
+          <% end %>
+          <td><%= link_to c, city_vote_topics_path(c, :order => 'distance') %></td>
+          <%if (i + 1) %  5 == 0 %>
+          </tr>
+        <% end  %>
       <% end  %>
-    <% end  %>
-  </table>
-  <div class=".clear"></div>
-</div>
+    </table>
+    <div class=".clear"></div>
+  </div>
+<% end -%>

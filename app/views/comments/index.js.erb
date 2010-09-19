@@ -1,4 +1,4 @@
-<% if @paginated %>
+<% if request.parameters[:paginated] %>
   $("#comments_content_<%= request.parameters['vi_id'] %>").html("<%= escape_javascript((render :partial => 'comments/comments_tab')) %>");
 <% else %>
   <%= render :partial => "comments/comments_tab" %>

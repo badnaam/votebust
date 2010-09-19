@@ -1,12 +1,24 @@
 <% if !flash.nil? %>
   <% if flash[:notice] %>
-    <div class ="notice" id ="notice"><%= flash[:notice] %></div>
+  <script type="text/javascript">
+      //<![CDATA[
+      showFlash("<%= flash[:notice] %>", "flash-notice");
+      //]]>
+    </script>
   <% end  %>
   <% if flash[:success] %>
-    <div class ="success" id ="success"><%= flash[:success] %></div>
+  <script type="text/javascript">
+      //<![CDATA[
+      showFlash("<%= flash[:success] %>", "flash-success");
+      //]]>
+    </script>
+
   <% end  %>
   <% if flash[:error] %>
-    <div class ="error" id ="error"><%= flash[:error] %>
-    </div>
+  <script type="text/javascript">
+      //<![CDATA[
+      showFlash("<%= flash[:error] %>", "flash-error");
+      //]]>
+    </script>
   <% end  %>
 <% end  %>

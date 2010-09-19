@@ -1,4 +1,4 @@
-class ModelHelpers
+module ModelHelpers
     def self.determine_order order
         case order
         when 'recent'
@@ -24,9 +24,15 @@ class ModelHelpers
             'power_offered DESC'
         when 'distance'
             '@geodist ASC'
+        when 'tracking'
+            'trackings_count DESC'
         else
             'created_at DESC'
         end
     end
 
+    def self.prod?
+        Rails.env == "production"
+    end
+    
 end

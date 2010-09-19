@@ -23,15 +23,13 @@
     <% url = { :action => "update", :id => @vote_topic.id } %>
 <% end  %>
 <% semantic_form_for @vote_topic, :url => url  do |form| %>
-  <% if !@vote_topic.new_record? %>
-    <%= hidden_field_tag :scope, @vote_topic.category.to_param %>
-  <% end  %>
   <%= form.semantic_errors %>
   <% form.inputs do %>
     <li class="bld">Fields marked with (*) are required.</li>
     <%= form.input :user_id, :as => :hidden %>
     <%= form.input :header, :label => "Topic", :input_html => {:style => "width:60%"}, :hint => "#{t 'vote_topic.new.header_hint'}.
     Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
+    <%= form.input :anon, :label => "Anonymous?", :hint => "Your username will not be shown with the Vote Topic." %>
     <li>
       <div id="suggestions" class="suggestions" style="display:none">
       </div>
@@ -61,7 +59,7 @@
           More about Voting Power in FAQ.</a>.
       </li>
     <% end  %>
-    <%= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
+    <%#= form.input :website, :label => "Link", :input_html => {:style => "width:60%"}, :hint => "A relevant link about the topic i.e. News headline, Article etc." %>
     <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:60%;height:80px" } %>
     <li class="form-hint">
       <%=  "#{t 'vote_topic.new.email_hints'}" %>

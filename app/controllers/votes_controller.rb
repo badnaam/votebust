@@ -1,8 +1,7 @@
 class VotesController < ApplicationController
     def index
-        @listing_type = params[:listing_type]
-        @paginated = params[:paginated]
-        if @listing_type == "voted"
+        listing_type = params[:listing_type]
+        if listing_type == "voted"
             @vts = Vote.get_voted_vote_topics(params[:user_id], false, params[:page])
         end
         respond_to do |format|
@@ -17,7 +16,6 @@ class VotesController < ApplicationController
         elsif ret_val == -1
             flash[:notice] = "You have already voted"
         end
-        @response = params[:response]
         respond_to do |format|
             format.js
         end
@@ -30,7 +28,6 @@ class VotesController < ApplicationController
         elsif ret_val == false
             flash[:notice] = "Your vote could not be cancelled. Please try again later."
         end
-        @response = params[:response]
         respond_to do |format|
             format.js
         end

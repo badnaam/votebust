@@ -10,7 +10,7 @@
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type} %>
   <% @vote_topics.each do |vt| %>
-    <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items, :top_vote => @top_vote} %>
+    <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items} %>
   <% end  %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type} %>
 <% else %>

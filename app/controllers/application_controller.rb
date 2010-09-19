@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
     layout "main"
-    
+    #    before_filter :admin_only
     helper :all # include all helpers, all the time
     #    protect_from_forgery # See ActionController::RequestForgeryProtection for details
     after_filter :discard_flash_if_xhr
@@ -16,13 +16,10 @@ class ApplicationController < ActionController::Base
 
     EXCEPTIONS_NOT_LOGGED = ['ActionController::UnknownAction',
         'ActionController::RoutingError']
-
+    include ModelHelpers
+    
     def log_error(exc)
         super unless EXCEPTIONS_NOT_LOGGED.include?(exc.class.name)
-    end
-
-    def header_exempt
-        @header_exempt_page = true
     end
     
     def permission_denied
@@ -35,6 +32,15 @@ class ApplicationController < ActionController::Base
     end
 
     private
+
+    def admin_only
+        #        if Rails.env == "production"
+        authenticate_or_request_with_http_basic do |id, password|
+            id == APP_CONFIG["http_user"] && password == APP_CONFIG["http_pwd"]
+        end
+        #        end
+    end
+    
     def current_role
         unless current_user.nil?
             if session[:current_role]
@@ -69,7 +75,7 @@ class ApplicationController < ActionController::Base
         if cookies[:registration_complete].nil?
             current_user_session.registration_complete? if current_user_session
         else
-           cookies[:registration_complete]
+            cookies[:registration_complete]
         end
     end
 

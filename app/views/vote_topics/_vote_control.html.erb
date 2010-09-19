@@ -2,20 +2,20 @@
   <div id="vote_loading" style="display:none">
     <div class="loading-inner-center"></div>
   </div>
-  <%= hidden_field_tag :user_id, @user.nil? ? nil: @user.id%>
-  <%= hidden_field_tag :reg_complete, @reg_complete.nil? ? nil : @reg_complete %>
-  <%= hidden_field_tag :vote_open, @vote_open.nil? ? nil : @vote_open %>
+  <%= hidden_field_tag :user_id, current_user.nil? ? nil: current_user.id%>
+  <%= hidden_field_tag :reg_complete, registration_complete?.nil? ? nil : registration_complete? %>
+  <%= hidden_field_tag :vote_open, @vote_topic.expires > DateTime.now ? true : nil %>
   <%= hidden_field_tag :vote_id, @vote_topic.nil? ? nil : @vote_topic.id %>
   <%= hidden_field_tag :vote_count, 0 %>
 
-  <% if @vote_open %>
-    <% if @user && @reg_complete %>
+  <% if @vote_topic.expires > DateTime.now %>
+    <% if current_user && registration_complete? %>
         <%= render :partial => "vote_form" %>
         <%= render :partial => "unvoted" %>
     <% else %>
       <%= render :partial => "vote_options" %>
     <% end  %>
-    <%= render :partial => "login_or_register_prompt"   %>
+    <%#= render :partial => "login_or_register_prompt"%>
   <% else %>
     <%= render :partial => "vote_form_closed" %>
   <% end  %>

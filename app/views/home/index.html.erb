@@ -4,6 +4,9 @@
     $('#tabs').tabs(
     {
       spinner:"<img src='/images/loading.gif'/>",
+      cookie : {
+        expires : 1
+      },
       //select:function(event, ui){$('#tabs').animate({opacity:.3}, 'slow', function() {});},
       ajaxOptions:
         {
@@ -14,9 +17,11 @@
           //$('#loading').hide();
           // $('#tabs').animate({opacity:1.0}, 'slow', function() {});
         }
-      }});
+      }
+    }
+  );
 
-/**
+    /**
     var dialogOpts = {
       modal: true,
       title : "Start a Vote!",

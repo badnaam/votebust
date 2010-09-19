@@ -7,6 +7,7 @@ class Vote < ActiveRecord::Base
 
     acts_as_mappable
 
+    named_scope :votes_from_last_six_hours, lambda{{:conditions => ['updated_at > ? AND del = ? ',  6.hours.ago, 0]}}
     #if del = 0 not marked for delete, 1 - marked for delete, 2 - processed, go ahead and delete
     
     def self.user_voted?(user_id, vote_topic_id)
@@ -163,15 +164,17 @@ class Vote < ActiveRecord::Base
     end
     
     def self.get_voted_vote_topics user_id, limit, page
+        user = User.find(user_id, :select => 'users.votes_count, users.id')
         if limit
-            coll = find(:all, :conditions => ['votes.user_id = ?', user_id],  :order => 'vote_topics.trackings_count DESC',
-                :include => [{:vote_topic => [:vote_items, :poster, :category]}], :limit => Constants::SMART_COL_LIMIT,
-                :select => Constants::VOTE_TOPIC_FIELDS)
+            Rails.cache.fetch("user_voted_#{user_id}_#{user.votes_count}") do
+                find(:all, :conditions => ['votes.user_id = ?', user_id],  :order => 'vote_topics.created_at DESC',
+                    :include => [{:vote_topic => [:poster, :category]}], :limit => Constants::SMART_COL_LIMIT)
+            end
         else
-            coll = paginate( :conditions => ['votes.user_id = ?', user_id], :order => 'vote_topics.trackings_count DESC',
-                :include => [{:vote_topic => [{:vote_items => :votes}, :poster, :category]}], :per_page => Constants::LISTINGS_PER_PAGE,
-                :page => page, :select => Constants::VOTE_TOPIC_FIELDS)
+            Rails.cache.fetch("user_voted_#{user_id}_#{user.votes_count}_#{page}") do
+                paginate( :conditions => ['votes.user_id = ?', user_id], :order => 'vote_topics.created_at DESC',
+                    :include => [{:vote_topic => [:poster, :category]}], :per_page => Constants::LISTINGS_PER_PAGE,:page => page)
+            end
         end
     end
-
 end

@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     belongs_to :role
     has_many :comments
     has_many :votes
-    
+    has_many :friend_invite_messages
     #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
     
@@ -80,7 +80,8 @@ class User < ActiveRecord::Base
     def check_what_changed
         arr = self.changed.sort
         if arr == ["last_request_at", "perishable_token"] || arr == ["perishable_token" , "processing_vote"] ||
-              arr == ["current_login_at", "last_login_at", "last_request_at", "login_count", "perishable_token"] || arr ==  ["voting_power"] || arr ==  ["votes_count"]
+              arr == ["current_login_at", "last_login_at", "last_request_at", "login_count", "perishable_token"] || arr ==  ["voting_power"] || arr ==  ["votes_count"] ||
+              arr == ["vote_topics_count"]
             self.skip_profile_update = true
             return true
         else
@@ -92,7 +93,13 @@ class User < ActiveRecord::Base
     named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'voting_power DESC', :limit => Constants::SMART_COL_LIMIT,
             :select => 'users.id, users.username, users.voting_power, users.image_file_name, users.image_url, users.image_updated_at, users.image_content_type,
             users.image_file_size'}}
-        
+
+    def get_top_voters
+        Rails.cache.fetch("top_voters", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            top_voters
+        end
+    end
+    
     before_image_post_process do |user|
         if user.image_changed?
             user.processing = true

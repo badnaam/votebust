@@ -3,9 +3,6 @@ class CommentsController < ApplicationController
     def index
         @comments = Comment.vote_topic_id_equals(params[:vid]).vi_id_equals(params[:vi_id]).paginate(:order => 'created_at DESC', :page => params[:page] || 1, 
             :per_page => Constants::COMMENTS_AT_A_TIME)
-        if params[:paginated]
-            @paginated = true
-        end
         respond_to do |format|
             format.js
         end

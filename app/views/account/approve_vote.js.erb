@@ -1,2 +1,2 @@
-$('#flash_messages').html("<%= escape_javascript(render :partial => 'layouts/flash_msg')%>");
+<%= render :partial => 'layouts/flash_js_msg' %>
 $("#<%= @vote_topic.id%>").remove();

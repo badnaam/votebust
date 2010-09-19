@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
     map.resources :searches
     map.resources :votes
+    map.resources :friend_invite_messages
+    map.resources :trackings
     # The priority is based upon order of creation: first created -> highest priority.
 
     # Sample of regular route:
@@ -94,6 +96,9 @@ ActionController::Routing::Routes.draw do |map|
     map.activate "activate/:id", :controller => "activations", :action => "create"
     map.addrpxauth "addrpxauth", :controller => "users", :action => "addrpxauth", :method => :post
 
+    map.connect '/cities', :controller => 'vote_topics', :action => 'index'
+    map.connect '/states', :controller => 'vote_topics', :action => 'index'
+    map.connect '/vote_topics/:scope/', :controller => 'vote_topics', :action => 'index'
     
     map.connect ':controller/:action/:id'
     map.connect ':controller/:action/:id.:format'

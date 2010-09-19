@@ -42,7 +42,10 @@ module ActiveSupport
             end
 
             def fetch(key, options=nil)
-                return nil
+                if block_given?
+                    val = yield
+                end
+                val
             end
             
 #            def read_entry(name, options)

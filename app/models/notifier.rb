@@ -19,6 +19,18 @@ class Notifier < ActionMailer::Base
         body "Here is the body"
     end
 
+    def friend_invite_message(friend_invitation)
+        emails = friend_invitation.emails
+        subject "Invitation from #{friend_invitation.user.username} at #{APP_CONFIG['site_name']}"
+        from          APP_CONFIG['site_admin_email']
+        recipients    APP_CONFIG['site_admin_email']
+        bcc           emails
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :friend_invitation => friend_invitation, :site_name => APP_CONFIG['site_name']
+    end
+
+
     def friendly_vote_emails(vote_topic)
         emails = vote_topic.friend_emails
         subject "Vote invitation from #{vote_topic.poster.username} at #{APP_CONFIG['site_name']}"

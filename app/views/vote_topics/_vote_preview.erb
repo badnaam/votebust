@@ -6,7 +6,7 @@
 <% end  %>
 
 <% if !vt.nil? %>
-  <div class="ui-widget-vote-preview bottom-mar normal-pad" style="clear:both;" id="<%= vt.id%> ">
+  <div class="ui-widget-vote-preview bottom-mar normal-pad top-mar" style="clear:both;" id="<%= vt.id%> ">
     <div class="" id="">
       <blockquote class="preview">
         <span class="big"><%= link_to vt.header, scoped_vote_topic_path(vt.category, vt) %></span>

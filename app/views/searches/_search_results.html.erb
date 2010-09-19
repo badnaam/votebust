@@ -26,3 +26,16 @@ end  %>
 <% if paginate %>
   <%= will_paginate @search_results, :class => 'pagination ' %>
 <% end  %>
+
+
+<% content_for :right_nav do %>
+  <% if request.parameters['city']
+    header = "Most Tracked in #{request.parameters['city']}"
+    w_type = 'most_tracked_city'
+  elsif request.parameters['state']
+    header = "Most Tracked in #{request.parameters['state']}"
+    w_type = 'most_tracked_state'
+  end %>
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
+    :l_type => w_type, :first => true} %>
+<% end %>

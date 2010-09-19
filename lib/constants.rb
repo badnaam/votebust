@@ -11,17 +11,19 @@ class Constants
 
     SITE_COLOR = '#38385c'
     USER_PROFILE_IMAGE_SIZE = "50x50"
-    MISSING_IMAGE_FILE = 'small/missing.png'
+    MISSING_IMAGE_FILE = '/images/missing.png'
     VOTE_PROCESS_FREQ = 30.minutes
     MOST_FLAG_TIME_HORIZON = 4.weeks
     VOTE_REFRESH_INTERVAL = 50000000
     MAX_COMMENT_LENGTH = 500
     COMMENTS_AT_A_TIME = 10
 
-    LISTINGS_PER_PAGE = 3
+    LISTINGS_PER_PAGE = 10
+    SIDEBAR_LISTING_NUM = 7
     PROXIMITY = 50
     FACET_PROCESSING_BATCH_SIZE = 20
     WIDE_PROXIMITY = 1000
+    LIMITED_LISTING_CACHE_EXPIRATION = 30.minutes
     
     
     MAX_VOTE_HEADER_LENGTH  = 500
@@ -41,7 +43,7 @@ class Constants
     AGE_GROUP_2 = (20..35)
     AGE_GROUP_3 = (35..55)
     AGE_GROUP_4 = (55..99)
-
+    UNAN_LIMIT = 51
 
     SIDE_BAR_LINK_LENGTH = 50
 ######## vote listings ################
@@ -60,10 +62,11 @@ class Constants
     MAX_VOTES_PER_INTERVAL = 3
     
     FACET_UPDATE_ELIGIBILITY_DELTA = 0.15
+
     MOST_VOTED_LIST_SIZE = 50
     #remove vote_items.v_count
-    VOTE_TOPIC_FIELDS = 'vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.expires, vote_topics.category_id, vote_topics.created_at,
-                        categories.id, categories.name, users.id, users.username, vote_items.option, vote_topics.trackings_count, users.city,
+    VOTE_TOPIC_FIELDS = 'vote_topics.anon, vote_topics.id, vote_topics.header, vote_topics.topic, vote_topics.user_id, vote_topics.expires, vote_topics.category_id,
+                        vote_topics.created_at,categories.id, categories.name, users.id, users.username, vote_items.option, vote_topics.trackings_count, users.city,
                         users.state, users.zip, vote_topics.power_offered, vote_topics.website, users.image_url, users.image_file_name, users.image_content_type,
                         users.voting_power, vote_items.votes_count, vote_topics.votes_count, vote_topics.flags, vote_topics.cached_slug, categories.cached_slug,
                         users.user_cached_slug'

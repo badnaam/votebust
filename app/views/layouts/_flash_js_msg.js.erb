@@ -1,0 +1,11 @@
+<% if !flash.nil? %>
+  <% if flash[:notice] %>
+      showFlash("<%= flash[:notice] %>", "flash-notice");
+  <% end  %>
+  <% if flash[:success] %>
+      showFlash("<%= flash[:success] %>", "flash-success");
+  <% end  %>
+  <% if flash[:error] %>
+      showFlash("<%= flash[:error] %>", "flash-error");
+  <% end  %>
+<% end  %>

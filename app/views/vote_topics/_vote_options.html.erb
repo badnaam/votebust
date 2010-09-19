@@ -4,5 +4,9 @@
       <%= v.option.titleize %>
     </li>
   <% end  %>
-  <li class="no-style-no-border" style="padding-bottom:1em;"><span class="go-right">Vote to see results</span></li>
+  <% if !current_user %>
+    <li class="no-style-no-border right " ><%= link_to "Login to Vote/See Results", login_path, :class => 'normal-pad ui-state-default' %></li>
+  <% elsif current_user && !registration_complete? %>
+    <li class="no-style-no-border right " ><%= link_to "Complete Registration to Vote/See Results", edit_user_path(current_user), :class => 'normal-pad ui-state-default'%></li>
+  <% end  %>
 </ul>

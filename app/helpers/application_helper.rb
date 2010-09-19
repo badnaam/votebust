@@ -1,6 +1,18 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+    def make_tooltip str
+        return "<span class='tooltip'>#{str}</span>"
+    end
+    def cf key
+        if (val = CACHE.fetch key).nil?
+            if block_given?
+                val = yield
+            end
+        end
+        return val
+    end
+    
     def sort_vote_items (vote_items)
         arr = Array.new
         vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
@@ -25,11 +37,15 @@ module ApplicationHelper
         end
     end
 
-    def get_user_avatar_link user
-        if !user.image_url.nil?
-            return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user
+    def get_user_avatar_link user, anon=false
+        if anon
+            return image_tag Constants::MISSING_IMAGE_FILE
         else
-            return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user
+            if !user.image_url.nil?
+                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user
+            else
+                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user
+            end
         end
     end
 

@@ -1,0 +1,3 @@
+rake asset:packager:build_all
+touch tmp/resart.txt
+

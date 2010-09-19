@@ -4,19 +4,25 @@ development:
 production:
   mem_limit: 20M
   enable_star: true
-  searchd_file_path: /var/www/votechek/shared/sphinx
+  searchd_file_path: /home/asit/Apps/nap_on_it/db/sphinx/prod
   enable_star: true
-  query_log_file: /var/www/votechek/shared/log/searchd.query.log
-  config_file: /var/www/votechek/shared/config/sphinx.conf
+  query_log_file: /home/asit/Apps/nap_on_it/log/searchd.query.log
+  config_file: //home/asit/Apps/nap_on_it/config/prod_sphinx.conf
   mem_limit: 20M
-  searchd_log_file: /var/www/votechek/shared/log/searchd.log
+  searchd_log_file: /home/asit/Apps/nap_on_it/log/searchd.log
   morphology: stem_en
-  pid_file: /var/www/votechek/shared/log/searchd.production.pid
+  pid_file: /home/asit/Apps/nap_on_it/log/searchd_production.pid
 
-#  port: 9312
-#  indexer_binary_name: "/usr/local/bin/indexer"
-#  searchd_binary_name: "/usr/local/bin/searchd"
-#  bin_path: "/usr/local/bin/"
-#  pid_file: "/var/www/votechek/shared/tmp/searchd.pid"
-#  searchd_file_path: "/var/www/votecheck/shared/db/sphinx"
+  #########following is gold configuration
+#  mem_limit: 20M
+#  enable_star: true
+#  searchd_file_path: /var/www/votechek/shared/sphinx
+#  enable_star: true
+#  query_log_file: /var/www/votechek/shared/log/searchd.query.log
+#  config_file: /var/www/votechek/shared/config/sphinx.conf
+#  mem_limit: 20M
+#  searchd_log_file: /var/www/votechek/shared/log/searchd.log
+#  morphology: stem_en
+#  pid_file: /var/www/votechek/shared/log/searchd.production.pid
+
   

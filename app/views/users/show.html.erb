@@ -5,6 +5,9 @@
     $('#tabs').tabs(
     {
       spinner:"<img src='/images/loading.gif'/>",
+      cookie : {
+        expires : 1
+      },
       ajaxOptions:{
         error:function(xhr, status,index, anchor){
           $(anchor.hash).html("Couldn't load this tab. \n\
@@ -16,7 +19,11 @@
       }
     });
 
-
+    $('#friend_invite_submit').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
+      $('#friend_invite_form').submit();
+      return false;
+    });
+    
     $('.pagination a').live("click", function () {
       var elementToBeFilled = $(this).parent('.pagination').parent('.ui-tabs-panel').attr('id');
       $(this).addClass('loading-link')
@@ -35,19 +42,27 @@
   //]]>
 </script>
 
+<div class="span-18 last append-bottom" id="">
+  <table class="ui-widget-content vote-preview" id="">
+    <tr>
+      <td>
+        <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
+      </td>
+    </tr>
+  </table>
+</div>
+
 <div class="span-18 last">
-  <div class="prepend-top normal-pad ui-widget-content append-bottom">
-    <% if current_user != @user %>
-      <h3 class="prepend-top append-bottom normal-pad ui-widget-header"><%= "#{@user.username}'s Activity" %></h3>
-    <% end  %>
+  <div class="prepend-top append-bottom">
     <div id="tabs" class="prepend-top">
       <ul>
-        <li><a title ="Your account" href="#user_tab">Profile</a></li>
         <% permitted_to? :update, @user do %>
-          <li title="Vote Topics you are tracking"><a   title ="tracked_votes" href="<%= url_for(:controller => :vote_topics, :action => :index,
-                                                          :listing_type => "user_tracked_all")%>"><span>Tracking</span></a></li>
+          <li><a href="#profile_info" class="" id="">Profile</a></li>
+          <li><a href="#invite_friends" class="" id="">Invite Friends</a></li>
+          <li title="Vote Topics you are tracking"><a title ="tracked_votes" href="<%= url_for(:controller => :vote_topics, :action => :index,
+                                                        :listing_type => "tracked_all")%>"><span>Tracking</span></a></li>
           <% end  %>
-        <li  title="Votes you have started.">
+        <li title="Votes you have started.">
           <a  title="started_votes" href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
             <span>Votes Started <span class="" id="">
                 <%= @user.posted_vote_topics.size %>
@@ -60,44 +75,68 @@
           </a>
         </li>
       </ul>
-
-      <div id ="user_tab">
-        <ul class="profile-list prepend-top">
-          <li class="bld" style="width:150px">
-            <%= render :partial => "/shared/ubox_alt", :locals => {:user => @user} %>
-          </li>
-          <% permitted_to? :update, @user do %>
-            <li class="clear">
-              Authentication Provider: <%= h @user.using_rpx? ? @user.get_rpx_providers : (t 'site_name') %>
-            </li>
-            <li>
-              Email:
-              <%=h @user.email %>
-            </li>
-            <li>
-              Gender:
-              <%=h User::SEX[@user.sex] %>
-            </li>
-            <li>
-              Age:
-              <%=h @user.age %>
-            </li>
-            <li>
-              Zip:
-              <%=h "#{@user.zip} (#{@user.city}, #{@user.state})"   %>
-            </li>
-            <% permitted_to? :update, @user do %>
-              <li>
+      <% permitted_to? :update, @user do %>
+        <div class="" id="profile_info">
+          <table class="" id="">
+            <tr class="">
+              <td class="">
+                Authenticating via: <%= h @user.using_rpx? ? @user.get_rpx_providers : (t 'site_name') %>
+              </td>
+              <td class="">
+                Email:
+                <%=h @user.email %>
+              </td>
+            </tr>
+            <tr class="">
+              <td class="">
+                Gender:
+                <%=h User::SEX[@user.sex] %>
+              </td>
+              <td class="">
+                Age:
+                <%=h @user.age %>
+              </td>
+            </tr>
+            <tr class="">
+              <td class="">
+                Zip:
+                <%=h "#{@user.zip} (#{@user.city}, #{@user.state})"   %>
+              </td>
+              <td></td>
+            </tr>
+            <tr class="">
+              <td></td>
+              <td class="" style="text-align: right;">
                 <span class="small-button"><%= link_to 'Edit', edit_user_path(@user), :id => 'profile_edit' %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="" id="invite_friends">
+          <div id="invitation_status"></div>
+          <% semantic_form_for @fim, :html => {:action => friend_invite_message_path, :id => 'friend_invite_form'} do |f| %>
+            <%= f.semantic_errors %>
+            <% f.inputs do %>
+              <%= f.input :message,:as => :text, :input_html => {:style => "width:80%;height:40px"}, :hint => "Enter a short message for your friend, within 250 characters." %>
+              <%= f.input :emails,  :input_html => {:style => "width:80%;height:40px"},
+                :hint => "Enter comma separate list of emails. For example - joe@gmail.com,susan@yahoo.com" %>
+              <li>
+                <span class="small-button"><button id="friend_invite_submit">Send Invitation</button></span>
               </li>
             <% end  %>
-          </ul>
+          <% end  %>
         </div>
         <div class="" id="tracked_votes"></div>
-        <div class="" id="started_votes"></div>
-        <div class="" id="voted_votes"></div>
       <% end  %>
+      <div class="" id="started_votes"></div>
+      <div class="" id="voted_votes"></div>
     </div>
   </div>
 </div>
+
+
 <div class="push"></div>
+
+<% content_for :right_nav do %>
+  <%= render :partial => 'profile_help' %>
+<% end  %>

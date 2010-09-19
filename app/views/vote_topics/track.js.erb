@@ -1,6 +1,0 @@
-<% if @tracked %>
-  $('#tracking').html("<span class='ui-icon ui-icon-heart'></span><a href='<%= track_user_posted_vote_topic_path(@user, @vote_topic, :untrack => true) %>' id = 'track_link' >Untrack</a>");
-<% else %>
-  $('#tracking').html("<span class='ui-icon ui-icon-heart'></span><a href='<%= track_user_posted_vote_topic_path(@user, @vote_topic) %>' id = 'track_link' > Track</a>");
-<% end  %>
-$('#tot_tracking').html("<%= (@vote_topic.trackings_count) %>");

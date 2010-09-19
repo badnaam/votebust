@@ -5,9 +5,9 @@ module VoteTopicsHelper
         str = "<div><span class='go-right order-link' id=''>"
         orders.each do |o|
             if current_order == o
-                str  << "<span class= 'current'>#{current_order.titleize}</span>"
+                str  << "<span class= 'current o-link'>#{current_order.titleize}</span>"
             else
-                str << (link_to o.titleize, vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link')
+                str << (link_to o.titleize, vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link o-link')
             end
         end
         return (str << ('</span></div>'))
@@ -54,38 +54,19 @@ module VoteTopicsHelper
         return listing_str
     end
 
-    #    def get_listing_str listing_type, context
-    #        case listing_type
-    #        when "category"
-    #            listing_str = "In #{context}"
-    #        when "tracked_all"
-    #            listing_str = "Tracked"
-    #        when "local_all"
-    #            listing_str = "In #{context}"
-    #        when "top_all"
-    #            listing_str = "Most Voted"
-    #        when "featured_all"
-    #            listing_str = "All Featured"
-    #        when "featured_all"
-    #            listing_str = "Featured"
-    #        else
-    #            listing_str = "All"
-    #        end
-    #        return listing_str
-    #    end
     def get_listing_str params
-        if params[:city_scope]
-            listing_str = "In #{params[:city_scope]}"
-        elsif params[:category_scope]
-            listing_str = "In #{params[:category_scope]}"
+        if params[:category_id]
+            listing_str = "In #{params[:category_id].titleize}"
         else
             case params[:listing_type]
-            when "tracked_all"
-                listing_str = "Tracked"
+            when "most_tracked_all"
+                listing_str = "Most Tracked"
             when "top_all"
                 listing_str = "Most Voted"
             when "featured_all"
                 listing_str = "Featured"
+            when "tracked_all"
+                listing_str = "Topics you are tracking"
             else
                 listing_str = "All"
             end

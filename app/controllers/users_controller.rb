@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    layout proc { |controller| controller.action_name == 'show' ? 'main' : 'login' }
+    layout proc { |controller| ["show", "edit"].include?(controller.action_name) ? 'main' : 'login' }
 #    skip_before_filter :require_user, :only => [:top_voters]
     before_filter :require_no_user, :only => [:new, :create]
     before_filter :require_user, :except => [:new, :create, :top_voters]
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     end
 
     def top_voters
-        @listing_type = params[:type]
         @users = User.top_voters
         respond_to do |format|
             format.js
@@ -42,6 +41,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+#        @fim = current_user.friend_invite_messages.build
+        @fim = FriendInviteMessage.new
     end
 
     def edit

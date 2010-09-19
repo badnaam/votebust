@@ -11,7 +11,7 @@ Rails::Initializer.run do |config|
     require 'custom_logger'
     #todo change log level in production
     config.log_level = ENV['RAILS_ENV']=='production' ?
-      ActiveSupport::BufferedLogger::Severity::INFO :
+      ActiveSupport::BufferedLogger::Severity::DEBUG :
       ActiveSupport::BufferedLogger::Severity::DEBUG
 
     #   # initializing custom logger
@@ -109,6 +109,13 @@ Rails::Initializer.run do |config|
     #    config.gem "geokit", :source => "gems.github.com"
     config.gem 'will_paginate', :lib => 'will_paginate',  :source => 'http://gemcutter.org'
 
+
+    if defined?(PhusionPassenger)
+        PhusionPassenger.on_event(:starting_worker_process) do |forked|
+            # Only works with DalliStore
+            Rails.cache.reset if forked
+        end
+    end
 
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

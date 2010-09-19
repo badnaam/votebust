@@ -84,12 +84,37 @@ function makeCancelElement(id, txt) {
     return cancel_element;
 }
 
+function showFlash(msg, tp) {
+    if ($('#flash_messages_container').length > 0) {
+        $('#flash_messages_container').remove();
+    }
+    var flashContainer = $("<div id='flash_messages_container' class='flash-messages " +  tp  + " '></div>");
+    flashContainer.prepend("<div id='flash_messages_content'>" + msg + "<span class='go-right' id='close_flash'><span class='ui-icon ui-icon-close'></span>Dismiss</span></div>");
+    $('body').prepend(flashContainer);
+    //$('body').animate({'margin-top' : flashContainer.outerHeight()}, 500, function() {});
+    $('body').css('margin-top', flashContainer.outerHeight());
+    posMenus();
+    $('#close_flash').click(function() {
+        $('#flash_messages_container').remove();
+        //    $('body').animate({'margin-top' : 0}, 500, function(){});
+        $('body').css('margin-top', '0');
+        posMenus(); //reposition the menus since the structure of the document now changed
+    });
+//return no;
+}
+
 
 
 function prepareToolTip() {
     $('.vote-power-ubox').each(function() {
         $(this).tooltip({
             relative : true
+        });
+    });
+    $('#track_link').each(function() {
+        $(this).tooltip({
+            relative : true,
+            position : 'center left'
         });
     });
     $('.tracking-count').each(function() {
@@ -100,7 +125,7 @@ function prepareToolTip() {
     });
     $('.power-wrapper').each(function() {
         $(this).tooltip({
-            relative : true,
+           relative : true,
             position : 'center left'
         });
     });
@@ -119,42 +144,34 @@ function prepareToolTip() {
 }
 
 function posMenus() {
-    var pos = $("#home_nav a").offset();
-    var width = $("#home_nav").width();
-    var height = $("#home_nav a").outerHeight();
-    //show the menu directly over the placeholder
-    $("#cat_menu").css( {
-        "left": (pos.left) + "px",
-        "top":(pos.top + height) + "px"
-    });
-    $("#city_menu").css( {
-        "left": (pos.left) + "px",
-        "top":(pos.top + height) + "px"
-    });
+    if ($('#home_nav a').length > 0) {
+        var pos = $("#home_nav a").offset();
+        var width = $("#home_nav").width();
+        var height = $("#home_nav a").outerHeight();
+        //show the menu directly over the placeholder
+
+        $("#cat_menu").css( {
+            "left": (pos.left) + "px",
+            "top":(pos.top + height) + "px"
+        });
+        $("#city_menu").css( {
+            "left": (pos.left) + "px",
+            "top":(pos.top + height) + "px"
+        });
+    }
 }
-var showMenu = function(ev) {
-    //get the position of the placeholder element
-    //if city is open close it first
+function showMenu() {
     if ($('#city_nav a').hasClass('hover-nav')) {
-        $('#city_nav a').removeClass('hover-nav')
+        $('#city_nav a').removeClass('hover-nav');
         $('#city_menu').toggle('fast');
     }
     $('#cat_nav a').toggleClass('hover-nav');
     $("#cat_menu").toggle('fast');
 
 }
-var showCityMenu = function(ev) {
-    //get the position of the placeholder element
-    /**  var pos = $("#home_nav a").offset();
-    var width = $("#home_nav").width();
-    var height = $("#home_nav a").outerHeight();
-    //show the menu directly over the placeholder
-    $("#city_menu").css( {
-        "left": (pos.left) + "px",
-        "top":(pos.top + height) + "px"
-    }); **/
+function showCityMenu() {
     if ($('#cat_nav a').hasClass('hover-nav')) {
-        $('#cat_nav a').removeClass('hover-nav')
+        $('#cat_nav a').removeClass('hover-nav');
         $('#cat_menu').toggle('fast');
     }
     $('#city_nav a').toggleClass('hover-nav');
@@ -162,7 +179,7 @@ var showCityMenu = function(ev) {
 }
 
 $(document).ready(function() {
-    setTimeout(prepareToolTip, 500)
+    setTimeout(prepareToolTip, 500);
 
     $(document).bind('ajaxComplete', function() {
         prepareToolTip();
@@ -170,6 +187,7 @@ $(document).ready(function() {
 
     /** set up the menus **/
     posMenus();
+    
     /****For comments**/
     $('#comment_submit').button({
         icons:{
@@ -181,7 +199,7 @@ $(document).ready(function() {
     });
 
     $('#new_comment').submit(function (){
-        showLoading('#com_submit_loading')
+        showLoading('#com_submit_loading');
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             hideLoading('#com_submit_loading');
         }, "script");
