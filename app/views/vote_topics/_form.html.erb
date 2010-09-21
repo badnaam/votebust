@@ -18,11 +18,17 @@
   //]]>
 </script>
 <% if @vote_topic.new_record? %>
-  <% url = { :action => "create", :id => @vote_topic.id } %>
+  <% #url = { :action => "create", :id => @vote_topic.id }
+  url = vote_topic_path
+  method = :post
+%>
 <% else %>
-    <% url = { :action => "update", :id => @vote_topic.id } %>
+  <% #url = { :action => "update", :id => @vote_topic.id, :scope => @vote_topic.category }
+  url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
+  method = :put
+%>
 <% end  %>
-<% semantic_form_for @vote_topic, :url => url  do |form| %>
+<% semantic_form_for @vote_topic, :url => url, :html => {:method => method}  do |form| %>
   <%= form.semantic_errors %>
   <% form.inputs do %>
     <li class="bld">Fields marked with (*) are required.</li>

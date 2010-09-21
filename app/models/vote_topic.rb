@@ -19,7 +19,7 @@ class VoteTopic < ActiveRecord::Base
 
     ######################associations#########################################
     #    belongs_to :user
-    belongs_to :poster, :class_name => "User", :foreign_key => :user_id, :counter_cache => :posted_vote_topics_count
+    belongs_to :poster, :class_name => "User", :foreign_key => :user_id, :counter_cache => :p_topics_count
     has_many :trackings, :dependent => :destroy
     has_many :users, :through => :tracking
     has_one :vote_facet
@@ -52,7 +52,7 @@ class VoteTopic < ActiveRecord::Base
     
     #    after_save :post_save_processing
     
-    attr_accessible :topic, :anon, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered, :cached_slug
+    attr_accessible :topic, :anon, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered
 #    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
     has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :scope => :category
 

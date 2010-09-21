@@ -48,6 +48,6 @@
 
   <div class="span-18 last prepend-top append-bottom" id="">
     <span class=small-button style="margin-right:2em"><button id ="vote_confirm_link">Confirm</button></span>
-    <span class=small-button><%= link_to "Edit", edit_vote_topic_path(@vote_topic.id), :id => 'vote_edit_link' %></span>
+    <span class=small-button><%= link_to "Edit", scoped_edit_vote_topic_path(@vote_topic.category, @vote_topic), :id => 'vote_edit_link' %></span>
   </div>
 <% end  %>

@@ -10,8 +10,8 @@
 </script>
 <div><%=  flash[:recaptcha_error] %>
 </div>
-<h4 class="normal-pad ui-widget-header append-bottom">Profile</h4>
 <% unless @user.new_record? %>
+<h4 class="normal-pad ui-widget-header append-bottom">Profile</h4>
   <div class="ui-widget-content normal-pad prepend-top append-bottom" id="">
     <ul class="" id="" style="margin-bottom:0;">
       <li>
@@ -30,13 +30,13 @@
       <li>Fields marked with * are required.</li>
     <% end  %>
     <% if !form.object.using_rpx? %>
-      <%= form.input :username, :input_html => {:style => "width:30%"} %>
-      <%= form.input :password, :label => form.object.new_record? ? "Password" : "Change password", :input_html => {:style => "width:30%"} %>
-      <%= form.input :password_confirmation , :input_html => {:style => "width:30%"}%>
+      <%= form.input :username, :input_html => {:style => "width:30%"}, :label => 'Username*' %>
+      <%= form.input :password, :label => form.object.new_record? ? "Password" : "Change password", :input_html => {:style => "width:30%"}, :label => "Password*" %>
+      <%= form.input :password_confirmation , :input_html => {:style => "width:30%"}, :label => "Password Confirmation*"%>
     <% end  %>
     <%= form.input :email, :input_html => {:style => "width:30%"} %>
     <%= form.input :zip, :label => 'Your Zipcode', :input_html => {:style => "width:30%"} %>
-    <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1} %>
+    <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1}, :label => "Gender*" %>
     <%= form.input :age, :as => :select, :collection => Constants::USER_AGE_RANGE.map{|x| [x, x]}, :input_html => {:style => "width:30%"} %>
 
     <% if !form.object.new_record? %>
@@ -70,6 +70,10 @@
     <% end %>
   <% end %>
   <ul>
+    <% if form.object.new_record? %>
+      <li style="margin-bottom:.5em !important;">Clicking Register means you accept <%= t 'site_name' %>'s  <a target="_blank" href="/privacy" class="" id="">Privacy Policy</a>
+        and <a href="/terms" target="_blank">Terms of Use.</a></li>
+    <% end  %>
     <li>
       <span class=""><button id="register_submit"><%= form.object.new_record? ? "Register" : "Update Profile" %></button></span>
     </li>

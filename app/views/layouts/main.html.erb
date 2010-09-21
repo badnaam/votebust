@@ -12,7 +12,7 @@
                <div class="ui-corner-bl ui-corner-br ui-state-hover">
               <ul class="header_links">
                 <% unless  current_user %>
-                  <li><%= link_to "Sign Up", new_user_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
+                  <li><%= link_to "Sign Up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
                   <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
                 <% else %>
                   <li><%= link_to "New Vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text' %></li>

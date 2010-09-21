@@ -2,7 +2,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics
     # GET /vote_topics.xml
     layout "main"
-    #    before_filter :edit_vt_from_params_and_scope, :only => [:edit, :update]
+    before_filter :load_vt_from_id_and_scope, :only => [:edit, :update]
     filter_access_to [:edit, :update, :confirm_vote], :attribute_check => true
     before_filter :require_user, :only => [:edit, :new, :create, :approve_vote, :track]
     before_filter :store_location, :only => [:show]
@@ -192,7 +192,9 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1/edit
     def edit
         @user = current_user
-        #        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
+
+#        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
+#        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
         if @vote_topic.status == 'p'
             edit = true
         end
@@ -241,7 +243,7 @@ class VoteTopicsController < ApplicationController
     # PUT /vote_topics/1
     # PUT /vote_topics/1.xml
     def update
-        @vote_topic = VoteTopic.find(params[:id])
+        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
         @user = User.find(params[:vote_topic][:user_id].to_i)
         respond_to do |format|
             params[:vote_topic][:status] = 'p'
@@ -283,7 +285,7 @@ class VoteTopicsController < ApplicationController
 
     protected
     
-    def edit_vt_from_params_and_scope
+    def load_vt_from_id_and_scope
         @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
     end
 end

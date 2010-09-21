@@ -71,6 +71,8 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :vote_topics, :belongs_to => [:poster, :category],:member => {:confirm_vote => :post,
         :update_stats => :get}, :collection => {:auto_comp => :get, :side_bar_index => :get, :rss => :get}
     map.scoped_vote_topic "/vote_topics/:scope/:id", :controller => "vote_topics", :action => 'show'
+    map.scoped_edit_vote_topic "/vote_topics/:scope/:id/edit", :controller => "vote_topics", :action => 'edit'
+    map.scoped_update_vote_topic "/vote_topics/:scope/:id/update", :controller => "vote_topics", :action => 'update'
     
     
 #    map.category_vote_topics "/vote_topics/categories/:category_scope", :controller => "vote_topics", :action => 'index'
