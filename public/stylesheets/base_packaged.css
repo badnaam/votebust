@@ -1,5 +1,28 @@
-.flash-error{ background:#6B1411;color:#ffffff;border-color:#510F0D}
-.flash-notice {background:#A89645;color:#ffffff;border-color:#8E7F3B}
+.white {color:white}
+.act {background-color: #D65B1A; color : white !important; border-bottom: 1px solid white !important; border-right: 1px solid white !important}
+.pres-nav-menu {color: #F2E9E9; border-bottom: 1px solid #F2E9E9; border-right: 1px solid #F2E9E9; font-weight: bold; font-size : 1.6em}
+.act a {color: white !important}
+.inact a {color: #F2E9E9 !important; font-weight: bold; font-size : 1.6em}
+.points li {font-weight: bold; color:white; font-size: 1.2em; margin-bottom: .6em}
+.points li > a {color:white !important; text-decoration: underline}
+.no-bord {border-right: none !important}
+.pres-nav {/* border-bottom: 1px solid white;*/ width:100%; table-layout: fixed}
+.pres-nav-menu {width:33%; padding : .6em; text-align: center}
+.inv {display: none}
+.vsb {display: block}
+.simple_overlay {/* must be initially hidden */ display:none; /* place overlay on top of other elements */ z-index:10000; /* styling */ background-color:#F5722C; width:675px; min-height:300px; border:1px solid #666; /* CSS3 styling for latest browsers */ -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000}
+/* close button positioned on upper right corner */ .simple_overlay .close {background-image:url(/images/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:35px; width:35px}
+body a {color:#598F49; /* font-weight:bold;*/ text-decoration:none}
+.closeb {background-image:url(/images/close.png); padding-right: 35px; padding-top: 35px; cursor:pointer}
+/****************for sticky footer ********************/ html, body {height: 100%; padding: 0px; margin: 0px}
+* {margin: 0px}
+#main_container {min-height: 100%; height: auto !important; height/**/: 100%; /* for IE6 */ }
+.footer {margin-top: -120px; background:#38385c none repeat scroll 0 0; height:200px; position: relative; clear:both; text-align: right}
+.content_container {padding-bottom: 120px; background-color:white}
+.footer_links {padding-top: 1em; padding-left: 0; white-space:nowrap; list-style-type: none}
+.footer a {color:white; text-decoration:none}
+/*********************** end sticky footer *******************/ .flash-error{ background:#6B1411;color:#ffffff;border-color:#510F0D}
+.flash-notice {/* background:#A89645;color:#ffffff;border-color:#8E7F3B;*/ background:#38385C;color:#ffffff;border-color:#38385C}
 .flash-success{ background:#8A9E37;color:#ffffff;border-color:#69782C}
 #close_flash {cursor:pointer; margin-right: 1em; margin-left: 1em}
 #flash_messages_content {padding-top: .5em; padding-bottom: .5em; font-size:1.2em; /* border-bottom: 2px solid red;*/ font-weight: bold}
@@ -54,9 +77,9 @@ div.pagination a {background-color:#f6f6f6; color:#38385c; margin:2px; padding:0
 div.pagination a:hover, div.pagination a:active {background-color:#38385c; color:#FFFFFF; margin:2px; padding:0.5em 0.64em 0.43em}
 div.pagination span.current {background-color:#ffffff; color:#ff0084; border:1px solid #dddddd; margin:2px; padding:0.5em 0.64em 0.43em}
 div.pagination span.disabled {display:none}
+.right {text-align: right}
 .center {text-align:center}
 .bld {font-weight:bold}
-.right {float:right}
 .bordered-all {border: 1px solid #dddddd}
 .small-pad {padding:.2em}
 .normal-pad {padding:.4em}
@@ -67,11 +90,9 @@ div.pagination span.disabled {display:none}
 .loading-inner-top {background:transparent url(/images/loading_big.gif) no-repeat scroll center center; font-size:16px; font-style:normal; font-variant:normal; font-weight:normal; height:100px; left:40%; line-height:normal; margin-left:-50px; margin-top:-50px; overflow:auto; padding:10px; position:absolute; text-align:center; top:10%; width:100px; z-index:200}
 .loading-link {background:transparent url(/images/loading-link.gif) no-repeat scroll center center}
 .loading-inner-center {background:transparent url(/images/loading_big.gif) no-repeat scroll center center; font-size:16px; font-style:normal; font-variant:normal; font-weight:normal; height:100px; left:40%; line-height:normal; margin-left:-50px; margin-top:-50px; overflow:auto; padding:10px; position:absolute; text-align:center; top:40%; width:100px; z-index:200}
-.content_container {}
 .nav_container {overflow: auto}
 body {font-family:sans-serif,"Helvetica Neue",Arial,Helvetica !important; color:#444444}
 .push {clear:both; height:20em}
-body a {color:#598F49; /* font-weight:bold;*/ text-decoration:none}
 body a:hover {color:#6FA85E !important}
 .header a:hover {color:#86B96A}
 .header_links li {display:inline; padding:0 0.5em}
@@ -88,14 +109,9 @@ body a:hover {color:#6FA85E !important}
 .selected a {-moz-background-clip:border; -moz-background-inline-policy:continuous; -moz-background-origin:padding; background:#38385c none repeat scroll 0 0; color:white !important; font-weight:bold}
 .main_links_div li {display:inline; float: left; margin-top: .2em}
 .main_links_div {margin-bottom:0.4em; margin-top:0.4em}
-.content_container {background-color:white}
 .content {background-color:white; margin-right:0}
 .clearfix:after {clear:both; content:"."; display:block; height:0; visibility:hidden}
 .right_nav {background-color:white}
-.footer {-moz-background-clip:border; -moz-background-inline-policy:continuous; -moz-background-origin:padding; margin-top: 1em; background:#38385c none repeat scroll 0 0; height:10em; padding:1em 0 1em 0; text-align:right; bottom: 0; position: static; width:100%; left:0}
-.footer_links {overflow:hidden; white-space:nowrap; list-style-type: none}
-.footer_links li {}
-.footer a {/* color:#8F8F8F;*/ color:white; text-decoration:none; /* font-weight: bold;*/ }
 .fieldWithErrors {background-color:red; display:inline; padding:2px}
 .top-mar {margin-top:0.5em}
 .right-pad {padding-right:0.5em}

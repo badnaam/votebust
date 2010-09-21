@@ -7,7 +7,7 @@ class Vote < ActiveRecord::Base
 
     acts_as_mappable
 
-    named_scope :votes_from_last_six_hours, lambda{{:conditions => ['updated_at > ? AND del = ? ',  6.hours.ago, 0]}}
+#    named_scope :votes_for_comment_processing, lambda{{:conditions => ['updated_at > ? AND del = ? ', Constants::VOTE_COMMENT_PROCESSING_INTERVAL.ago, 0]}}
     #if del = 0 not marked for delete, 1 - marked for delete, 2 - processed, go ahead and delete
     
     def self.user_voted?(user_id, vote_topic_id)
@@ -61,18 +61,16 @@ class Vote < ActiveRecord::Base
         end
     end
 
-    named_scope :vts, {:conditions => ['votes.id > ? ', 1500], :joins => [:vote_item, :user, :vote_topic],:select => ("votes.id, votes.user_id, users.id, vote_items.id,
-        vote_topics.id, users.voting_power, users.sex, users.lat, users.lng, users.zip, users.city,
-        users.state, users.age,vote_items.option, vote_topics.power_offered, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v, vote_items.ag_2_v,
-        vote_items.ag_3_v, vote_items.ag_4_v, vote_items.votes_count, vote_topics.votes_count, users.votes_count, votes.never_processed, votes.del")}
+    named_scope :vts, lambda{{:conditions => ['votes.updated_at > ? AND never_processed = ? and del = ?', 6.months.ago, false, 0]}}
 
     def self.p_test
         vts.find_in_batches(
-            :batch_size => 200, :conditions => ['never_processed = ? OR del = ?',  false, 1]
+            :batch_size => 200
         ) do |group|
             group.each do |v|
-                puts v.user.username
+                #                puts v.id
             end
+            puts 'Done one group'
         end
     end
 
@@ -129,6 +127,9 @@ class Vote < ActiveRecord::Base
 
                 self.process_award(self.vote_topic, add)
 
+                #change the comment organization
+                self.organize_comments add
+
                 self.vote_topic.increment!(:votes_count, inc)
                 selected_response.increment!(:votes_count, inc)
                 user.increment!(:votes_count, inc)
@@ -152,6 +153,29 @@ class Vote < ActiveRecord::Base
         end
     end
 
+
+    def organize_comments add
+        begin
+            vt_id = self.vote_topic_id
+            vi_id = self.vote_item_id
+            uid = self.user_id
+            comments = Comment.vote_topic_id_equals(vt_id).user_id_equals(uid)
+            comments.each do |c|
+                #if not the correct vi, fix it
+                if add
+                    #change vi_id for all comment for this vote_topic and this user to vote_item_id of this vote
+                    if !(c.vi_id == vi_id)
+                        c.update_attribute(:vi_id, vi_id)
+                    end
+                else
+                    #change vi_id for all comments for this vote_topic and this user to nil
+                    c.update_attribute(:vi_id, nil)
+                end
+            end
+        rescue => exp
+            Rails.logger.error "Error #{exp.message} happened during organizing comment for vote #{self.id} with vote_topic, vote_item, user id as - #{vt_id} - #{vi_id} - #{uid}"
+        end
+    end
     
     def process_award(vt, add)
         if vt.power_offered && vt.power_offered > 0

@@ -59,6 +59,10 @@ class Constants
     #########End Points########
 
     VOTING_COUNTER_RESET_INTERVAL = 30000
+    ########## Vote comment processing###########
+    VOTE_COMMENT_PROCESSING_INTERVAL = 6.months
+    VOTE_BATCH_SIZE = 100
+    ############ End Vote comment processing
     MAX_VOTES_PER_INTERVAL = 3
     
     FACET_UPDATE_ELIGIBILITY_DELTA = 0.15

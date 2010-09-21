@@ -193,7 +193,6 @@ class VoteTopicsController < ApplicationController
     def edit
         @user = current_user
         #        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
-        
         if @vote_topic.status == 'p'
             edit = true
         end

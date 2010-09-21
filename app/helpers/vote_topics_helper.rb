@@ -139,6 +139,7 @@ module VoteTopicsHelper
         if !facet.ag4.nil?
             str << "<li>#{get_facet_message 'ag4', facet.ag4}</li>"
         end
+        return str
     end
     
     

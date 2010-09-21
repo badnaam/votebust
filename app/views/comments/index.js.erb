@@ -1,5 +1,7 @@
 <% if request.parameters[:paginated] %>
   $("#comments_content_<%= request.parameters['vi_id'] %>").html("<%= escape_javascript((render :partial => 'comments/comments_tab')) %>");
+<%# elsif request.parameters[:first_load] %>
+  <%#= render :partial => comments/comments, :locals => {:vote_topic => @vote_topic, :selected_response_for_comment => request.parameters[:selected_response_for_comment]} %>
 <% else %>
   <%= render :partial => "comments/comments_tab" %>
 <% end%>

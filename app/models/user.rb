@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
             :select => 'users.id, users.username, users.voting_power, users.image_file_name, users.image_url, users.image_updated_at, users.image_content_type,
             users.image_file_size'}}
 
-    def get_top_voters
+    def self.get_top_voters
         Rails.cache.fetch("top_voters", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
             top_voters
         end

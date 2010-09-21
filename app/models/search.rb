@@ -15,18 +15,31 @@ class Search < ActiveRecord::Base
     end
 
     def self.city_search  city, per_page, page, order
-        Rails.cache.fetch("#{city}_#{page}_#{order}") do
-            VoteTopic.search :include => [:poster, :category],:geo => location_lat_lng_radian(city),
-              :with => {"@geodist" => 0.0..(Constants::PROXIMITY * Constants::METERS_PER_MILE), :status => VoteTopic::STATUS['approved']},
-              :latitude_attr => :lat, :longitude_attr => :lng, :per_page => per_page, :page => page, :order => (ModelHelpers.determine_order_search order)
-        end
+#        Rails.cache.fetch("#{city}_#{page}_#{order}") do
+            VoteTopic.search(:include => [:poster, :category],:geo => location_lat_lng_radian(city),
+                :with => {"@geodist" => 0.0..(Constants::PROXIMITY * Constants::METERS_PER_MILE), :status => VoteTopic::STATUS['approved']},
+                :latitude_attr => :lat, :longitude_attr => :lng, :per_page => per_page, :page => page, :order => (ModelHelpers.determine_order_search order))
+#        end
+#        if results.class == ThinkingSphinx::Search
+#            return results
+#        else
+#            pag_results = WillPaginate::Collection.create(page, per_page) do |pager|
+#                pager.replace(results)
+#                unless pager.total_entries
+#                    # the pager didn't manage to guess the total count, do it manually
+#                    pager.total_entries = results.count
+#                end
+#
+#            end
+#            return pag_results
+#        end
     end
 
     def self.state_search  state, per_page, page, order
-        Rails.cache.fetch("#{state}_#{page}_#{order}") do
-            VoteTopic.search :conditions => {:state => state}, :with => {:status => VoteTopic::STATUS['approved']}, :page => page, :per_page => per_page,
-              :include => [:poster, :category], :order => (ModelHelpers.determine_order_search order)
-        end
+#        Rails.cache.fetch("#{state}_#{page}_#{order}") do
+            VoteTopic.search(:conditions => {:state => state}, :with => {:status => VoteTopic::STATUS['approved']}, :page => page, :per_page => per_page,
+                :include => [:poster, :category], :order => (ModelHelpers.determine_order_search order))
+#        end
     end
 
     def self.term_search term, per_page, page, order

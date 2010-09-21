@@ -1,6 +1,6 @@
 <div id="comments_container" class="prepend-top span-18 last append-bottom">
   <span class="bld clearfix bottom-mar">Comments</span>
-  <% if user.nil? %>
+  <% if current_user.nil? %>
     <%= link_to "Please login to comment", login_path  %>
   <% else %>
     <div id ="comment_form" class="rel-pos  ">

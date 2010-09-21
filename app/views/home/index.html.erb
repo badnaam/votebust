@@ -64,7 +64,7 @@
       <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "featured") %>"><span>Featured</span></a></li>
       <% if current_user %>
         <% local = current_user.city.nil? ? "Local" : "In " + current_user.city.titleize %>
-        <li><a   href="<%= city_vote_topics_path(current_user.city, :np => 1)%>"><span><%= local %></span></a></li>
+        <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span><%= local %></span></a></li>
         <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
       <% end  %>
     </ul>

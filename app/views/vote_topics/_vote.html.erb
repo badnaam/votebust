@@ -20,7 +20,8 @@
     $('.take-action').live('click', function() {
       var count_val = $('#vote_count').val();
       if (count_val > <%= Constants::MAX_VOTES_PER_INTERVAL %> ) {
-        $('#flash_messages').append('<div></div>').attr('class', 'error').text('Vote Slowly.');
+        showFlash('Vote Slowly', 'flash-error');
+        //$('#flash_messages').append('<div></div>').attr('class', 'error').text('Vote Slowly.');
       } else {
         $('#vote_count').val(++count_val);
         if ($(this).hasClass('vote')) {
@@ -83,24 +84,7 @@
         }
       }
     });
-
-    function updatePageElems() {
-      showLoading($('#vote_loading'));
-      $.get('<%=  update_stats_vote_topic_path(@vote_topic)  %>',
-      {user_id: $('#user_id').val(), reg_complete:$('#reg_complete').val()},
-      function(data){
-        hideLoading($('#vote_loading'));
-      },
-      'script');
-    }
     
-    var refreshId = setInterval(function(){
-      //check if the user has voted, logged in, registered and vote is open
-      if ($('#user_id').val() != "" &&  $('#reg_complete').val != "" && $('#vote_open').val () == "true") {
-        updatePageElems();
-      }
-    }, <%= Constants::VOTE_REFRESH_INTERVAL%> );
-
     $('#track_link').live('click', function() {
       $(this).addClass('loading-link')
       if ($(this).hasClass('untrack')) {
@@ -201,12 +185,9 @@
 
 <%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => current_user, :selected_response_for_comment => @selected_response} %>
 
-<div class="push span-18 last"></div>
-
+  
 <div id="fb-root">
 </div>
-
-
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -225,7 +206,6 @@
   }()
 );
 </script>
-
 <script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
 <script type="text/javascript">
   (function() {

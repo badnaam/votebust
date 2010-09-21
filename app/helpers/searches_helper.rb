@@ -33,11 +33,13 @@ module SearchesHelper
     end
 
     def get_more_listing_str params
+        str = "<div class='append-bottom'>"
         if params[:city]
-            link_to "More in #{params[:city]}", city_vote_topics_path(params[:city], :order => 'distance'), :class => "bld go-right bottom-mar"
+            str << link_to("More in #{params[:city]}", city_vote_topics_path(params[:city], :order => 'distance'), :class => "bld go-right bottom-mar")
         elsif params[:state]
-            link_to "More in #{params[:state]}", state_vote_topics_path(params[:state], :order => 'distance'), :class => "bld go-right bottom-mar"
+            str << link_to("More in #{params[:state]}", state_vote_topics_path(params[:state], :order => 'distance'), :class => "bld go-right bottom-mar")
         end
+        str << "</div>"
     end
 end
 

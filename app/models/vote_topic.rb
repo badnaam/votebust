@@ -48,49 +48,51 @@ class VoteTopic < ActiveRecord::Base
     
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
-    after_save :refresh_caches
+#    after_save :refresh_caches
     
     #    after_save :post_save_processing
     
     attr_accessible :topic, :anon, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered, :cached_slug
-    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
+#    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
+    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :scope => :category
 
-    ###############################named scopes##########################################################################
-    #    default_scope :order => "#{"vote_topics"}.id DESC"
-    scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
-    
-    scope_procedure :most_tracked_in_city, lambda {|city|status_equals(STATUS['approved']).poster_city_equals(city).descend_by_trackings_count}
-    scope_procedure :most_voted_in_city, lambda {|city|status_equals(STATUS['approved']).poster_city_equals(city).descend_by_votes_count}
-    
-    named_scope :latest_votes, lambda {{:conditions => ['status = ? AND created_at > ?',  STATUS['approved'], Constants::SMART_COL_LATEST_LIMIT.ago],
-            :order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT}}
+    ############################### named scopes##########################################################################
+
+    ################################################### user for side bars ##############################################
+    named_scope :latest_votes, lambda {{:conditions => ['status = ? AND vote_topics.created_at > ?',  STATUS['approved'], Constants::SMART_COL_LATEST_LIMIT.ago],
+            :order => 'vote_topics.created_at DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
 
     named_scope :same_user, lambda {|user_id|{:conditions => ['status = ? AND user_id = ?',  STATUS['approved'], user_id],
             :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
     # todo add expires condition?
     named_scope :top_votes_minimal, lambda {{:conditions => ['status = ?',  STATUS['approved']],
-            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
+            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
     
     named_scope :same_category, lambda {|category_id|{:conditions => ['status = ? AND category_id = ?',  STATUS['approved'], category_id],
-            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
+            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
     
     named_scope :unanimous_votes, lambda {{:conditions => ['expires > ? AND status = ? AND unan = ?', DateTime.now, STATUS['approved'], true],
-            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
+            :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
+    
     named_scope :exp, lambda {{:conditions => ['expires < ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
     named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
             :order => 'expires DESC'}}
 
+    ####################################################### user for bg processing ############################################
+    scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
     named_scope :daily, lambda{{:conditions => ['created_at > ? AND created_at < ?',  Date.today.beginning_of_day, Date.today.end_of_day]}}
     named_scope :weekly, lambda{{:conditions => ['created_at > ? AND created_at < ?',  Date.today.beginning_of_week, Date.today.end_of_week]}}
     
     named_scope :featured, lambda {{:conditions => ['expires > ? AND status = ? AND power_offered > ?', DateTime.now, STATUS['approved'],
                 0]}}
+    
     named_scope :most_voted, lambda {{:conditions => ['expires > ? AND status = ? AND votes_count > ?', DateTime.now, STATUS['approved'], 0],
             :order => 'votes_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
     named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ? ', DateTime.now, STATUS['approved'], 0],
             :order => 'trackings_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
-    
+
+    ################################################### others ######################################################
     named_scope :rss, lambda{{:conditions => ['created_at > ?', Constants::RSS_TIME_HORIZON.ago], :order => 'created_at DESC'}}
 
     ####################################### end named scopes####################################################################
@@ -243,9 +245,11 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def self.find_for_show(id, scp)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet], :scope => scp)
+        Rails.cache.fetch("vt_#{id}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet], :scope => scp)
+        end
     end
-
+    
     def self.find_for_preview_save(id)
         find(id, :conditions => ['status = ?', VoteTopic::STATUS['preview']], :include => [:vote_items, :poster, :category])
     end
@@ -329,12 +333,31 @@ class VoteTopic < ActiveRecord::Base
 
             dag_desc = sorted_votes.collect {|x| x.first}.join(', ')
 
-            w_desc = vi.sort_by{|x| x.female_votes}.reverse.first.option
-            m_desc = vi.sort_by{|x| x.male_votes}.reverse.first.option
-            ag1_desc = vi.sort_by{|x| x.ag_1_v}.reverse.first.option
-            ag2_desc = vi.sort_by{|x| x.ag_2_v}.reverse.first.option
-            ag3_desc = vi.sort_by{|x| x.ag_3_v}.reverse.first.option
-            ag4_desc = vi.sort_by{|x| x.ag_4_v}.reverse.first.option
+            f_winner = vi.sort_by{|x| x.female_votes}.reverse.first
+            if f_winner.female_votes > 0
+                w_desc = f_winner.option
+            end
+            m_winner = vi.sort_by{|x| x.male_votes}.reverse.first
+            if m_winner.male_votes > 0
+                m_desc = m_winner.option
+            end
+
+            ag1_winner = vi.sort_by{|x| x.ag_1_v}.reverse.first
+            if ag1_winner.ag_1_v > 0
+                ag1_desc = ag1_winner.option
+            end
+            ag2_winner = vi.sort_by{|x| x.ag_2_v}.reverse.first
+            if ag2_winner.ag_2_v > 0
+                ag2_desc = ag2_winner.option
+            end
+            ag3_winner = vi.sort_by{|x| x.ag_3_v}.reverse.first
+            if ag3_winner.ag_3_v > 0
+                ag3_desc = ag3_winner.option
+            end
+            ag4_winner = vi.sort_by{|x| x.ag_4_v}.reverse.first
+            if ag4_winner.ag_4_v > 0
+                ag4_desc = ag4_winner.option
+            end
 
             if winner.votes_count> 0
                 w_states =  winner.votes.find(:all, :conditions => ['del <> ?', 1]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
@@ -349,7 +372,9 @@ class VoteTopic < ActiveRecord::Base
             end
 
             local_votes = self.votes.find(:all,  :conditions => ['del <> ?', 1],:origin => self.poster.zip, :within => Constants::PROXIMITY)
-            local_winner = local_votes.group_by {|x| x.vote_item_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
+            if local_votes.size > 0
+                local_winner = local_votes.group_by {|x| x.vote_item_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
+            end
 
             if !local_winner.nil?
                 vl_desc = VoteItem.find(local_winner, :select => "vote_items.option").option
@@ -379,7 +404,8 @@ class VoteTopic < ActiveRecord::Base
                 end
             end
         rescue => exp
-            logger.error "Error during updating facet - #{exp.message}"
+            logger.error "Error during updating facet - #{exp.message}. VoteTopic was #{self.id}"
+            logger.error  exp.backtrace.join("\n")
         end
     end
 
@@ -405,16 +431,19 @@ class VoteTopic < ActiveRecord::Base
 
     ############################ called from rake tasks #################################################################
     def self.start_facet_update
+        update_count = 0
         begin
             not_exp.find_in_batches(:batch_size => Constants::FACET_PROCESSING_BATCH_SIZE) do |batch|
                 batch.each do |v|
                     find_for_facet_update(v.id).update_facets false
+                    update_count += 1
                 end
             end
         rescue => exp
             logger.error "Error occured in starting facet update #{exp.message}"
+            logger.error exp.backtrace.join("\n")
         else
-            logger.info "Facet Update completed successfully!"
+            logger.info "#{update_count} Facets Update completed successfully!"
         ensure
             #            GC.start
         end
@@ -511,9 +540,9 @@ class VoteTopic < ActiveRecord::Base
     def refresh_caches
         #        Rails.cache.delete('all_vote_topics_listing')
         #check the category and delete the specific category cache
-        if self.status == STATUS['approved']
-            Rails.cache.delete('category_listing')
-        end
+#        if self.status == STATUS['approved']
+#            Rails.cache.delete('category_listing')
+#        end
     end
 
     def self.newest

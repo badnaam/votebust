@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
     before_filter :require_user, :only => [:create]
+    
     def index
-        @comments = Comment.vote_topic_id_equals(params[:vid]).vi_id_equals(params[:vi_id]).paginate(:order => 'created_at DESC', :page => params[:page] || 1, 
-            :per_page => Constants::COMMENTS_AT_A_TIME)
+        @comments = Comment.get_comments(params[:vid], params[:vi_id], params[:page] || 1)
         respond_to do |format|
             format.js
         end

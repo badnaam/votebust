@@ -34,7 +34,7 @@
           <div class="span-8">
             <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
             <span class="logo_msg"><%= t 'site_logo_msg' %></span>
-            <a href="/faq" class="special-text bld" id="" >
+            <a href="intro-prezo-trig" class="special-text bld" id="" rel="#intro_prezo">
               <%= t ('site_learn_more') %>
             </a>
           </div>
@@ -71,7 +71,9 @@
           <%= yield :right_nav %>
         </div>
       </div> <!-- end content_container -->
+      
     </div>
+    <%= render :partial => "/shared/intro_prezo" %>
     <%= render :partial => "/layouts/footer" %>
   </body>
 </html>

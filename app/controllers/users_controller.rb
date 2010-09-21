@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def top_voters
-        @users = User.top_voters
+        @users = User.get_top_voters
         respond_to do |format|
             format.js
         end

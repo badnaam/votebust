@@ -13,6 +13,7 @@ class SearchesController < ApplicationController
         else
             @search_results  = Search.term_search term, params[:per_page] || Constants::LISTINGS_PER_PAGE, params[:page] || 1, params[:order] || 'recent'
         end
+#        @search_results = @search_results.to_a
         cookies[:voteable_q] = term
         #todo : what is cookies are disabled?
         if params[:city]

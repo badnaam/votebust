@@ -1,3 +1,12 @@
+function removeSelected() {
+    $("a.trig").each(function() {
+        if ($(this).parent('td').hasClass('act')) {
+            $(this).parent('td').removeClass('act');
+        } 
+//        $(this).parent('td').removeClass('act').addClass('inact');
+    });
+}
+
 function handleCommentText(maxLength) {
     $('#comment_body').keyup(
         function() {
@@ -40,7 +49,7 @@ function update_chars_left(max_len, target_input, display_element) {
 function setVotingCounter(inter) {
     var resetVoteCount  = setInterval(function() {
         $('#vote_count').val(0);
-        $('#flash_messages').removeClass('error').empty();
+        hideFlash();
     }, inter);
 }
 
@@ -89,7 +98,7 @@ function showFlash(msg, tp) {
         $('#flash_messages_container').remove();
     }
     var flashContainer = $("<div id='flash_messages_container' class='flash-messages " +  tp  + " '></div>");
-    flashContainer.prepend("<div id='flash_messages_content'>" + msg + "<span class='go-right' id='close_flash'><span class='ui-icon ui-icon-close'></span>Dismiss</span></div>");
+    flashContainer.prepend("<div id='flash_messages_content'>" + msg + "<span class='go-right closeb' id='close_flash'></span></div>");
     $('body').prepend(flashContainer);
     //$('body').animate({'margin-top' : flashContainer.outerHeight()}, 500, function() {});
     $('body').css('margin-top', flashContainer.outerHeight());
@@ -103,7 +112,12 @@ function showFlash(msg, tp) {
 //return no;
 }
 
-
+function hideFlash() {
+    $('#flash_messages_container').remove();
+    //    $('body').animate({'margin-top' : 0}, 500, function(){});
+    $('body').css('margin-top', '0');
+    posMenus(); //reposition the menus since the structure of the document now changed
+}
 
 function prepareToolTip() {
     $('.vote-power-ubox').each(function() {
@@ -125,7 +139,7 @@ function prepareToolTip() {
     });
     $('.power-wrapper').each(function() {
         $(this).tooltip({
-           relative : true,
+            relative : true,
             position : 'center left'
         });
     });
@@ -278,6 +292,24 @@ $(document).ready(function() {
         text:false
     });
 
+    /** for the intro prezo **/
+
+    $("a[rel='#intro_prezo']").overlay();
+    $('#wrap').html($('#what').html());
+    $("a.trig").each(function() {
+        $(this).click(function() {
+            removeSelected();
+            $(this).parent('td').addClass('act')
+            var htmlToInsert = $($(this).attr('rel')).html();
+            $('#wrap').fadeOut('slow', function() {
+                $("#wrap").html(htmlToInsert);
+            });
+            $('#wrap').fadeIn('slow');
+            return false;
+        });
+    });
+    //$('#default_trig').trigger('click');
+/************** end intro prezo **************/
     
 });
 
