@@ -1,0 +1,14 @@
+<div class="span-18 last" id="">
+  <%= link_to "Back to account", account_path %>
+  <% if @vote_topics.size > 0 %>
+    <h4 class="normal-pad ui-widget-header">Not Approved Votes</h4>
+    <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
+    <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => request.parameters[:listing_type]} %>
+    <% @vote_topics.each do |vt| %>
+      <%= render :partial => 'vote_preview', :locals => {:vt => vt, :vi => vt.vote_items} %>
+    <% end  %>
+    <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => request.parameters[:listing_type]} %>
+  <% else %>
+    <div>Sorry, no votes found.</div>
+  <% end  %>
+</div>

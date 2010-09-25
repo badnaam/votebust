@@ -31,6 +31,9 @@ when 'production'
     every 30.minutes do
         rake "facet_update_start"
     end
+    every 55.minutes do
+        rake "check_for_spam"
+    end
     every 1.days, :at => '11am' do
         rake "update_vote_topic_flags"
     end
@@ -38,13 +41,13 @@ when 'production'
         rake "ts:start RAILS_ENV=production"
         command "cd #{path} && script/delayed_job start RAILS_ENV=production"
         #todo change memcached parameters
-#        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
+        #        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
     end
 when 'development'
     every :reboot do
         rake "ts:start RAILS_ENV=development"
         command "cd #{path} && script/delayed_job start RAILS_ENV=development"
-#        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
+        #        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
     end
     every 10.minutes do
         rake "process_votes"
@@ -52,9 +55,9 @@ when 'development'
     every 120.minutes do
         rake "facet_update_start"
     end
-#    every 1.minutes do
-#        rake "log_test"
-#    end
+    #    every 1.minutes do
+    #        rake "log_test"
+    #    end
 
 end
 

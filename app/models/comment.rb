@@ -5,59 +5,70 @@ class Comment < ActiveRecord::Base
     validates_presence_of :body, :vote_topic_id, :user_id
     validates_length_of :body, :within => 1..Constants::MAX_COMMENT_LENGTH
 
-    #    before_save :populate_option
+    #    before_create :check_for_spam
+
+    include Rakismet::Model
+
+    named_scope :not_approved, lambda {{:conditions => ['approved =?', false]}}
+    named_scope :daily_comments, lambda{{:conditions => ['created_at > ? AND created_at < ?',  Date.today.beginning_of_day, Date.today.end_of_day]}}
+    named_scope :hourly_comments, lambda {{:conditions => ['created_at > ?',  Constants::COMMENT_SPAM_CHECK_FREQUENCY.ago]}}
+    
+    rakismet_attrs :author => proc {user.username},
+      :author_email => proc{user.email},
+      :content => :body,
+      :user_ip => :user_ip,
+      :user_agent => :user_agent,
+      :referrer => :referrer
 
     def self.get_comments vid, vi_id, page
         v = VoteTopic.find(vid, :select => 'vote_topics.id, vote_topics.comments_count')
         Rails.cache.fetch("comments_#{vid}_#{vi_id}_#{v.comments_count}_#{page}") do
-            paginate(:conditions => ['vote_topic_id = ? AND vi_id = ?', vid, vi_id], :order => 'created_at DESC', :page => page,
+            paginate(:conditions => ['vote_topic_id = ? AND vi_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
                 :per_page => Constants::COMMENTS_AT_A_TIME)
         end
     end
     
-    def self.do_comment body, vt_id, vi_id, user_id
-        v = create(:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id)
-        if v && v.valid?
+    def self.do_comment body, vt_id, vi_id, user_id, request
+        params = {:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id, :user_ip => request.remote_ip, :user_agent => request.env['HTTP_USER_AGENT'],
+            :referrer => request.env['HTTP_REFERER']
+        }
+        v = Comment.new(params)
+        #        v = create(:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id)
+        if v.save && v.valid?
             return v
         else
             return nil
         end
     end
     
-    def populate_option
-        vi = self.vote_topic.what_vi_user_voted_for(self.user)
-        if !vi.nil?
-            self.vi_option = vi.option
-        else
-            self.vi_option = Constants::OTHER_VI
+    def check_for_spam
+        begin
+            if self.spam? == false
+                self.update_attribute(:approved, true)
+                puts "#{self.id} is not spam"
+            else
+                self.update_attribute(:approved, false)
+                puts "#{self.id} is spam"
+            end
+        rescue => exp
+            logger.error "#{exp.message} occured during checking for spam for comment id #{self.id}"
+            puts exp.message
+        ensure
+            return true
         end
     end
 
-#    #Makes sure the comments are categorized under the option the user voted for. Runs every six hours
-#    def self.organize_comments
-#        Rails.logger.info "Starting comment organization"
-#        begin
-#            #find votes that have been processed in the last x many hours, only get the ones that have been processed and not marked for delete
-#            comments_processed = 0
-#            Vote.find_in_batches(:batch_size => Constants::VOTE_BATCH_SIZE,
-#                :conditions => ['never_processed = ? AND del = ? AND updated_at > ?',  false, 0, Constants::VOTE_COMMENT_PROCESSING_INTERVAL.ago]) do |group|
-#                group.each do |v|
-#                    #find all comments for this user and vote_topic
-#                    comments = Comment.vote_topic_id_equals(v.vote_topic_id).user_id_equals(v.user_id)
-#                    comments.each do |c|
-#                        #if not the correct vi, fix it
-#                        if !(c.vi_id == v.vote_item_id)
-#                            c.update_attribute(:vi_id, v.vote_item_id)
-#                            comments_processed += 1
-#                        end
-#                    end
-#                end
-#            end
-#        rescue => exp
-#            Rails.logger.error "Comment organization failed with error #{exp.message}"
-#        else
-#            Rails.logger.info "Comment organization succeeded!. Processed #{comments_processed} comments."
-#        end
-#    end
+    def self.spam_check
+        hourly_comments.each do |c|
+            c.check_for_spam
+        end
+    end
 
+    def bad_meth
+        begin
+            sdfsdf.dfdsfdsf
+            rescue => exp
+            notify_about_exception(exp)
+        end
+    end
 end

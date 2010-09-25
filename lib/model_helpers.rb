@@ -8,7 +8,9 @@ module ModelHelpers
         when 'featured'
             'vote_topics.power_offered DESC'
         when 'distance'
-            '@geodist ASC'
+            'distance ASC'
+        when 'tracking'
+             'vote_topics.trackings_count DESC'
         else
             'vote_topics.created_at DESC'
         end

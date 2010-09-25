@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
     belongs_to :user 
     belongs_to :vote_item 
-    belongs_to :vote_topic
+    belongs_to :vote_topic, :counter_cache => true
 
     validates_uniqueness_of :user_id, :scope => [:vote_topic_id, :never_processed], :message => "You have already voted."
 
@@ -130,7 +130,7 @@ class Vote < ActiveRecord::Base
                 #change the comment organization
                 self.organize_comments add
 
-                self.vote_topic.increment!(:votes_count, inc)
+#                self.vote_topic.increment!(:votes_count, inc)
                 selected_response.increment!(:votes_count, inc)
                 user.increment!(:votes_count, inc)
 

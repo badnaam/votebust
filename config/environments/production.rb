@@ -3,9 +3,9 @@
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
 require 'active_support/cache/dalli_store23'
-#config.cache_store = :dalli_store
 config.cache_store = :dalli_store, '127.0.0.1:11211'
-#DC = Dalli::Client.new
+
+#config.cache_store = :mem_cache_store
 
 config.cache_classes = true
 
@@ -23,7 +23,6 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = {:host => "web1.tunnlr.com:11299"}
 config.action_mailer.default_charset = "utf-8"
-
 
 config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 

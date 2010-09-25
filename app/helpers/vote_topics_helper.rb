@@ -1,7 +1,18 @@
 module VoteTopicsHelper
 
+    def status_str str
+        if str == VoteTopic::STATUS[:approved]
+            "Approved"
+        elsif str == VoteTopic::STATUS[:nw]
+            "Waiting Moderator Approval"
+        elsif str == VoteTopic::STATUS[:revised]
+            "Waiting Moderator Approval"
+        elsif str == VoteTopic::STATUS[:denied]
+            "Not Approved"
+        end
+    end
     def order_links current_order
-        orders = ["recent", "votes", "featured"]
+        orders = ["recent", "votes", "featured", "distance"]
         str = "<div><span class='go-right order-link' id=''>"
         orders.each do |o|
             if current_order == o
@@ -57,6 +68,10 @@ module VoteTopicsHelper
     def get_listing_str params
         if params[:category_id]
             listing_str = "In #{params[:category_id].titleize}"
+        elsif params[:city]
+            listing_str = "Topics in #{params[:city]}"
+        elsif params[:state]
+            listing_str = "Topics in #{params[:state]}"
         else
             case params[:listing_type]
             when "most_tracked_all"

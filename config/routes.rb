@@ -55,7 +55,8 @@ ActionController::Routing::Routes.draw do |map|
     end
     
     map.account "account", :controller => :account, :action => "index"
-    map.resources :account, :member => {:approve_vote => :post}
+    map.resources :account, :member => {:approve_vote => :post, :approve_comment => :post, :reject_comment => :post, :reject_vote => :post},
+      :collection => {:not_approved_comments => :get, :not_approved_votes => :get,:daily_comments => :get, :reject_comments => :post}
 
     
 
@@ -78,8 +79,10 @@ ActionController::Routing::Routes.draw do |map|
 #    map.category_vote_topics "/vote_topics/categories/:category_scope", :controller => "vote_topics", :action => 'index'
 #    map.city_vote_topics "/searches/cities/:city", :controller => "searches", :action => 'index'
 #    map.state_vote_topics "/searches/states/:state", :controller => "searches", :action => 'index'
-    map.city_vote_topics "/cities/:city", :controller => "searches", :action => 'index'
-    map.state_vote_topics "/states/:state", :controller => "searches", :action => 'index'
+#    map.city_vote_topics "/cities/:city", :controller => "searches", :action => 'index'
+#    map.state_vote_topics "/states/:state", :controller => "searches", :action => 'index'
+    map.city_vote_topics "/cities/:city", :controller => "vote_topics", :action => 'index'
+    map.state_vote_topics "/states/:state", :controller => "vote_topics", :action => 'index'
     
     map.resources :vote_items, :belongs_to => :vote_topic
     map.resource :user_sessions

@@ -1,46 +1,15 @@
-<script type="text/javascript">
-  //<![CDATA[
-  $(document).ready(function() {
-    $('.denial').live('change', function() {
-      if ($(this).val() > 0) {
-        var con = confirm('Are you sure you want to deny this Vote Topic?');
-        if (con) {
-          d_url = $(this).prev('.approve-link').attr('href');
-          $.ajax({
-            type : 'POST',
-            url : d_url,
-            dataType : 'script',
-            data : 'vote_action=deny&reason='+$(this).val(),
-            global : false
-          });
-        } 
-      }
-    });
-    $('.approve-link').live('click', function() {
-      $.ajax({
-        type : 'POST',
-        url: this.href,
-        dataType : 'script',
-        global : false,
-        success : function() {
-          
-        },
-        error : function() {
-
-        }
-      });
-      return false;
-    });
-  });
-  //]]>
-</script>
 <div class="prepend-top span-18 last">
   <% if current_role == 'admin' %>
-    <div class="normal-pad">
-      <h2>Vote Topics waiting for approval</h2>
-      <div id="votes">
-        <%= render :partial => 'vote_list' %>
-      </div>
-    </div>
+    <ul class="" id="">
+        <li>
+          <%= link_to "Not Approved Votes", not_approved_votes_account_path %>
+      </li>
+      <li>
+        <%= link_to "Not Approved Comments", not_approved_comments_account_path %>
+      </li>
+      <li>
+        <%= link_to "Daily Comments", daily_comments_account_path %>
+      </li>
+    </ul>
   <% end  %>
 </div>

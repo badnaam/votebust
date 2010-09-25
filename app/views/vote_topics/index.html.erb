@@ -12,10 +12,20 @@
 </div>
 <% content_for :right_nav do %>
   <%#= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Categories", :load_path => categories_path(:type => "category_all"), :l_type => "category_all", :first => true} %>
-  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Most Voted", :load_path => side_bar_index_vote_topics_path(:type => "top_votes_min"),
-    :l_type => "top_votes_min", :first => true} %>
-  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
-      side_bar_index_vote_topics_path(:type => "latest"), :l_type => "latest", :first => false} %>
-  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
-      top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => false} %>
-<% end %>
+  <% if request.parameters["city"] %>
+    <%  header = "Most Tracked in #{request.parameters['city']}" %>
+    <%  w_type = 'most_tracked_city'%>
+    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
+      :l_type => w_type, :first => true} %>
+  <% elsif request.parameters["state"]%>
+    <%  header = "Most Tracked in #{request.parameters['state']}"%>
+    <%  w_type = 'most_tracked_state' %>
+  <% else %>
+    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Most Voted", :load_path => side_bar_index_vote_topics_path(:type => "top_votes_min"),
+      :l_type => "top_votes_min", :first => true} %>
+    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
+        side_bar_index_vote_topics_path(:type => "latest"), :l_type => "latest", :first => false} %>
+    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
+        top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => false} %>
+  <% end %>
+<% end  %>

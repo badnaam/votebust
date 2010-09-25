@@ -9,16 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100915201218) do
+ActiveRecord::Schema.define(:version => 20100921172922) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.integer  "vote_topics_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "categories", ["cached_slug"], :name => "cached_slug"
 
   create_table "comments", :force => true do |t|
     t.text     "body",          :null => false
@@ -61,9 +59,12 @@ ActiveRecord::Schema.define(:version => 20100915201218) do
     t.string   "message"
     t.text     "emails"
     t.integer  "user_id"
+    t.boolean  "sent",       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "friend_invite_messages", ["user_id"], :name => "user_id"
 
   create_table "geocode_caches", :force => true do |t|
     t.string   "address"
@@ -110,16 +111,15 @@ ActiveRecord::Schema.define(:version => 20100915201218) do
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
-    t.integer  "sluggable_id",                                :null => false
-    t.integer  "sequence",                     :default => 1
-    t.string   "sluggable_type", :limit => 40,                :null => false
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
     t.string   "scope"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at"
   end
 
-  add_index "slugs", ["scope", "name", "sluggable_type", "sequence"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
-  add_index "slugs", ["sluggable_id"], :name => "sluggable_id"
+  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "trackings", :force => true do |t|
     t.datetime "created_at"
@@ -130,16 +130,18 @@ ActiveRecord::Schema.define(:version => 20100915201218) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "user_cached_slug",                                     :null => false
+    t.string   "user_cached_slug"
     t.string   "zip",                 :limit => 5
     t.string   "username"
     t.integer  "sex"
-    t.integer  "age"
+    t.integer  "birth_year"
     t.integer  "voting_power",                       :default => 0
     t.float    "lat"
     t.float    "lng"
     t.integer  "role_id"
-    t.integer  "votes_count",                        :default => 0,    :null => false
+    t.integer  "votes_count",                        :default => 0
+    t.integer  "p_topics_count",                     :default => 0
+    t.integer  "trackings_count",                    :default => 0
     t.string   "state",               :limit => 15
     t.string   "city",                :limit => 50
     t.boolean  "active"
@@ -169,8 +171,10 @@ ActiveRecord::Schema.define(:version => 20100915201218) do
   add_index "users", ["image_file_name"], :name => "image_file_name"
   add_index "users", ["lat"], :name => "lat"
   add_index "users", ["lng"], :name => "lng"
+  add_index "users", ["p_topics_count"], :name => "p_topics_count"
   add_index "users", ["role_id"], :name => "role_id"
   add_index "users", ["state"], :name => "state"
+  add_index "users", ["trackings_count"], :name => "trackings_count"
   add_index "users", ["user_cached_slug"], :name => "user_cached_slug"
   add_index "users", ["username"], :name => "username"
   add_index "users", ["votes_count"], :name => "votes_count"
@@ -215,8 +219,6 @@ ActiveRecord::Schema.define(:version => 20100915201218) do
 
   create_table "vote_topics", :force => true do |t|
     t.text     "topic"
-    t.string   "website",         :limit => 150
-    t.string   "cached_slug",     :limit => 100
     t.text     "friend_emails"
     t.string   "status",          :limit => 4,   :default => "p",   :null => false
     t.datetime "published_at"
@@ -228,18 +230,21 @@ ActiveRecord::Schema.define(:version => 20100915201218) do
     t.string   "header",          :limit => 500, :default => "",    :null => false
     t.integer  "category_id"
     t.integer  "votes_count",                    :default => 0
+    t.integer  "comments_count",                 :default => 0
     t.string   "flags",           :limit => 75
     t.integer  "trackings_count",                :default => 0
+    t.boolean  "anon",                           :default => false
     t.boolean  "unan",                           :default => false
   end
 
-  add_index "vote_topics", ["cached_slug"], :name => "cached_slug"
+  add_index "vote_topics", ["anon"], :name => "unan"
   add_index "vote_topics", ["category_id"], :name => "category_id"
+  add_index "vote_topics", ["comments_count"], :name => "comments_count"
   add_index "vote_topics", ["created_at"], :name => "created_at"
   add_index "vote_topics", ["status"], :name => "index_vote_topics_on_status"
-  add_index "vote_topics", ["unan"], :name => "unan"
+  add_index "vote_topics", ["trackings_count"], :name => "trackings_count"
   add_index "vote_topics", ["user_id"], :name => "index_vote_topics_on_user_id"
-  add_index "vote_topics", ["votes_count"], :name => "total_votes"
+  add_index "vote_topics", ["votes_count"], :name => "votes_count"
 
   create_table "votes", :force => true do |t|
     t.string   "city",            :limit => 100

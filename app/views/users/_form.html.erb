@@ -10,15 +10,18 @@
 </script>
 <div><%=  flash[:recaptcha_error] %>
 </div>
-<% unless @user.new_record? %>
+<% if !@user.new_record? %>
 <h4 class="normal-pad ui-widget-header append-bottom">Profile</h4>
   <div class="ui-widget-content normal-pad prepend-top append-bottom" id="">
     <ul class="" id="" style="margin-bottom:0;">
+      <% if @user.using_rpx? %>
+        <li>You are using <%= @user.get_rpx_providers %> for authentication. You username and password does not need to be modified here.</li>
+      <% else %>
       <li>
         If you do not want to change the password leave the password fields blank.
       </li>
+      <% end  %>
     </ul>
-
   </div>
 <% end  %>
 <% semantic_form_for @user, :html => {:multipart => true} do |form| %>
@@ -37,8 +40,8 @@
     <%= form.input :email, :input_html => {:style => "width:30%"} %>
     <%= form.input :zip, :label => 'Your Zipcode', :input_html => {:style => "width:30%"} %>
     <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1}, :label => "Gender*" %>
-    <%= form.input :age, :as => :select, :collection => Constants::USER_AGE_RANGE.map{|x| [x, x]}, :input_html => {:style => "width:30%"} %>
-
+    <%#= form.input :age, :as => :select, :collection => Constants::USER_AGE_RANGE.map{|x| [x, x]}, :input_html => {:style => "width:30%"} %>
+    <%= form.input :birth_year, :as => :select, :collection => ((Time.now.year - 100)..(Time.now.year - 13)).to_a, :label => 'Year of Birth', :input_html => {:style => "width:30%"} %>
     <% if !form.object.new_record? %>
       <%= get_user_avatar form.object   %>
     <% end  %>

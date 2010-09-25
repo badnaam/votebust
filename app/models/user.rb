@@ -18,28 +18,30 @@ class User < ActiveRecord::Base
         a.login_field = 'username'
     end
 
-    attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip
+    attr_accessible :username, :email, :password, :password_confirmation, :age, :sex, :image, :zip, :birth_year
     has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :max_length => 50,  :cache_column => 'user_cached_slug'
 
     #    acts_as_voter
-    has_many :posted_vote_topics, :foreign_key => :user_id, :class_name => 'VoteTopic'
-    has_many :trackings, :dependent => :destroy
-    has_many :vote_topics, :through => :trackings
+    has_many :posted_vote_topics, :foreign_key => :user_id, :class_name => 'VoteTopic',  :dependent => :destroy
+    has_many :trackings
+    has_many :tracked_vote_topics, :class_name => "VoteTopic", :foreign_key => :vote_topic_id, :through => :trackings
     belongs_to :role
     has_many :comments
     has_many :votes
-    has_many :friend_invite_messages
+    has_many :friend_invite_messages, :dependent => :destroy
     #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
     
     validates_presence_of :email, :message => "Please enter a valid email"
     validates_presence_of :sex, :message => "Please select a gender"
-    validates_presence_of :age, :message => "Please enter your age"
+    #    validates_presence_of :age, :message => "Please enter your age"
+    validates_presence_of :birth_year, :message => "Please enter your year of birth"
     validates_presence_of :zip, :message => "Can't be blank"
     validates_format_of :zip,
       :with => /^[\d]{5}+$/,
       :message => "Not a valid zip code"
-
+    validates_presence_of :birth_year
+#    validates_format_of :birth_year, :with => \d{4}/, :message => "Not a Valid Year"
     attr_accessor :skip_profile_update
 
     before_save :check_what_changed
@@ -52,6 +54,10 @@ class User < ActiveRecord::Base
         self.increment!(:voting_power, points)
     end
 
+    def age
+        Time.now.year - self.birth_year
+    end
+    
     def geocode_address
         if !self.zip.nil?
             geo = Geokit::Geocoders::MultiGeocoder.geocode(self.zip)
@@ -203,8 +209,16 @@ class User < ActiveRecord::Base
         if !from_user.voting_power.nil?
             to_user.increment!(:voting_power, from_user.voting_power)
         end
+        if !from_user.p_topics_count.nil?
+            to_user.increment!(:p_topics_count, from_user.p_topics_count)
+        end
         if from_user.votes_count > 0
             to_user.votes << from_user.votes
+            to_user.increment!(:votes_count, from_user.votes_count)
+        end
+        if from_user.trackings_count > 0
+            to_user.trackings << from_user.trackings
+            to_user.increment!(:trackings_count, from_user.trackings_count)
         end
         if from_user.comments.size > 0
             to_user.comments << from_user.comments

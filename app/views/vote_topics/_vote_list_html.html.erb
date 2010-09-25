@@ -1,8 +1,9 @@
 <% if @vote_topics.size > 0 %>
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type, :paginated => "yes"} %>
+<% toolbar = (listing_type == 'user_all' && current_user && request.parameters[:user_id] && current_user.id == request.parameters[:user_id].to_i) ? true : false %>
   <% @vote_topics.each do |vt| %>
-    <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items} %>
+    <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items, :toolbar => toolbar} %>
   <% end  %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type, :paginated => "yes"} %>
 <% else %>

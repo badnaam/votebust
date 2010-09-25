@@ -1,7 +1,21 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
+    $('#vote_topic_header').keyup(
+    function() {
+      update_chars_left(<%= Constants::MAX_VOTE_HEADER_LENGTH%> , $('#vote_topic_header')[0],  $('#vote_topic_header').next('p'));
+    });
+    $('#vote_topic_topic').keyup(
+    function() {
+      update_chars_left(<%= Constants::MAX_VOTE_TOPIC_LENGTH%> , $('#vote_topic_topic')[0],  $('#vote_topic_topic').next('p'));
+    });
 
+    $("input[id^='vote_topic_vote_items_attributes']").each(function() {
+      $(this).keyup(function() {
+        update_chars_left(<%= Constants::MAX_VOTE_ITEM_OPTION%> , $(this)[0],  $(this).next('p'));
+      })
+    });
+    
     $("input#vote_topic_header").blur(function(){
       value = $("input#vote_topic_header").val()
       if (value != "") {
@@ -19,7 +33,7 @@
 </script>
 <% if @vote_topic.new_record? %>
   <% #url = { :action => "create", :id => @vote_topic.id }
-  url = vote_topic_path
+  url = vote_topics_path
   method = :post
 %>
 <% else %>
@@ -33,7 +47,9 @@
   <% form.inputs do %>
     <li class="bld">Fields marked with (*) are required.</li>
     <%= form.input :user_id, :as => :hidden %>
-    <%= form.input :header, :label => "Topic", :input_html => {:style => "width:60%"}, :hint => "#{t 'vote_topic.new.header_hint'}.
+    <li ><h2 class="form-section-label">1.Essential</h2></li>
+
+    <%= form.input :header, :label => "Topic", :as => :text, :input_html => {:style => "width:60%;height:40px;"}, :hint => "#{t 'vote_topic.new.header_hint'}.
     Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
     <%= form.input :anon, :label => "Anonymous?", :hint => "Your username will not be shown with the Vote Topic." %>
     <li>
@@ -53,7 +69,8 @@
       <% end  %>
     </div>
     <%= form.input :category, :as => :select, :input_html => {:style => "width:60%" }, :hint => "Please categorize the vote." %>
-    <%= form.input :topic, :label => "Details", :as => :text, :input_html => {:style => "width:60%;height:80px" }, :hint =>
+    <li><h2 class="form-section-label">2.Optional</h2></li>
+    <%= form.input :topic, :label => "Context", :as => :text, :input_html => {:style => "width:60%;height:80px" }, :hint =>
       "#{t 'vote_topic.new.topic_hint'}. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
     <% if current_user.voting_power > Constants::MIN_VOTE_FOR_FEATURED %>
       <%= form.input :power_offered,:as => :select, :collection => (1..current_user.voting_power).select{|x| x % Constants::VOTING_POWER_OFFER_INCREMENT == 0 },

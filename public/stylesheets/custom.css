@@ -1,8 +1,13 @@
 .white {
     color:white;
 }
+.form-section-label {
+    border-bottom: 1px solid #dddddd;
+    color:#598F49;
+    margin-bottom: .5em;
+}
 .act {
-    background-color: #D65B1A;
+    background-color: #282842;
     color : white !important;
     border-bottom: 1px solid white !important;
     border-right: 1px solid white !important;
@@ -63,7 +68,7 @@
     z-index:10000;
 
     /* styling */
-    background-color:#F5722C;
+    background-color:#38385C;
 
     width:675px;
     min-height:300px;
@@ -279,6 +284,7 @@ html, body {
 }
 table.vote-preview {
     margin-bottom: 0;
+    border-bottom: 1px solid #dddddd;
 }
 td.top-al {
     vertical-align: top;

@@ -1,8 +1,8 @@
 <% if local_assigns[:vi].nil? %>
   <% vi = vt.vote_items if !vt.nil? %>
 <% end  %>
-<% if local_assigns[:top_vote].nil? %>
-  <% top_vote = false %>
+<% if local_assigns[:toolbar].nil? %>
+  <% toolbar = false %>
 <% end  %>
 
 <% if !vt.nil? %>
@@ -13,7 +13,7 @@
       </blockquote>
     </div>
     <div class="" id="">
-      <%= render :partial => 'vote_topics/vote_info', :locals => {:vt => vt} %>
+      <%= render :partial => 'vote_topics/vote_info', :locals => {:vt => vt, :toolbar => toolbar} %>
     </div>
   </div>
 <% end  %>

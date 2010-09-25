@@ -16,13 +16,7 @@
         <td>Topic</td>
         <td><%= @vote_topic.topic %></td>
       </tr>
-      <% unless @vote_topic.website.nil? %>
-        <tr class="">
-          <td class="">
-            <%= @vote_topic.website %>
-          </td>
-        </tr>
-      <% end  %>
+      
       <% @vote_topic.vote_items.each do |v| %>
         <tr>
           <td>

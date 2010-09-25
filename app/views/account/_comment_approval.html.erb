@@ -1,0 +1,33 @@
+<% if local_assigns[:daily].nil?
+  daily = nil
+end
+%>
+<div class="span-18 last" id="">
+  <%= link_to "Back to account", account_path %>
+  <% if @comments.size > 0 %>
+    <h4 class="normal-pad ui-widget-header"><%= header %></h4>
+    <%= page_entries_info @comments, :entry_name => "Comments" %>
+    <%= will_paginate @comments, :class => 'pagination' %>
+    <% form_tag reject_comments_account_path do |f| %>
+      <% @comments.each do |c| %>
+        <div class="ui-widget-content normal-pad" id="">
+          <p><%= c.body %></p>
+          <p>Approved? <%= c.approved %></p>
+          <ul class="" id="">
+            <li><%= check_box_tag "comment_ids[]", c.id %></li>
+            <li>
+              <%= link_to "Spam", reject_comment_account_path(c, :daily => daily), :method => :post %>
+            </li>
+            <li>
+              <%= link_to "Not Spam", approve_comment_account_path(c, :daily => daily),  :method => :post%>
+            </li>
+          </ul>
+        </div>
+      <% end  %>
+      <%= will_paginate @comments, :class => 'pagination'%>
+      <%= submit_tag "Mark as spam" %>
+    <% end  %>
+  <% else %>
+    <div>Sorry, no unapproved comments.</div>
+  <% end  %>
+</div>

@@ -2,6 +2,10 @@
   preview = nil
 end
 %>
+<%  if local_assigns[:toolbar].nil?
+  toolbar = nil
+end
+%>
 
 <table class="vote-info-table">
   <tr>
@@ -57,9 +61,9 @@ end
         <%= link_to "More..", vt, :class => "go-right bld" %>
       <% else %>
         <div>
-          <% if @user %>
+          <% if current_user %>
             <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-              <% if (t = @vote_topic.is_being_tracked? @user.id) %>
+              <% if (t = @vote_topic.is_being_tracked? current_user.id) %>
                 <a href="<%= tracking_path(t, :vt_id => @vote_topic.id) %>" id="track_link" class="untrack">
                   Untrack
                 </a>
@@ -75,4 +79,12 @@ end
       <% end  %>
     </td>
   </tr>
+  <% if toolbar == true %>
+    <tr>
+      <td></td>
+      <td colspan="2" class="ui-state-default">
+        <%= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt) %>
+        <span class="go-right">Status : <%= status_str vt.status %></span></td>
+    </tr>
+  <% end  %>
 </table>

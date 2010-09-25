@@ -24,8 +24,9 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = {:host => "localhost", :port => "3000"}
 config.action_mailer.default_charset = "utf-8"
+
 #config.cache_store = :mem_cache_store
-#config.gem "rails-footnotes"
+config.gem "rails-footnotes"
 #config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 #if defined?(Footnotes)
 #    Footnotes::Filter.prefix = 'editor://open?url=file://%s&amp;line=%d&amp;column=%d'

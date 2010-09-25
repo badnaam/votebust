@@ -60,6 +60,7 @@ Rails::Initializer.run do |config|
     config.gem 'dalli'
     config.gem "authlogic"
     config.gem "friendly_id", :version => "~> 3.1"
+    config.gem 'rakismet'
     #    config.gem "oauth"
     #    config.gem "oauth2"
     #    config.gem "authlogic-connect"
@@ -109,6 +110,9 @@ Rails::Initializer.run do |config|
     #    config.gem "geokit", :source => "gems.github.com"
     config.gem 'will_paginate', :lib => 'will_paginate',  :source => 'http://gemcutter.org'
 
+
+    
+#   ExceptionNotification::Notifier.exception_recipients = %w(voteableteam@gmail.com)
 
     if defined?(PhusionPassenger)
         PhusionPassenger.on_event(:starting_worker_process) do |forked|

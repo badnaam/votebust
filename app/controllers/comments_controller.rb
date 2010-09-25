@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     end
     
     def create
-        if @comment = Comment.do_comment(params[:comment][:body], params[:vt_id],  params[:selected_response_for_comment], current_user.id)
+        if @comment = Comment.do_comment(params[:comment][:body], params[:vt_id],  params[:selected_response_for_comment], current_user.id, request)
             @comment_saved = true
         else
             @comment_saved = false

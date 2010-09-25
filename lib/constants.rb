@@ -17,7 +17,8 @@ class Constants
     VOTE_REFRESH_INTERVAL = 50000000
     MAX_COMMENT_LENGTH = 500
     COMMENTS_AT_A_TIME = 10
-
+    COMMENT_SPAM_CHECK_FREQUENCY = 1.hour
+    
     LISTINGS_PER_PAGE = 10
     SIDEBAR_LISTING_NUM = 7
     PROXIMITY = 50
@@ -26,11 +27,10 @@ class Constants
     LIMITED_LISTING_CACHE_EXPIRATION = 30.minutes
     
     
-    MAX_VOTE_HEADER_LENGTH  = 500
-    MAX_VOTE_TOPIC_LENGTH  =  999
+    MAX_VOTE_HEADER_LENGTH  = 200
+    MAX_VOTE_TOPIC_LENGTH  =  1000
     MAX_VOTE_TOPIC_FEMAILS  = 500
-    MAX_VOTE_EXT_LINK_LENGTH  = 150
-
+    MAX_VOTE_ITEM_OPTION = 150
     COMMENTS_PER_PAGE = 3
 
     RPX_APP_NAME = "votebust"
@@ -46,7 +46,7 @@ class Constants
     UNAN_LIMIT = 51
 
     SIDE_BAR_LINK_LENGTH = 50
-######## vote listings ################
+    ######## vote listings ################
     AJAX_VOTE_TOPICS_LISTING_TYPE = ["local", "most_tracked", "top", "featured", "user_tracked_all", "recent", "user_all", "voted"]
     ########Points#############
     REGISTRATION_COMPLETE_POINTS = 10

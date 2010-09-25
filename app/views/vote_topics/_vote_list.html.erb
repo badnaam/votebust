@@ -9,6 +9,7 @@
   <%= order_links request.parameters['order'] %>
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type} %>
+  
   <% @vote_topics.each do |vt| %>
     <%= render :partial => 'vote_topics/vote_preview', :locals => {:vt => vt, :vi => vt.vote_items} %>
   <% end  %>

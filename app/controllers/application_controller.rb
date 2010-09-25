@@ -1,9 +1,12 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+
 class ApplicationController < ActionController::Base
     layout "main"
-    #    before_filter :admin_only
+#    include ExceptionNotification::Notifiable
+    before_filter :admin_only
+    
     helper :all # include all helpers, all the time
     #    protect_from_forgery # See ActionController::RequestForgeryProtection for details
     after_filter :discard_flash_if_xhr
@@ -11,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     # Scrub sensitive parameters from your log
     # filter_parameter_logging :password
-    helper_method :current_user_session, :current_user, :current_role, :registration_complete?
+    helper_method :current_user_session, :current_user, :current_role, :registration_complete?, :site_admin_only
     filter_parameter_logging :password, :password_confirmation
 
     EXCEPTIONS_NOT_LOGGED = ['ActionController::UnknownAction',
@@ -23,7 +26,7 @@ class ApplicationController < ActionController::Base
     end
     
     def permission_denied
-        flash[:notice] = "Sorry, permission denied."
+        flash[:error] = "Sorry, permission denied."
         respond_to do |format|
             format.html { redirect_to(:back) rescue redirect_to('/') }
             format.xml  { head :unauthorized }
@@ -32,13 +35,26 @@ class ApplicationController < ActionController::Base
     end
 
     private
-
-    def admin_only
-        #        if Rails.env == "production"
-        authenticate_or_request_with_http_basic do |id, password|
-            id == APP_CONFIG["http_user"] && password == APP_CONFIG["http_pwd"]
+    
+    def site_admin_only
+        if current_role == 'admin'
+            return true
+        else
+            flash[:error] = "Sorry, permission denied."
+            respond_to do |format|
+                format.html { redirect_to(:back) rescue redirect_to('/') }
+                format.xml  { head :unauthorized }
+                format.js   { head :unauthorized }
+            end
         end
-        #        end
+    end
+    
+    def admin_only
+        if Rails.env == "production"
+            authenticate_or_request_with_http_basic do |id, password|
+                id == APP_CONFIG["http_user"] && password == APP_CONFIG["http_pwd"]
+            end
+        end
     end
     
     def current_role
@@ -72,11 +88,7 @@ class ApplicationController < ActionController::Base
     end
 
     def registration_complete?
-        if cookies[:registration_complete].nil?
-            current_user_session.registration_complete? if current_user_session
-        else
-            cookies[:registration_complete]
-        end
+        current_user_session.registration_complete? if current_user_session
     end
 
     def require_registration
@@ -106,7 +118,9 @@ class ApplicationController < ActionController::Base
     end
 
     def store_location
-        session[:return_to] = request.request_uri
+        if !request.xhr?
+            session[:return_to] = request.request_uri
+        end
     end
 
     def redirect_back_or_default(default)

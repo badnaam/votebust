@@ -31,6 +31,11 @@ class UserSession < Authlogic::Session::Base
                 self.attempted_record.sex = 0
             end
         end
+        if attempted_record.birth_year.blank?
+            if !@rpx_data['profile']['birthday'].nil? && @rpx_data['profile']['birthday'] != '0000'
+                self.attempted_record.birth_year = @rpx_data['profile']['birthday'][0..3]
+            end
+        end
         if attempted_record.image_url.blank?
             self.attempted_record.image_url = @rpx_data['profile']['photo']
         end

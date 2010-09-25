@@ -1,3 +1,7 @@
+<% if current_user.friendly_id == request.parameters[:user_id] 
+owner = true
+ end  %>
+<% if owner %>
 <div class="span-6 last ui-widget-content">
   <ul class="list-no-pad-no-style-close sidebox-list widget-content" id="">
     <li class="ui-widget-header">Profile</li>
@@ -25,12 +29,13 @@
     </li>
   </ul>
 </div>
+<% end  %>
 
 <div class="span-6 last ui-widget-content prepend-top">
   <ul class="list-no-pad-no-style-close sidebox-list widget-content" id="">
     <li class="ui-widget-header">Votes Started</li>
     <li>
-      See all the votes you have started.
+      See all the votes a user has started.
     </li>
   </ul>
 </div>
@@ -39,7 +44,7 @@
   <ul class="list-no-pad-no-style-close sidebox-list widget-content" id="">
     <li class="ui-widget-header">Votes Posted</li>
     <li>
-      See what topics you have voted on
+      See what topics a user has voted on
     </li>
   </ul>
 </div>

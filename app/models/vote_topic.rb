@@ -4,7 +4,7 @@ include ActionView::Helpers::TextHelper
 class VoteTopic < ActiveRecord::Base
     include ModelHelpers
     MAX_VOTE_ITEMS = 5
-    STATUS = {'approved' => 'a', 'waiting' => 'w', 'preview' => 'p', 'denied' => 'd'}
+    STATUS = {:nw => 'n', :approved => 'a', :waiting => 'w', :pending => 'p', :revised => 'r', :denied => 'd'}
     DENIAL = {'spam' => 1, 'offensive' => 2, 'a duplicate' => 3}
     FACET_KEYS = {'m' => "Men vote for <option>", 'w' => "Women vote for <option>",
         'ag1' => "Voters aged between #{Constants::AGE_GROUP_1.first} - #{Constants::AGE_GROUP_1.last} vote for <option>",
@@ -19,12 +19,12 @@ class VoteTopic < ActiveRecord::Base
 
     ######################associations#########################################
     #    belongs_to :user
-    belongs_to :poster, :class_name => "User", :foreign_key => :user_id, :counter_cache => :p_topics_count
+    belongs_to :poster, :class_name => "User", :foreign_key => :user_id
     has_many :trackings, :dependent => :destroy
-    has_many :users, :through => :tracking
-    has_one :vote_facet
+    has_many :followers, :class_name => "User", :foreign_key => :user_id, :through => :trackings
+    has_one :vote_facet, :dependent => :destroy
     belongs_to :category, :counter_cache => true
-    has_many :comments
+    has_many :comments, :dependent => :destroy
     has_many :vote_items, :dependent => :destroy, :order => "votes_count DESC"
     has_many :votes
 
@@ -39,8 +39,6 @@ class VoteTopic < ActiveRecord::Base
       :message => "Please keep the topic description within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"
     validates_length_of :topic, :maximum => Constants::MAX_VOTE_TOPIC_LENGTH, :allow_nil => true,
       :message => "Please keep the details within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters"
-    validates_length_of :website, :maximum => Constants::MAX_VOTE_EXT_LINK_LENGTH, :allow_nil => true,
-      :message => "Please keep the link within #{Constants::MAX_VOTE_EXT_LINK_LENGTH} characters or make it short at http://tinyurl.com/"
     validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true,
       :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
     validate :valid_email?
@@ -48,48 +46,51 @@ class VoteTopic < ActiveRecord::Base
     
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
-#    after_save :refresh_caches
+    #    after_save :refresh_caches
     
     #    after_save :post_save_processing
+    after_destroy :post_destroy_processing
     
-    attr_accessible :topic, :anon, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :website, :power_offered
-#    has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
+    attr_accessible :topic, :anon, :header, :vote_items_attributes, :friend_emails,  :header, :category_id, :power_offered
+    #    has_friendly_id :header, :usehe_slug => true, :approximate_ascii => true, :max_length => 50, :cache_column => :cached_slug, :scope => :category
     has_friendly_id :header, :use_slug => true, :approximate_ascii => true, :max_length => 50, :scope => :category
 
     ############################### named scopes##########################################################################
 
     ################################################### user for side bars ##############################################
-    named_scope :latest_votes, lambda {{:conditions => ['status = ? AND vote_topics.created_at > ?',  STATUS['approved'], Constants::SMART_COL_LATEST_LIMIT.ago],
+    named_scope :latest_votes, lambda {{:conditions => ['status = ? AND vote_topics.created_at > ?',  STATUS[:approved], Constants::SMART_COL_LATEST_LIMIT.ago],
             :order => 'vote_topics.created_at DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
 
-    named_scope :same_user, lambda {|user_id|{:conditions => ['status = ? AND user_id = ?',  STATUS['approved'], user_id],
+    named_scope :same_user, lambda {|user_id|{:conditions => ['status = ? AND user_id = ? AND anon = ?',  STATUS[:approved], user_id, false],
             :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT}}
     # todo add expires condition?
-    named_scope :top_votes_minimal, lambda {{:conditions => ['status = ?',  STATUS['approved']],
+    named_scope :top_votes_minimal, lambda {{:conditions => ['status = ?',  STATUS[:approved]],
             :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
     
-    named_scope :same_category, lambda {|category_id|{:conditions => ['status = ? AND category_id = ?',  STATUS['approved'], category_id],
+    named_scope :same_category, lambda {|category_id|{:conditions => ['status = ? AND category_id = ?',  STATUS[:approved], category_id],
             :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
     
-    named_scope :unanimous_votes, lambda {{:conditions => ['expires > ? AND status = ? AND unan = ?', DateTime.now, STATUS['approved'], true],
+    named_scope :unanimous_votes, lambda {{:conditions => ['expires > ? AND status = ? AND unan = ?', DateTime.now, STATUS[:approved], true],
             :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:category]}}
     
-    named_scope :exp, lambda {{:conditions => ['expires < ? AND status = ?', DateTime.now, STATUS['approved']],
+    named_scope :exp, lambda {{:conditions => ['expires < ? AND status = ?', DateTime.now, STATUS[:approved]],
             :order => 'expires DESC'}}
-    named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS['approved']],
+    named_scope :not_exp, lambda {{:conditions => ['expires > ? AND status = ?', DateTime.now, STATUS[:approved]],
             :order => 'expires DESC'}}
 
     ####################################################### user for bg processing ############################################
-    scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
+    #    scope_procedure :awaiting_approval, lambda {status_equals(STATUS['waiting']).ascend_by_created_at}
+    named_scope :awaiting_approval, lambda {{:conditions => ['status = ? OR status = ?', STATUS[:revised], STATUS[:nw]],
+            :order => 'created_at ASC'}}
     named_scope :daily, lambda{{:conditions => ['created_at > ? AND created_at < ?',  Date.today.beginning_of_day, Date.today.end_of_day]}}
     named_scope :weekly, lambda{{:conditions => ['created_at > ? AND created_at < ?',  Date.today.beginning_of_week, Date.today.end_of_week]}}
     
-    named_scope :featured, lambda {{:conditions => ['expires > ? AND status = ? AND power_offered > ?', DateTime.now, STATUS['approved'],
+    named_scope :featured, lambda {{:conditions => ['expires > ? AND status = ? AND power_offered > ?', DateTime.now, STATUS[:approved],
                 0]}}
     
-    named_scope :most_voted, lambda {{:conditions => ['expires > ? AND status = ? AND votes_count > ?', DateTime.now, STATUS['approved'], 0],
+    named_scope :most_voted, lambda {{:conditions => ['expires > ? AND status = ? AND votes_count > ?', DateTime.now, STATUS[:approved], 0],
             :order => 'votes_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
-    named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ? ', DateTime.now, STATUS['approved'], 0],
+    named_scope :most_tracked, lambda {{:conditions => ['expires > ? AND status = ? AND trackings_count > ? ', DateTime.now, STATUS[:approved], 0],
             :order => 'trackings_count DESC', :limit => Constants::MOST_VOTED_LIST_SIZE}}
 
     ################################################### others ######################################################
@@ -147,17 +148,63 @@ class VoteTopic < ActiveRecord::Base
     #################### end sidebar index finders################################################################################
 
     #################### index finders ###########################################
+
+    def self.testing
+        Rails.cache.fetch("#{origin}_ltd", Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            ["1", "2", "3"]
+            #                find(:all, :conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [:vote_items, :poster, :category, :slug],
+            #                    :limit => Constants::SMART_COL_LIMIT, :bounds => (get_bounds origin))
+        end
+    end
+
+    def self.city_search origin, limit, page, order
+        if limit
+            Rails.cache.fetch("#{origin.gsub(' ', '')}_ltd", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+                #                find(:all, :conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order),
+                #                    :include => [ :poster, {:category => :slug}, :slug],
+                #                    :limit => Constants::SMART_COL_LIMIT, :bounds => (get_bounds origin))
+                find(:all, :conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order),
+                    :include => [ :poster, {:category => :slug}, :slug],
+                    :limit => Constants::SMART_COL_LIMIT, :origin => origin, :within => Constants::PROXIMITY)
+            end
+        else
+            Rails.cache.fetch("#{origin.gsub(' ', '')}_#{page}_#{order}", :expires => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+                paginate(:conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [:vote_items, :poster,
+                        {:category => :slug}, :slug],
+                    :origin => origin, :within => Constants::PROXIMITY,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+            end
+        end
+    end
+
+    def self.state_search state, limit, page, order
+        if limit
+            Rails.cache.fetch("#{state.gsub(' ', '')}_limited", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+                find(:all, :joins => "INNER JOIN users ON users.id = vote_topics.user_id",
+                    :conditions => ["users.state =? AND vote_topics.status = ?", state, STATUS[:approved]],
+                    :include => [:vote_items, :poster, {:category => :slug}, :slug],:limit => Constants::SMART_COL_LIMIT)
+            end
+        else
+            Rails.cache.fetch("#{state.gsub(' ', '')}_#{page}_#{order}", :expires => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+                paginate(:joins => "INNER JOIN users ON users.id = vote_topics.user_id",
+                    :conditions => ["users.state =? AND vote_topics.status = ?", state, STATUS[:approved]], :order => (ModelHelpers.determine_order order),
+                    :include => [:vote_items, :poster, {:category => :slug}, :slug],:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+            end
+        end
+    end
+
+    
     def self.category_list cname, page, order
         c = Category.find(cname)
         Rails.cache.fetch("cat_list_#{page}_#{order}_#{c.id}_#{c.vote_topics_count}") do
-            paginate(:conditions => ['status = ? AND category_id = ?', 'a', c.id], :order => (ModelHelpers.determine_order order), :include => [:vote_items,
-                    :poster, :category], :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+            paginate(:conditions => ['status = ? AND category_id = ?', STATUS[:approved], c.id], :order => (ModelHelpers.determine_order order), :include => [
+                    :poster, {:category => :slug}, :slug], :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
         end
     end
 
     def self.general_list page, order
         Rails.cache.fetch("all_vote_topics_#{page}_#{order}_#{ca_key}") do
-            paginate(:conditions => ['status = ?', 'a'], :order => (ModelHelpers.determine_order order), :include => [:vote_items, :poster, :category],
+            paginate(:conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [ :poster,
+                    {:category => :slug}, :slug],
                 :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
         end
     end
@@ -165,13 +212,13 @@ class VoteTopic < ActiveRecord::Base
     def self.get_most_tracked_votes limit, page, order
         if limit
             order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
-            find(:all, :conditions => ['status = ?', 'a'],  :order => order, :include => [:poster,
-                    :category], :limit => Constants::SMART_COL_LIMIT)
+            find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
+                :limit => Constants::SMART_COL_LIMIT)
         else
             Rails.cache.fetch("most_tracked_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                 order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
-                paginate( :conditions => ['status = ?', 'a'], :order => order, :include => [:vote_items , :poster,
-                        :category], :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
+                paginate( :conditions => ['status = ?', STATUS[:approved]], :order => order, :include => [:poster, {:category => :slug}, :slug],
+                    :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
             end
         end
     end
@@ -181,13 +228,13 @@ class VoteTopic < ActiveRecord::Base
         if limit
             Rails.cache.fetch("trackings_limited_#{user.id}_#{user.trackings_count}") do
                 order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
-                trackings_user_id_equals(user.id).all(:include => [:poster, :category], :limit => Constants::SMART_COL_LIMIT, :order => order)
+                trackings_user_id_equals(user.id).all(:include => [:poster,  {:category => :slug}, :slug], :limit => Constants::SMART_COL_LIMIT, :order => order)
             end
         else
             Rails.cache.fetch("trackings_all_#{user.id}_#{user.trackings_count}_#{page}_#{order}") do
                 order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
-                trackings_user_id_equals(user.id).paginate(:per_page => Constants::LISTINGS_PER_PAGE, :page => page, :include => [ :poster,
-                        :category], :order => order)
+                trackings_user_id_equals(user.id).paginate(:per_page => Constants::LISTINGS_PER_PAGE, :page => page, :include => [:poster, {:category => :slug}, :slug],
+                    :order => order)
             end
         end
     end
@@ -196,13 +243,13 @@ class VoteTopic < ActiveRecord::Base
     def self.get_featured_votes limit, page, order
         if limit
             order = 'vote_topics.power_offered DESC, ' + (ModelHelpers.determine_order order)
-            find(:all,:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', 'a'], :order => order,
-                :include => [:poster, :category],:limit => Constants::SMART_COL_LIMIT)
+            find(:all,:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', STATUS[:approved]], :order => order,
+                :include => [:poster, {:category => :slug}, :slug],:limit => Constants::SMART_COL_LIMIT)
         else
             Rails.cache.fetch("featured_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                 order = 'vote_topics.power_offered DESC, ' + (ModelHelpers.determine_order order)
-                paginate(:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', 'a'],
-                    :order => order, :include => [:poster, :category], :per_page => Constants::LISTINGS_PER_PAGE,
+                paginate(:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', STATUS[:approved]],
+                    :order => order, :include => [:poster, {:category => :slug}, :slug], :per_page => Constants::LISTINGS_PER_PAGE,
                     :page => page)
             end
         end
@@ -211,22 +258,30 @@ class VoteTopic < ActiveRecord::Base
     def self.get_top_votes limit, page, order
         if limit
             order = 'vote_topics.votes_count DESC, ' + (ModelHelpers.determine_order order)
-            coll = find(:all, :conditions => ['status = ? AND expires > ? ', 'a', DateTime.now], :order => order, :include => [:vote_items,
-                    :poster, :category],:limit => Constants::SMART_COL_LIMIT, :select => Constants::VOTE_TOPIC_FIELDS)
+            coll = find(:all, :conditions => ['status = ? AND expires > ? ', STATUS[:approved], DateTime.now], :order => order, :include => [
+                    :poster, {:category => :slug}, :slug],:limit => Constants::SMART_COL_LIMIT)
         else
             coll = Rails.cache.fetch("top_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                 order = 'vote_topics.votes_count DESC, ' + (ModelHelpers.determine_order order)
-                paginate(:conditions => ['status = ? AND expires > ?', 'a', DateTime.now], :order => order, :include => [:vote_items,
-                        :poster, :category], :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => Constants::VOTE_TOPIC_FIELDS)
+                paginate(:conditions => ['status = ? AND expires > ?', STATUS[:approved], DateTime.now], :order => order, :include => [
+                        :poster, {:category => :slug}, :slug], :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
             end
+        end
+    end
+
+    def self.get_all_votes_user_own id, page, order
+        coll = Rails.cache.fetch("user_all_own_#{id}_#{page}_#{order}_#{User.find(id).p_topics_count}") do
+            order = (ModelHelpers.determine_order order) + ', vote_topics.created_at DESC'
+            paginate(:conditions => ['user_id = ?', id], :order => order, :include => [:poster, {:category => :slug}, :slug],
+                :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
         end
     end
 
     def self.get_all_votes_user id, page, order
         coll = Rails.cache.fetch("user_all_#{id}_#{page}_#{order}_#{User.find(id).p_topics_count}") do
             order = (ModelHelpers.determine_order order) + ', vote_topics.created_at DESC'
-            paginate(:conditions => ['user_id = ?', id], :order => order, :include => [:vote_items, :poster, :category],
-                :per_page => Constants::LISTINGS_PER_PAGE, :page => page,:select => Constants::VOTE_TOPIC_FIELDS)
+            paginate(:conditions => ['user_id = ? AND status = ?', id, STATUS[:approved]], :order => order, :include => [:poster,  {:category => :slug}, :slug],
+                :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
         end
     end
 
@@ -235,34 +290,29 @@ class VoteTopic < ActiveRecord::Base
     ################ individual finders #########################################################
 
     def self.find_for_tracking(id)
-        find(id, :select => "vote_topics.id, vote_topics.header, users.voting_power, users.persistence_token, users.zip,
-                users.image_file_name, users.image_content_type, users.image_updated_at, users.image_file_size, vote_topics.trackings_count", :include => [:poster])
+        find(id, :include => [:poster, :slug])
     end
 
     def self.find_for_approval(id)
-        find(id, :include => [:poster]
+        find(id, :include => [:poster, :slug]
         )
     end
     
     def self.find_for_show(id, scp)
         Rails.cache.fetch("vt_#{id}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
-            find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet], :scope => scp)
+            find(id, :include => [:vote_items, :poster, {:category => :slug}, :slug, :vote_facet], :scope => scp)
         end
-    end
-    
-    def self.find_for_preview_save(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['preview']], :include => [:vote_items, :poster, :category])
     end
     
     def self.find_for_show_preview(id, scope)
         puts "id is #{id}"
         puts "scope is #{scope}"
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items, :poster, :category, :vote_facet, :slugs],
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS[:approved]], :include => [:vote_items, :poster, :category, :vote_facet, :slugs],
             :scope => scope)
     end
 
     def self.find_for_stats(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS['approved']], :include => [:vote_items])
+        find(id, :conditions => ['status = ?', VoteTopic::STATUS[:approved]], :include => [:vote_items])
     end
 
     def self.find_selected_response id
@@ -522,17 +572,40 @@ class VoteTopic < ActiveRecord::Base
         self.poster.award_points(Constants::TRACK_POINTS * pos)
     end
 
-    def post_save_processing
-        if self.status_changed? && self.status == 'a'
-            self.poster.delay.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
+    def fix_power_offered oldp, newp
+        if newp == nil || newp.to_i == 0
+            self.poster.award_points(oldp.to_i)
+        else
+            self.poster.award_points(oldp.to_i - newp.to_i)
+        end
+    end
+    
+    def post_save_processing state
+        case state
+        when "created"
+            self.poster.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
               self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
-            self.poster.delay.award_points(Constants::NEW_VOTE_POINTS)
+            self.poster.award_points(Constants::NEW_VOTE_POINTS)
+            self.poster.increment!(:p_topics_count, 1)
+        when "denied"
+            self.poster.award_points(self.power_offered * 1) if !self.power_offered.nil? &&
+              self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT #give back voting power offered
+            self.poster.award_points(Constants::NEW_VOTE_POINTS * -1) #remove power he had for new vote
+            self.poster.increment!(:p_topics_count, -1) #decrement post count
+        when "approved"
             if !self.friend_emails.nil?
                 self.delay.deliver_friendly_vote_emails!
             end
         end
     end
     
+    def post_destroy_processing
+        if self.status == VoteTopic::STATUS[:approved] #it's an approved vote, he must have gotten power awarded
+            self.poster.delay.award_points(Constants::NEW_VOTE_POINTS * -1)
+            self.poster.increment!(:p_topics_count, -1)
+        end
+    end
+
     def is_being_tracked? id
         self.trackings.find(:first, :conditions => ['user_id = ?', id])
     end
@@ -540,19 +613,25 @@ class VoteTopic < ActiveRecord::Base
     def refresh_caches
         #        Rails.cache.delete('all_vote_topics_listing')
         #check the category and delete the specific category cache
-#        if self.status == STATUS['approved']
-#            Rails.cache.delete('category_listing')
-#        end
+        #        if self.status == STATUS[:approved]
+        #            Rails.cache.delete('category_listing')
+        #        end
     end
 
     def self.newest
-        status_equals(STATUS['approved']).descend_by_created_at.first
+        status_equals(STATUS[:approved]).descend_by_created_at.first
     end
     
     def self.ca_key
         newest.nil? ? "0:0" : "#{newest.created_at.to_i}:#{count}"
     end
-    
+
+    def self.get_bounds origin
+        Rails.cache.fetch("bounds_#{origin}") do
+            Geokit::Bounds.from_point_and_radius(origin, Constants::PROXIMITY)
+        end
+    end
+
     ########### end misc helpers#######################################################
     
 end

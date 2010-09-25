@@ -47,9 +47,6 @@
                   <p>
                     <%= vt.topic %>
                   </p>
-                  <% unless vt.website.nil? %>
-                    <a href="<%= vt.website %>" class="clearfix"><%= vt.website %></a>
-                  <% end  %>
                 </td>
               </tr>
               <tr>
@@ -62,10 +59,16 @@
                     <% end  %>
                   </ul>
                   <% if current_role == 'admin' %>
-                    <a href="<%= approve_vote_account_path(:id => vt.id) %>" class="approve-link" id="">
-                      Approve
-                    </a>
-                    <%= select_tag 'deny', options_for_select (VoteTopic::DENIAL.to_a.insert(0, '')), :class => 'denial' %>
+                    <ul class="" id="">
+                      <li>
+                        <%= link_to "Approve", approve_vote_account_path(:id => vt.id), :method => :post%>
+                      </li>
+                      <%VoteTopic::DENIAL.each do |k, v|  %>
+                        <li>
+                        <%= link_to k, reject_vote_account_path(:id => vt.id, :reason => v), :method => :post %>
+                        </li>
+                      <% end  %>
+                    </ul>
                   <% end  %>
                 </td>
               </tr>

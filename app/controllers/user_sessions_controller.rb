@@ -76,6 +76,7 @@ class UserSessionsController < ApplicationController
         @user_session.destroy if @user_session
         session[:current_role] = nil
         cookies[:registration_complete] = nil
+        session[:return_to] = nil
         flash[:notice] = "Sign out successful!"
         #        redirect_back_or_default root_url
         redirect_to root_url

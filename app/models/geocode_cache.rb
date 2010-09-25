@@ -8,7 +8,7 @@ class GeocodeCache < ActiveRecord::Base
         else
             state = state.downcase
         end
-        GeocodeCache.find_or_create_by_address(:address=>address.downcase, :city => city.downcase, :state => state.downcase, :lat=>lat, :lng=>lng,
+        GeocodeCache.find_or_create_by_address(:address=> address.downcase, :city => city.downcase, :state => state.downcase, :lat=>lat, :lng=>lng,
             :provider => provider)
         #        else
         #            GeocodeCache.find_or_create_by_address(:address=>address.downcase, :city => nil, :lat=>lat, :lng=>lng)

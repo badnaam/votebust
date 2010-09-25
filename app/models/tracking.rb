@@ -1,13 +1,7 @@
 class Tracking < ActiveRecord::Base
-    belongs_to :user
-    belongs_to :vote_topic, :counter_cache => true
+    belongs_to :follower, :class_name => "User", :foreign_key => :user_id
+    belongs_to :tracked_vote_topic, :class_name => "VoteTopic", :foreign_key => :vote_topic_id, :counter_cache => true
+    
     validates_uniqueness_of :vote_topic_id, :scope => :user_id
 
-    after_create :refresh_caches
-    after_destroy :refresh_caches
-
-    def refresh_caches
-#        Rals.cache.delete("trackings_limited_#{self.user.id}")
-#        Rals.cache.delete("trackings_all_#{self.user.id}")
-    end
 end

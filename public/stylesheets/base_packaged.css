@@ -1,5 +1,6 @@
 .white {color:white}
-.act {background-color: #D65B1A; color : white !important; border-bottom: 1px solid white !important; border-right: 1px solid white !important}
+.form-section-label {border-bottom: 1px solid #dddddd; color:#598F49; margin-bottom: .5em}
+.act {background-color: #282842; color : white !important; border-bottom: 1px solid white !important; border-right: 1px solid white !important}
 .pres-nav-menu {color: #F2E9E9; border-bottom: 1px solid #F2E9E9; border-right: 1px solid #F2E9E9; font-weight: bold; font-size : 1.6em}
 .act a {color: white !important}
 .inact a {color: #F2E9E9 !important; font-weight: bold; font-size : 1.6em}
@@ -10,7 +11,7 @@
 .pres-nav-menu {width:33%; padding : .6em; text-align: center}
 .inv {display: none}
 .vsb {display: block}
-.simple_overlay {/* must be initially hidden */ display:none; /* place overlay on top of other elements */ z-index:10000; /* styling */ background-color:#F5722C; width:675px; min-height:300px; border:1px solid #666; /* CSS3 styling for latest browsers */ -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000}
+.simple_overlay {/* must be initially hidden */ display:none; /* place overlay on top of other elements */ z-index:10000; /* styling */ background-color:#38385C; width:675px; min-height:300px; border:1px solid #666; /* CSS3 styling for latest browsers */ -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000}
 /* close button positioned on upper right corner */ .simple_overlay .close {background-image:url(/images/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:35px; width:35px}
 body a {color:#598F49; /* font-weight:bold;*/ text-decoration:none}
 .closeb {background-image:url(/images/close.png); padding-right: 35px; padding-top: 35px; cursor:pointer}
@@ -49,7 +50,7 @@ body a {color:#598F49; /* font-weight:bold;*/ text-decoration:none}
 .preview-table td {vertical-align: top}
 .right-border {border-right: 1px solid #dddddd}
 .preview-box-left {width:200px; max-width: 200px}
-table.vote-preview {margin-bottom: 0}
+table.vote-preview {margin-bottom: 0; border-bottom: 1px solid #dddddd}
 td.top-al {vertical-align: top}
 blockquote {background:transparent url(http://www.facebook.com/images/start_quote_small.gif) no-repeat scroll -1px 0; line-height:2.2em; margin:14px 0; padding:0 0 0 16px}
 blockquote.preview {background:transparent url(http://www.facebook.com/images/start_quote_small.gif) no-repeat scroll -1px 0; line-height:2.2em; margin-top:0 !important; padding:0 0 0 16px}

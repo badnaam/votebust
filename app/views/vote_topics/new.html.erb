@@ -1,10 +1,21 @@
 <div class="span-18 last">
-  <div class="normal-pad top-mar bordered-all right-mar append-bottom">
+  <div class="prepend-top append-bottom ui-widget-content">
     <h4 class="ui-widget-header normal-pad"><%= t('vote_topic.new.header') %></h4>
-    <p class="bld">
-      Start a Vote. Don't forget to invite your friends to participate.
-    </p>
-    <%= render :partial => "form" %>
+    <div class="normal-pad" id="">
+      <%= render :partial => "form" %>
+    </div>
   </div>
-
 </div>
+
+<% content_for :right_nav do %>
+<div style="display: block;" class="span-6 last prepend-top  ui-widget-content rel-pos">
+  <ul class="list-no-pad-no-style-close sidebox-list ">
+    <li class="ui-widget-header">Tips</li>
+    <li>Keep your topic interesting and short</li>
+    <li>Categorize correctly or use "Other" category if not sure.</li>
+    <li>You can dd more contextual detail in the Context field</li>
+    <li>Use your voting power, to get attention of more voters</li>
+    <li>Invite your friends!</li>
+</ul>
+</div>
+<% end  %>
