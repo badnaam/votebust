@@ -3,15 +3,16 @@
     <div class="loading-inner-center"></div>
   </div>
   <%= hidden_field_tag :user_id, current_user.nil? ? nil: current_user.id%>
-  <%= hidden_field_tag :reg_complete, registration_complete?.nil? ? nil : registration_complete? %>
-  <%= hidden_field_tag :vote_open, @vote_topic.expires > DateTime.now ? true : nil %>
+  <%#= hidden_field_tag :reg_complete, registration_complete?.nil? ? nil : registration_complete? %>
+  <%#= hidden_field_tag :vote_open, @vote_topic.expires > DateTime.now ? true : nil %>
   <%= hidden_field_tag :vote_id, @vote_topic.nil? ? nil : @vote_topic.id %>
+  <%= hidden_field_tag :category, @vote_topic.nil? ? nil : @vote_topic.category.to_param %>
   <%= hidden_field_tag :vote_count, 0 %>
 
   <% if @vote_topic.expires > DateTime.now %>
     <% if current_user && registration_complete? %>
-        <%= render :partial => "vote_form" %>
-        <%= render :partial => "unvoted" %>
+        <%= render :partial => "vote_form", :locals => {:selected_response => @selected_response, :vt => VoteTopic.find_for_stats(@vote_topic.id, @vote_topic.category)} %>
+        <%= render :partial => "unvoted", :locals => {:selected_response => @selected_response} %>
     <% else %>
       <%= render :partial => "vote_options" %>
     <% end  %>

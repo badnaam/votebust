@@ -1,8 +1,11 @@
-<% if @selected_response %>
-  <ul class="top-mar vi-list" id="vote_items_list_unvoted" style="display:none">
-  <% else %>
-    <ul class="top-mar vi-list" id="vote_items_list_unvoted">
-    <% end  %>
+<% if selected_response
+  display = "none"
+else
+  display = "block"
+end%>
+
+<div class="" id="unvoted_state" style="display:<%= display %>">
+  <ul class="top-mar vi-list" id="vote_items_list_unvoted">
     <%@vote_topic.vote_items.each do |v| %>
       <li id="v-item-<%= v.id %>" class="non-sel option-list">
         <a href="#" id="<%= v.id %>" class="vote take-action">
@@ -13,3 +16,4 @@
     </li>
     <li class=" no-style-no-border "><span class="go-right small-pad ui-widget-content">Vote to see results</span></li>
   </ul>
+</div>

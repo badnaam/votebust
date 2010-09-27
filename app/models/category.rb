@@ -3,6 +3,9 @@ class Category < ActiveRecord::Base
     has_many :vote_topics, :dependent => :destroy
 #    has_friendly_id :name, :use_slug => true, :cache_column => 'cached_slug'
     has_friendly_id :name, :use_slug => true
+    has_many :users, :through => :interests
+    has_many :interests
+    
     default_scope :order => 'categories.name ASC'
 
    after_save :refresh_category_cache, :if => :its_new?

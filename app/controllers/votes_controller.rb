@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+    before_filter :require_user, :only => [:create, :destroy]
+    
     def index
         listing_type = params[:listing_type]
         if listing_type == "voted"
@@ -15,6 +17,8 @@ class VotesController < ApplicationController
             flash[:success] = "Your vote has been accepted and will be processed shortly"
         elsif ret_val == -1
             flash[:notice] = "You have already voted"
+        elsif ret_val == false
+            flash[:error] = "Something went wrong with processing your vote. Please try again/"
         end
         respond_to do |format|
             format.js

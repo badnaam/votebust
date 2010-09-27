@@ -1,17 +1,14 @@
 class Vote < ActiveRecord::Base
     belongs_to :user 
-    belongs_to :vote_item 
-    belongs_to :vote_topic, :counter_cache => true
+    belongs_to :vote_item#, :counter_cache => true
+    belongs_to :vote_topic#, :counter_cache => true
 
     validates_uniqueness_of :user_id, :scope => [:vote_topic_id, :never_processed], :message => "You have already voted."
 
     acts_as_mappable
-
-#    named_scope :votes_for_comment_processing, lambda{{:conditions => ['updated_at > ? AND del = ? ', Constants::VOTE_COMMENT_PROCESSING_INTERVAL.ago, 0]}}
-    #if del = 0 not marked for delete, 1 - marked for delete, 2 - processed, go ahead and delete
     
     def self.user_voted?(user_id, vote_topic_id)
-        v = find(:first, :conditions => ['user_id = ? AND vote_topic_id = ? AND del <> ?', user_id, vote_topic_id, 1])
+        v = find(:first, :conditions => ['user_id = ? AND vote_topic_id = ? AND del = ?', user_id, vote_topic_id, 0])
         if v
             return v.vote_item_id
         else
@@ -20,66 +17,60 @@ class Vote < ActiveRecord::Base
     end
 
     def self.do_vote vt_id, response, user_id, add
-        v = find(:first, :conditions => ['vote_topic_id = ? AND user_id = ?', vt_id, user_id])
+        v = find(:first, :conditions => ['vote_topic_id = ? AND user_id = ? AND del = ?', vt_id, user_id, 0])
         if add == true
             #voting
             if v.nil?
-                create(:user_id => user_id, :vote_item_id => response, :vote_topic_id => vt_id)
-                return true
-            else
-                if v.del == 1
-                    create(:user_id => user_id, :vote_item_id => response, :vote_topic_id => vt_id)
+                if create(:user_id => user_id, :vote_item_id => response, :vote_topic_id => vt_id)
+                    expire_vote_topic_stats_cache vt_id, response, 1
                     return true
-                else
+                end
+            else
+                #there is an existing vote
+                if v.never_processed == true
+                    #he has a fresh vote
                     return -1
+                else
+                    #he has a processed vote, check if it's marked for delete, if yes - bg process will take care of rest of the stats
+                    # so create a new one
+                    if v.del == 1
+                        if create(:user_id => user_id, :vote_item_id => response, :vote_topic_id => vt_id)
+                            expire_vote_topic_stats_cache vt_id, response, 1
+                            return true
+                        end
+                    end
                 end
             end
         else
             #cancelling
             unless v.nil?
-                if v.update_attribute(:del, 1)
+                if v.never_processed == true
+                    #not a processed vote, safe to destroy, this never existed
+                    v.destroy
+                    expire_vote_topic_stats_cache vt_id, response, -1
                     return true
                 else
-                    return false
+                    #mark for deletion, bg processing will take care of stats
+                    if v.update_attribute(:del, 1)
+                        expire_vote_topic_stats_cache vt_id, response, -1
+                        return true
+                    else
+                        return false
+                    end
                 end
             end
         end
         return false
     end
     
-
-    def self.test_log
-        begin
-            Rails.logger.info "Testing logging"
-            a = 4
-            a.dsfadsfasdfds
-        rescue => exp
-            Rails.logger.info "#######################################"
-            #            Rails.logger.error DateTime.now.to_s + "- " + exp.backtrace.join("\n")
-            Rails.logger.error DateTime.now.to_s + "- " + exp.message
-            Rails.logger.info "######################################"
-        end
+    def self.expire_vote_topic_stats_cache vt_id, rsp, inc
+        VoteTopic.find(vt_id).increment!(:votes_count, inc)
+        VoteItem.find(rsp).increment!(:votes_count, inc)
+        Rails.cache.delete("vtstat_#{vt_id}")
     end
-
-    named_scope :vts, lambda{{:conditions => ['votes.updated_at > ? AND never_processed = ? and del = ?', 6.months.ago, false, 0]}}
-
-    def self.p_test
-        vts.find_in_batches(
-            :batch_size => 200
-        ) do |group|
-            group.each do |v|
-                #                puts v.id
-            end
-            puts 'Done one group'
-        end
-    end
-
+    
     def self.process_votes
         Rails.logger.info "Vote Processor Sarting"
-        #        votes = find(:all, :conditions => ['never_processed = ? OR del = ?',  true, 1], :include => [:vote_item, :user, :vote_topic],
-        #            :select => "users.id, vote_items.id, vote_topics.id, users.voting_power, users.sex, users.lat, users.lng, users.zip, users.city, users.state, users.age,
-        #        vote_items.option, vote_topics.power_offered, vote_items.male_votes, vote_items.female_votes, vote_items.ag_1_v, vote_items.ag_2_v, vote_items.ag_3_v,
-        #        vote_items.ag_4_v, vote_items.votes_count, vote_topics.votes_count, users.votes_count, votes.never_processed, votes.del#")
 
         processed_count = 0
         deleted_count  = 0
@@ -130,8 +121,8 @@ class Vote < ActiveRecord::Base
                 #change the comment organization
                 self.organize_comments add
 
-#                self.vote_topic.increment!(:votes_count, inc)
-                selected_response.increment!(:votes_count, inc)
+                #                self.vote_topic.increment!(:votes_count, inc)
+                #                selected_response.increment!(:votes_count, inc)
                 user.increment!(:votes_count, inc)
 
                 if add == true

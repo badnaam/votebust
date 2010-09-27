@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
     has_many :comments
     has_many :votes
     has_many :friend_invite_messages, :dependent => :destroy
+    has_many :interests, :dependent => :destroy
+    attr_accessor :category_ids
+    has_many :categories, :through => :interests
     #    acts_as_mappable :auto_geocode=> {:field=>:zip, :error_message=>'Could not geocode address'}
     acts_as_mappable 
     
@@ -41,7 +44,7 @@ class User < ActiveRecord::Base
       :with => /^[\d]{5}+$/,
       :message => "Not a valid zip code"
     validates_presence_of :birth_year
-#    validates_format_of :birth_year, :with => \d{4}/, :message => "Not a Valid Year"
+    #    validates_format_of :birth_year, :with => \d{4}/, :message => "Not a Valid Year"
     attr_accessor :skip_profile_update
 
     before_save :check_what_changed

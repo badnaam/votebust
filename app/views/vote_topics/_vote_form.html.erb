@@ -1,25 +1,52 @@
-<% if @selected_response %>
-  <ul class="top-mar vi-list-voted" id="vote_items_list_voted">
-  <% else %>
-    <ul class="top-mar vi-list-voted" id="vote_items_list_voted" style="display:none">
+<% if selected_response
+  display = "block"
+else
+  display = "none"
+end%>
+
+<div id="voted_state" style="display:<%= display %>">
+  <% if !selected_response.nil? %>
+    <ul class="top-mar vi-list-voted" id="vote_items_list_voted">
+      <% vt.vote_items.each do |v| %>
+        <li id="v-item-<%= v.id %>" >
+          <% if !(selected_response.to_i == v.id) %>
+            <%= (get_vote_percent v, vt.votes_count) %>
+          <% else %>
+            <a href="#" id="<%= v.id %>" class="cancel take-action">
+              <span class="ui-icon-close ui-icon" ></span>
+              <%= (get_vote_percent v, vt.votes_count) %></a>
+          <% end  %>
+        </li>
+        <%= get_percent_div (v.get_vote_percent_num vt.votes_count) %>
+        <li class="option-separator"></li>
+      <% end %>
+    </ul>
+    <div class="" id="" style="text-align: right;font-size: 1.2em;font-weight: bold">
+      <%= vt.votes_count %> votes
+    </div>
   <% end  %>
-  <% @vote_topic.vote_items.each do |v| %>
-    <% if !@selected_response.nil?  && @selected_response.to_i == v.id
-      selected = true
-      icon = 'ui-icon-close'
-    else
-      icon = 'ui-icon-check'
-    end  %>
-    <li id="v-item-<%= v.id %>" >
-      <% if !@selected_response.nil? && !selected %>
-        <%= (get_vote_percent v, @vote_topic.votes_count) %>
-      <% else %>
-        <a href="#" id="<%= v.id %>" class="<%= selected ? 'cancel' : 'vote'%> take-action">
-          <span class="ui-icon <%= icon %> vote-icon" ></span>
-          <%= (get_vote_percent v, @vote_topic.votes_count) %></a>
-      <% end  %>
-    </li>
-    <%= get_percent_div (v.get_vote_percent_num @vote_topic.votes_count) %>
-    <li class="option-separator"></li>
-  <% end %>
-</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

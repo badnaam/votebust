@@ -1,0 +1,42 @@
+<div class="" id="">
+  Select the categories that interest you and we will send you email updates when there are interesting votes in that category.
+</div>
+<div class="" id="interest_loading" style="display:none">
+  <div class="loading-inner-center"></div>
+</div>
+
+<% form_tag manage_interests_path, :id => "interest_form" do |f| %>
+  <%= hidden_field_tag "interest_ids[]", "" %>
+  <table class="" id="">
+    <% Category.all.each_with_index do |c, i| %>
+      <% if i == 0 || i % 4 == 0 %>
+        <tr>
+        <% end %>
+        <td>
+          <%= check_box_tag "interest_ids[]", c.id, current_user.categories.include?(c) %>
+          <%= label_tag c.name %>
+        </td>
+        <%if (i + 1) %  4 == 0 %>
+        </tr>
+      <% end  %>
+    <% end  %>
+  </table>
+  <span class="small-button"><button id ="interest_submit">Save My Interests</button></span>
+<% end  %>
+
+<script type="text/javascript">
+  //<![CDATA[
+  $('#interest_submit').button({icons:{primary:'ui-icon-check'}}).click(function(){
+    $('#interest_form').submit();
+    return false;
+  });
+  
+  $('#interest_form').submit(function (){
+    showLoading('#interest_loading');
+    $.post($(this).attr('action'), $(this).serialize(), function(data) {
+      hideLoading('#interest_loading');
+    }, "script");
+    return false;
+  });
+  //]]>
+</script>

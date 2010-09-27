@@ -1,3 +1,43 @@
+.social-div {
+    border-bottom:1px solid #DDDDDD;
+    border-top:1px solid #DDDDDD;
+    margin-bottom:1em;
+    padding-top:0.5em;
+}
+table.social td {
+    padding: 0;
+    vertical-align: top;
+}
+
+.r-t-a {
+    text-align: right;
+}
+.social-list {
+    margin:0;
+    padding-left: 0;
+    list-style-type: none;
+}
+.social-list li {
+    margin-bottom: .5em;
+    /*    border-bottom: 1px solid #dddddd;*/
+}
+.social {
+    margin-bottom: 0;
+}
+.count-in-tab {
+    padding:0 .2em 0 .2em;
+    margin-left:.2em;
+}
+.ui-state-active .count-in-tab {
+    background-color:#FF0084 !important;
+    color:white;
+}
+.ui-state-default .count-in-tab {
+    background-color:#38385C;
+    color: white;
+}
+
+
 .white {
     color:white;
 }
@@ -63,22 +103,51 @@
 .simple_overlay {
     /* must be initially hidden */
     display:none;
-
     /* place overlay on top of other elements */
-    z-index:10000;
-
+    z-index:10;
     /* styling */
     background-color:#38385C;
-
     width:675px;
     min-height:300px;
     border:1px solid #666;
-
     /* CSS3 styling for latest browsers */
     -moz-box-shadow:0 0 90px 5px #000;
     -webkit-box-shadow: 0 0 90px #000;
 }
 
+/**new vote overlay **/
+.contentWrap form.formtastic fieldset ol li {
+    margin-bottom: .5em !important;
+}
+.contentWrap {
+    font-size :.9em !important;
+}
+.new-vote-overlay {
+    z-index:100;
+    height:350px;
+    display:none;
+    padding:.3em;
+    background-color: #38385C;
+    -moz-box-shadow:0 0 90px 5px #000;
+    -webkit-box-shadow: 0 0 90px #000;
+}
+.contentWrap {
+    overflow-y:auto;
+    height:346px;
+    padding: 2px;
+    background-color: white;
+
+}
+#vote_overlay .close {
+    background-image:url(/images/close.png);
+    position:absolute;
+    right:-15px;
+    top:-15px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+}
+/**new vote overlay  end**/
 /* close button positioned on upper right corner */
 .simple_overlay .close {
     background-image:url(/images/close.png);
@@ -149,7 +218,7 @@ html, body {
     background:#6B1411;color:#ffffff;border-color:#510F0D;
 }
 .flash-notice {
-/*    background:#A89645;color:#ffffff;border-color:#8E7F3B;*/
+    /*    background:#A89645;color:#ffffff;border-color:#8E7F3B;*/
     background:#38385C;color:#ffffff;border-color:#38385C;
 }
 .flash-success{
@@ -213,6 +282,7 @@ html, body {
 .vi-list-voted {
     padding:.3em;
     list-style-type:none;
+    margin-bottom: 0;
 }
 .vi-list-voted li {
     padding:.2em .2em .5em .2em;
@@ -230,6 +300,14 @@ html, body {
     margin-bottom: 0;
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
+}
+.vote-info-table-show {
+    margin-bottom: 0;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+.vote-info-table-show td {
+    vertical-align: top;
 }
 
 .tracking-count {
@@ -265,7 +343,7 @@ html, body {
 .power-points {
     /*    padding:.3em;*/
     color:#FF0084;
-    height:16px;
+    /*    height:16px;*/
     /*    background-color: #FF0084;*/
 }
 .preview-table {
@@ -718,8 +796,13 @@ body a:hover {
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #38385c !important}
 
 
-.power-wrapper, .most-voted, .most-tracked {
+.flag-wrapper {
+    padding:.2em .4em .2em .4em;
+    background-color: #dddddd;
     cursor: pointer;
+    margin-right: .3em;
+    margin-left: .3em;
+    color:#FF0084;
 }
 .profile-list {
     list-style-type: none;

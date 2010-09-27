@@ -19,7 +19,7 @@
                 <span class="go-right tracking-count" id="">
                   <%= vt.trackings_count %> trackings
                 </span>
-                <%= render :partial => "/shared/tracking_tooltip" %>
+                <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
               </div>
               <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster} %>
               <div class="clear tag">

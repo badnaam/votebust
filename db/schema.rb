@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100921172922) do
+ActiveRecord::Schema.define(:version => 20100925163014) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -19,12 +19,16 @@ ActiveRecord::Schema.define(:version => 20100921172922) do
   end
 
   create_table "comments", :force => true do |t|
-    t.text     "body",          :null => false
+    t.text     "body",                                          :null => false
     t.datetime "created_at"
     t.integer  "vi_id"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
     t.integer  "user_id"
+    t.boolean  "approved",                    :default => true
+    t.string   "user_ip",       :limit => 50
+    t.string   "user_agent",    :limit => 50
+    t.string   "referrer"
   end
 
   add_index "comments", ["user_id"], :name => "user_id"
@@ -80,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20100921172922) do
   add_index "geocode_caches", ["address"], :name => "address"
   add_index "geocode_caches", ["lat"], :name => "lat"
   add_index "geocode_caches", ["lng"], :name => "lng"
+
+  create_table "interests", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "category_id"
+  end
 
   create_table "notifiers", :force => true do |t|
     t.datetime "created_at"
@@ -199,18 +210,18 @@ ActiveRecord::Schema.define(:version => 20100921172922) do
   add_index "vote_facets", ["vote_topic_id"], :name => "vote_topic_id"
 
   create_table "vote_items", :force => true do |t|
-    t.string   "option"
+    t.string   "option",        :limit => 150
     t.string   "info"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
-    t.integer  "votes_count",   :default => 0
-    t.integer  "male_votes",    :default => 0
-    t.integer  "female_votes",  :default => 0
-    t.integer  "ag_1_v",        :default => 0
-    t.integer  "ag_2_v",        :default => 0
-    t.integer  "ag_3_v",        :default => 0
-    t.integer  "ag_4_v",        :default => 0
+    t.integer  "votes_count",                  :default => 0
+    t.integer  "male_votes",                   :default => 0
+    t.integer  "female_votes",                 :default => 0
+    t.integer  "ag_1_v",                       :default => 0
+    t.integer  "ag_2_v",                       :default => 0
+    t.integer  "ag_3_v",                       :default => 0
+    t.integer  "ag_4_v",                       :default => 0
   end
 
   add_index "vote_items", ["female_votes"], :name => "female_votes"
@@ -219,7 +230,7 @@ ActiveRecord::Schema.define(:version => 20100921172922) do
 
   create_table "vote_topics", :force => true do |t|
     t.text     "topic"
-    t.text     "friend_emails"
+    t.string   "friend_emails",   :limit => 500
     t.string   "status",          :limit => 4,   :default => "p",   :null => false
     t.datetime "published_at"
     t.datetime "created_at"
@@ -227,7 +238,7 @@ ActiveRecord::Schema.define(:version => 20100921172922) do
     t.integer  "power_offered",                  :default => 0
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "header",          :limit => 500, :default => "",    :null => false
+    t.string   "header",          :limit => 200, :default => "",    :null => false
     t.integer  "category_id"
     t.integer  "votes_count",                    :default => 0
     t.integer  "comments_count",                 :default => 0

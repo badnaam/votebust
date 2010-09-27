@@ -23,19 +23,6 @@ class VoteTopicsController < ApplicationController
         end
     end
     
-    def update_stats
-        @user = params[:user_id].blank? ? false : true
-        @reg_complete = params[:reg_complete] if !params[:reg_complete].blank?
-        
-        @vote_topic = VoteTopic.find_for_stats(params[:id])
-        #just use the id
-        if @vote_topic.expires > DateTime.now
-            @vote_open = true
-        end
-        respond_to do |format|
-            format.js
-        end
-    end
     
     def index
         #        expires_in 10.minutes, :public => true
@@ -173,10 +160,11 @@ class VoteTopicsController < ApplicationController
     def new
         @user = current_user
         @vote_topic = @user.posted_vote_topics.build
-        @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
+        @vote_items = 2.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
             format.html # new.html.erb
+            format.js {}
             format.xml  { render :xml => @vote_topic }
         end
     end
@@ -186,16 +174,22 @@ class VoteTopicsController < ApplicationController
         #        @user = current_user
         #allow edits if none has voted
         if  @vote_topic.votes_count == 0
-            edit = true
+            @edit = true
+            @saved = true
         end
         respond_to do |format|
             format.html {
-                if edit
+                if @edit
                     #
                     setup_vote_items(true)
                 else
                     flash[:error] = 'Sorry voting has already started on this vote.'
                     redirect_back_or_default root_url
+                end
+            }
+            format.js {
+                if !@edit
+                    flash[:error] = 'Sorry voting has already started on this vote.'
                 end
             }
         end
@@ -210,23 +204,29 @@ class VoteTopicsController < ApplicationController
         @vote_topic.status = VoteTopic::STATUS[:nw]
         respond_to do |format|
             if @vote_topic.save
-                flash[:session] = "Your vote was saved and sent for moderator approval. You can check it's status in your profile page."
+                @saved = true
+                flash[:success] = "Your vote was saved and sent for moderator approval. You can check it's status in your profile page."
                 @vote_topic.delay.post_save_processing "created"
                 format.html { redirect_to root_path }
+                format.js {}
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else
-                full_counter = 0
-                (0..(VoteTopic::MAX_VOTE_ITEMS - 1)).each do |i|
-                    if !params[:vote_topic][:vote_items_attributes][i.to_s][:option].blank?
-                        full_counter += 1
-                    end
-                end
-                if full_counter == 0
-                    @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
-                else
-                    @vote_items = (VoteTopic::MAX_VOTE_ITEMS - full_counter).times {@vote_topic.vote_items.build}
-                end
-                format.html { render :action => "new" }
+                @vote_items = 2.times {@vote_topic.vote_items.build}
+                #                full_counter = 0
+                #                (0..(VoteTopic::MAX_VOTE_ITEMS - 1)).each do |i|
+                #                    if !params[:vote_topic][:vote_items_attributes][i.to_s][:option].blank?
+                #                        full_counter += 1
+                #                    end
+                #                end
+                #                if full_counter == 0
+                #                    @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
+                #                else
+                #                    @vote_items = (VoteTopic::MAX_VOTE_ITEMS - full_counter).times {@vote_topic.vote_items.build}
+                #                end
+                format.html { render :action => "new", :not_saved => true }
+                format.js {
+                    @not_saved = true
+                    render :action => "new"}
                 format.xml  { render :xml => @vote_topic.errors, :status => :unprocessable_entity }
             end
         end
@@ -236,9 +236,8 @@ class VoteTopicsController < ApplicationController
     # PUT /vote_topics/1.xml
     def update
         @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
-        #        @user = User.find(params[:vote_topic][:user_id].to_i)
-        #take care of someone fucking with the power offered
-        if params[:vote_topic][:power_offered].to_i != @vote_topic.power_offered
+        #todo - take care of someone fucking with the power offered
+        if !params[:vote_topic][:power_offered].blank? && !@vote_topic.power_offered.nil? && params[:vote_topic][:power_offered].to_i != @vote_topic.power_offered
             #if they are offering less power, add balance it to their voting_power, if more power is being offered reduce it
             new_power_offered =  params[:vote_topic][:power_offered]
             old_power_offered = @vote_topic.power_offered
@@ -253,6 +252,7 @@ class VoteTopicsController < ApplicationController
             end
             if @vote_topic.save
                 flash[:notice] = 'VoteTopic was successfully updated.'
+                @saved = true
                 if fix_power_offered
                     @vote_topic.delay.fix_power_offered(old_power_offered, new_power_offered)
                 end
@@ -260,9 +260,13 @@ class VoteTopicsController < ApplicationController
                 format.html {redirect_back_or_default root_path}
                 #                format.html { redirect_to scoped_vote_topic_path(@vote_topic.category, @vote_topic)}
                 format.xml  { head :ok }
+                format.js{}
             else
+                @edit = true
+                @saved = false
                 format.html { render :action => "edit" }
                 format.xml  { render :xml => @vote_topic.errors, :status => :unprocessable_entity }
+                format.js{render :action => "edit"}
             end
         end
     end

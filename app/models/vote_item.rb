@@ -1,8 +1,10 @@
 class VoteItem < ActiveRecord::Base
     belongs_to :vote_topic
     has_many :votes, :dependent => :destroy
-    after_update :destroy_if_option_blank
+#    after_update :destroy_if_option_blank
 
+    validates_length_of :option, :minimum => 1
+    
     def destroy_if_option_blank
         if self.option.blank?
             self.destroy

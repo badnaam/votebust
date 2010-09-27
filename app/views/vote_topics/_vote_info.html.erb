@@ -1,9 +1,11 @@
 <%  if local_assigns[:preview].nil?
   preview = nil
 end
-%>
-<%  if local_assigns[:toolbar].nil?
+if local_assigns[:toolbar].nil?
   toolbar = nil
+end
+if local_assigns[:show_track_link].nil?
+  show_track_link = nil
 end
 %>
 
@@ -29,10 +31,10 @@ end
       </span>
       <span class="ui-state-normal">
         <span class="ui-icon ui-icon-bullet vam" id=""> </span>
-        <span class="small-pad tracking-count" id="">
+        <span class="small-pad tracking-count t-trigger" id="">
           <%= vt.trackings_count %> trackings
         </span>
-        <%= render :partial => "/shared/tracking_tooltip" %>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
       </span>
       <span class="go-right"><%= flags vt %></span>
     </td>
@@ -60,22 +62,22 @@ end
       <% if preview %>
         <%= link_to "More..", vt, :class => "go-right bld" %>
       <% else %>
-        <div>
-          <% if current_user %>
+        <% if current_user && show_track_link %>
+          <div>
             <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-              <% if (t = @vote_topic.is_being_tracked? current_user.id) %>
-                <a href="<%= tracking_path(t, :vt_id => @vote_topic.id) %>" id="track_link" class="untrack">
+              <% if (t = vt.is_being_tracked? current_user.id) %>
+                <a href="<%= tracking_path(t, :vt_id => vt.id) %>" id="track_link" class="untrack">
                   Untrack
                 </a>
               <% else %>
-                <a href="<%= trackings_path(:vt_id => @vote_topic.id) %>" class="" id="track_link" class="track">
+                <a href="<%= trackings_path(:vt_id => vt.id) %>" class="" id="track_link" class="track">
                   Track
                 </a>
               <% end %>
             </span>
             <%= render :partial => "/shared/add_tracking_tooltip" %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end  %>
     </td>
   </tr>
@@ -83,7 +85,9 @@ end
     <tr>
       <td></td>
       <td colspan="2" class="ui-state-default">
-        <%= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt) %>
+        <% if vt.votes_count == 0 %>
+          <%= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt), :rel => "#vote_overlay" %>
+        <% end  %>
         <span class="go-right">Status : <%= status_str vt.status %></span></td>
     </tr>
   <% end  %>

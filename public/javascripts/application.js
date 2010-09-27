@@ -1,9 +1,103 @@
+function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVoteItemLength) {
+    $('.vote-form-more-details').live('click', function() {
+        $('.vote-form-details').toggle('');
+        return false;
+    });
+    $('#vote_topic_header').keyup(
+        function() {
+            update_chars_left(maxVoteTopicHeaderLength , $('#vote_topic_header')[0],  $('#vote_topic_header').next('p'));
+        });
+    $('#vote_topic_topic').keyup(
+        function() {
+            update_chars_left(maxVoteTopicLength , $('#vote_topic_topic')[0],  $('#vote_topic_topic').next('p'));
+        });
+
+    $("input[id^='vote_topic_vote_items_attributes']").each(function() {
+        $(this).keyup(function() {
+            update_chars_left(maxVoteItemLength , $(this)[0],  $(this).next('p'));
+        })
+    });
+
+    /**$("input#vote_topic_header").blur(function(){
+        value = $("input#vote_topic_header").val()
+        if (value != "") {
+            $.get(autoCompUrl, {
+                term : value
+            }, function(){});
+        }
+    });**/
+
+    $('#vote_submit').button({
+        icons:{
+            primary:'ui-icon-circle-check'
+        }
+    }).click(function(){
+        $('#vote_topic_form').submit();
+        return false;
+    });
+
+    /** for ajax submit **/
+    $('#vote_topic_form').submit(function (){
+        $.ajax({
+            type: 'POST',
+            dataType : 'script',
+            url : $(this).attr('action'),
+            data : $(this).serialize(),
+            global : false,
+            beforeSend : function() {
+                showLoading("#form_loading")
+            },
+            complete : function() {
+                hideLoading("#form_loading")
+            }
+        });
+        /**$.post($(this).attr('action'), $(this).serialize(), function(data) {
+        //hideLoading('#interest_loading');
+      }, "script");**/
+        return false;
+    });
+}
+
+var ModalVoteForm = {
+    init: function(){
+        $("a[rel='#vote_overlay']").each(function(){
+            //alert($(this).attr('href'));
+            $(this).overlay({
+                closeOnClick: false,
+                target: '#vote_overlay',
+                fixed: false,
+                onBeforeLoad: function() {
+                    // grab wrapper element inside content
+                    var wrap = this.getOverlay().find(".contentWrap");
+                    // load the page specified in the trigger
+                    wrap.load(this.getTrigger().attr("href"));
+                },
+                onLoad: function() {
+                    setTimeout("configureVoteForm(200, 1000, 150)", 500);
+                },
+                onClose: function() {
+                    $('.contentWrap').empty();
+                }
+            });
+        });
+    },
+
+    close: function(){
+        $("a[rel='#vote_overlay']").each(function(){
+            var ol = $(this).data("overlay");
+            if(ol.isOpened()){
+                ol.close();
+            }
+        });
+    }
+};
+
 function removeSelected() {
     $("a.trig").each(function() {
         if ($(this).parent('td').hasClass('act')) {
             $(this).parent('td').removeClass('act');
         } 
-//        $(this).parent('td').removeClass('act').addClass('inact');
+    //        $(this).parent('td').removeClass('act').addClass('inact');
     });
 }
 
@@ -120,39 +214,10 @@ function hideFlash() {
 }
 
 function prepareToolTip() {
-    $('.vote-power-ubox').each(function() {
-        $(this).tooltip({
-            relative : true
-        });
-    });
-    $('#track_link').each(function() {
+    $('.t-trigger').each(function() {
         $(this).tooltip({
             relative : true,
-            position : 'center left'
-        });
-    });
-    $('.tracking-count').each(function() {
-        $(this).tooltip({
-            relative : true,
-            position : 'center left'
-        });
-    });
-    $('.power-wrapper').each(function() {
-        $(this).tooltip({
-            relative : true,
-            position : 'center left'
-        });
-    });
-    $('.most-voted').each(function() {
-        $(this).tooltip({
-            relative : true,
-            position : 'center left'
-        });
-    });
-    $('.most-tracked').each(function() {
-        $(this).tooltip({
-            relative : true,
-            position : 'center left'
+            position: "bottom left"
         });
     });
 }
@@ -247,7 +312,6 @@ $(document).ready(function() {
         showCityMenu();
         return false;
     });
-
     
     if ($('.load-widget-link').length > 0) {
         $('.load-widget-link').each(function() {
@@ -273,11 +337,6 @@ $(document).ready(function() {
         $("#city_menu").toggle('fast');
     });
 
-    $('#new_vote_btn').button({
-        icons:{
-            primary:'ui-icon-lightbulb'
-        }
-    });
     $('#search_term').focus(function(){
         $(this).val('');
     });
@@ -292,6 +351,8 @@ $(document).ready(function() {
         text:false
     });
 
+    /** for vote form **/
+    ModalVoteForm.init();
     /** for the intro prezo **/
 
     $("a[rel='#intro_prezo']").overlay();
@@ -308,7 +369,7 @@ $(document).ready(function() {
             return false;
         });
     });
-    //$('#default_trig').trigger('click');
+//$('#default_trig').trigger('click');
 /************** end intro prezo **************/
     
 });

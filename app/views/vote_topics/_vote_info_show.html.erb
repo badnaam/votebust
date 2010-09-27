@@ -1,0 +1,36 @@
+<table class="vote-info-table-show">
+  <tr>
+    <td rowspan="2" class="right-border">
+      <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster, :anon => vt.anon} %>
+    </td>
+    <td class="right-border">
+      <div class="small bld" id="">
+        <span class="ui-icon ui-icon-tag "></span>
+        <%= link_to "#{vt.category.name}, ", category_vote_topics_path(vt.category.to_param) %>
+        <%= link_to "#{vt.poster.city.titleize}, ", city_vote_topics_path(vt.poster.city, :order => 'distance') %>
+        <%= link_to "#{vt.poster.state.titleize}", state_vote_topics_path(vt.poster.state, :order => 'recent') %>
+      </div>
+      <div class="ui-state-normal">
+        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+        <span class="small">Started : <%= vt.created_at.strftime('%b %d %Y') %></span>
+        <% if vt.expires %>
+          <span class="ui-icon ui-icon-bullet vam" id=""> </span>
+          <% if vt.expires > DateTime.now %>
+            <span class="small" id=""> Ends :
+              <%= vt.expires.strftime('%b %d %Y') %>
+            </span>
+          <% else %>
+            <span class="small" id=""> Ended :
+              <%= vt.expires.strftime('%b %d %Y') %>
+            </span>
+          <% end  %>
+        <% end  %>
+      </div>
+    </td>
+    <% if !vt.flags.nil? %>
+      <td>
+        <%= flags vt %>
+      </td>
+    <% end  %>
+  </tr>
+</table>

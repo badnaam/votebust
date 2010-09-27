@@ -1,3 +1,12 @@
+.social-div {border-bottom:1px solid #DDDDDD; border-top:1px solid #DDDDDD; margin-bottom:1em; padding-top:0.5em}
+table.social td {padding: 0; vertical-align: top}
+.r-t-a {text-align: right}
+.social-list {margin:0; padding-left: 0; list-style-type: none}
+.social-list li {margin-bottom: .5em; /* border-bottom: 1px solid #dddddd;*/ }
+.social {margin-bottom: 0}
+.count-in-tab {padding:0 .2em 0 .2em; margin-left:.2em}
+.ui-state-active .count-in-tab {background-color:#FF0084 !important; color:white}
+.ui-state-default .count-in-tab {background-color:#38385C; color: white}
 .white {color:white}
 .form-section-label {border-bottom: 1px solid #dddddd; color:#598F49; margin-bottom: .5em}
 .act {background-color: #282842; color : white !important; border-bottom: 1px solid white !important; border-right: 1px solid white !important}
@@ -34,18 +43,20 @@ body a {color:#598F49; /* font-weight:bold;*/ text-decoration:none}
 .vam {vertical-align: middle}
 .left-mar {margin-left: 18px}
 .vi-list {/* border: 1px solid #dddddd;*/ padding:.3em; list-style-type:none}
-.vi-list-voted {padding:.3em; list-style-type:none}
+.vi-list-voted {padding:.3em; list-style-type:none; margin-bottom: 0}
 .vi-list-voted li {padding:.2em .2em .5em .2em}
 .ui-state-normal .ui-icon {background-image: url(images/ui-icons_666666_256x240.png) !important}
 .ui-widget-vote-preview {border:1px solid #ABA9A9; color:#444444}
 .ui-widget-vote-preview a {color:#444444}
 .vote-info-table {margin-bottom: 0; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd}
+.vote-info-table-show {margin-bottom: 0; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd}
+.vote-info-table-show td {vertical-align: top}
 .tracking-count {cursor: pointer}
 .form-hint {margin-left: 25% !important; font-size:.8em}
 .tooltip {/* background-color:#38385c;*/ /* background-color:#444444;*/ background-color:#f6f6f6; border:1px solid #fff; padding:10px 15px; /* width:200px;*/ display:none; color:#38385c; /* color:#dddddd;*/ text-align:left; font-size:1em; z-index: 10; /* outline radius for mozilla/firefox only */ -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000}
 .tooltip a {color:#8A9E37 !important}
 #content {/* border-top:1px solid #dddddd;*/ }
-.power-points {/* padding:.3em;*/ color:#FF0084; height:16px; /* background-color: #FF0084;*/ }
+.power-points {/* padding:.3em;*/ color:#FF0084; /* height:16px;*/ /* background-color: #FF0084;*/ }
 .preview-table {margin-bottom: 0}
 .preview-table td {vertical-align: top}
 .right-border {border-right: 1px solid #dddddd}
@@ -144,7 +155,7 @@ body a:hover {color:#6FA85E !important}
 .div-search-form input[type="text"] {margin-bottom:0; margin-top:0; vertical-align: bottom; height: 16px}
 #comment_form textarea {height:100px; width:678px; border:2px solid #dddddd}
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #38385c !important}
-.power-wrapper, .most-voted, .most-tracked {cursor: pointer}
+.flag-wrapper {padding:.2em .4em .2em .4em; background-color: #dddddd; cursor: pointer; margin-right: .3em; margin-left: .3em; color:#FF0084}
 .profile-list {list-style-type: none; padding-left: 0 !important}
 .profile-list li {margin-bottom: 1em}
 .profile-list li {margin-bottom: 1.5em}

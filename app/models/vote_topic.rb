@@ -42,7 +42,8 @@ class VoteTopic < ActiveRecord::Base
     validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true,
       :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
     validate :valid_email?
-    validate :min_vote_items, :if => :its_new?
+    validate :min_vote_items#, :if => :its_new?
+    validates_associated :vote_items, :message => "Invalid Options"
     
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
 
@@ -297,6 +298,12 @@ class VoteTopic < ActiveRecord::Base
         find(id, :include => [:poster, :slug]
         )
     end
+
+    def self.find_for_stats(id, scp)
+        Rails.cache.fetch("vtstat_#{id}") do
+            find(id, :include => [:vote_items, :slug], :scope => scp)
+        end
+    end
     
     def self.find_for_show(id, scp)
         Rails.cache.fetch("vt_#{id}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
@@ -309,10 +316,6 @@ class VoteTopic < ActiveRecord::Base
         puts "scope is #{scope}"
         find(id, :conditions => ['status = ?', VoteTopic::STATUS[:approved]], :include => [:vote_items, :poster, :category, :vote_facet, :slugs],
             :scope => scope)
-    end
-
-    def self.find_for_stats(id)
-        find(id, :conditions => ['status = ?', VoteTopic::STATUS[:approved]], :include => [:vote_items])
     end
 
     def self.find_selected_response id
@@ -460,7 +463,7 @@ class VoteTopic < ActiveRecord::Base
     end
 
 
-    def process_flag flag_name
+    def process_flag flag_name 
         begin
             if self.flags.nil? || self.flags.blank?
                 self.update_attribute(:flags, flag_name)

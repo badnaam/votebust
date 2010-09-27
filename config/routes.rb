@@ -58,8 +58,6 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :account, :member => {:approve_vote => :post, :approve_comment => :post, :reject_comment => :post, :reject_vote => :post},
       :collection => {:not_approved_comments => :get, :not_approved_votes => :get,:daily_comments => :get, :reject_comments => :post}
 
-    
-
     #    map.resources :categories, :has_many => [:vote_topics]
     map.resources :categories do |category|
         category.resources :vote_topics
@@ -75,7 +73,7 @@ ActionController::Routing::Routes.draw do |map|
     map.scoped_edit_vote_topic "/vote_topics/:scope/:id/edit", :controller => "vote_topics", :action => 'edit'
     map.scoped_update_vote_topic "/vote_topics/:scope/:id/update", :controller => "vote_topics", :action => 'update'
     
-    
+    map.resources :interests, :collection => {:manage => :post}
 #    map.category_vote_topics "/vote_topics/categories/:category_scope", :controller => "vote_topics", :action => 'index'
 #    map.city_vote_topics "/searches/cities/:city", :controller => "searches", :action => 'index'
 #    map.state_vote_topics "/searches/states/:state", :controller => "searches", :action => 'index'

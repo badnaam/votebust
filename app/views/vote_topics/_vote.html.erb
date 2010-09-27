@@ -1,8 +1,7 @@
 <% content_for :title do %>
   <%= @vote_topic.header %>
 <% end  %>
-<%# share_url = Constants::SHARE_URL_PREFIX.concat(url_for(:controller => "vote_topics", :action => "show", :id => @vote_topic.id)) %>
-<% share_url = Constants::SHARE_URL_PREFIX.concat(vote_topic_url(@vote_topic.category, @vote_topic)) %>
+<% share_url = Constants::SHARE_URL_PREFIX.concat(scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
 <%content_for :fb_metas do %>
   <meta property="og:title" content="<%= @vote_topic.header %>"/>
   <meta property="og:type" content="<%= @vote_topic.category.name %>"/>
@@ -29,14 +28,16 @@
           $.ajax({type: 'POST',
             url:'<%= votes_path() %>',
             data: {
-              id: '<%= @vote_topic.id %>',vote_open: $('#vote_open').val(), reg_complete : $('#reg_complete').val(), response : $(this).attr('id'),
-              user_id : $('#user_id').val(), id:$('#vote_id').val()
+              response : $(this).attr('id'),
+              user_id : $('#user_id').val(),
+              id:$('#vote_id').val(),
+              category: $('#category').val()
             },
             success : function() {
               //$('#vote_status').html('Vote Accepted.');
             },
             error:function(){
-              $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
+              showFlash('Sorry vote could not be processed', 'flash-error')
             },
             beforeSend : function() {
               showProgress($('#vote_loading'))
@@ -50,14 +51,15 @@
           $.ajax({type: 'DELETE',
             url:'<%= url_for(:controller => 'votes', :action => 'destroy', :only_path => true, :id => @vote_topic.id) %>',
             data: {
-              id: '<%= @vote_topic.id %>', vote_open: $('#vote_open').val(),reg_complete:$('#reg_complete').val(),response : $(this).attr('id'),
-              user_id : $('#user_id').val(), id:$('#vote_id').val()
+              response : $(this).attr('id'),
+              user_id : $('#user_id').val(),
+              id:$('#vote_id').val()
             },
             success : function() {
               //$('#vote_status').html('Vote Cancelled.');
             },
             error:function(){
-              $('#flash_messages').append('<div></div>').attr('class', 'error').text('Sorry. An error occured. Please try later.');
+              showFlash('Sorry vote cancellation could not be processed', 'flash-error')
             },
             beforeSend : function() {
               showProgress($('#vote_loading'))
@@ -111,9 +113,9 @@
       return false;
     });
 
-    $('#track_link').tooltip({
+    /**    $('#track_link').tooltip({
       relative : true
-    });
+    });**/
 
 <% if current_user %>
       handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
@@ -148,25 +150,31 @@
       <%= render :partial => "vote_control" %>
     </div>
     <div>
-      <%= render :partial => 'vote_info', :locals => {:vt => @vote_topic, :preview => false} %>
+      <%= render :partial => 'vote_info_show', :locals => {:vt => @vote_topic} %>
     </div>
   </div>
 </div>
 
-<div class="top-mar  span-18 last prepend-top append-bottom ">
-  <table class="ui-state-default" id="">
+<div class="span-18 last prepend-top append-bottom social-div" id="">
+  <table class="social" id="">
     <tr>
-      <td class="top-al">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
-        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      </td>
-      <td class="top-al">
-        <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
-      </td>
-      <td class="top-al">
-    <fb:like href="<%= share_url %>" width="450"></fb:like>
+      <td>
+    <fb:like href="<%= share_url %>" width="450" ></fb:like>
     </td>
-    </tr>
+    <td class="r-t-a">
+      <ul class="social-list" id="">
+        <li>
+          <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
+        </li>
+        <li>
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+          <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </li>
+        <li>
+          <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
+        </li>
+      </ul>
+    </td>
   </table>
 </div>
 
@@ -185,7 +193,7 @@
 
 <%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => current_user, :selected_response_for_comment => @selected_response} %>
 
-  
+
 <div id="fb-root">
 </div>
 <script>

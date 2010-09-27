@@ -15,10 +15,11 @@
         },
         dataType:'script',
         success:function(){
+          ModalVoteForm.init();
         }
       }
     });
-
+    
     $('#friend_invite_submit').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
       $('#friend_invite_form').submit();
       return false;
@@ -59,19 +60,20 @@
         <% permitted_to? :update, @user do %>
           <li><a href="#profile_info" class="" id="">Profile</a></li>
           <li><a href="#invite_friends" class="" id="">Invite Friends</a></li>
+          <li><a href="<%= interests_path %>" class="" id=""><span>Interests</span></a></li>
           <li title="Vote Topics you are tracking"><a title ="tracked_votes" href="<%= url_for(:controller => :vote_topics, :action => :index,
                                                         :listing_type => "tracked_all")%>"><span>Tracking</span></a></li>
           <% end  %>
         <li title="Votes you have started.">
           <a  title="started_votes" href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
-            <span>Votes Started <span class="" id="">
+            <span>Votes Started <span class="count-in-tab" id="">
                 <%= @user.posted_vote_topics.size %>
               </span></span>
           </a>
         </li>
         <li  title ="Vote Topics you have voted on">
           <a  title ="voted_votes" href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>">
-            <span>Votes Posted <span class=""><%= @user.votes.size %></span> </span>
+            <span>Votes Posted <span class="count-in-tab"><%= @user.votes.size %></span> </span>
           </a>
         </li>
       </ul>
@@ -126,6 +128,9 @@
             <% end  %>
           <% end  %>
         </div>
+        <!--<div class="" id="interests">
+  <%#= render :partial => '/categories/interest_form' %>
+        </div> -->
         <div class="" id="tracked_votes"></div>
       <% end  %>
       <div class="" id="started_votes"></div>

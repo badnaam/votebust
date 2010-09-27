@@ -1,1 +1,6 @@
-<%= render :partial => "form" %>
+<% if @not_saved %>
+  $(".contentWrap").html("<%=  escape_javascript (render :partial => 'overlay_form') %>");
+  setTimeout("configureVoteForm(<%=  Constants::MAX_VOTE_HEADER_LENGTH%>, <%= Constants::MAX_VOTE_TOPIC_LENGTH %>, <%= Constants::MAX_VOTE_ITEM_OPTION  %>)", 500);
+<% else %>
+  <%=  render :partial => 'overlay_form' %>
+<% end  %>
