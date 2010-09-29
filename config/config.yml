@@ -26,8 +26,8 @@ production:
   personal_email: 'asitkmishra@gmail.com'
   smtp_server_domain:
   site_name: "Voteable"
-  admin_pwd: 't'
-  admin_uname: 'admin'
+  admin_pwd: 'd0ntd01t'
+  admin_uname: 'edministrator'
   admin_role_name: 'admin'
   user_role_name: 'user'
   stock_pwd: 't'

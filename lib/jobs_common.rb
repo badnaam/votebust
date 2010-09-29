@@ -1,20 +1,6 @@
 require 'populator'
 class JobsCommon
-    CATEGORIES = ["Arts","Autos & Motorcyles","Business","Computers","Education","Electronics","Entertainment","Environmentalism","Finance","Food & Dining","Games","Health & Fitness",
-        "Hobbies",
-        "Home & Garden",
-        "Kids",
-        "Legal",
-        "Life & Society",
-        "Pets",
-        "Real Estate",
-        "Recreation & Sports",
-        "Relationship Advice",
-        "Religion",
-        "Science",
-        "Social Sciences",
-        "Transportation",
-        "Travel & Places"]
+    CATEGORIES =  ["Arts", "Autos & Motorcyles", "Backpacking", "Business", "Computers", "Education", "Electronics", "Entertainment", "Environmentalism", "Ethical", "Finance", "Food & Dining", "gadgets", "Games", "Gifts", "Health & Fitness", "Hobbies", "Hobby", "Home & Garden", "Internet", "Kids", "Legal", "Life & Society", "Luxury Travel", "Moral", "Other", "Personal Finance", "Pets", "Real Estate", "Recreation & Sports", "Relationship Advice", "Religion", "Science", "Serial Dating", "Social Sciences", "Speed Dating", "Sports and Outdoor", "Transportation", "Travel & Places", "Urban Living", "Video Games"]
 
     ZIP_CODES =  ["78789", "94501", "11361", "11717", "94043", "11256", "94602", "94577", "94085", "94536", "94022", "94118", "94701", "94010", "78799", "94131",
         "98101", "98102", "98103", "97212", "97205", "90201", "46303", "70112", "85001", "10001", "90077"]
