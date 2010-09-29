@@ -50,7 +50,7 @@ namespace :deploy do
 
     
     after "deploy:symlink" do
-        update_crontab
+#        update_crontab
         chown_to_www_data
     end
 
@@ -60,7 +60,7 @@ namespace :deploy do
     
     after "deploy:update_code" do
         symlink_shared
-        restart_sphinx
+#       restart_sphinx
     end
 
     before "deploy:update" do
