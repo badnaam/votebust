@@ -18,6 +18,7 @@ set :rails_env, ENV['rails_env'] || ENV['RAILS_ENV'] || default_env
 set :user, 'root'
 set :group, 'www-data'
 set :ssh_options, { :forward_agent => true }
+set :use_sudo, true
 
 role :web, "173.230.158.13"                          # Your HTTP server, Apache/etc
 role :app, "173.230.158.13"                          # This may be the same as your `Web` server
