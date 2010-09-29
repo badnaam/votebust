@@ -14,62 +14,29 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function() {
-    setVotingCounter(<%= Constants::VOTING_COUNTER_RESET_INTERVAL%>);
-
-    $('.take-action').live('click', function() {
-      var count_val = $('#vote_count').val();
-      if (count_val > <%= Constants::MAX_VOTES_PER_INTERVAL %> ) {
-        showFlash('Vote Slowly', 'flash-error');
-        //$('#flash_messages').append('<div></div>').attr('class', 'error').text('Vote Slowly.');
-      } else {
-        $('#vote_count').val(++count_val);
-        if ($(this).hasClass('vote')) {
-          //post vote
-          $.ajax({type: 'POST',
-            url:'<%= votes_path() %>',
-            data: {
-              response : $(this).attr('id'),
-              user_id : $('#user_id').val(),
-              id:$('#vote_id').val(),
-              category: $('#category').val()
-            },
-            success : function() {
-              //$('#vote_status').html('Vote Accepted.');
-            },
-            error:function(){
-              showFlash('Sorry vote could not be processed', 'flash-error')
-            },
-            beforeSend : function() {
-              showProgress($('#vote_loading'))
-            },
-            complete: function() {
-              hideProgress($('#vote_loading'))
-            }
-          });
-        } else {
-          //cancel vote
-          $.ajax({type: 'DELETE',
-            url:'<%= url_for(:controller => 'votes', :action => 'destroy', :only_path => true, :id => @vote_topic.id) %>',
-            data: {
-              response : $(this).attr('id'),
-              user_id : $('#user_id').val(),
-              id:$('#vote_id').val()
-            },
-            success : function() {
-              //$('#vote_status').html('Vote Cancelled.');
-            },
-            error:function(){
-              showFlash('Sorry vote cancellation could not be processed', 'flash-error')
-            },
-            beforeSend : function() {
-              showProgress($('#vote_loading'))
-            },
-            complete: function() {
-              hideProgress($('#vote_loading'))
-            }
-          });
+    $('.vote').live('click', function() {
+      //post vote
+      $.ajax({type: 'POST',
+        url:'<%= votes_path() %>',
+        data: {
+          response : $(this).attr('id'),
+          user_id : $('#user_id').val(),
+          id:$('#vote_id').val(),
+          category: $('#category').val()
+        },
+        success : function() {
+          //$('#vote_status').html('Vote Accepted.');
+        },
+        error:function(){
+          showFlash('Sorry vote could not be processed', 'flash-error')
+        },
+        beforeSend : function() {
+          showProgress($('#vote_loading'))
+        },
+        complete: function() {
+          hideProgress($('#vote_loading'))
         }
-      }
+      });
       return false;
     });
     
@@ -113,10 +80,6 @@
       return false;
     });
 
-    /**    $('#track_link').tooltip({
-      relative : true
-    });**/
-
 <% if current_user %>
       handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
       //and fire it on doc ready, too
@@ -134,6 +97,10 @@
       })
       return false;
     });
+
+    $('#facets').accordion({
+      collapsible : true
+    });
   });
   //]]>
 </script>
@@ -141,10 +108,20 @@
 <div class=" span-18 last">
   <div class="ui-widget-vote-preview  normal-pad ">
     <div>
-      <blockquote class="preview">
-        <span class="big"><%=  @vote_topic.header%></span>
-      </blockquote>
-      <p class="left-mar">
+      <table class="vote-info-table-top" id="">
+        <tr>
+          <td class="right-border" style="width:20%">
+            <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster, :anon => @vote_topic.anon} %>
+          </td>
+          <td style="width:80%">
+            <blockquote class="preview">
+              <span class="big"> <%= @vote_topic.header %></span>
+            </blockquote>
+          </td>
+        </tr>
+      </table>
+
+      <p class="left-mar top-mar">
         <%= @vote_topic.topic %>
       </p>
       <%= render :partial => "vote_control" %>
@@ -167,7 +144,7 @@
           <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
         </li>
         <li>
-          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="vertical">Tweet</a>
           <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         </li>
         <li>
@@ -178,13 +155,13 @@
   </table>
 </div>
 
-<% if !@vote_topic.vote_facet.nil? %>
+<% facet = VoteFacet.find_for_show(@vote_topic.id) %>
+<% if !facet.nil? || !facet.blank? %>
   <div id ="facets" class="span-18 last">
-    <div class="ui-corner-all ui-widget-content">
-      <h4 class="bld normal-pad">About your voters</h4>
-      <hr/>
+    <h3 class="ui-widget-header"><a href="#">About the voters</a></h3>
+    <div class="" id="">
       <ul class="facet-list">
-        <%= print_facet @vote_topic.vote_facet %>
+        <%= print_facet facet %>
       </ul>
     </div>
   </div>

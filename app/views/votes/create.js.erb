@@ -1,9 +1,5 @@
 <%= render :partial => 'layouts/flash_js_msg' %>
 $('#selected_response_for_comment').val('<%= request.parameters['response'] %>');
 
-//handleVoting('<%= request.parameters['response'] %>')
-//replace voted with new partial
-$('#voted_state').html("<%= escape_javascript(render :partial => '/vote_topics/vote_form', :locals => {:selected_response => request.parameters['response'],
+$('.vote-stat').html("<%= escape_javascript(render :partial => '/vote_topics/vote_form', :locals => {:selected_response => request.parameters['response'],
     :vt => VoteTopic.find_for_stats(request.parameters[:id], request.parameters[:category])})%>");
-$('#unvoted_state').hide('slow');
-$('#voted_state').show('slow');

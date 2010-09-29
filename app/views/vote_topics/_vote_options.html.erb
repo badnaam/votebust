@@ -1,7 +1,7 @@
 <ul class="top-mar list-no-pad-no-mar " id="vote_items_list">
   <%@vote_topic.vote_items.each do |v| %>
     <li >
-      <%= v.option.titleize %>
+      <%= v.option %>
     </li>
   <% end  %>
   <% if !current_user %>

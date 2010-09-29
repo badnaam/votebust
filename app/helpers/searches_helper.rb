@@ -6,14 +6,14 @@ module SearchesHelper
         str = "<div><span class='go-right order-link' id=''>"
         orders.each do |o|
             if current_order == o
-                str  << "<span class= 'current'>#{current_order.titleize}</span>"
+                str  << "<span class= 'current'>#{current_order}</span>"
             else
                 if request.parameters[:city]
-                    str << (link_to o.titleize, city_vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link')
+                    str << (link_to o, city_vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link')
                 elsif request.parameters[:state]
-                    str << (link_to o.titleize, state_vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link')
+                    str << (link_to o, state_vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link')
                 elsif request.parameters[:q]
-                    str << (link_to o.titleize, searches_path(request.parameters.merge({'order'=> o})) , :class => 'order-link')
+                    str << (link_to o, searches_path(request.parameters.merge({'order'=> o})) , :class => 'order-link')
                 end
             end
         end

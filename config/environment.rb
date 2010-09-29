@@ -54,19 +54,12 @@ Rails::Initializer.run do |config|
     # Run "rake -D time" for a list of tasks for finding time zone names.
     config.gem 'net-ssh', :lib => "net/ssh"
     config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
-    #    config.gem "mogli"
-    #    config.gem "facebooker2"
     config.gem "json"
     config.gem 'dalli'
     config.gem "authlogic"
     config.gem "friendly_id", :version => "~> 3.1"
     config.gem 'rakismet'
-    #    config.gem "oauth"
-    #    config.gem "oauth2"
-    #    config.gem "authlogic-connect"
 
-    #    ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcbaboSAAAAADbBxT9yLOJ7CoLWLsuAfZr-aL-H'
-    #    ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcbaboSAAAAACJMtxxfExG5dm_GcDHuZl9WVjZG'
     ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG['recap_pub_key']
     ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG['recap_priv_key']
     ENV['GOOGLE_JS_API'] = APP_CONFIG['google_js_api']
@@ -74,15 +67,12 @@ Rails::Initializer.run do |config|
     #    ENV['RPX_KEY'] = '18c3db9c36e3ce844af615637cfc9ffbac08448f'
     
     config.time_zone = 'Pacific Time (US & Canada)'
-    
-    
     #    config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
     %w(middleware).each do |dir|
         config.load_paths << "#{RAILS_ROOT}/app/#{dir}"
     end
     
-    #    config.gem "friendly_id"
-    config.gem "badnaam-geokit", :lib => 'geokit'
+    config.gem "badnaam-geokit", :lib => 'geokit', :version => '1.5.1'
     config.gem(
         'thinking-sphinx',
         :lib     => 'thinking_sphinx',
@@ -94,25 +84,21 @@ Rails::Initializer.run do |config|
     config.gem "authlogic_rpx"
     config.gem "formtastic"
     config.gem "validation_reflection"
-    #    config.gem "ym4r"
-    
-    #    config.gem 'delayed_job'
     config.gem 'delayed_job', :source => 'http://rubygems.org', :version => "2.1.0.pre"
     config.gem "ghazel-daemons", :lib => "daemons", :source => 'http://gems.github.com'
     gem "ghazel-daemons"
     require "daemons"
-    #    require 'daemon_fix.rb'
     
     config.gem "simple-navigation"
     
     config.gem "declarative_authorization"
     config.gem "searchlogic"
-    #    config.gem "geokit", :source => "gems.github.com"
     config.gem 'will_paginate', :lib => 'will_paginate',  :source => 'http://gemcutter.org'
 
-
-    
-#   ExceptionNotification::Notifier.exception_recipients = %w(voteableteam@gmail.com)
+    config.gem 'ts-datetime-delta',
+      :lib     => 'thinking_sphinx/deltas/datetime_delta',
+      :version => '>= 1.0.2',
+      :source  => 'http://gemcutter.org'
 
     if defined?(PhusionPassenger)
         PhusionPassenger.on_event(:starting_worker_process) do |forked|
@@ -125,4 +111,11 @@ Rails::Initializer.run do |config|
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     # config.i18n.default_locale = :de
+
+    
 end
+
+ExceptionNotification::Notifier.sender_address = %w(voteableteam@gmail.com)
+
+ExceptionNotification::Notifier.exception_recipients = %w(voteableteam@gmail.com)
+

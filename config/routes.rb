@@ -86,7 +86,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resource :user_sessions
     map.resource :account, :controller => "users"
 
-    map.resources :users, :collection => {:top_voters => :get} do |users|
+    map.resources :users, :collection => {:top_voters => :get}, :member => {:update_preference => :post} do |users|
         users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
         users.resources :comments
     end

@@ -8,44 +8,20 @@ if local_assigns[:show_track_link].nil?
   show_track_link = nil
 end
 %>
-
 <table class="vote-info-table">
   <tr>
-    <td rowspan="2" class="right-border">
-      <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster, :anon => vt.anon} %>
-    </td>
-    <td class="right-border">
+    <td class="no-pad">
       <span class="small bld" id="">
         <span class="ui-icon ui-icon-tag "></span>
         <%= link_to "#{vt.category.name}, ", category_vote_topics_path(vt.category.to_param) %>
-        <%= link_to "#{vt.poster.city.titleize}, ", city_vote_topics_path(vt.poster.city, :order => 'distance') %>
-        <%= link_to "#{vt.poster.state.titleize}", state_vote_topics_path(vt.poster.state, :order => 'recent') %>
+        <%= link_to "#{vt.poster.city}, ", city_vote_topics_path(vt.poster.city, :order => 'distance') %>
+        <%= link_to "#{vt.poster.state}", state_vote_topics_path(vt.poster.state, :order => 'recent') %>
       </span>
     </td>
-    <td>
+    <td class="no-pad">
       <span class="ui-state-normal">
-        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
-        <span class=" small-pad" id="">
-          <%= "#{vt.votes_count} votes"  %>
-        </span>
-      </span>
-      <span class="ui-state-normal">
-        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
-        <span class="small-pad tracking-count t-trigger" id="">
-          <%= vt.trackings_count %> trackings
-        </span>
-        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
-      </span>
-      <span class="go-right"><%= flags vt %></span>
-    </td>
-  </tr>
-  <tr>
-    <td class="right-border">
-      <span class="ui-state-normal">
-        <span class="ui-icon ui-icon-bullet vam" id=""> </span>
         <span class="small">Started : <%= vt.created_at.strftime('%b %d %Y') %></span>
         <% if vt.expires %>
-          <span class="ui-icon ui-icon-bullet vam" id=""> </span>
           <% if vt.expires > DateTime.now %>
             <span class="small" id=""> Ends :
               <%= vt.expires.strftime('%b %d %Y') %>
@@ -58,28 +34,28 @@ end
         <% end  %>
       </span>
     </td>
-    <td>
-      <% if preview %>
-        <%= link_to "More..", vt, :class => "go-right bld" %>
-      <% else %>
-        <% if current_user && show_track_link %>
-          <div>
-            <span class="go-right" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-              <% if (t = vt.is_being_tracked? current_user.id) %>
-                <a href="<%= tracking_path(t, :vt_id => vt.id) %>" id="track_link" class="untrack">
-                  Untrack
-                </a>
-              <% else %>
-                <a href="<%= trackings_path(:vt_id => vt.id) %>" class="" id="track_link" class="track">
-                  Track
-                </a>
-              <% end %>
-            </span>
-            <%= render :partial => "/shared/add_tracking_tooltip" %>
-          </div>
-        <% end %>
-      <% end  %>
+
+    <td class="no-pad r-t-a">
+      <span class="ui-state-normal">
+        <span class=" small-pad" id="">
+          <%= Rails.cache.fetch("vt_votes_#{vt.id}") do vt.votes_count end %> votes
+        </span>
+      </span>
+      <span class="ui-state-normal">
+        <span class="small-pad tracking-count t-trigger" id="">
+          <%= Rails.cache.fetch("vt_tracking_#{vt.id}") do vt.trackings_count end %> trackings
+        </span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
+      </span>
+      <span class=""><%= flags vt %></span>
     </td>
+
+    <% if preview %>
+      <td class="no-pad">
+        <%= link_to "More..", vt, :class => "go-right bld" %>
+      </td>
+    <% end  %>
+
   </tr>
   <% if toolbar == true %>
     <tr>

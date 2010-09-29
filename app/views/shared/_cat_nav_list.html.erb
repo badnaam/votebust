@@ -2,7 +2,7 @@
   <div  class=" category-menu-div span-24 last" id="cat_menu">
     <span class="go-right ui-icon ui-icon-close" id="close_cat_menu"></span>
     <hr class="clear prepend-top"/>
-    <% categories = Category.all%>
+    <% categories = Category.all_categories%>
     <table class="" id="">
       <% categories.each_with_index do |c, i| %>
         <% if i == 0 || i % 5 == 0 %>

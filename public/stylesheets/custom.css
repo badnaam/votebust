@@ -1,3 +1,14 @@
+
+.preference-list li label {
+    font-weight:normal;
+}
+.interests-table td label {
+    font-weight:normal;
+}
+.selected-vote {
+    color:#FF0084;
+    font-weight: bold;
+}
 .social-div {
     border-bottom:1px solid #DDDDDD;
     border-top:1px solid #DDDDDD;
@@ -55,7 +66,6 @@ table.social td {
 .pres-nav-menu {
     color: #F2E9E9;
     border-bottom: 1px solid #F2E9E9;
-    border-right: 1px solid #F2E9E9;
     font-weight: bold;
     font-size : 1.6em;
 }
@@ -122,19 +132,21 @@ table.social td {
 .contentWrap {
     font-size :.9em !important;
 }
+.form-wrapper {
+    padding: .2em .2em .2em .7em;
+}
 .new-vote-overlay {
     z-index:100;
-    height:350px;
+    height:360px;
     display:none;
-    padding:.3em;
+    padding:.5em;
     background-color: #38385C;
     -moz-box-shadow:0 0 90px 5px #000;
     -webkit-box-shadow: 0 0 90px #000;
 }
 .contentWrap {
     overflow-y:auto;
-    height:346px;
-    padding: 2px;
+    height:360px;
     background-color: white;
 
 }
@@ -296,14 +308,18 @@ html, body {
     color:#444444;
 }
 
+.vote-info-table-top {
+    margin-bottom: 0;
+    table-layout: fixed;
+    border-bottom: 1px solid #dddddd;
+}
 .vote-info-table {
     margin-bottom: 0;
-    border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
 }
 .vote-info-table-show {
     margin-bottom: 0;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #ABA9A9;
     border-bottom: 1px solid #dddddd;
 }
 .vote-info-table-show td {
@@ -316,6 +332,9 @@ html, body {
 .form-hint {
     margin-left: 25% !important;
     font-size:.8em;
+}
+.no-pad {
+    padding:0;
 }
 .tooltip {
     /*    background-color:#38385c;*/
@@ -568,9 +587,6 @@ div.pagination span.disabled {
     width:100px;
     z-index:200;
 }
-.nav_container {
-    overflow: auto;
-}
 body {
     font-family:sans-serif,"Helvetica Neue",Arial,Helvetica !important;
     color:#444444;
@@ -622,7 +638,7 @@ body a:hover {
     padding-left:0 !important;
 }
 .main_links_div li a {
-    padding:1em 0.8em;
+    padding:.8em 0.8em;
     font-size:1em;
     vertical-align: bottom;
 }
@@ -797,12 +813,13 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
 
 
 .flag-wrapper {
-    padding:.2em .4em .2em .4em;
+    padding: .1em .4em .1em .4em;
     background-color: #dddddd;
     cursor: pointer;
     margin-right: .3em;
     margin-left: .3em;
     color:#FF0084;
+/*    border:1px solid #746a6a;*/
 }
 .profile-list {
     list-style-type: none;

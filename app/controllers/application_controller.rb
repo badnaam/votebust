@@ -3,9 +3,13 @@
 
 
 class ApplicationController < ActionController::Base
+    include ExceptionNotification::Notifiable
+    include ExceptionNotification::ConsiderLocal
+    
     layout "main"
-#    include ExceptionNotification::Notifiable
+    
     before_filter :admin_only
+    before_filter :require_registration
     
     helper :all # include all helpers, all the time
     #    protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -92,7 +96,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_registration
-        unless registration_complete?
+        if current_user &&  !registration_complete?
             store_location
             flash[:notice] = "Please complete registration before continuing"
             redirect_to edit_user_path(current_user)
@@ -127,4 +131,16 @@ class ApplicationController < ActionController::Base
         redirect_to(session[:return_to] || default)
         session[:return_to] = nil
     end
+
+    protected
+    def local_request?
+        false
+    end
+
+    exception_data :additional_data
+
+    def additional_data
+        current_user ? {:current_user => current_user } : {}
+    end
+
 end

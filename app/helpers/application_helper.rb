@@ -4,6 +4,17 @@ module ApplicationHelper
     def make_tooltip str
         return "<span class='tooltip'>#{str}</span>"
     end
+    def new_button controller
+        str = "<li>"
+        if controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new')
+        elsif
+            controller.class == UsersController && (controller.action_name == 'edit')
+        else
+            str << link_to("New Vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text', :rel => "#vote_overlay") << "</li>"
+        end
+        return str
+    end
+    
     def cf key
         if (val = CACHE.fetch key).nil?
             if block_given?

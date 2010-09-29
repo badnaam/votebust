@@ -1,6 +1,7 @@
 class UserSessionsController < ApplicationController
     #    before_filter :require_no_user, :only => [:new, :create]
     #    before_filter :require_user, :only => :destroy
+    skip_before_filter :require_registration, :only => [:create, :destroy]
     before_filter :require_user, :except => [:index, :new, :create]
     #    before_filter :header_exempt
     #    rpx_extended_info
@@ -66,7 +67,7 @@ class UserSessionsController < ApplicationController
             else
                 logger.info "recap failed, no bf"
                 render :action => :new
-#                redirect_to new_user_s essions_path
+                #                redirect_to new_user_s essions_path
             end
         end
     end

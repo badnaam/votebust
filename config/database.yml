@@ -52,8 +52,8 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-#  database: voteable_production
-  database: nap_on_it_development
+  database: voteable_production
+#  database: nap_on_it_development
   pool: 5
   username: root
   password: test

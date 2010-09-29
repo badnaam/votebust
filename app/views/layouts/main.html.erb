@@ -4,82 +4,30 @@
   <%= render :partial => '/layouts/scripts' %>
   <body>
     <div class="container" id="main_container" >
-      <div class="header span-24 last">
-        <div class ="span-24 header_links_div last">
-          <%= render :partial => "/shared/cat_nav_list" %>
-          <%= render :partial => "/shared/city_nav_list" %>
+            <%= render :partial => "/layouts/header" %>
 
-          <div class="span-24 last"
-               <div class="ui-corner-bl ui-corner-br ui-state-hover">
-              <ul class="header_links">
-                <% unless  current_user %>
-                  <li><%= link_to "Sign Up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
-                  <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
-                <% else %>
-                  <% unless controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new') %>
-                      <li><%= link_to "New Vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text', :rel => "#vote_overlay" %>
-                      </li>
-                    <% end  %>
-                    <li><%= link_to current_user.username.titleize, current_user, :id => 'main_profile_link' %>
-                      <span id="main_link_vote_power" class="vote-power" style="margin-left:.5em;">
-                        <%= current_user.voting_power %> </span></li>
-                    <li><%= link_to "Logout", logout_path  %></li>
-                  <% end %>
-                  <li>
-                    <a href="/vote_topics/rss" class="sprite rss-image" id="">
-                      &nbsp;
-                    </a>
-                    <%= auto_discovery_link_tag(:rss, rss_vote_topics_url(:format => 'rss')) %>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="last span-24 header_logo_div append-bottom"> <!-- header logo -->
-            <div class="span-8">
-              <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
-              <span class="logo_msg"><%= t 'site_logo_msg' %></span>
-              <a href="intro-prezo-trig" class="special-text bld" id="" rel="#intro_prezo">
-                <%= t ('site_learn_more') %>
-              </a>
-            </div>
-            <!-- <sup>&trade;</sup> -->
-            <div class="span-24 last nav_container ui-state-default prepend-top">
-              <div class="main_links_div span-18">
-                <%= render_navigation :level => 1 %>
-              </div>
-              <div class="span-6 last div-search-form"
-              <% form_tag searches_path, :method => :get, :class => '', :id => "search_form" do %>
-                <%= text_field_tag :q, cookies[:voteable_q].nil? ? "Search" : cookies[:voteable_q],  :class => 'search-term' %>
-                     <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
-                     <% end  %>
-              </div>
-            </div>
-          </div>
+
+      <div class ="span-24 last content_container prepend-top">
+        <div class="span-24 last">
+          <%= yield :page_headers %>
         </div>
 
-        <div class ="span-24 last content_container">
-          <div class="span-24 last">
-            <%= yield :page_headers %>
-          </div>
+        <div class="content span-18" id="content">
 
-          <div class="content span-18" id="content">
+          <!--<div class="span-18 last" id="flash_messages"> -->
+          <%= render :partial => 'layouts/flash_msg' %>
+          <!--</div>-->
+          <%= yield %>
+        </div> <!-- end content div -->
 
-            <!--<div class="span-18 last" id="flash_messages"> -->
-            <%= render :partial => 'layouts/flash_msg' %>
-            <!--</div>-->
-            <%= yield %>
-          </div> <!-- end content div -->
+        <div class="right_nav span-6 last">
 
-          <div class="right_nav span-6 last">
-
-            <%= yield :right_nav %>
-          </div>
-        </div> <!-- end content_container -->
-
-      </div>
-      <%= render :partial => "/shared/intro_prezo" %>
-      <%= render :partial => '/shared/vote_overlay' %>
-      <%= render :partial => "/layouts/footer" %>
-    </body>
-  </html>
+          <%= yield :right_nav %>
+        </div>
+      </div> <!-- end content_container -->
+    </div>
+    <%= render :partial => "/shared/intro_prezo" %>
+    <%= render :partial => '/shared/vote_overlay' %>
+    <%= render :partial => "/layouts/footer" %>
+  </body>
+</html>

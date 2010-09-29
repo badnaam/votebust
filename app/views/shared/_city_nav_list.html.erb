@@ -3,7 +3,7 @@
   <div  class=" city-menu-div span-24 last" id="city_menu">
     <span class="go-right ui-icon ui-icon-close" id="close_city_menu"></span>
     <hr class="clear prepend-top"/>
-    <% cities = User.all(:select => 'distinct city', :conditions => ['city <> ?',""]).collect {|x| x.city}%>
+    <% cities = User.cities%>
     <table class="" id="">
       <% cities.each_with_index do |c, i| %>
         <% if i == 0 || i % 5 == 0 %>

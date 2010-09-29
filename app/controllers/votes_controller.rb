@@ -12,13 +12,12 @@ class VotesController < ApplicationController
     end
 
     def create
-        ret_val = Vote.do_vote(params[:id], params[:response], params[:user_id], true)
-        if ret_val == true
-            flash[:success] = "Your vote has been accepted and will be processed shortly"
-        elsif ret_val == -1
-            flash[:notice] = "You have already voted"
-        elsif ret_val == false
-            flash[:error] = "Something went wrong with processing your vote. Please try again/"
+        v = Vote.create(:vote_topic_id => params[:id], :user_id => params[:user_id], :vote_item_id => params[:response])
+        if v.valid?
+            flash[:success] = "Your vote has been accepted."
+            Rails.cache.delete("vtstat_#{params[:id]}")
+        else
+            flash[:error] = "#{v.errors.join(',')}"
         end
         respond_to do |format|
             format.js

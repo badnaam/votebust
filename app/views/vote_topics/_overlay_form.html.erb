@@ -1,56 +1,64 @@
 <% if @vote_topic.new_record? 
   url = vote_topics_path
   method = :post
+  msg = "New Vote"
 else 
   url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
   method = :put
+  msg = "Edit Vote"
 end  %>
 
-<% semantic_form_for @vote_topic, :url => url, :html => {:method => method, :id => 'vote_topic_form'}  do |form| %>
-  <%= form.semantic_errors %>
-  <% form.inputs do %>
-    <li class="bld">Fields marked with (*) are required.</li>
-    <%= form.input :header, :label => "Topic", :as => :text, :input_html => {:style => "width:60%;height:40px;"}, :hint => "#{t 'vote_topic.new.header_hint'}.
+<div class="ui-widget-header center bottom-mar"><%= msg %></div>
+<div class="quiet small" id="">
+  Fields marked with * are required
+</div>
+<div class="form-wrapper" id="">
+  <% semantic_form_for @vote_topic, :url => url, :html => {:method => method, :id => 'vote_topic_form'}  do |form| %>
+    <%= form.semantic_errors %>
+    <% form.inputs do %>
+
+      <%= form.input :header, :label => "Topic", :as => :text, :input_html => {:style => "width:60%;height:40px;"}, :hint => "#{t 'vote_topic.new.header_hint'}.
     Within #{Constants::MAX_VOTE_HEADER_LENGTH} characters"%>
-    <%= form.input :anon, :label => "Anonymous?", :hint => "Your username will not be shown with the Vote Topic." %>
-    <li>
-      <div id="suggestions" class="suggestions" style="display:none">
-      </div>
-    </li>
-    <li class="bld">Add up to 5 options(Minimum 2) for your voters to vote on.</li>
-    <% if !form.object.errors.on(:vote_items).nil? && form.object.errors.on(:vote_items).length > 0 %>
-      <div class="error"><%= form.object.errors.on(:vote_items) %></div>
-    <% end %>
-    <div id ="vote_items">
-      <% form.semantic_fields_for :vote_items do |f| %>
-        <%= f.semantic_errors %>
-        <div class="vote_item">
-          <%= f.input :option, :input_html => {:style => "width:60%" }, :hint => "Option to vote on." %>
-          <%= remove_link_unless_new_record(f) %>
+      <%= form.input :anon, :label => "Anonymous, don't show my username with this vote." %>
+      <li>
+        <div id="suggestions" class="suggestions" style="display:none">
         </div>
-      <% end  %>
-      <%= add_object_link "Add option", form, VoteItem.new, "vi", "#vote_items" %>
-    </div>
-    <%= form.input :category, :as => :select, :input_html => {:style => "width:60%" }, :hint => "Please categorize the vote." %>
-    <a href="#" class="vote-form-more-details">More Details</a>
-    <div class="vote-form-details" style="display:none">
-      <%= form.input :topic, :label => "Context", :as => :text, :input_html => {:style => "width:60%;height:40px" }, :hint =>
-        "#{t 'vote_topic.new.topic_hint'}. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
-      <% if current_user.voting_power > Constants::MIN_VOTE_FOR_FEATURED %>
-        <%= form.input :power_offered,:as => :select, :collection => (1..current_user.voting_power).select{|x| x % Constants::VOTING_POWER_OFFER_INCREMENT == 0 },
-          :hint =>""  %>
-        <li class="form-hint">
-          You can offer some of your voting power to put your vote on the featured votes list.
-          You currently have <span class='vote-power bld'><%= current_user.voting_power %></span> voting  power.
-          <a href="/faq#voting_power" target ="_blank" id="vp_faq_link">
-            More about Voting Power in FAQ.</a>.
-        </li>
-      <% end  %>
-      <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:60%;height:40px" } %>
-      <li class="form-hint">
-        <%=  "#{t 'vote_topic.new.email_hints'}" %>
       </li>
-    </div>
+      <li class="bld">Add up to 5 options (Minimum 2) for your voters to vote on.</li>
+      <% if !form.object.errors.on(:vote_items).nil? && form.object.errors.on(:vote_items).length > 0 %>
+        <div class="error"><%= form.object.errors.on(:vote_items) %></div>
+      <% end %>
+      <div id ="vote_items">
+        <% form.semantic_fields_for :vote_items do |f| %>
+          <%= f.semantic_errors %>
+          <div class="vote_item">
+            <%= f.input :option, :input_html => {:style => "width:60%" }, :hint => "Option to vote on." %>
+            <%= remove_link_unless_new_record(f) %>
+          </div>
+        <% end  %>
+        <%= add_object_link "Add option", form, VoteItem.new, "vi", "#vote_items" %>
+      </div>
+      <%= form.input :category, :as => :select, :input_html => {:style => "width:60%" }, :hint => "Please categorize the vote." %>
+      <a href="#" class="vote-form-more-details">More Details</a>
+      <div class="vote-form-details" style="display:none">
+        <%= form.input :topic, :label => "Context", :as => :text, :input_html => {:style => "width:60%;height:40px" }, :hint =>
+          "#{t 'vote_topic.new.topic_hint'}. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
+        <% if current_user.voting_power > Constants::MIN_VOTE_FOR_FEATURED %>
+          <%= form.input :power_offered,:as => :select, :collection => (1..current_user.voting_power).select{|x| x % Constants::VOTING_POWER_OFFER_INCREMENT == 0 },
+            :hint =>""  %>
+          <li class="form-hint">
+            You can offer some of your voting power to put your vote on the featured votes list.
+            You currently have <span class='vote-power bld'><%= current_user.voting_power %></span> voting  power.
+            <a href="/faq#voting_power" target ="_blank" id="vp_faq_link">
+              More about Voting Power in FAQ.</a>.
+          </li>
+        <% end  %>
+        <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:60%;height:40px" } %>
+        <li class="form-hint">
+          <%=  "#{t 'vote_topic.new.email_hints'}" %>
+        </li>
+      </div>
+    <% end  %>
+    <a href="#" id="vote_submit">Save</a>
   <% end  %>
-  <a href="#" id="vote_submit">Save</a>
-<% end  %>
+</div>

@@ -1,6 +1,6 @@
 <span class="ui-state-normal">
   <span class="small-pad t-trigger tracking-count bld" id="">
-    <%= vt.trackings_count %> trackings
+    <%= Rails.cache.fetch("vt_tracking_#{vt.id}") do vt.trackings_count end %> trackings
   </span>
   <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
 </span>
@@ -16,7 +16,7 @@
       </a>
     <% end %>
   </span>
-  <%text = "Add/Remove from your tracking list.
+  <%  text = "Add/Remove from your tracking list.
   <a href='/faq#tracking_faq' class='clearfix' >
   What's tracking?
   </a>" %>

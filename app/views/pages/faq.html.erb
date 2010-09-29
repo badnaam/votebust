@@ -1,3 +1,5 @@
+
+
 <div class="span-24 last" id="">
   <%cache('faq') do -%>
     <h4 class="ui-widget-header normal-pad">Frequently Asked Questions</h4>
@@ -170,75 +172,96 @@
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
 
-      <h3 class="bld prepend-top" id="after_open">What can I do after opening an account?</h3>
-      <div >
-        You are now ready to start Vote Topics and vote!
-        <ul>
-          <li>
-            <span class="bld">How can I start a vote?</span>
-            <p>Before you start a Vote Topic browse Topics posted by other users in the community. You might be able to find the same/similar one.
-              If not, simply click on the <span class="bld">"New Vote"</span> link on the toolbar at the top of the page. Every new vote requires a topic and at least two options
-              for users to vote on. Once the vote is created you can preview it to insure it looks satisfactory. You will be asked to confirm and save the vote. Once the vote is saved
-              it is sent to the moderator for approval and once it's approved it will be presented on <%= t 'site_name' %> to other users for voting. </p>
-            <p>
-              We will also send you an explanation if the Vote Topic is rejected for some
-              reason or does not comply with our <a href="/terms">terms</a>. Please refer to <em><a href="#not_approved">Why wasn't my vote approved</a></em> to understand why
-              a vote may not be approved.</p>
+      <h3 class="bld prepend-top" id="start_vote">How do I start a vote?</h3>
+      <div class="" id="">
+        <p>Before you start a Vote Topic browse Topics posted by other users in the community. You might be able to find the same/similar one.
+          If not, simply click on the <span class="bld">"New Vote"</span> link on the toolbar at the top of the page. Every new vote requires a topic and at least two options
+          for users to vote on.  Once the vote is saved
+          it is sent to the moderator for approval and once it's approved it will be open for voting . </p>
+        <p>
+          We will also send you an explanation if the Vote Topic is rejected for some
+          reason or does not comply with our <a href="/terms">terms</a>. Please refer to <em><a href="#not_approved">Why wasn't my vote approved</a></em> to understand why
+          a vote may not be approved.</p>
 
-            <span class="bld clearfix">Once the vote is confirmed, saved and sent for moderator approval, it can not be edited, so please insure the Vote looks satisfactory before
-              you do so!</span>
-
-            <span class="bld clearfix">A vote once approved is open for voting for 2 weeks. After that the vote is closed for voting, but is available to browsing/sharing. See
-              <a href="#engage">Tips for engaging your voters</a>, for more information on how to get most possible attention from voters in the community.
-            </span>
-          </li>
-          <li>
-            <span class="bld">How can I browse votes?</span>
-            <ul>
-              <li>
-                At the <%= link_to "Home Page", root_path %> you can see votes organized in as "Featured", "Local",
-                "Hot Trends", "Most Tracked", "Recent" etc. Simply click on the vote topic link to view the vote in detail.
-              </li>
-              <li>You can also use the <strong>Search</strong> feature to search for interesting Vote Topics.</li>
-              <li>The <strong>Vote</strong> link in the main navigation bar shows a listing of all Vote Topics.</li>
-              <li>You can click on a user's username link to view all Vote Topics started by that user and where the user has voted.</li>
-              <li>The <strong>Category</strong> in the navigation bar shows you all different categories under which Vote Topics have been created</li>
-              <li id="local">The <strong>City</strong> link in the navigation bar shows you cities from where user's have started Vote Topics.</li>
-            </ul>
-          </li>
-
-          <li class="bld">
-            How to Vote?
-          </li>
-          <p>
-            Click on a vote topic link and go to the vote's main page. Here you can see the current status of the vote and a detailed analysis of the vote.
-            In this page, you can click on a vote option and submit your vote.</p>
-          <p>
-            <strong>You need to have an account with complete registration and logged in in order to be able to vote. </strong>
-          </p>
-          <li class="bld">
-            Can I change a vote?
-          </li>
-          <p>
-            If you have a change of heart you can cancel your vote and vote on another option. You loose the Voting Power by canceling your vote, however, you can gain it back
-            by voting again on the same or another option.
-          </p>
-        </ul>
+        <p>A vote once approved is open for voting for 2 weeks. After that the vote is closed for voting, but is available to browsing/sharing. See
+          <a href="#engage">Tips for engaging your voters</a>, for more information on how to get most possible attention from voters in the community.
+        </p>
       </div>
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
 
-      <h3 class="bld prepend-top" id="after_open">Facebook & Twitter?</h3>
+      <h3 class="bld prepend-top" id="local">Can I start a vote something specific to my local area/neighborhood?</h3>
+      <div class="" id="">
+        Yes. Your votes are automatically organized based "zip" code you provided during registration. Other users from your area will be able to see your vote when they browse
+        votes for a city or their local area. This is a great way for you to get the public opinion in your neighborhood.
+      </div>
+
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+
+      <h3 class="bld prepend-top" id="categories">I am only interested in certain types of votes/topics?</h3>
+      <div class="" id="">
+        We organize the votes by different categories for you to choose. You can also pick your favorite categories in your profile page and we will personalize the votes shown to
+        you by your interest preference. Vote in those categories will be shown first.
+
+        If you like you can also opt to receive daily email updates about new and interesting votes based on your interest preferences.
+      </div>
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+
+      <h3 class="bld prepend-top" id="email_updates">Can you deliver updates to my inbox?</h3>
+      <div class="" id="">
+        Yes. In your profile page you can choose to receive daily updates on
+        <ul class="" id="">
+          <li>
+            Votes about topics that interest you.
+          </li>
+          <li>
+            Votes in your local area
+          </li>
+        </ul>
+        If you like you can also opt to receive daily email updates about new and interesting votes based on your interest preferences.
+      </div>
+
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+
+      <h3 class="bld prepend-top" id="vote">How do I vote?</h3>
+      <div >
+        <p>
+          Click on a vote topic link and go to the vote's main page. In this page, you can click on a vote option and submit your vote
+        </p>
+        <p>
+          <strong>You need to have an account with complete registration and logged in in order to be able to vote. </strong>
+        </p>
+      </div>
+
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+
+
+      <h3> class="bld prepend-top" id="after_open">Can I explain my vote?</h3>
+      <div class="" id="">
+        Of course. You can post your comments on the main vote page. We organize the comments based on the option you have voted on. You can comment even if you have not voted,
+        your comments will be posted under the "Others" tab. if you do later on, we will move your comments based on the option you have chosen.
+        <p>
+          <strong>You need to have an account with complete registration and logged in in order to be able to vote. </strong>
+        </p>
+      </div>
+
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+
+      <h3 class="bld prepend-top" id="after_open">Can I share the votes on Facebook & Twitter?</h3>
       <div class="" id="social">
+        Yes!
         <ul class="" id="">
           <li>
             Use the Facebook "like" button to share with your friends
           </li>
           <li>
-            The Facebook "Recent Activity" Widget shows the activity of your friends in <%= t 'site_name' %>
+            The Facebook "Recent Activity" Widget shows the activity of your friends at <%= t 'site_name' %>
           </li>
           <li>
-            Use the "Tweet" buttton to share on Twitter
+            Use the "Tweet" buttton to share on Twitter.
+          </li>
+          <li>
+            Use the "share on digg" button to digg it.
           </li>
         </ul>
       </div>
@@ -248,7 +271,7 @@
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
 
-      <h3 class="bld prepend-top" id="tracking">Tracking</h3>
+      <h3 class="bld prepend-top" id="tracking">What is tracking</h3>
       <div class="" id="">
         Tracking a Vote Topic is similar to adding it to your favorites. Tracking is an easy to follow a Vote or create a list of Vote Topics you voted on.
 
@@ -267,14 +290,14 @@
             Provide additional details or links when possible and applicable.
           </li>
           <li>
-            Invite your friends to vote! You can invite your friends by providing their email while creating a vote. We will send an email notificaiton to your friends, with a link
-            to the vote you started, so that they can join and vote!
+            Invite your friends to vote! You can invite your friends by providing their email while creating a vote. We will send an email notificaiton to your friends, 
+            with a link to the vote you started, so that they can join and vote!
           </li>
           <li>
             Use the facebook and twitter post functionality to let your friends know about the vote.
           </li>
-          <li>Accumulate Voting Power by voting and posting new vote topics often. You can use the Voting Power while creating new Vote Topics to promote your vote
-            to the Featured Votes list. Featured votes award Voting Power to your voters.
+          <li>Earn Voting Power by voting and posting new vote topics often. You can use the Voting Power while creating new Vote Topics to promote your vote
+            to the Featured Votes list. Featured votes attract more voters because they award more voting power to those who vote.
           </li>
         </ul>
       </div>
@@ -294,6 +317,8 @@
       <div>
         Votes are recorded and the counts are tallied as soon as you vote. The vote counts presented on a Vote Topic page are real time. We also periodically analyze the vote to
         provide additional insights about a Vote Topic. This information appears in the Vote Topic page, in the "About the voters" section.
+
+       
       </div>
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>

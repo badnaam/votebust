@@ -26,8 +26,8 @@
                 <span class="ui-icon ui-icon-tag "></span>
                 <%= link_to "In #{vt.category.name}, ", category_vote_topics_path(vt.category,
                   :listing_type => "category") %>
-                <%= link_to "#{vt.poster.city.titleize}, ", searches_path(:city => vt.poster.city) %>
-                <%= link_to "#{vt.poster.state.titleize}", searches_path(:state => vt.poster.state) %>
+                <%= link_to "#{vt.poster.city}, ", searches_path(:city => vt.poster.city) %>
+                <%= link_to "#{vt.poster.state}", searches_path(:state => vt.poster.state) %>
               </div>
               <div class="top-mar">
                 <%= power_points vt %>

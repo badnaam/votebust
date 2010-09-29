@@ -24,5 +24,4 @@ class InterestsController < ApplicationController
             format.js
         end
     end
-
 end

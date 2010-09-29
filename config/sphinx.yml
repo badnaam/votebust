@@ -12,6 +12,7 @@ production:
   searchd_log_file: /home/asit/Apps/nap_on_it/log/searchd.log
   morphology: stem_en
   pid_file: /home/asit/Apps/nap_on_it/log/searchd_production.pid
+  bin_path: /usr/local/bin/
 
   #########following is gold configuration
 #  mem_limit: 20M

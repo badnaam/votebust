@@ -68,8 +68,8 @@ class User < ActiveRecord::Base
             logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
             if geo.success
                 self.lat, self.lng = geo.lat,geo.lng
-                self.city = geo.city.titleize
-                self.state = (GeocodeCache.full_state_name geo.state).titleize
+                self.city = geo.city
+                self.state = (GeocodeCache.full_state_name geo.state)
             else
                 #set it to nil to force the user to complete registration
                 self.zip = nil
@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
         arr = self.changed.sort
         if arr == ["last_request_at", "perishable_token"] || arr == ["perishable_token" , "processing_vote"] ||
               arr == ["current_login_at", "last_login_at", "last_request_at", "login_count", "perishable_token"] || arr ==  ["voting_power"] || arr ==  ["votes_count"] ||
-              arr == ["vote_topics_count"]
+              arr == ["p_topics_count"]
             self.skip_profile_update = true
             return true
         else
@@ -100,12 +100,17 @@ class User < ActiveRecord::Base
     end
     
     named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'voting_power DESC', :limit => Constants::SMART_COL_LIMIT,
-            :select => 'users.id, users.username, users.voting_power, users.image_file_name, users.image_url, users.image_updated_at, users.image_content_type,
-            users.image_file_size'}}
+            :include => [:slug]}}
 
     def self.get_top_voters
         Rails.cache.fetch("top_voters", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
             top_voters
+        end
+    end
+
+    def self.cities
+        Rails.cache.fetch("cities", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            User.all(:select => 'distinct city', :conditions => ['city <> ? and p_topics_count > ?',"", 0]).collect {|x| x.city}
         end
     end
     

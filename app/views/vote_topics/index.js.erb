@@ -4,7 +4,7 @@
     <% id = request.parameters['container_name'].nil? ? '#votes' : '#' + request.parameters['container_name'] %>
     $("<%= id %>").html("<%= escape_javascript(render :partial => 'vote_list_html', :locals => {:listing_type => listing_type}) %>");
   <% elsif request.parameters[:limited] %>
-    <%= render :partial => 'limited_vote_list', :locals => {:listing_type => listing_type} %>
+    <%= render :partial => 'limited_vote_list', :locals => {:listing_type => listing_type, :preview => true} %>
   <% else %>
     <%= render :partial => 'vote_list_html', :locals => {:listing_type => listing_type} %>
   <% end  %>

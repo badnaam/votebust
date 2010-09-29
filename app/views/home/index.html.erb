@@ -72,7 +72,7 @@
   </div>
 </div>
 <% content_for :right_nav do %>
-  <div class="span-6 last  ui-widget-content">
+  <div class="  ui-widget-content">
     <fb:activity site="web1.tunnlr.com" recommendations="true" width="230" height="500" border_color="#DDDDDD" ></fb:activity>
   </div>
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
@@ -81,10 +81,13 @@
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "No Contest", :load_path =>
       side_bar_index_vote_topics_path(:type => "unan"), :l_type => "unan", :first => false} %>
 
-  <!--<div class="span-6 last  prepend-top ui-widget-content">
+  <!--<div class="  prepend-top ui-widget-content">
     <fb:facepile max-rows="5" width="230"></fb:facepile>
   </div> -->
 <% end %>
+
+
+  
 <div id="fb-root">
 </div>
 

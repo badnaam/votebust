@@ -15,7 +15,7 @@
       $("#"+current_panel_id).children(".pagination").after("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment}) %>");
     }
   } else {
-    //load that tab so it loads with the newly posted commment, or will it? #todo
+    //load that tab so it loads with the newly posted commment, or will it? //todo
     $('#tabs').tabs('select', "#<%= selected_tab_content%>" );
   }
   

@@ -4,10 +4,10 @@
 en:
   hello: "Hello world"
   site_name: "Voteable"
-  site_main_msg: "Wonder what people think?"
-  site_learn_more: "Get the Collective Opinion"
-  site_logo_msg: "Wonder what people think?"
-  title_bar: "Voteable"
+  site_main_msg: "wonder what people think?"
+  site_learn_more: "get the collective opinion"
+  site_logo_msg: "wonder what people think?"
+  title_bar: "voteable"
 
 #Models
   notifier:
@@ -19,12 +19,11 @@ en:
 #View
   vote_topic:
     new:
-      header: 'Start a Vote!'
-      header_hint: 'What should people vote on? For example: Who should be the next mayor of Springfield?'
-      topic_hint: 'More details about the topic for your voters. For example:
-                  It needs to be someone responsible and heroic like Homer.'
+      header: 'start a sote!'
+      header_hint: 'What should people vote on?'
+      topic_hint: 'Add some context to the topic.'
       email_hints: "Invite friends to vote, enter comma separated valid emails.
-    For example: homer@springfield.com<strong>,</strong> bart@springfieldelementary.com, marge@evergreenterrace.com"
+    For example: joe@gmail.com.com<strong>,</strong> susan@yahoo.com,marge@evergreenterrace.com"
   #Controllers
   users:
     create:
@@ -74,13 +73,10 @@ en:
          header: "What should people vote on?"
          ext_link: "Link to the source of the topic i.e. News headline, Article etc."
          topic: "More details about the topic for your voters. "
-         anon: "Should we show your username?"
          option: "Options to choose"
        edit:
          header: "What should people vote one?"
-         ext_link: "Link to the source of the topic i.e. News headline, Article etc."
          topic: "More details about the topic for your voters. "
-         anon: "Should we show your username?"
          option: "Options to choose"
     actions:
         commit: "Bust a Vote!"

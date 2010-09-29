@@ -1,11 +1,29 @@
 class UsersController < ApplicationController
     layout proc { |controller| ["show", "edit"].include?(controller.action_name) ? 'main' : 'login' }
-    #    skip_before_filter :require_user, :only => [:top_voters]
+    #   skip_before_filter :require_user, :only => [:top_voters]
+    skip_before_filter :require_registration, :only => [:edit, :update]
     before_filter :require_no_user, :only => [:new, :create]
     before_filter :require_user, :except => [:new, :create, :top_voters]
     before_filter :store_location, :only => [:show]
     filter_access_to [:edit, :update], :attribute_check => true
 
+
+    def update_preference
+        begin
+            v = params[:update_yes].nil? ? false : true
+            current_user.update_attribute(:update_yes, v)
+            l = params[:local_update_yes].nil? ? false : true
+            current_user.update_attribute(:local_update_yes, l)
+        rescue => exp
+            flash[:error] = "Could not save preferences please try later."
+        else
+            flash[:success] = "Email update preference saved."
+        end
+        respond_to do |format|
+            format.js
+        end
+    end
+    
     def new
         @user = User.new
         #        @user_session = UserSession.new

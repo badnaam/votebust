@@ -25,10 +25,16 @@ set :path, '/home/asit/Apps/nap_on_it'
 
 case @environment
 when 'production'
-    every 2.minutes do
+    every 30.minutes do
         rake "process_votes"
     end
-    every 30.minutes do
+    every 1.days, :at => '10pm' do
+        rake "ts:index"
+    end
+    every 60.minutes do
+        rake "ts:in:delta"
+    end
+    every 2.hours do
         rake "facet_update_start"
     end
     every 55.minutes do
@@ -43,15 +49,16 @@ when 'production'
         #todo change memcached parameters
         #        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
     end
+    ############## for development
 when 'development'
     every :reboot do
         rake "ts:start RAILS_ENV=development"
         command "cd #{path} && script/delayed_job start RAILS_ENV=development"
         #        command "memcached -d -m 16 -l 127.0.0.1 -p 11211"
     end
-#    every 10.minutes do
-#        rake "process_votes"
-#    end
+    #    every 10.minutes do
+    #        rake "process_votes"
+    #    end
     every 120.minutes do
         rake "facet_update_start"
     end

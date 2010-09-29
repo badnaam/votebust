@@ -16,9 +16,9 @@ module VoteTopicsHelper
         str = "<div><span class='go-right order-link' id=''>"
         orders.each do |o|
             if current_order == o
-                str  << "<span class= 'current o-link'>#{current_order.titleize}</span>"
+                str  << "<span class= 'current o-link'>#{current_order}</span>"
             else
-                str << (link_to o.titleize, vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link o-link')
+                str << (link_to o, vote_topics_path(request.parameters.merge({'order', o})) , :class => 'order-link o-link')
             end
         end
         return (str << ('</span></div>'))
@@ -166,18 +166,6 @@ module VoteTopicsHelper
     end
 
     
-    
-    
-    #    def get_vote_percent(v, total_votes)
-    #        if v.votes_count == 0
-    #            return "#{v.option.titleize} - 0%"
-    #        elsif total_votes == 0
-    #            return "#{v.option.titleize} - 0%"
-    #        else
-    #            return "#{v.option.titleize} - #{v.votes_count} votes - #{number_to_percentage((v.votes_count.to_f / total_votes.to_f) * 100, :precision => 2)}"
-    #        end
-    #    end
-    #
     def get_vote_percent(v, total_votes)
         if v.votes_count  > 0 && total_votes > 0
             return "#{v.option.titleize} - #{v.votes_count} votes - #{number_to_percentage((v.votes_count.to_f / total_votes.to_f) * 100, :precision => 2)}"

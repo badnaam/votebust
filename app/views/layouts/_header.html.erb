@@ -1,0 +1,53 @@
+<div class="header span-24 last">
+  <div class ="span-24 header_links_div last">
+    <%= render :partial => "/shared/cat_nav_list" %>
+    <%= render :partial => "/shared/city_nav_list" %>
+
+    <div class="span-24 last"
+         <div class="ui-corner-bl ui-corner-br ui-state-hover">
+        <ul class="header_links">
+          <% unless  current_user %>
+            <li><%= link_to "Sign Up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
+            <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
+          <% else %>
+            <%= new_button controller %>
+            <li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %>
+              <span id="main_link_vote_power" class="vote-power" style="margin-left:.5em;">
+                <%= current_user.voting_power %> </span></li>
+            <li><%= link_to "Logout", logout_path  %></li>
+          <% end %>
+          <li>
+            <a href="/vote_topics/rss" class="sprite rss-image" id="">
+              &nbsp;
+            </a>
+            <%= auto_discovery_link_tag(:rss, rss_vote_topics_url(:format => 'rss')) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="last span-24 header_logo_div "> <!-- header logo -->
+    <div class="">
+      <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
+      <span class="logo_msg"><%= t 'site_logo_msg' %></span>
+      <a href="intro-prezo-trig" class="special-text bld" id="" rel="#intro_prezo">
+        <%= t ('site_learn_more') %>
+      </a>
+    </div>
+  </div>
+  <!-- <sup>&trade;</sup> -->
+  <div class="span-24 last  prepend-top">
+    <div class="ui-state-default" id="">
+      <div class="main_links_div span-18">
+        <%= render_navigation :level => 1 %>
+      </div>
+      <div class="div-search-form"
+      <% form_tag searches_path, :method => :get, :class => '', :id => "search_form" do %>
+        <%= text_field_tag :q, cookies[:voteable_q].nil? ? "Search" : cookies[:voteable_q],  :class => 'search-term' %>
+             <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
+        <% end  %>
+      </div>
+    </div>
+  </div>
+</div>

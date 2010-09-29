@@ -1,4 +1,4 @@
-set :application, "votechek"
+set :application, "voteable"
 set :deploy_to, "/var/www/#{application}"
 set :scm, :git
 set :repository, "git@github.com:badnaam/votebust.git"
@@ -6,22 +6,22 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
+
 default_run_options[:pty] = true
 
 set :default_env,  'production'
 
-set :rails_env,     ENV['rails_env'] || ENV['RAILS_ENV'] || default_env
+set :rails_env, ENV['rails_env'] || ENV['RAILS_ENV'] || default_env
 
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-set :user, 'asit'
+set :user, 'root'
 set :group, 'www-data'
 set :ssh_options, { :forward_agent => true }
 
-role :web, "server"                          # Your HTTP server, Apache/etc
-role :app, "server"                          # This may be the same as your `Web` server
-role :db,  "server", :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
+role :web, "173.230.158.13"                          # Your HTTP server, Apache/etc
+role :app, "173.230.158.13"                          # This may be the same as your `Web` server
+role :db,  "173.230.158.13", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
@@ -36,11 +36,9 @@ namespace :deploy do
 
     after "deploy:stop" do
         dj_stop
-        #        "dj:stop"
     end
     after "deploy:start" do
         dj_start
-        #        "dj:start"
     end
 
     before "deploy:restart" do
@@ -48,10 +46,8 @@ namespace :deploy do
     end
     after "deploy:restart" do
         dj_restart
-        #        "dj:restart"
     end
 
-    #    before "deploy:update_code", "dj:stop"
     
     after "deploy:symlink" do
         update_crontab
@@ -65,7 +61,6 @@ namespace :deploy do
     after "deploy:update_code" do
         symlink_shared
         restart_sphinx
-
     end
 
     before "deploy:update" do
@@ -100,7 +95,6 @@ namespace :deploy do
         run "run if [[ -d #{shared_path}/assets/images/users ]] then; else mkdir -p #{shared_path}/assets/images/users; fi"
         run "mkdir #{shared_path}/config"
         run "mkdir #{shared_path}/sphinx"
-
     end
 
     desc "Change group to www-data"

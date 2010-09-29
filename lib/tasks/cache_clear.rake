@@ -1,4 +1,10 @@
 namespace :cache_clear do
+
+    desc 'clears memcached'
+    task :memcache => :environment do
+        Rails.cache.clear
+    end
+    
     desc 'clear js and css cache'
     task :clear_js_css_cache => :environment do
         css_cache_file = File.join(RAILS_ROOT, "public", "stylesheets", "base.css")

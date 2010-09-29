@@ -152,19 +152,22 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
     t.integer  "role_id"
     t.integer  "votes_count",                        :default => 0
     t.integer  "p_topics_count",                     :default => 0
+    t.integer  "edit_count",                         :default => 0
     t.integer  "trackings_count",                    :default => 0
     t.string   "state",               :limit => 15
     t.string   "city",                :limit => 50
+    t.boolean  "update_yes",                         :default => false
+    t.boolean  "local_update_yes",                   :default => false
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"
     t.string   "password_salt"
-    t.string   "persistence_token",                                    :null => false
-    t.string   "single_access_token",                                  :null => false
-    t.string   "perishable_token",                                     :null => false
-    t.integer  "login_count",                        :default => 0,    :null => false
-    t.integer  "failed_login_count",                 :default => 0,    :null => false
+    t.string   "persistence_token",                                     :null => false
+    t.string   "single_access_token",                                   :null => false
+    t.string   "perishable_token",                                      :null => false
+    t.integer  "login_count",                        :default => 0,     :null => false
+    t.integer  "failed_login_count",                 :default => 0,     :null => false
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"

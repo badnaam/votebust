@@ -1,15 +1,5 @@
 class Notifier < ActionMailer::Base
 
-    ActionMailer::Base.smtp_settings = {
-        :address => APP_CONFIG['smtp_server_host'],
-        :port => APP_CONFIG['smtp_server_port'],
-        :domain => APP_CONFIG['smtp_server_domain'],
-        :user_name => APP_CONFIG['site_admin_email'],
-        :password => APP_CONFIG['smtp_server_pwd'],
-        :authentication => :plain,
-        :enable_starttls_auto => true,
-        :content_type => "multipart/alternative"
-    }
 
     def hello_world(email)
         recipients email
@@ -85,6 +75,15 @@ class Notifier < ActionMailer::Base
         body :account_activation_url => register_url(user.perishable_token)
     end
 
+    def job_error job_name, err_hash
+        subject "Error with #{job_name}"
+        from          APP_CONFIG['site_admin_email']
+        recipients    APP_CONFIG['site_admin_email']
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :error_hash => err_hash
+    end
+    
     def activation_confirmation(user)
         subject "#{APP_CONFIG['site_name']} Account Activation Confirmation"
         from APP_CONFIG['site_admin_email']

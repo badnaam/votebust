@@ -15,7 +15,7 @@ CACHE = ActiveSupport::Cache::NoStore.new
 config.whiny_nils = true
 
 # Show full error reports and disable caching
-config.action_controller.consider_all_requests_local = true
+config.action_controller.consider_all_requests_local = false
 config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
@@ -24,6 +24,17 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = {:host => "localhost", :port => "3000"}
 config.action_mailer.default_charset = "utf-8"
+
+ActionMailer::Base.smtp_settings = {
+    :address => APP_CONFIG['smtp_server_host'],
+    :port => APP_CONFIG['smtp_server_port'],
+    :domain => APP_CONFIG['smtp_server_domain'],
+    :user_name => APP_CONFIG['site_admin_email'],
+    :password => APP_CONFIG['smtp_server_pwd'],
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :content_type => "multipart/alternative"
+}
 
 #config.cache_store = :mem_cache_store
 config.gem "rails-footnotes"

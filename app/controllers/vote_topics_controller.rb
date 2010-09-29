@@ -48,6 +48,7 @@ class VoteTopicsController < ApplicationController
             elsif params[:state]
                 params[:listing_type] = 'state'
             end
+            
             listing_type = params[:listing_type]
             
             case listing_type
@@ -148,7 +149,7 @@ class VoteTopicsController < ApplicationController
         when "most_tracked_city"
             @vote_topics = VoteTopic.city_search cookies[:current_search_city], true, nil, 'tracking'
         when "most_tracked_state"
-            @vote_topics = Search.state_search cookies[:current_search_state], true, nil, 'tracking'
+            @vote_topics = VoteTopic.state_search cookies[:current_search_state], true, nil, 'tracking'
         end
         respond_to do |format|
             format.js
@@ -237,12 +238,6 @@ class VoteTopicsController < ApplicationController
     def update
         @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
         #todo - take care of someone fucking with the power offered
-        if !params[:vote_topic][:power_offered].blank? && !@vote_topic.power_offered.nil? && params[:vote_topic][:power_offered].to_i != @vote_topic.power_offered
-            #if they are offering less power, add balance it to their voting_power, if more power is being offered reduce it
-            new_power_offered =  params[:vote_topic][:power_offered]
-            old_power_offered = @vote_topic.power_offered
-            fix_power_offered = true
-        end
         params[:vote_topic].keys.each do |k|
             @vote_topic.send("#{k}=", params[:vote_topic][k])
         end
@@ -251,11 +246,12 @@ class VoteTopicsController < ApplicationController
                 @vote_topic.status = VoteTopic::STATUS[:revised]
             end
             if @vote_topic.save
+                #increase edit count so we can refresh the user owned vote_topics cache
+                @vote_topic.poster.increment!(:edit_count, 1)
                 flash[:notice] = 'VoteTopic was successfully updated.'
+                #kill the cache
+                Rails.cache.delete("vt_#{@vote_topic.id}")
                 @saved = true
-                if fix_power_offered
-                    @vote_topic.delay.fix_power_offered(old_power_offered, new_power_offered)
-                end
                 #todo figure out where to redirect
                 format.html {redirect_back_or_default root_path}
                 #                format.html { redirect_to scoped_vote_topic_path(@vote_topic.category, @vote_topic)}

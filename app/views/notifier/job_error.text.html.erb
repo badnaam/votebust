@@ -1,0 +1,22 @@
+<html>
+  <head>
+  <body>
+    <p>
+      The breakdown of the error
+    </p>
+    <% keys = @error_hash.keys %>
+    <table class="" id="">
+      <% keys.each do |k| %>
+        <tr>
+          <td>
+            <%= k %>
+          </td>
+          <td>
+            <%= @error_hash[k] %>
+          </td>
+        </tr>
+      <% end  %>
+    </table>
+  </body>
+</head>
+</html>

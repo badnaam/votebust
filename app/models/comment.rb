@@ -32,9 +32,9 @@ class Comment < ActiveRecord::Base
         params = {:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id, :user_ip => request.remote_ip, :user_agent => request.env['HTTP_USER_AGENT'],
             :referrer => request.env['HTTP_REFERER']
         }
-        v = Comment.new(params)
+        v = Comment.create(params)
         #        v = create(:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id)
-        if v.save && v.valid?
+        if v.valid?
             return v
         else
             return nil
@@ -51,6 +51,12 @@ class Comment < ActiveRecord::Base
                 puts "#{self.id} is spam"
             end
         rescue => exp
+            error_hash = Hash.new
+            error_hash[:job_name] = "Comment Spam Check"
+            error_hash[:comment_id] = self.id
+            error_hash[:message] = exp.message
+            error_hash[:backtrace] = exp.backtrace.join("\n")
+            Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
             logger.error "#{exp.message} occured during checking for spam for comment id #{self.id}"
             puts exp.message
         ensure
@@ -59,15 +65,26 @@ class Comment < ActiveRecord::Base
     end
 
     def self.spam_check
-        hourly_comments.each do |c|
-            c.check_for_spam
+        begin
+            hourly_comments.each do |c|
+                c.check_for_spam
+            end
+        rescue => exp
+            error_hash = Hash.new
+            error_hash[:job_name] = "Batch Comment Spam Check"
+            error_hash[:message] = exp.message
+            error_hash[:backtrace] = exp.backtrace.join("\n")
+            Notifier.delay.deliver_job_error "Batch Comment Spam Check", error_hash
+        else
+        Rails.logger.info "Hourly spam check went smoothly."
         end
+        
     end
 
     def bad_meth
         begin
             sdfsdf.dfdsfdsf
-            rescue => exp
+        rescue => exp
             notify_about_exception(exp)
         end
     end

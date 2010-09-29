@@ -1,6 +1,10 @@
 function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVoteItemLength) {
     $('.vote-form-more-details').live('click', function() {
-        $('.vote-form-details').toggle('');
+        $('.vote-form-details').toggle(50,  function() {
+            var pos = $('.vote-form-details').position().top;
+            $('.contentWrap').scrollTop(pos);
+        });
+        //alert($('.vote-form-details').is(':visible'));
         return false;
     });
     $('#vote_topic_header').keyup(
@@ -189,16 +193,24 @@ function makeCancelElement(id, txt) {
 
 function showFlash(msg, tp) {
     if ($('#flash_messages_container').length > 0) {
-        $('#flash_messages_container').remove();
+        //$('#flash_messages_container').remove();
+        flashAnimatedHide();
     }
+
     var flashContainer = $("<div id='flash_messages_container' class='flash-messages " +  tp  + " '></div>");
     flashContainer.prepend("<div id='flash_messages_content'>" + msg + "<span class='go-right closeb' id='close_flash'></span></div>");
     $('body').prepend(flashContainer);
+    flashContainer.animate({
+        opacity : .1
+    }, '500', function(){
+        flashContainer.css('opacity', 1)
+    })
     //$('body').animate({'margin-top' : flashContainer.outerHeight()}, 500, function() {});
     $('body').css('margin-top', flashContainer.outerHeight());
     posMenus();
     $('#close_flash').click(function() {
-        $('#flash_messages_container').remove();
+        //$('#flash_messages_container').remove();
+        flashAnimatedHide();
         //    $('body').animate({'margin-top' : 0}, 500, function(){});
         $('body').css('margin-top', '0');
         posMenus(); //reposition the menus since the structure of the document now changed
@@ -206,8 +218,14 @@ function showFlash(msg, tp) {
 //return no;
 }
 
-function hideFlash() {
+function flashAnimatedHide() {
+    /**$('#flash_messages_container').animate({
+         opacity : 0
+    }, 'slow', function(){});**/
     $('#flash_messages_container').remove();
+}
+function hideFlash() {
+    flashAnimatedHide();
     //    $('body').animate({'margin-top' : 0}, 500, function(){});
     $('body').css('margin-top', '0');
     posMenus(); //reposition the menus since the structure of the document now changed
@@ -353,23 +371,33 @@ $(document).ready(function() {
 
     /** for vote form **/
     ModalVoteForm.init();
+    /* Theme switcher*/
+    //     $('#switcher').themeswitcher();
+
     /** for the intro prezo **/
 
-    $("a[rel='#intro_prezo']").overlay();
+    $("a[rel='#intro_prezo']").overlay({
+        top: "center"
+    });
     $('#wrap').html($('#what').html());
     $("a.trig").each(function() {
-        $(this).click(function() {
+        $(this).mouseover(function() {
             removeSelected();
             $(this).parent('td').addClass('act')
             var htmlToInsert = $($(this).attr('rel')).html();
-            $('#wrap').fadeOut('slow', function() {
+            var options = null
+            $('#wrap').toggle('drop', options, 500, function() {
                 $("#wrap").html(htmlToInsert);
             });
-            $('#wrap').fadeIn('slow');
+            $('#wrap').toggle('drop', options, 500);
             return false;
         });
     });
-//$('#default_trig').trigger('click');
+
+    if ($.cookie('show_voteable_intro') == '1') {
+        $("a[rel='#intro_prezo']").click();
+        $.cookie('show_voteable_intro', '0')
+    }
 /************** end intro prezo **************/
     
 });

@@ -45,7 +45,6 @@ class AccountController < ApplicationController
     def approve_vote
         @vote_topic = VoteTopic.find(params[:id])
         # if it's a revision just approve, no power and no extension, still expires in 2 weeks
-
         if do_approve
             flash[:success] = "Approved vote to status #{@vote_topic.status}"
         else
