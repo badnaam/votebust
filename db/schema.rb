@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
     t.integer  "category_id"
   end
 
+  add_index "interests", ["category_id"], :name => "category_id"
+  add_index "interests", ["user_id"], :name => "user_id"
+
   create_table "notifiers", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -102,6 +105,8 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "roles", ["name"], :name => "name"
 
   create_table "rpx_identifiers", :force => true do |t|
     t.string   "identifier",    :null => false
@@ -138,6 +143,9 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
     t.integer  "vote_topic_id"
     t.integer  "user_id"
   end
+
+  add_index "trackings", ["user_id"], :name => "user_id"
+  add_index "trackings", ["vote_topic_id"], :name => "vote_topic_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -182,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
 
   add_index "users", ["active"], :name => "active"
   add_index "users", ["city"], :name => "city"
+  add_index "users", ["edit_count"], :name => "edit_count"
   add_index "users", ["image_file_name"], :name => "image_file_name"
   add_index "users", ["lat"], :name => "lat"
   add_index "users", ["lng"], :name => "lng"
