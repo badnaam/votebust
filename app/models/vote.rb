@@ -32,7 +32,7 @@ class Vote < ActiveRecord::Base
 
             find_in_batches(:batch_size => 1000, :conditions => ['never_processed = ?',  true]) do |group|
                 group.each do |v|
-                    v.post_process true
+                    v.post_process 
                     processed_count += 1
                 end
                 #            GC.start
