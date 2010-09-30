@@ -16,7 +16,7 @@ set :rails_env, ENV['rails_env'] || ENV['RAILS_ENV'] || default_env
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :user, 'deploy'
-set :group, 'www-data'
+set :group, 'nogroup'
 set :ssh_options, { :forward_agent => true }
 #set :use_sudo, true
 
