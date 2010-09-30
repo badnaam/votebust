@@ -9,7 +9,7 @@ production:
   query_log_file: /var/www/voteable/shared/log/searchd.query.log
   config_file: /var/www/voteable/shared/config/prod_sphinx.conf
   mem_limit: 20M
-  searchd_log_file: /var/www/voteable/shared/searchd.log
+  searchd_log_file: /var/www/voteable/shared/log/searchd.log
   morphology: stem_en
   pid_file: /var/www/voteable/shared/pids/searchd_production.pid
   bin_path: /usr/local/bin/
