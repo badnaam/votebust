@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     
     layout "main"
     
-    before_filter :admin_only
+#    before_filter :admin_only
     before_filter :require_registration
     
     helper :all # include all helpers, all the time
