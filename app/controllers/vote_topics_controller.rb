@@ -208,6 +208,7 @@ class VoteTopicsController < ApplicationController
                 @saved = true
                 flash[:success] = "Your vote was saved and sent for moderator approval. You can check it's status in your profile page."
                 @vote_topic.delay.post_save_processing "created"
+
                 format.html { redirect_to root_path }
                 format.js {}
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }

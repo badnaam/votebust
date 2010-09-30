@@ -10,8 +10,8 @@ production:
   recap_pub_key: 6Ldze70SAAAAAEyhtck2OXmfPFePGJibBQjqSgUL
   recap_priv_key: 6Ldze70SAAAAAE2yzHIS8MyL5X_Ahii1b1DsRofU
   google_js_api: ABQIAAAAi_F8JNAI9__oCG-KzCfTYhRg8WVEAiyQiHsswWA4KFnYAQDpyhTStZo1E46IgoXdAwYarvDyOXb7FQ
-  facebook_app_api_key: dabaa5ee23cd2acb8c46f1320313db78
-  facebook_app_id: 152722804740985
+  facebook_app_api_key: 692ee62da88d044f011c3807afd93ee7
+  facebook_app_id: 157670360923974
   smtp_server_host: 'smtp.gmail.com'
   smtp_server_port: '587'
   smtp_server_domain: 'gmail.com'
