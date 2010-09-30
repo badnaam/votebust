@@ -38,7 +38,7 @@ end  %>
         <% end  %>
         <%= add_object_link "Add option", form, VoteItem.new, "vi", "#vote_items" %>
       </div>
-      <%= form.input :category, :as => :select, :input_html => {:style => "width:60%" }, :hint => "Please categorize the vote." %>
+      <%= form.input :category, :as => :select, :collection => Category.all_categories, :input_html => {:style => "width:60%" }, :hint => "Please categorize the vote." %>
       <a href="#" class="vote-form-more-details">More Details</a>
       <div class="vote-form-details" style="display:none">
         <%= form.input :topic, :label => "Context", :as => :text, :input_html => {:style => "width:60%;height:40px" }, :hint =>

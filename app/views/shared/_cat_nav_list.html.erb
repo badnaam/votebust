@@ -2,13 +2,13 @@
   <div  class=" category-menu-div span-24 last" id="cat_menu">
     <span class="go-right ui-icon ui-icon-close" id="close_cat_menu"></span>
     <hr class="clear prepend-top"/>
-    <% categories = Category.all_categories%>
+    <% categories = Category.filled_categories%>
     <table class="" id="">
       <% categories.each_with_index do |c, i| %>
         <% if i == 0 || i % 5 == 0 %>
           <tr>
           <% end %>
-          <td><%= link_to c.name, category_vote_topics_path(c.to_param) %></td>
+          <td><%= link_to "c.name(#{c.vote_topics_count})", category_vote_topics_path(c.to_param) %></td>
           <%if (i + 1) %  5 == 0 %>
           </tr>
         <% end  %>

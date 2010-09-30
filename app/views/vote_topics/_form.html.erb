@@ -29,7 +29,7 @@
       return false;
     });
 
-/** for ajax submit **/
+    /** for ajax submit **/
     $('#new_vote_topic').submit(function (){
       $.post($(this).attr('action'), $(this).serialize(), function(data) {
         //hideLoading('#interest_loading');
@@ -39,13 +39,10 @@
   });
   //]]>
 </script>
-<% if @vote_topic.new_record? %>
-  <% #url = { :action => "create", :id => @vote_topic.id }
+<% if @vote_topic.new_record? 
   url = vote_topics_path
   method = :post
-%>
-<% else %>
-  <% #url = { :action => "update", :id => @vote_topic.id, :scope => @vote_topic.category }
+else 
   url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
   method = :put
 %>
