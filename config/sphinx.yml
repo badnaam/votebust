@@ -4,14 +4,14 @@ development:
 production:
   mem_limit: 20M
   enable_star: true
-  searchd_file_path: /home/asit/Apps/nap_on_it/db/sphinx/prod
+  searchd_file_path: /var/www/voteable/shared/db/sphinx/prod
   enable_star: true
-  query_log_file: /home/asit/Apps/nap_on_it/log/searchd.query.log
-  config_file: //home/asit/Apps/nap_on_it/config/prod_sphinx.conf
+  query_log_file: /var/www/voteable/shared/log/searchd.query.log
+  config_file: /var/www/voteable/shared/config/prod_sphinx.conf
   mem_limit: 20M
-  searchd_log_file: /home/asit/Apps/nap_on_it/log/searchd.log
+  searchd_log_file: /var/www/voteable/shared/searchd.log
   morphology: stem_en
-  pid_file: /home/asit/Apps/nap_on_it/log/searchd_production.pid
+  pid_file: /var/www/voteable/shared/pids/searchd_production.pid
   bin_path: /usr/local/bin/
 
   #########following is gold configuration

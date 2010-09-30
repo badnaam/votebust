@@ -61,7 +61,7 @@ namespace :deploy do
     
     after "deploy:update_code" do
         symlink_shared
-#       restart_sphinx
+       restart_sphinx
     end
 
     before "deploy:update" do
@@ -95,6 +95,7 @@ namespace :deploy do
         run "mkdir -p #{shared_path}/assets/images/users"
         run "run if [[ -d #{shared_path}/assets/images/users ]] then; else mkdir -p #{shared_path}/assets/images/users; fi"
         run "mkdir #{shared_path}/config"
+        run "mkdir #{shared_path}/db"
         run "mkdir #{shared_path}/sphinx"
     end
 
