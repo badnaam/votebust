@@ -21,10 +21,21 @@ config.log_level = :debug
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
-config.action_mailer.default_url_options = {:host => "web1.tunnlr.com:11299"}
+config.action_mailer.default_url_options = APP_CONFIG['site_domain']
 config.action_mailer.default_charset = "utf-8"
 
 config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+
+ActionMailer::Base.smtp_settings = {
+    :address => APP_CONFIG['smtp_server_host'],
+    :port => APP_CONFIG['smtp_server_port'],
+    :domain => APP_CONFIG['smtp_server_domain'],
+    :user_name => APP_CONFIG['site_admin_email'],
+    :password => APP_CONFIG['smtp_server_pwd'],
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :content_type => "multipart/alternative"
+}
 
 #config.gem "rails-footnotes"
 

@@ -25,6 +25,7 @@ production:
   admin_role_name: 'admin'
   user_role_name: 'user'
   stock_pwd: 't'
+  site_domain: 'li200-13.members.linode.com'
 development:
   http_user: 'lefthan%ed'
   http_pwd: 'when_not_3roken'

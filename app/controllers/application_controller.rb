@@ -4,11 +4,11 @@
 
 class ApplicationController < ActionController::Base
     include ExceptionNotification::Notifiable
-    include ExceptionNotification::ConsiderLocal
+#    include ExceptionNotification::ConsiderLocal
     
     layout "main"
     
-    before_filter :admin_only
+#    before_filter :admin_only
     before_filter :require_registration
     
     helper :all # include all helpers, all the time
@@ -133,9 +133,9 @@ class ApplicationController < ActionController::Base
     end
 
     protected
-    def local_request?
-        false
-    end
+#    def local_request?
+#        false
+#    end
 
     exception_data :additional_data
 
