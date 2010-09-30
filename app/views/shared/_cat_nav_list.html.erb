@@ -8,7 +8,7 @@
         <% if i == 0 || i % 5 == 0 %>
           <tr>
           <% end %>
-          <td><%= link_to "c.name(#{c.vote_topics_count})", category_vote_topics_path(c.to_param) %></td>
+          <td><%= link_to "#{c.name}(#{c.vote_topics_count})", category_vote_topics_path(c.to_param) %></td>
           <%if (i + 1) %  5 == 0 %>
           </tr>
         <% end  %>
