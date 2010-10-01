@@ -420,7 +420,7 @@ class VoteTopic < ActiveRecord::Base
                   collect {|x|x.first}.join(', ')
                 w_cities =   winner.votes.find(:all, :conditions => ['never_processed = ? AND city <> ?', false, nil]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.
                   collect {|x|x.first}.join(', ')
-                if !w_states.nil? && !w_cities.nil?
+                if !w_states.blank? && !w_cities.blank?
                     wl_desc = winner.option + "$$" + w_states + "$$" + w_cities
                 end
             end
@@ -430,7 +430,7 @@ class VoteTopic < ActiveRecord::Base
                   collect {|x|x.first}.join(', ')
                 l_cities = looser.votes.find(:all, :conditions => ['never_processed = ? AND state <> ? ', false, nil]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.
                   collect {|x|x.first}.join(', ')
-                if !l_states.nil? && !l_cities.nil?
+                if !l_states.blank? && !l_cities.blank?
                     ll_desc = looser.option + "$$" + l_states + "$$" + l_cities
                 end
             end
