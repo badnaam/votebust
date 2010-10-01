@@ -51,17 +51,20 @@ class Comment < ActiveRecord::Base
                 self.update_attribute(:approved, false)
                 puts "#{self.id} is spam"
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Comment Spam Check"
-            error_hash[:comment_id] = self.id
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            #             HoptoadNotifier.notify()
-
-            Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
+        rescue Exception => exp
+            HoptoadNotifier.notify(
+                :error_class => "Comment Spam Check",
+                :error_message => exp
+            )
+#            error_hash = Hash.new
+#            error_hash[:job_name] = "Comment Spam Check"
+#            error_hash[:comment_id] = self.id
+#            error_hash[:message] = exp.message
+#            error_hash[:backtrace] = exp.backtrace.join("\n")
+#            #             HoptoadNotifier.notify()
+#
+#            Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
             logger.error "#{exp.message} occured during checking for spam for comment id #{self.id}"
-            puts exp.message
         ensure
             return true
         end
@@ -72,12 +75,16 @@ class Comment < ActiveRecord::Base
             hourly_comments.each do |c|
                 c.check_for_spam
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Batch Comment Spam Check"
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Batch Comment Spam Check", error_hash
+        rescue Exception => exp
+#            error_hash = Hash.new
+#            error_hash[:job_name] = "Batch Comment Spam Check"
+#            error_hash[:message] = exp.message
+#            error_hash[:backtrace] = exp.backtrace.join("\n")
+            HoptoadNotifier.notify(
+                :error_class => "Comment Spam Check Batch",
+                :error_message => exp
+            )
+#            Notifier.delay.deliver_job_error "Batch Comment Spam Check", error_hash
         else
             Rails.logger.info "Hourly spam check went smoothly."
         end

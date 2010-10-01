@@ -37,12 +37,17 @@ class Vote < ActiveRecord::Base
                 end
                 #            GC.start
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Batch Vote Update"
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Batch Vote Update", error_hash
+        rescue Exception => exp
+            HoptoadNotifier.notify(
+                :error_class => "Batch Vote Update",
+                :error_message => exp
+            )
+            Rails.logger.error "Error occured during batch processing votes"
+#            error_hash = Hash.new
+#            error_hash[:job_name] = "Batch Vote Update"
+#            error_hash[:message] = exp.message
+#            error_hash[:backtrace] = exp.backtrace.join("\n")
+#            Notifier.delay.deliver_job_error "Batch Vote Update", error_hash
         else
             Rails.logger.info  "Vote Processor processed #{processed_count} votes and deleted #{deleted_count} votes"
         end
@@ -87,16 +92,19 @@ class Vote < ActiveRecord::Base
                 self.save(false)
                 #mark it for destruction
             end
-        rescue  => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Vote Process"
-            error_hash[:vote_id] = self.id
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Vote Process", error_hash
+        rescue  Exception => exp
+            HoptoadNotifier.notify(
+                :error_class => "Vote Update",
+                :error_message => exp
+            )
+#            error_hash = Hash.new
+#            error_hash[:job_name] = "Vote Process"
+#            error_hash[:vote_id] = self.id
+#            error_hash[:message] = exp.message
+#            error_hash[:backtrace] = exp.backtrace.join("\n")
+#            Notifier.delay.deliver_job_error "Vote Process", error_hash
             Rails.logger.error "Error occured during processing vote with id #{self.id}"
-            Rails.logger.error DateTime.now.to_s + " - " + exp.message
-            Rails.logger.error DateTime.now.to_s + " - " + exp.backtrace.join("\n")
+            Rails.logger.error exp.backtrace.join("\n")
         end
     end
     

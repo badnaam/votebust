@@ -459,14 +459,18 @@ class VoteTopic < ActiveRecord::Base
                     f.save
                 end
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Facet Update"
-            error_hash[:vote_topic] = self.id
-            error_hash[:vote_topic_header] = self.header
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Facet Update", error_hash
+        rescue Exception => exp
+            #            error_hash = Hash.new
+            #            error_hash[:job_name] = "Facet Update"
+            #            error_hash[:vote_topic] = self.id
+            #            error_hash[:vote_topic_header] = self.header
+            #            error_hash[:message] = exp.message
+            #            error_hash[:backtrace] = exp.backtrace.join("\n")
+            #            Notifier.delay.deliver_job_error "Facet Update", error_hash
+            HoptoadNotifier.notify(
+                :error_class => "Facet Update",
+                :error_message => exp
+            )
             logger.error "Error during updating facet - #{exp.message}. VoteTopic was #{self.id}"
             logger.error  exp.backtrace.join("\n")
         end
@@ -484,15 +488,19 @@ class VoteTopic < ActiveRecord::Base
                     self.update_attribute(:flags, a.join(','))
                 end
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Flag Processing"
-            error_hash[:vote_topic_id] = self.id
-            error_hash[:header] = self.header
-            error_hash[:flag] = self.flag
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Flag Processing", error_hash
+        rescue Exception => exp
+            #            error_hash = Hash.new
+            #            error_hash[:job_name] = "Flag Processing"
+            #            error_hash[:vote_topic_id] = self.id
+            #            error_hash[:header] = self.header
+            #            error_hash[:flag] = self.flag
+            #            error_hash[:message] = exp.message
+            #            error_hash[:backtrace] = exp.backtrace.join("\n")
+            #            Notifier.delay.deliver_job_error "Flag Processing", error_hash
+            HoptoadNotifier.notify(
+                :error_class => "Flah Processing",
+                :error_message => exp
+            )
             logger.error "Error occurd during processing flags for vote topic #{self.id}. Error is #{exp.message}"
         end
     end
@@ -510,12 +518,16 @@ class VoteTopic < ActiveRecord::Base
                     update_count += 1
                 end
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Batch Facet Update"
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Batch Facet Update", error_hash
+        rescue Exception => exp
+            #            error_hash = Hash.new
+            #            error_hash[:job_name] = "Batch Facet Update"
+            #            error_hash[:message] = exp.message
+            #            error_hash[:backtrace] = exp.backtrace.join("\n")
+            #            Notifier.delay.deliver_job_error "Batch Facet Update", error_hash
+            HoptoadNotifier.notify(
+                :error_class => "Batch Facet Update",
+                :error_message => exp
+            )
             logger.error "Error occured in starting facet update #{exp.message}"
             logger.error exp.backtrace.join("\n")
         else
@@ -543,12 +555,16 @@ class VoteTopic < ActiveRecord::Base
                     v.update_attribute(:unan, true)
                 end
             end
-        rescue => exp
-            error_hash = Hash.new
-            error_hash[:job_name] = "Batch flag processing"
-            error_hash[:message] = exp.message
-            error_hash[:backtrace] = exp.backtrace.join("\n")
-            Notifier.delay.deliver_job_error "Batch flag processing", error_hash
+        rescue Exception => exp
+            #            error_hash = Hash.new
+            #            error_hash[:job_name] = "Batch flag processing"
+            #            error_hash[:message] = exp.message
+            #            error_hash[:backtrace] = exp.backtrace.join("\n")
+            #            Notifier.delay.deliver_job_error "Batch flag processing", error_hash
+            HoptoadNotifier.notify(
+                :error_class => "Batch Flag Processing",
+                :error_message => exp
+            )
             logger.error "Error occured during process flags #{exp.message}"
         end
     end

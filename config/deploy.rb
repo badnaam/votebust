@@ -51,7 +51,7 @@ namespace :deploy do
 
     
     after "deploy:symlink" do
-#        update_crontab
+        update_crontab
         chown_to_www_data
     end
 
