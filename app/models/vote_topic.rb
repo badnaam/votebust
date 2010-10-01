@@ -510,7 +510,7 @@ class VoteTopic < ActiveRecord::Base
             #            error_hash[:backtrace] = exp.backtrace.join("\n")
             #            Notifier.delay.deliver_job_error "Flag Processing", error_hash
             HoptoadNotifier.notify(
-                :error_class => "Flah Processing",
+                :error_class => "Flag Processing",
                 :error_message => exp
             )
             logger.error "Error occurd during processing flags for vote topic #{self.id}. Error is #{exp.message}"
@@ -530,6 +530,7 @@ class VoteTopic < ActiveRecord::Base
                     update_count += 1
                 end
             end
+            adfasdfdsfds
         rescue Exception => exp
             #            error_hash = Hash.new
             #            error_hash[:job_name] = "Batch Facet Update"

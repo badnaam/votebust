@@ -23,9 +23,12 @@
 
 
 
+
 case @environment
 
 when 'production'
+    job_type :prod_bg_rake, "cd :path && RAILS_ENV=production_bg /usr/bin/env rake :task"
+    
     set :path, '/var/www/voteable'
     every 30.minutes do
         rake "process_votes"
@@ -37,7 +40,8 @@ when 'production'
         rake "ts:in:delta"
     end
     every 2.hours do
-        rake "facet_update_start"
+        #        rake "facet_update_start"
+        prod_bg_rake "facet_update_start"
     end
     every 55.minutes do
         rake "check_for_spam"
@@ -54,6 +58,13 @@ when 'production'
     ############## for development
 when 'development'
     set :path, '/home/asit/Apps/nap_on_it'
+    
+    
+    every 10.minutes do
+        prod_bg_rake "something"
+    end
+
+    
     every :reboot do
         rake "ts:start RAILS_ENV=development"
         command "cd #{path} && script/delayed_job start RAILS_ENV=development"

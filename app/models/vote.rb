@@ -51,8 +51,6 @@ class Vote < ActiveRecord::Base
         else
             Rails.logger.info  "Vote Processor processed #{processed_count} votes and deleted #{deleted_count} votes"
         end
-        
-        
     end
 
     def post_process
