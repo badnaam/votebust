@@ -1,7 +1,3 @@
-# Settings specified here will take precedence over those in config/environment.rb
-
-# The production environment is meant for finished, "live" apps.
-# Code is not reloaded between requests
 require 'active_support/cache/dalli_store23'
 config.cache_store = :dalli_store, '127.0.0.1:11211'
 
@@ -10,33 +6,33 @@ config.cache_store = :dalli_store, '127.0.0.1:11211'
 config.cache_classes = true
 
 # Full error reports are disabled and caching is turned on
-config.action_controller.consider_all_requests_local = false
-config.action_controller.perform_caching             = true
-config.action_view.cache_template_loading            = true
+#config.action_controller.consider_all_requests_local = false
+#config.action_controller.perform_caching             = true
+#config.action_view.cache_template_loading            = true
 
+config.frameworks -= [ :action_controller, :active_resource, :action_mailer ]
 
 
 # See everything in the log (default is :info)
-#todo : set this to info
 config.log_level = :debug
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.perform_deliveries = true
-config.action_mailer.default_url_options = APP_CONFIG['site_domain']
-config.action_mailer.default_charset = "utf-8"
+#config.action_mailer.raise_delivery_errors = true
+#config.action_mailer.delivery_method = :smtp
+#config.action_mailer.perform_deliveries = true
+#config.action_mailer.default_url_options = APP_CONFIG['site_domain']
+#config.action_mailer.default_charset = "utf-8"
 
-config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
-
-ActionMailer::Base.smtp_settings = {
-    :address => APP_CONFIG['smtp_server_host'],
-    :port => APP_CONFIG['smtp_server_port'],
-    :domain => APP_CONFIG['smtp_server_domain'],
-    :user_name => APP_CONFIG['site_admin_email'],
-    :password => APP_CONFIG['smtp_server_pwd'],
-    :authentication => :plain,
-    :enable_starttls_auto => true,
-    :content_type => "multipart/alternative"
-}
+#config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+#
+#ActionMailer::Base.smtp_settings = {
+#    :address => APP_CONFIG['smtp_server_host'],
+#    :port => APP_CONFIG['smtp_server_port'],
+#    :domain => APP_CONFIG['smtp_server_domain'],
+#    :user_name => APP_CONFIG['site_admin_email'],
+#    :password => APP_CONFIG['smtp_server_pwd'],
+#    :authentication => :plain,
+#    :enable_starttls_auto => true,
+#    :content_type => "multipart/alternative"
+#}
 
 #config.gem "rails-footnotes"
 
