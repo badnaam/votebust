@@ -1,4 +1,8 @@
 desc 'Checks for spam in comments'
 task :check_for_spam => :environment do
-    Comment.spam_check
+    begin
+        Comment.spam_check
+    rescue Exception => e
+    end
+    
 end

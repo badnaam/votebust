@@ -3,7 +3,7 @@
 
 
 class ApplicationController < ActionController::Base
-    include ExceptionNotification::Notifiable
+#    include ExceptionNotification::Notifiable
 #    include ExceptionNotification::ConsiderLocal
     
     layout "main"
@@ -137,10 +137,10 @@ class ApplicationController < ActionController::Base
 #        false
 #    end
 
-    exception_data :additional_data
-
-    def additional_data
-        current_user ? {:current_user => current_user } : {}
-    end
+#    exception_data :additional_data
+#
+#    def additional_data
+#        current_user ? {:current_user => current_user } : {}
+#    end
 
 end

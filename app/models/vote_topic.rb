@@ -112,7 +112,8 @@ class VoteTopic < ActiveRecord::Base
         indexes category.name, :as => :category_name
         indexes poster.city, :as => :city
         indexes poster.state, :as => :state
-
+        indexes comments.body, :as => :comment_body
+        
         has created_at, updated_at, :votes_count, :power_offered, :trackings_count
         has category_id, user_id, :status
 
