@@ -26,10 +26,11 @@
   <div id="tabs">
     <ul>
       <% vote_topic.vote_items.each do |vi| %>
-        <li><a title="comments_content_<%=vi.id%>" href="<%= url_for(:controller => :comments, :action => :index,  :vi_id => vi.id, :vid => vote_topic.id) %>">
-            <span><%= vi.option[0..10] + "..." %></span></a></li>
+        <li title="Comments from people who voted on <%= vi.option %>"><a title="comments_content_<%=vi.id%>"
+           href="<%= url_for(:controller => :comments, :action => :index,  :vi_id => vi.id, :vid => vote_topic.id) %>"> <span><%= vi.option[0..10] + "..." %></span></a></li>
       <% end  %>
-      <li><a title ="comments_content_" href="<%= url_for(:controller => :comments, :action => :index,  :vi_id => nil, :vid => vote_topic.id) %>"><span>Others</span></a></li>
+      <li title="Comment from people who have not voted.">
+        <a title ="comments_content_" href="<%= url_for(:controller => :comments, :action => :index,  :vi_id => nil, :vid => vote_topic.id) %>"><span>Others</span></a></li>
     </ul>
     <% vote_topic.vote_items.each do |vi| %>
       <div class="" id="comments_content_<%=vi.id%>">
