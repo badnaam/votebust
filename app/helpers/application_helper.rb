@@ -2,8 +2,10 @@
 module ApplicationHelper
 
     def make_tooltip str
-        return "<span class='tooltip'>#{str}</span>"
+#        return "<span class='tooltip'>#{str}</span>"
+        return (render :partial => '/shared/tooltip', :locals => {:text => str})
     end
+    
     def new_button controller
         str = "<li>"
         if controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new')

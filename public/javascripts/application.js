@@ -235,7 +235,8 @@ function prepareToolTip() {
     $('.t-trigger').each(function() {
         $(this).tooltip({
             relative : true,
-            position: "bottom left"
+            position: "top center",
+            cancelDefault : true
         });
     });
 }

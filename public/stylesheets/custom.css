@@ -322,21 +322,21 @@ html, body {
     padding:0;
 }
 .tooltip {
-    /*    background-color:#38385c;*/
-    /*    background-color:#444444;*/
-    background-color:#f6f6f6;
-    border:1px solid #fff;
-    padding:10px 15px;
-    /*    width:200px;*/
+    background:transparent url(/images/black_arrow_2.png);
     display:none;
-    color:#38385c;
-    /*    color:#dddddd;*/
-    text-align:left;
+    height:70px;
+    width:160px;
+    padding:25px;
     font-size:1em;
     z-index: 10;
-    /* outline radius for mozilla/firefox only */
-    -moz-box-shadow:0 0 10px #000;
-    -webkit-box-shadow:0 0 10px #000;
+    color:#ffffff;
+/*    -moz-box-shadow:0 0 10px #000;*/
+/*    -webkit-box-shadow:0 0 10px #000;*/
+}
+
+.close-btn {
+    background-position:1px -45px;
+    padding-right: 16px;
 }
 .tooltip a {
     color:#8A9E37 !important;
