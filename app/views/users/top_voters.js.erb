@@ -1,5 +1,5 @@
 <% if @users.size > 0 %>
-  $("#widget_<%=request.parameters[:listing_type]%>").append("<%= escape_javascript (render :partial => '/shared/simple_vote_list', :locals => {:coll => @users, :coll_type => 'user'}) %>");
+  $("#widget_<%=request.parameters[:type]%>").append("<%= escape_javascript (render :partial => '/shared/simple_vote_list', :locals => {:coll => @users, :coll_type => 'user'}) %>");
 <% else %>
-  $("#widget_<%=request.parameters[:listing_type] %>").parent('.widget-div').remove();
+  $("#widget_<%=request.parameters[:type] %>").parent('.widget-div').remove();
 <% end  %>

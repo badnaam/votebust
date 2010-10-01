@@ -828,6 +828,22 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
     padding:.1em .2em .1em .2em;
     /*    border: 2px solid black;*/
 }
+.top-voter-user-table {
+ margin-bottom: 0;
+ table-layout: fixed;
+}
+.top-voter-user-table td {
+    padding: 0;
+    vertical-align: top;
+    text-align: left;
+}
+.top-voter-user-table .umg {
+    width:30%;
+}
+.top-voter-user-table .udata {
+    width:70%;
+}
+
 .user-image {
     float:left;
     overflow:hidden;

@@ -1,0 +1,22 @@
+<% if local_assigns[:anon].nil?
+  anon = false
+end %>
+
+<table class="top-voter-user-table" id="">
+  <tr>
+    <td class="umg">
+      <div id="user_image" class="user-image right-mar-small"><%= get_user_avatar_link(user, anon)%></div>
+    </td>
+    <td class="udata">
+      <% if anon %>
+        <span>Anonymous</span>
+      <% else %>
+        <%= link_to user.username, user, :class => "clearfix bld" %>
+        <span class="vote-power-ubox t-trigger" id="">
+          <%= user.voting_power %>
+        </span>
+        <%= render :partial => "/shared/user_vp_tooltip", :locals => {:user => user} %>
+      <% end  %>
+    </td>
+  </tr>
+</table>

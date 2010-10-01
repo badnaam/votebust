@@ -338,7 +338,7 @@ $(document).ready(function() {
                 type: 'GET',
                 url : $(this).attr('href'),
                 dataType : 'script',
-                global:false,
+                global:true,
                 context:$(this),
                 success : function() {
                     $(this).parent('div').slideDown('slow', function(){});
