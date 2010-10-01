@@ -2,7 +2,7 @@
   <%= @vote_topic.header %>
 <% end  %>
 <%# share_url = Constants::SHARE_URL_PREFIX.concat(scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
-<% share_url = "http://" + APP_CONFIG['site_domain'].concat(scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
+<% share_url = "http://" + APP_CONFIG['site_domain'] + (scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
 <%content_for :fb_metas do %>
   <meta property="og:title" content="<%= @vote_topic.header %>"/>
   <meta property="og:type" content="<%= @vote_topic.category.name %>"/>
