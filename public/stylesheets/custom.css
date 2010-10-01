@@ -786,8 +786,7 @@ body a:hover {
 
 #comment_form textarea {
     height:100px;
-    width:678px;
-    border:2px solid #dddddd;
+    width:698px;
 }
 
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #38385c !important}

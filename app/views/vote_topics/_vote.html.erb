@@ -99,9 +99,9 @@
       return false;
     });
 
-    $('#facets').accordion({
+    /**$('#facets').accordion({
       collapsible : true
-    });
+    });**/
   });
   //]]>
 </script>
@@ -155,7 +155,7 @@
 <% facet = VoteFacet.find_for_show(@vote_topic.id) %>
 <% if !facet.nil? || !facet.blank? %>
   <div id ="facets" class="span-18 last">
-    <h3 class="ui-widget-header"><a href="#">About the voters</a></h3>
+    <h4 class="bottom-border bld bottom-mar">About the voters</h4>
     <div class="" id="">
       <ul class="facet-list">
         <%= print_facet facet %>
