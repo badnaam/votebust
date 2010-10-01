@@ -21,10 +21,12 @@
 
 #v_env = 'development'
 
-set :path, '/home/asit/Apps/nap_on_it'
+
 
 case @environment
+
 when 'production'
+    set :path, '/var/www/voteable'
     every 30.minutes do
         rake "process_votes"
     end
@@ -51,6 +53,7 @@ when 'production'
     end
     ############## for development
 when 'development'
+    set :path, '/home/asit/Apps/nap_on_it'
     every :reboot do
         rake "ts:start RAILS_ENV=development"
         command "cd #{path} && script/delayed_job start RAILS_ENV=development"
