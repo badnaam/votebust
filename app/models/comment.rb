@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-#    include HoptoadNotifier::Catcher
+    #    include HoptoadNotifier::Catcher
     belongs_to :user
     belongs_to :vote_topic, :counter_cache => true
 
@@ -57,7 +57,7 @@ class Comment < ActiveRecord::Base
             error_hash[:comment_id] = self.id
             error_hash[:message] = exp.message
             error_hash[:backtrace] = exp.backtrace.join("\n")
-#             HoptoadNotifier.notify()
+            #             HoptoadNotifier.notify()
 
             Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
             logger.error "#{exp.message} occured during checking for spam for comment id #{self.id}"
@@ -79,22 +79,21 @@ class Comment < ActiveRecord::Base
             error_hash[:backtrace] = exp.backtrace.join("\n")
             Notifier.delay.deliver_job_error "Batch Comment Spam Check", error_hash
         else
-        Rails.logger.info "Hourly spam check went smoothly."
+            Rails.logger.info "Hourly spam check went smoothly."
         end
         
     end
 
     def self.bad_meth
-#        begin
-#            sdfsdf.dfdsfdsf
-#            
-#        rescue Exception => exp
-             HoptoadNotifier.notify(
-                 :error_class => "Testing error",
-                 :error_message => "my message"
-             )
-
-#            notify_about_exception(exp)
-#        end
+        begin
+            sdfsdf.dfdsfdsf
+            
+        rescue Exception => exp
+            HoptoadNotifier.notify(
+                :error_class => "Testing error",
+                :error_message => "my message"
+            )
+            #            notify_about_exception(exp)
+        end
     end
 end
