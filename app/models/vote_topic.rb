@@ -416,18 +416,27 @@ class VoteTopic < ActiveRecord::Base
             end
 
             if winner.votes_count> 0
-                w_states =  winner.votes.find(:all, :conditions => ['never_processed = ?', false]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
-                w_cities =   winner.votes.find(:all, :conditions => ['never_processed = ?', false]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
-                wl_desc = winner.option + "$$" + w_states + "$$" + w_cities
+                w_states =  winner.votes.find(:all, :conditions => ['never_processed = ? AND state <> ? ', false, nil]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.
+                  collect {|x|x.first}.join(', ')
+                w_cities =   winner.votes.find(:all, :conditions => ['never_processed = ? AND city <> ?', false, nil]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.
+                  collect {|x|x.first}.join(', ')
+                if !w_states.nil? && !w_cities.nil?
+                    wl_desc = winner.option + "$$" + w_states + "$$" + w_cities
+                end
             end
 
             if looser.votes_count > 0
-                l_states = looser.votes.find(:all, :conditions => ['never_processed = ?', false]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
-                l_cities = looser.votes.find(:all, :conditions => ['never_processed = ?', false]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.collect {|x|x.first}.join(', ')
-                ll_desc = looser.option + "$$" + l_states + "$$" + l_cities
+                l_states = looser.votes.find(:all, :conditions => ['never_processed = ? AND state <> ? ', false, nil]).group_by {|x|x.state}.sort{|a, b| a.size <=> b.size}.
+                  collect {|x|x.first}.join(', ')
+                l_cities = looser.votes.find(:all, :conditions => ['never_processed = ? AND state <> ? ', false, nil]).group_by {|x|x.city}.sort{|a, b| a.size <=> b.size}.
+                  collect {|x|x.first}.join(', ')
+                if !l_states.nil? && !l_cities.nil?
+                    ll_desc = looser.option + "$$" + l_states + "$$" + l_cities
+                end
             end
 
-            local_votes = self.votes.find(:all, :conditions => ['never_processed = ?', false], :origin => self.poster.zip, :within => Constants::PROXIMITY)
+            local_votes = self.votes.find(:all, :conditions => ['never_processed = ? AND lat <> ? AND lng <> ?', false, nil, nil], :origin => self.poster.zip,
+                :within => Constants::PROXIMITY)
             if local_votes.size > 0
                 local_winner = local_votes.group_by {|x| x.vote_item_id }.sort {|a, b| a[1].size <=> b[1].size}.reverse.collect {|x| x.first}[0]
             end
