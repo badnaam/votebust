@@ -66,7 +66,7 @@ production_bg:
   database: voteable_production
 #  database: nap_on_it_development
   pool: 5
-  username: d0ntd01t
+  username: root
   password: d0ntd01t
   socket: /var/run/mysqld/mysqld.sock
 
