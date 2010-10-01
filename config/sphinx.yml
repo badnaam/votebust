@@ -11,7 +11,7 @@ production:
   searchd_log_file: /var/www/voteable/shared/log/searchd.log
   morphology: stem_en
   pid_file: /var/www/voteable/shared/pids/searchd_production.pid
-  bin_path: /usr/local/bin/
+  bin_path: '/usr/local/bin/'
 
   #########following is gold configuration
 #  mem_limit: 20M

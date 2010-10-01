@@ -92,6 +92,7 @@ class ApplicationController < ActionController::Base
     end
 
     def registration_complete?
+        #todo put this in a session?
         current_user_session.registration_complete? if current_user_session
     end
 
