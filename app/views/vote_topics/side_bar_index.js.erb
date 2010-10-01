@@ -2,5 +2,5 @@
 <% if !@vote_topics && @vote_topics.size > 0 %>
   $("#widget_<%=listing_type%>").append("<%= escape_javascript (render :partial => '/shared/simple_vote_list', :locals => {:coll => @vote_topics, :coll_type => 'vote_topic'}) %>");
 <% else %>
-  $("#widget_<%=listing_type%>").parent('.widget-div').parent().remove();
+  $("#widget_<%=listing_type%>").parent().remove();
 <% end  %>
