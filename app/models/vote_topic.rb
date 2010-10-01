@@ -385,9 +385,12 @@ class VoteTopic < ActiveRecord::Base
             looser = vi.last
 
             #            votes = Array.new
-            sorted_votes = self.votes.find(:all, :conditions => ['never_processed = ?', false]).group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
+            sorted_votes = self.votes.find(:all, :conditions => ['never_processed = ? AND city <> ? AND state <> ?', false, nil, nil]).
+              group_by {|x| x.state}.sort {|a, b| a.size <=> b.size}
 
-            dag_desc = sorted_votes.collect {|x| x.first}.join(', ')
+            if sorted_votes.size > 0
+                dag_desc = sorted_votes.collect {|x| x.first}.join(', ')
+            end
 
             f_winner = vi.sort_by{|x| x.female_votes}.reverse.first
             if f_winner.female_votes > 0
