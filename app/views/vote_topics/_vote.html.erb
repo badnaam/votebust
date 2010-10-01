@@ -132,21 +132,21 @@
     </div>
   </div>
 </div>
-<div class="" id="">
+<div class="span-18 last" id="">
   <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
 </div>
-<div class="span-18 last prepend-top append-bottom social-div" id="">
-  <h4 class=".vote-info-table">Be Social</h4>
+<div class="span-18 append-bottom social-div" id="">
+  <h4 class="bottom-border bld bottom-mar">Be Social</h4>
   <table class="social" id="">
     <tr>
-      <td style="width:470px">
-    <fb:like href="<%= share_url %>" width="450" ></fb:like>
+      <td style="width:510px">
+    <fb:like href="<%= share_url %>" width="500" ></fb:like>
     </td>
     <td class="r-t-a" style="width:120px">
       <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
       <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </td>
-    <td class="r-t-a" style="width:120px">
+    <td class="r-t-a" style="width:80px">
       <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
     </td>
   </table>

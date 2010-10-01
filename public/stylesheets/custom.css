@@ -9,13 +9,6 @@
     color:#FF0084;
     font-weight: bold;
 }
-.social-div {
-    border-bottom:1px solid #DDDDDD;
-    border-top:1px solid #DDDDDD;
-    margin-bottom:1em;
-    padding-top:0.5em;
-    table-layout: fixed;
-}
 table.social td {
     padding: 0;
     vertical-align: top;
@@ -23,15 +16,6 @@ table.social td {
 
 .r-t-a {
     text-align: right;
-}
-.social-list {
-    margin:0;
-    padding-left: 0;
-    list-style-type: none;
-}
-.social-list li {
-    margin-bottom: .5em;
-    /*    border-bottom: 1px solid #dddddd;*/
 }
 .social {
     margin-bottom: 0;
