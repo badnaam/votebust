@@ -195,7 +195,7 @@ class VoteTopic < ActiveRecord::Base
     
     def self.category_list cname, page, order
         c = Category.find(cname)
-        Rails.cache.fetch("cat_list_#{page}_#{order}_#{c.id}_#{c.vote_topics_count}") do
+        Rails.cache.fetch("cat_list_#{page}_#{order}_#{c.id}_#{list_key_cat c.id}") do
             paginate(:conditions => ['status = ? AND category_id = ?', STATUS[:approved], c.id], :order => (ModelHelpers.determine_order order), :include => [
                     :poster, {:category => :slug}, :slug], :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
         end
@@ -666,6 +666,10 @@ class VoteTopic < ActiveRecord::Base
 
     def self.list_key
         count(:conditions => ['status = ?', 'a'])
+    end
+
+    def self.list_key_cat id
+        count(:conditions => ['status = ? AND category_id = ?', STATUS[:approved], id])
     end
     
     def self.ca_key
