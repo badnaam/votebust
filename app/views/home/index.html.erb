@@ -73,7 +73,7 @@
 </div>
 <% content_for :right_nav do %>
   <div class="  ui-widget-content">
-    <fb:activity site="web1.tunnlr.com" recommendations="true" width="230" height="500" border_color="#DDDDDD" ></fb:activity>
+    <fb:activity site=<%= APP_CONFIG['site_domain'] %> recommendations="true" width="230" height="500" border_color="#DDDDDD" ></fb:activity>
   </div>
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
       side_bar_index_vote_topics_path(:type => "latest"), :l_type => "latest", :first => false} %>
