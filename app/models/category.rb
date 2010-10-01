@@ -1,5 +1,4 @@
 class Category < ActiveRecord::Base
-    include ExceptionNotification::Notifiable
     
     include ModelHelpers
     has_many :vote_topics, :dependent => :destroy
