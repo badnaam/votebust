@@ -14,6 +14,7 @@
     border-top:1px solid #DDDDDD;
     margin-bottom:1em;
     padding-top:0.5em;
+    table-layout: fixed;
 }
 table.social td {
     padding: 0;
@@ -474,10 +475,6 @@ blockquote span  {
     color:white;
     font-weight: bold;
 }
-#tot_votes {
-    margin-bottom: 1px solid;
-}
-
 
 .ui-icon
 {
