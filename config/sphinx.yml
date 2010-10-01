@@ -8,7 +8,6 @@ production:
   enable_star: true
   query_log_file: /var/www/voteable/shared/log/searchd.query.log
   config_file: /var/www/voteable/shared/config/prod_sphinx.conf
-  mem_limit: 20M
   searchd_log_file: /var/www/voteable/shared/log/searchd.log
   morphology: stem_en
   pid_file: /var/www/voteable/shared/pids/searchd_production.pid

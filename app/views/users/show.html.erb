@@ -58,22 +58,21 @@
     <div id="tabs" class="prepend-top">
       <ul>
         <% permitted_to? :update, @user do %>
-          <li title="Profile Information"><a href="#profile_info" class="" id="">Profile</a></li>
-          <li title="Invite friends to join <%= t 'site_name' %>!"><a href="#invite_friends" class="" id="">Invite Friends</a></li>
-          <li title="What interests you?"><a href="<%= interests_path %>" class="" id=""><span>Interests</span></a></li>
-          <li title="Vote Topics you are tracking"><a href="<%= url_for(:controller => :vote_topics, :action => :index,
+          <li title="Profile Information" ><a href="#profile_info" class="" id="">Profile</a></li>
+          <li  title="Invite friends to join <%= t 'site_name' %>!"><a href="#invite_friends" class="" id="">Invite Friends</a></li>
+          <li  title="What interests you?"><a href="<%= interests_path %>" class="" id=""><span>Interests</span></a></li>
+          <%= make_tooltip("What interests you?") %>
+          <li class="t-trigger" title="Vote Topics you are tracking"><a href="<%= url_for(:controller => :vote_topics, :action => :index,
                                                         :listing_type => "tracked_all")%>"><span>Tracking</span></a></li>
           <% end  %>
-        <li title="Votes you have started.">
-          <a   href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
-            <span>Votes Started <span class="count-in-tab" id="">
-                <%= @user.posted_vote_topics.size %>
-              </span></span>
+        <li  title="Votes you have started.">
+          <a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
+            <span>Votes Started </span>
           </a>
         </li>
-        <li  title ="Vote Topics you have voted on">
+        <li   title ="Vote Topics you have voted on">
           <a   href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>">
-            <span>Votes Posted <span class="count-in-tab"><%= @user.votes.size %></span> </span>
+            <span>Votes Posted  </span>
           </a>
         </li>
       </ul>
