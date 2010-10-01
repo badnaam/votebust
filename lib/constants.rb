@@ -7,7 +7,7 @@ class Constants
     
     RSS_TIME_HORIZON = 4.weeks
     RPX_PROVIDERS = ["Facebook", "Twitter", "Google"]
-    SHARE_URL_PREFIX = "http://web1.tunnlr.com:11299"
+#    SHARE_URL_PREFIX = "http://web1.tunnlr.com:11299"
 
     SITE_COLOR = '#38385c'
     USER_PROFILE_IMAGE_SIZE = "50x50"
