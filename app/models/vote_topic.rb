@@ -448,16 +448,16 @@ class VoteTopic < ActiveRecord::Base
             f = VoteFacet.find_by_vote_topic_id(self.id)
 
             if print_only
-                puts m_desc
-                puts w_desc
-                puts ag1_desc
-                puts ag2_desc
-                puts ag3_desc
-                puts ag4_desc
-                puts dag_desc
-                puts wl_desc
-                puts ll_desc
-                puts vl_desc
+                puts "m_desc #{m_desc}"
+                puts "w_desc #{w_desc}"
+                puts "ag1_desc #{ag1_desc}"
+                puts "ag2_desc #{ag2_desc}"
+                puts "ag3_desc #{ag3_desc}"
+                puts "ag4_desc #{ag4_desc}"
+                puts "dag_desc #{dag_desc}"
+                puts "wl_desc #{wl_desc}"
+                puts "ll_desc #{ll_desc}"
+                puts "vl_desc #{vl_desc}"
             else
                 if f.nil?
                     VoteFacet.create(:m => m_desc, :w => w_desc, :ag1 => ag1_desc, :ag2 => ag2_desc, :ag3 => ag3_desc, :ag4 => ag4_desc, :dag => dag_desc,
