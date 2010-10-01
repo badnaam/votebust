@@ -530,7 +530,6 @@ class VoteTopic < ActiveRecord::Base
                     update_count += 1
                 end
             end
-            adfasdfdsfds
         rescue Exception => exp
             #            error_hash = Hash.new
             #            error_hash[:job_name] = "Batch Facet Update"

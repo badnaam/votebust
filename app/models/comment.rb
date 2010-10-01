@@ -46,10 +46,8 @@ class Comment < ActiveRecord::Base
         begin
             if self.spam? == false
                 self.update_attribute(:approved, true)
-                puts "#{self.id} is not spam"
             else
                 self.update_attribute(:approved, false)
-                puts "#{self.id} is spam"
             end
         rescue Exception => exp
             HoptoadNotifier.notify(

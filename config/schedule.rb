@@ -29,9 +29,9 @@ case @environment
 when 'production'
     job_type :prod_bg_rake, "cd :path && RAILS_ENV=production_bg /usr/bin/env rake :task"
     
-    set :path, '/var/www/voteable'
+    set :path, '/var/www/voteable/current'
     every 30.minutes do
-        rake "process_votes"
+        prod_bg_rake "process_votes"
     end
     every 1.days, :at => '10pm' do
         rake "ts:index"
@@ -44,10 +44,10 @@ when 'production'
         prod_bg_rake "facet_update_start"
     end
     every 55.minutes do
-        rake "check_for_spam"
+        prod_bg_rake "check_for_spam"
     end
     every 1.days, :at => '11am' do
-        rake "update_vote_topic_flags"
+        prod_bg_rake "update_vote_topic_flags"
     end
     every :reboot do
         rake "ts:start RAILS_ENV=production"
