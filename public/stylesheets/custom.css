@@ -304,8 +304,8 @@ html, body {
 }
 .vote-info-table-show {
     margin-bottom: 0;
-    border-top: 1px solid #ABA9A9;
-    border-bottom: 1px solid #dddddd;
+    padding-top:.1em;
+    border-top: 1px solid #dddddd;
 }
 .vote-info-table-show td {
     vertical-align: top;
