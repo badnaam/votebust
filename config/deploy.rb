@@ -200,7 +200,9 @@ namespace :deploy do
 
     desc "Restart the delayed_job process"
     task :dj_restart, :roles => :app do
-        run "cd #{current_path};#{get_rails_env} script/delayed_job restart"
+        run "cd #{current_path};#{get_rails_env} script/delayed_job stop"
+        run "cd #{current_path};#{get_rails_env} script/delayed_job start"
+#        run "cd #{current_path};#{get_rails_env} script/delayed_job restart"
         #        dj_ensure
     end
 
