@@ -16,21 +16,32 @@ class Interest < ActiveRecord::Base
     end
 
     def self.send_interest_updates
-        users = all(:select => 'distinct user_id').map {|x| x.user_id}
-        vote_topics = Array.new
-        vote_topics_local = Array.new
-        users.each do |i|
-            u = User.find(i)
-              u.interests.each do |i|
-                  category = i.category_id
-                  vts = VoteTopic.daily.category_id_equals(category)
-                  vote_topics << vts.first if vts.size > 0
-                  vts_local = VoteTopic.city_search u.city, true, nil, 'recent'
-                  vote_topics_local = vts_local if vts_local.size > 0
-              end
+        #select users who have preferece set to yes
+        #figure out categories for those users
+        #figure out vote_topics in that category from the last 1 day
+        User.find_in_batches(:batch_size => 100, :conditions => ['active = ? AND (update_yes = ? OR local_update_yes = ?)',  true, true, true]) do |users|
+            users.each do |u|
+                if u.update_yes == true && u.local_update_yes == true
+                    Notifier.deliver_local_and_interest_updates(interest_updates(u), local_interest_updates(u), u)
+                elsif u.update_yes == true
+                    Notifier.deliver_interest_updates interest_updates(u), u
+                elsif u.local_update_yes == true
+                    Notifier.deliver_local_updates local_interest_updates(u), u
+                end
+            end
+            GC.start
         end
-        puts vote_topics.size
-        puts vote_topics_local.size
-#        Notifier.delay.deliver_interest_update vote_topics, vote_topics_local
+    end
+
+    def self.interest_updates u
+        categories = u.interests
+        vts = VoteTopic.category_id_in(categories.map{|x|x.id}).created_at_gte(Date.today.beginning_of_day).descend_by_votes_count.
+          all(:limit => 5, :include => [:slug, {:category => :slug}])
+        return vts
+    end
+
+    def self.local_interest_updates u
+        local_vts = VoteTopic.city_search_for_the_day u.zip
+        return local_vts
     end
 end

@@ -9,6 +9,33 @@ class Notifier < ActionMailer::Base
         body "Here is the body"
     end
 
+    def local_and_interest_updates vts, l_vts, u
+        subject "Daily updates from #{APP_CONFIG['site_name']}"
+        from          APP_CONFIG['site_admin_email']
+        recipients    u.email
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :vts => vts, :l_vts => l_vts, :u => u,  :site_name => APP_CONFIG['site_name'], :site_host => APP_CONFIG['site_domain']
+    end
+    
+    def local_updates  l_vts, u
+        subject "Daily updates in #{u.city} from #{APP_CONFIG['site_name']}"
+        from          APP_CONFIG['site_admin_email']
+        recipients    u.email
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :l_vts => l_vts, :u => u, :site_name => APP_CONFIG['site_name'], :site_host => APP_CONFIG['site_domain']
+    end
+
+    def interest_updates vts, u
+        subject "Daily updates from #{APP_CONFIG['site_name']}"
+        from          APP_CONFIG['site_admin_email']
+        recipients    u.email
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :vts => vts, :u => u,  :site_name => APP_CONFIG['site_name'], :site_host => APP_CONFIG['site_domain']
+    end
+
     def friend_invite_message(friend_invitation)
         emails = friend_invitation.emails
         subject "Invitation from #{friend_invitation.user.username} at #{APP_CONFIG['site_name']}"

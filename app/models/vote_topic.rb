@@ -47,8 +47,8 @@ class VoteTopic < ActiveRecord::Base
     
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
     
-    after_destroy :post_destroy_processing
-    before_update :check_power
+    #    after_destroy :post_destroy_processing
+    #    before_update :check_power
 
    
     
@@ -158,17 +158,23 @@ class VoteTopic < ActiveRecord::Base
 
     #################### index finders ###########################################
 
-
+    def self.city_search_for_the_day origin
+        find(:all, :conditions => ['vote_topics.status = ? AND vote_topics.created_at > ?', STATUS[:approved], Date.today.beginning_of_day],
+            :order => 'vote_topics.votes_count DESC',
+            :include => [{:category => :slug}, :slug],
+            :limit => Constants::SMART_COL_LIMIT, :origin => origin, :within => Constants::PROXIMITY)
+    end
+    
     def self.city_search origin, limit, page, order
         if limit
             #handle space in the city name, todo = should be this zip code instead?
-            Rails.cache.fetch("#{origin.gsub(' ', '')}_ltd", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            Rails.cache.fetch("#{origin.gsub(' ', '')}_ltd_#{city_list_key origin}") do
                 find(:all, :conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order),
                     :include => [ :poster, {:category => :slug}, :slug],
                     :limit => Constants::SMART_COL_LIMIT, :origin => origin, :within => Constants::PROXIMITY)
             end
         else
-            Rails.cache.fetch("#{origin.gsub(' ', '')}_#{page}_#{order}", :expires => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            Rails.cache.fetch("#{origin.gsub(' ', '')}_#{page}_#{order}_#{city_list_key origin}") do
                 paginate(:conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [:vote_items, :poster,
                         {:category => :slug}, :slug],
                     :origin => origin, :within => Constants::PROXIMITY,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
@@ -184,7 +190,7 @@ class VoteTopic < ActiveRecord::Base
                     :include => [:vote_items, :poster, {:category => :slug}, :slug],:limit => Constants::SMART_COL_LIMIT)
             end
         else
-            Rails.cache.fetch("#{state.gsub(' ', '')}_#{page}_#{order}", :expires => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            Rails.cache.fetch("#{state.gsub(' ', '')}_#{page}_#{order}_#{state_list_key state}") do
                 paginate(:joins => "INNER JOIN users ON users.id = vote_topics.user_id",
                     :conditions => ["users.state =? AND vote_topics.status = ?", state, STATUS[:approved]], :order => (ModelHelpers.determine_order order),
                     :include => [:vote_items, :poster, {:category => :slug}, :slug],:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
@@ -216,14 +222,15 @@ class VoteTopic < ActiveRecord::Base
             end
         end
     end
-    
+
+    #expire this periodically, this is a trend listing, not likeley to change 
     def self.get_most_tracked_votes limit, page, order
         if limit
             order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
             find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
                 :limit => Constants::SMART_COL_LIMIT)
         else
-            Rails.cache.fetch("most_tracked_all_#{page}_#{order}_#{list_key}") do
+            Rails.cache.fetch("most_tracked_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                 order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
                 paginate( :conditions => ['status = ?', STATUS[:approved]], :order => order, :include => [:poster, {:category => :slug}, :slug],
                     :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
@@ -263,6 +270,7 @@ class VoteTopic < ActiveRecord::Base
         end
     end
 
+    #expire this periodically, this is a trend listing, not likeley to change 
     def self.get_top_votes limit, page, order
         if limit
             order = 'vote_topics.votes_count DESC, ' + (ModelHelpers.determine_order order)
@@ -630,45 +638,33 @@ class VoteTopic < ActiveRecord::Base
     
     def post_save_processing state
         case state
-        when "created"
+        when "denied"
+            self.poster.increment!(:edit_count, 1) #to expire the cache..ooof
+        when "approved"
             self.poster.award_points(self.power_offered * -1) if !self.power_offered.nil? &&
               self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
             self.poster.award_points(Constants::NEW_VOTE_POINTS)
             self.poster.increment!(:p_topics_count, 1)
             self.category.increment!(:vote_topics_count, 1)
-        when "denied"
-            self.poster.award_points(self.power_offered * 1) if !self.power_offered.nil? &&
-              self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT #give back voting power offered
-            self.poster.award_points(Constants::NEW_VOTE_POINTS * -1) #remove power he had for new vote
-            self.poster.increment!(:p_topics_count, -1) #decrement post count
-            self.category.increment!(:vote_topics_count, -1)
-            self.increment!(:edit_count, 1) #to expire the cache..ooof
-        when "approved"
+            #find the city and state, increment those count to expire these city/state cache
+            update_city_state_count 1
             if !self.friend_emails.nil?
                 self.delay.deliver_friendly_vote_emails!
             end
         end
     end
-    
-    def post_destroy_processing
-        if self.status == VoteTopic::STATUS[:approved] #it's an approved vote, he must have gotten power awarded
-            self.poster.delay.award_points(Constants::NEW_VOTE_POINTS * -1)
-            self.poster.increment!(:p_topics_count, -1)
-        end
-    end
 
+    def update_city_state_count inc
+        c = City.find_or_create_by_name(self.poster.city)
+        s = VState.find_or_create_by_name(self.poster.state)
+        c.increment!(:vote_topics_count, inc)
+        s.increment!(:vote_topics_count, inc)
+    end
+    
     def is_being_tracked? id
         self.trackings.find(:first, :conditions => ['user_id = ?', id])
     end
-
-    def refresh_caches
-        #        Rails.cache.delete('all_vote_topics_listing')
-        #check the category and delete the specific category cache
-        #        if self.status == STATUS[:approved]
-        #            Rails.cache.delete('category_listing')
-        #        end
-    end
-
+    
     def self.newest
         status_equals(STATUS[:approved]).descend_by_created_at.first
     end
@@ -679,6 +675,13 @@ class VoteTopic < ActiveRecord::Base
 
     def self.list_key_cat id
         count(:conditions => ['status = ? AND category_id = ?', STATUS[:approved], id])
+    end
+
+    def self.city_list_key city
+        City.find_by_sql("select vote_topics_count from cities where cities.name = '" + city + "'").first.vote_topics_count
+    end
+    def self.state_list_key state
+        VState.find_by_sql("select vote_topics_count from v_states where v_states.name = '" + state + "'" ).first.vote_topics_count
     end
     
     def self.ca_key
@@ -694,12 +697,6 @@ class VoteTopic < ActiveRecord::Base
         return true
     end
     
-    def self.get_bounds origin
-        Rails.cache.fetch("bounds_#{origin}") do
-            Geokit::Bounds.from_point_and_radius(origin, Constants::PROXIMITY)
-        end
-    end
-
     ########### end misc helpers#######################################################
     
 end

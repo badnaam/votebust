@@ -174,9 +174,8 @@ class VoteTopicsController < ApplicationController
 
     # GET /vote_topics/1/edit
     def edit
-        #        @user = current_user
-        #allow edits if none has voted
-        if  @vote_topic.votes_count == 0
+        #allow edits if it hasn't been approved yet
+        if !@vote_topic.status == VoteTopics::STATUS[:approved]
             @edit = true
             @saved = true
         end
@@ -186,13 +185,13 @@ class VoteTopicsController < ApplicationController
                     #
                     setup_vote_items(true)
                 else
-                    flash[:error] = 'Sorry voting has already started on this vote.'
+                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
                     redirect_back_or_default root_url
                 end
             }
             format.js {
                 if !@edit
-                    flash[:error] = 'Sorry voting has already started on this vote.'
+                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
                 end
             }
         end
@@ -209,24 +208,11 @@ class VoteTopicsController < ApplicationController
             if @vote_topic.save
                 @saved = true
                 flash[:success] = "Your vote was saved and sent for moderator approval. You can check it's status in your profile page."
-                @vote_topic.delay.post_save_processing "created"
-
                 format.html { redirect_to root_path }
                 format.js {}
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }
             else
                 @vote_items = 2.times {@vote_topic.vote_items.build}
-                #                full_counter = 0
-                #                (0..(VoteTopic::MAX_VOTE_ITEMS - 1)).each do |i|
-                #                    if !params[:vote_topic][:vote_items_attributes][i.to_s][:option].blank?
-                #                        full_counter += 1
-                #                    end
-                #                end
-                #                if full_counter == 0
-                #                    @vote_items = VoteTopic::MAX_VOTE_ITEMS.times {@vote_topic.vote_items.build}
-                #                else
-                #                    @vote_items = (VoteTopic::MAX_VOTE_ITEMS - full_counter).times {@vote_topic.vote_items.build}
-                #                end
                 format.html { render :action => "new", :not_saved => true }
                 format.js {
                     @not_saved = true

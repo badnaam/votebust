@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Daily update from <%= @site_name  %></title>
+  </head>
+  <body>
+    <% if @vts && @vts.size > 0 %>
+      <p>
+        Here are some interesting votes.
+      </p>
+      <br/>
+      <table class="" id="">
+        <% @vts.each do |v| %>
+          <tr>
+            <td>
+              <%= link_to v.header, scoped_vote_topic_url(v.category, v, :host => @site_host) %>
+            </td>
+          </tr>
+        <% end  %>
+      </table>
+    <% end  %>
+    <br/>
+  </body>
+</html>

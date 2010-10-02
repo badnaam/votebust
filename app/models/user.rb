@@ -49,6 +49,11 @@ class User < ActiveRecord::Base
 
     before_save :check_what_changed
 
+    ################################################ named scopes ##################################################################
+    named_scope :send_me_updates, lambda {{:conditions => ['active = ? AND update_yes = ?',  true, true],
+             :include => [:slug, :interests]}}
+
+    ################################################### end named scopes ###########################################################
     def self.find_for_vote_processing id
         find(id, :select => "users.id, users.voting_power")
     end
@@ -81,8 +86,11 @@ class User < ActiveRecord::Base
             logger.error("Zip Validation Error - Could not locate zip code for user with id - #{self.id}") if !geo.success
             if geo.success
                 self.lat, self.lng = geo.lat,geo.lng
-                self.city = geo.city
-                self.state = (GeocodeCache.full_state_name geo.state)
+                self.city = geo.city.titleize if !geo.city.nil?
+                st = GeocodeCache.full_state_name geo.state
+                self.state = st.titleize if !st.nil?
+                #create the city, state entry
+                
             else
                 #set it to nil to force the user to complete registration
                 self.zip = nil

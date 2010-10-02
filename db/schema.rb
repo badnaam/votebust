@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925163014) do
+ActiveRecord::Schema.define(:version => 20101002172456) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -17,6 +17,15 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.integer  "vote_topics_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["vote_topics_count"], :name => "index_cities_on_vote_topics_count"
 
   create_table "comments", :force => true do |t|
     t.text     "body",                                          :null => false
@@ -201,6 +210,16 @@ ActiveRecord::Schema.define(:version => 20100925163014) do
   add_index "users", ["user_cached_slug"], :name => "user_cached_slug"
   add_index "users", ["username"], :name => "username"
   add_index "users", ["votes_count"], :name => "votes_count"
+
+  create_table "v_states", :force => true do |t|
+    t.string   "name"
+    t.integer  "vote_topics_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "v_states", ["name"], :name => "index_v_states_on_name"
+  add_index "v_states", ["vote_topics_count"], :name => "index_v_states_on_vote_topics_count"
 
   create_table "vote_facets", :force => true do |t|
     t.integer  "vote_topic_id"
