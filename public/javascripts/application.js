@@ -1,6 +1,6 @@
 function reloadHomeTab() {
     var selected = $( "#home_tabs" ).tabs( "option", "selected" );
-    $('#home_tabs').tabs('load', selected);
+//    $('#home_tabs').tabs('load', selected);
     var selector = "#ui-tabs-" + (selected + 1);
     $(selector).animate({
         opacity: 0
