@@ -13,7 +13,7 @@ module VoteTopicsHelper
     end
     def order_links current_order, is_city
         orders = ["recent", "votes", "featured", "distance"]
-        order -= ["distance"] if is_city.nil?
+        orders -= ["distance"] if is_city.nil?
         str = "<div><span class='go-right order-link' id=''>"
         orders.each do |o|
             if current_order == o
