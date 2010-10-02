@@ -6,7 +6,7 @@
   <% if what_listing %>
     <h5 class="normal-pad append-bottom ui-widget-header"><%= what_listing %></h5>
   <% end  %>
-  <%= order_links request.parameters['order'] %>
+  <%= order_links request.parameters['order'], request.parameters[:city] %>
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>
   <%= will_paginate @vote_topics, :class => 'pagination', :params => {:listing_type => listing_type} %>
   
