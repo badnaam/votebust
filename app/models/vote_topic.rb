@@ -634,6 +634,7 @@ class VoteTopic < ActiveRecord::Base
             self.poster.award_points(Constants::NEW_VOTE_POINTS * -1) #remove power he had for new vote
             self.poster.increment!(:p_topics_count, -1) #decrement post count
             self.category.increment!(:vote_topics_count, -1)
+            self.increment!(:edit_count, 1) #to expire the cache..ooof
         when "approved"
             if !self.friend_emails.nil?
                 self.delay.deliver_friendly_vote_emails!

@@ -114,6 +114,7 @@ class AccountController < ApplicationController
         @vote_topic.status = VoteTopic::STATUS[:approved]
         if @vote_topic.expires.nil?
             @vote_topic.expires = 2.weeks.from_now
+            @vote_topic.increment(:edit_count, 1)
             if @vote_topic.save
                 if @vote_topic.status != VoteTopic::STATUS[:revised]
                     @vote_topic.delay.post_save_processing "approved"
