@@ -1,7 +1,7 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
-    $('#tabs').tabs(
+    $('#home_tabs').tabs(
     {
       spinner:"<img src='/images/loading.gif'/>",
       cookie : {
@@ -57,11 +57,11 @@
 
 </div> -->
 <div id="top_tab_container" class="span-18 last rel-pos">
-  <div id="tabs" class="normal-pad  ui-widget-content">
+  <div id="home_tabs" class="normal-pad  ui-widget-content">
     <ul>
-      <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "top")%>"><span>Most Voted</span></a></li>
-      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
+      <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "general_limited")%>"><span>Latest</span></a></li>
       <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "featured") %>"><span>Featured</span></a></li>
+      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
       <% if current_user %>
         <% if !current_user.city.nil? %>
           <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span>In <%= current_user.city %></span></a></li>

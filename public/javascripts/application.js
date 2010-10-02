@@ -1,3 +1,17 @@
+function reloadHomeTab() {
+    var selected = $( "#home_tabs" ).tabs( "option", "selected" );
+    $('#home_tabs').tabs('load', selected);
+    var selector = "#ui-tabs-" + (selected + 1);
+    $(selector).animate({
+        opacity: 0
+    }, 500, function(){}).animate(
+    {
+        opacity : 1
+    }, 500, function(){}
+        );
+
+}
+
 function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVoteItemLength) {
     $('.vote-form-more-details').live('click', function() {
         $('.vote-form-details').toggle(50,  function() {
@@ -399,6 +413,7 @@ $(document).ready(function() {
         $("a[rel='#intro_prezo']").click();
         $.cookie('show_voteable_intro', '0')
     }
+    setInterval(reloadHomeTab, 10000);
 /************** end intro prezo **************/
     
 });

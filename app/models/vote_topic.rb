@@ -131,7 +131,7 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def self.get_latest
-        Rails.cache.fetch("latest", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+        Rails.cache.fetch("latest_#{list_key}") do
             latest_votes
         end
     end
@@ -201,11 +201,19 @@ class VoteTopic < ActiveRecord::Base
         end
     end
 
-    def self.general_list page, order
-        Rails.cache.fetch("all_vote_topics_#{page}_#{order}_#{list_key}") do
-            paginate(:conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [ :poster,
-                    {:category => :slug}, :slug],
-                :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+    def self.general_list limit, page, order
+        if limit
+            Rails.cache.fetch("limited_vote_topics_#{list_key}") do
+                order = (ModelHelpers.determine_order order)
+                find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
+                    :limit => Constants::SMART_COL_LIMIT)
+            end
+        else
+            Rails.cache.fetch("all_vote_topics_#{page}_#{order}_#{list_key}") do
+                paginate(:conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [ :poster,
+                        {:category => :slug}, :slug],
+                    :page => page, :per_page => Constants::LISTINGS_PER_PAGE)
+            end
         end
     end
     

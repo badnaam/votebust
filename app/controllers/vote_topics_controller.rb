@@ -95,10 +95,12 @@ class VoteTopicsController < ApplicationController
                 end
             when "featured_all"
                 @vote_topics = VoteTopic.get_featured_votes(false, params[:page], params[:order])
+            when "general_limited"
+                @vote_topics = VoteTopic.general_list true, nil, params[:order]
             else
                 # it's "all"
                 #                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.ca_key}")
-                @vote_topics = VoteTopic.general_list params[:page], params[:order]
+                @vote_topics = VoteTopic.general_list false, params[:page], params[:order]
                 #                end
             end
         end
