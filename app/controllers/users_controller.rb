@@ -45,7 +45,7 @@ class UsersController < ApplicationController
             if @user.save_without_session_maintenance
                 flash[:notice] = t('users.create.confirmation')
                 if @user.voting_power == 0
-                    @user.increment!(:voting_power, Constants::REGISTRATION_COMPLETE_POINTS)
+                    @user.award_points(Constants::REGISTRATION_COMPLETE_POINTS)
                 end
                 #                redirect_back_or_default root_url
                 @user.delay.deliver_activation_instructions!
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
         if @user.update_attributes(params[:user])
             flash[:notice] = "Account updated!"
             if @user.voting_power == 0
-                @user.increment!(:voting_power, Constants::REGISTRATION_COMPLETE_POINTS)
+                @user.award_points(Constants::REGISTRATION_COMPLETE_POINTS)
                 flash[:notice] = "Account updated!. You have earned #{Constants::REGISTRATION_COMPLETE_POINTS} Voting Power"
             else
                 flash[:notice] = "Account updated!"

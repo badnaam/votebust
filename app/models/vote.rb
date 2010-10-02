@@ -112,7 +112,7 @@ class Vote < ActiveRecord::Base
         else
             voting_points = Constants::VOTE_POINTS
         end
-        self.user.increment!(:voting_power, voting_points)
+        self.user.award_points(voting_points)
     end
     
     def self.get_voted_vote_topics user_id, limit, page

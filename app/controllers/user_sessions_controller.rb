@@ -78,7 +78,7 @@ class UserSessionsController < ApplicationController
         session[:current_role] = nil
         cookies[:registration_complete] = nil
         session[:return_to] = nil
-        flash[:notice] = "Sign out successful!"
+        flash[:notice] = "Signed out."
         #        redirect_back_or_default root_url
         redirect_to root_url
     end

@@ -10,7 +10,7 @@ end %>
     <% else %>
       <%= link_to user.username, user, :class => "clearfix bld" %>
       <span class="vote-power-ubox t-trigger" id="">
-        <%= user.voting_power %>
+        <%= user.get_voting_power %>
       </span>
       <%= render :partial => "/shared/user_vp_tooltip", :locals => {:user => user} %>
     <% end  %>

@@ -13,7 +13,7 @@
             <%= new_button controller %>
             <li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %>
               <span id="main_link_vote_power" class="vote-power" style="margin-left:.5em;">
-                <%= current_user.voting_power %> </span></li>
+                <%= current_user.get_voting_power %> </span></li>
             <li><%= link_to "Logout", logout_path  %></li>
           <% end %>
           <li>

@@ -53,8 +53,21 @@ class User < ActiveRecord::Base
         find(id, :select => "users.id, users.voting_power")
     end
 
+    def get_voting_power
+        Rails.cache.fetch("user_vp_#{self.id}") do
+            self.voting_power
+        end
+    end
+    
+    def self.get_user_voting_power id
+        Rails.cache.fetch("user_vp_#{self.id}") do
+            User.find(id).voting_power
+        end
+    end
+    
     def award_points points
         self.increment!(:voting_power, points)
+        CacheUtil.increment("user_vp_#{self.id}", points)
     end
 
     def age
