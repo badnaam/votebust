@@ -175,7 +175,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1/edit
     def edit
         #allow edits if it hasn't been approved yet
-        if !@vote_topic.status == VoteTopic::STATUS[:approved]
+        if !(@vote_topic.status == VoteTopic::STATUS[:approved])
             @edit = true
             @saved = true
         end
