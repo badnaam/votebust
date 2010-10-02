@@ -61,7 +61,7 @@ end
     <tr>
       <td></td>
       <td colspan="2" class="ui-state-default">
-        <% if vt.votes_count == 0 %>
+        <% if vt.status != 'a' %>
           <%= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt), :rel => "#vote_overlay" %>
         <% end  %>
         <span class="go-right">Status : <%= status_str vt.status %></span></td>
