@@ -25,8 +25,13 @@ class Comment < ActiveRecord::Base
         v = VoteTopic.find(vid, :select => 'vote_topics.id, vote_topics.comments_count')
         option_id = vi_id.nil? ? 'others' : vi_id
         Rails.cache.fetch("comments_#{vid}_#{option_id}_#{v.comments_count}_#{page}") do
-            paginate(:conditions => ['vote_topic_id = ? AND vi_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
-                :per_page => Constants::COMMENTS_AT_A_TIME)
+            if vi_id.nil?
+                paginate(:conditions => ['vote_topic_id = ? AND vi_id IS NULL AND approved = ?', vid, true], :order => 'created_at DESC', :page => page,
+                    :per_page => Constants::COMMENTS_AT_A_TIME)
+            else
+                paginate(:conditions => ['vote_topic_id = ? AND vi_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
+                    :per_page => Constants::COMMENTS_AT_A_TIME)
+            end
         end
     end
     
@@ -55,14 +60,14 @@ class Comment < ActiveRecord::Base
                 :error_class => "Comment Spam Check",
                 :error_message => exp
             )
-#            error_hash = Hash.new
-#            error_hash[:job_name] = "Comment Spam Check"
-#            error_hash[:comment_id] = self.id
-get#            error_hash[:message] = exp.message
-#            error_hash[:backtrace] = exp.backtrace.join("\n")
-#            #             HoptoadNotifier.notify()
-#
-#            Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
+            #            error_hash = Hash.new
+            #            error_hash[:job_name] = "Comment Spam Check"
+            #            error_hash[:comment_id] = self.id
+            get#            error_hash[:message] = exp.message
+            #            error_hash[:backtrace] = exp.backtrace.join("\n")
+            #            #             HoptoadNotifier.notify()
+            #
+            #            Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
             logger.error "#{exp.message} occured during checking for spam for comment id #{self.id}"
         ensure
             return true
@@ -75,15 +80,15 @@ get#            error_hash[:message] = exp.message
                 c.check_for_spam
             end
         rescue Exception => exp
-#            error_hash = Hash.new
-#            error_hash[:job_name] = "Batch Comment Spam Check"
-#            error_hash[:message] = exp.message
-#            error_hash[:backtrace] = exp.backtrace.join("\n")
+            #            error_hash = Hash.new
+            #            error_hash[:job_name] = "Batch Comment Spam Check"
+            #            error_hash[:message] = exp.message
+            #            error_hash[:backtrace] = exp.backtrace.join("\n")
             HoptoadNotifier.notify(
                 :error_class => "Comment Spam Check Batch",
                 :error_message => exp
             )
-#            Notifier.delay.deliver_job_error "Batch Comment Spam Check", error_hash
+            #            Notifier.delay.deliver_job_error "Batch Comment Spam Check", error_hash
         else
             Rails.logger.info "Hourly spam check went smoothly."
         end

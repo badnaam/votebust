@@ -1,6 +1,7 @@
 class TrackingsController < ApplicationController
     before_filter :require_user, :only => [:create, :destroy]
-
+    before_filter :require_registration, :only => [:create, :destroy]
+    
     def create
         vt = VoteTopic.find_for_tracking(params[:vt_id])
         if (@t = current_user.trackings.create(:vote_topic_id => params[:vt_id]))

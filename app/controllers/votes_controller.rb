@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
     before_filter :require_user, :only => [:create, :destroy]
+    before_filter :require_registration, :only => [:create, :destroy]
     
     def index
         listing_type = params[:listing_type]

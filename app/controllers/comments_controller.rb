@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
     before_filter :require_user, :only => [:create]
+    before_filter :require_registration, :only => [:create]
+    skip_before_filter :require_user, :only => [:index]
     
     def index
         @comments = Comment.get_comments(params[:vid], params[:vi_id], params[:page] || 1)
