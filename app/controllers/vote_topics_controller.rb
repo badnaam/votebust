@@ -158,6 +158,9 @@ class VoteTopicsController < ApplicationController
             @vote_topics = VoteTopic.city_search cookies[:current_search_city], true, nil, 'tracking'
         when "most_tracked_state"
             @vote_topics = VoteTopic.state_search cookies[:current_search_state], true, nil, 'tracking'
+        when "featured_votes_by_user"
+            user_id = params[:user_id]
+            @vote_topics = VoteTopic.get_featured_votes_by_user user_id
         end
         respond_to do |format|
             format.js

@@ -720,6 +720,9 @@ body a:hover {
 .bottom-border {
     border-bottom: 1px solid #dddddd;
 }
+.top-border {
+    border-top: 1px solid #dddddd;
+}
 .right-mar {
     margin-right:1.5em;
 }

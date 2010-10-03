@@ -71,6 +71,9 @@ class VoteTopic < ActiveRecord::Base
     named_scope :same_category, lambda {|category_id|{:conditions => ['status = ? AND category_id = ?',  STATUS[:approved], category_id],
             :order => 'votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:slug, {:category => :slug}]}}
     
+    named_scope :featured_votes_by_user, lambda {|user_id|{:conditions => ['status = ? AND user_id = ? AND power_offered > ?',  STATUS[:approved], user_id, 0],
+            :order => 'created_at DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:slug, {:category => :slug}]}}
+
     named_scope :unanimous_votes, lambda {{:conditions => ['vote_topics.expires > ? AND vote_topics.status = ? AND vote_topics.unan = ?', DateTime.now, STATUS[:approved], true],
             :order => 'vote_topics.votes_count DESC', :limit => Constants::SMART_COL_LIMIT, :include => [:slug, {:category => :slug}]}}
     
@@ -133,6 +136,12 @@ class VoteTopic < ActiveRecord::Base
     def self.get_latest
         Rails.cache.fetch("latest_#{list_key}") do
             latest_votes
+        end
+    end
+
+    def self.get_featured_votes_by_user user_id
+        Rails.cache.fetch("featured_by_user", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            featured_votes_by_user user_id
         end
     end
     

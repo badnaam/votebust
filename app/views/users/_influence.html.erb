@@ -4,7 +4,7 @@ end
 %>
 <%
 subject = !owner.nil? ? "You have " : "#{@user.username} has"
-adverb = !owner.nil? ? "Your " : "#{@user.username}'s"
+adverb = !owner.nil? ? "Your " : "#{@user.username}'s "
 %>
 <div class="" id="">
   <h4 class="bottom-border bld bottom-mar normal-pad"><%= adverb %>Voting Power
@@ -13,7 +13,7 @@ adverb = !owner.nil? ? "Your " : "#{@user.username}'s"
     <li>
       <p>
         <span class="" id=""><%= subject %> started </span> <span class="stat-number" id=""><%= @user.p_topics_count %></span> topics.
-        <span class="" id="">That have collected </span><span class="stat-number" id=""><%= @user.total_votes_collected %></span> votes, have been tracked by
+        <span class="" id="">They have collected </span><span class="stat-number" id=""><%= @user.total_votes_collected %></span> votes, have been tracked by
         <span class="stat-number" id=""><%= @user.total_trackings_collected %></span> other users and generated
         <span class="stat-number" id=""><%= @user.total_discussions_collected %></span> discussions!
         <% if owner %>

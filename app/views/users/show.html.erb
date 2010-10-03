@@ -45,20 +45,23 @@
 
 <% if current_user && current_user == @user 
   owner = true
- end  %>
+end  %>
 
-<div class="span-18 last append-bottom" id="">
-  <table class="vote-preview" id="">
-    <tr>
-      <td>
-        <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
-      </td>
-    </tr>
-  </table>
+<div class="span-18 last " id="">
+  <div class="normal-pad" id="">
+    <table class="top-border vote-preview" id="">
+      <tr>
+        <td>
+          <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
 </div>
 
 <div class="span-18 last">
-  <div class="prepend-top append-bottom">
+  <div class="prepend-top normal-pad append-bottom">
     <div id="tabs" class="prepend-top">
       <ul>
         <% permitted_to? :update, @user do %>
@@ -145,4 +148,11 @@
 
 <% content_for :right_nav do %>
   <%= render :partial => 'profile_help' %>
+  <% if !owner %>
+<%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
+        top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => true} %>
+       <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Featured Votes by #{@user.username}", :load_path =>
+        side_bar_index_vote_topics_path(:type => "featured_votes_by_user", :user_id => @user.id), :l_type => "featured_votes_by_user", :first => false} %>
+
+  <% end  %>
 <% end  %>
