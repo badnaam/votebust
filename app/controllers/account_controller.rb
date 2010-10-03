@@ -51,7 +51,7 @@ class AccountController < ApplicationController
             flash[:error] = "Something went wrong"
         end
         ## todo cache delete refresh the cache
-        Rails.cache.delete("vt_#{@vote_topic.id}")
+        Rails.cache.delete("vt_#{@vote_topic.to_param}")
         respond_to do |format|
             format.html {redirect_to not_approved_votes_account_path}
             format.js
