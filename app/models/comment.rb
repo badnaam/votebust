@@ -28,7 +28,7 @@ class Comment < ActiveRecord::Base
     
     def self.get_comments vid, vi_id, page
         if vi_id.nil?
-            "comments_#{vid}_others_#{cc_count vid}_#{page}"
+            ch_key = "comments_#{vid}_others_#{cc_count vid}_#{page}"
         else
             vote_item = VoteItem.find(vi_id)
             ch_key = "comments_#{vid}_#{vi_id}_#{vote_item.comments_count}_#{page}"
