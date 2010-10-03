@@ -57,18 +57,20 @@
 
 </div> -->
 <div id="top_tab_container" class="span-18 last rel-pos">
-  <div id="home_tabs" class="normal-pad  ui-widget-content">
-    <ul>
-      <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "general_limited")%>"><span>Latest</span></a></li>
-      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "featured") %>"><span>Featured</span></a></li>
-      <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
-      <% if current_user %>
-        <% if !current_user.city.nil? %>
-          <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span>In <%= current_user.city %></span></a></li>
+  <div class="normal-pad  " id="">
+    <div id="home_tabs" class="">
+      <ul>
+        <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "general_limited")%>"><span>Latest</span></a></li>
+        <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "featured") %>"><span>Featured</span></a></li>
+        <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
+        <% if current_user %>
+          <% if !current_user.city.nil? %>
+            <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span>In <%= current_user.city %></span></a></li>
+          <% end  %>
+          <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
         <% end  %>
-        <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
-      <% end  %>
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
 <% content_for :right_nav do %>
@@ -87,7 +89,7 @@
 <% end %>
 
 
-  
+
 <div id="fb-root">
 </div>
 
