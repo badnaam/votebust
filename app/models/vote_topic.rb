@@ -670,7 +670,7 @@ class VoteTopic < ActiveRecord::Base
     end
 
     def self.list_key
-        count(:conditions => ['status = ?', 'a'])
+        count(:conditions => ['status = ?', STATUS[:approved]])
     end
 
     def self.list_key_cat id
