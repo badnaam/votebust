@@ -182,15 +182,15 @@ class VoteTopicsController < ApplicationController
             @saved = true
         end
         respond_to do |format|
-            format.html {
-                if @edit
-                    #
-                    setup_vote_items(true)
-                else
-                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
-                    redirect_back_or_default root_url
-                end
-            }
+#            format.html {
+#                if @edit
+#                    #
+#                    setup_vote_items(true)
+#                else
+#                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
+#                    redirect_back_or_default root_url
+#                end
+#            }
             format.js {
                 if !@edit
                     flash[:error] = 'Sorry no further edits, Vote has already been approved.'
