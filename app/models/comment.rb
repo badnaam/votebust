@@ -23,6 +23,7 @@ class Comment < ActiveRecord::Base
 
     def self.get_comments vid, vi_id, page
         v = VoteTopic.find(vid, :select => 'vote_topics.id, vote_topics.comments_count')
+        vi_id = 'others' if vi_id.nil?
         Rails.cache.fetch("comments_#{vid}_#{vi_id}_#{v.comments_count}_#{page}") do
             paginate(:conditions => ['vote_topic_id = ? AND vi_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
                 :per_page => Constants::COMMENTS_AT_A_TIME)
@@ -57,7 +58,7 @@ class Comment < ActiveRecord::Base
 #            error_hash = Hash.new
 #            error_hash[:job_name] = "Comment Spam Check"
 #            error_hash[:comment_id] = self.id
-#            error_hash[:message] = exp.message
+get#            error_hash[:message] = exp.message
 #            error_hash[:backtrace] = exp.backtrace.join("\n")
 #            #             HoptoadNotifier.notify()
 #
