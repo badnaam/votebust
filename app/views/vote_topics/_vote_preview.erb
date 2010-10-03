@@ -9,10 +9,10 @@
   <div class="ui-widget-vote-preview bottom-mar normal-pad top-mar" style="clear:both" id="<%= vt.id%>">
     <table class="vote-info-table-top" id="">
       <tr>
-        <td class="right-border" style="width:20%">
+        <td class="right-border" style="width:30%">
           <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster, :anon => vt.anon} %>
         </td>
-        <td style="width:80%">
+        <td style="width:70%">
           <blockquote class="preview">
             <span class="big"><%= link_to vt.header, scoped_vote_topic_path(vt.category, vt) %></span>
           </blockquote>
