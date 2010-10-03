@@ -376,6 +376,9 @@ table.vote-preview {
     margin-bottom: 0;
     border-bottom: 1px solid #dddddd;
 }
+.val {
+    vertical-align: top;
+}
 td.top-al {
     vertical-align: top;
 }
@@ -383,7 +386,7 @@ blockquote {
     background:transparent url(http://www.facebook.com/images/start_quote_small.gif)
         no-repeat scroll -1px 0;
     line-height:2.2em;
-    margin:14px 0;
+    margin:0 .5em 0 .5em !important;
     padding:0 0 0 16px;
 }
 blockquote.preview {
