@@ -23,8 +23,8 @@ class Comment < ActiveRecord::Base
 
     def self.get_comments vid, vi_id, page
         v = VoteTopic.find(vid, :select => 'vote_topics.id, vote_topics.comments_count')
-        vi_id = 'others' if vi_id.nil?
-        Rails.cache.fetch("comments_#{vid}_#{vi_id}_#{v.comments_count}_#{page}") do
+        option_id = vi_id.nil? ? 'others' : vi_id
+        Rails.cache.fetch("comments_#{vid}_#{option_id}_#{v.comments_count}_#{page}") do
             paginate(:conditions => ['vote_topic_id = ? AND vi_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
                 :per_page => Constants::COMMENTS_AT_A_TIME)
         end
