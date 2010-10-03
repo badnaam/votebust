@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
     #    include HoptoadNotifier::Catcher
     belongs_to :user
     belongs_to :vote_topic, :counter_cache => true
+    belongs_to :vote_item, :counter_cache => true, :foreign_key => 'vi_id'
 
     validates_presence_of :body, :vote_topic_id, :user_id
     validates_length_of :body, :within => 1..Constants::MAX_COMMENT_LENGTH
@@ -21,10 +22,18 @@ class Comment < ActiveRecord::Base
       :user_agent => :user_agent,
       :referrer => :referrer
 
+    def self.cc_count id
+        count(:conditions => ["vote_topic_id = ?", id])
+    end
+    
     def self.get_comments vid, vi_id, page
-        v = VoteTopic.find(vid, :select => 'vote_topics.id, vote_topics.comments_count')
-        option_id = vi_id.nil? ? 'others' : vi_id
-        Rails.cache.fetch("comments_#{vid}_#{option_id}_#{v.comments_count}_#{page}") do
+        if vi_id.nil?
+            "comments_#{vid}_others_#{cc_count vid}_#{page}"
+        else
+            vote_item = VoteItem.find(vi_id)
+            ch_key = "comments_#{vid}_#{vi_id}_#{vote_item.comments_count}_#{page}"
+        end
+        Rails.cache.fetch(ch_key) do
             if vi_id.nil?
                 paginate(:conditions => ['vote_topic_id = ? AND vi_id IS NULL AND approved = ?', vid, true], :order => 'created_at DESC', :page => page,
                     :per_page => Constants::COMMENTS_AT_A_TIME)
