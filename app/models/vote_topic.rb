@@ -645,6 +645,7 @@ class VoteTopic < ActiveRecord::Base
               self.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
             self.poster.award_points(Constants::NEW_VOTE_POINTS)
             self.poster.increment!(:p_topics_count, 1)
+            self.poster.increment!(:edit_count, 1)
             self.category.increment!(:vote_topics_count, 1)
             #find the city and state, increment those count to expire these city/state cache
             update_city_state_count 1
