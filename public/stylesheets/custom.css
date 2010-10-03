@@ -606,6 +606,9 @@ body a:hover {
     color:#598F49;
     /*    display:block;*/
 }
+.header {
+    background-color: #fcfcfc;
+}
 .header_logo_div {
     color:black;
 }
