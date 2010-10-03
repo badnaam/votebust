@@ -1,4 +1,7 @@
-
+.sidebox-list > li > a {
+    color:#356AA0 !important;
+    font-weight:bold;
+}
 .preference-list li label {
     font-weight:normal;
 }
@@ -375,6 +378,9 @@ html, body {
 table.vote-preview {
     margin-bottom: 0;
     border-bottom: 1px solid #dddddd;
+}
+.vtq {
+    font-size:1.1em;
 }
 .val {
     vertical-align: top;
