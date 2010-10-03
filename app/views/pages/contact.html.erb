@@ -9,7 +9,7 @@
   //]]>
 </script>
 <div class="span-24 last">
-  <div class="ui-widget-content prepend-top " id="">
+  <div class="ui-widget-content prepend-top normal-pad" id="">
     <h4 class="ui-widget-header normal-pad">Contact Us</h4>
     <% semantic_form_for @c, :url => contact_receive_path, :html => {:id => "contact_form"} do |f| %>
       <%= f.semantic_errors %>
@@ -26,6 +26,5 @@
         </li>
       <% end  %>
     <% end  %>
-
   </div>
 </div>

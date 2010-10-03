@@ -107,49 +107,57 @@
 </script>
 
 <div class=" span-18 last">
-  <div class="ui-widget-vote-preview  normal-pad ">
-    <div>
-      <table class="vote-info-table-top" id="">
-        <tr>
-          <td class="right-border" style="width:20%">
-            <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster, :anon => @vote_topic.anon} %>
-          </td>
-          <td style="width:80%">
-            <blockquote class="preview">
-              <span class="big"> <%= @vote_topic.header %></span>
-            </blockquote>
-          </td>
-        </tr>
-      </table>
+  <div class="normal-pad" id="">
+    <div class="ui-widget-vote-preview normal-pad ">
+      <div>
+        <table class="vote-info-table-top" id="">
+          <tr>
+            <td class="right-border" style="width:20%">
+              <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster, :anon => @vote_topic.anon} %>
+            </td>
+            <td style="width:80%">
+              <blockquote class="preview">
+                <span class="big"> <%= @vote_topic.header %></span>
+              </blockquote>
+            </td>
+          </tr>
+        </table>
 
-      <p class="left-mar top-mar">
-        <%= @vote_topic.topic %>
-      </p>
-      <%= render :partial => "vote_control" %>
-    </div>
-    <div>
-      <%= render :partial => 'vote_info_show', :locals => {:vt => @vote_topic} %>
+        <p class="left-mar top-mar">
+          <%= @vote_topic.topic %>
+        </p>
+        <%= render :partial => "vote_control" %>
+      </div>
+      <div>
+        <%= render :partial => 'vote_info_show', :locals => {:vt => @vote_topic} %>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="span-18 last" id="">
-  <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
+  <div class="normal-pad" id="">
+    <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
+  </div>
 </div>
+
 <div class="span-18 append-bottom social-div" id="">
-  <h4 class="bottom-border bld bottom-mar">Be Social</h4>
-  <table class="social" id="">
-    <tr>
-      <td style="width:510px">
-    <fb:like href="<%= share_url %>" width="500" ></fb:like>
-    </td>
-    <td class="r-t-a" style="width:120px">
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
-      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    </td>
-    <td class="r-t-a" style="width:80px">
-      <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
-    </td>
-  </table>
+  <div class="normal-pad" id="">
+    <h4 class="bottom-border bld bottom-mar">Be Social</h4>
+    <table class="social" id="">
+      <tr>
+        <td style="width:505px">
+      <fb:like href="<%= share_url %>" width="500" ></fb:like>
+      </td>
+      <td class="r-t-a" style="width:115px">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      </td>
+      <td class="r-t-a" style="width:80px">
+        <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
+      </td>
+    </table>
+  </div>
 </div>
 
 <% facet = VoteFacet.find_for_show(@vote_topic.id) %>
