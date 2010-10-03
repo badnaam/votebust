@@ -1,6 +1,7 @@
-<% if current_user.friendly_id == request.parameters[:user_id] 
+<% if current_user && current_user.friendly_id == request.parameters[:user_id] 
 owner = true
  end  %>
+
 <% if owner %>
 <div class=" ui-widget-content">
   <ul class="list-no-pad-no-style-close sidebox-list widget-content" id="">
@@ -31,6 +32,7 @@ owner = true
 </div>
 <% end  %>
 
+<!--
 <div class="ui-widget-content prepend-top">
   <ul class="list-no-pad-no-style-close sidebox-list widget-content" id="">
     <li class="ui-widget-header">Votes Started</li>
@@ -48,3 +50,4 @@ owner = true
     </li>
   </ul>
 </div>
+-->

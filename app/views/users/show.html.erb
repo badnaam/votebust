@@ -43,6 +43,10 @@
   //]]>
 </script>
 
+<% if current_user && current_user == @user 
+  owner = true
+ end  %>
+
 <div class="span-18 last append-bottom" id="">
   <table class="vote-preview" id="">
     <tr>
@@ -68,12 +72,12 @@
         <li><a href="<%= url_for(:controller => :users, :action => :vp_stats, :id => @user.id) %>" class="" id=""> <span>Influence</span></a></li>
         <li  title="Votes you have started.">
           <a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
-            <span>Votes Started </span>
+            <span>Votes Started <%= owner ? "" : "by #{@user.username}"%></span>
           </a>
         </li>
         <li   title ="Vote Topics you have voted on">
           <a   href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>">
-            <span>Votes Posted  </span>
+            <span>Votes Posted <%= owner ? "" : "by #{@user.username}"%> </span>
           </a>
         </li>
       </ul>
@@ -128,9 +132,6 @@
             <% end  %>
           <% end  %>
         </div>
-        <!--<div class="" id="interests">
-  <%#= render :partial => '/categories/interest_form' %>
-        </div> -->
         <div class="" id="tracked_votes"></div>
       <% end  %>
       <div class="" id="started_votes"></div>

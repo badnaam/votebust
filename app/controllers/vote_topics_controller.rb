@@ -89,7 +89,7 @@ class VoteTopicsController < ApplicationController
                 @vote_topics =  VoteTopic.get_most_tracked_votes false, params[:page], params[:order]
             when "user_all"
                 #if currrent_user then show everything
-                if current_user.id == params[:user_id].to_i
+                if current_user && current_user.id == params[:user_id].to_i
                     @vote_topics = VoteTopic.get_all_votes_user_own(params[:user_id], params[:page] , params[:order])
                 else
                     #show only approved

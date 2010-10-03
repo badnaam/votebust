@@ -63,9 +63,9 @@ module ApplicationHelper
             return image_tag Constants::MISSING_IMAGE_FILE
         else
             if !user.image_url.nil?
-                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user
+                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user_path(user)
             else
-                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user
+                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user_path(user)
             end
         end
     end

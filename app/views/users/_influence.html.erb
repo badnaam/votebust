@@ -1,21 +1,31 @@
+<% if local_assigns[:owner].nil?
+  owner = nil
+end
+%>
+<%
+subject = !owner.nil? ? "You have " : "#{@user.username} has"
+adverb = !owner.nil? ? "Your " : "#{@user.username}'s"
+%>
 <div class="" id="">
-  <h4 class="bottom-border bld bottom-mar normal-pad">Your Voting Power  <span class="vote-power-ubox"><%= @user.get_voting_power %></span></h4>
+  <h4 class="bottom-border bld bottom-mar normal-pad"><%= adverb %>Voting Power
+    <span class="vote-power-ubox"><%= @user.get_voting_power %></span></h4>
   <ul class="stat-list" id="">
     <li>
       <p>
-        <span class="" id="">You have started </span> <span class="stat-number" id=""><%= @user.p_topics_count %></span> topics.
+        <span class="" id=""><%= subject %> started </span> <span class="stat-number" id=""><%= @user.p_topics_count %></span> topics.
         <span class="" id="">That have collected </span><span class="stat-number" id=""><%= @user.total_votes_collected %></span> votes, have been tracked by
         <span class="stat-number" id=""><%= @user.total_trackings_collected %></span> other users and generated
         <span class="stat-number" id=""><%= @user.total_discussions_collected %></span> discussions!
-        <span class="bld clearfix"> Well Done! <%= new_button_plain controller %></span>
+        <% if owner %>
+          <span class="bld clearfix"> Well Done! <%= new_button_plain controller %></span>
+        <% end  %>
       </p>
-      
+
     </li>
     <li>
       <p>
-        You have voted on <span class="stat-number" id="">  <%= Vote.user_total_votes_posted(@user) %></span> topics.
+        <%= subject %> voted on <span class="stat-number" id="">  <%= Vote.user_total_votes_posted(@user) %></span> topics.
       </p>
     </li>
   </ul>
-
 </div>

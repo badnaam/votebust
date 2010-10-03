@@ -1,1 +1,4 @@
-<%= render :partial => "influence" %>
+<% if current_user
+owner = (current_user.id == @user.id ? true : nil)
+ end  %>
+<%= render :partial => "influence", :locals => {:owner => owner} %>
