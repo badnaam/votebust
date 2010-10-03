@@ -166,9 +166,11 @@ class VoteTopicsController < ApplicationController
         @vote_items = 2.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
-            format.html # new.html.erb
-            format.js {}
-            format.xml  { render :xml => @vote_topic }
+#            format.html # new.html.erb
+            format.js {
+                
+            }
+#            format.xml  { render :xml => @vote_topic }
         end
     end
 
