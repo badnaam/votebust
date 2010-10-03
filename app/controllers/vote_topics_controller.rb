@@ -55,6 +55,12 @@ class VoteTopicsController < ApplicationController
                 #todo locking it down, anyone can pass tracked user?
             when "tracked_all"
                 @vote_topics = VoteTopic.get_tracked_votes(current_user, false, params[:page], params[:order])
+            when "most_discussed"
+                @vote_topics = Rails.cache.fetch('most_discussed_limited', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+                    VoteTopic.get_most_commented_votes true, nil, params[:order]
+                end
+            when "most_discussed_all"
+                @vote_topics = VoteTopic.get_most_commented_votes(false, params[:page], params[:order])
             when "user_tracked_all"
                 @vote_topics = VoteTopic.get_tracked_votes(current_user, false, params[:page], params[:order])
             when "tracked"

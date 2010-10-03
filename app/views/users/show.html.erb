@@ -63,8 +63,9 @@
           <li  title="What interests you?"><a href="<%= interests_path %>" class="" id=""><span>Interests</span></a></li>
           <%= make_tooltip("What interests you?") %>
           <li class="t-trigger" title="Vote Topics you are tracking"><a href="<%= url_for(:controller => :vote_topics, :action => :index,
-                                                        :listing_type => "tracked_all")%>"><span>Tracking</span></a></li>
+                                                                          :listing_type => "tracked_all")%>"><span>Tracking</span></a></li>
           <% end  %>
+        <li><a href="<%= url_for(:controller => :users, :action => :vp_stats, :id => @user.id) %>" class="" id=""> <span>Influence</span></a></li>
         <li  title="Votes you have started.">
           <a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
             <span>Votes Started </span>

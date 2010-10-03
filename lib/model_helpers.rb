@@ -11,6 +11,8 @@ module ModelHelpers
             'distance ASC'
         when 'tracking'
              'vote_topics.trackings_count DESC'
+        when 'discussed'
+             'vote_topics.comments_count DESC'
         else
             'vote_topics.created_at DESC'
         end

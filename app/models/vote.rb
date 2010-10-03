@@ -129,4 +129,10 @@ class Vote < ActiveRecord::Base
             end
         end
     end
+
+    def self.user_total_votes_posted user
+        Rails.cache.fetch("user_votes_posted_#{user.id}_#{user.votes_count}") do
+            count(:conditions => ['user_id = ?', user.id])
+        end
+    end
 end

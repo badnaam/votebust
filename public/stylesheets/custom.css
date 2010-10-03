@@ -3,6 +3,13 @@
     color:#255280 !important;
 /*    font-weight:bold;*/
 }
+.stat-number{
+    color:#255280;
+    font-weight: bold;
+}
+.stat-list li {
+    font-size:1.2em;
+}
 .preference-list li label {
     font-weight:normal;
 }
@@ -721,6 +728,9 @@ body a:hover {
 }
 .big {
     font-size:1.1em;
+}
+.large {
+    font-size: 1.2em;
 }
 .small {
     font-size:.9em;

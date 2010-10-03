@@ -5,6 +5,14 @@ module ApplicationHelper
 #        return "<span class='tooltip'>#{str}</span>"
         return (render :partial => '/shared/tooltip', :locals => {:text => str})
     end
+
+    def new_button_plain controller
+        if controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new')
+        elsif controller.class == UsersController && (controller.action_name == 'edit')
+        else
+            link_to("Start a new vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text', :rel => "#vote_overlay")
+        end
+    end
     
     def new_button controller
         str = "<li>"

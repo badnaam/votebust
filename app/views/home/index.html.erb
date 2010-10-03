@@ -63,6 +63,7 @@
         <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "general_limited")%>"><span>Latest</span></a></li>
         <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "featured") %>"><span>Featured</span></a></li>
         <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
+        <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_discussed") %>"><span>Most Discussed</span></a></li>
         <% if current_user %>
           <% if !current_user.city.nil? %>
             <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span>In <%= current_user.city %></span></a></li>

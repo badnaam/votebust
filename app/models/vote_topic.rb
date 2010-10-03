@@ -237,6 +237,20 @@ class VoteTopic < ActiveRecord::Base
             end
         end
     end
+    
+    def self.get_most_commented_votes limit, page, order
+        if limit
+            order = (ModelHelpers.determine_order order)
+            find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
+                :limit => Constants::SMART_COL_LIMIT)
+        else
+            Rails.cache.fetch("most_discussed_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+                order = 'vote_topics.comments_count DESC, ' + (ModelHelpers.determine_order order)
+                paginate( :conditions => ['status = ?', STATUS[:approved]], :order => order, :include => [:poster, {:category => :slug}, :slug],
+                    :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
+            end
+        end
+    end
 
     ## tracked by the user
     def self.get_tracked_votes user, limit, page, order
@@ -697,7 +711,7 @@ class VoteTopic < ActiveRecord::Base
         end
         return true
     end
-    
+
     ########### end misc helpers#######################################################
     
 end

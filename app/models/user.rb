@@ -222,6 +222,23 @@ class User < ActiveRecord::Base
     end
 
 
+    def total_votes_collected
+        Rails.cache.fetch("user_total_votes_collected_#{self.id}_#{self.p_topics_count}") do
+            self.posted_vote_topics.sum(:votes_count)
+        end
+    end
+    def total_trackings_collected
+        #todo expire this
+        Rails.cache.fetch("user_total_trackings_collected_#{self.id}}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            self.posted_vote_topics.sum(:trackings_count)
+        end
+    end
+    def total_discussions_collected
+        Rails.cache.fetch("user_total_discussions_collected_#{self.id}}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            self.posted_vote_topics.sum(:comments_count)
+        end
+    end
+
     private
 
     # map_added_rpx_data maps additional fields from the RPX response into the user object during the "add RPX to existing account" process.

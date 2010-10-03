@@ -110,17 +110,19 @@ namespace :deploy do
     end
 
     task :install_log_rotate_script, :roles => :app do
-        rotate_script = %Q{#{shared_path}/log/#{rails_env}.log {
+        rotate_script = %Q{#{shared_path}/logs/#{rails_env}.log {
         daily
-        rotate 14
-        size 5M
+        rotate 7
+        size 3M
         compress
-        create 640 #{user} #{group}
+        create 755 #{user} #{group}
         missingok
+        delaycompress
+        notifempty
         }}
         put rotate_script, "#{shared_path}/logrotate_script"
         sudo "cp #{shared_path}/logrotate_script /etc/logrotate.d/#{application}"
-        delete "#{shared_path}/logrotate_script"
+        run "rm #{shared_path}/logrotate_script"
     end
 
     task :package_assets do
