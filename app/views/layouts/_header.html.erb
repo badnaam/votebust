@@ -7,14 +7,14 @@
          <div class="ui-corner-bl ui-corner-br ui-state-hover">
         <ul class="header_links">
           <% unless  current_user %>
-            <li><%= link_to "Sign Up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
-            <li><%= link_to "Login", login_path, :id => 'main_login_link' %></li>
+            <li><%= link_to "sign up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
+            <li><%= link_to "login", login_path, :id => 'main_login_link' %></li>
           <% else %>
             <%= new_button controller %>
             <li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %>
               <span id="main_link_vote_power" class="vote-power" style="margin-left:.5em;">
                 <%= current_user.get_voting_power %> </span></li>
-            <li><%= link_to "Logout", logout_path  %></li>
+            <li><%= link_to "logout", logout_path  %></li>
           <% end %>
           <li>
             <a href="/vote_topics/rss" class="sprite rss-image" id="">

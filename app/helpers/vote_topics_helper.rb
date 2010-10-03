@@ -89,10 +89,17 @@ module VoteTopicsHelper
         end
     end
 
+    def power_points_bonus vt
+        if !vt.power_offered.nil? && vt.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
+            points = vt.power_offered / Constants::VOTING_POWER_OFFER_DEVIDER
+        else
+            return Constants::VOTE_POINTS
+        end
+    end
     
     def power_points vt
-        if !vt.power_offered.nil? && vt.power_offered > 10
-            points = vt.power_offered / 10
+        if !vt.power_offered.nil? && vt.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
+            points = vt.power_offered / Constants::VOTING_POWER_OFFER_DEVIDER
             return "<span class='flag-wrapper t-trigger'>
                         <span class='bld power-points'>#{points} </span>
                     </span>

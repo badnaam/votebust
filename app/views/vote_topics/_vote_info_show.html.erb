@@ -10,15 +10,15 @@
     </td>
     <td class="no-pad">
       <div class="ui-state-normal">
-        <span class="small">Started : <%= vt.created_at.strftime('%b %d %Y') %></span>
+        <span class="small right-border right-pad">Started : <%= vt.created_at.strftime('%b %d') %></span>
         <% if vt.expires %>
           <% if vt.expires > DateTime.now %>
             <span class="small" id=""> Ends :
-              <%= vt.expires.strftime('%b %d %Y') %>
+              <%= vt.expires.strftime('%b %d') %>
             </span>
           <% else %>
             <span class="small" id=""> Ended :
-              <%= vt.expires.strftime('%b %d %Y') %>
+              <%= vt.expires.strftime('%b %d') %>
             </span>
           <% end  %>
         <% end  %>

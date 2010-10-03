@@ -17,6 +17,12 @@ table.social td {
 .r-t-a {
     text-align: right;
 }
+.l-t-a {
+    text-align: left;
+}
+.c-t-a {
+    text-align: center;
+}
 .social {
     margin-bottom: 0;
 }

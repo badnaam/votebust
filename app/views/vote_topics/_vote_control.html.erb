@@ -5,6 +5,7 @@
   <%= hidden_field_tag :user_id, current_user.nil? ? nil: current_user.id%>
   <%= hidden_field_tag :vote_id, @vote_topic.nil? ? nil : @vote_topic.id %>
   <%= hidden_field_tag :category, @vote_topic.nil? ? nil : @vote_topic.category.to_param %>
+  <%= hidden_field_tag :vote_bonus, (power_points_bonus @vote_topic) %>
   <%= hidden_field_tag :vote_count, 0 %>
 
   <% if @vote_topic.expires > DateTime.now %>

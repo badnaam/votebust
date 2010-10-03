@@ -20,15 +20,15 @@ end
     </td>
     <td class="no-pad">
       <span class="ui-state-normal">
-        <span class="small">Started : <%= vt.created_at.strftime('%b %d %Y') %></span>
+        <span class="small right-pad right-border">Started : <%= vt.created_at.strftime('%b %d') %></span>
         <% if vt.expires %>
           <% if vt.expires > DateTime.now %>
             <span class="small" id=""> Ends :
-              <%= vt.expires.strftime('%b %d %Y') %>
+              <%= vt.expires.strftime('%b %d') %>
             </span>
           <% else %>
             <span class="small" id=""> Ended :
-              <%= vt.expires.strftime('%b %d %Y') %>
+              <%= vt.expires.strftime('%b %d') %>
             </span>
           <% end  %>
         <% end  %>
@@ -47,9 +47,7 @@ end
         </span>
         <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
       </span>
-      <span class=""><%= flags vt %></span>
     </td>
-
     <% if preview %>
       <td class="no-pad">
         <%= link_to "More..", vt, :class => "go-right bld" %>
