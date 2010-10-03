@@ -1,7 +1,7 @@
 class VoteTopicsController < ApplicationController
     # GET /vote_topics
     # GET /vote_topics.xml
-    layout "main"
+    layout "main", :except => [:new, :edit]
     before_filter :load_vt_from_id_and_scope, :only => [:edit, :update]
     filter_access_to [:edit, :update], :attribute_check => true
     before_filter :require_user, :only => [:edit, :new, :create]
