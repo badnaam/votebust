@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101002172456) do
+ActiveRecord::Schema.define(:version => 20101003035816) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20101002172456) do
   create_table "comments", :force => true do |t|
     t.text     "body",                                          :null => false
     t.datetime "created_at"
-    t.integer  "vi_id"
+    t.integer  "vote_item_id"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
     t.integer  "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20101002172456) do
   end
 
   add_index "comments", ["user_id"], :name => "user_id"
+  add_index "comments", ["vote_item_id"], :name => "index_comments_on_vote_item_id"
   add_index "comments", ["vote_topic_id"], :name => "vote_topic_id"
 
   create_table "contact_messages", :force => true do |t|
@@ -241,20 +242,22 @@ ActiveRecord::Schema.define(:version => 20101002172456) do
   add_index "vote_facets", ["vote_topic_id"], :name => "vote_topic_id"
 
   create_table "vote_items", :force => true do |t|
-    t.string   "option",        :limit => 150
+    t.string   "option",         :limit => 150
     t.string   "info"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
-    t.integer  "votes_count",                  :default => 0
-    t.integer  "male_votes",                   :default => 0
-    t.integer  "female_votes",                 :default => 0
-    t.integer  "ag_1_v",                       :default => 0
-    t.integer  "ag_2_v",                       :default => 0
-    t.integer  "ag_3_v",                       :default => 0
-    t.integer  "ag_4_v",                       :default => 0
+    t.integer  "votes_count",                   :default => 0
+    t.integer  "male_votes",                    :default => 0
+    t.integer  "female_votes",                  :default => 0
+    t.integer  "ag_1_v",                        :default => 0
+    t.integer  "ag_2_v",                        :default => 0
+    t.integer  "ag_3_v",                        :default => 0
+    t.integer  "ag_4_v",                        :default => 0
+    t.integer  "comments_count",                :default => 0
   end
 
+  add_index "vote_items", ["comments_count"], :name => "index_vote_items_on_comments_count"
   add_index "vote_items", ["female_votes"], :name => "female_votes"
   add_index "vote_items", ["male_votes"], :name => "male_votes"
   add_index "vote_items", ["vote_topic_id"], :name => "vote_topic_id"

@@ -1,5 +1,6 @@
 class VoteItem < ActiveRecord::Base
     belongs_to :vote_topic
+    has_many :comments
     has_many :votes, :dependent => :destroy
 #    after_update :destroy_if_option_blank
 

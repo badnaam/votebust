@@ -210,6 +210,7 @@ class VoteTopicsController < ApplicationController
             if @vote_topic.save
                 @saved = true
                 flash[:success] = "Your vote was saved and sent for moderator approval. You can check it's status in your profile page."
+                @vote_topic.poster.increment!(:edit_count, 1) # so that the user_owned_vote_topics cache expires
                 format.html { redirect_to root_path }
                 format.js {}
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }

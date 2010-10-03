@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
     #    include HoptoadNotifier::Catcher
     belongs_to :user
     belongs_to :vote_topic, :counter_cache => true
-    belongs_to :vote_item, :counter_cache => true, :foreign_key => 'vi_id'
+    belongs_to :vote_item, :counter_cache => true
 
     validates_presence_of :body, :vote_topic_id, :user_id
     validates_length_of :body, :within => 1..Constants::MAX_COMMENT_LENGTH
@@ -35,17 +35,18 @@ class Comment < ActiveRecord::Base
         end
         Rails.cache.fetch(ch_key) do
             if vi_id.nil?
-                paginate(:conditions => ['vote_topic_id = ? AND vi_id IS NULL AND approved = ?', vid, true], :order => 'created_at DESC', :page => page,
+                paginate(:conditions => ['vote_topic_id = ? AND vote_item_id IS NULL AND approved = ?', vid, true], :order => 'created_at DESC', :page => page,
                     :per_page => Constants::COMMENTS_AT_A_TIME)
             else
-                paginate(:conditions => ['vote_topic_id = ? AND vi_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
+                paginate(:conditions => ['vote_topic_id = ? AND vote_item_id = ? AND approved = ?', vid, vi_id, true], :order => 'created_at DESC', :page => page,
                     :per_page => Constants::COMMENTS_AT_A_TIME)
             end
         end
     end
     
     def self.do_comment body, vt_id, vi_id, user_id, request
-        params = {:body => body, :vote_topic_id => vt_id, :vi_id => vi_id, :user_id => user_id, :user_ip => request.remote_ip, :user_agent => request.env['HTTP_USER_AGENT'],
+        params = {:body => body, :vote_topic_id => vt_id, :vote_item_id => vi_id, :user_id => user_id, :user_ip => request.remote_ip,
+            :user_agent => request.env['HTTP_USER_AGENT'],
             :referrer => request.env['HTTP_REFERER']
         }
         v = Comment.create(params)
