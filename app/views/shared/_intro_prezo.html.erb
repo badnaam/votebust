@@ -24,13 +24,15 @@
         <li>
           Do some serious research about on going and upcoming trends. OR. Just have fun! Start a bet, be creative and tickle the public mind..
         </li>
+        <% if !current_user %>
+          <li>
+            <a href="/signup" class="highlighted" id="">
+              Sign up and get started!
+            </a>
+          </li>
+        <% end  %>
         <li>
-          <a href="/signup" class="highlighted" id="">
-            Sign up and get started!
-          </a>
-        </li>
-        <li>
-          <a href="/faq" class="" id="">
+          <a href="/faq" class="special-text" id="">
             Learn more
           </a>
         </li>
