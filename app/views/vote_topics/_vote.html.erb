@@ -100,6 +100,13 @@
       return false;
     });
 
+    $('#comment_add').button({icons:{primary:'ui-icon-comment'}}).click(function(){
+      var sPath = window.location.pathname;
+      var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+      location.href = sPage+"#"+"comment_form"
+      $("#comment_body").focus();
+
+    });
     /**$('#facets').accordion({
       collapsible : true
     });**/

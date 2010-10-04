@@ -293,6 +293,7 @@ html, body {
     /* border: 1px solid #dddddd;*/
     padding:.3em;
     list-style-type:none;
+    margin-bottom: 0;
 }
 
 .vi-list-voted {
@@ -622,6 +623,14 @@ body a:hover {
     padding-left:0;
 }
 
+.compressed-table {
+    margin-bottom: 0;
+
+}
+.compressed-table td {
+    padding: 0;
+    vertical-align: top;
+}
 .small-button {
     font-size: .8em;
 }

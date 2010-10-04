@@ -8,8 +8,17 @@
       <li class="option-separator"></li>
     <% end  %>
   </ul>
-  <div class="" id="" style="text-align: right;font-size: 1.2em;font-weight: bold">
-    <%= Rails.cache.fetch("vt_votes_#{vt.id}") do vt.votes_count end %> votes
+<div class="top-mar bottom-mar" id="" style="text-align: right;font-weight: bold">
+    <table class="compressed-table" id="">
+      <tr>
+        <td class="l-t-a">
+          <span class="small-button"><button id="comment_add">Add Comment</button></span>
+        </td>
+        <td class="r-t-a stat-number big">
+          <%= Rails.cache.fetch("vt_votes_#{vt.id}") do vt.votes_count end %> votes
+        </td>
+      </tr>
+    </table>
   </div>
 <% end  %>
 
