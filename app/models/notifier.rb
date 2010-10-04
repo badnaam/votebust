@@ -91,6 +91,7 @@ class Notifier < ActionMailer::Base
         from          APP_CONFIG['site_admin_email']
         recipients    user.email
         sent_on       Time.now
+        content_type "multipart/alternative"
         body          :edit_password_reset_url => edit_password_reset_url(user.perishable_token)
     end
 
@@ -99,6 +100,7 @@ class Notifier < ActionMailer::Base
         from APP_CONFIG['site_admin_email']
         recipients user.email
         sent_on Time.now
+        content_type "multipart/alternative"
         body :account_activation_url => register_url(user.perishable_token), :site_name => APP_CONFIG['site_name'], :email => APP_CONFIG['site_admin_email']
     end
 
@@ -116,6 +118,7 @@ class Notifier < ActionMailer::Base
         from APP_CONFIG['site_admin_email']
         recipients user.email
         sent_on Time.now
+        content_type "multipart/alternative"
         body :root_url => root_url
     end
 end

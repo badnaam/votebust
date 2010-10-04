@@ -33,22 +33,6 @@ module ApplicationHelper
         end
         return val
     end
-    
-    def sort_vote_items (vote_items)
-        arr = Array.new
-        vote_items.sort_by {|vi| vi.votes.size}.reverse_each do |vi|
-            arr << vi
-        end
-        return arr
-    end
-    
-    def missing_user_image?(user)
-        if user.processing == true
-            return true
-        else
-            return false
-        end
-    end
 
     def get_user_avatar user
         if !user.image_url.nil?
@@ -63,64 +47,15 @@ module ApplicationHelper
             return image_tag Constants::MISSING_IMAGE_FILE
         else
             if !user.image_url.nil?
-                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user_path(user)
+                return link_to(image_tag(user.image_url,:class=> 'profile-image',:alt => 'avatar'), user_path(user))
+#                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user_path(user)
             else
-                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user_path(user)
+                return link_to(image_tag(user.image.url(:small),:class=> 'profile-image',:alt => 'avatar'), user_path(user))
+#                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user_path(user)
             end
         end
     end
 
-    def get_user_icon_only(user)
-        if !missing_user_image?(user)
-            return image_tag user.image.url(:small), :class => 'profile-image'
-        else
-            return image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image'
-        end
-    end
-    
-    def get_user_icon (user)
-        if !missing_user_image?(user)
-            if current_user
-                return link_to((image_tag (user.image.url(:small))), user, :class => 'profile-image')
-            else
-                return image_tag user.image.url(:small), :class => 'profile-image'
-            end
-        else
-            if current_user
-                return link_to((image_tag (Constants::MISSING_IMAGE_FILE)), user, :class => 'profile-image')
-            else
-                return image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image'
-            end
-        end
-    end
-
-    
-    def get_user_icon_image_link (user)
-        if !missing_user_image?(user)
-            if current_user
-                return '<li>' + (link_to (image_tag user.image.url(:small)), user, :class => 'profile-image') + '</li><li>' +
-                  (link_to user.username, user, :class => 'user-profile-link') + '</li>'
-            else
-                return '<li>' + (image_tag user.image.url(:small), :class => 'profile-image') + '</li><li>' + "#{user.username} (#{user.votes.count}) votes"  + '</li>'
-            end
-        else
-            if current_user
-                return '<li>' + (link_to (image_tag Constants::MISSING_IMAGE_FILE), user, :class => 'profile-image') + '</li><li>' +
-                  (link_to user.username, user, :class => 'user-profile-link') + '</li>'
-            else
-                return '<li>' + (image_tag Constants::MISSING_IMAGE_FILE,:class => 'profile-image') + '</li><li>' +  "#{user.username} (#{user.votes.count}) votes"  + '</li>'
-            end
-        end
-    end
-
-    
-    def get_user_profile_link user
-        if current_user
-            
-        else
-            "<span class='user-profile-text'>#{user.username}</span>"
-        end
-    end
     
     def select_options_tag(name='',select_options={},options={})
         #set selected from value
@@ -139,43 +74,6 @@ module ApplicationHelper
     
     def reload_flash
         page.replace_html "flash_messages", :partial => 'layouts/flash_msg'
-    end
-
-    def generate_html(form_builder, method, options = {})
-        options[:object] ||= form_builder.object.class.reflect_on_association(method).klass.new
-        options[:partial] ||= method.to_s.singularize
-        options[:form_builder_local] ||= :f
-
-        form_builder.fields_for(method, options[:object], :child_index => 'NEW_RECORD') do |f|
-            render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
-        end
-    end
-
-    def link_to_new_nested_form(name, form_builder, method, options = {})
-        options[:object] ||= form_builder.object.class.reflect_on_association(method).klass.new
-        options[:partial] ||= method.to_s.singularize
-        options[:form_builder_local] ||= :f
-        options[:element_id] ||= method.to_s
-        options[:position] ||= :bottom
-        options[:max] ||= 2
-        options[:input_type] ||= "text"
-        link_to_function name, :id => options[:id] do |page|
-            html = generate_html(form_builder,
-                method,
-                :object => options[:object],
-                :partial => options[:partial],
-                :form_builder_local => options[:form_builder_local]
-            )
-            page << %{
-        $('#{options[:element_id]}').insert({ #{options[:position]}: "#{ escape_javascript html }".replace(/NEW_RECORD/g, new Date().getTime()) });
-            }
-            page << %{num = $$("##{options[:element_id]} input[type='#{options[:input_type]}']").length;}
-            page << %{
-                if(num >= #{options[:max]}) {
-                    $("#{options[:id]}").hide();
-                }
-            }
-        end
     end
 
 end
