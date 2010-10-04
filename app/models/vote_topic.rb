@@ -88,6 +88,8 @@ class VoteTopic < ActiveRecord::Base
             :order => 'created_at ASC'}}
     named_scope :daily, lambda{{:include => [:slug, {:category => :slug}], :conditions => ['vote_topics.created_at > ? AND vote_topics.created_at < ?',
                 Date.today.beginning_of_day, Date.today.end_of_day]}}
+    named_scope :quarterly, lambda{{:include => [:slug, {:category => :slug}], :conditions => ['vote_topics.created_at > ? AND vote_topics.created_at < ?',
+                Date.today.beginning_of_quarter, Date.today.end_of_quarter]}}
     named_scope :weekly, lambda{{:include => [:slug, {:category => :slug}], :conditions => ['vote_topics.created_at > ? AND vote_topics.created_at < ?',
                 Date.today.beginning_of_week, Date.today.end_of_week]}}
     
@@ -586,6 +588,38 @@ class VoteTopic < ActiveRecord::Base
         ensure
             #            GC.start
         end
+    end
+
+    def self.quarterly_process_vote_topic_flags
+        #        begin
+        featured.each do |v|
+            v.process_flag('featured')
+        end
+
+        most_voted.each do |v|
+            v.process_flag('most_voted')
+        end
+        most_tracked.each do |v|
+            v.process_flag('most_tracked')
+        end
+
+        weekly.each do |v|
+            if v.is_unan?
+                v.update_attribute(:unan, true)
+            end
+        end
+        #        rescue Exception => exp
+        #            error_hash = Hash.new
+        #            error_hash[:job_name] = "Batch flag processing"
+        #            error_hash[:message] = exp.message
+        #            error_hash[:backtrace] = exp.backtrace.join("\n")
+        #            Notifier.delay.deliver_job_error "Batch flag processing", error_hash
+        #            HoptoadNotifier.notify(
+        #                :error_class => "Batch Flag Processing",
+        #                :error_message => exp
+        #            )
+        #            logger.error "Error occured during process flags #{exp.message}"
+        #        end
     end
 
     def self.process_vote_topic_flags

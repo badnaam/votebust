@@ -34,14 +34,12 @@ module VoteTopicsHelper
             if a.include?('featured')
                 str.concat(power_points v)
             end
-            if a.include?('most_voted')
-                str.concat("<span class='flag-wrapper t-trigger bld'>V</span>").concat("<span class='tooltip'>
-                Highly voted</span>")
-            end
-            if a.include?('most_tracked')
-                str.concat("<span class='flag-wrapper t-trigger bld'>T</span>").concat("<span class='tooltip'>
-                Highly tracked</span>")
-            end
+#            if a.include?('most_voted')
+#                str.concat("<span class='flag-wrapper t-trigger bld'>V</span>").concat("<span class='tooltip'>Highly voted</span>")
+#            end
+#            if a.include?('most_tracked')
+#                str.concat("<span class='flag-wrapper t-trigger bld'>T</span>").concat("<span class='tooltip'>Highly tracked</span>")
+#            end
             str.concat('</span>')
         end
     end

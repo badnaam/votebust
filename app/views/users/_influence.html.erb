@@ -5,6 +5,8 @@ end
 <%
 subject = !owner.nil? ? "You have " : "#{@user.username} has"
 adverb = !owner.nil? ? "Your " : "#{@user.username}'s "
+#todo review this
+good_msg = @user.get_voting_power < Constants::VOTING_POWER_NORMAL_USER ? "Good Start! " : "Well Done! "
 %>
 <div class="" id="">
   <h4 class="bottom-border bld bottom-mar normal-pad"><%= adverb %>Voting Power
@@ -17,7 +19,7 @@ adverb = !owner.nil? ? "Your " : "#{@user.username}'s "
         <span class="stat-number" id=""><%= @user.total_trackings_collected %></span> other users and generated
         <span class="stat-number" id=""><%= @user.total_discussions_collected %></span> discussions!
         <% if owner %>
-          <span class="bld clearfix"> Well Done! <%= new_button_plain controller %></span>
+          <span class="bld clearfix"> <%= good_msg %> <%= new_button_plain controller %></span>
         <% end  %>
       </p>
 
