@@ -394,7 +394,7 @@ $(document).ready(function() {
     $("a[rel='#intro_prezo']").overlay({
         top: "center"
     });
-    $('#wrap').html($('#what').html());
+    /**$('#wrap').html($('#what').html());
     $("a.trig").each(function() {
         $(this).mouseover(function() {
             removeSelected();
@@ -407,7 +407,7 @@ $(document).ready(function() {
             $('#wrap').toggle('drop', options, 500);
             return false;
         });
-    });
+    });**/
 
     if ($.cookie('show_voteable_intro') == '1') {
         $("a[rel='#intro_prezo']").click();

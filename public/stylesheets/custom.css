@@ -16,9 +16,9 @@
 .interests-table td label {
     font-weight:normal;
 }
-.selected-vote {
-    color:#FF0084;
-    font-weight: bold;
+.highlighted {
+    color:#FF0084 !important;
+    font-weight: bold !important;
 }
 table.social td {
     padding: 0;
@@ -83,13 +83,13 @@ table.social td {
 }
 .points li {
     font-weight: bold;
-    color:white;
-    font-size: 1.2em;
+/*    color:white;*/
+    font-size: 1.1em;
     margin-bottom: .6em;
 }
 .points li > a {
-    color:white !important;
-    text-decoration: underline;
+/*    color:white !important;*/
+/*    text-decoration: underline;*/
 }
 .no-bord {
     border-right: none !important;
@@ -118,10 +118,10 @@ table.social td {
     /* place overlay on top of other elements */
     z-index:10;
     /* styling */
-    background-color:#38385C;
-    width:675px;
+/*    background-color:#38385C;*/
+    width:946px;
     min-height:300px;
-    border:1px solid #666;
+    border:2px solid white;
     /* CSS3 styling for latest browsers */
     -moz-box-shadow:0 0 90px 5px #000;
     -webkit-box-shadow: 0 0 90px #000;

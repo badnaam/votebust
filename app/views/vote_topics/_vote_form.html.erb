@@ -1,7 +1,7 @@
 <% if !selected_response.nil? %>
   <ul class="top-mar vi-list-voted" id="vote_items_list_voted">
     <% vt.vote_items.each do |v| %>
-      <li id="v-item-<%= v.id %>" class="<%= selected_response.to_i == v.id ? "selected-vote" : ""%>">
+      <li id="v-item-<%= v.id %>" class="<%= selected_response.to_i == v.id ? "highlighted" : ""%>">
         <%= (get_vote_percent v, vt.votes_count) %>
       </li>
       <%= get_percent_div (v.get_vote_percent_num vt.votes_count) %>
