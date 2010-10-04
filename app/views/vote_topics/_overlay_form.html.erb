@@ -24,7 +24,7 @@ end  %>
         <div id="suggestions" class="suggestions" style="display:none">
         </div>
       </li>
-      <li class="bld">Add up to 5 options (Minimum 2) for your voters to vote on.</li>
+      <li class="bld">Add up to 5 options (Minimum 2) for your voters to vote on*.</li>
       <% if !form.object.errors.on(:vote_items).nil? && form.object.errors.on(:vote_items).length > 0 %>
         <div class="error"><%= form.object.errors.on(:vote_items) %></div>
       <% end %>
