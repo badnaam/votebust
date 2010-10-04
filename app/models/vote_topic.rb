@@ -526,6 +526,9 @@ class VoteTopic < ActiveRecord::Base
             )
             logger.error "Error during updating facet - #{exp.message}. VoteTopic was #{self.id}"
             logger.error  exp.backtrace.join("\n")
+        else
+            #if everything went ok expire the facet cache
+            Rails.cache.delete("vt_facet_#{self.id}")
         end
     end
 

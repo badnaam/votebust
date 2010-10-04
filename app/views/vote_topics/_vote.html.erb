@@ -168,17 +168,6 @@
   </div>
 </div>
 
-<% facet = VoteFacet.find_for_show(@vote_topic.id) %>
-<% if !facet.nil? || !facet.blank? %>
-  <div id ="facets" class="span-18 last">
-    <h4 class="bottom-border bld bottom-mar">About the voters</h4>
-    <div class="" id="">
-      <ul class="facet-list">
-        <%= print_facet facet %>
-      </ul>
-    </div>
-  </div>
-<% end  %>
 
 
 <%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => current_user, :selected_response_for_comment => @selected_response} %>

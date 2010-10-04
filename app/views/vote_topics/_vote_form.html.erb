@@ -8,7 +8,18 @@
       <li class="option-separator"></li>
     <% end  %>
   </ul>
-<div class="top-mar bottom-mar" id="" style="text-align: right;font-weight: bold">
+  <% facet = VoteFacet.find_for_show(vt.id) %>
+  <% if !facet.nil? || !facet.blank? %>
+    <div id ="facets" class="">
+      <h5 class="bottom-border bld bottom-mar">About the voters</h5>
+      <div class="" id="">
+        <ul class="facet-list">
+          <%= print_facet facet %>
+        </ul>
+      </div>
+    </div>
+  <% end  %>
+  <div class="top-mar bottom-mar" id="" style="text-align: right;font-weight: bold">
     <table class="compressed-table" id="">
       <tr>
         <td class="l-t-a">
