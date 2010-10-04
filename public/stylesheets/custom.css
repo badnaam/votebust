@@ -1,4 +1,8 @@
-    .sidebox-list > li > a {
+.vp-pad {
+    padding-top:3px !important;
+    padding-bottom: 3px !important;
+}
+.sidebox-list > li > a {
 /*    color:#356AA0 !important;*/
     color:#255280 !important;
 /*    font-weight:bold;*/

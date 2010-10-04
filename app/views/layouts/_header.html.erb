@@ -2,7 +2,6 @@
   <div class ="span-24 header_links_div last">
     <%= render :partial => "/shared/cat_nav_list" %>
     <%= render :partial => "/shared/city_nav_list" %>
-
     <div class="span-24 last"
          <div class="ui-corner-bl ui-corner-br ui-state-hover">
         <ul class="header_links">
@@ -12,8 +11,10 @@
           <% else %>
             <%= new_button controller %>
             <li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %>
-              <span id="main_link_vote_power" class="vote-power" style="margin-left:.5em;">
-                <%= current_user.get_voting_power %> </span></li>
+              <span><span class="ui-state-normal vote-power-ubox t-trigger bld vp-pad" id="">
+                  <span class="ui-icon ui-icon-power vam"></span> <%= current_user.get_voting_power %>
+                </span></span>
+            </li>
             <li><%= link_to "logout", logout_path  %></li>
           <% end %>
           <li>
