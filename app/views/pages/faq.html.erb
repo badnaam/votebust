@@ -1,9 +1,6 @@
-
-
 <div class="span-24 last" id="">
-  <%cache('faq') do -%>
+  <%Rails.cache.fetch('faq', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do -%>
     <h4 class="ui-widget-header normal-pad">Frequently Asked Questions</h4>
-
     <ul class="prepend-top append-bottom" id="toc">
       <li>
         <a href="#what_is" class="" id="">
@@ -11,8 +8,8 @@
         </a>
       </li>
       <li>
-        <a href="#get_started" class="" id="">
-          How do I use it?
+        <a href="#different" class="" id="">
+          How is it different?
         </a>
       </li>
       <li>
@@ -26,13 +23,14 @@
         </a>
       </li>
       <li>
-        <a href="#avatar" class="" id="">
-          Avataar
+        <a href="#get_started" class="" id="">
+          How do I use it?
         </a>
       </li>
+
       <li>
-        <a href="#after_open" class="" id="">
-          What can I do after opening an account?
+        <a href="#avatar" class="" id="">
+          Avataar
         </a>
       </li>
       <li>
@@ -41,8 +39,8 @@
         </a>
       </li>
       <li>
-        <a href="#voting_power" class="" id="">
-          What is Voting Power?
+        <a href="#power" class="" id="">
+          What is Influence/Voting Power?
         </a>
       </li>
       <li>
@@ -84,6 +82,24 @@
         simply something that makes you wonder <em>"What do people think?"</em>.
       </div>
 
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+      <h3 class="bld prepend-top" id="different">How is it different?</h3>
+      <div class="" id="">
+        <ul class="" id="">
+          <li>
+            At <%= t 'site_name' %> you get the collective opinion in numbers. No need to read numerous pages of content to undertand
+            the public sentiment.
+          </li>
+          <li>
+            <a href="#breakdown">Get added insights such as by location, age groups, men vs women etc.</a>
+          </li>
+          <li>
+            <a href="#power">Get rewarded for building and using your influence as an active participant.</a>
+          </li>
+        </ul>
+      </div>
+      <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
+
       <h3 class="bld prepend-top" id="get_started">How do I use it?</h3>
       <ul class="" id="">
         <li>
@@ -92,12 +108,12 @@
           </a>
         </li>
         <li>
-          <a href="#after_open" class="" id="">
-            Start a Topic
+          <a href="#start_vote" class="" id="">
+            Start a Vote
           </a>
         </li>
         <li>
-          <a href="#after_open" class="" id="">
+          <a href="#vote" class="" id="">
             Vote on topics started by others
           </a>
         </li>
@@ -111,6 +127,11 @@
             Invite your friends to join and vote!
           </a>
         </li>
+        <li>
+          <a href="#power" class="" id="">
+            Build an influence by participating more.
+          </a>
+        </li>
       </ul>
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
@@ -121,7 +142,6 @@
           Simply <a href="signup">Sign up</a> and open a account. You will be ready to start votes and vote on topics others have started.
           There are two options for signing up.
         </p>
-
         <ul>
           <li>
             <span class="bld">Create an account with <%= t 'site_name' %>.</span>
@@ -135,7 +155,7 @@
             <p>
               If you have an account with any of the above mentioned websites you can use that login information to securely login to <%= t 'site_name' %>. This is a quick way signing
               up without having to remember another username and password combination. If you use this option, you will be prompted by the authentication provider to allow access
-              to certain limited (i.e username, gender, zip, age/birthday) information about your account with them, please click on <b>"Allow"</b> for this option to work.
+              to certain limited (i.e username, gender, zip, birth year) information about your account with them, please click on <b>"Allow"</b> for this option to work.
               We do not collect more information than what's necessary for <%= t 'site_name' %> registration <em><a href="#reg_req">(see Registration Requirements below)</a></em>
               and we take confidentiality of this information
               very seriously. Please refer to our <a href="/privacy">Privacy</a> statement for more information.
@@ -152,11 +172,11 @@
         using an existing account with Google/Yahoo/Facebook/Twitter option).
         <ul>
           <li>Gender</li>
-          <li>Age/Birthday (We only use year)</li>
-          <li>Zip</li>
+          <li>Birth Year</li>
+          <li>5 digit Zip Code</li>
         </ul>
-        This information is required for the registration process. It allows us to analyze the votes and provide more insightful information about the trends associated with the Vote
-        Topic. This information is never shared or shown on <%= t 'site_name' %>. Please refer to our <a href="/privacy">Privacy</a> statement for more information.
+        This information is required for the registration process. It allows us to analyze the votes and provide additional  insights.
+        . This information is never shared or shown on <%= t 'site_name' %>. Please refer to our <a href="/privacy">Privacy</a> statement for more information.
       </div>
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
@@ -175,15 +195,15 @@
       <h3 class="bld prepend-top" id="start_vote">How do I start a vote?</h3>
       <div class="" id="">
         <p>Before you start a Vote Topic browse Topics posted by other users in the community. You might be able to find the same/similar one.
-          If not, simply click on the <span class="bld">"New Vote"</span> link on the toolbar at the top of the page. Every new vote requires a topic and at least two options
+          If not, simply click on the <span class="bld">"new vote"</span> link on the toolbar at the top of the page. Every new vote requires a topic and at least two options
           for users to vote on.  Once the vote is saved
           it is sent to the moderator for approval and once it's approved it will be open for voting . </p>
         <p>
-          We will also send you an explanation if the Vote Topic is rejected for some
+          We will also send you an explanation if the Vote is rejected for some
           reason or does not comply with our <a href="/terms">terms</a>. Please refer to <em><a href="#not_approved">Why wasn't my vote approved</a></em> to understand why
           a vote may not be approved.</p>
 
-        <p>A vote once approved is open for voting for 2 weeks. After that the vote is closed for voting, but is available to browsing/sharing. See
+        <p>A vote once approved is open for voting for 2 weeks. After that the vote is closed for voting, but is available to browsing/sharing/comments. See
           <a href="#engage">Tips for engaging your voters</a>, for more information on how to get most possible attention from voters in the community.
         </p>
       </div>
@@ -236,7 +256,7 @@
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
 
 
-      <h3> class="bld prepend-top" id="after_open">Can I explain my vote?</h3>
+      <h3 class="bld prepend-top" id="after_open">Can I add a comment/explanation?</h3>
       <div class="" id="">
         Of course. You can post your comments on the main vote page. We organize the comments based on the option you have voted on. You can comment even if you have not voted,
         your comments will be posted under the "Others" tab. if you do later on, we will move your comments based on the option you have chosen.
@@ -290,7 +310,7 @@
             Provide additional details or links when possible and applicable.
           </li>
           <li>
-            Invite your friends to vote! You can invite your friends by providing their email while creating a vote. We will send an email notificaiton to your friends, 
+            Invite your friends to vote! You can invite your friends by providing their email while creating a vote. We will send an email notificaiton to your friends,
             with a link to the vote you started, so that they can join and vote!
           </li>
           <li>
@@ -318,7 +338,7 @@
         Votes are recorded and the counts are tallied as soon as you vote. The vote counts presented on a Vote Topic page are real time. We also periodically analyze the vote to
         provide additional insights about a Vote Topic. This information appears in the Vote Topic page, in the "About the voters" section.
 
-       
+
       </div>
 
       <a href="#toc" class="prepend-top append-bottom">Back to Top</a>
