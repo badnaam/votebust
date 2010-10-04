@@ -99,7 +99,7 @@ class Notifier < ActionMailer::Base
         from APP_CONFIG['site_admin_email']
         recipients user.email
         sent_on Time.now
-        body :account_activation_url => register_url(user.perishable_token)
+        body :account_activation_url => register_url(user.perishable_token), :site_name => APP_CONFIG['site_name'], :email => APP_CONFIG['site_admin_email']
     end
 
     def job_error job_name, err_hash

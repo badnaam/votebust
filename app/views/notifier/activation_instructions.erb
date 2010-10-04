@@ -1,8 +1,12 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
-Thank you for creating a Votechek  account. Click below to activate your account
+<p>
+  Thank you for creating a <%= @site_name %>  account. Click below to activate your account
 <%= @account_activation_url %>
-if the above url does not work, try copying and pasting it into your Browser location box. If you continue to have problems please contact us at <%= t('notifier.from_email_admin') %>
+if the above url does not work, try copying and pasting it into your Browser location box.
+</p>
+
+<p>
+  If you continue to have problems please contact us at <%= @email %>
+</p>
+
+- The @site_name team
 
