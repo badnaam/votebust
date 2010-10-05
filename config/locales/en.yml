@@ -29,6 +29,12 @@ en:
     create:
       confirmation: "You account has been created and a confirmation email has been sent to the email address you provided during registration. Please confirm your registration
     by clicking on the link in the confirmation email and activate your account. Thanks for registering!"
+  vote_topics:
+    create:
+      success: "Your vote was saved and sent for moderator approval. It will be listed as soon as it is approved. You can check the status in your profile page,
+      under the Votes Started tab. If you have chosen to receive email-updates, we will also send you a status update when it's approved. Thanks!"
+      error:
+      
     
   formtastic:
     labels:

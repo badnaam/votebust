@@ -1,13 +1,4 @@
-<script type="text/javascript">
-  //<![CDATA[
-  $(document).ready(function() {
-    $("#vote_topic_header").autocomplete({
-      source : <%= auto_comp_vote_topics_path %>,
-      minLength: 5
-    });
-  })
-  //]]>
-</script>
+
 <% if @not_saved %>
   $(".contentWrap").html("<%=  escape_javascript (render :partial => 'overlay_form') %>");
   setTimeout("configureVoteForm(<%=  Constants::MAX_VOTE_HEADER_LENGTH%>, <%= Constants::MAX_VOTE_TOPIC_LENGTH %>, <%= Constants::MAX_VOTE_ITEM_OPTION  %>)", 500);

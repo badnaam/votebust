@@ -232,6 +232,19 @@ function makeCancelElement(id, txt) {
     return cancel_element;
 }
 
+function showFlashOverlay(msg, tp) {
+    $("#flash_overlay_message").addClass(tp).text(msg);
+    $('#flash_overlay').addClass(tp);
+    $('#flash_overlay').overlay({
+        load : true,
+        close : '#close_flash_overlay',
+        closeOnClick : false,
+        top : '30%',
+        left : 'center'
+
+    });
+    $("#flash_overlay").data("overlay").load();
+}
 function showFlash(msg, tp) {
     if ($('#flash_messages_container').length > 0) {
         //$('#flash_messages_container').remove();

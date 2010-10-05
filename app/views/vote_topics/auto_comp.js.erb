@@ -1,5 +1,8 @@
 <% if @search_res.total_entries > 0 %>
- <$ @search_res.each do |s|%>
- <%= s.header %>
- <% end
-end  %>
+  <% str = "" %>
+  <% @search_res.each do |a| %>
+    <%  str << "<div> <a href='#{scoped_vote_topic_path(a.category, a)}'>#{a.header}</a></div>" %>
+  <% end  %>
+  $("#suggestions").append("<%= escape_javascript(str) %>");
+  $("#suggestions_wrapper").toggle('fast');
+<%end  %>

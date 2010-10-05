@@ -17,7 +17,7 @@ class VoteTopicsController < ApplicationController
     end
     
     def auto_comp
-        @search_res = VoteTopic.search :conditions => {:header => params[:term]}, :with => {:status => STATUS[:approved]}, :match_mode => :any, :limit => 10
+        @search_res = VoteTopic.search :conditions => {:header => params[:term]}, :with => {:status => VoteTopic::STATUS[:approved]}, :match_mode => :any, :limit => 10
         respond_to do |format|
             format.js
         end
@@ -217,7 +217,7 @@ class VoteTopicsController < ApplicationController
         respond_to do |format|
             if @vote_topic.save
                 @saved = true
-                flash[:success] = "Your vote was saved and sent for moderator approval. You can check it's status in your profile page."
+                flash[:success] = t 'vote_topics.create.success'
                 @vote_topic.poster.increment!(:edit_count, 1) # so that the user_owned_vote_topics cache expires
                 @vote_topic.delay.deliver_new_vote_notification! 
                 format.html { redirect_to root_path }

@@ -1,0 +1,11 @@
+<% if !flash.nil? %>
+  <% if flash[:notice] %>
+      showFlashOverlay("<%= flash[:notice] %>", "flash-notice");
+  <% end  %>
+  <% if flash[:success] %>
+      showFlashOverlay("<%= flash[:success] %>", "flash-success");
+  <% end  %>
+  <% if flash[:error] %>
+      showFlashOverlay("<%= flash[:error] %>", "flash-error");
+  <% end  %>
+<% end  %>
