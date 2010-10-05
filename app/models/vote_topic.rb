@@ -761,6 +761,9 @@ class VoteTopic < ActiveRecord::Base
         return true
     end
 
+    def deliver_new_vote_notification!
+        Notifier.deliver_new_vote_notification self
+    end
     ########### end misc helpers#######################################################
     
 end
