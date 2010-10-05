@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     has_many :tracked_vote_topics, :class_name => "VoteTopic", :foreign_key => :vote_topic_id, :through => :trackings
     belongs_to :role
     has_many :comments
+    has_many :comment_likes
     has_many :votes
     has_many :friend_invite_messages, :dependent => :destroy
     has_many :interests, :dependent => :destroy

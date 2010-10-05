@@ -723,7 +723,10 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def is_being_tracked? id
-        self.trackings.find(:first, :conditions => ['user_id = ?', id])
+        arr = Rails.cache.fetch("vt_trackings_#{self.id}_#{self.trackings_count}") do
+            self.trackings.map(&:user_id)
+        end
+        return arr.include?(id)
     end
     
     def self.newest

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101003035816) do
+ActiveRecord::Schema.define(:version => 20101005062813) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20101003035816) do
   end
 
   add_index "cities", ["vote_topics_count"], :name => "index_cities_on_vote_topics_count"
+
+  create_table "comment_likes", :force => true do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comment_likes", ["comment_id"], :name => "index_comment_likes_on_comment_id"
+  add_index "comment_likes", ["user_id"], :name => "index_comment_likes_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.text     "body",                                          :null => false
@@ -196,10 +206,12 @@ ActiveRecord::Schema.define(:version => 20101003035816) do
     t.datetime "image_updated_at"
     t.string   "image_url",           :limit => 300
     t.boolean  "processing",                         :default => true
+    t.integer  "comment_likes_count"
   end
 
   add_index "users", ["active"], :name => "active"
   add_index "users", ["city"], :name => "city"
+  add_index "users", ["comment_likes_count"], :name => "index_users_on_comment_likes_count"
   add_index "users", ["edit_count"], :name => "edit_count"
   add_index "users", ["image_file_name"], :name => "image_file_name"
   add_index "users", ["lat"], :name => "lat"

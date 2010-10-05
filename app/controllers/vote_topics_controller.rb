@@ -37,7 +37,6 @@ class VoteTopicsController < ApplicationController
         if params[:category_id]
             @vote_topics = (VoteTopic.category_list params[:category_id], params[:page], params[:order])
         else
-
             if params[:city]
                 if params[:limited]
                     params[:listing_type] = 'city_limited'
@@ -105,9 +104,9 @@ class VoteTopicsController < ApplicationController
                 @vote_topics = VoteTopic.general_list true, nil, params[:order]
             else
                 # it's "all"
-                #                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.ca_key}")
-                @vote_topics = VoteTopic.general_list false, params[:page], params[:order]
-                #                end
+                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.list_key}_#{user_key}")
+                    @vote_topics = VoteTopic.general_list false, params[:page], params[:order]
+                end
             end
         end
 
@@ -175,11 +174,11 @@ class VoteTopicsController < ApplicationController
         @vote_items = 2.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
-#            format.html # new.html.erb
+            #            format.html # new.html.erb
             format.js {
                 
             }
-#            format.xml  { render :xml => @vote_topic }
+            #            format.xml  { render :xml => @vote_topic }
         end
     end
 
@@ -191,15 +190,15 @@ class VoteTopicsController < ApplicationController
             @saved = true
         end
         respond_to do |format|
-#            format.html {
-#                if @edit
-#                    #
-#                    setup_vote_items(true)
-#                else
-#                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
-#                    redirect_back_or_default root_url
-#                end
-#            }
+            #            format.html {
+            #                if @edit
+            #                    #
+            #                    setup_vote_items(true)
+            #                else
+            #                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
+            #                    redirect_back_or_default root_url
+            #                end
+            #            }
             format.js {
                 if !@edit
                     flash[:error] = 'Sorry no further edits, Vote has already been approved.'

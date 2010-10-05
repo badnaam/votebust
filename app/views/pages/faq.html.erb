@@ -1,5 +1,5 @@
 <div class="span-24 last" id="">
-  <%Rails.cache.fetch('faq', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do -%>
+  <%#Rails.cache.fetch('faq_content', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do -%>
     <h4 class="ui-widget-header normal-pad">Frequently Asked Questions</h4>
     <ul class="prepend-top append-bottom" id="toc">
       <li>
@@ -153,7 +153,8 @@
           <li id="rpx">
             <span class="bld">Use an account existing account with Google, Facebook, Twitter or Yahoo to login.</span>
             <p>
-              If you have an account with any of the above mentioned websites you can use that login information to securely login to <%= t 'site_name' %>. This is a quick way signing
+              If you have an account with any of the above mentioned websites you can use that login information to securely login to <%= t 'site_name' %>. This is a quick way
+              signing
               up without having to remember another username and password combination. If you use this option, you will be prompted by the authentication provider to allow access
               to certain limited (i.e username, gender, zip, birth year) information about your account with them, please click on <b>"Allow"</b> for this option to work.
               We do not collect more information than what's necessary for <%= t 'site_name' %> registration <em><a href="#reg_req">(see Registration Requirements below)</a></em>
@@ -389,5 +390,5 @@
         </p>
       </div>
     </div>
-  <% end  %>
+  <%# end  %>
 </div>

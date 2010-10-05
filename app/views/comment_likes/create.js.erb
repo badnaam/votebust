@@ -1,0 +1,3 @@
+<% id = "#commentlike_#{request.parameters[:comment_id]}" %>
+$("<%= id %>").html("<span class='ui-icon ui-icon-heart'></span>Unlike");
+$("<%= id %>").removeClass("likeme").addClass("unlikeme");

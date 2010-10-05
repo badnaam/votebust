@@ -1,6 +1,33 @@
+function likeComment(cid) {
+    commentId = cid.split("_")[1];
+    elem = $("#"+ cid);
+    if (elem.hasClass("likeme")) {
+        meth = "POST";
+        url = "/comment_likes";
+    } else {
+        meth = "DELETE";
+        url = "/comment_likes/" + commentId;
+    }
+    $.ajax({
+        url: url,
+        type : meth,
+        dataType : 'script',
+        beforeSend : function() {
+            elem.addClass("loading-link");
+        },
+        complete : function() {
+            elem.removeClass("loading-link");
+        },
+        global : false,
+        data : {
+            comment_id : commentId
+        }
+    })
+}
+
 function reloadHomeTab() {
     var selected = $( "#home_tabs" ).tabs( "option", "selected" );
-//    $('#home_tabs').tabs('load', selected);
+    //    $('#home_tabs').tabs('load', selected);
     var selector = "#ui-tabs-" + (selected + 1);
     $(selector).animate({
         opacity: 0

@@ -1,14 +1,27 @@
 <div id="comment" class="comment append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
-    <ul class="comment-list">
-      <li class="go_left right-mar right-pad right-border">
-        <%= render :partial => "/shared/ubox", :locals => {:user => comment.user} %>
-      </li>
-      <li style="display:inline">
-        <div>
-          <%= h comment.body %>
-        </div>
-      </li>
-    </ul>
+    <table class="compressed-table" id="" style="table-layout: fixed">
+      <tr>
+        <td style="width:30%" class="right-border">
+          <%= render :partial => "/shared/ubox", :locals => {:user => comment.user} %>
+        </td>
+        <td style="width:70%" class="left-pad">
+          <div>
+            <%= h comment.body %>
+          </div>
+          <% if current_user %>
+            <div class="top-mar" id="">
+              <% if CommentLike.liked_by? current_user, comment.id %>
+                <span class="small go-right clike unlikeme" id="commentlike_<%= comment.id %>" onClick="likeComment($(this).attr('id'))">
+                  <span class="ui-icon ui-icon-heart"></span>UnLike</span>
+              <% else %>
+                <span class="small go-right clike likeme" id="commentlike_<%= comment.id %>" onClick="likeComment($(this).attr('id'))">
+                    <span class="ui-icon ui-icon-heart"></span>Like</span>
+              <% end  %>
+            </div>
+          <% end  %>
+        </td>
+      </tr>
+    </table>
   <% end  %>
 </div>

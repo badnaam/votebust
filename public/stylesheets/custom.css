@@ -1,6 +1,8 @@
 .vp-pad {
     padding-top:3px !important;
     padding-bottom: 3px !important;
+    padding-right:0px !important;
+    padding-left:0px !important;
 }
 .sidebox-list > li > a {
 /*    color:#356AA0 !important;*/
@@ -293,6 +295,9 @@ html, body {
 .left-mar {
     margin-left: 18px;
 }
+.left-pad {
+    padding-left :.5em !important;
+}
 .vi-list {
     /* border: 1px solid #dddddd;*/
     padding:.3em;
@@ -335,6 +340,9 @@ html, body {
     vertical-align: top;
 }
 
+.clike {
+    cursor:pointer;
+}
 .tracking-count {
     cursor: pointer;
 }
@@ -868,7 +876,7 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
     cursor: pointer;
     color:#F0EBEB;
     text-align: center;
-    padding:.1em .2em .1em .2em;
+    padding:.1em;
     /*    border: 2px solid black;*/
 }
 .vote-power {

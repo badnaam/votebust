@@ -3,13 +3,13 @@
 
 
 class ApplicationController < ActionController::Base
-#    include ExceptionNotification::Notifiable
-#    include ExceptionNotification::ConsiderLocal
+    #    include ExceptionNotification::Notifiable
+    #    include ExceptionNotification::ConsiderLocal
     
     layout "main"
     
     before_filter :admin_only
-#    before_filter :require_registration
+    #    before_filter :require_registration
     
     helper :all # include all helpers, all the time
     #    protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -51,6 +51,14 @@ class ApplicationController < ActionController::Base
                 format.js   { head :unauthorized }
             end
         end
+    end
+
+    def user_key
+         if current_user
+             return current_user.id
+         else
+             return 'none'
+         end
     end
     
     def admin_only
@@ -134,14 +142,14 @@ class ApplicationController < ActionController::Base
     end
 
     protected
-#    def local_request?
-#        false
-#    end
+    #    def local_request?
+    #        false
+    #    end
 
-#    exception_data :additional_data
-#
-#    def additional_data
-#        current_user ? {:current_user => current_user } : {}
-#    end
+    #    exception_data :additional_data
+    #
+    #    def additional_data
+    #        current_user ? {:current_user => current_user } : {}
+    #    end
 
 end
