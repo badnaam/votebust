@@ -95,14 +95,6 @@ function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVote
         })
     });
 
-    /**$("input#vote_topic_header").blur(function(){
-        value = $("input#vote_topic_header").val()
-        if (value != "") {
-            $.get(autoCompUrl, {
-                term : value
-            }, function(){});
-        }
-    });**/
 
     $('#vote_submit').button({
         icons:{
@@ -138,7 +130,6 @@ function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVote
 var ModalVoteForm = {
     init: function(){
         $("a[rel='#vote_overlay']").each(function(){
-            //alert($(this).attr('href'));
             $(this).overlay({
                 closeOnClick: false,
                 target: '#vote_overlay',

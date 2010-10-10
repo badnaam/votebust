@@ -20,8 +20,8 @@
       <%= render :partial => 'vote_topics/vote_info', :locals => {:vt => vt} %>
     </div>
     <% if toolbar == true &&  vt.status != 'a' %>
-      <div class="ui-state-default top-mar">
-        <%= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt), :rel => "#vote_overlay", :class => "right-mar small bld" %>
+      <div class=" top-mar">
+        <%= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt), :rel => "#vote_overlay", :class => "highlighted right-mar small bld" %>
         <span class="small bld">Status : <%= status_str vt.status %></span>
       </div>
     <% end  %>
