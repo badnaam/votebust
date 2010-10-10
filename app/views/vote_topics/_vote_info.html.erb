@@ -45,7 +45,8 @@ end
         </span>
         <span class="ui-state-normal ">
           <span class="small-pad tracking-count t-trigger small loud" id="">
-            <%= Rails.cache.fetch("vt_tracking_#{vt.id}") do vt.trackings_count end %> followers
+            <%#= Rails.cache.fetch("vt_tracking_#{vt.id}") do vt.trackings_count end %>
+            <%= VoteTopic.get_tracking_count(vt.id) %> followers
           </span>
           <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
         </span>
