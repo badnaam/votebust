@@ -8,26 +8,35 @@ adverb = !owner.nil? ? "Your " : "#{@user.username}'s "
 #todo review this
 good_msg = @user.get_voting_power < Constants::VOTING_POWER_NORMAL_USER ? "Good Start! " : "Well Done! "
 %>
-<div class="" id="">
-  <h4 class="bottom-border bld bottom-mar normal-pad"><%= adverb %>Voting Power
-    <span class="vote-power-ubox"><%= @user.get_voting_power %></span></h4>
-  <ul class="stat-list" id="">
-    <li>
-      <p>
-        <span class="" id=""><%= subject %> started </span> <span class="stat-number" id=""><%= @user.p_topics_count %></span> topics.
-        <span class="" id="">They have collected </span><span class="stat-number" id=""><%= @user.total_votes_collected %></span> votes, have been tracked by
-        <span class="stat-number" id=""><%= @user.total_trackings_collected %></span> other users and generated
-        <span class="stat-number" id=""><%= @user.total_discussions_collected %></span> discussions!
-        <% if owner %>
-          <span class="bld clearfix"> <%= good_msg %> <%= new_button_plain controller %></span>
-        <% end  %>
-      </p>
 
-    </li>
-    <li>
-      <p>
-        <%= subject %> voted on <span class="stat-number" id="">  <%= Vote.user_total_votes_posted(@user) %></span> topics.
-      </p>
-    </li>
-  </ul>
+<div class="" id="">
+  <table class="prepend-top influence-table" id="">
+    <tr>
+      <td>
+        <span class="influence-score" id="">
+          <%=@user.p_topics_count%>
+        </span><br/>Votes Started
+      </td>
+      <td>
+        <span class="influence-score" id="">
+          <%=@user.total_votes_collected%>
+        </span><br/>Votes Generated
+      </td>
+      <td>
+        <span class="influence-score" id="">
+          <%= Vote.user_total_votes_posted(@user) %>
+        </span><br/>Votes Posted
+      </td>
+      <td>
+        <span class="influence-score" id="">
+          <%=@user.total_trackings_collected%>
+        </span><br/>Followings
+      </td>
+      <td class="no-bord">
+        <span class="influence-score" id="">
+          <%=@user.total_discussions_collected%>
+        </span><br/>Discussions
+      </td>
+    </tr>
+  </table>
 </div>

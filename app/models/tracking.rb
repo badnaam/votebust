@@ -2,10 +2,25 @@ class Tracking < ActiveRecord::Base
     belongs_to :follower, :class_name => "User", :foreign_key => :user_id
     belongs_to :tracked_vote_topic, :class_name => "VoteTopic", :foreign_key => :vote_topic_id, :counter_cache => true
 
-    after_create :increment_tracking_cache
-    after_destroy :decrement_tracking_cache
+    #    after_create :increment_tracking_cache
+    #    after_destroy :decrement_tracking_cache
+    after_create :add_reward
+    after_destroy :remove_reward
+
+    def remove_reward
+        self.delay.award_tracking(-1, self.vote_topic_id)
+    end
+    
+    def add_reward
+        self.delay.award_tracking(1, self.vote_topic_id)
+    end
     
     validates_uniqueness_of :vote_topic_id, :scope => :user_id
+
+    def award_tracking pos, vote_topic_id
+        vt = VoteTopic.find_for_tracking(vote_topic_id)
+        vt.poster.award_points(Constants::TRACK_POINTS * pos)
+    end
 
     def increment_tracking_cache
         CacheUtil.increment("vt_tracking_#{self.tracked_vote_topic.id}", 1)

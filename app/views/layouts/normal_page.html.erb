@@ -3,9 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <%= render :partial => '/layouts/scripts' %>
   <body>
+    <%= render :partial => "/layouts/header" %>
     <div class="container" id="main_container">
-      <%= render :partial => "/layouts/header" %>
-
       <div class ="span-24 last prepend-top content_container">
         <div class="span-24 last">
           <%= yield :page_headers %>

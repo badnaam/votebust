@@ -48,6 +48,12 @@ SimpleNavigation::Configuration.run do |navigation|
                 ct.item :city_vt_index, @city, searches_path(:city => @city)
             end
         end
+#        primary.item :user_profile_nav, 'profile', account_path, :if => Proc.new {!current_user.nil?} do|a|
+#            if current_user
+#                a.item :u_profile, "Show Profile", current_user
+#            end
+#        end
+
         primary.item :profile_nav, 'admin', account_path, :if => Proc.new {!current_user.nil? && current_role == 'admin'} do|a|
             if current_user
                 a.item :u_edit, "Edit Profile", edit_user_path(current_user)

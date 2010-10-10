@@ -1,32 +1,65 @@
+<% if current_user && current_user == @user
+  owner = true
+end  %>
+
+<% content_for :title do %>
+  <%= "#{@user.username} | #{t 'site_name'}"  %>
+<% end  %>
+<%# share_url = Constants::SHARE_URL_PREFIX.concat(scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
+<% share_url = "http://" + APP_CONFIG['site_domain'] + (user_path(@user)) %>
+<%content_for :fb_metas do %>
+  <meta property="og:title" content="<%= "#{@user.username} | #{t 'site_name'}" %>"/>
+  <meta property="og:url" content="<%= share_url %>"/>
+  <meta property="og:site_name" content="<%= t 'site_name' %>"/>
+  <meta property="og:description" content="<%= "#{@user.username}'s activity at #{t 'site_name'}"%>"/>
+  <meta property="fb:app_id" content="<%= APP_CONFIG['facebook_app_id'] %>"/>
+<% end  %>
+
 <script type="text/javascript">
   //<![CDATA
-  $(document).ready(function(){
-    $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
-    $('#tabs').tabs(
-    {
-      spinner:"<img src='/images/loading.gif'/>",
-      cookie : {
-        expires : 1
+  function liveLoad(url) {
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'html',
+      beforeSend :function() {
+        showLoading("#loading")
       },
-      ajaxOptions:{
-        error:function(xhr, status,index, anchor){
-          $(anchor.hash).html("Couldn't load this tab. \n\
-        We'll try to fix this as soon as possible.");
-        },
-        dataType:'script',
-        success:function(){
-          ModalVoteForm.init();
-        }
+      success : function(data){
+        $("#content_area").html(data);
+      },
+      error : function(){},
+      complete:function(){
+        hideLoading("#loading");
       }
     });
-    
-    $('#friend_invite_submit').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
-      $('#friend_invite_form').submit();
+  }
+
+  function cleanCurrent() {
+    $("div.profination a").each(function() {
+      $(this).removeClass("current");
+    });
+  }
+  $(document).ready(function(){
+    $('.live-link').each(function() {
+      $(this).click(function() {
+        var url = $(this).attr("href");
+        cleanCurrent();
+        $(this).addClass("current");
+        liveLoad(url);
+        return false;
+      });
+    });
+    $('#invite').live('click', function() {
+      configureEmailOverlay("Check this out!", "send", "invite friends", "invite", "0");
+      showEmailOverlay();
       return false;
     });
+
+    $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
     
     $('.pagination a').live("click", function () {
-      var elementToBeFilled = $(this).parent('.pagination').parent('.ui-tabs-panel').attr('id');
+      var elementToBeFilled = $(this).parent('.pagination').parent('').attr('id');
       $(this).addClass('loading-link')
       $.ajax({
         type : 'GET',
@@ -39,120 +72,191 @@
       })
       return false;
     });
+    $("#votes_started").click();
+<%if current_user && owner%>
+      $('#headline').editable("<%= update_headline_user_path(current_user.id) %>", {
+        cancel    : 'Cancel',
+        submit    : 'Update',
+        cssclass  : 'dynform',
+        indicator : '<img src="../images/loading.gif">',
+        tooltip   : 'Click to edit...'
+
+      });
+      $('#about').editable("<%= update_about_user_path(current_user.id) %>", {
+        type      : 'textarea',
+        cssclass  : 'dynform',
+        cancel    : 'Cancel',
+        submit    : 'Save',
+        indicator : '<img src="../images/loading.gif">',
+        tooltip   : 'Click to edit...'
+      });
+      $('#status').editable("<%= update_status_user_path(current_user.id) %>", {
+        type      : 'textarea',
+        cssclass  : 'dynform',
+        cancel    : 'Cancel',
+        submit    : 'Update',
+        indicator : '<img src="../images/loading.gif">',
+        tooltip   : 'Click to edit...'
+      });
+      $('#email_profile').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
+        configureEmailOverlay("<%= current_user.username  %> wants to share a profile with you.", "share", "share", "profile",  "1");
+        showEmailOverlay();
+        return false;
+      });
+<%end %>
+    
   });
+
   //]]>
 </script>
 
-<% if current_user && current_user == @user 
-  owner = true
-end  %>
 
 <div class="span-18 last " id="">
   <div class="normal-pad" id="">
-    <table class="top-border vote-preview" id="">
+    <table class="vote-preview" id="" style="table-layout: fixed">
       <tr>
-        <td>
-          <%= render :partial => "/shared/ubox", :locals => {:user => @user} %>
+        <td class="val" style="width:20%">
+          <div id="user_image" class="user-image">
+            <%= get_large_user_avatar(@user)%>
+            <span class="big-vote-power clearfix top-mar center">
+              <%= @user.voting_power %>
+            </span>
+          </div>
         </td>
+        <td class ="val" rowspan="2" style="width:80%">
+          <ul class="list_no_pad_no_style" id="">
+            <% permitted_to? :update, @user do %>
+              <li> <span class="go-left quiet small">headline</span></li>
+            <% end  %>
+            <li>
+              <h3 id="headline"><%= headline @user %></h3>
+            </li>
+            <% permitted_to? :update, @user do %>
+              <li> <span class="go-left quiet small">about me</span></li>
+            <% end  %>
+            <li>
+              <div class="small" id="about">
+                <%= about @user %>
+              </div>
+            </li>
+            <li>
+              <div class="bld">status: </div>
+              <div class="" id="status">
+                <%= status @user %>
+              </div>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
       </tr>
     </table>
   </div>
-
 </div>
 
-<div class="span-18 last">
-  <div class="prepend-top normal-pad append-bottom">
-    <div id="tabs" class="prepend-top">
-      <ul>
-        <% permitted_to? :update, @user do %>
-          <li title="Profile Information" ><a href="#profile_info" class="" id="">Profile</a></li>
-          <li  title="Invite friends to join <%= t 'site_name' %>!"><a href="#invite_friends" class="" id="">Invite Friends</a></li>
-          <li  title="What interests you?"><a href="<%= interests_path %>" class="" id=""><span>Interests</span></a></li>
-          <%= make_tooltip("What interests you?") %>
-          <li class="t-trigger" title="Vote Topics you are tracking"><a href="<%= url_for(:controller => :vote_topics, :action => :index,
-                                                                          :listing_type => "tracked_all")%>"><span>Tracking</span></a></li>
-          <% end  %>
-        <li><a href="<%= url_for(:controller => :users, :action => :vp_stats, :id => @user.id) %>" class="" id=""> <span>Influence</span></a></li>
-        <li  title="Votes you have started.">
-          <a  href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all', :user_id => @user.id)%>">
-            <span>Votes Started <%= owner ? "" : "by #{@user.username}"%></span>
-          </a>
-        </li>
-        <li   title ="Vote Topics you have voted on">
-          <a   href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>">
-            <span>Votes Posted <%= owner ? "" : "by #{@user.username}"%> </span>
-          </a>
-        </li>
-      </ul>
+<div class="span-18 last" id="">
+  <div class="normal-pad" id="">
+    <div class="profination" id="">
       <% permitted_to? :update, @user do %>
-        <div class="" id="profile_info">
-          <table class="" id="">
-            <tr class="">
-              <td class="">
-                Authenticating via: <%= h @user.using_rpx? ? @user.get_rpx_providers : (t 'site_name') %>
-              </td>
-              <td class="">
-                Email:
-                <%=h @user.email %>
-              </td>
-            </tr>
-            <tr class="">
-              <td class="">
-                Gender:
-                <%=h User::SEX[@user.sex] %>
-              </td>
-              <td class="">
-                Age:
-                <%=h @user.age %>
-              </td>
-            </tr>
-            <tr class="">
-              <td class="">
-                Zip:
-                <%=h "#{@user.zip} (#{@user.city}, #{@user.state})"   %>
-              </td>
-              <td></td>
-            </tr>
-            <tr class="">
-              <td></td>
-              <td class="" style="text-align: right;">
-                <span class="small-button"><%= link_to 'Edit', edit_user_path(@user), :id => 'profile_edit' %></span>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="" id="invite_friends">
-          <div id="invitation_status"></div>
-          <% semantic_form_for @fim, :html => {:action => friend_invite_message_path, :id => 'friend_invite_form'} do |f| %>
-            <%= f.semantic_errors %>
-            <% f.inputs do %>
-              <%= f.input :message,:as => :text, :input_html => {:style => "width:80%;height:40px"}, :hint => "Enter a short message for your friend, within 250 characters." %>
-              <%= f.input :emails,  :input_html => {:style => "width:80%;height:40px"},
-                :hint => "Enter comma separate list of emails. For example - joe@gmail.com,susan@yahoo.com" %>
-              <li>
-                <span class="small-button"><button id="friend_invite_submit">Send Invitation</button></span>
-              </li>
-            <% end  %>
-          <% end  %>
-        </div>
-        <div class="" id="tracked_votes"></div>
+        <a href="<%= edit_user_path %>" class="" id="">account information</a>
+
+        <a class="live-link" href="<%= interests_path %>" class="" id="interests" >
+          interests
+        </a>
+        <a href="#" class="" id="invite" >
+          invite friends
+        </a>
       <% end  %>
-      <div class="" id="started_votes"></div>
-      <div class="" id="voted_votes"></div>
+      <a class="live-link" href="<%= url_for(:controller => :users, :action => :vp_stats, :id => @user.id) %>" class="" id="influence">
+        influence
+      </a>
+      <a class="live-link" href="<%= url_for(:controller => :vote_topics, :action => :index, :listing_type => 'user_all',
+           :user_id => @user.id)%>" class="" id="votes_started" >
+        votes i started
+      </a>
+
+      <a class="live-link" href="<%= url_for(:controller => :vote_topics, :action => :index,:listing_type => "tracked_all")%>" class="" id="following" >
+        i am following
+      </a>
+      <a class="live-link" href="<%= url_for(:controller => :votes, :action => :index, :listing_type => 'voted', :user_id => @user.id) %>" class="" id="voted_on">
+        i voted on
+      </a>
     </div>
   </div>
 </div>
 
+<div class="span-18 last" id="">
+  <div id="loading" style="display:none">
+    <div class="loading-inner-center" ></div>
+  </div>
+  <div class="normal-pad top-border" id="content_area">
 
-<div class="push"></div>
+  </div>
+</div>
+
+
+<!--<div class="push"></div>-->
 
 <% content_for :right_nav do %>
-  <%= render :partial => 'profile_help' %>
-  <% if !owner %>
-<%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
-        top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => true} %>
-       <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Featured Votes by #{@user.username}", :load_path =>
-        side_bar_index_vote_topics_path(:type => "featured_votes_by_user", :user_id => @user.id), :l_type => "featured_votes_by_user", :first => false} %>
+  <ul class="list_no_pad_no_style" id="">
+    <li class="big bld dotted-bottom">Share  Profile</li>
+    <li>
+    <fb:like layout="button_count" href="<%= share_url %>" width="200" ></fb:like>
+  </li>
+  <li>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </li>
+  <li>
+    <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
+  </li>
+  <% if current_user && owner%>
+    <li>
+      <span class="small-button"><button id="email_profile">Email</button></span>
+    </li>
+  <% end  %>
+  </ul>
+  <%#= render :partial => 'profile_help' %>
 
+  <% if !owner %>
+    <%= render :partial => "/shared/user_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
+        top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => true} %>
+    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Featured Votes by #{@user.username}", :load_path =>
+        side_bar_index_vote_topics_path(:type => "featured_votes_by_user", :user_id => @user.id), :l_type => "featured_votes_by_user", :first => false} %>
   <% end  %>
 <% end  %>
+
+<div class="email-overlay generic-overlay" id="email_overlay">
+  <%= render :partial => '/shared/email_something' %>
+</div>
+
+<div id="fb-root">
+</div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: "<%= APP_CONFIG['facebook_app_id']%>"  ,
+      status: true,
+      cookie: true,
+      xfbml: true}
+  );
+  };
+  (function() {
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }()
+);
+</script>
+<script type="text/javascript" src ="http://widgets.digg.com/buttons.js"/>
+<script type="text/javascript">
+  (function() {
+    var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://widgets.digg.com/buttons.js';
+    s1.parentNode.insertBefore(s, s1);
+  })();
+</script>

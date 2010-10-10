@@ -1,8 +1,8 @@
 <div id="comments_container" class="prepend-top span-18 last append-bottom">
   <div class="normal-pad">
-    <h4 class="bottom-border bld bottom-mar">Comments</h4>
+    <h4 class="bld bottom-mar">Comments</h4>
     <% if current_user.nil? %>
-      <%= link_to "Please login to comment", login_path  %>
+      <%= link_to "Please login to comment", login_path, :class => "bld small"  %>
     <% else %>
       <div id ="comment_form" class="rel-pos  ">
         <div id="com_submit_loading" style="display:none">
@@ -12,10 +12,11 @@
           <%= hidden_field_tag :selected_response_for_comment, selected_response_for_comment%>
           <%= hidden_field_tag :vt_id, vote_topic.id%>
           <ul class="list_no_pad_no_style" style="margin-right: 0;">
-            <li><%= f.text_area :body, :id => "comment_body" %></li>
+            <li><%= f.textile_editor :body,  :class => "", :id => "comment_body" -%></li>
             <li id="limit_status"></li>
             <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
           </ul>
+          <%= textile_editor_initialize(:framework => :jquery) %>
         <% end %>
       </div>
     <% end  %>
@@ -24,7 +25,7 @@
 
 <div id="comment_status" class="span-18 last"></div>
 
-<div id ="comments" class="rel-pos right-mar span-18 last">
+<div id ="comments" class="span-18 last">
   <div class="normal-pad" id="">
     <div id="tabs">
       <ul>

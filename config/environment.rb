@@ -61,7 +61,7 @@ Rails::Initializer.run do |config|
     config.gem "authlogic"
     config.gem "friendly_id", :version => "~> 3.1"
     config.gem 'rakismet'
-
+    config.gem "RedCloth"
     ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG['recap_pub_key']
     ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG['recap_priv_key']
     ENV['GOOGLE_JS_API'] = APP_CONFIG['google_js_api']

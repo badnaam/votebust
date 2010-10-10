@@ -19,7 +19,7 @@ production:
   site_admin_email: 'voteableteam@gmail.com'
   personal_email: 'asitkmishra@gmail.com'
   smtp_server_domain:
-  site_name: "Voteable"
+  site_name: "bepolr"
   admin_pwd: 'd0ntd01t'
   admin_uname: 'edministrator'
   admin_role_name: 'admin'
@@ -44,7 +44,7 @@ development:
   site_admin_email: 'voteableteam@gmail.com'
   personal_email: 'asitkmishra@gmail.com'
   smtp_server_domain:
-  site_name: "Voteable"
+  site_name: "bepolr"
   admin_pwd: 't'
   admin_uname: 'admin'
   admin_role_name: 'admin'

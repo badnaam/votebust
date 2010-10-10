@@ -180,13 +180,13 @@ class VoteTopic < ActiveRecord::Base
         if limit
             #handle space in the city name, todo = should be this zip code instead?
             Rails.cache.fetch("#{origin.gsub(' ', '')}_ltd_#{city_list_key origin}") do
-                find(:all, :conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order),
+                find(:all, :conditions => ['vote_topics.status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order),
                     :include => [ :poster, {:category => :slug}, :slug],
                     :limit => Constants::SMART_COL_LIMIT, :origin => origin, :within => Constants::PROXIMITY)
             end
         else
             Rails.cache.fetch("#{origin.gsub(' ', '')}_#{page}_#{order}_#{city_list_key origin}") do
-                paginate(:conditions => ['status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [:vote_items, :poster,
+                paginate(:conditions => ['vote_topics.status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order), :include => [:vote_items, :poster,
                         {:category => :slug}, :slug],
                     :origin => origin, :within => Constants::PROXIMITY,:page => page, :per_page => Constants::LISTINGS_PER_PAGE)
             end
@@ -684,10 +684,7 @@ class VoteTopic < ActiveRecord::Base
         self.new_record?
     end
     
-    def award_tracking pos
-        self.poster.award_points(Constants::TRACK_POINTS * pos)
-    end
-
+    
     def fix_power_offered oldp, newp
         if newp == nil || newp.to_i == 0
             self.poster.award_points(oldp.to_i)
@@ -721,12 +718,29 @@ class VoteTopic < ActiveRecord::Base
         c.increment!(:vote_topics_count, inc)
         s.increment!(:vote_topics_count, inc)
     end
+
+    def self.get_tracking_count id
+        Rails.cache.fetch("vt_tracking_#{id}") do
+            VoteTopic.find(id).trackings_count
+        end
+    end
+
+    def tracking_hash
+        Rails.cache.fetch("vt_trackings_#{self.id}_#{self.trackings_count}") do
+            h = Hash.new
+            self.trackings.each {|t| h[t.user_id] = t.id}
+            return h
+            #            self.trackings.map(&:user_id)
+        end
+    end
     
     def is_being_tracked? id
-        arr = Rails.cache.fetch("vt_trackings_#{self.id}_#{self.trackings_count}") do
-            self.trackings.map(&:user_id)
+        hsh = tracking_hash
+        if hsh.has_key?(id)
+            hsh[id]
+        else
+            nil
         end
-        return arr.include?(id)
     end
     
     def self.newest

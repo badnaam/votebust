@@ -1,27 +1,10 @@
-<% if selected_response
-  display = "none"
-else
-  display = "block"
-end%>
 <ul class="top-mar vi-list" id="vote_items_list_unvoted">
   <%@vote_topic.vote_items.each do |v| %>
-    <li id="v-item-<%= v.id %>" class="non-sel option-list">
-      <a href="#" id="<%= v.id %>" class="vote">
+    <li id="v-item-<%= v.id %>" class="loud small">
+      <a href="#" id="<%= v.id %>" class="vote normal">
         <span class="ui-icon-check ui-icon vote-icon" ></span>
         <%= v.option %>
       </a>
     <% end  %>
   </li>
-  <div class="top-mar bottom-mar" id="" style="text-align: right;font-weight: bold">
-    <table class="compressed-table" id="">
-      <tr>
-        <td class="l-t-a">
-          <span class="small-button"><button id="comment_add">Add Comment</button></span>
-        </td>
-        <td class="r-t-a">
-          Vote to see results
-        </td>
-      </tr>
-    </table>
-  </div>
 </ul>

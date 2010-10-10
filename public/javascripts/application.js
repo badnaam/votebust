@@ -1,3 +1,35 @@
+function doAutoComplete(url){
+    $.ajax({
+        url: url,
+        type : "GET",
+        dataType: 'script',
+        global : false,
+        data : {
+          term: $("#vote_topic_header").val()
+        }
+      });
+}
+function showEmailOverlay() {
+    $('#email_overlay').overlay({
+        load : true,
+        closeOnClick : false,
+        top : '20%',
+        left : 'center',
+        onBeforeLoad : function() {
+
+        }
+    });
+    $("#email_overlay").data("overlay").load();
+
+}
+
+function configureEmailOverlay(msg, label, header, email_type, link) {
+    $("#friend_invite_message_message").val((link == "1") ? (msg + document.location.href) : msg);
+    $('#msg_submit').text(label);
+    $('#email_form_header').text(header);
+    $('#email_type').val(email_type);
+}
+
 function likeComment(cid) {
     commentId = cid.split("_")[1];
     elem = $("#"+ cid);
@@ -147,7 +179,7 @@ function removeSelected() {
 }
 
 function handleCommentText(maxLength) {
-    $('#comment_body').keyup(
+    $('#markItUp').keyup(
         function() {
             update_chars_left(maxLength, $('#comment_body')[0], $('#limit_status'));
         });
@@ -232,6 +264,7 @@ function makeCancelElement(id, txt) {
     return cancel_element;
 }
 
+
 function showFlashOverlay(msg, tp) {
     $("#flash_overlay_message").addClass(tp).text(msg);
     $('#flash_overlay').addClass(tp);
@@ -296,15 +329,21 @@ function prepareToolTip() {
 }
 
 function posMenus() {
-    if ($('#home_nav a').length > 0) {
-        var pos = $("#home_nav a").offset();
-        var width = $("#home_nav").width();
-        var height = $("#home_nav a").outerHeight();
+    if ($('.main_links_div').length > 0) {
+        //var selector = "#home_nav a";
+        var selector = ".main_links_div";
+        var headerSelector = ".header"
+        var pos = $(selector).offset();
+        //added afte redesign
+        
+        //end
+        var width = $(headerSelector).width();
+        var height = $(selector).outerHeight();
         //show the menu directly over the placeholder
 
         $("#cat_menu").css( {
             "left": (pos.left) + "px",
-            "top":(pos.top + height) + "px"
+            "top":( pos.top + height) + "px"
         });
         $("#city_menu").css( {
             "left": (pos.left) + "px",
@@ -454,6 +493,18 @@ $(document).ready(function() {
         $.cookie('show_voteable_intro', '0')
     }
     setInterval(reloadHomeTab, 10000);
+
+    if ($('#msg_submit').length > 0) {
+        $("#msg_submit").click(function() {
+            $("#email_form").submit();
+        })
+    }
+    if ($('#msg_close').length > 0) {
+        $("#msg_close").click(function() {
+            $("#email_overlay").data("overlay").close();
+            return false;
+        })
+    }
 /************** end intro prezo **************/
     
 });

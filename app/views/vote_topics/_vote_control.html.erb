@@ -7,7 +7,6 @@
   <%= hidden_field_tag :category, @vote_topic.nil? ? nil : @vote_topic.category.to_param %>
   <%= hidden_field_tag :vote_bonus, (power_points_bonus @vote_topic) %>
   <%= hidden_field_tag :vote_count, 0 %>
-
   <% if @vote_topic.expires > DateTime.now %>
     <% if current_user && registration_complete? %>
   <div class="vote-stat">

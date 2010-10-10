@@ -88,7 +88,8 @@ ActionController::Routing::Routes.draw do |map|
 #    map.resource :account, :controller => "users"
     map.resource :account
 
-    map.resources :users, :collection => {:top_voters => :get}, :member => {:update_preference => :post, :vp_stats => :get} do |users|
+    map.resources :users, :collection => {:top_voters => :get}, :member => {:update_preference => :post, :vp_stats => :get,
+        :update_status => :post, :update_about => :post, :update_headline => :post} do |users|
         users.resources :posted_vote_topics, :controller => :vote_topics, :member => {:track => :post}
         users.resources :comments
     end

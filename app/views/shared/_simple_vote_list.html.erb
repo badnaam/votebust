@@ -8,6 +8,6 @@
   <% end %>
 <% elsif coll_type == 'user'%>
   <%  coll.each do |item| %>
-    <li><%= render :partial => '/shared/ub', :locals => {:user => item} %></li>
+    <%= render :partial => '/shared/ub', :locals => {:user => item} %>
   <% end %>
 <% end  %>

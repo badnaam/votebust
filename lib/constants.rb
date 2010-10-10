@@ -10,7 +10,8 @@ class Constants
 #    SHARE_URL_PREFIX = "http://web1.tunnlr.com:11299"
 
     SITE_COLOR = '#38385c'
-    USER_PROFILE_IMAGE_SIZE = "50x50"
+    USER_PROFILE_IMAGE_SIZE = "25x25"
+    USER_PROFILE_IMAGE_SIZE_LARGE = "50x50"
     MISSING_IMAGE_FILE = '/images/missing.png'
     VOTE_PROCESS_FREQ = 30.minutes
     MOST_FLAG_TIME_HORIZON = 4.weeks
@@ -37,6 +38,7 @@ class Constants
 
     SMART_COL_LIMIT = 5
     SMART_COL_LATEST_LIMIT = 7.days
+    SMART_COL_USER_LIMIT = 14 #increment of 7
 
     USER_AGE_RANGE = (10..99)
     AGE_GROUP_1 = (10..19)

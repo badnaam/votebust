@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     MAX_PROFILE_IMAGE_SIZE = 1.megabyte
     SEX = {0 => "M", 1 => "F"}
 
-    has_attached_file :image, :styles => {:small => Constants::USER_PROFILE_IMAGE_SIZE},
+    has_attached_file :image, :styles => {:small => Constants::USER_PROFILE_IMAGE_SIZE, :large => Constants::USER_PROFILE_IMAGE_SIZE_LARGE},
       :path => ":rails_root/public/assets/images/users/:id/:style.:extension",
       :url => "/assets/images/users/:id/:style.:extension",
       :whiny_thumbnails => true, :default_url => '/images/missing.png'
@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
         end
     end
     
-    named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'voting_power DESC', :limit => Constants::SMART_COL_LIMIT,
+    named_scope :top_voters, lambda {{:conditions => {:active => true}, :order => 'voting_power DESC', :limit => Constants::SMART_COL_USER_LIMIT,
             :include => [:slug]}}
 
     def self.get_top_voters

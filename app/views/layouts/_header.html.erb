@@ -1,52 +1,51 @@
-<div class="header span-24 last">
-  <div class ="span-24 header_links_div last">
-    <%= render :partial => "/shared/cat_nav_list" %>
-    <%= render :partial => "/shared/city_nav_list" %>
-    <div class="span-24 last"
-         <div class="ui-corner-bl ui-corner-br ui-state-hover">
-        <ul class="header_links">
-          <% unless  current_user %>
-            <li><%= link_to "sign up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
-            <li><%= link_to "login", login_path, :id => 'main_login_link' %></li>
-          <% else %>
-            <%= new_button controller %>
-            <li><%= link_to current_user.username, current_user, :id => 'main_profile_link' %>
-              <span><span class="ui-state-normal vote-power-ubox t-trigger bld vp-pad" id="">
-                  <span class="ui-icon ui-icon-power vam"></span> <%= current_user.get_voting_power %>
-                </span></span>
-            </li>
-            <li><%= link_to "logout", logout_path  %></li>
-          <% end %>
-          <li>
-            <a href="/vote_topics/rss" class="sprite rss-image" id="">
-              &nbsp;
-            </a>
-            <%= auto_discovery_link_tag(:rss, rss_vote_topics_url(:format => 'rss')) %>
-          </li>
-        </ul>
+<div class="main-header" id="">
+  <div class="header" >
+    <div class ="span-24 header_links_div last top-mar">
+      <div class="span-10">
+        <div class="span-10">
+          <%= link_to "", root_path, :class => "go-left logo-image sprite"%>
+        </div>
+        <div class="span-10">
+          <span class="logo_msg small go-left"><%= t 'site_logo_msg' %></span>
+          &nbsp;<a href="intro-prezo-trig" class="go-left small special-text bld" id="" rel="#intro_prezo">
+            <%= t ('site_learn_more') %>
+          </a>
+        </div>
       </div>
+      <%= render :partial => "/shared/cat_nav_list" %>
+      <%= render :partial => "/shared/city_nav_list" %>
+      <ul class="header_links">
+        <% unless  current_user %>
+          <li><%= link_to "sign up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
+          <li><%= link_to "login", login_path, :id => 'main_login_link' %></li>
+        <% else %>
+          <li><%= link_to current_user.username + " profile", current_user, :id => 'main_profile_link' %>
+          </li>
+          <li><%= link_to "logout", logout_path  %></li>
+        <% end %>
+        <li>
+          <a href="/vote_topics/rss" class="sprite rss-image" id="">
+            &nbsp;
+          </a>
+          <%= auto_discovery_link_tag(:rss, rss_vote_topics_url(:format => 'rss')) %>
+        </li>
+      </ul>
     </div>
-  </div>
 
-  <div class="last span-24 header_logo_div "> <!-- header logo -->
-    <div class="">
-      <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
-      <span class="logo_msg"><%= t 'site_logo_msg' %></span>
-      <a href="intro-prezo-trig" class="special-text bld" id="" rel="#intro_prezo">
-        <%= t ('site_learn_more') %>
-      </a>
-    </div>
-  </div>
-  <!-- <sup>&trade;</sup> -->
-  <div class="span-24 last  prepend-top">
-    <div class="ui-state-default" id="">
-      <div class="main_links_div span-18">
+    <!-- <sup>&trade;</sup> -->
+    <div class="span-24 last  top-mar">
+      <div class="main_links_div span-12">
         <%= render_navigation :level => 1 %>
       </div>
+      <% if current_user %>
+        <div class="span-6" id="">
+          <%= new_button controller %>
+        </div>
+      <% end  %>
       <div class="div-search-form"
       <% form_tag searches_path, :method => :get, :class => '', :id => "search_form" do %>
         <%= text_field_tag :q, cookies[:voteable_q].nil? ? "Search" : cookies[:voteable_q],  :class => 'search-term' %>
-             <span class=small-button><%= link_to "Search", "#", :id => 'search_button' %></span>
+             <a href="#" id="search-button" class="search-button">&nbsp;</a>
         <% end  %>
       </div>
     </div>

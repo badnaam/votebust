@@ -1,6 +1,9 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
+    $("a[rel='#how_overlay']").overlay({
+      top: "center"
+    });
     $('#home_tabs').tabs(
     {
       spinner:"<img src='/images/loading.gif'/>",
@@ -21,61 +24,50 @@
     }
   );
 
-    /**
-    var dialogOpts = {
-      modal: true,
-      title : "Start a Vote!",
-      bgiframe: true,
-      autoOpen: false,
-      height: 500,
-      width: 700,
-      draggable: true,
-      resizeable: true
-    };
-
-    $("#new_vt").dialog(dialogOpts);   //end dialog
-
-    $('#showdialog').click(function() {
-      $.get(
-      " new_user_posted_vote_topic_path(current_user)",
-      "",
-      function(data, textStatus, XMLHttpRequest) {
-        $('#new_vt').html(data);
-        $('#new_vt').dialog('open');
-      }
-    );
-      return false;
-    }); **/
   });
   //]]>
 </script>
 
-<!-- to do in future may be?
-<a href="#" class="" id="showdialog">
-</a>
-<div class="" id="new_vt">
 
-</div> -->
-<div id="top_tab_container" class="span-18 last rel-pos">
+<div class="span-18 last" id="">
+  <div class="normal-pad home-info" id="">
+      <% if current_user %>
+      <h4 class="normal-pad bld append-bottom bottom-border">Developing trends in the community and your city</h4>
+      <% else %>
+        <h4 class="normal-pad bld append-bottom bottom-border">Developing trends in the community</h4>
+      <% end  %>
+    <div class="" id="">
+      <a href="#" class="big bld special-text small go-right" rel="#how_overlay">How do I use <%= t 'site_name' %>?</a>
+    </div>
+  </div>
+</div>
+
+<div class="span-18 last append-bottom" id="">
+  <div class="normal-pad profination center home-links" id="">
+    <%= link_to "Featured", vote_topics_path(:listing_type => "featured_all") %>
+    <%= link_to "Highly Followed", vote_topics_path(:listing_type => "most_tracked_all") %>
+    <%= link_to "Most Discussed", vote_topics_path(:listing_type => "most_discussed_all") %>
+    <%= link_to "You are following", vote_topics_path(:listing_type => "most_tracked_all") %>
+  </div>
+</div>
+
+<div id="top_tab_container" class="span-18 last ">
   <div class="normal-pad  " id="">
     <div id="home_tabs" class="">
       <ul>
         <li><a  href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "general_limited")%>"><span>Latest</span></a></li>
-        <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true, :listing_type => "featured") %>"><span>Featured</span></a></li>
-        <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_tracked") %>"><span>Most Tracked</span></a></li>
-        <li><a href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "most_discussed") %>"><span>Most Discussed</span></a></li>
         <% if current_user %>
           <% if !current_user.city.nil? %>
-            <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span>In <%= current_user.city %></span></a></li>
+            <li><a   href="<%= city_vote_topics_path(current_user.city, :limited => true)%>"><span><%= current_user.city %></span></a></li>
           <% end  %>
-          <li><a   href="<%= url_for(:controller => :vote_topics, :action => :index, :limited => true,:listing_type => "tracked")%>"><span>You are Tracking</span></a></li>
         <% end  %>
       </ul>
     </div>
   </div>
 </div>
+
 <% content_for :right_nav do %>
-  <div class="  ui-widget-content">
+  <div class="rel-pos">
     <fb:activity site=<%= APP_CONFIG['site_domain'] %> recommendations="true" width="230" height="500" border_color="#DDDDDD" ></fb:activity>
   </div>
   <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Latest", :load_path =>
@@ -91,7 +83,7 @@
 
 
 
-<div id="fb-root">
+<div id="fb-root" class="span-18 last">
 </div>
 
 
@@ -113,3 +105,6 @@
   }()
 );
 </script>
+  <div class="ui-widget-content simple_overlay ui-corner-all" id="how_overlay" style="">
+  Coming soon!
+  </div>

@@ -4,7 +4,7 @@
 <% listing_type = request.parameters[:listing_type] %>
 <% if @vote_topics.size > 0 %>
   <% if what_listing %>
-    <h5 class="normal-pad append-bottom ui-widget-header"><%= what_listing %></h5>
+    <h5 class="normal-pad append-bottom  bottom-border"><%= what_listing %></h5>
   <% end  %>
   <%= order_links request.parameters['order'], request.parameters[:city] %>
   <%= page_entries_info @vote_topics, :entry_name => "Vote Topics" %>

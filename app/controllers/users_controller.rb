@@ -7,6 +7,26 @@ class UsersController < ApplicationController
     before_filter :store_location, :only => [:show]
     filter_access_to [:edit, :update], :attribute_check => true
 
+    def update_status
+        current_user.update_attribute(:status, params[:value])
+        respond_to do |format|
+            format.js{render :text=> params[:value]}
+        end
+    end
+
+    def update_headline
+        current_user.update_attribute(:hdline, params[:value])
+        respond_to do |format|
+            format.js{render :text=> params[:value]}
+        end
+    end
+    def update_about
+        current_user.update_attribute(:about, params[:value])
+        respond_to do |format|
+            format.js{render :text=> params[:value]}
+        end
+    end
+    
     def vp_stats
         @user = User.find(params[:id])
         
@@ -48,7 +68,7 @@ class UsersController < ApplicationController
         @user.role = Role.find_by_name('user')
         @user.perishable_token = Authlogic::Random.friendly_token
         v = verify_recaptcha(:model => @user, :message => "Text entered did not match the image!")
-        if v 
+        if v
             if @user.save_without_session_maintenance
                 flash[:notice] = t('users.create.confirmation')
                 if @user.voting_power == 0

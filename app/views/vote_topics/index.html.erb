@@ -20,7 +20,7 @@
   <% elsif request.parameters["state"]%>
     <%  header = "Most Tracked in #{request.parameters['state']}"%>
     <%  w_type = 'most_tracked_state' %>
-    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
+    <%= render :partial => "/shared/user_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
       :l_type => w_type, :first => true} %>
   <% else %>
     <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Most Voted", :load_path => side_bar_index_vote_topics_path(:type => "top_votes_min"),

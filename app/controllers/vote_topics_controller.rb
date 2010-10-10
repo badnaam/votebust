@@ -104,9 +104,9 @@ class VoteTopicsController < ApplicationController
                 @vote_topics = VoteTopic.general_list true, nil, params[:order]
             else
                 # it's "all"
-                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.list_key}_#{user_key}")
+#                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.list_key}_#{user_key}")
                     @vote_topics = VoteTopic.general_list false, params[:page], params[:order]
-                end
+#                end
             end
         end
 

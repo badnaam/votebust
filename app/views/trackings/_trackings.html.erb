@@ -1,24 +1,17 @@
-<span class="go-right">
-  <span class="small-pad t-trigger tracking-count bld" id="">
-    <%= Rails.cache.fetch("vt_tracking_#{vt.id}") do vt.trackings_count end %> trackings
-  </span>
-  <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people who are following this vote."} %>
-  <% if current_user %>
-    <span class="t-trigger" id="tracking"><span class="ui-icon ui-icon-heart"></span>
-      <% if (t = vt.is_being_tracked? current_user.id) %>
-        <a href="<%= tracking_path(t, :vt_id => vt.id) %>" id="track_link" class="untrack">
-          Untrack
+<% if current_user %>
+  <div class="follow-container">
+    <% if (t = vt.is_being_tracked? current_user.id) %>
+      <div class="normal-pad center ui-state-default" id="tracking">
+        <a href="<%= tracking_path(:vt_id => vt.id, :id => t) %>" id="track_link" class="untrack">
+          Unfollow
         </a>
-      <% else %>
+      </div>
+    <% else %>
+      <div class="normal-pad center ui-state-active" id="tracking">
         <a href="<%= trackings_path(:vt_id => vt.id) %>" class="" id="track_link" class="track">
-          Track
+          Follow
         </a>
-      <% end %>
-    </span>
-    <%  text = "Add/Remove from your tracking list.
-  <a href='/faq#tracking_faq' class='clearfix' >
-  What's tracking?
-  </a>" %>
-    <%= render :partial => "/shared/tooltip", :locals => {:text => text} %>
-  <% end %>
-</span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

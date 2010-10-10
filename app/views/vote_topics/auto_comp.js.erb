@@ -1,8 +1,12 @@
 <% if @search_res.total_entries > 0 %>
-  <% str = "" %>
+  <% str = "<ul>" %>
   <% @search_res.each do |a| %>
-    <%  str << "<div> <a href='#{scoped_vote_topic_path(a.category, a)}'>#{a.header}</a></div>" %>
+    <%  str << "<li class='bld suggestion-item'> <a href='#{scoped_vote_topic_path(a.category, a)}'>#{a.header}</a></li>" %>
   <% end  %>
+  <% str << "</ul>" %>
+  $("#suggestions").empty();
   $("#suggestions").append("<%= escape_javascript(str) %>");
-  $("#suggestions_wrapper").toggle('fast');
+  if ($("#suggestions_wrapper").is(':visible') == false) {
+    $("#suggestions_wrapper").show('fast');
+  }
 <%end  %>

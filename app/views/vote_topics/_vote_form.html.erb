@@ -1,8 +1,13 @@
 <% if !selected_response.nil? %>
   <ul class="top-mar vi-list-voted" id="vote_items_list_voted">
     <% vt.vote_items.each do |v| %>
-      <li id="v-item-<%= v.id %>" class="<%= selected_response.to_i == v.id ? "highlighted" : ""%>">
-        <%= (get_vote_percent v, vt.votes_count) %>
+      <% selected = selected_response.to_i == v.id ? true : nil %>
+      <li id="v-item-<%= v.id %>" class=" small loud <%= selected ?  "highlighted" : ""%>">
+        <% if selected  %>
+          <%= "#{(get_vote_percent v, vt.votes_count)} (your vote) " %>
+        <% else %>
+          <%= "#{(get_vote_percent v, vt.votes_count)}" %>
+        <% end  %>
       </li>
       <%= get_percent_div (v.get_vote_percent_num vt.votes_count) %>
       <li class="option-separator"></li>
@@ -19,18 +24,6 @@
       </div>
     </div>
   <% end  %>
-  <div class="top-mar bottom-mar" id="" style="text-align: right;font-weight: bold">
-    <table class="compressed-table" id="">
-      <tr>
-        <td class="l-t-a">
-          <span class="small-button"><button id="comment_add">Add Comment</button></span>
-        </td>
-        <td class="r-t-a stat-number big">
-          <%= Rails.cache.fetch("vt_votes_#{vt.id}") do vt.votes_count end %> votes
-        </td>
-      </tr>
-    </table>
-  </div>
 <% end  %>
 
 

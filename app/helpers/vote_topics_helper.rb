@@ -34,12 +34,12 @@ module VoteTopicsHelper
             if a.include?('featured')
                 str.concat(power_points v)
             end
-#            if a.include?('most_voted')
-#                str.concat("<span class='flag-wrapper t-trigger bld'>V</span>").concat("<span class='tooltip'>Highly voted</span>")
-#            end
-#            if a.include?('most_tracked')
-#                str.concat("<span class='flag-wrapper t-trigger bld'>T</span>").concat("<span class='tooltip'>Highly tracked</span>")
-#            end
+            #            if a.include?('most_voted')
+            #                str.concat("<span class='flag-wrapper t-trigger bld'>V</span>").concat("<span class='tooltip'>Highly voted</span>")
+            #            end
+            #            if a.include?('most_tracked')
+            #                str.concat("<span class='flag-wrapper t-trigger bld'>T</span>").concat("<span class='tooltip'>Highly tracked</span>")
+            #            end
             str.concat('</span>')
         end
     end
@@ -74,13 +74,15 @@ module VoteTopicsHelper
         else
             case params[:listing_type]
             when "most_tracked_all"
-                listing_str = "Most Tracked"
+                listing_str = "Highly Followed"
             when "top_all"
-                listing_str = "Most Voted"
+                listing_str = "Highly Voted"
             when "featured_all"
                 listing_str = "Featured"
             when "tracked_all"
                 listing_str = "Topics you are tracking"
+            when "most_discussed_all"
+                listing_str = "Most Discussed"
             else
                 listing_str = "All"
             end
@@ -99,9 +101,9 @@ module VoteTopicsHelper
         if !vt.power_offered.nil? && vt.power_offered > Constants::VOTING_POWER_OFFER_INCREMENT
             points = vt.power_offered / Constants::VOTING_POWER_OFFER_DEVIDER
             return "<span class='flag-wrapper t-trigger'>
-                        <span class='bld power-points'>#{points} </span>
-                    </span>
-                    <span class='tooltip'>Earn #{points} Voting Power for voting on this topic.<a href = '#' class='clearfix'>What's Voting Power?</a></span>"
+                        <span class=' '>#{points}<sup>+</sup> </span>
+                    </span>" + (render :partial => "/shared/tooltip", :locals => {:text =>
+                      "Earn #{points} Voting Power for voting on this topic."})
         end
         return ""
     end

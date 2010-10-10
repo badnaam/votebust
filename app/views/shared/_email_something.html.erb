@@ -1,0 +1,21 @@
+<h4 class="ui-widget-header center bottom-mar" id="email_form_header"></h4>
+<div class="quiet small normal-pad" id="">
+  Fields marked with * are required
+</div>
+<div class="normal-pad">
+  <% semantic_form_for FriendInviteMessage.new, :html => {:actilaon => friend_invite_message_path(), :id => 'email_form'} do |f| %>
+    <%= f.semantic_errors %>
+    <% f.inputs do %>
+      <%= f.input :message,:as => :text, :input_html => {:style => "width:90%;height:60px"}, :wrapper_html => {:class => "nbm center"} %>
+      <li class="nbm quiet small center">Enter a short message, within 250 characters.</li>
+      <%= f.input :emails,  :input_html => {:style => "width:90%;height:60px"},:wrapper_html => {:class => 'bottom-border nbm center'},
+        :hint => "" %>
+      <li class="nbm quiet small center">Enter comma separate list of emails. Like: joe@gmail.com,susan@yahoo.com</li>
+      <%= hidden_field_tag  :email_type, "vote" %>
+      <li class="" style="margin:1em 0 1em 0;">
+        <span id="msg_submit" class="regular-button">send</span>
+        <span id="msg_close" class="regular-button">close</span>
+      </li>
+    <% end  %>
+  <% end  %>
+</div>

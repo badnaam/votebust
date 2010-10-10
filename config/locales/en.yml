@@ -2,12 +2,11 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  site_name: "Voteable"
+  site_name: "bepolr"
   site_main_msg: "wonder what people think?"
   site_learn_more: "get the collective opinion"
   site_logo_msg: "wonder what people think?"
-  title_bar: "voteable"
+  title_bar: "bepolr"
 
 #Models
   notifier:

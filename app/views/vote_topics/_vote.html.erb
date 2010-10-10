@@ -1,7 +1,6 @@
 <% content_for :title do %>
   <%= @vote_topic.header %>
 <% end  %>
-<%# share_url = Constants::SHARE_URL_PREFIX.concat(scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
 <% share_url = "http://" + APP_CONFIG['site_domain'] + (scoped_vote_topic_path(@vote_topic.category, @vote_topic)) %>
 <%content_for :fb_metas do %>
   <meta property="og:title" content="<%= @vote_topic.header %>"/>
@@ -13,6 +12,7 @@
 <% end  %>
 
 <script type="text/javascript">
+  
   //<![CDATA[
   $(document).ready(function() {
     $('.vote').live('click', function() {
@@ -82,10 +82,12 @@
       return false;
     });
 
+<%#*$("#comment_body").markItUp(mySettings);%>
+
 <% if current_user %>
-      handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
+      //  handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
       //and fire it on doc ready, too
-      update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
+      // update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
 <%end%>
     $('.pagination a').live("click", function () {
       $(this).addClass('loading-link');
@@ -100,77 +102,61 @@
       return false;
     });
 
-    $('#comment_add').button({icons:{primary:'ui-icon-comment'}}).click(function(){
-      var sPath = window.location.pathname;
-      var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
-      location.href = sPage+"#"+"comment_form"
-      $("#comment_body").focus();
+    
+<%if current_user%>
+      $('#email_vote').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
+        configureEmailOverlay("<%= current_user.username  %> wants to share this vote with you.", "share", "share", "vote", "1")
+        showEmailOverlay();
+        return false;
+      });
+<%end %>
 
-    });
-    /**$('#facets').accordion({
-      collapsible : true
-    });**/
   });
   //]]>
 </script>
 
 <div class=" span-18 last">
   <div class="normal-pad" id="">
-    <div class="ui-widget-vote-preview normal-pad ">
-      <div>
-        <table class="vote-info-table-top" id="">
-          <tr>
-            <td class="right-border" style="width:20%">
-              <%= render :partial => "/shared/ubox", :locals => {:user => @vote_topic.poster, :anon => @vote_topic.anon} %>
-            </td>
-            <td style="width:80%">
-              <blockquote class="preview">
-                <span class="big"> <%= @vote_topic.header %></span>
-              </blockquote>
-            </td>
-          </tr>
-        </table>
-
-        <p class="left-mar top-mar">
-          <%= @vote_topic.topic %>
-        </p>
-        <%= render :partial => "vote_control" %>
+    <div class=" ">
+      <%= render :partial => 'vote_preview', :locals => {:vt => @vote_topic, :for_show => true} %>
+      <div class="left-mar top-mar">
+        <%= @vote_topic.topic %>
       </div>
-      <div>
-        <%= render :partial => 'vote_info_show', :locals => {:vt => @vote_topic} %>
-      </div>
+      <%= render :partial => "vote_control" %>
     </div>
   </div>
 </div>
 
-<div class="span-18 last" id="">
-  <div class="normal-pad" id="">
-    <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
-  </div>
-</div>
-
-<div class="span-18 append-bottom social-div" id="">
-  <div class="normal-pad" id="">
-    <h4 class="bottom-border bld bottom-mar">Be Social</h4>
-    <table class="social" id="">
-      <tr>
-        <td style="width:505px">
-      <fb:like href="<%= share_url %>" width="500" ></fb:like>
-      </td>
-      <td class="r-t-a" style="width:115px">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
-        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      </td>
-      <td class="r-t-a" style="width:80px">
-        <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
-      </td>
-    </table>
-  </div>
-</div>
-
-
-
 <%= render :partial => "comments/comments", :locals => {:vote_topic => @vote_topic, :user => current_user, :selected_response_for_comment => @selected_response} %>
+
+<% content_for :right_nav do %>
+  <%= render :partial => '/trackings/trackings', :locals => {:vt => @vote_topic} %>
+  <ul class="list_no_pad_no_style" id="" style="margin-right: 0;">
+    <li class="big bld dotted-bottom">Share</li>
+    <li>
+    <fb:like href="<%= share_url %>" width="230" ></fb:like>
+  </li>
+  <li>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= share_url %>" data-count="horizontal">Tweet</a>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </li>
+  <li>
+    <a class="DiggThisButton DiggCompact" href="http://digg.com/submit?url=<%=share_url%>"></a>
+  </li>
+  <% if current_user %>
+    <li>
+      <span class="small-button"><button id="email_vote">Email</button></span>
+    </li>
+  <% end  %>
+  </ul>
+
+  <%#= render :partial => "/layouts/vote_side_bar", :locals => {:votes => @related, :header => "Related"} %>
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Related", :load_path =>
+      side_bar_index_vote_topics_path(:category_id => @vote_topic.category_id, :type => "same_category"), :l_type => "same_category", :first => true} %>
+
+  <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "More from #{@vote_topic.poster.username}", :load_path =>
+      side_bar_index_vote_topics_path(:user_id => @vote_topic.poster.id, :type => "same_user"),:l_type => "same_user"} %>
+<% end  %>
 
 
 <div id="fb-root">
@@ -203,3 +189,7 @@
     s1.parentNode.insertBefore(s, s1);
   })();
 </script>
+
+<div class="email-overlay generic-overlay" id="email_overlay">
+  <%= render :partial => '/shared/email_something', :locals => {:email_type => :vote} %>
+</div>

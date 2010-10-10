@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101005062813) do
+ActiveRecord::Schema.define(:version => 20101006051134) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -207,6 +207,9 @@ ActiveRecord::Schema.define(:version => 20101005062813) do
     t.string   "image_url",           :limit => 300
     t.boolean  "processing",                         :default => true
     t.integer  "comment_likes_count"
+    t.string   "about",               :limit => 250
+    t.string   "status",              :limit => 140
+    t.string   "headline",            :limit => 140
   end
 
   add_index "users", ["active"], :name => "active"

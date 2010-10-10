@@ -2,7 +2,7 @@
 module ApplicationHelper
 
     def make_tooltip str
-#        return "<span class='tooltip'>#{str}</span>"
+        #        return "<span class='tooltip'>#{str}</span>"
         return (render :partial => '/shared/tooltip', :locals => {:text => str})
     end
 
@@ -15,12 +15,14 @@ module ApplicationHelper
     end
     
     def new_button controller
-        str = "<li>"
+        #        str = "<li>"
+        str = ""
         if controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new')
         elsif
             controller.class == UsersController && (controller.action_name == 'edit')
         else
-            str << link_to("new vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text', :rel => "#vote_overlay") << "</li>"
+            str << link_to("new vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text main-new-vote-link',
+                :rel => "#vote_overlay")
         end
         return str
     end
@@ -36,9 +38,16 @@ module ApplicationHelper
 
     def get_user_avatar user
         if !user.image_url.nil?
-            return "<img src=#{user.image_url} class='profile-image' alt='avatar'/>"
+            return image_tag user.image_url, :class => 'profile-image', :alt => 'avataar'
         else
-            return "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>"
+            return image_tag user.image.url(:small), :class=>'profile-image', :alt=>'avatar'
+        end
+    end
+    def get_large_user_avatar user
+        if !user.image_url.nil?
+            return image_tag user.image_url, :class => 'profile-image-large', :alt => 'avataar'
+        else
+            return image_tag user.image.url(:large), :class=>'profile-image-large', :alt=>'avatar'
         end
     end
 
@@ -48,10 +57,10 @@ module ApplicationHelper
         else
             if !user.image_url.nil?
                 return link_to(image_tag(user.image_url,:class=> 'profile-image',:alt => 'avatar'), user_path(user))
-#                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user_path(user)
+                #                return link_to "<img src=#{user.image_url} class='profile-image' alt='avatar'/>", user_path(user)
             else
                 return link_to(image_tag(user.image.url(:small),:class=> 'profile-image',:alt => 'avatar'), user_path(user))
-#                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user_path(user)
+                #                return link_to "<img src=#{user.image.url(:small)} class='profile-image' alt='avatar'/>", user_path(user)
             end
         end
     end

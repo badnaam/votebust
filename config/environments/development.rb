@@ -15,7 +15,7 @@ CACHE = ActiveSupport::Cache::NoStore.new
 config.whiny_nils = true
 
 # Show full error reports and disable caching
-config.action_controller.consider_all_requests_local = true
+config.action_controller.consider_all_requests_local = false
 config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
@@ -37,7 +37,7 @@ ActionMailer::Base.smtp_settings = {
 }
 
 #config.cache_store = :mem_cache_store
-config.gem "rails-footnotes"
+#config.gem "rails-footnotes"
 #config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 #if defined?(Footnotes)
 #    Footnotes::Filter.prefix = 'editor://open?url=file://%s&amp;line=%d&amp;column=%d'

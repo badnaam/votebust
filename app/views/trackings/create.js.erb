@@ -1,3 +1,4 @@
-$("#tracking").html("<span class='ui-icon ui-icon-heart'></span><a href='<%= tracking_path(@t, :vt_id => request.parameters[:vt_id]) %>' id='track_link' class='untrack'>Untrack</a>");
-$('.tracking-count').html("<%= Rails.cache.fetch("vt_tracking_#{request.parameters[:vt_id]}") do VoteTopic.find(request.parameters[:vt_id]).trackings_count end %> trackings");
+$("#tracking").html("<a href='<%= tracking_path(@t, :vt_id => request.parameters[:vt_id]) %>' id='track_link' class='untrack'>UnFollow</a>");
+$("#tracking").removeClass("ui-state-active").addClass("ui-state-default");
+$('.tracking-count').html("<%=  VoteTopic.get_tracking_count(request.parameters[:vt_id]) %> following");
 <%= render :partial => 'layouts/flash_js_msg' %>

@@ -4,12 +4,20 @@ javascripts:
   - jquery.tools.min
   - application
   - cook
+  - jquery.jeditable.mini
+  - textile-editor
+  - textile-editor-config
+#  - jquery.markitup
+#  - set
 stylesheets: 
 - base: 
   - custom
   - screen
   - formtastic
-  - jquery-ui-1.8.2.custom
+  - jquery-ui-1.8.5.custom
+  - textile-editor
+#  - skin_style
+#  - style
 #  - prezo
 #  - print
 #  - reset

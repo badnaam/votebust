@@ -46,6 +46,27 @@ class Notifier < ActionMailer::Base
         content_type "multipart/alternative"
         body          :friend_invitation => friend_invitation, :site_name => APP_CONFIG['site_name']
     end
+    def vote_share_message(friend_invitation)
+        emails = friend_invitation.emails
+        subject "#{friend_invitation.user.username} at #{APP_CONFIG['site_name']} wants to share vote with you."
+        from          APP_CONFIG['site_admin_email']
+        recipients    APP_CONFIG['site_admin_email']
+        bcc           emails
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :friend_invitation => friend_invitation, :site_name => APP_CONFIG['site_name']
+    end
+
+    def profile_share_message(friend_invitation)
+        emails = friend_invitation.emails
+        subject "#{friend_invitation.user.username} at #{APP_CONFIG['site_name']} is sharing their profile with you."
+        from          APP_CONFIG['site_admin_email']
+        recipients    APP_CONFIG['site_admin_email']
+        bcc           emails
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :friend_invitation => friend_invitation, :site_name => APP_CONFIG['site_name']
+    end
 
 
     def friendly_vote_emails(vote_topic)

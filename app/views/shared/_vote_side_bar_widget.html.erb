@@ -1,13 +1,13 @@
 <% if local_assigns[:first].nil? %>
   <% first = false%>
 <% end  %>
-<div class="<%= first == true ? '' : 'prepend-top'%>  ui-widget-content rel-pos" style="display:none">
+<div class="<%= first == true ? '' : 'prepend-top'%>   rel-pos" style="display:none">
   <div id="" class="widget-loading" style="display:none">
     <div class="loading-inner-center" ></div>
   </div>
 
   <a href="<%= load_path %>" class="load-widget-link" id="" style="display:none"></a>
   <ul class="list-no-pad-no-style-close sidebox-list widget-content" id='<%= "widget_#{l_type}"%>'>
-    <li class="ui-widget-header"><%= header %></li>
+    <li class="big bld dotted-bottom"><%= header %></li>
   </ul>
 </div>

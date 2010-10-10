@@ -18,7 +18,15 @@ class FriendInviteMessage < ActiveRecord::Base
         end
     end
     
-    def deliver_friend_invite_message!
-        Notifier.deliver_friend_invite_message(self)
+    def deliver_friend_invite_message! email_type
+        case email_type
+        when "vote"
+            Notifier.deliver_vote_share_message(self)
+        when "profile"
+            Notifier.deliver_profile_share_message(self)
+        when "invite"
+            Notifier.deliver_friend_invite_message(self)
+        end
+        
     end
 end

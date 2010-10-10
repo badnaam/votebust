@@ -3,18 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <%= render :partial => '/layouts/scripts' %>
   <body>
+     <%= render :partial => "/layouts/alt_header" %>
     <div class="container" id="main_container">
-      <div class="header span-24 last">
-        <div class="last span-24 header_logo_div"> <!-- header logo -->
-          <div class="span-8">
-            <%= link_to "", root_path, :class => "clearfix sprite logo-image"%>
-            <span class="logo_msg"><%= t 'site_logo_msg' %></span>
-            <a href="intro-prezo-trig" class="special-text bld" id="" rel="#intro_prezo">
-              <%= t ('site_learn_more') %>
-            </a>
-          </div>
-        </div>
-      </div>
       <div class ="span-24 last content_container">
         <div class="content span-24 " id="content">
           <div class="span-24 last" id="flash_messages">
