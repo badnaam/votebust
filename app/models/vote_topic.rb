@@ -720,7 +720,7 @@ class VoteTopic < ActiveRecord::Base
     end
 
     def self.get_tracking_count id
-        Rails.cache.fetch("vt_tracking_#{id}") do
+        Rails.cache.fetch("vt_trackings_#{id}") do
             VoteTopic.find(id).trackings_count
         end
     end

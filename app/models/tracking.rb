@@ -21,14 +21,6 @@ class Tracking < ActiveRecord::Base
     end
 
     def reset_tracking_cache
-        Rails.cache.delete("vt_tracking_#{self.tracked_vote_topic.id}")
-    end
-    
-    def increment_tracking_cache
-        CacheUtil.increment("vt_tracking_#{self.tracked_vote_topic.id}", 1)
-    end
-
-    def decrement_tracking_cache
-        CacheUtil.decrement("vt_tracking_#{self.tracked_vote_topic.id}", 1)
+        Rails.cache.delete("vt_trackings_#{self.vote_topic_id}")
     end
 end
