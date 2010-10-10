@@ -5,9 +5,9 @@ function doAutoComplete(url){
         dataType: 'script',
         global : false,
         data : {
-          term: $("#vote_topic_header").val()
+            term: $("#vote_topic_header").val()
         }
-      });
+    });
 }
 function showEmailOverlay() {
     $('#email_overlay').overlay({
@@ -95,17 +95,11 @@ function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVote
         })
     });
 
-
-    $('#vote_submit').button({
-        icons:{
-            primary:'ui-icon-circle-check'
-        }
-    }).click(function(){
+    $('#vote_submit').click(function(){
         $('#vote_topic_form').submit();
         return false;
     });
-
-    /** for ajax submit **/
+    
     $('#vote_topic_form').submit(function (){
         $.ajax({
             type: 'POST',
@@ -165,7 +159,6 @@ function removeSelected() {
         if ($(this).parent('td').hasClass('act')) {
             $(this).parent('td').removeClass('act');
         } 
-    //        $(this).parent('td').removeClass('act').addClass('inact');
     });
 }
 
@@ -256,9 +249,11 @@ function makeCancelElement(id, txt) {
 }
 
 
-function showFlashOverlay(msg, tp) {
-    $("#flash_overlay_message").addClass(tp).text(msg);
-    $('#flash_overlay').addClass(tp);
+function showFlashOverlay(msg, tp, err_type) {
+    var msg_type = "<div class='big normal-pad l-t-a bld " + tp +  "' id= flash_overlay_type>" + err_type + "</div>";
+    $('#flash_overlay_type').remove();
+    $('#flash_overlay').prepend(msg_type);
+    $("#flash_overlay_message").text(msg);
     $('#flash_overlay').overlay({
         load : true,
         close : '#close_flash_overlay',
@@ -490,9 +485,10 @@ $(document).ready(function() {
             $("#email_form").submit();
         })
     }
-    if ($('#msg_close').length > 0) {
-        $("#msg_close").click(function() {
-            $("#email_overlay").data("overlay").close();
+    if ($('#overlay_close').length > 0) {
+        $("#overlay_close").click(function() {
+            //$("#email_overlay").data("overlay").close();
+            $(this).parents(".generic-overlay").data("overlay").close();
             return false;
         })
     }

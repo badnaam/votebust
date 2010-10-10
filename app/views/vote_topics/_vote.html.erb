@@ -101,11 +101,9 @@
       })
       return false;
     });
-
-    
 <%if current_user%>
       $('#email_vote').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
-        configureEmailOverlay("<%= current_user.username  %> wants to share this vote with you.", "share", "share", "vote", "1")
+        configureEmailOverlay("<%= current_user.username  %> wants to share this vote with you. \n \n", "share", "share", "vote", "1")
         showEmailOverlay();
         return false;
       });

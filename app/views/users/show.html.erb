@@ -100,7 +100,7 @@ end  %>
         tooltip   : 'Click to edit...'
       });
       $('#email_profile').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
-        configureEmailOverlay("<%= current_user.username  %> wants to share a profile with you.", "share", "share", "profile",  "1");
+        configureEmailOverlay("<%= current_user.username  %> wants to share a profile with you. \n", "share", "share", "profile",  "1");
         showEmailOverlay();
         return false;
       });

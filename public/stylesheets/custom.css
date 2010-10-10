@@ -1,14 +1,22 @@
+.generic-bg {
+    background-color: #EDEFF4;
+}
 .regular-button {
-/*    border: 1px solid #dddddd;*/
-    background: #f6f6f6 url(images/ui-bg_flat_0_dce0e8_40x100.png) 50% 50% repeat-x;
-/*    font-weight: bold;*/
-    color: #38385c;
-    margin: 0.5em 1em 0 0;
-    padding:.4em .7em .4em .7em;
+    background-color: #282842;
+    color: white;
+    font-weight:bold;
+    margin: 0.5em 1em .5em 0;
+    padding:.4em 1.2em .4em 1.2em;
     cursor:pointer;
+    border:1px solid #282842;
+    
+}
+.standard-border {
+    border:1px solid #282842;
 }
 .regular-button:hover {
-    background: #f6f6f6 url(images/ui-bg_flat_0_282842_40x100.png) 50% 50% repeat-x;
+/*    background: #f6f6f6 url(images/ui-bg_flat_0_282842_40x100.png) 50% 50% repeat-x;*/
+    background-color: #30304F;
     color:white;
 }
 .comment p {
@@ -22,7 +30,7 @@
 }
 .generic-overlay {
     display:none;
-    width:400px;
+    width:450px;
     border:10px solid #666;
     /*    border:10px solid rgba(82, 82, 82, 0.698);*/
     border:10px solid rgba(82, 82, 82, 0.698);
@@ -30,27 +38,8 @@
     -webkit-border-radius:8px;
     -moz-box-shadow:0 0 90px 5px #000;
     -webkit-box-shadow: 0 0 90px #000;
-    background-color: white;
     z-index: 15;
 }
-
-/*.generic-overlay div {
-    padding:10px;
-    border:1px solid #3B5998;
-    background-color:#fff;
-    font-family:"lucida grande",tahoma,verdana,arial,sans-serif
-}
-
-.generic-overlay h2 {
-    margin:-11px;
-    margin-bottom:0px;
-    color:#fff;
-    background-color:#6D84B4;
-    padding:5px 10px;
-    border:1px solid #3B5998;
-    font-size:20px;
-}*/
-
 
 .follow-container {
     border-bottom: 1px dotted #dddddd;
@@ -231,24 +220,7 @@
 }
 .flash_overlay_message {
 }
-.simple-flash-overlay{
-    /* must be initially hidden */
-    display:none;
-    /* place overlay on top of other elements */
-    z-index:15;
-    /* styling */
-    /*    background-color:#38385C;*/
-    width:800px;
-    /*    min-height:100px;*/
-    border:2px solid white;
-    text-align: center;
-    font-weight: bold;
-    padding : .5em;
-    font-size : 1.2em;
-    /* CSS3 styling for latest browsers */
-    -moz-box-shadow:0 0 90px 5px #000;
-    -webkit-box-shadow: 0 0 90px #000;
-}
+
 .simple_overlay {
     /* must be initially hidden */
     display:none;
@@ -291,14 +263,14 @@
 .contentWrap {
     overflow-y:auto;
     height:360px;
-    background-color: white;
 
 }
 #vote_overlay .close {
-    background-image:url(/images/close.png);
+    background:transparent url(/images/sprite.png) no-repeat scroll center center;
+    background-position: 1px -188px;
     position:absolute;
-    right:-15px;
-    top:-15px;
+    right:-25px;
+    top:-25px;
     cursor:pointer;
     height:35px;
     width:35px;
@@ -306,7 +278,8 @@
 /**new vote overlay  end**/
 /* close button positioned on upper right corner */
 .simple_overlay .close {
-    background-image:url(/images/close.png);
+    background:transparent url(/images/sprite.png) no-repeat scroll center center;
+    background-position: 1px -188px;
     position:absolute;
     right:-15px;
     top:-15px;
@@ -377,7 +350,7 @@ html, body {
     white-space:nowrap;
     list-style-type: none;
     margin-right:0 !important;
-/*    float:right;*/
+    /*    float:right;*/
 }
 .footer a {
     color:white;
@@ -386,14 +359,15 @@ html, body {
 
 /*********************** end sticky footer *******************/
 .flash-error{
-    background:#6B1411;color:#ffffff;border-color:#510F0D;
+    background:#4F0A0A;color:#ffffff;border-color:#4F0A0A;
 }
 .flash-notice {
     /*    background:#A89645;color:#ffffff;border-color:#8E7F3B;*/
-    background:#38385C;color:#ffffff;border-color:#38385C;
+    background:#282842;color:#ffffff;border-color:#282842;
 }
 .flash-success{
-    background:#8A9E37;color:#ffffff;border-color:#69782C;
+/*    background:#8A9E37;color:#ffffff;border-color:#69782C;*/
+    background:#49753B;color:#ffffff;border-color:#69782C;
 }
 #close_flash {
     cursor:pointer;
@@ -507,7 +481,7 @@ html, body {
     background-color: black;
     display:none;
     font-weight: normal !important;
-/*    width:160px;*/
+    /*    width:160px;*/
     padding:4px;
     font-size:.8em;
     z-index: 10;
@@ -690,7 +664,7 @@ div.pagination a:hover, div.pagination a:active {
 
 div.pagination span.current {
     background-color:#ffffff;
-/*    color:#F5722C;*/
+    /*    color:#F5722C;*/
     color:#F5722C;
     border:1px solid #dddddd;
     margin:2px;
@@ -949,7 +923,7 @@ body a:hover {
     padding:2px;
 }
 .top-mar {
-    margin-top:0.5em;
+    margin-top:0.5em !important;
 }
 .right-pad {
     padding-right:0.5em;
@@ -1036,7 +1010,7 @@ body a:hover {
     background:transparent url(/images/sprite.png) no-repeat scroll center center;
     overflow:hidden;
 }
-.suggestion-close {
+.small-close {
     background-position: 1px -92px;
     padding-right:16px;
 }
@@ -1068,8 +1042,8 @@ body a:hover {
 }
 
 .dynform textarea {
-/*    width:450px !important;*/
-/*    max-width: 450px !important;*/
+    /*    width:450px !important;*/
+    /*    max-width: 450px !important;*/
     height:100px !important;
     text-align: left;
 }
@@ -1078,17 +1052,21 @@ body a:hover {
     border:1px solid #38385c !important;
 }
 .dynform input {
-/*    width:450px !important;*/
-/*    max-width: 450px !important;*/
+    /*    width:450px !important;*/
+    /*    max-width: 450px !important;*/
     height:16px !important;
 }
 
 .dynform button {
-    border: 1px solid #dddddd;
-    background: #f6f6f6 url(images/ui-bg_flat_0_dce0e8_40x100.png) 50% 50% repeat-x;
-    font-weight: normal;
-    color: #38385c;
+    border: 1px solid #282842;
+/*    padding:.4em .7em .4em .7em;*/
+    background-color: #282842;
+    font-weight: bold;
+    color: white;
     margin: 0.5em 1em 0 0;
+}
+.dynform button:hover {
+    background-color: #30304F;
 }
 
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #38385c}

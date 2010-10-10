@@ -24,7 +24,7 @@ else
   msg = "Edit Vote"
 end  %>
 
-<div class="ui-widget-header center bottom-mar"><%= msg %></div>
+<h4 class="ui-widget-header center bottom-mar nbm"><%= msg %></h4>
 <div class="quiet small" id="">
   Fields marked with * are required
 </div>
@@ -37,7 +37,7 @@ end  %>
       <%= form.input :anon, :label => "Anonymous, don't show my username with this vote." %>
       <li>
         <div class="suggestions-wrapper " id="suggestions_wrapper" style="display:none">
-          <div class="bld ui-state-default">Looking for any of these?<span id="suggestion_close" class="sprite suggestion-close go-right">&nbsp;</span></div>
+          <div class="bld ui-state-default">Looking for any of these?<span id="suggestion_close" class="sprite small-close go-right">&nbsp;</span></div>
           <div id="suggestions" class="suggestions ui-widget-content" >
           </div>
         </div>
@@ -77,7 +77,8 @@ end  %>
           <%=  "#{t 'vote_topic.new.email_hints'}" %>
         </li>
       </div>
+      <li style="margin-top:1em" ><a href="#" id="vote_submit" class="regular-button">save</a></li>
     <% end  %>
-    <a href="#" id="vote_submit">Save</a>
+    <!-- href="#" id="vote_submit" class="ui-state-hover">save</a> -->
   <% end  %>
 </div>
