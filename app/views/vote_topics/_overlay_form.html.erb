@@ -18,7 +18,8 @@
   method = :post
   msg = "New Vote"
 else 
-  url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
+ # url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
+  url = vote_topic_path(:id => @vote_topic.id)
   method = :put
   msg = "Edit Vote"
 end  %>

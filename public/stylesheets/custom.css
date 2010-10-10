@@ -442,7 +442,7 @@ html, body {
     vertical-align: middle;
 }
 .left-mar {
-    margin-left: 18px;
+    margin-left: .5em;
 }
 .left-pad {
     padding-left :.5em !important;

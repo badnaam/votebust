@@ -2,7 +2,8 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics
     # GET /vote_topics.xml
     layout "main", :except => [:new, :edit]
-    before_filter :load_vt_from_id_and_scope, :only => [:edit, :update]
+    before_filter :load_vt, :only => [:update]
+#    before_filter :load_vt_from_id_and_scope, :only => [:edit, :update]
     filter_access_to [:edit, :update], :attribute_check => true
     before_filter :require_user, :only => [:edit, :new, :create]
     before_filter :store_location, :only => [:show, :index]
@@ -185,6 +186,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/1/edit
     def edit
         #allow edits if it hasn't been approved yet
+        @vote_topic = VoteTopic.find(params[:id])
         if !(@vote_topic.status == VoteTopic::STATUS[:approved])
             @edit = true
             @saved = true
@@ -237,16 +239,11 @@ class VoteTopicsController < ApplicationController
     # PUT /vote_topics/1
     # PUT /vote_topics/1.xml
     def update
-        @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
-        #todo - take care of someone fucking with the power offered
-        params[:vote_topic].keys.each do |k|
-            @vote_topic.send("#{k}=", params[:vote_topic][k])
-        end
         respond_to do |format|
             if @vote_topic.status == VoteTopic::STATUS[:nw]
-                @vote_topic.status = VoteTopic::STATUS[:revised]
+                params[:vote_topic][:status] = VoteTopic::STATUS[:revised]
             end
-            if @vote_topic.save
+            if @vote_topic.update_attributes(params[:vote_topic])
                 #increase edit count so we can refresh the user owned vote_topics cache
                 @vote_topic.poster.increment!(:edit_count, 1)
                 flash[:notice] = 'VoteTopic was successfully updated.'
@@ -297,5 +294,8 @@ class VoteTopicsController < ApplicationController
     
     def load_vt_from_id_and_scope
         @vote_topic = VoteTopic.find(params[:id], :scope => params[:scope])
+    end
+    def load_vt
+        @vote_topic = VoteTopic.find(params[:id])
     end
 end
