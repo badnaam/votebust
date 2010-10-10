@@ -1068,8 +1068,8 @@ body a:hover {
 }
 
 .dynform textarea {
-    width:450px !important;
-    max-width: 450px !important;
+/*    width:450px !important;*/
+/*    max-width: 450px !important;*/
     height:100px !important;
     text-align: left;
 }
@@ -1078,15 +1078,15 @@ body a:hover {
     border:1px solid #38385c !important;
 }
 .dynform input {
-    width:450px !important;
-    max-width: 450px !important;
+/*    width:450px !important;*/
+/*    max-width: 450px !important;*/
     height:16px !important;
 }
 
 .dynform button {
     border: 1px solid #dddddd;
     background: #f6f6f6 url(images/ui-bg_flat_0_dce0e8_40x100.png) 50% 50% repeat-x;
-    font-weight: bold;
+    font-weight: normal;
     color: #38385c;
     margin: 0.5em 1em 0 0;
 }
