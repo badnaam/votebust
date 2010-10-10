@@ -1,4 +1,4 @@
 $("#tracking").html("<a href='<%= trackings_path(:vt_id => request.parameters[:vt_id])%>'  id='track_link' class='track' >Follow</a>");
-$("#tracking").removeClass("ui-state-default").addClass("ui-state-active");
+$("#tracking").removeClass("ui-state-default").addClass("ui-state-hover");
 $('.tracking-count').html("<%=  VoteTopic.get_tracking_count(request.parameters[:vt_id]) %> followers");
 <%=  render :partial => 'layouts/flash_js_msg' %>
