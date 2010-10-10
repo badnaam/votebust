@@ -735,7 +735,7 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def is_being_tracked? id
-        hsh = Rails.cache.fetch("vt_trackings_#{self.id}_#{self.trackings_count}") do
+        hsh = Rails.cache.fetch("vt_trackings_#{self.id}") do
             h = Hash.new
             self.trackings.each {|t| h[t.user_id] = t.id}
             h
