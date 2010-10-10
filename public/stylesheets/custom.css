@@ -377,7 +377,7 @@ html, body {
     white-space:nowrap;
     list-style-type: none;
     margin-right:0 !important;
-    float:right;
+/*    float:right;*/
 }
 .footer a {
     color:white;
