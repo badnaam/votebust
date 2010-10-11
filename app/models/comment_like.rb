@@ -8,14 +8,14 @@ class CommentLike < ActiveRecord::Base
     after_destroy :destroy_comment_like
 
     def create_comment_like
-        CommentLike.delay.comment_liked self.comment.id, self, 1
+        self.delay.comment_liked  1
     end
     def destroy_comment_like
-        CommentLike.delay.comment_liked self.comment.id, self, -1
+        self.delay.comment_liked  -1
     end
 
-    def self.comment_liked cid, inst, add
-        c = Comment.find(cid)
+    def comment_liked add
+        c = Comment.find(self.comment_id)
         if !c.nil?
             c.user.award_points(1 * add)
             Rails.cache.delete("user_comment_like_count_#{c.user.id}")
