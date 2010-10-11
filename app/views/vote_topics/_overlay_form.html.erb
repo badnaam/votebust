@@ -64,12 +64,12 @@ end  %>
           "#{t 'vote_topic.new.topic_hint'}. Within #{Constants::MAX_VOTE_TOPIC_LENGTH} characters" %>
         <% if current_user.get_voting_power > Constants::MIN_VOTE_FOR_FEATURED %>
           <%= form.input :power_offered,:as => :select, :collection => (1..current_user.get_voting_power).select{|x| x % Constants::VOTING_POWER_OFFER_INCREMENT == 0 },
-            :hint =>""  %>
+            :hint =>"", :label => "Use Influence" %>
           <li class="form-hint">
-            You can offer some of your voting power to put your vote on the featured votes list.
-            You currently have <span class='vote-power bld'><%= current_user.get_voting_power %></span> voting  power.
+            You can offer some of your influence points to put your vote on the featured votes list.
+            You currently have <span class='vote-power bld'><%= current_user.get_voting_power %></span> influence points.
             <a href="/faq#power" target ="_blank" id="vp_faq_link">
-              More about Voting Power in FAQ.</a>.
+              More about Influence in FAQ.</a>.
           </li>
         <% end  %>
         <%= form.input :friend_emails, :as => :text, :input_html => {:style => "width:60%;height:40px" } %>

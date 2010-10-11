@@ -119,9 +119,10 @@ end  %>
         <td class="val" style="width:20%">
           <div id="user_image" class="user-image">
             <%= get_large_user_avatar(@user)%>
-            <span class="big-vote-power clearfix top-mar center">
+            <span class="big-vote-power clearfix top-mar center t-trigger">
               <%= @user.voting_power %>
             </span>
+            <%= render :partial => "/shared/tooltip", :locals => {:text => "My Influence Score"} %>
           </div>
         </td>
         <td class ="val" rowspan="2" style="width:80%">

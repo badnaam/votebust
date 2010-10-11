@@ -1,17 +1,21 @@
 <div id="comment" class="comment append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
     <%= render :partial => "/shared/ubox", :locals => {:user => comment.user} %>
-      <%= RedCloth.new(comment.body).to_html %>
-    <% if current_user %>
-      <div class="clear" id="">
-        <% if CommentLike.liked_by? current_user, comment.id %>
-          <span class="small  clike unlikeme" id="commentlike_<%= comment.id %>" onClick="likeComment($(this).attr('id'))">
-            <span class="ui-icon ui-icon-heart"></span>UnLike</span>
-        <% else %>
+    <%= RedCloth.new(comment.body).to_html %>
+    <div class="clear" id="">
+      <% if current_user %>
+        <% unless CommentLike.liked_by? current_user, comment.id %>
           <span class="small clike likeme" id="commentlike_<%= comment.id %>" onClick="likeComment($(this).attr('id'))">
             <span class="ui-icon ui-icon-heart"></span>Like</span>
-          <% end  %>
-      </div>
-    <% end  %>
+        <% end  %>
+      <% end  %>
+      <span class="left-mar small">
+         (liked by
+        <span  id="comment_like_count_<%= comment.id %>">
+          <%= comment.comment_likes_count %>
+        </span>
+         )
+      </span>
+    </div>
   <% end  %>
 </div>

@@ -1,3 +1,6 @@
+.t-trigger {
+    cursor:pointer;
+}
 .form-header {
     background-color: #282842;
     font-weight:bold;

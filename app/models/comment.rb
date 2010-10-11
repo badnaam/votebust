@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
     belongs_to :user
     belongs_to :vote_topic, :counter_cache => true
     belongs_to :vote_item, :counter_cache => true
+    
 
     validates_presence_of :body, :vote_topic_id, :user_id
     validates_length_of :body, :within => 1..Constants::MAX_COMMENT_LENGTH
@@ -70,14 +71,6 @@ class Comment < ActiveRecord::Base
                 :error_class => "Comment Spam Check",
                 :error_message => exp
             )
-            #            error_hash = Hash.new
-            #            error_hash[:job_name] = "Comment Spam Check"
-            #            error_hash[:comment_id] = self.id
-            get#            error_hash[:message] = exp.message
-            #            error_hash[:backtrace] = exp.backtrace.join("\n")
-            #            #             HoptoadNotifier.notify()
-            #
-            #            Notifier.delay.deliver_job_error "Comment Spam Check", error_hash
             logger.error "#{exp.message} occured during checking for spam for comment id #{self.id}"
         ensure
             return true
@@ -103,18 +96,5 @@ class Comment < ActiveRecord::Base
             Rails.logger.info "Hourly spam check went smoothly."
         end
         
-    end
-
-    def self.bad_meth
-        begin
-            sdfsdf.dfdsfdsf
-            
-        rescue Exception => exp
-            HoptoadNotifier.notify(
-                :error_class => "Testing error",
-                :error_message => "my message"
-            )
-            #            notify_about_exception(exp)
-        end
     end
 end

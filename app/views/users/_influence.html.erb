@@ -1,41 +1,41 @@
-<% if local_assigns[:owner].nil?
-  owner = nil
-end
-%>
-<%
-subject = !owner.nil? ? "You have " : "#{@user.username} has"
-adverb = !owner.nil? ? "Your " : "#{@user.username}'s "
-#todo review this
-good_msg = @user.get_voting_power < Constants::VOTING_POWER_NORMAL_USER ? "Good Start! " : "Well Done! "
-%>
-
 <div class="" id="">
   <table class="prepend-top influence-table" id="">
     <tr>
       <td>
         <span class="influence-score" id="">
           <%=@user.p_topics_count%>
-        </span><br/>Votes Started
+        </span><br/><span class="t-trigger">Votes Started</span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of votes topics I have started"} %>
       </td>
       <td>
         <span class="influence-score" id="">
           <%=@user.total_votes_collected%>
-        </span><br/>Votes Generated
+        </span><br/><span class="t-trigger">Votes Generated</span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of votes posted for the vote topics I started"} %>
       </td>
       <td>
         <span class="influence-score" id="">
           <%= Vote.user_total_votes_posted(@user) %>
-        </span><br/>Votes Posted
+        </span><br/><span class="t-trigger">Votes Posted</span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of times I have voted"} %>
       </td>
       <td>
         <span class="influence-score" id="">
           <%=@user.total_trackings_collected%>
-        </span><br/>Followings
+        </span><br/><span class="t-trigger">Followers</span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of people following votes I started"} %>
+      </td>
+      <td>
+        <span class="influence-score" id="">
+          <%=  CommentLike.likes_count_for_comment_poster @user.id%>
+        </span><br/><span class="t-trigger">Discussions Liked</span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "How many people like discussions I posted"} %>
       </td>
       <td class="no-bord">
         <span class="influence-score" id="">
           <%=@user.total_discussions_collected%>
-        </span><br/>Discussions
+        </span><br/><span class="t-trigger">Discussions</span>
+        <%= render :partial => "/shared/tooltip", :locals => {:text => "Number of discussions posted for the vote topics I started"} %>
       </td>
     </tr>
   </table>

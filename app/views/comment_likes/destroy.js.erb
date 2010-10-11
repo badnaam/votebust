@@ -1,3 +1,4 @@
 <% id = "#commentlike_#{request.parameters[:comment_id]}" %>
 $("<%= id %>").html("<span class='ui-icon ui-icon-heart'></span>Like");
 $("<%= id %>").removeClass("unlikeme").addClass("likeme");
+incrementCount("#comment_like_count_<%= request.parameters[:comment_id] %>", -1);

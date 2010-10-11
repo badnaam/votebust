@@ -1,3 +1,8 @@
+function incrementCount(id, add) {
+    var val = parseInt($(id).text());
+    $(id).text(val + add);
+}
+
 function doAutoComplete(url){
     $.ajax({
         url: url,

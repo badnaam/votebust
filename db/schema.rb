@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101006051134) do
+ActiveRecord::Schema.define(:version => 20101011072929) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -38,16 +38,17 @@ ActiveRecord::Schema.define(:version => 20101006051134) do
   add_index "comment_likes", ["user_id"], :name => "index_comment_likes_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.text     "body",                                          :null => false
+    t.text     "body",                                                :null => false
     t.datetime "created_at"
     t.integer  "vote_item_id"
     t.datetime "updated_at"
     t.integer  "vote_topic_id"
     t.integer  "user_id"
-    t.boolean  "approved",                    :default => true
-    t.string   "user_ip",       :limit => 50
-    t.string   "user_agent",    :limit => 50
+    t.boolean  "approved",                          :default => true
+    t.string   "user_ip",             :limit => 50
+    t.string   "user_agent",          :limit => 50
     t.string   "referrer"
+    t.integer  "comment_likes_count"
   end
 
   add_index "comments", ["user_id"], :name => "user_id"
@@ -209,7 +210,7 @@ ActiveRecord::Schema.define(:version => 20101006051134) do
     t.integer  "comment_likes_count"
     t.string   "about",               :limit => 250
     t.string   "status",              :limit => 140
-    t.string   "headline",            :limit => 140
+    t.string   "hdline",              :limit => 140
   end
 
   add_index "users", ["active"], :name => "active"
