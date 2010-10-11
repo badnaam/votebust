@@ -9,13 +9,11 @@
             <span class="ui-icon ui-icon-heart"></span>Like</span>
         <% end  %>
       <% end  %>
-      <span class="left-mar small">
-         (liked by
-        <span  id="comment_like_count_<%= comment.id %>">
-          <%= comment.comment_likes_count %>
+      <% if comment.comment_likes_count > 0 %>
+        <span class="left-mar small bld" id="comment_like_count_<%= comment.id %>">
+           <%= comment.comment_likes_count %> likes
         </span>
-         )
-      </span>
+      <% end  %>
     </div>
   <% end  %>
 </div>

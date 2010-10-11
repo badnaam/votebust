@@ -168,7 +168,7 @@ function removeSelected() {
 }
 
 function handleCommentText(maxLength) {
-    $('#markItUp').keyup(
+    $('#comment_body').keyup(
         function() {
             update_chars_left(maxLength, $('#comment_body')[0], $('#limit_status'));
         });

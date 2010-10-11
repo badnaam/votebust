@@ -103,7 +103,7 @@ module VoteTopicsHelper
             return "<span class='flag-wrapper t-trigger'>
                         <span class=' '>#{points}<sup>+</sup> </span>
                     </span>" + (render :partial => "/shared/tooltip", :locals => {:text =>
-                      "Earn #{points} Voting Power for voting on this topic."})
+                      "Raise your influence by #{points} points when you vote."})
         end
         return ""
     end

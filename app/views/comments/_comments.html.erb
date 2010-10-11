@@ -13,7 +13,7 @@
           <%= hidden_field_tag :vt_id, vote_topic.id%>
           <ul class="list_no_pad_no_style" style="margin-right: 0;">
             <li><%= f.textile_editor :body,  :class => "", :id => "comment_body" -%></li>
-            <li id="limit_status"></li>
+            <li><span id="limit_status" class="right-mar"></span> <span id="comment_status" class="left-mar"></span></li>
             <li><span class="small-button"><button id ="comment_submit">Comment</button></span></li>
           </ul>
           <%= textile_editor_initialize(:framework => :jquery) %>
@@ -22,8 +22,6 @@
     <% end  %>
   </div>
 </div>
-
-<div id="comment_status" class="span-18 last"></div>
 
 <div id ="comments" class="span-18 last">
   <div class="normal-pad" id="">
