@@ -22,5 +22,6 @@ class Tracking < ActiveRecord::Base
 
     def reset_tracking_cache
         Rails.cache.delete("vt_trackings_#{self.vote_topic_id}")
+        Rails.cache.delete("vt_trackings_#{self.vote_topic_id}_hash")
     end
 end
