@@ -2,7 +2,7 @@
   <% if !comment.nil? %>
     <%= render :partial => "/shared/ubox", :locals => {:user => comment.user} %>
     <%= RedCloth.new(comment.body).to_html %>
-    <div class="clear" id="">
+    <div class="prepend-top" id="">
       <% if current_user %>
         <% unless CommentLike.liked_by? current_user, comment.id %>
           <span class="small clike likeme" id="commentlike_<%= comment.id %>" onClick="likeComment($(this).attr('id'))">
