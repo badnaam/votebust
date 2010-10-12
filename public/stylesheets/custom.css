@@ -1,3 +1,4 @@
+
 .t-trigger {
     cursor:pointer;
 }
@@ -850,7 +851,7 @@ body a:hover {
     background-color: #fcfcfc;
     width:950px;
     background-color: #282842;
-    height:90px;
+    height:88px;
     border-bottom: 2px solid #F5722C;
 }
 .header_logo_div {
@@ -880,7 +881,7 @@ body a:hover {
     margin-right: 1.4em;
     font-size:1.2em;
     vertical-align: bottom;
-    color:white;
+    color:#E5E5E5;
     font-weight: bold;
 }
 .main_links_div li a:hover {
@@ -888,8 +889,7 @@ body a:hover {
 }
 
 .hover-nav {
-    background:#38385c none repeat scroll 0 0;
-    color:white !important;
+    color:#ffffff !important;
 }
 .selected a {
     -moz-background-clip:border;
@@ -975,6 +975,7 @@ body a:hover {
 .list_no_pad_no_style {
     list-style-type:none;
     padding:0;
+    margin-right: 0;
 }
 .list_no_pad_no_style li {
     padding:.2em;
