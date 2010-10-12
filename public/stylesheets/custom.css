@@ -1,4 +1,6 @@
-
+#recaptcha_widget_div {
+    background-color: #ffffff !important;
+}
 .t-trigger {
     cursor:pointer;
 }
@@ -74,7 +76,7 @@
     background-image: url(images/ui-icons_444444_256x240.png);
     float:left;
     border-left: 0 !important;
-    background-color: white;
+    background-color: #EDEFF4;
     width:16px;
     height:18px;
     padding:0 0 2px 0;
@@ -96,12 +98,11 @@
     padding:1px 5px 1px 10px;
     border: 0 !important;
     float:left;
-    background-image: url(images/ui-bg_flat_0_eeeeee_40x100.png);
+    background-image: url(images/ui-bg_flat_0_edeff4_40x100.png);
     width:189px;
     border:0;
     font-size:.9em;
 }
-
 
 .main-header {
     top:0;
