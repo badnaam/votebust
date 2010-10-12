@@ -7,6 +7,8 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 require 'thinking_sphinx/tasks'
+require 'thinking_sphinx/deltas/datetime_delta/tasks'
+
 
 
 require 'tasks/rails'
