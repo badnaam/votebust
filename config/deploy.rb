@@ -125,6 +125,10 @@ namespace :deploy do
         run "rm #{shared_path}/logrotate_script"
     end
 
+    task :clear_memcache do
+        set :rake_cmd, "cache_clear:memcache"
+        rake_exec
+    end
     task :package_assets do
         set :rake_cmd, "asset:packager:build_all"
         rake_exec
