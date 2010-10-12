@@ -2,7 +2,7 @@
   <ul class="top-mar vi-list-voted" id="vote_items_list_voted">
     <% vt.vote_items.each do |v| %>
       <% selected = selected_response.to_i == v.id ? true : nil %>
-      <li id="v-item-<%= v.id %>" class=" small loud <%= selected ?  "highlighted" : ""%>">
+      <li id="v-item-<%= v.id %>" class=" small loud <%= selected ?  'highlighted' : ''%>">
         <% if selected  %>
           <%= "#{(get_vote_percent v, vt.votes_count)} (your vote) " %>
         <% else %>
@@ -13,6 +13,7 @@
       <li class="option-separator"></li>
     <% end  %>
   </ul>
+
   <% facet = VoteFacet.find_for_show(vt.id) %>
   <% if !facet.nil? || !facet.blank? %>
     <div id ="facets" class="">

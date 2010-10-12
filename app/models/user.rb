@@ -23,12 +23,12 @@ class User < ActiveRecord::Base
 
     #    acts_as_voter
     has_many :posted_vote_topics, :foreign_key => :user_id, :class_name => 'VoteTopic',  :dependent => :destroy
-    has_many :trackings
+    has_many :trackings, :dependent => :destroy
     has_many :tracked_vote_topics, :class_name => "VoteTopic", :foreign_key => :vote_topic_id, :through => :trackings
     belongs_to :role
-    has_many :comments
-    has_many :comment_likes
-    has_many :votes
+    has_many :comments, :dependent => :destroy
+    has_many :comment_likes, :dependent => :destroy
+    has_many :votes, :dependent => :destroy
     has_many :friend_invite_messages, :dependent => :destroy
     has_many :interests, :dependent => :destroy
     attr_accessor :category_ids
@@ -269,6 +269,9 @@ class User < ActiveRecord::Base
         end
         if from_user.comments.size > 0
             to_user.comments << from_user.comments
+        end
+        if from_user.comment_likes > 0
+            to_user.comment_likes << from_user.comment_likes
         end
         #        to_user.vote_topics << from_user.vote_topics
         if from_user.posted_vote_topics.size > 0

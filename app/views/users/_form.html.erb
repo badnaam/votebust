@@ -10,75 +10,58 @@
 </script>
 <div><%=  flash[:recaptcha_error] %>
 </div>
+
 <% if !@user.new_record? %>
-<h4 class="normal-pad ui-widget-header append-bottom">Profile</h4>
   <div class="ui-widget-content normal-pad prepend-top append-bottom" id="">
-    <ul class="" id="" style="margin-bottom:0;">
+    <ul class="list_no_pad_no_style" id="" style="margin-bottom:0;">
       <% if @user.using_rpx? %>
         <li>You are using <%= @user.get_rpx_providers %> for authentication. You username and password does not need to be modified here.</li>
       <% else %>
-      <li>
-        If you do not want to change the password leave the password fields blank.
-      </li>
+        <li>
+          If you do not want to change the password leave the password fields blank.
+        </li>
       <% end  %>
     </ul>
   </div>
 <% end  %>
-<% semantic_form_for @user, :html => {:multipart => true} do |form| %>
-  <%= form.semantic_errors%>
+<div class="generic-bg normal-pad">
+  <% semantic_form_for @user, :html => {:multipart => true} do |form| %>
+    <%= form.semantic_errors%>
 
-  <% form.inputs do  %>
-    <% if form.object.new_record? %>
-      <li><%= link_to "Already have an account? Please login.", login_path, :class => 'bld big' %></li>
-      <li>Fields marked with * are required.</li>
-    <% end  %>
-    <% if !form.object.using_rpx? %>
-      <%= form.input :username, :input_html => {:style => "width:30%"}, :label => 'Username*' %>
-      <%= form.input :password, :label => form.object.new_record? ? "Password" : "Change password", :input_html => {:style => "width:30%"}, :label => "Password*" %>
-      <%= form.input :password_confirmation , :input_html => {:style => "width:30%"}, :label => "Password Confirmation*"%>
-    <% end  %>
-    <%= form.input :email, :input_html => {:style => "width:30%"} %>
-    <%= form.input :zip, :label => 'Your Zipcode', :input_html => {:style => "width:30%"} %>
-    <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1}, :label => "Gender*" %>
+    <% form.inputs do  %>
+      <% if form.object.new_record? %>
+        <li><%= link_to "Already have an account? Please login.", login_path, :class => 'bld big' %></li>
+        <li>Fields marked with * are required.</li>
+      <% end  %>
+      <% if !form.object.using_rpx? %>
+        <%= form.input :username, :input_html => {:style => "width:30%"}, :label => 'Username*' %>
+        <%= form.input :password, :label => form.object.new_record? ? "Password" : "Change password", :input_html => {:style => "width:30%"}, :label => "Password*" %>
+        <%= form.input :password_confirmation , :input_html => {:style => "width:30%"}, :label => "Password Confirmation*"%>
+      <% end  %>
+      <%= form.input :email, :input_html => {:style => "width:30%"} %>
+      <%= form.input :zip, :label => 'Your Zipcode', :input_html => {:style => "width:30%"} %>
+      <%= form.input :sex, :as => :radio, :collection => {"M" => 0, "F" => 1}, :label => "Gender*" %>
     <%#= form.input :age, :as => :select, :collection => Constants::USER_AGE_RANGE.map{|x| [x, x]}, :input_html => {:style => "width:30%"} %>
-    <%= form.input :birth_year, :as => :select, :collection => ((Time.now.year - 100)..(Time.now.year - 13)).to_a, :label => 'Year of Birth', :input_html => {:style => "width:30%"} %>
-    <% if !form.object.new_record? %>
-      <%= get_user_avatar form.object   %>
-    <% end  %>
-    <%= form.input :image %>
+      <%= form.input :birth_year, :as => :select, :collection => ((Time.now.year - 100)..(Time.now.year - 13)).to_a, :label => 'Year of Birth', :input_html => {:style => "width:30%"} %>
+      <% if !form.object.new_record? %>
+        <%= get_user_avatar form.object   %>
+      <% end  %>
+      <%= form.input :image %>
 
-    <% if form.object.new_record? %>
-      <li class="bld">Please enter the text as it appears in the image.</li>
-      <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
+      <% if form.object.new_record? %>
+        <li class="bld">Please enter the text as it appears in the image.</li>
+        <li><%= recaptcha_tags :display => {:theme => 'clean'} %></li>
+      <% end  %>
     <% end  %>
+
+    <ul>
+      <% if form.object.new_record? %>
+        <li style="margin-bottom:.5em !important;">Clicking Register means you accept <%= t 'site_name' %>'s  <a target="_blank" href="/privacy" class="" id="">Privacy Policy</a>
+          and <a href="/terms" target="_blank">Terms of Use.</a></li>
+      <% end  %>
+      <li>
+        <span class=""><button id="register_submit"><%= form.object.new_record? ? "Register" : "Update Profile" %></button></span>
+      </li>
+    </ul>
   <% end  %>
-
-  <% if @user.new_record? %>
-    <%#= rpx_popup( :link_text => ".. or register using RPX", :app_name => Constants::RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false ) %>
-  <% else %>
-
-    <% if @user.using_rpx? %>
-      <div class="prepend-top append-bottom ui-widget-content normal-pad">
-        <p>
-          This account is being authenticated by <%= @user.get_rpx_providers %>.
-        </p>
-        <p>
-          If you also use any of your <%= @user.unused_rpx_providers  %> accounts to login,
-          you can merge those accounts by clicking on the link below. Merging the accounts will keep all your VoteTopic, Comments, Voting Power under one account.
-        </p>
-        <span class="special-text bld clearfix" id="">
-          <%= rpx_popup( :link_text => "Merge Accounts", :app_name => Constants::RPX_APP_NAME, :return_url => addrpxauth_url, :add_rpx => true, :unobtrusive => false ) %>
-        </span>
-      </div>
-    <% end %>
-  <% end %>
-  <ul>
-    <% if form.object.new_record? %>
-      <li style="margin-bottom:.5em !important;">Clicking Register means you accept <%= t 'site_name' %>'s  <a target="_blank" href="/privacy" class="" id="">Privacy Policy</a>
-        and <a href="/terms" target="_blank">Terms of Use.</a></li>
-    <% end  %>
-    <li>
-      <span class=""><button id="register_submit"><%= form.object.new_record? ? "Register" : "Update Profile" %></button></span>
-    </li>
-  </ul>
-<% end  %>
+</div>

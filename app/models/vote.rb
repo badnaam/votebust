@@ -25,7 +25,7 @@ class Vote < ActiveRecord::Base
     end
     
     def self.process_votes
-        Rails.logger.info "Vote Processor Sarting"
+        Rails.logger.info "Vote Processor Starting"
         begin
             processed_count = 0
             deleted_count  = 0
