@@ -30,7 +30,7 @@ when 'production'
     job_type :prod_bg_rake, "cd :path && RAILS_ENV=production_bg /usr/bin/env rake :task"
     
     set :path, '/var/www/voteable/current'
-    set :output, '/var/www/voteable/share/log/cronjob_output.log'
+    set :output, '/var/www/voteable/shared/log/cronjob_output.log'
 
     every 30.minutes do
         prod_bg_rake "process_votes"
