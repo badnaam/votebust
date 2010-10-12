@@ -1,7 +1,7 @@
 class CommentLike < ActiveRecord::Base
     belongs_to :comment, :counter_cache => true
     belongs_to :user, :counter_cache => true
-    has_many :comment_likes
+    
     validates_uniqueness_of :user_id, :scope => :comment_id, :message => "You have already liked this comment"
 
     after_create :create_comment_like
@@ -19,6 +19,7 @@ class CommentLike < ActiveRecord::Base
         if !c.nil?
             c.user.award_points(1 * add)
             Rails.cache.delete("user_comment_like_count_#{c.user.id}")
+            Rails.cache.delete("comment_#{self.comment_id}")
         end
     end
 

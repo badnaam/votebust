@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
     skip_before_filter :require_user, :only => [:index]
     
     def index
-        @comments = Comment.get_comments(params[:vid], params[:vi_id], params[:page] || 1)
+#        @comments = Comment.get_comments(params[:vid], params[:vi_id], params[:page] || 1)
+        @comments = Comment.get_comment_ids(params[:vid], params[:vi_id], params[:page] || 1)
         respond_to do |format|
             format.js
         end

@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
     belongs_to :user
     belongs_to :vote_topic, :counter_cache => true
     belongs_to :vote_item, :counter_cache => true
-    
+    has_many :comment_likes, :dependent => :destroy
 
     validates_presence_of :body, :vote_topic_id, :user_id
     validates_length_of :body, :within => 1..Constants::MAX_COMMENT_LENGTH
@@ -25,6 +25,32 @@ class Comment < ActiveRecord::Base
 
     def self.cc_count id
         count(:conditions => ["vote_topic_id = ?", id])
+    end
+    
+    def self.get_comment_ids vid, vi_id, page
+        if vi_id.nil?
+            ch_key = "comments_#{vid}_others_#{cc_count vid}_#{page}"
+        else
+            vote_item = VoteItem.find(vi_id)
+            ch_key = "comments_#{vid}_#{vi_id}_#{vote_item.comments_count}_#{page}"
+        end
+        Rails.cache.fetch(ch_key) do
+            if vi_id.nil?
+                paginate(:select => "comments.id",:conditions => ['vote_topic_id = ? AND vote_item_id IS NULL AND approved = ?', vid, true],
+                    :order => 'created_at DESC', :page => page,
+                    :per_page => Constants::COMMENTS_AT_A_TIME)
+            else
+                paginate(:select => "comments.id",:conditions => ['vote_topic_id = ? AND vote_item_id = ? AND approved = ?', vid, vi_id, true],
+                    :order => 'created_at DESC', :page => page,
+                    :per_page => Constants::COMMENTS_AT_A_TIME)
+            end
+        end
+    end
+
+    def self.get_a_comment id
+        Rails.cache.fetch("comment_#{id}") do
+            Comment.find(id)
+        end
     end
     
     def self.get_comments vid, vi_id, page

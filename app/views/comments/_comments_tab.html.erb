@@ -2,6 +2,9 @@
   No comments.
 <% else %>
   <%= will_paginate(@comments, :params => {:paginated => 1}) %>
-  <%= render :partial=> "comments/comment", :collection => @comments, :as => :comment %>
+  <%#= render :partial=> "comments/comment", :collection => @comments, :as => :comment %>
+  <% @comments.each do |c| %>
+    <%= render :partial=> "comments/comment", :locals => {:comment => (Comment.get_a_comment c.id)} %>
+  <% end  %>
   <%= will_paginate(@comments, :params => {:paginated => 1}) %>
 <% end  %>
