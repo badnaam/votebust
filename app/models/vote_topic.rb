@@ -42,7 +42,7 @@ class VoteTopic < ActiveRecord::Base
     validates_length_of :friend_emails, :maximum => Constants::MAX_VOTE_TOPIC_FEMAILS, :allow_nil => true,
       :message => "Please keep the emails within #{Constants::MAX_VOTE_TOPIC_FEMAILS} characters."
     validate :valid_email?
-    validate :min_vote_items#, :if => :its_new?
+    validate :min_vote_items
     validates_associated :vote_items, :message => "Invalid Options"
     
     accepts_nested_attributes_for :vote_items, :limit => 5, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:option].blank? }
@@ -677,7 +677,19 @@ class VoteTopic < ActiveRecord::Base
             #            errors.add_to_base("Please specify at least two vote options")
             errors.add(:vote_items, "Please specify at least two vote options")
             return false
+        else
+            #may be something is marked for destruction
+#            count = 0
+#            total = self.vote_items.size
+#            self.vote_items.each do |v|
+#                count += 1 if v.marked_for_destruction?
+#            end
+#            if (total - count) < 2
+#                errors.add(:vote_items, "Please specify at least two vote options")
+#                return false
+#            end
         end
+        return true
     end
 
     def its_new?

@@ -13,6 +13,8 @@
     background-color: #EDEFF4;
 }
 .regular-button {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
     background-color: #282842;
     color: white;
     font-weight:bold;
@@ -275,7 +277,7 @@
     height:360px;
 
 }
-#vote_overlay .close {
+/*#vote_overlay .close {
     background:transparent url(/images/sprite.png) no-repeat scroll center center;
     background-position: 1px -188px;
     position:absolute;
@@ -284,7 +286,7 @@
     cursor:pointer;
     height:35px;
     width:35px;
-}
+}*/
 /**new vote overlay  end**/
 /* close button positioned on upper right corner */
 .simple_overlay .close {
@@ -1052,8 +1054,6 @@ body a:hover {
 }
 
 .dynform textarea {
-    /*    width:450px !important;*/
-    /*    max-width: 450px !important;*/
     height:100px !important;
     text-align: left;
 }
@@ -1062,14 +1062,13 @@ body a:hover {
     border:1px solid #38385c !important;
 }
 .dynform input {
-    /*    width:450px !important;*/
-    /*    max-width: 450px !important;*/
     height:16px !important;
 }
 
 .dynform button {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
     border: 1px solid #282842;
-/*    padding:.4em .7em .4em .7em;*/
     background-color: #282842;
     font-weight: bold;
     color: white;

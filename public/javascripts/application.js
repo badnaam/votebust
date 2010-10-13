@@ -100,7 +100,7 @@ function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVote
         })
     });
 
-    $('#vote_submit').click(function(){
+    $('#vote_submit').live('click', function(){
         $('#vote_topic_form').submit();
         return false;
     });
@@ -119,9 +119,6 @@ function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVote
                 hideLoading("#form_loading")
             }
         });
-        /**$.post($(this).attr('action'), $(this).serialize(), function(data) {
-        //hideLoading('#interest_loading');
-      }, "script");**/
         return false;
     });
 }
@@ -136,11 +133,24 @@ var ModalVoteForm = {
                 onBeforeLoad: function() {
                     // grab wrapper element inside content
                     var wrap = this.getOverlay().find(".contentWrap");
+                    var self = this;
                     // load the page specified in the trigger
-                    wrap.load(this.getTrigger().attr("href"));
+                    wrap.load(this.getTrigger().attr("href"), function() {
+                        $('#vote_close', this).live('click', function(){
+                            ModalVoteForm.close();
+                            //self.close();
+                            return false;
+                        });
+                        $('#edit_vote_close', this).live('click', function(){
+                            ModalVoteForm.close();
+                            //self.close();
+                            return false;
+                        });
+                    });
                 },
                 onLoad: function() {
                     setTimeout("configureVoteForm(200, 1000, 150)", 500);
+                    
                 },
                 onClose: function() {
                     $('.contentWrap').empty();

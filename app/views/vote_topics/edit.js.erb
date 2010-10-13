@@ -2,6 +2,7 @@
   <% if @saved == false %>
     $(".contentWrap").html("<%=  escape_javascript (render :partial => 'overlay_form') %>");
     setTimeout("configureVoteForm(<%=  Constants::MAX_VOTE_HEADER_LENGTH%>, <%= Constants::MAX_VOTE_TOPIC_LENGTH %>, <%= Constants::MAX_VOTE_ITEM_OPTION  %>)", 500);
+    ModalVoteForm.init();
   <% else %>
     <%=  render :partial => 'overlay_form' %>
   <% end  %>

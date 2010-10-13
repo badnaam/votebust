@@ -18,7 +18,7 @@
   method = :post
   msg = "New Vote"
 else 
- # url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
+  # url = scoped_update_vote_topic_path(@vote_topic.category, @vote_topic)
   url = vote_topic_path(:id => @vote_topic.id)
   method = :put
   msg = "Edit Vote"
@@ -48,11 +48,15 @@ end  %>
         <div class="error"><%= form.object.errors.on(:vote_items) %></div>
       <% end %>
       <div id ="vote_items">
+        <% option_count = 0 %>
         <% form.semantic_fields_for :vote_items do |f| %>
           <%= f.semantic_errors %>
           <div class="vote_item">
             <%= f.input :option, :input_html => {:style => "width:60%" }, :hint => "Option to vote on." %>
-            <%= remove_link_unless_new_record(f) %>
+            <% option_count += 1 %>
+            <% if option_count > 2 %>
+              <%= remove_link_unless_new_record(f)  %>
+            <% end  %>
           </div>
         <% end  %>
         <%= add_object_link "Add option", form, VoteItem.new, "vi", "#vote_items" %>
@@ -77,7 +81,14 @@ end  %>
           <%=  "#{t 'vote_topic.new.email_hints'}" %>
         </li>
       </div>
-      <li style="margin-top:1em" ><a href="#" id="vote_submit" class="regular-button">save</a></li>
+      <li style="margin-top:1em" class="center">
+        <a href="#" id="vote_submit" class="regular-button">save</a>
+        <% if @vote_topic.new_record? %>
+          <a href="#" id="vote_close" class="regular-button">close</a>
+        <% else %>
+          <a href="#" id="edit_vote_close" class="regular-button">close</a>
+        <% end  %>
+      </li>
     <% end  %>
     <!-- href="#" id="vote_submit" class="ui-state-hover">save</a> -->
   <% end  %>

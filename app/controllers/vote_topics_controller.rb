@@ -246,7 +246,7 @@ class VoteTopicsController < ApplicationController
             if @vote_topic.update_attributes(params[:vote_topic])
                 #increase edit count so we can refresh the user owned vote_topics cache
                 @vote_topic.poster.increment!(:edit_count, 1)
-                flash[:notice] = 'VoteTopic was successfully updated.'
+                flash[:success] = 'VoteTopic was successfully updated.'
                 #kill the cache
                 Rails.cache.delete("vt_#{@vote_topic.id}")
                 @saved = true
