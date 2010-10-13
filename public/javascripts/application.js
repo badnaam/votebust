@@ -8,7 +8,9 @@ function showCommentTools() {
     $("#textile-toolbar-comment_body").show();
     $("#comment_tools").show();
     $("#comment_body").css("height", "100px")
-    $("#comment_body").val('');
+    if ($("#comment_body").val() == "Discuss..") {
+        $("#comment_body").val('');
+    }
 }
 function incrementCount(id, add) {
     var val = parseInt($(id).text());
@@ -394,7 +396,9 @@ $(document).ready(function() {
     
     /****For comments**/
     $('#comment_submit').click(function() {
-        $('#new_comment').submit();
+        if ($("#comment_body").val().length > 0) {
+            $('#new_comment').submit();
+        }
         return false;
     });
 
