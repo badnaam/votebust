@@ -15,8 +15,9 @@ task :facet_update_start => :environment do
     VoteTopic.start_facet_update
 end
 
+desc 'updates flags on topics'
 task :update_vote_topic_flags => :environment do
-    Rails.logger.info "Start Vote Topic flag update Task Task"
+    Rails.logger.info "Start Vote Topic flag update Task"
     VoteTopic.process_vote_topic_flags
 end
 desc 'start vote processing'

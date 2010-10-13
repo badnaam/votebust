@@ -24,6 +24,7 @@ module VoteTopicsHelper
         end
         return (str << ('</span></div>'))
     end
+
     
     def flags v
         if v.flags.nil?
