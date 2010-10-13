@@ -92,6 +92,11 @@ function reloadHomeTab() {
 
 function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVoteItemLength) {
     $('.vote-form-more-details').live('click', function() {
+        if ($(this).text() == "More Details") {
+            $(this).text("Hide Details");
+        } else {
+            $(this).text("More Details");
+        }
         $('.vote-form-details').toggle(50,  function() {
             var pos = $('.vote-form-details').position().top;
             $('.contentWrap').scrollTop(pos);
