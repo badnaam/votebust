@@ -1179,7 +1179,7 @@ body a:hover {
     -webkit-border-radius:3px;
     border: 1px solid #282842;
     background-color: #282842;
-    font-weight: bold;
+/*    font-weight: bold;*/
     color: white;
     margin: 0.5em 1em 0 0;
 }

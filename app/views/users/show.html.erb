@@ -99,7 +99,7 @@ end  %>
         indicator : '<img src="../images/loading.gif">',
         tooltip   : 'Click to edit...'
       });
-      $('#email_profile').button({icons:{primary:'ui-icon-mail-closed'}}).click(function(){
+      $('#email_profile').click(function(){
         configureEmailOverlay("<%= current_user.username  %> wants to share a profile with you. \n", "share", "share", "profile",  "1");
         showEmailOverlay();
         return false;
@@ -216,7 +216,7 @@ end  %>
   </li>
   <% if current_user && owner%>
     <li>
-      <span class="small-button"><button id="email_profile">Email</button></span>
+      <span class="regular-button"  id="email_profile">Email</span>
     </li>
   <% end  %>
   </ul>
