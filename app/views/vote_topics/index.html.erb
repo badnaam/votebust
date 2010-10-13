@@ -13,14 +13,14 @@
 <% content_for :right_nav do %>
   <%#= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Categories", :load_path => categories_path(:type => "category_all"), :l_type => "category_all", :first => true} %>
   <% if request.parameters["city"] %>
-    <%  header = "Most Tracked in #{request.parameters['city']}" %>
+    <%  header = "Most Followed in #{request.parameters['city']}" %>
     <%  w_type = 'most_tracked_city'%>
     <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
       :l_type => w_type, :first => true} %>
   <% elsif request.parameters["state"]%>
-    <%  header = "Most Tracked in #{request.parameters['state']}"%>
+    <%  header = "Most Followed in #{request.parameters['state']}"%>
     <%  w_type = 'most_tracked_state' %>
-    <%= render :partial => "/shared/user_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
+    <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => header, :load_path => side_bar_index_vote_topics_path(:type => w_type),
       :l_type => w_type, :first => true} %>
   <% else %>
     <%= render :partial => "/shared/vote_side_bar_widget", :locals => {:header => "Most Voted", :load_path => side_bar_index_vote_topics_path(:type => "top_votes_min"),
