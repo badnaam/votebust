@@ -16,9 +16,10 @@ class Search < ActiveRecord::Base
 
     def self.city_search  city, per_page, page, order
         Rails.cache.fetch("#{city}_#{page}_#{order}") do
-            VoteTopic.search(:populate => true, :include => [:poster, :category],:geo => location_lat_lng_radian(city),
+            VoteTopic.search(:populate => true,:geo => location_lat_lng_radian(city),
                 :with => {"@geodist" => 0.0..(Constants::PROXIMITY * Constants::METERS_PER_MILE), :status => VoteTopic::STATUS[:approved]},
-                :latitude_attr => :lat, :longitude_attr => :lng, :per_page => per_page, :page => page, :order => (ModelHelpers.determine_order_search order))
+                :latitude_attr => :lat, :longitude_attr => :lng, :per_page => per_page, :page => page, :order => (ModelHelpers.determine_order_search order),
+            :include => [:poster, {:category => :slug}, :slug])
         end
     end
 
@@ -30,7 +31,7 @@ class Search < ActiveRecord::Base
     end
 
     def self.term_search term, per_page, page, order
-        VoteTopic.search term, :page => page, :per_page => per_page, :include => [:poster, :category], 
+        VoteTopic.search term, :page => page, :per_page => per_page, :include => [:poster, {:category => :slug}, :slug],
           :conditions => {:status => VoteTopic::STATUS[:approved]}, :order => (ModelHelpers.determine_order_search order)
     end
 end

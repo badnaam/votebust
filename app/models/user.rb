@@ -73,7 +73,8 @@ class User < ActiveRecord::Base
     
     def award_points points
         self.increment!(:voting_power, points)
-        CacheUtil.increment("user_vp_#{self.id}", points)
+        #CacheUtil.increment("user_vp_#{self.id}", points)
+        Rails.cache.delete("user_vp_#{self.id}")
     end
 
     def age

@@ -9,6 +9,12 @@
         <%= check_box_tag :update_yes, 1, current_user.update_yes %>
         <%= label_tag "Send me email updates about votes that match my interest." %>
       </li>
+      
+      <li>
+        <%= check_box_tag :status_update_yes, 1, current_user.status_update_yes %>
+        <%= label_tag "Send me email updates when my vote topics are approved/denied by moderators." %>
+      </li>
+      
       <li>
         <%= check_box_tag :local_update_yes, 1, current_user.local_update_yes %>
         <% if !current_user.city.nil? %>

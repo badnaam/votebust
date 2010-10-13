@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101011072929) do
+ActiveRecord::Schema.define(:version => 20101013190457) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20101011072929) do
     t.string   "user_ip",             :limit => 50
     t.string   "user_agent",          :limit => 50
     t.string   "referrer"
-    t.integer  "comment_likes_count"
+    t.integer  "comment_likes_count",               :default => 0
   end
 
   add_index "comments", ["user_id"], :name => "user_id"
@@ -211,6 +211,7 @@ ActiveRecord::Schema.define(:version => 20101011072929) do
     t.string   "about",               :limit => 250
     t.string   "status",              :limit => 140
     t.string   "hdline",              :limit => 140
+    t.boolean  "status_update_yes",                  :default => true
   end
 
   add_index "users", ["active"], :name => "active"

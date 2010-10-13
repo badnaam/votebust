@@ -42,6 +42,8 @@ class UsersController < ApplicationController
             current_user.update_attribute(:update_yes, v)
             l = params[:local_update_yes].nil? ? false : true
             current_user.update_attribute(:local_update_yes, l)
+            l = params[:status_update_yes].nil? ? false : true
+            current_user.update_attribute(:status_update_yes, l)
         rescue => exp
             flash[:error] = "Could not save preferences please try later."
         else
