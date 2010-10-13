@@ -127,7 +127,7 @@ class VoteTopicsController < ApplicationController
                 @selected_response = Vote.user_voted?(current_user.id, @vote_topic.id)
             end
         else
-            flash[:notice] = "This vote has not been approved yet"
+            flash[:error] = "This vote has not been approved yet"
             redirect_to :back
         end
         respond_to do |format|

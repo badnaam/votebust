@@ -21,7 +21,6 @@
   
   $('#comment_body').val("");
   update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
-  $('#comment_status').html('Comment posted');
 <% else %>
   $('#comment_status').html('Sorry comment could not be posted. Please try again.');
 <% end  %>
