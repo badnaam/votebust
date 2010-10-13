@@ -128,13 +128,13 @@ end  %>
         <td class ="val" rowspan="2" style="width:80%">
           <ul class="list_no_pad_no_style" id="">
             <% permitted_to? :update, @user do %>
-              <li> <span class="quiet small">headline</span></li>
+              <li class="nbm"> <span class="quiet small">headline</span></li>
             <% end  %>
             <li>
               <h3 id="headline"><%= headline @user %></h3>
             </li>
             <% permitted_to? :update, @user do %>
-              <li> <span class="quiet small">about me</span></li>
+              <li class="nbm"> <span class="quiet small">about me</span></li>
             <% end  %>
             <li>
               <div class="small" id="about">
