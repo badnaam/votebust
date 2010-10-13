@@ -1,7 +1,9 @@
 <div id="comment" class="comment append-bottom ui-widget-content normal-pad">
   <% if !comment.nil? %>
     <%= render :partial => "/shared/ubox", :locals => {:user => comment.user} %>
-    <%= RedCloth.new(comment.body).to_html %>
+    <div class="comment-body">
+      <%= RedCloth.new(comment.body).to_html %>
+    </div>
     <div class="prepend-top" id="">
       <% if current_user %>
         <% unless CommentLike.liked_by? current_user, comment.id %>

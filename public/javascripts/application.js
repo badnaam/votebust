@@ -1,3 +1,15 @@
+function hideCommentTools() {
+    $("#comment_tools").hide();
+    $("#textile-toolbar-comment_body").hide();
+    $("#comment_body").css("height", "25px")
+}
+
+function showCommentTools() {
+    $("#textile-toolbar-comment_body").show();
+    $("#comment_tools").show();
+    $("#comment_body").css("height", "100px")
+    $("#comment_body").val('');
+}
 function incrementCount(id, add) {
     var val = parseInt($(id).text());
     $(id).text(val + add);
@@ -386,6 +398,9 @@ $(document).ready(function() {
             primary:'ui-icon-comment'
         }
     }).click(function() {
+        //        ("#comment_tools").hide();
+        //        $("#comment_body").css("height", "25px")
+        //$("#textile-toolbar-comment_body").hide();
         $('#new_comment').submit();
         return false;
     });
@@ -394,6 +409,7 @@ $(document).ready(function() {
         showLoading('#com_submit_loading');
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             hideLoading('#com_submit_loading');
+            hideCommentTools();
         }, "script");
         return false;
     });

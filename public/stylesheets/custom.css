@@ -1,3 +1,19 @@
+#textile-toolbar-comment_body {
+    display: none;
+}
+.comment-body p {
+  /* The following styles prevent unbroken strings from breaking the layout */
+  overflow: auto;
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap; /* HP printers */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+/*  -moz-binding: url('xbl.xml#wordwrap');  Firefox (using XBL) */
+}
+
 #recaptcha_widget_div {
     background-color: #ffffff !important;
 }
@@ -724,7 +740,7 @@ div.profination a.disabled {
 .right {
     text-align: right;
 }
-.center {
+.center-t {
     text-align:center;
 }
 .bld {
@@ -1019,9 +1035,7 @@ body a:hover {
     padding-left: 0;
 }
 
-.left {
-    float:left;
-}
+
 .sprite {
     background:transparent url(/images/sprite.png) no-repeat scroll center center;
     overflow:hidden;
@@ -1030,6 +1044,85 @@ body a:hover {
     background-position: 1px -92px;
     padding-right:16px;
 }
+.bold {
+    background-position: 1px -106px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.italic {
+    background-position: 1px -122px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.underline {
+    background-position: 1px -139px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.strikethrough {
+    background-position: 1px -156px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.list_numbers {
+    background-position: 1px -220px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.list_bullets {
+    background-position: 1px -239px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.paragraph {
+    background-position: 1px -257px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.outdent {
+    background-position: 1px -274px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.indent {
+    background-position: 1px -292px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.left {
+    background-position: 1px -310px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.center {
+    background-position: 1px -328px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.right {
+    background-position: 1px -345px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.justify {
+    background-position: 1px -363px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+
 .logo-image {
     background-position:1px -4px;
     padding-bottom: 35px;
@@ -1053,7 +1146,7 @@ body a:hover {
 }
 
 #comment_form textarea {
-    height:100px;
+    height:25px;
     width:685px;
 }
 

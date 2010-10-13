@@ -119,7 +119,7 @@ end  %>
         <td class="val" style="width:20%">
           <div id="user_image" class="user-image">
             <%= get_large_user_avatar(@user)%>
-            <span class="big-vote-power clearfix top-mar center t-trigger">
+            <span class="big-vote-power clearfix top-mar center-t t-trigger">
               <%= @user.voting_power %>
             </span>
             <%= render :partial => "/shared/tooltip", :locals => {:text => "My Influence Score"} %>
@@ -188,7 +188,7 @@ end  %>
 
 <div class="span-18 last" id="">
   <div id="loading" style="display:none">
-    <div class="loading-inner-center" ></div>
+    <div class="loading-inner-center-t" ></div>
   </div>
   <div class="normal-pad top-border" id="content_area">
 
@@ -222,7 +222,7 @@ end  %>
   <hr/>
   <% if owner %>
     <div class="" id ="invite">
-      <div class="normal-pad ui-state-hover bld rounded-corners clike center" id="invite">
+      <div class="normal-pad ui-state-hover bld rounded-corners clike center-t" id="invite">
         invite friends
       </div>
     </div>

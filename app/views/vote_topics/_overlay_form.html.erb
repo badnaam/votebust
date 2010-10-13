@@ -24,7 +24,7 @@ else
   msg = "Edit Vote"
 end  %>
 
-<h4 class="form-header center bottom-mar nbm"><%= msg %></h4>
+<h4 class="form-header center-t bottom-mar nbm"><%= msg %></h4>
 <div class="quiet small" id="">
   Fields marked with * are required
 </div>
@@ -81,7 +81,7 @@ end  %>
           <%=  "#{t 'vote_topic.new.email_hints'}" %>
         </li>
       </div>
-      <li style="margin-top:1em" class="center">
+      <li style="margin-top:1em" class="center-t">
         <a href="#" id="vote_submit" class="regular-button">save</a>
         <% if @vote_topic.new_record? %>
           <a href="#" id="vote_close" class="regular-button">close</a>

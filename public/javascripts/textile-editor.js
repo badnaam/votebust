@@ -94,7 +94,7 @@ TextileEditor.Methods = {
     for(var i = 0; i < buttons.length; i++) {
     //$A(toolbar.getElementsByTagName('button')).each(function(button) {
       if (!buttons[i].onclick) {
-        buttons[i].onclick = function() { te.insertTag(this); return false; }
+        buttons[i].onclick = function() {te.insertTag(this);return false;}
       } // end if
       
       buttons[i].tagStart = buttons[i].getAttribute('tagStart');
@@ -123,9 +123,14 @@ TextileEditor.Methods = {
       theButton.setAttribute('tagEnd', button.tagEnd);
       theButton.setAttribute('open', button.open);
 
-      var img = document.createElement('img');
-      img.src = '/images/textile-editor/' + button.display;
-      theButton.appendChild(img);
+
+      //var img = document.createElement('img');
+      //img.src = '/images/textile-editor/' + button.display;
+      //var img_span = "<span class='sprite " + button.display + "' ></span>";
+      var img_span = document.createElement('span');
+      img_span.setAttribute("class", "sprite " + button.display);
+      //img.src = '/images/textile-editor/' + button.display;
+      theButton.appendChild(img_span);
     } else {
       return button;
     } // end if !custom

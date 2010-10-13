@@ -1,9 +1,9 @@
 <div class="standard-border generic-bg">
-<h4 class="form-header center bottom-mar" id="email_form_header"></h4>
+<h4 class="form-header center-t bottom-mar" id="email_form_header"></h4>
 <div class="quiet small normal-pad" id="">
   Fields marked with * are required
 </div>
-<div class="normal-pad center">
+<div class="normal-pad center-t">
   <% semantic_form_for FriendInviteMessage.new, :html => {:actilaon => friend_invite_message_path(), :id => 'email_form'} do |f| %>
     <%= f.semantic_errors %>
     <% f.inputs do %>

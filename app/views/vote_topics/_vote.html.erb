@@ -85,7 +85,12 @@
 <% if current_user %>
       handleCommentText(<%= Constants::MAX_COMMENT_LENGTH %>);
       //and fire it on doc ready, too
-       update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
+      update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
+      $("#comment_body").val('Discuss..');
+      $("#comment_body").click(function(e) {
+        e.stopPropagation();
+        showCommentTools();
+      });
 <%end%>
     $('.pagination a').live("click", function () {
       $(this).addClass('loading-link');

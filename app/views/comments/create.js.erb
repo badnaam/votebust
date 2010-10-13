@@ -19,7 +19,7 @@
     $('#tabs').tabs('select', "#<%= selected_tab_content%>" );
   }
   
-  $('#comment_body').val("");
+  $('#comment_body').val("Discuss..");
   update_chars_left(<%= Constants::MAX_COMMENT_LENGTH %>, $('#comment_body')[0], $('#limit_status'));
 <% else %>
   $('#comment_status').html('Sorry comment could not be posted. Please try again.');

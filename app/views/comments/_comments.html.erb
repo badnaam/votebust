@@ -12,9 +12,11 @@
           <%= hidden_field_tag :selected_response_for_comment, selected_response_for_comment%>
           <%= hidden_field_tag :vt_id, vote_topic.id%>
           <ul class="list_no_pad_no_style" style="margin-right: 0;">
-            <li><%= f.textile_editor :body,  :class => "", :id => "comment_body" -%></li>
-            <li><span id="limit_status" class="right-mar small quiet"></span> <span id="comment_status" class="left-mar small quiet"></span></li>
-            <li><span class="small-button"><button id ="comment_submit">Discuss</button></span></li>
+            <li class="nbm"><%= f.textile_editor :body,  :class => "", :id => "comment_body" -%></li>
+            <li class="inv" id="comment_tools">
+              <span id="limit_status" class="right-mar small quiet"></span> <span id="comment_status" class="left-mar small quiet"></span>
+              <span class="small-button go-right"><button id ="comment_submit">Discuss</button></span>
+            </li>
           </ul>
           <%= textile_editor_initialize(:framework => :jquery) %>
         <% end %>
