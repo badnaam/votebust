@@ -33,11 +33,12 @@
     -webkit-border-radius:3px;
     background-color: #282842;
     color: white;
-    font-weight:bold;
+/*    font-weight:bold;*/
     margin: 0.5em 1em .5em 0;
-    padding:.4em 1.2em .4em 1.2em;
+    padding:.2em 1.2em .2em 1.2em;
     cursor:pointer;
     border:1px solid #282842;
+    font-size:12px;
     
 }
 .standard-border {
@@ -88,10 +89,12 @@
     float:right;
 }
 .search-button {
-    background-position: -160px -110px;
+/*    background-position: -160px -110px;*/
+    background-position: -1px -380px;
     display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat;
     /*    background-image: url(images/ui-icons_f55c19_256x240.png);*/
-    background-image: url(images/ui-icons_444444_256x240.png);
+/*    background-image: url(images/ui-icons_444444_256x240.png);*/
+    background-image: url(/images/sprite.png);
     float:left;
     border-left: 0 !important;
     background-color: #EDEFF4;
@@ -1042,6 +1045,10 @@ body a:hover {
 }
 .small-close {
     background-position: 1px -92px;
+    padding-right:16px;
+}
+.tag {
+    background-position: 1px -400px;
     padding-right:16px;
 }
 .bold {

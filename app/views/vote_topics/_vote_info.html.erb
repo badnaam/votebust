@@ -13,7 +13,7 @@ end
     <tr>
       <td style="width:40%">
         <span class="small " id="">
-          <span class="ui-icon ui-icon-tag "></span>
+          <!--<span class="ui-icon ui-icon-tag "></span>-->
           <%= link_to "#{vt.category.name}, ", category_vote_topics_path(vt.category.to_param) %>
           <%= link_to "#{vt.poster.city}, ", city_vote_topics_path(vt.poster.city, :order => 'distance') %>
           <%= link_to "#{vt.poster.state}", state_vote_topics_path(vt.poster.state, :order => 'recent') %>

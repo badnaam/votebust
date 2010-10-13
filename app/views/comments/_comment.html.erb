@@ -8,7 +8,7 @@
       <% if current_user %>
         <% unless CommentLike.liked_by? current_user, comment.id %>
           <span class="small clike likeme" id="commentlike_<%= comment.id %>" onClick="likeComment($(this).attr('id'))">
-            <span class="ui-icon ui-icon-heart"></span>Like</span>
+            Like</span>
             <%= like comment, false %>
           <% else %>
             <%= like comment, true %>

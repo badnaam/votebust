@@ -393,14 +393,7 @@ $(document).ready(function() {
     posMenus();
     
     /****For comments**/
-    $('#comment_submit').button({
-        icons:{
-            primary:'ui-icon-comment'
-        }
-    }).click(function() {
-        //        ("#comment_tools").hide();
-        //        $("#comment_body").css("height", "25px")
-        //$("#textile-toolbar-comment_body").hide();
+    $('#comment_submit').click(function() {
         $('#new_comment').submit();
         return false;
     });

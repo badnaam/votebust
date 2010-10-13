@@ -1,7 +1,7 @@
 <script type="text/javascript">
   //<![CDATA[
   $(document).ready(function(){
-    $('#register_submit').button({icons:{primary:'ui-icon-circle-check'}}).click(function(){
+    $('#register_submit').click(function(){
       $('form').submit();
       return false;
     });
@@ -60,7 +60,7 @@
           and <a href="/terms" target="_blank">Terms of Use.</a></li>
       <% end  %>
       <li>
-        <span class=""><button id="register_submit"><%= form.object.new_record? ? "Register" : "Update Profile" %></button></span>
+        <span class="regular-button" id="register_submit"><%= form.object.new_record? ? "Register" : "Update Profile" %></span>
       </li>
     </ul>
   <% end  %>
