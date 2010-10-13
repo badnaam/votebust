@@ -475,6 +475,10 @@ html, body {
     vertical-align: top;
 }
 
+.rounded-corners {
+    -moz-border-radius : 4px;
+    -webkit-border-radius: 4px;
+}
 .clike {
     cursor:pointer;
 }

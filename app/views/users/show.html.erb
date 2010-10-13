@@ -166,9 +166,7 @@ end  %>
         <a class="live-link" href="<%= interests_path %>" class="" id="interests" >
           interests
         </a>
-        <a href="#" class="" id="invite" >
-          invite friends
-        </a>
+
       <% end  %>
       <a class="live-link" href="<%= url_for(:controller => :users, :action => :vp_stats, :id => @user.id) %>" class="" id="influence">
         influence
@@ -221,6 +219,15 @@ end  %>
   </ul>
   <%#= render :partial => 'profile_help' %>
 
+  <hr/>
+  <% if owner %>
+    <div class="" id ="invite">
+      <div class="normal-pad ui-state-hover bld rounded-corners clike center" id="invite">
+        Invite Friends
+      </div>
+    </div>
+  <% end  %>
+  
   <% if !owner %>
     <%= render :partial => "/shared/user_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
         top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => true} %>
