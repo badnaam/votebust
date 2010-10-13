@@ -1,6 +1,6 @@
 <ul class="top-mar vi-list" id="vote_items_list_unvoted">
   <%@vote_topic.vote_items.each do |v| %>
-    <li id="v-item-<%= v.id %>" class="loud small">
+    <li id="v-item-<%= v.id %>" class="loud">
       <a href="#" id="<%= v.id %>" class="vote normal">
         <span class="ui-icon-check ui-icon vote-icon" ></span>
         <%= v.option %>
