@@ -127,6 +127,7 @@ end  %>
         </td>
         <td class ="val" rowspan="2" style="width:80%">
           <ul class="list_no_pad_no_style" id="">
+            <li><h4 class="nbm bld"><%= @user.username %></h4></li>
             <% permitted_to? :update, @user do %>
               <li class="nbm"> <span class="quiet small">headline</span></li>
             <% end  %>
@@ -147,7 +148,9 @@ end  %>
                 <%= status @user %>
               </div>
             </li>
-            <li class="r-t-a"><span class="small quiet">click on a field to edit</span></li>
+            <% if owner %>
+              <li class="r-t-a"><span class="small quiet">click on a field to edit</span></li>
+            <% end  %>
           </ul>
         </td>
       </tr>
@@ -227,7 +230,7 @@ end  %>
       </div>
     </div>
   <% end  %>
-  
+
   <% if !owner %>
     <%= render :partial => "/shared/user_side_bar_widget", :locals => {:header => "Top Voters", :load_path =>
         top_voters_users_path(:type => "top_voters"), :l_type => "top_voters", :first => true} %>
