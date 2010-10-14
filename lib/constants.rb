@@ -37,6 +37,7 @@ class Constants
     RPX_APP_NAME = "votebust"
 
     SMART_COL_LIMIT = 5
+    HOME_PAGE_SMART_COL_LIMIT = 15
     SMART_COL_LATEST_LIMIT = 7.days
     SMART_COL_USER_LIMIT = 14 #increment of 7
 

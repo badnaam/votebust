@@ -177,12 +177,14 @@ class VoteTopic < ActiveRecord::Base
     end
     
     def self.city_search origin, limit, page, order
+        
         if limit
             #handle space in the city name, todo = should be this zip code instead?
             Rails.cache.fetch("#{origin.gsub(' ', '')}_ltd_#{city_list_key origin}") do
+                order = 'distance' 
                 find(:all, :conditions => ['vote_topics.status = ?', STATUS[:approved]], :order => (ModelHelpers.determine_order order),
                     :include => [ :poster, {:category => :slug}, :slug],
-                    :limit => Constants::SMART_COL_LIMIT, :origin => origin, :within => Constants::PROXIMITY)
+                    :limit => Constants::HOME_PAGE_SMART_COL_LIMIT, :origin => origin, :within => Constants::PROXIMITY)
             end
         else
             Rails.cache.fetch("#{origin.gsub(' ', '')}_#{page}_#{order}_#{city_list_key origin}") do
@@ -223,7 +225,7 @@ class VoteTopic < ActiveRecord::Base
             Rails.cache.fetch("limited_vote_topics_#{list_key}") do
                 order = (ModelHelpers.determine_order order)
                 find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
-                    :limit => Constants::SMART_COL_LIMIT)
+                    :limit => Constants::HOME_PAGE_SMART_COL_LIMIT)
             end
         else
             Rails.cache.fetch("all_vote_topics_#{page}_#{order}_#{list_key}") do

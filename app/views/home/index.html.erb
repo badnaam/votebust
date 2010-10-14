@@ -17,8 +17,6 @@
         },  
         dataType:'script',
         success:function(){
-          //$('#loading').hide();
-          // $('#tabs').animate({opacity:1.0}, 'slow', function() {});
         }
       }
     }
@@ -31,11 +29,11 @@
 
 <div class="span-18 last" id="">
   <div class="normal-pad home-info" id="">
-      <% if current_user %>
+    <% if current_user %>
       <h4 class="normal-pad bld append-bottom bottom-border">Developing trends in the community and your city</h4>
-      <% else %>
-        <h4 class="normal-pad bld append-bottom bottom-border">Developing trends in the community</h4>
-      <% end  %>
+    <% else %>
+      <h4 class="normal-pad bld append-bottom bottom-border">Developing trends in the community</h4>
+    <% end  %>
     <div class="" id="">
       <a href="#" class="big bld special-text small go-right" rel="#how_overlay">How do I use <%= t 'site_name' %>?</a>
     </div>
@@ -47,7 +45,9 @@
     <%= link_to "Featured", vote_topics_path(:listing_type => "featured_all") %>
     <%= link_to "Highly Followed", vote_topics_path(:listing_type => "most_tracked_all") %>
     <%= link_to "Most Discussed", vote_topics_path(:listing_type => "most_discussed_all") %>
-    <%= link_to "You are following", vote_topics_path(:listing_type => "most_tracked_all") %>
+    <% if current_user %>
+      <%= link_to "You are following", user_path(current_user) %>
+    <% end  %>
   </div>
 </div>
 
@@ -105,6 +105,6 @@
   }()
 );
 </script>
-  <div class="ui-widget-content simple_overlay ui-corner-all" id="how_overlay" style="">
+<div class="ui-widget-content simple_overlay ui-corner-all" id="how_overlay" style="">
   Coming soon!
-  </div>
+</div>

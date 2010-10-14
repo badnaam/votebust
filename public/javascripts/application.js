@@ -1,21 +1,21 @@
 function liveLoad(url) {
     $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'html',
-      beforeSend :function() {
-        showLoading("#loading")
-      },
-      success : function(data){
-        $("#content_area").html(data);
-      },
-      error : function(){},
-      complete:function(){
-        hideLoading("#loading");
-        ModalVoteForm.init();
-      }
+        url: url,
+        type: 'GET',
+        dataType: 'html',
+        beforeSend :function() {
+            showLoading("#loading")
+        },
+        success : function(data){
+            $("#content_area").html(data);
+        },
+        error : function(){},
+        complete:function(){
+            hideLoading("#loading");
+            ModalVoteForm.init();
+        }
     });
-  }
+}
 
 function hideCommentTools() {
     $("#comment_tools").hide();
@@ -62,7 +62,7 @@ function showEmailOverlay() {
 }
 
 function configureEmailOverlay(label, header, email_type, link) {
-//    $("#friend_invite_message_message").val(link);
+    //    $("#friend_invite_message_message").val(link);
     $('#msg_submit').text(label);
     $('#email_form_header').text(header);
     $('#email_type').val(email_type);
@@ -97,7 +97,6 @@ function likeComment(cid) {
 
 function reloadHomeTab() {
     var selected = $( "#home_tabs" ).tabs( "option", "selected" );
-    //    $('#home_tabs').tabs('load', selected);
     var selector = "#ui-tabs-" + (selected + 1);
     $(selector).animate({
         opacity: 0
@@ -106,7 +105,6 @@ function reloadHomeTab() {
         opacity : 1
     }, 500, function(){}
         );
-
 }
 
 function configureVoteForm(maxVoteTopicHeaderLength, maxVoteTopicLength, maxVoteItemLength) {
@@ -552,7 +550,7 @@ $(document).ready(function() {
             return false;
         })
     }
-/************** end intro prezo **************/
+    /************** end intro prezo **************/
     $("#profile_link").click(function() {
         $(".user-links").toggle();
     })

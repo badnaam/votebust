@@ -1295,6 +1295,9 @@ input[type=text]:focus, input[type=password]:focus, input.text:focus, input.titl
     padding:.1em .2em .1em .2em;
     /*    border: 2px solid black;*/
 }
+.user-header li {
+    margin-bottom:.2em;
+}
 .influence-table {
     border-bottom: 1px dotted #dddddd;
 }

@@ -110,16 +110,16 @@ end  %>
           </div>
         </td>
         <td class ="val" rowspan="2" style="width:80%">
-          <ul class="list_no_pad_no_style" id="">
-            <li><h4 class="nbm bld"><%= @user.username %></h4></li>
+          <ul class="list_no_pad_no_style user-header" id="">
+            <li><h4 class= "bld"><%= @user.username %></h4></li>
             <% permitted_to? :update, @user do %>
-              <li class="nbm"> <span class="quiet small">headline</span></li>
+              <li class=""> <span class="quiet small">headline</span></li>
             <% end  %>
             <li>
-              <h3 id="headline"><%= headline @user %></h3>
+              <h3 id="headline" class="nbm"><%= headline @user %></h3>
             </li>
             <% permitted_to? :update, @user do %>
-              <li class="nbm"> <span class="quiet small">about me</span></li>
+              <li class=""> <span class="quiet small">about me</span></li>
             <% end  %>
             <li>
               <div class="small" id="about">
