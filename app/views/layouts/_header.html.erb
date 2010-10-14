@@ -23,22 +23,31 @@
       <%= render :partial => "/shared/cat_nav_list" %>
       <%= render :partial => "/shared/city_nav_list" %>
 
-      <ul class="header_links">
-        <% unless  current_user %>
+
+      <% unless  current_user %>
+        <ul class="header_links">
           <li><%= link_to "sign up", sign_up_path, :id => 'main_sign_up_link', :class=> 'special-text'%></li>
           <li><%= link_to "login", login_path, :id => 'main_login_link' %></li>
-        <% else %>
-          <li><%= link_to current_user.username + " profile", current_user, :id => 'main_profile_link' %>
-          </li>
-          <li><%= link_to "logout", logout_path  %></li>
-        <% end %>
-        <li>
-          <a href="/vote_topics/rss" class="sprite rss-image" id="">
-            &nbsp;
-          </a>
-          <%= auto_discovery_link_tag(:rss, rss_vote_topics_url(:format => 'rss')) %>
-        </li>
-      </ul>
+        </ul>
+      <% else %>
+        <div class="header_links" id="">
+          <div id="profile_link" class="go-right left-mar">
+            <%= current_user.username %>
+            <span class="ui-icon ui-icon-triangle-1-s"></span>
+          </div>
+          <div class="go-right">
+            <%= get_user_avatar current_user %>
+          </div>
+        </div>
+        <div class="user-links inv" >
+          <ul class="list_no_pad_no_style">
+            <li><%= link_to "my profile", current_user, :id => 'main_profile_link' %>
+            </li>
+            <li><%= link_to "logout", logout_path  %></li>
+          </ul>
+        </div>
+      <% end %>
+
     </div>
 
     <!-- <sup>&trade;</sup> -->

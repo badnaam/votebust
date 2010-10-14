@@ -368,25 +368,29 @@ function prepareToolTip() {
 }
 
 function posMenus() {
-    if ($('.header').length > 0) {
+    if ($('.header').length > 0 && $('.header_links').length > 0) {
         //var selector = "#home_nav a";
         var selector = ".header";
         var headerSelector = ".header"
+        var selectorHeaderLinks = ".header_links"
+
         var pos = $(selector).offset();
-        //added afte redesign
-        
-        //end
         var width = $(headerSelector).width();
         var height = $(selector).outerHeight();
         //show the menu directly over the placeholder
 
         $("#cat_menu").css( {
             "left": (pos.left) + "px",
-            "top":(  height) + "px"
+            "top":(pos.top +   height) + "px"
         });
+        $(".user-links").css( {
+            "left": ($(selectorHeaderLinks).offset().left) + "px",
+            "top":(pos.top + height) + "px"
+        });
+        
         $("#city_menu").css( {
             "left": (pos.left) + "px",
-            "top":(height) + "px"
+            "top":(pos.top + height) + "px"
         });
     }
 }
@@ -549,7 +553,9 @@ $(document).ready(function() {
         })
     }
 /************** end intro prezo **************/
-    
+    $("#profile_link").click(function() {
+        $(".user-links").toggle();
+    })
 });
 
 /** $('.pagination a').live("click", function () {

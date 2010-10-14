@@ -888,6 +888,23 @@ body a:hover {
 .header_logo_div {
     color:black;
 }
+#profile_link {
+    cursor:pointer;
+}
+.user-links ul {
+    text-align: right;
+}
+.user-links ul li {
+    padding :.4em;
+}
+.user-links {
+    width:190px;
+    position:absolute;
+    z-index:30;
+    background-color:#282842;
+    -moz-border-radius:0 0 4px 4px;
+    -webkit-border-radius : 0 0 4px 4px;
+}
 .header_links {
     display:inline;
     overflow:hidden;
