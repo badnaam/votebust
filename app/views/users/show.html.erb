@@ -17,25 +17,7 @@ end  %>
 
 <script type="text/javascript">
   //<![CDATA
-  function liveLoad(url) {
-    $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'html',
-      beforeSend :function() {
-        showLoading("#loading")
-      },
-      success : function(data){
-        $("#content_area").html(data);
-      },
-      error : function(){},
-      complete:function(){
-        hideLoading("#loading");
-        ModalVoteForm.init();
-      }
-    });
-  }
-
+  
   function cleanCurrent() {
     $("div.profination a").each(function() {
       $(this).removeClass("current");
@@ -51,11 +33,13 @@ end  %>
         return false;
       });
     });
-    $('#invite').live('click', function() {
-      configureEmailOverlay("Check this out!", "send", "invite friends", "invite", "0");
-      showEmailOverlay();
-      return false;
-    });
+<% if current_user %>
+      $('#invite').live('click', function() {
+        configureEmailOverlay("send", "invite friends", "invite", "0");
+        showEmailOverlay();
+        return false;
+      });
+<%  end %>
 
     $('#profile_edit').button({icons:{primary:'ui-icon-key'}})
     
@@ -100,7 +84,7 @@ end  %>
         tooltip   : 'Click to edit...'
       });
       $('#email_profile').click(function(){
-        configureEmailOverlay("<%= current_user.username  %> wants to share a profile with you. \n", "share", "share", "profile",  "1");
+        configureEmailOverlay("share", "share", "profile",  "1");
         showEmailOverlay();
         return false;
       });

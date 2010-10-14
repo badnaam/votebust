@@ -4,8 +4,8 @@ class FriendInviteMessagesController < ApplicationController
         @fim = FriendInviteMessage.create(params[:friend_invite_message])
         @fim.user_id = current_user.id
         if @fim.save
-            flash[:success] = "Message sent! Feel free to invite more."
-            @fim.delay.deliver_friend_invite_message! params[:email_type]
+            flash[:success] = "Message sent! Feel free to send more."
+            @fim.delay.deliver_friend_invite_message!(params[:email_type], @fim)
         else
             flash[:error] = "Failed to send message. Please make sure email addresses are corrrect."
         end

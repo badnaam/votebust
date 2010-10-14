@@ -4,17 +4,12 @@
   </head>
   <body>
     <p>
-      Your friend at <%= link_to @site_name, root_url  %> has invited you to join <%= @site_name %>.
-    </p>
-    <p>
-      <%= @friend_invitation.message %>
+      Your friend <%= @friend_invitation.user.username %> at <%= link_to @site_name, root_url  %> has invited you to join <%= @site_name %> and share your opinion by voting.
     </p>
     <p>
       <%= @site_name %> is a community for gathering collective public opinion any topic. See you there!
     </p>
-
     <p>
-      Sincerely,<br/>
       The <%= @site_name %> team.
     </p>
   </body>

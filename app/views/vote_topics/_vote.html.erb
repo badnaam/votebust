@@ -106,7 +106,7 @@
     });
 <%if current_user%>
       $('#email_vote').click(function(){
-        configureEmailOverlay("<%= current_user.username  %> wants to share this vote with you. \n \n", "share", "share", "vote", "1")
+        configureEmailOverlay("share", "share", "vote", "1")
         showEmailOverlay();
         return false;
       });

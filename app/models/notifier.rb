@@ -77,7 +77,7 @@ class Notifier < ActionMailer::Base
         bcc           emails
         sent_on       Time.now
         content_type "multipart/alternative"
-        body          :vote_topic => vote_topic, :site_name => APP_CONFIG['site_name']
+        body          :vote_topic => vote_topic, :site_name => APP_CONFIG['site_name'], :vote_url => scoped_vote_topic_url(vote_topic.category, vote_topic)
     end
     
     def new_vote_notification(vote_topic)

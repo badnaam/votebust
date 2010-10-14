@@ -1,15 +1,16 @@
 <html>
   <head>
-    <title>Vote <%= @site_name  %></title>
+    <title>profile from <%= @site_name  %></title>
   </head>
   <body>
     <p>
-      <%= @friend_invitation.message %>
+      <%= @friend_invitation.user.username %> wants to share a profile with you .
+      <br/>
+      <%= @friend_invitation.shared_url %>
     </p>
     <p>
       <%= @site_name %> is a community for gathering collective public opinion any topic. See you there!
     </p>
-
     <p>
       The <%= @site_name %> team.
     </p>

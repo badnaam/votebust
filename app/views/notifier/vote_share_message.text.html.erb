@@ -1,10 +1,13 @@
 <html>
   <head>
-    <title>Vote <%= @site_name  %></title>
+    <title>Vote at <%= @site_name  %></title>
   </head>
   <body>
     <p>
-      <%= @friend_invitation.message %>
+      <%= @friend_invitation.user.username %> wants your opinion in a vote.
+      <br>
+      <%= @friend_invitation.shared_url %>.
+      </br>
     </p>
     <p>
       <%= @site_name %> is a community for gathering collective public opinion any topic. See you there!

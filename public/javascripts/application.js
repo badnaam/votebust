@@ -1,3 +1,22 @@
+function liveLoad(url) {
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'html',
+      beforeSend :function() {
+        showLoading("#loading")
+      },
+      success : function(data){
+        $("#content_area").html(data);
+      },
+      error : function(){},
+      complete:function(){
+        hideLoading("#loading");
+        ModalVoteForm.init();
+      }
+    });
+  }
+
 function hideCommentTools() {
     $("#comment_tools").hide();
     $("#textile-toolbar-comment_body").hide();
@@ -42,8 +61,8 @@ function showEmailOverlay() {
 
 }
 
-function configureEmailOverlay(msg, label, header, email_type, link) {
-    $("#friend_invite_message_message").val((link == "1") ? (msg + document.location.href) : msg);
+function configureEmailOverlay(label, header, email_type, link) {
+//    $("#friend_invite_message_message").val(link);
     $('#msg_submit').text(label);
     $('#email_form_header').text(header);
     $('#email_type').val(email_type);
@@ -515,6 +534,10 @@ $(document).ready(function() {
 
     if ($('#msg_submit').length > 0) {
         $("#msg_submit").click(function() {
+            var et = $("#email_type").val();
+            if (et == "vote" || et == "profile") {
+                $("#friend_invite_message_shared_url").val(document.location.href);
+            }
             $("#email_form").submit();
         })
     }

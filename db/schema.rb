@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013190457) do
+ActiveRecord::Schema.define(:version => 20101014002513) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20101013190457) do
     t.boolean  "sent",       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "shared_url"
   end
 
   add_index "friend_invite_messages", ["user_id"], :name => "user_id"
