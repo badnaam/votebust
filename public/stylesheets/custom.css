@@ -281,7 +281,7 @@
 }
 .new-vote-overlay {
     z-index:100;
-    height:400px;
+    height:350px;
     display:none;
     width:600px;
     /*    padding:.5em;*/
@@ -296,7 +296,7 @@
 }
 .contentWrap {
     overflow-y:auto;
-    height:400px;
+    height:350px;
 
 }
 /*#vote_overlay .close {
