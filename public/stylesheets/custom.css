@@ -950,9 +950,11 @@ body a:hover {
     margin-right:0.4em;
     padding:1em 0.2em;
     vertical-align:bottom;
+    outline:none;
 }
 .main_links_div li a:hover {
     color:#C6D880;
+    outline:none;
 }
 
 .hover-nav {
