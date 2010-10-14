@@ -334,6 +334,7 @@
 body a {
     /*    color:#598F49;*/
     color:#255280;
+    outline:none;
 
     /*    font-weight:bold;*/
     text-decoration:none;
