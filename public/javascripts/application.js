@@ -368,9 +368,9 @@ function prepareToolTip() {
 }
 
 function posMenus() {
-    if ($('.main_links_div').length > 0) {
+    if ($('.header').length > 0) {
         //var selector = "#home_nav a";
-        var selector = ".main_links_div";
+        var selector = ".header";
         var headerSelector = ".header"
         var pos = $(selector).offset();
         //added afte redesign
@@ -382,11 +382,11 @@ function posMenus() {
 
         $("#cat_menu").css( {
             "left": (pos.left) + "px",
-            "top":( pos.top + height) + "px"
+            "top":(  height) + "px"
         });
         $("#city_menu").css( {
             "left": (pos.left) + "px",
-            "top":(pos.top + height) + "px"
+            "top":(height) + "px"
         });
     }
 }
