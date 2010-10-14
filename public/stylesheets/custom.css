@@ -110,7 +110,7 @@
     margin-right: 0;
     float:left;
     width: 230px;
-    margin-top: .2em;
+    margin-top: .3em;
 
 }
 .div-search-form input[type="text"] {
@@ -1104,6 +1104,12 @@ body a:hover {
     background-position: 1px -400px;
     padding-right:16px;
 }
+.white-down {
+    background-position: 1px -414px;
+    padding-right:16px;
+    height:12px;
+    width:12px;
+}
 .bold {
     background-position: 1px -106px;
     padding-right:16px;
@@ -1204,6 +1210,7 @@ body a:hover {
     padding-right: 16px;
 
 }
+
 
 #comment_form textarea {
     height:25px;

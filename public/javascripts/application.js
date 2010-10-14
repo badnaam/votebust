@@ -249,9 +249,9 @@ function update_chars_left(max_len, target_input, display_element) {
     var text_len = target_input.value.length;
     if (text_len >= max_len) {
         target_input.value = target_input.value.substring(0, max_len); // truncate
-        display_element.html("0 characters left");
+        display_element.html("0");
     } else {
-        display_element.html((max_len - text_len) + " characters left");
+        display_element.html((max_len - text_len) + "");
     }
 }
 function setVotingCounter(inter) {
