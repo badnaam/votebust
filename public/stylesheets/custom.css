@@ -518,7 +518,7 @@ html, body {
     display:none;
     font-weight: normal !important;
     /*    width:160px;*/
-    padding:4px;
+    padding:10px;
     font-size:.8em;
     z-index: 10;
     color:white;
