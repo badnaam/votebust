@@ -43,6 +43,7 @@ module ApplicationHelper
             return image_tag user.image.url(:small), :class=>'profile-image', :alt=>'avatar'
         end
     end
+    
     def get_large_user_avatar user
         if !user.image_url.nil?
             return image_tag user.image_url, :class => 'profile-image-large', :alt => 'avataar'
@@ -53,7 +54,7 @@ module ApplicationHelper
 
     def get_user_avatar_link user, anon=false
         if anon
-            return image_tag Constants::MISSING_IMAGE_FILE
+            return image_tag Constants::MISSING_IMAGE_FILE, :class=> 'profile-image',:alt => 'avatar'
         else
             if !user.image_url.nil?
                 return link_to(image_tag(user.image_url,:class=> 'profile-image',:alt => 'avatar'), user_path(user))
