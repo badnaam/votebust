@@ -1,3 +1,8 @@
+.test-close {
+    background: url(/images/close.png) 50% 50% repeat-x;
+    background-color:#282842;
+    border:2px solid white;
+}
 #textile-toolbar-comment_body {
     display: none;
 }
@@ -1111,6 +1116,35 @@ body a:hover {
     height:12px;
     width:12px;
 }
+.discussion-icon {
+    background-position: 1px -422px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+    margin-left:4px;
+}
+.voter-icon {
+    background-position: 1px -440px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+    margin-left: 4px;
+}
+.white-plus {
+    background-position: 1px -488px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+    margin-right:4px;
+}
+.minus {
+    background-position: 1px -472px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+    margin-right:4px;
+}
+
 .bold {
     background-position: 1px -106px;
     padding-right:16px;

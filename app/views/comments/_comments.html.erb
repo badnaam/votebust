@@ -1,6 +1,7 @@
 <div id="comments_container" class="prepend-top span-18 last generic-bg">
   <div class="normal-pad">
-    <h4 class="bld bottom-mar">Discussion</h4>
+    <h4 class="bld bottom-mar">Discussion <span class="sprite discussion-icon"></span></h4>
+    
     <% if current_user.nil? %>
       <%= link_to "Please login to comment", login_path, :class => "bld small"  %>
     <% else %>
