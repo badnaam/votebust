@@ -11,7 +11,8 @@ class Vote < ActiveRecord::Base
     acts_as_mappable
 
     def refresh_vote_cache
-        Rails.cache.delete("vt_votes_#{self.vote_topic.id}")
+        Rails.cache.delete("vt_votes_#{self.vote_topic_id}")
+        Rails.cache.delete("vt_stats_#{self.vote_topic_id}")
     end
     
     def self.user_voted?(user_id, vote_topic_id)
