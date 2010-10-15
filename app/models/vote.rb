@@ -43,11 +43,6 @@ class Vote < ActiveRecord::Base
                 :error_message => exp
             )
             Rails.logger.error "Error occured during batch processing votes"
-#            error_hash = Hash.new
-#            error_hash[:job_name] = "Batch Vote Update"
-#            error_hash[:message] = exp.message
-#            error_hash[:backtrace] = exp.backtrace.join("\n")
-#            Notifier.delay.deliver_job_error "Batch Vote Update", error_hash
         else
             Rails.logger.info  "Vote Processor processed #{processed_count} votes and deleted #{deleted_count} votes"
         end

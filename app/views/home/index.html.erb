@@ -105,6 +105,30 @@
   }()
 );
 </script>
-<div class="ui-widget-content simple_overlay" id="how_overlay" style="">
-  
+<div class=" simple_overlay" id="how_overlay" style="">
+  <h2 class="ui-state-hover center-t nbm">
+    <%= t 'site_name' %> helps you find out the collective public opinon.
+  </h2>
+  <div class="ui-state-default" id="">
+    <ul class="prepend-top append-bottom" id="">
+      <li class="large bld bottom-mar">
+        Browse votes and follow one if it looks interesting
+      </li>
+      <li class="large bld bottom-mar">
+        Find out collective public opinion in your location or in areas that interest you
+      </li>
+      <li class="large bld bottom-mar">
+        Feeling less influential?...vote or start a vote or post an interesting discussion. Earn some influence score!
+      </li>
+      <li class="large bld bottom-mar">
+        Use your influence and bring voters to your vote.
+      </li>
+      <% if !current_user %>
+        <li class="large bld bottom-mar">
+          <%= link_to "Sign up", "/signup", :class => "special-text"  %>
+        </li>
+      <% end  %>
+    </ul>
+  </div>
+
 </div>

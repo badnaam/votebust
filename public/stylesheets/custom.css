@@ -245,21 +245,20 @@
 }
 
 .simple_overlay {
-    /* must be initially hidden */
     display:none;
-    /* place overlay on top of other elements */
+    background-color: #ffffff;
     z-index:10;
-    /* styling */
-    /*    background-color:#38385C;*/
     width:946px;
-    min-height:300px;
+/*    min-height:300px;*/
     border:2px solid white;
-    /* CSS3 styling for latest browsers */
     -moz-box-shadow:0 0 90px 5px #000;
     -webkit-box-shadow: 0 0 90px #000;
+    border:10px solid #666;
+    border:10px solid rgba(82, 82, 82, 0.698);
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
 }
 
-/**new vote overlay **/
 .contentWrap form.formtastic fieldset ol li {
     margin-bottom: .5em !important;
 }
