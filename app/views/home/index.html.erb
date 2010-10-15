@@ -46,7 +46,7 @@
     <%= link_to "Highly Followed", vote_topics_path(:listing_type => "most_tracked_all") %>
     <%= link_to "Most Discussed", vote_topics_path(:listing_type => "most_discussed_all") %>
     <% if current_user %>
-      <%= link_to "You are following", user_path(current_user) %>
+      <%= link_to "You are following", user_path(current_user, :s => "following") %>
     <% end  %>
   </div>
 </div>

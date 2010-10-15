@@ -12,7 +12,7 @@
 </div>
 
 <% if !@user.new_record? %>
-  <div class="ui-widget-content normal-pad prepend-top append-bottom" id="">
+  <div class="ui-widget-content normal-pad" id="">
     <ul class="list_no_pad_no_style" id="" style="margin-bottom:0;">
       <% if @user.using_rpx? %>
         <li>You are using <%= @user.get_rpx_providers %> for authentication. You username and password does not need to be modified here.</li>

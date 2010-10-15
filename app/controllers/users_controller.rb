@@ -89,16 +89,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        #        if !registration_complete?
-        #            redirect_to edit_user_path(current_user)
-        #        else
         @user = User.find(params[:id])
-        if current_user && current_user.to_param == params[:id]
-            @fim = FriendInviteMessage.new
-        end
-        #        end
-        #        @fim = current_user.friend_invite_messages.build
         
+#        if current_user && current_user.to_param == params[:id]
+#            @fim = FriendInviteMessage.new
+#        end
     end
 
     def edit

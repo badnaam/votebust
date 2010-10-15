@@ -31,9 +31,11 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
+#  database: voteable_test
   database: nap_on_it_test
   pool: 5
   username: root
+#  password: d0ntd01t
   password: test
   socket: /var/run/mysqld/mysqld.sock
 

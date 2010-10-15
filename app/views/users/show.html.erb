@@ -57,7 +57,13 @@ end  %>
       })
       return false;
     });
-    $("#votes_started").click();
+
+<% if request.parameters[:s] %>
+$("#<%= request.parameters[:s] %>").click();
+<%else%>
+  $("#votes_started").click();
+<%end%>
+    
 <%if current_user && owner%>
       $('#headline').editable("<%= update_headline_user_path(current_user.id) %>", {
         cancel    : 'Cancel',
@@ -210,7 +216,7 @@ end  %>
   <% if owner %>
     <div class="" id ="invite">
       <span class="regular-button" id="invite">
-        invite friends
+        Invite friends
       </span>
     </div>
   <% end  %>
