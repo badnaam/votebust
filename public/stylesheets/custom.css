@@ -390,7 +390,7 @@ html, body {
 }
 .flash-notice {
     /*    background:#A89645;color:#ffffff;border-color:#8E7F3B;*/
-    background:#EDEFF4;color:#282842;border-color:#DCE0E8;
+        background:#EDEFF4;color:#282842;border-color:#DCE0E8;
 }
 .flash-success{
     /*    background:#8A9E37;color:#ffffff;border-color:#69782C;*/
@@ -889,6 +889,11 @@ body a:hover {
 }
 .user-links ul li {
     padding :.4em;
+    color:#E5E5E5;
+}
+.user-links ul li:hover {
+    background-color:#1F1F33;
+    color:#ffffff;
 }
 .user-links {
     width:190px;
@@ -908,7 +913,10 @@ body a:hover {
     width:190px;
     text-align: right;
     padding: .3em 0;
-
+    color:#E5E5E5;
+}
+.header_links:hover {
+    color:#ffffff;
 }
 
 .header_links_div {
