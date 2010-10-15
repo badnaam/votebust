@@ -529,7 +529,7 @@ $(document).ready(function() {
     });**/
 
     if ($.cookie('show_voteable_intro') == '1') {
-        //$("a[rel='#intro_prezo']").click();
+        $("a[rel='#how_overlay']").click();
         $.cookie('show_voteable_intro', '0')
     }
     setInterval(reloadHomeTab, 10000);
