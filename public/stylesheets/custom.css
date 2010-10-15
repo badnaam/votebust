@@ -967,7 +967,9 @@ body a:hover {
 }
 
 .hover-nav {
+    background-color:#1F1F33;
     color:#ffffff !important;
+
 }
 .selected a {
     -moz-background-clip:border;
