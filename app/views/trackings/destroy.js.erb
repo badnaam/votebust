@@ -1,4 +1,6 @@
-$("#tracking").html("<a href='<%= trackings_path(:vt_id => request.parameters[:vt_id])%>'  id='track_link' class='track' >Follow</a>");
-$("#tracking").removeClass("ui-state-default").addClass("ui-state-hover");
+//$("#tracking").html("<a href='<%= trackings_path(:vt_id => request.parameters[:vt_id])%>'  id='track_link' class='track' ><span class='regular-button'>Follow</span></a>");
+$("#track_link").attr("href", "<%= trackings_path(:vt_id => request.parameters[:vt_id])%>").removeClass("untrack").addClass("track").
+html("<span class='regular-button'>Follow</span>");
+//$("#tracking").removeClass("ui-state-default").addClass("ui-state-hover");
 $('.tracking-count').html("<%=  VoteTopic.get_tracking_count(request.parameters[:vt_id]) %> followers");
 <%=  render :partial => 'layouts/flash_js_msg' %>

@@ -61,8 +61,9 @@
 }
 
 .follow-container {
-    border-bottom: 1px dotted #dddddd;
+    border-top:  1px dotted #dddddd;
     padding-bottom: .5em;
+    padding-top: .5em;
     margin-bottom: .5em;
     margin-top:.4em;
 }
@@ -390,7 +391,7 @@ html, body {
 }
 .flash-notice {
     /*    background:#A89645;color:#ffffff;border-color:#8E7F3B;*/
-        background:#EDEFF4;color:#282842;border-color:#DCE0E8;
+    background:#EDEFF4;color:#282842;border-color:#DCE0E8;
 }
 .flash-success{
     /*    background:#8A9E37;color:#ffffff;border-color:#69782C;*/
@@ -447,6 +448,9 @@ html, body {
 }
 .left-pad {
     padding-left :.5em !important;
+}
+#vote_items_list_unvoted li:hover {
+    border-bottom: 1px solid #EDEFF4;
 }
 .vi-list {
     /* border: 1px solid #dddddd;*/
@@ -627,6 +631,7 @@ blockquote span  {
 }
 .vi-list li {
     padding:.2em .2em .5em .2em;
+    margin-bottom: 1em;
     /*    margin-bottom: .5em;*/
 }
 .no-style-no-border {
@@ -758,7 +763,7 @@ div.profination a.disabled {
     padding:.2em;
 }
 .normal-pad {
-    padding:.4em;
+    padding:0 .4em .4em .4em;
 }
 .go_left {
     float:left;
@@ -794,6 +799,10 @@ div.profination a.disabled {
 }
 .loading-link {
     background:transparent url(/images/loading-link.gif) no-repeat scroll center center;
+}
+.loading-small {
+    background:transparent url(/images/loading.gif) no-repeat scroll center center;
+    padding:0 16px 2px;
 }
 .loading-inner-center {
     background:transparent url(/images/loading_big.gif) no-repeat scroll center center;
@@ -1000,7 +1009,7 @@ body a:hover {
 
 .right_nav {
     background-color:white;
-    margin-top: .4em;
+    /*    margin-top: .4em;*/
 }
 
 
@@ -1097,6 +1106,7 @@ body a:hover {
     background:transparent url(/images/sprite.png) no-repeat scroll center center;
     overflow:hidden;
 }
+
 .small-close {
     background-position: 5px -92px;
     padding-right:16px;
@@ -1142,6 +1152,12 @@ body a:hover {
 
 .bold {
     background-position: 1px -106px;
+    padding-right:16px;
+    height:16px;
+    width:16px;
+}
+.check {
+    background-position: 1px -519px;
     padding-right:16px;
     height:16px;
     width:16px;
@@ -1262,19 +1278,29 @@ body a:hover {
 .regular-button {
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
-    background-color: #282842;
+    background: #282842 url(images/ui-bg_highlight-soft_60_282842_1x100.png) 50% 50% repeat-x;
     color: white;
-    /*    font-weight:bold;*/
     margin: 0.5em 1em .5em 0;
     padding:.2em 1.2em .2em 1.2em;
     cursor:pointer;
     border:1px solid #282842;
     font-size:12px;
-/*    background-position: 1px -520px;*/
-/*    background-repeat: repeat-x;*/
-/*    background:url(/images/sprite.png) repeat scroll center center;*/
     overflow:hidden;
 }
+
+.regular-button-ns {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color: #EDEFF4;
+    color:#444444;
+    margin: 0.5em 1em .5em 0;
+    padding:.2em 1.2em .2em 1.2em;
+    cursor:pointer;
+    border:1px solid #282842;
+    font-size:12px;
+    overflow:hidden;
+}
+
 .dynform input:focus {
     border:1px solid #38385c !important;
 }

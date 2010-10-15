@@ -1,16 +1,18 @@
 <% if current_user %>
   <div class="follow-container">
     <% if (t = vt.is_being_tracked? current_user.id) %>
-      <div class="normal-pad center-t ui-state-default" id="tracking">
+      <div class="" id="tracking">
         <a href="<%= tracking_path(:vt_id => vt.id, :id => t) %>" id="track_link" class="untrack">
-          Unfollow
+          <span class='regular-button-ns'>Unfollow</span>
         </a>
+        <span id="follow-load" class="loading-small inv"></span>
       </div>
     <% else %>
-      <div class="normal-pad center-t ui-state-hover" id="tracking">
-        <a href="<%= trackings_path(:vt_id => vt.id) %>" class="" id="track_link" class="track">
-          Follow
+      <div class="" id="tracking">
+        <a href="<%= trackings_path(:vt_id => vt.id) %>"  id="track_link" class="track">
+          <span class='regular-button'>Follow</span>
         </a>
+        <span id ="follow_load" class="loading-small inv"></span>
       </div>
     <% end %>
   </div>
