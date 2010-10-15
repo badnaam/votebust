@@ -39,8 +39,8 @@ end
 
       <td style="width:30%">
         <span class="ui-state-normal ">
-          <span class=" small-pad small loud" id="">
-            <%= Rails.cache.fetch("vt_votes_#{vt.id}") do vt.votes_count end %> votes
+          <span class=" small-pad small loud" id="vote_count">
+            <%= vt.get_latest_count %> votes
           </span>
         </span>
         <span class="ui-state-normal ">

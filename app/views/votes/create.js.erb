@@ -6,3 +6,4 @@ $('.vote-stat').html("<%= escape_javascript(render :partial => '/vote_topics/vot
     :vt => VoteTopic.find_for_stats(request.parameters[:id], request.parameters[:category])})%>");
 
 $('.vote-stat').toggle('slow');
+$('#vote_count').text("<%= VoteTopic.get_latest_count request.parameters[:id] %> votes");

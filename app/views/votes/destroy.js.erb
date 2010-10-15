@@ -2,3 +2,4 @@
 $('#selected_response_for_comment').val('');
 $('#voted_state').hide('slow');
 $('#unvoted_state').show('slow');
+$('#vote_count').text("<%= VoteTopic.get_latest_count request.parameters[:id] %> votes");

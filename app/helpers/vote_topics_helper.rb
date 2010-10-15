@@ -138,7 +138,7 @@ module VoteTopicsHelper
         if !facet.w.nil?
             str << "<li>#{get_facet_message 'w', facet.w}</li>"
         end
-        if !facet.dag.nil?
+        if !facet.dag.nil? && !facet.dag.empty?
             str << "<li>#{get_facet_message 'dag', facet.dag}</li>"
         end
         if !facet.vl.nil?

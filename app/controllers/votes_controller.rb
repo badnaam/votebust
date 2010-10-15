@@ -15,7 +15,7 @@ class VotesController < ApplicationController
     def create
         v = Vote.create(:vote_topic_id => params[:id], :user_id => params[:user_id], :vote_item_id => params[:response])
         if v.valid?
-            Rails.cache.delete("vtstat_#{params[:id]}")
+#            Rails.cache.delete("vtstat_#{params[:id]}")
             flash[:success] = "Your vote has been accepted. You just raised your influence by #{request.parameters[:power_points]} points!"
         else
             flash[:error] = "#{v.errors.join(',')}"

@@ -5,14 +5,13 @@ class Vote < ActiveRecord::Base
 
     validates_uniqueness_of :user_id, :scope => [:vote_topic_id], :message => "You have already voted."
 
-    after_create :increment_vote_cache
+    after_create :refresh_vote_cache
+    after_destroy :refresh_vote_cache
     
     acts_as_mappable
 
-    def increment_vote_cache
-        CacheUtil.increment("vt_votes_#{self.vote_topic.id}", 1)
-        #delete the stat cache too
-        Rails.cache.delete("vt_stats_#{self.vote_topic.id}")
+    def refresh_vote_cache
+        Rails.cache.delete("vt_votes_#{self.vote_topic.id}")
     end
     
     def self.user_voted?(user_id, vote_topic_id)

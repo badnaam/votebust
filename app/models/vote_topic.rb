@@ -681,15 +681,15 @@ class VoteTopic < ActiveRecord::Base
             return false
         else
             #may be something is marked for destruction
-#            count = 0
-#            total = self.vote_items.size
-#            self.vote_items.each do |v|
-#                count += 1 if v.marked_for_destruction?
-#            end
-#            if (total - count) < 2
-#                errors.add(:vote_items, "Please specify at least two vote options")
-#                return false
-#            end
+            #            count = 0
+            #            total = self.vote_items.size
+            #            self.vote_items.each do |v|
+            #                count += 1 if v.marked_for_destruction?
+            #            end
+            #            if (total - count) < 2
+            #                errors.add(:vote_items, "Please specify at least two vote options")
+            #                return false
+            #            end
         end
         return true
     end
@@ -770,6 +770,18 @@ class VoteTopic < ActiveRecord::Base
     end
     def self.state_list_key state
         VState.find_by_sql("select vote_topics_count from v_states where v_states.name = '" + state + "'" ).first.vote_topics_count
+    end
+    
+    def get_latest_count
+        Rails.cache.fetch("vt_votes_#{self.id}") do
+            self.votes_count
+        end
+    end
+    
+    def self.get_latest_count id
+        Rails.cache.fetch("vt_votes_#{id}") do
+            find(id, :select => "votes_count").votes_count
+        end
     end
     
     def self.ca_key
