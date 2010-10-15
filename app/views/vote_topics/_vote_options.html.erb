@@ -5,8 +5,9 @@
     </li>
   <% end  %>
   <% if !current_user %>
-    <li class="no-style-no-border right bld small " ><%= link_to "Login to Vote/See Results", login_path, :class => '' %></li>
+    <li class="prepend-top no-style-no-border r-t-a bld small " ><%= link_to "Login to Vote/See Results", login_path, :class => '' %></li>
   <% elsif current_user && !registration_complete? %>
-    <li class="no-style-no-border right " ><%= link_to "Complete Registration to Vote/See Results", edit_user_path(current_user), :class => 'normal-pad ui-state-default'%></li>
+    <li class="no-style-no-border r-t-a prepend-top" ><%= link_to "Complete Registration to Vote/See Results", edit_user_path(current_user),
+  :class => 'normal-pad ui-state-default'%></li>
   <% end  %>
 </ul>

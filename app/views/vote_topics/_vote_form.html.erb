@@ -17,7 +17,7 @@
   <% facet = VoteFacet.find_for_show(vt.id) %>
   <% if !facet.nil? || !facet.blank? %>
     <div id ="facets" class="">
-      <h5 class="bottom-border bld bottom-mar">About the voters<span class="sprite voter-icon"></span></h5>
+      <h5 class="bottom-border bld bottom-mar"><span class="sprite voter-icon"></span>About the voters</h5>
       <div class="" id="">
         <ul class="facet-list">
           <%= print_facet facet %>

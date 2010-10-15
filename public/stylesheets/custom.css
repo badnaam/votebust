@@ -1,8 +1,4 @@
-.test-close {
-    background: url(/images/close.png) 50% 50% repeat-x;
-    background-color:#282842;
-    border:2px solid white;
-}
+
 #textile-toolbar-comment_body {
     display: none;
 }
@@ -33,19 +29,7 @@
 .generic-bg {
     background-color: #EDEFF4;
 }
-.regular-button {
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    background-color: #282842;
-    color: white;
-    /*    font-weight:bold;*/
-    margin: 0.5em 1em .5em 0;
-    padding:.2em 1.2em .2em 1.2em;
-    cursor:pointer;
-    border:1px solid #282842;
-    font-size:12px;
 
-}
 .standard-border {
     border:1px solid #282842;
 }
@@ -318,13 +302,16 @@
 /* close button positioned on upper right corner */
 .simple_overlay .close {
     background:transparent url(/images/sprite.png) no-repeat scroll center center;
-    background-position: 1px -188px;
+    /*    background-position: 1px -188px;*/
     position:absolute;
-    right:-15px;
-    top:-15px;
+    right:-11px;
+    top:-10px;
     cursor:pointer;
-    height:35px;
-    width:35px;
+    height:18px;
+    width:18px;
+    background-position: 1px -504px;
+    background-color:#282842;
+    border:2px solid #c2c2c6;
 }
 .simple-flash-overlay .close {
     background-image:url(/images/close.png);
@@ -1121,14 +1108,14 @@ body a:hover {
     padding-right:16px;
     height:16px;
     width:16px;
-    margin-left:4px;
+    margin-right:4px;
 }
 .voter-icon {
     background-position: 1px -440px;
     padding-right:16px;
     height:16px;
     width:16px;
-    margin-left: 4px;
+    margin-right: 4px;
 }
 .white-plus {
     background-position: 1px -488px;
@@ -1150,6 +1137,13 @@ body a:hover {
     padding-right:16px;
     height:16px;
     width:16px;
+}
+.test-close {
+    background-position: 1px -504px;
+    background-color:#282842;
+    border:2px solid #c2c2c6;
+    height:18px;
+    width:18px;
 }
 .italic {
     background-position: 1px -122px;
@@ -1257,6 +1251,22 @@ body a:hover {
     text-align: left;
 }
 
+.regular-button {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color: #282842;
+    color: white;
+    /*    font-weight:bold;*/
+    margin: 0.5em 1em .5em 0;
+    padding:.2em 1.2em .2em 1.2em;
+    cursor:pointer;
+    border:1px solid #282842;
+    font-size:12px;
+/*    background-position: 1px -520px;*/
+/*    background-repeat: repeat-x;*/
+/*    background:url(/images/sprite.png) repeat scroll center center;*/
+    overflow:hidden;
+}
 .dynform input:focus {
     border:1px solid #38385c !important;
 }

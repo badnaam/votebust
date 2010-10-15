@@ -3,13 +3,11 @@
     <% if (t = vt.is_being_tracked? current_user.id) %>
       <div class="normal-pad center-t ui-state-default" id="tracking">
         <a href="<%= tracking_path(:vt_id => vt.id, :id => t) %>" id="track_link" class="untrack">
-          <span class="sprite minus"></span>
           Unfollow
         </a>
       </div>
     <% else %>
       <div class="normal-pad center-t ui-state-hover" id="tracking">
-        <span class="sprite white-plus"></span>
         <a href="<%= trackings_path(:vt_id => vt.id) %>" class="" id="track_link" class="track">
           Follow
         </a>

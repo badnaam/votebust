@@ -322,7 +322,7 @@ function showFlash(msg, tp) {
     }
 
     var flashContainer = $("<div id='flash_messages_container' class='flash-messages " +  tp  + " '></div>");
-    flashContainer.prepend("<div id='flash_messages_content'>" + msg + "<span class='go-right closeb' id='close_flash'></span></div>");
+    flashContainer.prepend("<div id='flash_messages_content'>" + msg + "<span class='go-right sprite test-close' id='close_flash'></span></div>");
     $('body').prepend(flashContainer);
     flashContainer.animate({
         opacity : .1
