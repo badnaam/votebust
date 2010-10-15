@@ -187,7 +187,7 @@ end  %>
 
 <% content_for :right_nav do %>
   <ul class="list_no_pad_no_style" id="">
-    <li class="big bld dotted-bottom">Share  Profile</li>
+    <li class="big bld ui-widget-header">Share  Profile</li>
     <li>
     <fb:like layout="button_count" href="<%= share_url %>" width="200" ></fb:like>
   </li>
@@ -209,9 +209,9 @@ end  %>
   <hr/>
   <% if owner %>
     <div class="" id ="invite">
-      <div class="normal-pad ui-state-hover bld rounded-corners clike center-t" id="invite">
+      <span class="regular-button" id="invite">
         invite friends
-      </div>
+      </span>
     </div>
   <% end  %>
 
