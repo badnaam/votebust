@@ -1,4 +1,0 @@
-<%# cache(:latest_votes, :expires_in => 5.minutes) do %>
-  <% votes = VoteTopic.latest_votes %>
-  <%= render :partial => "/layouts/vote_side_bar", :locals => {:votes => votes, :header => "Busted Recently"} %>
-<%# end  %>

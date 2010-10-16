@@ -1,9 +1,379 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  message: MyString
-  emails: MyText
-
-two:
-  message: MyString
-  emails: MyText
+--- 
+friend_invite_messages_037: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:21:21
+  sent: "0"
+  updated_at: 2010-10-14 01:21:21
+  id: "37"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_026: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 00:51:54
+  sent: "0"
+  updated_at: 2010-10-14 00:51:54
+  id: "26"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_015: 
+  shared_url: 
+  created_at: 2010-10-07 18:42:06
+  sent: "0"
+  updated_at: 2010-10-07 18:42:06
+  id: "15"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_004: 
+  shared_url: 
+  created_at: 2010-09-25 18:28:45
+  sent: "0"
+  updated_at: 2010-09-25 18:28:45
+  id: "4"
+  user_id: "9"
+  emails: asitkmishra@gmail.com
+  message: Come here
+friend_invite_messages_038: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:22:31
+  sent: "0"
+  updated_at: 2010-10-14 01:22:32
+  id: "38"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_027: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 00:53:22
+  sent: "0"
+  updated_at: 2010-10-14 00:54:05
+  id: "27"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_016: 
+  shared_url: 
+  created_at: 2010-10-09 22:59:18
+  sent: "0"
+  updated_at: 2010-10-09 22:59:18
+  id: "16"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: Check this out!
+friend_invite_messages_005: 
+  shared_url: 
+  created_at: 2010-09-25 22:31:25
+  sent: "0"
+  updated_at: 2010-09-25 22:31:26
+  id: "5"
+  user_id: "9"
+  emails: luisgdiaz@me.com
+  message: come and vote
+friend_invite_messages_039: 
+  shared_url: http://localhost:3000/users/user9
+  created_at: 2010-10-14 01:23:08
+  sent: "0"
+  updated_at: 2010-10-14 01:23:08
+  id: "39"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_028: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 00:55:20
+  sent: "0"
+  updated_at: 2010-10-14 00:55:20
+  id: "28"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_017: 
+  shared_url: 
+  created_at: 2010-10-09 22:59:37
+  sent: "0"
+  updated_at: 2010-10-09 22:59:37
+  id: "17"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9 wants to share a profile with you.http://localhost:3000/users/user9
+friend_invite_messages_006: 
+  shared_url: 
+  created_at: 2010-10-06 04:01:24
+  sent: "0"
+  updated_at: 2010-10-06 04:01:24
+  id: "6"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: join me
+friend_invite_messages_040: 
+  shared_url: http://localhost:3000/users/user9
+  created_at: 2010-10-14 01:24:12
+  sent: "0"
+  updated_at: 2010-10-14 01:24:12
+  id: "40"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_029: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 00:58:36
+  sent: "0"
+  updated_at: 2010-10-14 00:58:36
+  id: "29"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_018: 
+  shared_url: ""
+  created_at: 2010-10-14 00:29:31
+  sent: "0"
+  updated_at: 2010-10-14 00:29:31
+  id: "18"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_007: 
+  shared_url: 
+  created_at: 2010-10-06 04:10:51
+  sent: "0"
+  updated_at: 2010-10-06 04:10:51
+  id: "7"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: come one
+friend_invite_messages_041: 
+  shared_url: http://localhost:3000/users/user9
+  created_at: 2010-10-14 01:25:01
+  sent: "0"
+  updated_at: 2010-10-14 01:25:01
+  id: "41"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_030: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:01:27
+  sent: "0"
+  updated_at: 2010-10-14 01:01:27
+  id: "30"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_019: 
+  shared_url: ""
+  created_at: 2010-10-14 00:32:08
+  sent: "0"
+  updated_at: 2010-10-14 00:32:08
+  id: "19"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_008: 
+  shared_url: 
+  created_at: 2010-10-07 18:28:38
+  sent: "0"
+  updated_at: 2010-10-07 18:28:39
+  id: "8"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_042: 
+  shared_url: ""
+  created_at: 2010-10-14 01:25:32
+  sent: "0"
+  updated_at: 2010-10-14 01:25:32
+  id: "42"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_031: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:03:09
+  sent: "0"
+  updated_at: 2010-10-14 01:03:10
+  id: "31"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_020: 
+  shared_url: ""
+  created_at: 2010-10-14 00:32:35
+  sent: "0"
+  updated_at: 2010-10-14 00:32:35
+  id: "20"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_009: 
+  shared_url: 
+  created_at: 2010-10-07 18:29:31
+  sent: "0"
+  updated_at: 2010-10-07 18:29:52
+  id: "9"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_032: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:05:14
+  sent: "0"
+  updated_at: 2010-10-14 01:05:14
+  id: "32"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_021: 
+  shared_url: ""
+  created_at: 2010-10-14 00:36:44
+  sent: "0"
+  updated_at: 2010-10-14 00:36:44
+  id: "21"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_010: 
+  shared_url: 
+  created_at: 2010-10-07 18:32:36
+  sent: "0"
+  updated_at: 2010-10-07 18:32:36
+  id: "10"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_033: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:05:52
+  sent: "0"
+  updated_at: 2010-10-14 01:05:53
+  id: "33"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_022: 
+  shared_url: http://localhost:3000/users/user9
+  created_at: 2010-10-14 00:37:42
+  sent: "0"
+  updated_at: 2010-10-14 00:37:42
+  id: "22"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_011: 
+  shared_url: 
+  created_at: 2010-10-07 18:36:21
+  sent: "0"
+  updated_at: 2010-10-07 18:37:07
+  id: "11"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_034: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:06:39
+  sent: "0"
+  updated_at: 2010-10-14 01:06:39
+  id: "34"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_023: 
+  shared_url: ""
+  created_at: 2010-10-14 00:38:28
+  sent: "0"
+  updated_at: 2010-10-14 00:38:28
+  id: "23"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_012: 
+  shared_url: 
+  created_at: 2010-10-07 18:37:50
+  sent: "0"
+  updated_at: 2010-10-07 18:37:54
+  id: "12"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_001: 
+  shared_url: 
+  created_at: 2010-09-15 20:57:20
+  sent: "0"
+  updated_at: 2010-09-15 20:57:20
+  id: "1"
+  user_id: "5"
+  emails: asitkmishra@gmail.com,asitm1@yahoo.com
+  message: Come join me
+friend_invite_messages_035: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:07:30
+  sent: "0"
+  updated_at: 2010-10-14 01:07:30
+  id: "35"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_024: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 00:39:03
+  sent: "0"
+  updated_at: 2010-10-14 00:39:03
+  id: "24"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_013: 
+  shared_url: 
+  created_at: 2010-10-07 18:38:38
+  sent: "0"
+  updated_at: 2010-10-07 18:38:38
+  id: "13"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_002: 
+  shared_url: 
+  created_at: 2010-09-15 21:34:04
+  sent: "0"
+  updated_at: 2010-09-15 21:34:05
+  id: "2"
+  user_id: "10"
+  emails: asitkmishra@gmail.com
+  message: inviting you
+friend_invite_messages_036: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 01:08:17
+  sent: "0"
+  updated_at: 2010-10-14 01:08:17
+  id: "36"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_025: 
+  shared_url: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  created_at: 2010-10-14 00:48:44
+  sent: "0"
+  updated_at: 2010-10-14 00:48:44
+  id: "25"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: 
+friend_invite_messages_014: 
+  shared_url: 
+  created_at: 2010-10-07 18:39:22
+  sent: "0"
+  updated_at: 2010-10-07 18:39:22
+  id: "14"
+  user_id: "14"
+  emails: asitkmishra@gmail.com
+  message: user9  wants to share this vote with you.http://localhost:3001/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+friend_invite_messages_003: 
+  shared_url: 
+  created_at: 2010-09-15 21:43:20
+  sent: "0"
+  updated_at: 2010-09-15 21:43:20
+  id: "3"
+  user_id: "10"
+  emails: asitkmishra@gmail.com
+  message: Another invitation

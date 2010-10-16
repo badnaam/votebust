@@ -1,9 +1,19 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: MyString
-  vote_topics_count: 1
-
-two:
-  name: MyString
-  vote_topics_count: 1
+--- 
+v_states_001: 
+  vote_topics_count: "28"
+  name: California
+  created_at: 2010-10-02 17:50:26
+  updated_at: 2010-10-14 01:26:38
+  id: "1"
+v_states_002: 
+  vote_topics_count: "12"
+  name: Texas
+  created_at: 2010-10-02 17:50:27
+  updated_at: 2010-10-14 01:29:26
+  id: "2"
+v_states_003: 
+  vote_topics_count: "3"
+  name: New York
+  created_at: 2010-10-02 17:50:28
+  updated_at: 2010-10-02 17:50:28
+  id: "3"

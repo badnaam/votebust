@@ -1,7 +1,4621 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+--- 
+trackings_673: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1860"
+  user_id: "45"
+trackings_626: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1813"
+  user_id: "27"
+trackings_483: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1611"
+  user_id: "49"
+trackings_436: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1563"
+  user_id: "26"
+trackings_293: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1418"
+  user_id: "48"
+trackings_246: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1369"
+  user_id: "45"
+trackings_056: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1177"
+  user_id: "50"
+trackings_009: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1129"
+  user_id: "6"
+trackings_674: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1861"
+  user_id: "8"
+trackings_627: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1814"
+  user_id: "52"
+trackings_484: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1612"
+  user_id: "27"
+trackings_437: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1564"
+  user_id: "52"
+trackings_294: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1419"
+  user_id: "55"
+trackings_247: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1370"
+  user_id: "9"
+trackings_057: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1178"
+  user_id: "56"
+trackings_675: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1862"
+  user_id: "22"
+trackings_628: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1815"
+  user_id: "41"
+trackings_485: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1613"
+  user_id: "31"
+trackings_438: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1565"
+  user_id: "39"
+trackings_295: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1420"
+  user_id: "28"
+trackings_248: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1371"
+  user_id: "24"
+trackings_058: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1179"
+  user_id: "8"
+trackings_676: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1863"
+  user_id: "39"
+trackings_629: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1816"
+  user_id: "7"
+trackings_486: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1614"
+  user_id: "42"
+trackings_439: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1566"
+  user_id: "56"
+trackings_296: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1421"
+  user_id: "45"
+trackings_249: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1372"
+  user_id: "10"
+trackings_059: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1180"
+  user_id: "48"
+trackings_677: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1864"
+  user_id: "52"
+trackings_487: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1615"
+  user_id: "10"
+trackings_297: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1422"
+  user_id: "23"
+trackings_678: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1866"
+  user_id: "25"
+trackings_488: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1616"
+  user_id: "38"
+trackings_298: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1423"
+  user_id: "53"
+trackings_300: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1425"
+  user_id: "37"
+trackings_110: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1232"
+  user_id: "48"
+trackings_679: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1867"
+  user_id: "46"
+trackings_489: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1617"
+  user_id: "37"
+trackings_301: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1426"
+  user_id: "30"
+trackings_111: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1233"
+  user_id: "34"
+trackings_299: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1424"
+  user_id: "22"
+trackings_302: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1427"
+  user_id: "46"
+trackings_112: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1234"
+  user_id: "24"
+trackings_730: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1918"
+  user_id: "38"
+trackings_540: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1725"
+  user_id: "25"
+trackings_350: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1476"
+  user_id: "9"
+trackings_160: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1283"
+  user_id: "36"
+trackings_303: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1428"
+  user_id: "17"
+trackings_113: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1235"
+  user_id: "20"
+trackings_731: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1919"
+  user_id: "47"
+trackings_541: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1726"
+  user_id: "43"
+trackings_351: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1477"
+  user_id: "25"
+trackings_161: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1284"
+  user_id: "21"
+trackings_304: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1429"
+  user_id: "41"
+trackings_114: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1237"
+  user_id: "15"
+trackings_732: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1920"
+  user_id: "5"
+trackings_542: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1727"
+  user_id: "16"
+trackings_352: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1478"
+  user_id: "45"
+trackings_162: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1285"
+  user_id: "37"
+trackings_305: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1430"
+  user_id: "27"
+trackings_115: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1238"
+  user_id: "44"
+trackings_733: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1921"
+  user_id: "22"
+trackings_590: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1776"
+  user_id: "53"
+trackings_543: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1728"
+  user_id: "47"
+trackings_353: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1479"
+  user_id: "23"
+trackings_163: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1286"
+  user_id: "31"
+trackings_306: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1431"
+  user_id: "40"
+trackings_116: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1239"
+  user_id: "54"
+trackings_734: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1922"
+  user_id: "56"
+trackings_591: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1777"
+  user_id: "15"
+trackings_544: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1729"
+  user_id: "24"
+trackings_354: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1480"
+  user_id: "24"
+trackings_164: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1287"
+  user_id: "29"
+trackings_307: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1432"
+  user_id: "49"
+trackings_117: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1240"
+  user_id: "7"
+trackings_735: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1923"
+  user_id: "17"
+trackings_592: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1778"
+  user_id: "37"
+trackings_545: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1730"
+  user_id: "21"
+trackings_355: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1481"
+  user_id: "23"
+trackings_165: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1288"
+  user_id: "28"
+trackings_308: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1433"
+  user_id: "52"
+trackings_118: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1241"
+  user_id: "11"
+trackings_736: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1924"
+  user_id: "6"
+trackings_593: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1779"
+  user_id: "46"
+trackings_546: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1731"
+  user_id: "26"
+trackings_356: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1482"
+  user_id: "15"
+trackings_166: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1289"
+  user_id: "54"
+trackings_309: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1434"
+  user_id: "20"
+trackings_119: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1242"
+  user_id: "43"
+trackings_737: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1925"
+  user_id: "16"
+trackings_594: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1780"
+  user_id: "26"
+trackings_547: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1732"
+  user_id: "54"
+trackings_357: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1483"
+  user_id: "25"
+trackings_167: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1290"
+  user_id: "24"
+trackings_738: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1926"
+  user_id: "45"
+trackings_595: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1781"
+  user_id: "44"
+trackings_548: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1733"
+  user_id: "56"
+trackings_358: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1484"
+  user_id: "11"
+trackings_168: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1291"
+  user_id: "13"
+trackings_739: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1927"
+  user_id: "21"
+trackings_596: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1782"
+  user_id: "8"
+trackings_549: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1735"
+  user_id: "46"
+trackings_359: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1485"
+  user_id: "6"
+trackings_169: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1292"
+  user_id: "16"
+trackings_597: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1783"
+  user_id: "48"
+trackings_600: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1786"
+  user_id: "49"
+trackings_598: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1784"
+  user_id: "42"
+trackings_410: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1537"
+  user_id: "51"
+trackings_220: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1343"
+  user_id: "15"
+trackings_030: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1150"
+  user_id: "47"
+trackings_601: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1787"
+  user_id: "22"
+trackings_599: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1785"
+  user_id: "13"
+trackings_411: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1538"
+  user_id: "15"
+trackings_221: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1344"
+  user_id: "21"
+trackings_031: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1151"
+  user_id: "30"
+trackings_602: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1788"
+  user_id: "29"
+trackings_412: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1539"
+  user_id: "29"
+trackings_222: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1345"
+  user_id: "33"
+trackings_032: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1152"
+  user_id: "40"
+trackings_650: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1837"
+  user_id: "41"
+trackings_603: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1789"
+  user_id: "5"
+trackings_460: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1587"
+  user_id: "47"
+trackings_413: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1540"
+  user_id: "41"
+trackings_270: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1394"
+  user_id: "39"
+trackings_080: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1201"
+  user_id: "53"
+trackings_223: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1346"
+  user_id: "46"
+trackings_033: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1153"
+  user_id: "21"
+trackings_651: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1838"
+  user_id: "40"
+trackings_604: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1790"
+  user_id: "32"
+trackings_461: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1588"
+  user_id: "21"
+trackings_414: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1541"
+  user_id: "20"
+trackings_271: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1395"
+  user_id: "19"
+trackings_081: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1202"
+  user_id: "7"
+trackings_224: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1347"
+  user_id: "23"
+trackings_034: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1154"
+  user_id: "52"
+trackings_652: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1839"
+  user_id: "5"
+trackings_605: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:49
+  updated_at: 2010-08-12 03:06:49
+  id: "1791"
+  user_id: "40"
+trackings_462: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1589"
+  user_id: "43"
+trackings_415: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1542"
+  user_id: "19"
+trackings_272: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1396"
+  user_id: "54"
+trackings_082: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1203"
+  user_id: "52"
+trackings_225: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1348"
+  user_id: "42"
+trackings_035: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1155"
+  user_id: "24"
+trackings_653: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1840"
+  user_id: "47"
+trackings_606: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1792"
+  user_id: "33"
+trackings_463: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1590"
+  user_id: "44"
+trackings_416: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1543"
+  user_id: "49"
+trackings_273: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1397"
+  user_id: "16"
+trackings_083: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1204"
+  user_id: "42"
+trackings_226: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1349"
+  user_id: "17"
+trackings_036: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1156"
+  user_id: "13"
+trackings_654: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1841"
+  user_id: "54"
+trackings_607: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1793"
+  user_id: "20"
+trackings_464: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1591"
+  user_id: "53"
+trackings_417: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1544"
+  user_id: "35"
+trackings_274: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1398"
+  user_id: "10"
+trackings_084: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1205"
+  user_id: "11"
+trackings_227: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1350"
+  user_id: "9"
+trackings_037: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1157"
+  user_id: "49"
+trackings_655: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1842"
+  user_id: "15"
+trackings_608: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1794"
+  user_id: "39"
+trackings_465: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1592"
+  user_id: "11"
+trackings_418: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1545"
+  user_id: "30"
+trackings_275: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1399"
+  user_id: "25"
+trackings_085: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1206"
+  user_id: "46"
+trackings_228: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1351"
+  user_id: "49"
+trackings_038: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1158"
+  user_id: "35"
+trackings_656: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1843"
+  user_id: "8"
+trackings_609: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1795"
+  user_id: "22"
+trackings_466: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1593"
+  user_id: "20"
+trackings_419: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1546"
+  user_id: "24"
+trackings_276: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1400"
+  user_id: "16"
+trackings_086: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1207"
+  user_id: "56"
+trackings_229: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1352"
+  user_id: "10"
+trackings_039: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1159"
+  user_id: "5"
+trackings_657: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1844"
+  user_id: "48"
+trackings_467: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1594"
+  user_id: "17"
+trackings_277: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1401"
+  user_id: "51"
+trackings_087: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1209"
+  user_id: "50"
+trackings_658: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1845"
+  user_id: "18"
+trackings_468: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1595"
+  user_id: "14"
+trackings_278: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1402"
+  user_id: "43"
+trackings_088: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1210"
+  user_id: "51"
+trackings_659: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1846"
+  user_id: "52"
+trackings_469: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:36
+  updated_at: 2010-08-12 03:06:36
+  id: "1596"
+  user_id: "54"
+trackings_279: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1404"
+  user_id: "27"
+trackings_089: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1211"
+  user_id: "35"
+trackings_710: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1898"
+  user_id: "34"
+trackings_520: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1648"
+  user_id: "35"
+trackings_330: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1456"
+  user_id: "35"
+trackings_140: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1263"
+  user_id: "33"
+trackings_711: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1899"
+  user_id: "38"
+trackings_521: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1649"
+  user_id: "16"
+trackings_331: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1457"
+  user_id: "19"
+trackings_141: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1264"
+  user_id: "28"
+trackings_712: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1900"
+  user_id: "40"
+trackings_522: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1650"
+  user_id: "42"
+trackings_332: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1458"
+  user_id: "36"
+trackings_142: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1265"
+  user_id: "24"
+trackings_760: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1948"
+  user_id: "14"
+trackings_713: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1901"
+  user_id: "9"
+trackings_570: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1756"
+  user_id: "43"
+trackings_523: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1708"
+  user_id: "40"
+trackings_380: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1506"
+  user_id: "48"
+trackings_190: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1313"
+  user_id: "54"
+trackings_333: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1459"
+  user_id: "15"
+trackings_143: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1266"
+  user_id: "38"
+trackings_761: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1949"
+  user_id: "32"
+trackings_714: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1902"
+  user_id: "8"
+trackings_571: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1757"
+  user_id: "54"
+trackings_524: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1709"
+  user_id: "37"
+trackings_381: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1507"
+  user_id: "20"
+trackings_191: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1314"
+  user_id: "51"
+trackings_334: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1460"
+  user_id: "7"
+trackings_144: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1267"
+  user_id: "17"
+trackings_762: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1950"
+  user_id: "46"
+trackings_715: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1903"
+  user_id: "53"
+trackings_572: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1758"
+  user_id: "56"
+trackings_525: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1710"
+  user_id: "7"
+trackings_382: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1508"
+  user_id: "30"
+trackings_192: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1315"
+  user_id: "17"
+trackings_335: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1461"
+  user_id: "11"
+trackings_145: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1268"
+  user_id: "43"
+trackings_763: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1951"
+  user_id: "54"
+trackings_716: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1904"
+  user_id: "29"
+trackings_573: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1759"
+  user_id: "40"
+trackings_526: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1711"
+  user_id: "15"
+trackings_383: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1509"
+  user_id: "46"
+trackings_193: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1316"
+  user_id: "38"
+trackings_336: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1462"
+  user_id: "33"
+trackings_146: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1269"
+  user_id: "54"
+trackings_764: 
+  vote_topic_id: "29"
+  created_at: 2010-09-27 06:24:01
+  updated_at: 2010-09-27 06:24:01
+  id: "5067"
+  user_id: "67"
+trackings_717: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1905"
+  user_id: "54"
+trackings_574: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1760"
+  user_id: "18"
+trackings_527: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1712"
+  user_id: "44"
+trackings_384: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1510"
+  user_id: "40"
+trackings_194: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1317"
+  user_id: "25"
+trackings_337: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1463"
+  user_id: "28"
+trackings_147: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1270"
+  user_id: "55"
+trackings_765: 
+  vote_topic_id: "204"
+  created_at: 2010-09-27 08:36:24
+  updated_at: 2010-09-27 08:36:24
+  id: "5074"
+  user_id: "67"
+trackings_718: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1906"
+  user_id: "18"
+trackings_575: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1761"
+  user_id: "6"
+trackings_528: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1713"
+  user_id: "36"
+trackings_385: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1511"
+  user_id: "14"
+trackings_195: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1318"
+  user_id: "21"
+trackings_338: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1464"
+  user_id: "30"
+trackings_148: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1271"
+  user_id: "35"
+trackings_766: 
+  vote_topic_id: "4"
+  created_at: 2010-09-27 22:42:20
+  updated_at: 2010-09-27 22:42:20
+  id: "5086"
+  user_id: "9"
+trackings_719: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1907"
+  user_id: "35"
+trackings_576: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1762"
+  user_id: "38"
+trackings_529: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1714"
+  user_id: "13"
+trackings_386: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1512"
+  user_id: "49"
+trackings_196: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1319"
+  user_id: "41"
+trackings_339: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1465"
+  user_id: "41"
+trackings_149: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1272"
+  user_id: "8"
+trackings_767: 
+  vote_topic_id: "25"
+  created_at: 2010-10-12 21:51:56
+  updated_at: 2010-10-12 21:51:56
+  id: "5110"
+  user_id: "101"
+trackings_577: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1763"
+  user_id: "55"
+trackings_387: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1513"
+  user_id: "21"
+trackings_197: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1320"
+  user_id: "40"
+trackings_768: 
+  vote_topic_id: "29"
+  created_at: 2010-10-12 21:52:05
+  updated_at: 2010-10-12 21:52:05
+  id: "5111"
+  user_id: "101"
+trackings_578: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1764"
+  user_id: "36"
+trackings_200: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1323"
+  user_id: "50"
+trackings_010: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1130"
+  user_id: "53"
+trackings_388: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1514"
+  user_id: "39"
+trackings_198: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1321"
+  user_id: "14"
+trackings_769: 
+  vote_topic_id: "16"
+  created_at: 2010-10-12 22:35:49
+  updated_at: 2010-10-12 22:35:49
+  id: "5112"
+  user_id: "102"
+trackings_579: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1765"
+  user_id: "45"
+trackings_201: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1324"
+  user_id: "26"
+trackings_011: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1131"
+  user_id: "8"
+trackings_389: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1515"
+  user_id: "16"
+trackings_199: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1322"
+  user_id: "6"
+trackings_202: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1325"
+  user_id: "15"
+trackings_012: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1132"
+  user_id: "29"
+trackings_630: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1817"
+  user_id: "10"
+trackings_440: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1567"
+  user_id: "6"
+trackings_203: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1326"
+  user_id: "24"
+trackings_013: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1133"
+  user_id: "14"
+trackings_250: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1373"
+  user_id: "44"
+trackings_060: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1181"
+  user_id: "14"
+trackings_631: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1818"
+  user_id: "40"
+trackings_441: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1568"
+  user_id: "41"
+trackings_204: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1327"
+  user_id: "5"
+trackings_014: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1134"
+  user_id: "20"
+trackings_251: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1374"
+  user_id: "32"
+trackings_061: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1182"
+  user_id: "9"
+trackings_632: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1819"
+  user_id: "14"
+trackings_442: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1569"
+  user_id: "23"
+trackings_205: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1328"
+  user_id: "28"
+trackings_015: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1135"
+  user_id: "50"
+trackings_252: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1375"
+  user_id: "49"
+trackings_062: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1183"
+  user_id: "22"
+trackings_680: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1868"
+  user_id: "33"
+trackings_633: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1820"
+  user_id: "42"
+trackings_490: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1618"
+  user_id: "48"
+trackings_443: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1570"
+  user_id: "31"
+trackings_206: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1329"
+  user_id: "33"
+trackings_016: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1136"
+  user_id: "54"
+trackings_253: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1376"
+  user_id: "42"
+trackings_063: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1184"
+  user_id: "51"
+trackings_681: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1869"
+  user_id: "5"
+trackings_634: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:52
+  updated_at: 2010-08-12 03:06:52
+  id: "1821"
+  user_id: "21"
+trackings_491: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1619"
+  user_id: "18"
+trackings_444: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1571"
+  user_id: "24"
+trackings_207: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1330"
+  user_id: "34"
+trackings_017: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1137"
+  user_id: "22"
+trackings_254: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1377"
+  user_id: "27"
+trackings_064: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1185"
+  user_id: "55"
+trackings_682: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1870"
+  user_id: "20"
+trackings_635: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:53
+  updated_at: 2010-08-12 03:06:53
+  id: "1822"
+  user_id: "29"
+trackings_492: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1620"
+  user_id: "25"
+trackings_445: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1572"
+  user_id: "35"
+trackings_208: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1331"
+  user_id: "29"
+trackings_018: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1138"
+  user_id: "7"
+trackings_255: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1378"
+  user_id: "13"
+trackings_065: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1186"
+  user_id: "43"
+trackings_683: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1871"
+  user_id: "31"
+trackings_636: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:54
+  updated_at: 2010-08-12 03:06:54
+  id: "1823"
+  user_id: "20"
+trackings_493: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1621"
+  user_id: "23"
+trackings_446: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1573"
+  user_id: "46"
+trackings_209: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1332"
+  user_id: "8"
+trackings_019: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1139"
+  user_id: "32"
+trackings_256: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1379"
+  user_id: "14"
+trackings_066: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1187"
+  user_id: "49"
+trackings_684: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1872"
+  user_id: "16"
+trackings_637: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1824"
+  user_id: "37"
+trackings_494: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1622"
+  user_id: "55"
+trackings_447: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1574"
+  user_id: "39"
+trackings_257: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1380"
+  user_id: "21"
+trackings_067: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1188"
+  user_id: "38"
+trackings_685: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1873"
+  user_id: "44"
+trackings_638: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1825"
+  user_id: "19"
+trackings_495: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1623"
+  user_id: "16"
+trackings_448: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1575"
+  user_id: "25"
+trackings_258: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1381"
+  user_id: "38"
+trackings_068: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1189"
+  user_id: "6"
+trackings_686: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1874"
+  user_id: "27"
+trackings_639: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1826"
+  user_id: "16"
+trackings_496: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1624"
+  user_id: "39"
+trackings_449: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1576"
+  user_id: "36"
+trackings_259: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1382"
+  user_id: "25"
+trackings_069: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1190"
+  user_id: "23"
+trackings_687: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1875"
+  user_id: "55"
+trackings_497: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1625"
+  user_id: "21"
+trackings_688: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1876"
+  user_id: "53"
+trackings_500: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1628"
+  user_id: "40"
+trackings_498: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1626"
+  user_id: "21"
+trackings_310: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1436"
+  user_id: "48"
+trackings_120: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1243"
+  user_id: "27"
+trackings_689: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1877"
+  user_id: "56"
+trackings_501: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1629"
+  user_id: "36"
+trackings_499: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:38
+  updated_at: 2010-08-12 03:06:38
+  id: "1627"
+  user_id: "8"
+trackings_311: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1437"
+  user_id: "15"
+trackings_121: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1244"
+  user_id: "30"
+trackings_502: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1630"
+  user_id: "32"
+trackings_312: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1438"
+  user_id: "11"
+trackings_122: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1245"
+  user_id: "13"
+trackings_740: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1928"
+  user_id: "26"
+trackings_550: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1736"
+  user_id: "6"
+trackings_503: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1631"
+  user_id: "41"
+trackings_313: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1439"
+  user_id: "7"
+trackings_123: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1246"
+  user_id: "55"
+trackings_360: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1486"
+  user_id: "28"
+trackings_170: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1293"
+  user_id: "39"
+trackings_741: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1929"
+  user_id: "52"
+trackings_551: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1737"
+  user_id: "28"
+trackings_504: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1632"
+  user_id: "13"
+trackings_314: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1440"
+  user_id: "47"
+trackings_124: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1247"
+  user_id: "29"
+trackings_361: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1487"
+  user_id: "18"
+trackings_171: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1294"
+  user_id: "17"
+trackings_742: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1930"
+  user_id: "55"
+trackings_552: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1738"
+  user_id: "13"
+trackings_505: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1633"
+  user_id: "27"
+trackings_315: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1441"
+  user_id: "32"
+trackings_125: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1248"
+  user_id: "16"
+trackings_362: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1488"
+  user_id: "55"
+trackings_172: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1295"
+  user_id: "42"
+trackings_743: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1931"
+  user_id: "33"
+trackings_553: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1739"
+  user_id: "50"
+trackings_506: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1634"
+  user_id: "50"
+trackings_316: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1442"
+  user_id: "6"
+trackings_126: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1249"
+  user_id: "31"
+trackings_363: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:29
+  updated_at: 2010-08-12 03:06:29
+  id: "1489"
+  user_id: "21"
+trackings_173: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1296"
+  user_id: "23"
+trackings_744: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1932"
+  user_id: "11"
+trackings_554: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1740"
+  user_id: "15"
+trackings_507: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1635"
+  user_id: "33"
+trackings_317: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:26
+  updated_at: 2010-08-12 03:06:26
+  id: "1443"
+  user_id: "45"
+trackings_127: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1250"
+  user_id: "37"
+trackings_364: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1490"
+  user_id: "32"
+trackings_174: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1297"
+  user_id: "11"
+trackings_745: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1933"
+  user_id: "56"
+trackings_555: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1741"
+  user_id: "5"
+trackings_508: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1636"
+  user_id: "48"
+trackings_318: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1444"
+  user_id: "22"
+trackings_128: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1251"
+  user_id: "23"
+trackings_365: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1491"
+  user_id: "22"
+trackings_175: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1298"
+  user_id: "26"
+trackings_746: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1934"
+  user_id: "27"
+trackings_556: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1742"
+  user_id: "51"
+trackings_509: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1637"
+  user_id: "11"
+trackings_319: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1445"
+  user_id: "46"
+trackings_129: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1252"
+  user_id: "50"
+trackings_366: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1492"
+  user_id: "39"
+trackings_176: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1299"
+  user_id: "50"
+trackings_747: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1935"
+  user_id: "49"
+trackings_557: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1743"
+  user_id: "11"
+trackings_367: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1493"
+  user_id: "16"
+trackings_177: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1300"
+  user_id: "6"
+trackings_748: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1936"
+  user_id: "48"
+trackings_558: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1744"
+  user_id: "21"
+trackings_368: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1494"
+  user_id: "44"
+trackings_178: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1301"
+  user_id: "14"
+trackings_749: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1937"
+  user_id: "13"
+trackings_559: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1745"
+  user_id: "44"
+trackings_369: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1495"
+  user_id: "42"
+trackings_179: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1302"
+  user_id: "43"
+trackings_610: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1796"
+  user_id: "26"
+trackings_420: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1547"
+  user_id: "47"
+trackings_230: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1353"
+  user_id: "20"
+trackings_040: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1160"
+  user_id: "11"
+trackings_611: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1798"
+  user_id: "36"
+trackings_421: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1548"
+  user_id: "50"
+trackings_231: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1354"
+  user_id: "38"
+trackings_041: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1161"
+  user_id: "53"
+trackings_612: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1799"
+  user_id: "46"
+trackings_422: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1549"
+  user_id: "48"
+trackings_232: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1355"
+  user_id: "36"
+trackings_042: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1163"
+  user_id: "27"
+trackings_660: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1847"
+  user_id: "21"
+trackings_613: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1800"
+  user_id: "13"
+trackings_470: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1597"
+  user_id: "19"
+trackings_423: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1550"
+  user_id: "23"
+trackings_233: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1356"
+  user_id: "28"
+trackings_043: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1164"
+  user_id: "31"
+trackings_280: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1405"
+  user_id: "39"
+trackings_090: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1212"
+  user_id: "18"
+trackings_661: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1848"
+  user_id: "56"
+trackings_614: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1801"
+  user_id: "28"
+trackings_471: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1598"
+  user_id: "51"
+trackings_424: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1551"
+  user_id: "40"
+trackings_234: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1357"
+  user_id: "56"
+trackings_044: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1165"
+  user_id: "19"
+trackings_281: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1406"
+  user_id: "31"
+trackings_091: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1213"
+  user_id: "29"
+trackings_662: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1849"
+  user_id: "40"
+trackings_615: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1802"
+  user_id: "5"
+trackings_472: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1599"
+  user_id: "20"
+trackings_425: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:33
+  updated_at: 2010-08-12 03:06:33
+  id: "1552"
+  user_id: "27"
+trackings_235: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1358"
+  user_id: "44"
+trackings_045: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1166"
+  user_id: "25"
+trackings_282: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1407"
+  user_id: "33"
+trackings_092: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1214"
+  user_id: "24"
+trackings_663: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1850"
+  user_id: "54"
+trackings_616: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1803"
+  user_id: "24"
+trackings_473: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1600"
+  user_id: "7"
+trackings_426: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1553"
+  user_id: "28"
+trackings_236: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1359"
+  user_id: "47"
+trackings_046: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1167"
+  user_id: "16"
+trackings_283: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1408"
+  user_id: "14"
+trackings_093: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1215"
+  user_id: "41"
+trackings_664: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1851"
+  user_id: "42"
+trackings_617: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1804"
+  user_id: "42"
+trackings_474: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1601"
+  user_id: "45"
+trackings_427: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1554"
+  user_id: "43"
+trackings_237: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1360"
+  user_id: "35"
+trackings_047: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:08
+  updated_at: 2010-08-12 03:06:08
+  id: "1168"
+  user_id: "34"
+trackings_284: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1409"
+  user_id: "38"
+trackings_094: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1216"
+  user_id: "44"
+trackings_665: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:56
+  updated_at: 2010-08-12 03:06:56
+  id: "1852"
+  user_id: "51"
+trackings_618: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1805"
+  user_id: "45"
+trackings_475: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1602"
+  user_id: "53"
+trackings_428: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1555"
+  user_id: "31"
+trackings_238: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1361"
+  user_id: "48"
+trackings_048: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1169"
+  user_id: "14"
+trackings_285: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1410"
+  user_id: "7"
+trackings_095: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1217"
+  user_id: "43"
+trackings_666: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1853"
+  user_id: "41"
+trackings_619: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:50
+  updated_at: 2010-08-12 03:06:50
+  id: "1806"
+  user_id: "56"
+trackings_476: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1603"
+  user_id: "52"
+trackings_429: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1556"
+  user_id: "34"
+trackings_239: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1362"
+  user_id: "18"
+trackings_049: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1170"
+  user_id: "32"
+trackings_286: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1411"
+  user_id: "6"
+trackings_096: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1218"
+  user_id: "36"
+trackings_667: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1854"
+  user_id: "13"
+trackings_477: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1604"
+  user_id: "41"
+trackings_287: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1412"
+  user_id: "47"
+trackings_097: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1219"
+  user_id: "34"
+trackings_668: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1855"
+  user_id: "48"
+trackings_478: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1605"
+  user_id: "17"
+trackings_100: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1222"
+  user_id: "5"
+trackings_288: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1413"
+  user_id: "35"
+trackings_098: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1220"
+  user_id: "39"
+trackings_669: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1856"
+  user_id: "28"
+trackings_479: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1606"
+  user_id: "44"
+trackings_101: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1223"
+  user_id: "10"
+trackings_289: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:24
+  updated_at: 2010-08-12 03:06:24
+  id: "1414"
+  user_id: "52"
+trackings_099: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1221"
+  user_id: "25"
+trackings_102: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1224"
+  user_id: "53"
+trackings_720: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1908"
+  user_id: "34"
+trackings_530: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1715"
+  user_id: "31"
+trackings_340: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1466"
+  user_id: "14"
+trackings_150: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1273"
+  user_id: "29"
+trackings_103: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1225"
+  user_id: "6"
+trackings_721: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1909"
+  user_id: "31"
+trackings_531: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1716"
+  user_id: "34"
+trackings_341: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1467"
+  user_id: "21"
+trackings_151: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1274"
+  user_id: "21"
+trackings_104: 
+  vote_topic_id: "4"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1226"
+  user_id: "19"
+trackings_722: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1910"
+  user_id: "46"
+trackings_532: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1717"
+  user_id: "30"
+trackings_342: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1468"
+  user_id: "35"
+trackings_152: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1275"
+  user_id: "45"
+trackings_105: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1227"
+  user_id: "53"
+trackings_770: 
+  vote_topic_id: "29"
+  created_at: 2010-10-12 22:35:56
+  updated_at: 2010-10-12 22:35:56
+  id: "5113"
+  user_id: "102"
+trackings_723: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:00
+  updated_at: 2010-08-12 03:07:00
+  id: "1911"
+  user_id: "49"
+trackings_580: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1766"
+  user_id: "23"
+trackings_533: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1718"
+  user_id: "28"
+trackings_343: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1469"
+  user_id: "55"
+trackings_153: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1276"
+  user_id: "50"
+trackings_106: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1228"
+  user_id: "18"
+trackings_390: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1516"
+  user_id: "43"
+trackings_724: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1912"
+  user_id: "23"
+trackings_581: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1767"
+  user_id: "16"
+trackings_534: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:44
+  updated_at: 2010-08-12 03:06:44
+  id: "1719"
+  user_id: "42"
+trackings_344: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1470"
+  user_id: "26"
+trackings_154: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1277"
+  user_id: "44"
+trackings_107: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1229"
+  user_id: "21"
+trackings_391: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1517"
+  user_id: "22"
+trackings_725: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1913"
+  user_id: "25"
+trackings_582: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1768"
+  user_id: "25"
+trackings_535: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1720"
+  user_id: "41"
+trackings_345: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1471"
+  user_id: "18"
+trackings_155: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1278"
+  user_id: "53"
+trackings_108: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:12
+  updated_at: 2010-08-12 03:06:12
+  id: "1230"
+  user_id: "51"
+trackings_392: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1519"
+  user_id: "55"
+trackings_726: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1914"
+  user_id: "15"
+trackings_583: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1769"
+  user_id: "55"
+trackings_536: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1721"
+  user_id: "18"
+trackings_346: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1472"
+  user_id: "17"
+trackings_156: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1279"
+  user_id: "41"
+trackings_109: 
+  vote_topic_id: "5"
+  created_at: 2010-08-12 03:06:13
+  updated_at: 2010-08-12 03:06:13
+  id: "1231"
+  user_id: "46"
+trackings_393: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1520"
+  user_id: "36"
+trackings_727: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1915"
+  user_id: "13"
+trackings_584: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1770"
+  user_id: "35"
+trackings_537: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1722"
+  user_id: "10"
+trackings_347: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1473"
+  user_id: "51"
+trackings_157: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1280"
+  user_id: "56"
+trackings_394: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1521"
+  user_id: "30"
+trackings_728: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1916"
+  user_id: "50"
+trackings_585: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1771"
+  user_id: "36"
+trackings_538: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1723"
+  user_id: "45"
+trackings_348: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1474"
+  user_id: "54"
+trackings_158: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1281"
+  user_id: "40"
+trackings_395: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:31
+  updated_at: 2010-08-12 03:06:31
+  id: "1522"
+  user_id: "47"
+trackings_729: 
+  vote_topic_id: "29"
+  created_at: 2010-08-12 03:07:01
+  updated_at: 2010-08-12 03:07:01
+  id: "1917"
+  user_id: "55"
+trackings_586: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1772"
+  user_id: "33"
+trackings_539: 
+  vote_topic_id: "22"
+  created_at: 2010-08-12 03:06:45
+  updated_at: 2010-08-12 03:06:45
+  id: "1724"
+  user_id: "19"
+trackings_349: 
+  vote_topic_id: "13"
+  created_at: 2010-08-12 03:06:28
+  updated_at: 2010-08-12 03:06:28
+  id: "1475"
+  user_id: "39"
+trackings_159: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:16
+  updated_at: 2010-08-12 03:06:16
+  id: "1282"
+  user_id: "44"
+trackings_396: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1523"
+  user_id: "45"
+trackings_587: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1773"
+  user_id: "17"
+trackings_397: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1524"
+  user_id: "40"
+trackings_588: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1774"
+  user_id: "45"
+trackings_400: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1527"
+  user_id: "25"
+trackings_210: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1333"
+  user_id: "9"
+trackings_020: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1140"
+  user_id: "40"
+trackings_398: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1525"
+  user_id: "33"
+trackings_589: 
+  vote_topic_id: "24"
+  created_at: 2010-08-12 03:06:48
+  updated_at: 2010-08-12 03:06:48
+  id: "1775"
+  user_id: "30"
+trackings_401: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1528"
+  user_id: "10"
+trackings_211: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1334"
+  user_id: "19"
+trackings_021: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1141"
+  user_id: "47"
+trackings_399: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1526"
+  user_id: "24"
+trackings_402: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1529"
+  user_id: "32"
+trackings_212: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:19
+  updated_at: 2010-08-12 03:06:19
+  id: "1335"
+  user_id: "55"
+trackings_022: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1142"
+  user_id: "56"
+trackings_640: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1827"
+  user_id: "56"
+trackings_450: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1577"
+  user_id: "22"
+trackings_403: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1530"
+  user_id: "7"
+trackings_260: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:22
+  updated_at: 2010-08-12 03:06:22
+  id: "1383"
+  user_id: "20"
+trackings_070: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1191"
+  user_id: "44"
+trackings_213: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1336"
+  user_id: "35"
+trackings_023: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1143"
+  user_id: "24"
+trackings_641: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1828"
+  user_id: "28"
+trackings_451: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1578"
+  user_id: "42"
+trackings_404: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1531"
+  user_id: "20"
+trackings_261: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1384"
+  user_id: "22"
+trackings_071: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1192"
+  user_id: "35"
+trackings_214: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1337"
+  user_id: "22"
+trackings_024: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1144"
+  user_id: "51"
+trackings_642: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1829"
+  user_id: "33"
+trackings_452: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1579"
+  user_id: "45"
+trackings_405: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1532"
+  user_id: "9"
+trackings_262: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1385"
+  user_id: "17"
+trackings_072: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1193"
+  user_id: "30"
+trackings_215: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1338"
+  user_id: "52"
+trackings_025: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1145"
+  user_id: "37"
+trackings_690: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1878"
+  user_id: "11"
+trackings_643: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1830"
+  user_id: "43"
+trackings_453: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1580"
+  user_id: "19"
+trackings_406: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1533"
+  user_id: "26"
+trackings_263: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1386"
+  user_id: "15"
+trackings_073: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1194"
+  user_id: "47"
+trackings_216: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1339"
+  user_id: "45"
+trackings_026: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1146"
+  user_id: "16"
+trackings_691: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1879"
+  user_id: "30"
+trackings_644: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1831"
+  user_id: "6"
+trackings_454: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1581"
+  user_id: "51"
+trackings_407: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1534"
+  user_id: "28"
+trackings_264: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1387"
+  user_id: "40"
+trackings_074: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1195"
+  user_id: "39"
+trackings_217: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1340"
+  user_id: "7"
+trackings_027: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1147"
+  user_id: "36"
+trackings_692: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1880"
+  user_id: "14"
+trackings_645: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1832"
+  user_id: "53"
+trackings_455: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1582"
+  user_id: "55"
+trackings_408: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1535"
+  user_id: "37"
+trackings_265: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1389"
+  user_id: "18"
+trackings_075: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1196"
+  user_id: "34"
+trackings_218: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1341"
+  user_id: "54"
+trackings_028: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1148"
+  user_id: "42"
+trackings_693: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:58
+  updated_at: 2010-08-12 03:06:58
+  id: "1881"
+  user_id: "20"
+trackings_646: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1833"
+  user_id: "7"
+trackings_456: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1583"
+  user_id: "18"
+trackings_409: 
+  vote_topic_id: "15"
+  created_at: 2010-08-12 03:06:32
+  updated_at: 2010-08-12 03:06:32
+  id: "1536"
+  user_id: "27"
+trackings_266: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1390"
+  user_id: "51"
+trackings_076: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1197"
+  user_id: "15"
+trackings_219: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:20
+  updated_at: 2010-08-12 03:06:20
+  id: "1342"
+  user_id: "5"
+trackings_029: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:07
+  updated_at: 2010-08-12 03:06:07
+  id: "1149"
+  user_id: "39"
+trackings_694: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1882"
+  user_id: "45"
+trackings_647: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1834"
+  user_id: "44"
+trackings_457: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1584"
+  user_id: "40"
+trackings_267: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1391"
+  user_id: "55"
+trackings_077: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:10
+  updated_at: 2010-08-12 03:06:10
+  id: "1198"
+  user_id: "27"
+trackings_695: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1883"
+  user_id: "44"
+trackings_648: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1835"
+  user_id: "13"
+trackings_458: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1585"
+  user_id: "9"
+trackings_268: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1392"
+  user_id: "33"
+trackings_078: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1199"
+  user_id: "46"
+trackings_696: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1884"
+  user_id: "18"
+trackings_649: 
+  vote_topic_id: "26"
+  created_at: 2010-08-12 03:06:55
+  updated_at: 2010-08-12 03:06:55
+  id: "1836"
+  user_id: "49"
+trackings_459: 
+  vote_topic_id: "17"
+  created_at: 2010-08-12 03:06:35
+  updated_at: 2010-08-12 03:06:35
+  id: "1586"
+  user_id: "29"
+trackings_269: 
+  vote_topic_id: "10"
+  created_at: 2010-08-12 03:06:23
+  updated_at: 2010-08-12 03:06:23
+  id: "1393"
+  user_id: "30"
+trackings_079: 
+  vote_topic_id: "3"
+  created_at: 2010-08-12 03:06:11
+  updated_at: 2010-08-12 03:06:11
+  id: "1200"
+  user_id: "56"
+trackings_697: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1885"
+  user_id: "41"
+trackings_700: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1888"
+  user_id: "16"
+trackings_698: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1886"
+  user_id: "35"
+trackings_510: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1638"
+  user_id: "47"
+trackings_320: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1446"
+  user_id: "54"
+trackings_130: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1253"
+  user_id: "26"
+trackings_701: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1889"
+  user_id: "42"
+trackings_699: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1887"
+  user_id: "32"
+trackings_511: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1639"
+  user_id: "53"
+trackings_321: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1447"
+  user_id: "14"
+trackings_131: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1254"
+  user_id: "48"
+trackings_702: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1890"
+  user_id: "8"
+trackings_512: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1640"
+  user_id: "6"
+trackings_322: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1448"
+  user_id: "23"
+trackings_132: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1255"
+  user_id: "11"
+trackings_750: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1938"
+  user_id: "9"
+trackings_703: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1891"
+  user_id: "19"
+trackings_560: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1746"
+  user_id: "32"
+trackings_513: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1641"
+  user_id: "38"
+trackings_370: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1496"
+  user_id: "26"
+trackings_180: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1303"
+  user_id: "18"
+trackings_323: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1449"
+  user_id: "43"
+trackings_133: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1256"
+  user_id: "16"
+trackings_751: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1939"
+  user_id: "15"
+trackings_704: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1892"
+  user_id: "5"
+trackings_561: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1747"
+  user_id: "22"
+trackings_514: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1642"
+  user_id: "28"
+trackings_371: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1497"
+  user_id: "53"
+trackings_181: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:17
+  updated_at: 2010-08-12 03:06:17
+  id: "1304"
+  user_id: "45"
+trackings_324: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1450"
+  user_id: "51"
+trackings_134: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1257"
+  user_id: "42"
+trackings_752: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:02
+  updated_at: 2010-08-12 03:07:02
+  id: "1940"
+  user_id: "23"
+trackings_705: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1893"
+  user_id: "46"
+trackings_562: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1748"
+  user_id: "16"
+trackings_515: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:39
+  updated_at: 2010-08-12 03:06:39
+  id: "1643"
+  user_id: "24"
+trackings_372: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1498"
+  user_id: "24"
+trackings_182: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1305"
+  user_id: "52"
+trackings_325: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1451"
+  user_id: "19"
+trackings_135: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:14
+  updated_at: 2010-08-12 03:06:14
+  id: "1258"
+  user_id: "46"
+trackings_753: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1941"
+  user_id: "47"
+trackings_706: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1894"
+  user_id: "48"
+trackings_563: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:46
+  updated_at: 2010-08-12 03:06:46
+  id: "1749"
+  user_id: "46"
+trackings_516: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1644"
+  user_id: "20"
+trackings_373: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1499"
+  user_id: "8"
+trackings_183: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1306"
+  user_id: "49"
+trackings_326: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1452"
+  user_id: "50"
+trackings_136: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1259"
+  user_id: "31"
+trackings_754: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1942"
+  user_id: "40"
+trackings_707: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1895"
+  user_id: "28"
+trackings_564: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1750"
+  user_id: "39"
+trackings_517: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1645"
+  user_id: "25"
+trackings_374: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1500"
+  user_id: "50"
+trackings_184: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1307"
+  user_id: "51"
+trackings_327: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1453"
+  user_id: "39"
+trackings_137: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1260"
+  user_id: "47"
+trackings_755: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1943"
+  user_id: "20"
+trackings_708: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1896"
+  user_id: "24"
+trackings_565: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1751"
+  user_id: "49"
+trackings_518: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1646"
+  user_id: "30"
+trackings_375: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1501"
+  user_id: "27"
+trackings_185: 
+  vote_topic_id: "7"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1308"
+  user_id: "35"
+trackings_328: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1454"
+  user_id: "31"
+trackings_138: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1261"
+  user_id: "34"
+trackings_756: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1944"
+  user_id: "31"
+trackings_709: 
+  vote_topic_id: "28"
+  created_at: 2010-08-12 03:06:59
+  updated_at: 2010-08-12 03:06:59
+  id: "1897"
+  user_id: "17"
+trackings_566: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1752"
+  user_id: "37"
+trackings_519: 
+  vote_topic_id: "19"
+  created_at: 2010-08-12 03:06:40
+  updated_at: 2010-08-12 03:06:40
+  id: "1647"
+  user_id: "5"
+trackings_376: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1502"
+  user_id: "38"
+trackings_186: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1309"
+  user_id: "36"
+trackings_329: 
+  vote_topic_id: "12"
+  created_at: 2010-08-12 03:06:27
+  updated_at: 2010-08-12 03:06:27
+  id: "1455"
+  user_id: "29"
+trackings_139: 
+  vote_topic_id: "6"
+  created_at: 2010-08-12 03:06:15
+  updated_at: 2010-08-12 03:06:15
+  id: "1262"
+  user_id: "40"
+trackings_757: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1945"
+  user_id: "6"
+trackings_567: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1753"
+  user_id: "20"
+trackings_377: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1503"
+  user_id: "33"
+trackings_187: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1310"
+  user_id: "48"
+trackings_758: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1946"
+  user_id: "39"
+trackings_568: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1754"
+  user_id: "10"
+trackings_378: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1504"
+  user_id: "34"
+trackings_188: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1311"
+  user_id: "23"
+trackings_759: 
+  vote_topic_id: "30"
+  created_at: 2010-08-12 03:07:03
+  updated_at: 2010-08-12 03:07:03
+  id: "1947"
+  user_id: "50"
+trackings_569: 
+  vote_topic_id: "23"
+  created_at: 2010-08-12 03:06:47
+  updated_at: 2010-08-12 03:06:47
+  id: "1755"
+  user_id: "41"
+trackings_001: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1121"
+  user_id: "49"
+trackings_379: 
+  vote_topic_id: "14"
+  created_at: 2010-08-12 03:06:30
+  updated_at: 2010-08-12 03:06:30
+  id: "1505"
+  user_id: "29"
+trackings_189: 
+  vote_topic_id: "8"
+  created_at: 2010-08-12 03:06:18
+  updated_at: 2010-08-12 03:06:18
+  id: "1312"
+  user_id: "30"
+trackings_002: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1122"
+  user_id: "25"
+trackings_620: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1807"
+  user_id: "31"
+trackings_430: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1557"
+  user_id: "37"
+trackings_240: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1363"
+  user_id: "39"
+trackings_050: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1171"
+  user_id: "38"
+trackings_003: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1123"
+  user_id: "34"
+trackings_621: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1808"
+  user_id: "15"
+trackings_431: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1558"
+  user_id: "10"
+trackings_241: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1364"
+  user_id: "13"
+trackings_051: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1172"
+  user_id: "26"
+trackings_004: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1124"
+  user_id: "41"
+trackings_622: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1809"
+  user_id: "8"
+trackings_432: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1559"
+  user_id: "29"
+trackings_242: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1365"
+  user_id: "6"
+trackings_052: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1173"
+  user_id: "29"
+trackings_005: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1125"
+  user_id: "18"
+trackings_670: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1857"
+  user_id: "26"
+trackings_623: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1810"
+  user_id: "55"
+trackings_480: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1607"
+  user_id: "24"
+trackings_433: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1560"
+  user_id: "33"
+trackings_290: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1415"
+  user_id: "41"
+trackings_243: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1366"
+  user_id: "22"
+trackings_053: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1174"
+  user_id: "36"
+trackings_006: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1126"
+  user_id: "44"
+trackings_671: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1858"
+  user_id: "27"
+trackings_624: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1811"
+  user_id: "30"
+trackings_481: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1608"
+  user_id: "36"
+trackings_434: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1561"
+  user_id: "46"
+trackings_291: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1416"
+  user_id: "17"
+trackings_244: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1367"
+  user_id: "43"
+trackings_054: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1175"
+  user_id: "44"
+trackings_007: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1127"
+  user_id: "28"
+trackings_672: 
+  vote_topic_id: "27"
+  created_at: 2010-08-12 03:06:57
+  updated_at: 2010-08-12 03:06:57
+  id: "1859"
+  user_id: "36"
+trackings_625: 
+  vote_topic_id: "25"
+  created_at: 2010-08-12 03:06:51
+  updated_at: 2010-08-12 03:06:51
+  id: "1812"
+  user_id: "44"
+trackings_482: 
+  vote_topic_id: "18"
+  created_at: 2010-08-12 03:06:37
+  updated_at: 2010-08-12 03:06:37
+  id: "1609"
+  user_id: "33"
+trackings_435: 
+  vote_topic_id: "16"
+  created_at: 2010-08-12 03:06:34
+  updated_at: 2010-08-12 03:06:34
+  id: "1562"
+  user_id: "11"
+trackings_292: 
+  vote_topic_id: "11"
+  created_at: 2010-08-12 03:06:25
+  updated_at: 2010-08-12 03:06:25
+  id: "1417"
+  user_id: "19"
+trackings_245: 
+  vote_topic_id: "9"
+  created_at: 2010-08-12 03:06:21
+  updated_at: 2010-08-12 03:06:21
+  id: "1368"
+  user_id: "16"
+trackings_055: 
+  vote_topic_id: "2"
+  created_at: 2010-08-12 03:06:09
+  updated_at: 2010-08-12 03:06:09
+  id: "1176"
+  user_id: "42"
+trackings_008: 
+  vote_topic_id: "1"
+  created_at: 2010-08-12 03:06:06
+  updated_at: 2010-08-12 03:06:06
+  id: "1128"
+  user_id: "46"

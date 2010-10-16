@@ -1,1633 +1,1297 @@
 --- 
-slugs_183: 
-  scope: 
-  name: et-nobis-aliquam-dolorem-omnis-magni-ut-sint-commo
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "803"
-  sluggable_id: "124"
 slugs_155: 
   scope: 
-  name: in-ipsa-enim-harum-omnis-blanditiis-quos-suscipit-
-  created_at: 2010-07-24 00:42:17
+  name: voteableteam
+  created_at: 2010-10-12 22:32:05
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "775"
-  sluggable_id: "96"
+  sluggable_type: User
+  id: "452"
+  sluggable_id: "102"
 slugs_127: 
-  scope: 
-  name: laborum-ducimus-consectetur-commodi-dignissimos-qu
-  created_at: 2010-07-24 00:42:14
+  scope: computers
+  name: voluptas-delectus-minima-incidunt-qui-non-delectus
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "747"
-  sluggable_id: "68"
+  id: "400"
+  sluggable_id: "22"
 slugs_041: 
   scope: 
-  name: user40
-  created_at: 2010-07-11 03:03:27
+  name: user41
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "41"
-  sluggable_id: "45"
+  sluggable_id: "46"
 slugs_013: 
   scope: 
-  name: user12
-  created_at: 2010-07-11 03:03:24
+  name: user13
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "13"
-  sluggable_id: "17"
-slugs_184: 
-  scope: 
-  name: accusantium-ut-sunt-doloribus-quas-cum-ea-qui-comm
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "804"
-  sluggable_id: "125"
+  sluggable_id: "18"
 slugs_156: 
-  scope: 
-  name: veritatis-voluptas-blanditiis-molestias-quia-id-no
-  created_at: 2010-07-24 00:42:17
+  scope: backpacking
+  name: user1021
+  created_at: 2010-10-12 22:33:48
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "776"
-  sluggable_id: "97"
+  id: "453"
+  sluggable_id: "237"
 slugs_014: 
   scope: 
-  name: user13
-  created_at: 2010-07-11 03:03:25
+  name: user14
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "14"
-  sluggable_id: "18"
+  sluggable_id: "19"
 slugs_070: 
   scope: 
-  name: vitae-atque-nihil-voluptas-rerum-dolorum-facilis-m
-  created_at: 2010-07-24 00:42:07
+  name: electronics
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "690"
-  sluggable_id: "11"
+  sluggable_type: Category
+  id: "71"
+  sluggable_id: "6"
 slugs_042: 
   scope: 
-  name: user41
-  created_at: 2010-07-11 03:03:27
+  name: user42
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "42"
-  sluggable_id: "46"
-slugs_185: 
-  scope: 
-  name: culpa-tempore-aliquam-ullam-expedita-ut-similique-
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "805"
-  sluggable_id: "126"
+  sluggable_id: "47"
 slugs_157: 
-  scope: 
-  name: repellendus-rerum-placeat-quae-deserunt-soluta-vol
-  created_at: 2010-07-24 00:42:17
+  scope: ethical
+  name: user1022
+  created_at: 2010-10-12 22:34:09
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "777"
-  sluggable_id: "98"
+  id: "454"
+  sluggable_id: "238"
 slugs_128: 
-  scope: 
-  name: atque-totam-tempore-praesentium-deserunt-corrupti-
-  created_at: 2010-07-24 00:42:14
+  scope: relationship-advice
+  name: do-you-have-any-sympathy-with-westerners-who-stray
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "748"
-  sluggable_id: "69"
+  id: "401"
+  sluggable_id: "23"
 slugs_015: 
   scope: 
-  name: user14
-  created_at: 2010-07-11 03:03:25
+  name: user15
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "15"
-  sluggable_id: "19"
+  sluggable_id: "20"
 slugs_071: 
   scope: 
-  name: ut-ipsum-neque-et-et-ratione
-  created_at: 2010-07-24 00:42:07
+  name: entertainment
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "691"
-  sluggable_id: "12"
+  sluggable_type: Category
+  id: "72"
+  sluggable_id: "7"
 slugs_043: 
   scope: 
-  name: user42
-  created_at: 2010-07-11 03:03:27
+  name: user43
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "43"
-  sluggable_id: "47"
-slugs_186: 
-  scope: 
-  name: voluptatem-consequatur-aut-ad-eos-inventore-a-occa
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "806"
-  sluggable_id: "127"
+  sluggable_id: "48"
 slugs_158: 
-  scope: 
-  name: iusto-sed-totam-quis-cupiditate-tempora-accusamus-
-  created_at: 2010-07-24 00:42:17
+  scope: autos-motorcyles
+  name: what
+  created_at: 2010-10-13 00:38:50
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "778"
-  sluggable_id: "99"
+  id: "455"
+  sluggable_id: "239"
 slugs_129: 
-  scope: 
-  name: dolor-in-eaque-voluptatem-soluta-architecto
-  created_at: 2010-07-24 00:42:14
+  scope: religion
+  name: if-your-spouse-is-cheating-on-you-will-you-recipro
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "749"
-  sluggable_id: "70"
+  id: "402"
+  sluggable_id: "24"
 slugs_016: 
   scope: 
-  name: user15
-  created_at: 2010-07-11 03:03:25
+  name: user16
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "16"
-  sluggable_id: "20"
+  sluggable_id: "21"
 slugs_072: 
   scope: 
-  name: quo-dolor-natus-dolorem-rerum-reiciendis-deleniti-
-  created_at: 2010-07-24 00:42:07
+  name: environmentalism
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "692"
-  sluggable_id: "13"
+  sluggable_type: Category
+  id: "73"
+  sluggable_id: "8"
 slugs_044: 
   scope: 
-  name: user43
-  created_at: 2010-07-11 03:03:27
+  name: user44
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "44"
-  sluggable_id: "48"
-slugs_187: 
-  scope: 
-  name: fuga-quas-optio-commodi-eveniet-id
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "807"
-  sluggable_id: "128"
+  sluggable_id: "49"
 slugs_159: 
-  scope: 
-  name: modi-debitis-rerum-officiis-quaerat-adipisci-praes
-  created_at: 2010-07-24 00:42:17
+  scope: arts
+  name: what-is-this
+  created_at: 2010-10-13 02:19:37
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "779"
-  sluggable_id: "100"
+  id: "456"
+  sluggable_id: "240"
 slugs_017: 
   scope: 
-  name: user16
-  created_at: 2010-07-11 03:03:25
+  name: user17
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "17"
-  sluggable_id: "21"
+  sluggable_id: "22"
 slugs_073: 
   scope: 
-  name: saepe-et-vero-unde-enim-dolores-ea-optio-omnis-eiu
-  created_at: 2010-07-24 00:42:08
+  name: finance
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "693"
-  sluggable_id: "14"
+  sluggable_type: Category
+  id: "74"
+  sluggable_id: "9"
 slugs_045: 
   scope: 
-  name: user44
-  created_at: 2010-07-11 03:03:27
+  name: user45
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "45"
-  sluggable_id: "49"
+  sluggable_id: "50"
 slugs_100: 
   scope: 
-  name: quis-et-nesciunt-sequi-perspiciatis-soluta-nisi-no
-  created_at: 2010-07-24 00:42:11
+  name: speed-dating
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "720"
-  sluggable_id: "41"
-slugs_188: 
-  scope: 
-  name: sit-occaecati-et-beatae-est-similique-eligendi-vit
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "808"
-  sluggable_id: "129"
+  sluggable_type: Category
+  id: "101"
+  sluggable_id: "38"
 slugs_074: 
   scope: 
-  name: aut-in-voluptas-nesciunt-voluptate-rerum-et-doloru
-  created_at: 2010-07-24 00:42:08
+  name: food-dining
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "694"
-  sluggable_id: "15"
+  sluggable_type: Category
+  id: "75"
+  sluggable_id: "10"
 slugs_046: 
   scope: 
-  name: user45
-  created_at: 2010-07-11 03:03:27
+  name: user46
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "46"
-  sluggable_id: "50"
+  sluggable_id: "51"
 slugs_101: 
   scope: 
-  name: esse-necessitatibus-reprehenderit-minus-nulla-id-a
-  created_at: 2010-07-24 00:42:11
+  name: internet
+  created_at: 2010-09-24 01:19:48
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "721"
-  sluggable_id: "42"
-slugs_189: 
-  scope: 
-  name: minus-eum-nulla-eum-numquam-perferendis-maxime-qui
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "809"
-  sluggable_id: "130"
+  sluggable_type: Category
+  id: "304"
+  sluggable_id: "39"
 slugs_130: 
-  scope: 
-  name: et-atque-minus-aperiam-ullam-qui-rerum-et-est-even
-  created_at: 2010-07-24 00:42:14
+  scope: science
+  name: best-eastern-european-summer-destination
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "750"
-  sluggable_id: "71"
+  id: "403"
+  sluggable_id: "25"
 slugs_018: 
   scope: 
-  name: user17
-  created_at: 2010-07-11 03:03:25
+  name: user18
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "18"
-  sluggable_id: "22"
+  sluggable_id: "23"
 slugs_075: 
   scope: 
-  name: et-quia-dolor-sequi-consequatur-harum-labore-ipsum
-  created_at: 2010-07-24 00:42:08
+  name: games
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "695"
-  sluggable_id: "16"
+  sluggable_type: Category
+  id: "76"
+  sluggable_id: "11"
 slugs_047: 
   scope: 
-  name: user46
-  created_at: 2010-07-11 03:03:27
+  name: user47
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "47"
-  sluggable_id: "51"
+  sluggable_id: "52"
 slugs_102: 
   scope: 
-  name: culpa-voluptatum-ad-adipisci-sint-et-voluptas
-  created_at: 2010-07-24 00:42:11
+  name: gifts
+  created_at: 2010-09-24 01:19:49
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "722"
-  sluggable_id: "43"
+  sluggable_type: Category
+  id: "305"
+  sluggable_id: "40"
 slugs_131: 
-  scope: 
-  name: perferendis-laboriosam-eligendi-ut-ea-voluptate-do
-  created_at: 2010-07-24 00:42:15
+  scope: games
+  name: dolores-quibusdam-enim-sint-dolore-ut-facere-ut-vo
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "751"
-  sluggable_id: "72"
+  id: "404"
+  sluggable_id: "26"
 slugs_076: 
   scope: 
-  name: molestiae-velit-optio-rem-dolorum-quia-accusamus-n
-  created_at: 2010-07-24 00:42:08
+  name: health-fitness
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "696"
-  sluggable_id: "17"
+  sluggable_type: Category
+  id: "77"
+  sluggable_id: "12"
 slugs_048: 
   scope: 
-  name: user47
-  created_at: 2010-07-11 03:03:27
+  name: user48
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "48"
-  sluggable_id: "52"
+  sluggable_id: "53"
 slugs_103: 
   scope: 
-  name: dolorum-molestias-sint-odio-possimus-mollitia-blan
-  created_at: 2010-07-24 00:42:11
+  name: backpacking
+  created_at: 2010-09-24 01:19:49
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "723"
-  sluggable_id: "44"
+  sluggable_type: Category
+  id: "306"
+  sluggable_id: "41"
 slugs_019: 
   scope: 
-  name: user18
-  created_at: 2010-07-11 03:03:25
+  name: user19
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "19"
-  sluggable_id: "23"
+  sluggable_id: "24"
 slugs_160: 
-  scope: 
-  name: autem-non-aperiam-sunt-rem-ab-in-ut-eligendi-repud
-  created_at: 2010-07-24 00:42:17
+  scope: autos-motorcyles
+  name: should-i
+  created_at: 2010-10-13 02:20:19
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "780"
-  sluggable_id: "101"
+  id: "457"
+  sluggable_id: "241"
 slugs_132: 
-  scope: 
-  name: explicabo-fugiat-quibusdam-beatae-possimus-ut-mini
-  created_at: 2010-07-24 00:42:15
+  scope: religion
+  name: do-you-think-food-commercials-are-some-of-the-caus
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "752"
-  sluggable_id: "73"
+  id: "405"
+  sluggable_id: "27"
 slugs_077: 
   scope: 
-  name: accusantium-natus-et-accusamus-nesciunt-modi-id-re
-  created_at: 2010-07-24 00:42:08
+  name: hobbies
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "697"
-  sluggable_id: "18"
+  sluggable_type: Category
+  id: "78"
+  sluggable_id: "13"
 slugs_049: 
   scope: 
-  name: user48
-  created_at: 2010-07-11 03:03:27
+  name: user49
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "49"
-  sluggable_id: "53"
+  sluggable_id: "54"
 slugs_104: 
   scope: 
-  name: quas-a-impedit-earum-voluptas
-  created_at: 2010-07-24 00:42:11
+  name: personal-finance
+  created_at: 2010-09-24 01:19:49
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "724"
-  sluggable_id: "45"
+  sluggable_type: Category
+  id: "307"
+  sluggable_id: "42"
 slugs_161: 
-  scope: 
-  name: ut-molestias-aut-quia-dolor-quae
-  created_at: 2010-07-24 00:42:18
+  scope: arts
+  name: what-am-i-doing
+  created_at: 2010-10-14 01:26:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "781"
-  sluggable_id: "102"
+  id: "458"
+  sluggable_id: "242"
 slugs_133: 
-  scope: 
-  name: omnis-vero-a-ab-ullam-voluptates-sapiente-aliquam-
-  created_at: 2010-07-24 00:42:15
+  scope: business
+  name: how-often-do-you-eat-fastfood
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "753"
-  sluggable_id: "74"
+  id: "406"
+  sluggable_id: "28"
 slugs_078: 
   scope: 
-  name: ad-ea-adipisci-quia-vel-rerum-debitis-ut-provident
-  created_at: 2010-07-24 00:42:08
+  name: home-garden
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "698"
-  sluggable_id: "19"
+  sluggable_type: Category
+  id: "79"
+  sluggable_id: "14"
 slugs_105: 
   scope: 
-  name: doloremque-eligendi-amet-dolore-adipisci-consequat
-  created_at: 2010-07-24 00:42:11
+  name: sports-and-outdoor
+  created_at: 2010-09-24 01:19:49
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "725"
-  sluggable_id: "46"
-slugs_190: 
-  scope: 
-  name: qui-praesentium-tempora-rerum-qui-mollitia-quia-pe
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "810"
-  sluggable_id: "131"
+  sluggable_type: Category
+  id: "308"
+  sluggable_id: "43"
 slugs_162: 
-  scope: 
-  name: distinctio-vel-quasi-accusamus-ipsa-voluptas-quia-
-  created_at: 2010-07-24 00:42:18
+  scope: arts
+  name: something-good
+  created_at: 2010-10-14 01:28:50
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "782"
-  sluggable_id: "103"
+  id: "459"
+  sluggable_id: "243"
 slugs_134: 
-  scope: 
-  name: et-illo-ipsum-eius-maiores-esse-facilis
-  created_at: 2010-07-24 00:42:15
+  scope: health-fitness
+  name: should-gay-marriage-be-legal
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "754"
-  sluggable_id: "75"
+  id: "407"
+  sluggable_id: "29"
 slugs_020: 
   scope: 
-  name: user19
-  created_at: 2010-07-11 03:03:25
+  name: user20
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "20"
-  sluggable_id: "24"
+  sluggable_id: "25"
 slugs_079: 
   scope: 
-  name: maxime-alias-dicta-nulla-fugiat-maiores-tenetur-of
-  created_at: 2010-07-24 00:42:08
+  name: kids
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "699"
-  sluggable_id: "20"
-slugs_191: 
-  scope: 
-  name: favorite-drink
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "811"
-  sluggable_id: "132"
-slugs_163: 
-  scope: 
-  name: omnis-quae-odit-et-et-repellat-quo-eius-animi-et-a
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "783"
-  sluggable_id: "104"
+  sluggable_type: Category
+  id: "80"
+  sluggable_id: "15"
 slugs_135: 
-  scope: 
-  name: possimus-quia-dolorum-nihil-aspernatur-sequi-et-iu
-  created_at: 2010-07-24 00:42:15
+  scope: business
+  name: to-what-degree-do-feel-there-is-diversity-in-your-
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "755"
-  sluggable_id: "76"
+  id: "408"
+  sluggable_id: "30"
 slugs_106: 
   scope: 
-  name: tenetur-ratione-velit-a-consequatur-ab-sit-ipsa-mi
-  created_at: 2010-07-24 00:42:11
+  name: other
+  created_at: 2010-09-24 01:19:49
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "726"
-  sluggable_id: "47"
+  sluggable_type: Category
+  id: "309"
+  sluggable_id: "44"
 slugs_021: 
   scope: 
-  name: user20
-  created_at: 2010-07-11 03:03:25
+  name: user21
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "21"
-  sluggable_id: "25"
-slugs_192: 
-  scope: 
-  name: favorite-car
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "812"
-  sluggable_id: "133"
-slugs_164: 
-  scope: 
-  name: illo-exercitationem-eos-eos-rerum-modi-aut-earum-e
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "784"
-  sluggable_id: "105"
+  sluggable_id: "26"
 slugs_136: 
-  scope: 
-  name: aut-sint-consectetur-aspernatur-deleniti-incidunt-
-  created_at: 2010-07-24 00:42:15
+  scope: religion
+  name: should-i-convert-to-islam
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "756"
-  sluggable_id: "77"
+  id: "409"
+  sluggable_id: "201"
 slugs_107: 
   scope: 
-  name: minima-provident-aspernatur-ut-similique-sint-saep
-  created_at: 2010-07-24 00:42:12
+  name: voteable-client
+  created_at: 2010-09-24 16:28:12
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "727"
-  sluggable_id: "48"
+  sluggable_type: User
+  id: "313"
+  sluggable_id: "100"
 slugs_050: 
   scope: 
-  name: user49
-  created_at: 2010-07-11 03:03:27
+  name: user50
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "50"
-  sluggable_id: "54"
+  sluggable_id: "55"
 slugs_022: 
   scope: 
-  name: user21
-  created_at: 2010-07-11 03:03:25
+  name: user22
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "22"
-  sluggable_id: "26"
-slugs_193: 
-  scope: 
-  name: favorite-site
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "813"
-  sluggable_id: "134"
-slugs_165: 
-  scope: 
-  name: fugit-voluptatem-voluptate-possimus-praesentium-no
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "785"
-  sluggable_id: "106"
+  sluggable_id: "27"
 slugs_137: 
-  scope: 
-  name: vel-dicta-voluptatem-repudiandae-voluptatem-archit
-  created_at: 2010-07-24 00:42:15
+  scope: life-society
+  name: global-warming-vs-terrorism-which-is-a-bigger-thre
+  created_at: 2010-09-25 03:31:07
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "757"
-  sluggable_id: "78"
+  id: "410"
+  sluggable_id: "202"
 slugs_108: 
-  scope: 
-  name: similique-ipsam-tenetur-omnis-velit
-  created_at: 2010-07-24 00:42:12
+  scope: religion
+  name: if-a-female-hit-you-seriously-enough-and-continued
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "728"
-  sluggable_id: "49"
+  id: "381"
+  sluggable_id: "1"
 slugs_051: 
   scope: 
-  name: user50
-  created_at: 2010-07-11 03:03:28
+  name: user55
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
   id: "51"
-  sluggable_id: "55"
+  sluggable_id: "56"
 slugs_023: 
   scope: 
-  name: user22
-  created_at: 2010-07-11 03:03:25
+  name: user23
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "23"
-  sluggable_id: "27"
-slugs_194: 
-  scope: 
-  name: vatican-abuse-rules
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "814"
-  sluggable_id: "146"
-slugs_166: 
-  scope: 
-  name: alias-est-ipsum-dignissimos-tempore
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "786"
-  sluggable_id: "107"
+  sluggable_id: "28"
 slugs_138: 
-  scope: 
-  name: adipisci-eum-molestiae-veniam-ab-quia-eos-exceptur
-  created_at: 2010-07-24 00:42:15
+  scope: entertainment
+  name: what-is-the-best-reality-show-you-ever-watched
+  created_at: 2010-09-25 03:31:07
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "758"
-  sluggable_id: "79"
+  id: "411"
+  sluggable_id: "203"
 slugs_080: 
   scope: 
-  name: est-eius-cumque-ea-et-id-aut
-  created_at: 2010-07-24 00:42:08
+  name: legal
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "700"
-  sluggable_id: "21"
+  sluggable_type: Category
+  id: "81"
+  sluggable_id: "16"
 slugs_109: 
-  scope: 
-  name: quam-et-amet-reprehenderit-sit-quos-magni-iure-est
-  created_at: 2010-07-24 00:42:12
+  scope: social-sciences
+  name: best-type-leader-in-wartime
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "729"
-  sluggable_id: "50"
+  id: "382"
+  sluggable_id: "2"
 slugs_052: 
   scope: 
-  name: user55
-  created_at: 2010-07-11 03:13:21
+  name: bond
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
-  id: "185"
-  sluggable_id: "56"
+  id: "52"
+  sluggable_id: "57"
 slugs_024: 
   scope: 
-  name: user23
-  created_at: 2010-07-11 03:03:25
+  name: user24
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "24"
-  sluggable_id: "28"
-slugs_195: 
-  scope: 
-  name: haiti
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "815"
-  sluggable_id: "147"
-slugs_167: 
-  scope: 
-  name: quo-reiciendis-enim-veritatis-et-sapiente-dolores-
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "787"
-  sluggable_id: "108"
+  sluggable_id: "29"
 slugs_081: 
   scope: 
-  name: voluptas-delectus-minima-incidunt-qui-non-delectus
-  created_at: 2010-07-24 00:42:08
+  name: life-society
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "701"
-  sluggable_id: "22"
+  sluggable_type: Category
+  id: "82"
+  sluggable_id: "17"
 slugs_053: 
   scope: 
-  name: bond
-  created_at: 2010-07-11 03:38:09
+  name: asit-m
+  created_at: 2010-09-21 17:31:28
   sequence: "1"
   sluggable_type: User
-  id: "186"
-  sluggable_id: "57"
+  id: "53"
+  sluggable_id: "64"
 slugs_025: 
   scope: 
-  name: user24
-  created_at: 2010-07-11 03:03:25
+  name: user25
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "25"
-  sluggable_id: "29"
-slugs_196: 
-  scope: 
-  name: unde-voluptatibus-veritatis-non-quam-accusantium-e
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "816"
-  sluggable_id: "148"
-slugs_168: 
-  scope: 
-  name: fugit-enim-rerum-magnam-qui-libero-nam-vero-sapien
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "788"
-  sluggable_id: "109"
+  sluggable_id: "30"
 slugs_139: 
-  scope: 
-  name: deleniti-laboriosam-necessitatibus-eligendi-earum-
-  created_at: 2010-07-24 00:42:15
+  scope: electronics
+  name: what-gaming-console-is-better
+  created_at: 2010-09-25 03:31:07
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "759"
-  sluggable_id: "80"
+  id: "412"
+  sluggable_id: "204"
 slugs_082: 
   scope: 
-  name: nisi-quidem-ea-et-ut
-  created_at: 2010-07-24 00:42:08
+  name: pets
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "702"
-  sluggable_id: "23"
+  sluggable_type: Category
+  id: "83"
+  sluggable_id: "18"
 slugs_054: 
   scope: 
-  name: evdrptest
-  created_at: 2010-07-12 19:57:11
+  name: kurt-cob
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
   sluggable_type: User
-  id: "187"
-  sluggable_id: "63"
+  id: "54"
+  sluggable_id: "65"
 slugs_026: 
   scope: 
-  name: user25
-  created_at: 2010-07-11 03:03:25
+  name: user26
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "26"
-  sluggable_id: "30"
-slugs_197: 
-  scope: 
-  name: voluptatibus-libero-error-cum-exercitationem-lauda
-  created_at: 2010-07-24 00:42:21
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "817"
-  sluggable_id: "149"
-slugs_169: 
-  scope: 
-  name: excepturi-fugiat-quia-possimus-qui-asperiores-plac
-  created_at: 2010-07-24 00:42:18
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "789"
-  sluggable_id: "110"
+  sluggable_id: "31"
 slugs_083: 
   scope: 
-  name: omnis-illum-dolores-sunt-qui-perspiciatis-facere-t
-  created_at: 2010-07-24 00:42:08
+  name: real-estate
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "703"
-  sluggable_id: "24"
+  sluggable_type: Category
+  id: "84"
+  sluggable_id: "19"
 slugs_055: 
   scope: 
-  name: asit-m
-  created_at: 2010-07-12 20:59:59
+  name: admin
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
   sluggable_type: User
-  id: "188"
-  sluggable_id: "64"
+  id: "55"
+  sluggable_id: "67"
 slugs_110: 
-  scope: 
-  name: ipsum-eum-at-rerum-reiciendis-fuga-sed-voluptas-re
-  created_at: 2010-07-24 00:42:12
+  scope: real-estate
+  name: which-generation-of-gaming-is-the-best
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "730"
-  sluggable_id: "51"
+  id: "383"
+  sluggable_id: "3"
 slugs_027: 
   scope: 
-  name: user26
-  created_at: 2010-07-11 03:03:25
+  name: user27
+  created_at: 2010-09-21 17:31:26
   sequence: "1"
   sluggable_type: User
   id: "27"
-  sluggable_id: "31"
-slugs_198: 
-  scope: 
-  name: dolores-est-et-omnis-porro-nostrum-illum-rem-id
-  created_at: 2010-07-24 00:42:22
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "818"
-  sluggable_id: "150"
+  sluggable_id: "32"
 slugs_056: 
   scope: 
-  name: kurt-cob
-  created_at: 2010-07-12 21:59:39
+  name: eddie-ved
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
   sluggable_type: User
-  id: "189"
-  sluggable_id: "65"
+  id: "56"
+  sluggable_id: "70"
 slugs_111: 
-  scope: 
-  name: odit-expedita-hic-voluptas-fugiat-repellat-nihil
-  created_at: 2010-07-24 00:42:12
+  scope: legal
+  name: when-marijuana-becomes-legal-and-it-will-what-will
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "731"
-  sluggable_id: "52"
+  id: "384"
+  sluggable_id: "4"
 slugs_028: 
   scope: 
-  name: user27
-  created_at: 2010-07-11 03:03:26
+  name: user28
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "28"
-  sluggable_id: "32"
+  sluggable_id: "33"
 slugs_084: 
   scope: 
-  name: consequatur-ipsa-quia-id-et-nihil-natus-rerum-sapi
-  created_at: 2010-07-24 00:42:09
+  name: recreation-sports
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "704"
-  sluggable_id: "25"
-slugs_199: 
-  scope: 
-  name: is-the-inception-ending-real-or-dream
-  created_at: 2010-07-24 00:42:22
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "819"
-  sluggable_id: "159"
+  sluggable_type: Category
+  id: "85"
+  sluggable_id: "20"
 slugs_140: 
-  scope: 
-  name: voluptates-perferendis-voluptas-earum-hic-unde-ten
-  created_at: 2010-07-24 00:42:15
+  scope: arts
+  name: should
+  created_at: 2010-09-26 23:30:44
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "760"
-  sluggable_id: "81"
+  id: "422"
+  sluggable_id: "213"
 slugs_057: 
   scope: 
-  name: admin
-  created_at: 2010-07-15 08:03:36
+  name: nitin-singh
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
   sluggable_type: User
-  id: "206"
-  sluggable_id: "67"
+  id: "57"
+  sluggable_id: "79"
 slugs_112: 
-  scope: 
-  name: et-officiis-aliquam-voluptas-deserunt-error-ea-et-
-  created_at: 2010-07-24 00:42:12
+  scope: health-fitness
+  name: do-you-think-prostitution-if-done-in-a-legal-and-c
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "732"
-  sluggable_id: "53"
+  id: "385"
+  sluggable_id: "5"
 slugs_085: 
   scope: 
-  name: dolores-quibusdam-enim-sint-dolore-ut-facere-ut-vo
-  created_at: 2010-07-24 00:42:09
+  name: relationship-advice
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "705"
-  sluggable_id: "26"
+  sluggable_type: Category
+  id: "86"
+  sluggable_id: "21"
 slugs_141: 
-  scope: 
-  name: ipsam-qui-non-illo-explicabo-dolorem-sit
-  created_at: 2010-07-24 00:42:16
+  scope: hobbies
+  name: ok-ok
+  created_at: 2010-09-27 00:17:52
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "761"
-  sluggable_id: "82"
+  id: "423"
+  sluggable_id: "213"
 slugs_058: 
   scope: 
-  name: asitkmishra
-  created_at: 2010-07-23 05:11:40
+  name: aman
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
   sluggable_type: User
-  id: "674"
-  sluggable_id: "68"
+  id: "58"
+  sluggable_id: "84"
 slugs_113: 
-  scope: 
-  name: saepe-ipsa-minima-laudantium-aut-laudantium-et-exp
-  created_at: 2010-07-24 00:42:12
+  scope: entertainment
+  name: japan-has-refused-entry-to-paris-hiltongasps-what-
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "733"
-  sluggable_id: "54"
+  id: "386"
+  sluggable_id: "6"
 slugs_029: 
   scope: 
-  name: user28
-  created_at: 2010-07-11 03:03:26
+  name: user29
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "29"
-  sluggable_id: "33"
+  sluggable_id: "34"
 slugs_086: 
   scope: 
-  name: et-natus-laboriosam-in-dolores-consectetur-in-reru
-  created_at: 2010-07-24 00:42:09
+  name: religion
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "706"
-  sluggable_id: "27"
-slugs_170: 
-  scope: 
-  name: vitae-numquam-pariatur-minus-ipsum-ab
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "790"
-  sluggable_id: "111"
+  sluggable_type: Category
+  id: "87"
+  sluggable_id: "22"
 slugs_142: 
-  scope: 
-  name: quod-voluptatem-quia-dolores-fugiat-vel
-  created_at: 2010-07-24 00:42:16
+  scope: life-society
+  name: is-same-sex-education-or-co-education-is-the-best-
+  created_at: 2010-09-27 19:52:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "762"
-  sluggable_id: "83"
+  id: "424"
+  sluggable_id: "214"
 slugs_059: 
   scope: 
-  name: nitin-singh
-  created_at: 2010-07-23 05:11:56
+  name: seed
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
   sluggable_type: User
-  id: "675"
-  sluggable_id: "69"
+  id: "59"
+  sluggable_id: "85"
 slugs_114: 
-  scope: 
-  name: qui-et-velit-temporibus-asperiores-quia-quod-occae
-  created_at: 2010-07-24 00:42:12
+  scope: hobbies
+  name: is-obama-socialist
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "734"
-  sluggable_id: "55"
+  id: "387"
+  sluggable_id: "7"
 slugs_087: 
   scope: 
-  name: libero-non-tempore-qui-unde
-  created_at: 2010-07-24 00:42:09
+  name: science
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "707"
-  sluggable_id: "28"
-slugs_171: 
-  scope: 
-  name: vero-rerum-in-dolor-dignissimos-est-quo-repudianda
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "791"
-  sluggable_id: "112"
+  sluggable_type: Category
+  id: "88"
+  sluggable_id: "23"
 slugs_143: 
-  scope: 
-  name: neque-qui-quam-est-quidem-earum
-  created_at: 2010-07-24 00:42:16
+  scope: religion
+  name: should-muslims-be-allowed-extra-breaks-in-the-work
+  created_at: 2010-09-27 19:56:32
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "763"
-  sluggable_id: "84"
+  id: "425"
+  sluggable_id: "215"
 slugs_115: 
-  scope: 
-  name: voluptatem-fugiat-tempora-et-totam-vitae-facilis-i
-  created_at: 2010-07-24 00:42:13
+  scope: legal
+  name: what-are-your-biggest-distraction-when-working-fro
+  created_at: 2010-09-25 03:31:04
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "735"
-  sluggable_id: "56"
+  id: "388"
+  sluggable_id: "8"
 slugs_088: 
   scope: 
-  name: iure-libero-optio-esse-eos-vel-ut-et-est-architect
-  created_at: 2010-07-24 00:42:09
+  name: social-sciences
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "708"
-  sluggable_id: "29"
+  sluggable_type: Category
+  id: "89"
+  sluggable_id: "24"
 slugs_001: 
   scope: 
   name: amishra
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:24
   sequence: "1"
   sluggable_type: User
   id: "1"
   sluggable_id: "5"
-slugs_172: 
-  scope: 
-  name: veritatis-quibusdam-asperiores-sit-possimus-distin
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "792"
-  sluggable_id: "113"
 slugs_144: 
-  scope: 
-  name: adipisci-id-ut-ex-non-quo-aut-magnam-adipisci-et-a
-  created_at: 2010-07-24 00:42:16
+  scope: autos-motorcyles
+  name: are-you-buying-a-toyota-again
+  created_at: 2010-09-27 22:55:37
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "764"
-  sluggable_id: "85"
+  id: "426"
+  sluggable_id: "216"
 slugs_116: 
-  scope: 
-  name: hic-rerum-recusandae-blanditiis-non-ratione-ipsa-e
-  created_at: 2010-07-24 00:42:13
+  scope: relationship-advice
+  name: who-is-a-better-bad-guy
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "736"
-  sluggable_id: "57"
+  id: "389"
+  sluggable_id: "9"
 slugs_030: 
   scope: 
-  name: user29
-  created_at: 2010-07-11 03:03:26
+  name: user30
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "30"
-  sluggable_id: "34"
+  sluggable_id: "35"
 slugs_089: 
   scope: 
-  name: ducimus-laudantium-ut-ut-ratione-odit-ut-officia-r
-  created_at: 2010-07-24 00:42:09
+  name: transportation
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "709"
-  sluggable_id: "30"
+  sluggable_type: Category
+  id: "90"
+  sluggable_id: "25"
 slugs_002: 
   scope: 
   name: user1
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:24
   sequence: "1"
   sluggable_type: User
   id: "2"
   sluggable_id: "6"
-slugs_200: 
-  scope: 
-  name: first-dui-now-this
-  created_at: 2010-07-24 00:47:51
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "821"
-  sluggable_id: "161"
-slugs_173: 
-  scope: 
-  name: dolores-dicta-in-molestiae-officia-voluptatibus-vo
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "793"
-  sluggable_id: "114"
 slugs_145: 
-  scope: 
-  name: id-ducimus-rerum-consequuntur-dolorem-excepturi-si
-  created_at: 2010-07-24 00:42:16
+  scope: arts
+  name: testing-vote-power
+  created_at: 2010-10-02 01:00:22
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "765"
-  sluggable_id: "86"
+  id: "427"
+  sluggable_id: "217"
 slugs_031: 
   scope: 
-  name: user30
-  created_at: 2010-07-11 03:03:26
+  name: user31
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "31"
-  sluggable_id: "35"
+  sluggable_id: "36"
 slugs_003: 
   scope: 
   name: user2
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "3"
   sluggable_id: "7"
-slugs_201: 
-  scope: 
-  name: eddie-ved
-  created_at: 2010-07-24 03:09:37
-  sequence: "1"
-  sluggable_type: User
-  id: "822"
-  sluggable_id: "70"
-slugs_174: 
-  scope: 
-  name: molestiae-nesciunt-corporis-aliquid-non-fugit-magn
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "794"
-  sluggable_id: "115"
 slugs_146: 
-  scope: 
-  name: dolores-ut-sit-provident-incidunt-officiis-quo-ape
-  created_at: 2010-07-24 00:42:16
+  scope: arts
+  name: etags-good-idea
+  created_at: 2010-10-05 21:55:13
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "766"
-  sluggable_id: "87"
+  id: "442"
+  sluggable_id: "232"
 slugs_117: 
-  scope: 
-  name: perspiciatis-accusantium-architecto-consectetur-re
-  created_at: 2010-07-24 00:42:13
+  scope: recreation-sports
+  name: macbook-pro-or-hp-notebook
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "737"
-  sluggable_id: "58"
+  id: "390"
+  sluggable_id: "10"
 slugs_060: 
   scope: 
-  name: accusantium-delectus-distinctio-minima-adipisci-it
-  created_at: 2010-07-24 00:42:06
+  name: tomc
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "680"
-  sluggable_id: "1"
+  sluggable_type: User
+  id: "60"
+  sluggable_id: "86"
 slugs_032: 
   scope: 
-  name: user31
-  created_at: 2010-07-11 03:03:26
+  name: user32
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "32"
-  sluggable_id: "36"
+  sluggable_id: "37"
 slugs_004: 
   scope: 
   name: user3
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "4"
   sluggable_id: "8"
-slugs_202: 
-  scope: 
-  name: nitin-singh
-  created_at: 2010-07-24 19:21:45
-  sequence: "2"
-  sluggable_type: User
-  id: "831"
-  sluggable_id: "79"
-slugs_175: 
-  scope: 
-  name: nobis-aperiam-laboriosam-ex-alias-possimus-quaerat
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "795"
-  sluggable_id: "116"
 slugs_147: 
-  scope: 
-  name: non-consequatur-officia-earum-ut-sit-culpa-debitis
-  created_at: 2010-07-24 00:42:16
+  scope: arts
+  name: etags-good-idea-one-more-change
+  created_at: 2010-10-05 21:56:42
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "767"
-  sluggable_id: "88"
+  id: "443"
+  sluggable_id: "232"
 slugs_118: 
-  scope: 
-  name: non-dolorem-ut-odit-rerum-similique-qui-inventore
-  created_at: 2010-07-24 00:42:13
+  scope: food-dining
+  name: do-you-drive-drunk
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "738"
-  sluggable_id: "59"
+  id: "391"
+  sluggable_id: "11"
 slugs_061: 
   scope: 
-  name: et-sed-animi-reiciendis-ad-voluptatem-amet-culpa-d
-  created_at: 2010-07-24 00:42:06
+  name: may-keenan
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "681"
-  sluggable_id: "2"
+  sluggable_type: User
+  id: "61"
+  sluggable_id: "87"
 slugs_033: 
   scope: 
-  name: user32
-  created_at: 2010-07-11 03:03:26
+  name: user33
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "33"
-  sluggable_id: "37"
+  sluggable_id: "38"
 slugs_005: 
   scope: 
   name: user4
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "5"
   sluggable_id: "9"
-slugs_203: 
-  scope: 
-  name: aman
-  created_at: 2010-07-26 00:59:11
-  sequence: "1"
-  sluggable_type: User
-  id: "836"
-  sluggable_id: "84"
-slugs_176: 
-  scope: 
-  name: ut-facere-voluptas-quasi-voluptatum-consequuntur-o
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "796"
-  sluggable_id: "117"
 slugs_148: 
-  scope: 
-  name: veniam-culpa-dolorum-pariatur-ut-sit-aliquam-assum
-  created_at: 2010-07-24 00:42:16
+  scope: arts
+  name: more-updates
+  created_at: 2010-10-05 21:56:56
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "768"
-  sluggable_id: "89"
+  id: "444"
+  sluggable_id: "232"
 slugs_119: 
-  scope: 
-  name: commodi-quod-ut-in-vero-aliquam-saepe
-  created_at: 2010-07-24 00:42:13
+  scope: autos-motorcyles
+  name: where-do-you-spend-more-time-lately
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "739"
-  sluggable_id: "60"
+  id: "392"
+  sluggable_id: "12"
 slugs_062: 
   scope: 
-  name: minima-ipsam-non-fugit-qui-molestiae-veritatis-qui
-  created_at: 2010-07-24 00:42:06
+  name: matt-bell
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "682"
-  sluggable_id: "3"
+  sluggable_type: User
+  id: "62"
+  sluggable_id: "88"
 slugs_034: 
   scope: 
-  name: user33
-  created_at: 2010-07-11 03:03:26
+  name: user34
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "34"
-  sluggable_id: "38"
+  sluggable_id: "39"
 slugs_006: 
   scope: 
   name: user5
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "6"
   sluggable_id: "10"
 slugs_090: 
   scope: 
-  name: vero-deserunt-recusandae-ad-possimus-vel-totam-sed
-  created_at: 2010-07-24 00:42:10
+  name: travel-places
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "710"
-  sluggable_id: "31"
-slugs_204: 
-  scope: 
-  name: is-mel-gibson-crazy
-  created_at: 2010-07-26 01:48:58
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "837"
-  sluggable_id: "161"
-slugs_177: 
-  scope: 
-  name: rerum-eos-impedit-magni-repellat-sint-qui-vitae
-  created_at: 2010-07-24 00:42:19
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "797"
-  sluggable_id: "118"
+  sluggable_type: Category
+  id: "91"
+  sluggable_id: "26"
 slugs_149: 
-  scope: 
-  name: provident-eaque-dolore-voluptate-id-cumque-dolor
-  created_at: 2010-07-24 00:42:16
+  scope: computers
+  name: lorem-lorem-ipsum-ipsum-lorem-ipsum-addfadsjfkjdsk
+  created_at: 2010-10-06 22:17:59
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "769"
-  sluggable_id: "90"
+  id: "445"
+  sluggable_id: "218"
 slugs_035: 
   scope: 
-  name: user34
-  created_at: 2010-07-11 03:03:26
+  name: user35
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "35"
-  sluggable_id: "39"
+  sluggable_id: "40"
 slugs_091: 
   scope: 
-  name: odit-libero-velit-cupiditate-et-ea-fuga-beatae
-  created_at: 2010-07-24 00:42:10
+  name: arts
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "711"
-  sluggable_id: "32"
+  sluggable_type: Category
+  id: "92"
+  sluggable_id: "27"
 slugs_063: 
   scope: 
-  name: provident-et-id-repellendus-quia-quas-dicta-aut-se
-  created_at: 2010-07-24 00:42:06
+  name: asitkmishra
+  created_at: 2010-09-21 17:31:29
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "683"
-  sluggable_id: "4"
-slugs_178: 
-  scope: 
-  name: eos-natus-unde-unde-hic-nobis-beatae-voluptatum-ni
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "798"
-  sluggable_id: "119"
+  sluggable_type: User
+  id: "63"
+  sluggable_id: "89"
 slugs_036: 
   scope: 
-  name: user35
-  created_at: 2010-07-11 03:03:26
+  name: user36
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "36"
-  sluggable_id: "40"
+  sluggable_id: "41"
 slugs_007: 
   scope: 
   name: user6
-  created_at: 2010-07-11 03:03:24
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "7"
   sluggable_id: "11"
 slugs_092: 
   scope: 
-  name: cum-quidem-accusamus-sapiente-eos-alias-cumque-eiu
-  created_at: 2010-07-24 00:42:10
+  name: hobby
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "712"
-  sluggable_id: "33"
+  sluggable_type: Category
+  id: "93"
+  sluggable_id: "28"
 slugs_064: 
   scope: 
-  name: inventore-consequatur-magnam-molestiae-inventore-v
-  created_at: 2010-07-24 00:42:07
+  name: banta
+  created_at: 2010-09-21 17:31:30
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "684"
-  sluggable_id: "5"
-slugs_179: 
-  scope: 
-  name: unde-atque-quasi-autem-repellendus-qui-non-archite
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "799"
-  sluggable_id: "120"
+  sluggable_type: User
+  id: "65"
+  sluggable_id: "95"
 slugs_120: 
-  scope: 
-  name: neque-ea-repellendus-dolorum-illo-dolorum-nulla-et
-  created_at: 2010-07-24 00:42:13
+  scope: electronics
+  name: where-does-your-middle-school-kid-cough-the-most
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "740"
-  sluggable_id: "61"
+  id: "393"
+  sluggable_id: "13"
 slugs_037: 
   scope: 
-  name: user36
-  created_at: 2010-07-11 03:03:26
+  name: user37
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "37"
-  sluggable_id: "41"
+  sluggable_id: "42"
 slugs_008: 
   scope: 
-  name: user7
-  created_at: 2010-07-11 03:03:24
+  name: user8
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "8"
-  sluggable_id: "12"
+  sluggable_id: "13"
 slugs_093: 
   scope: 
-  name: repudiandae-voluptate-quisquam-quibusdam-eos
-  created_at: 2010-07-24 00:42:10
+  name: video-games
+  created_at: 2010-09-21 17:31:38
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "713"
-  sluggable_id: "34"
+  sluggable_type: Category
+  id: "94"
+  sluggable_id: "29"
 slugs_065: 
   scope: 
-  name: iste-et-qui-qui-sed
-  created_at: 2010-07-24 00:42:07
+  name: trenty-reznor
+  created_at: 2010-09-21 17:31:30
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "685"
-  sluggable_id: "6"
+  sluggable_type: User
+  id: "66"
+  sluggable_id: "97"
 slugs_121: 
-  scope: 
-  name: est-itaque-dolorum-porro-ut-quae-nihil-molestias-d
-  created_at: 2010-07-24 00:42:13
+  scope: pets
+  name: which-holiday-dinner-is-better
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "741"
-  sluggable_id: "62"
+  id: "394"
+  sluggable_id: "14"
 slugs_038: 
   scope: 
-  name: user37
-  created_at: 2010-07-11 03:03:26
+  name: user38
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "38"
-  sluggable_id: "42"
+  sluggable_id: "43"
 slugs_009: 
   scope: 
-  name: user8
-  created_at: 2010-07-11 03:03:24
+  name: user9
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "9"
-  sluggable_id: "13"
+  sluggable_id: "14"
 slugs_094: 
   scope: 
-  name: rerum-eveniet-sint-reiciendis-eum-enim-dolorem-per
-  created_at: 2010-07-24 00:42:10
+  name: luxury-travel
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "714"
-  sluggable_id: "35"
+  sluggable_type: Category
+  id: "95"
+  sluggable_id: "30"
 slugs_066: 
   scope: 
-  name: et-nihil-dolores-quisquam-sed-qui-et-odit-eum-mole
-  created_at: 2010-07-24 00:42:07
+  name: autos-motorcyles
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "686"
-  sluggable_id: "7"
+  sluggable_type: Category
+  id: "67"
+  sluggable_id: "2"
 slugs_150: 
-  scope: 
-  name: consequatur-nihil-et-quo-ipsum-impedit-aperiam-mai
-  created_at: 2010-07-24 00:42:16
+  scope: computers
+  name: thin-vs-passenger
+  created_at: 2010-10-06 22:18:56
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "770"
-  sluggable_id: "91"
+  id: "446"
+  sluggable_id: "218"
 slugs_122: 
-  scope: 
-  name: dolor-delectus-doloribus-et-architecto-enim-enim-e
-  created_at: 2010-07-24 00:42:13
+  scope: home-garden
+  name: best-u2-song
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "742"
-  sluggable_id: "63"
+  id: "395"
+  sluggable_id: "15"
 slugs_039: 
   scope: 
-  name: user38
-  created_at: 2010-07-11 03:03:27
+  name: user39
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "39"
-  sluggable_id: "43"
+  sluggable_id: "44"
 slugs_095: 
   scope: 
-  name: at-esse-dolores-optio-sed-qui-aut-id-inventore-mai
-  created_at: 2010-07-24 00:42:10
+  name: gadgets
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "715"
-  sluggable_id: "36"
+  sluggable_type: Category
+  id: "96"
+  sluggable_id: "31"
 slugs_067: 
   scope: 
-  name: minus-sed-cum-soluta-sapiente-magni-doloribus-odio
-  created_at: 2010-07-24 00:42:07
+  name: business
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "687"
-  sluggable_id: "8"
+  sluggable_type: Category
+  id: "68"
+  sluggable_id: "3"
 slugs_151: 
-  scope: 
-  name: molestiae-voluptates-ex-aut-sed-autem-ea-sint-dolo
-  created_at: 2010-07-24 00:42:16
+  scope: autos-motorcyles
+  name: what-should-i-do-now
+  created_at: 2010-10-10 19:11:58
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "771"
-  sluggable_id: "92"
+  id: "448"
+  sluggable_id: "234"
 slugs_123: 
-  scope: 
-  name: molestias-eum-repellendus-non-voluptatem-suscipit-
-  created_at: 2010-07-24 00:42:14
+  scope: food-dining
+  name: where-are-you-cutting-your-spending-the-most
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "743"
-  sluggable_id: "64"
+  id: "396"
+  sluggable_id: "16"
 slugs_096: 
   scope: 
-  name: excepturi-error-odio-inventore-et-enim-repellendus
-  created_at: 2010-07-24 00:42:10
+  name: serial-dating
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "716"
-  sluggable_id: "37"
+  sluggable_type: Category
+  id: "97"
+  sluggable_id: "32"
 slugs_068: 
   scope: 
-  name: accusantium-enim-deleniti-est-voluptatem-alias-omn
-  created_at: 2010-07-24 00:42:07
+  name: computers
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "688"
-  sluggable_id: "9"
-slugs_180: 
-  scope: 
-  name: est-perspiciatis-veritatis-repellat-quam-enim-nihi
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "800"
-  sluggable_id: "121"
+  sluggable_type: Category
+  id: "69"
+  sluggable_id: "4"
 slugs_152: 
   scope: 
-  name: eligendi-quis-dolor-eos-omnis-qui-in-omnis-quia-eu
-  created_at: 2010-07-24 00:42:17
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "772"
-  sluggable_id: "93"
+  name: nitin-singh
+  created_at: 2010-10-12 21:37:39
+  sequence: "2"
+  sluggable_type: User
+  id: "449"
+  sluggable_id: "101"
 slugs_124: 
-  scope: 
-  name: vel-voluptatem-aut-sunt-molestias-sit-ea-inventore
-  created_at: 2010-07-24 00:42:14
+  scope: autos-motorcyles
+  name: ground-zero-mosque-is-a
+  created_at: 2010-09-25 03:31:05
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "744"
-  sluggable_id: "65"
+  id: "397"
+  sluggable_id: "17"
 slugs_097: 
   scope: 
-  name: et-minus-qui-voluptatem-suscipit-voluptate-eum-nos
-  created_at: 2010-07-24 00:42:10
+  name: ethical
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "717"
-  sluggable_id: "38"
+  sluggable_type: Category
+  id: "98"
+  sluggable_id: "34"
 slugs_010: 
   scope: 
-  name: user9
-  created_at: 2010-07-11 03:03:24
+  name: user10
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "10"
-  sluggable_id: "14"
+  sluggable_id: "15"
 slugs_069: 
   scope: 
-  name: beatae-et-ut-assumenda-maxime-culpa-saepe-autem-cu
-  created_at: 2010-07-24 00:42:07
+  name: education
+  created_at: 2010-09-21 17:31:37
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "689"
-  sluggable_id: "10"
-slugs_181: 
-  scope: 
-  name: officiis-enim-sunt-ullam-est-accusamus-eveniet-est
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "801"
-  sluggable_id: "122"
+  sluggable_type: Category
+  id: "70"
+  sluggable_id: "5"
 slugs_153: 
-  scope: 
-  name: magni-repudiandae-cumque-eos-deleniti-occaecati-un
-  created_at: 2010-07-24 00:42:17
+  scope: arts
+  name: user1011
+  created_at: 2010-10-12 21:39:46
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "773"
-  sluggable_id: "94"
+  id: "450"
+  sluggable_id: "235"
 slugs_125: 
-  scope: 
-  name: at-et-voluptas-deserunt-ab-enim-minus-sunt-commodi
-  created_at: 2010-07-24 00:42:14
+  scope: finance
+  name: ground-zero-mosque-is-a
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "745"
-  sluggable_id: "66"
+  id: "398"
+  sluggable_id: "18"
 slugs_098: 
   scope: 
-  name: hic-sint-voluptatem-molestias-laboriosam
-  created_at: 2010-07-24 00:42:10
+  name: moral
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "718"
-  sluggable_id: "39"
+  sluggable_type: Category
+  id: "99"
+  sluggable_id: "36"
 slugs_011: 
   scope: 
-  name: user10
-  created_at: 2010-07-11 03:03:24
+  name: user11
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "11"
-  sluggable_id: "15"
-slugs_182: 
-  scope: 
-  name: mollitia-eius-labore-aut-hic-omnis-et-magni-cupidi
-  created_at: 2010-07-24 00:42:20
-  sequence: "1"
-  sluggable_type: VoteTopic
-  id: "802"
-  sluggable_id: "123"
+  sluggable_id: "16"
 slugs_154: 
-  scope: 
-  name: aperiam-ipsa-doloremque-sint-velit-rem-voluptatem-
-  created_at: 2010-07-24 00:42:17
+  scope: autos-motorcyles
+  name: user1012
+  created_at: 2010-10-12 21:40:26
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "774"
-  sluggable_id: "95"
+  id: "451"
+  sluggable_id: "236"
 slugs_126: 
-  scope: 
-  name: vel-minus-eos-fugit-reiciendis-non-voluptatibus-qu
-  created_at: 2010-07-24 00:42:14
+  scope: autos-motorcyles
+  name: are-you-convinced-facebook-protects-your-privacy
+  created_at: 2010-09-25 03:31:06
   sequence: "1"
   sluggable_type: VoteTopic
-  id: "746"
-  sluggable_id: "67"
+  id: "399"
+  sluggable_id: "19"
 slugs_040: 
   scope: 
-  name: user39
-  created_at: 2010-07-11 03:03:27
+  name: user40
+  created_at: 2010-09-21 17:31:27
   sequence: "1"
   sluggable_type: User
   id: "40"
-  sluggable_id: "44"
+  sluggable_id: "45"
 slugs_099: 
   scope: 
-  name: earum-sint-aut-quisquam-voluptatem-explicabo-dicta
-  created_at: 2010-07-24 00:42:11
+  name: urban-living
+  created_at: 2010-09-21 17:31:39
   sequence: "1"
-  sluggable_type: VoteTopic
-  id: "719"
-  sluggable_id: "40"
+  sluggable_type: Category
+  id: "100"
+  sluggable_id: "37"
 slugs_012: 
   scope: 
-  name: user11
-  created_at: 2010-07-11 03:03:24
+  name: user12
+  created_at: 2010-09-21 17:31:25
   sequence: "1"
   sluggable_type: User
   id: "12"
-  sluggable_id: "16"
+  sluggable_id: "17"

@@ -1,8 +1,0 @@
-<% if @vts.size > 0 %>
-  <% if @paginated %>
-    $('#voted').replaceWith("<%= escape_javascript(render :partial => "voted") %>");
-  <% else %>
-    <%= (render :partial => "voted") %>
-  <% end  %>
-<% end  %>
-

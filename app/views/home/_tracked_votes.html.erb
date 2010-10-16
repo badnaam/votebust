@@ -1,9 +1,0 @@
-<%# cache(:top_votes, :expires_in => 5.minutes) do %>
-<div class="">
-  <% votes.keys.sort_by{|k|k.votes_count}.reverse_each do |vt| %>
-    <%= render :partial => "vote_topics/vote_preview", :locals => {:vt => vt, :vi => votes[vt], :top_vote => true} %>
-  <% end  %>
-  <%= link_to "More..", vote_topics_path(:listing_type => "tracked_all") %>
-</div>
-
-<%# end  %>

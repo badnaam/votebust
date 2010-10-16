@@ -1,9 +1,529 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  desc: MyString
-  fkey: MyText
-
-two:
-  desc: MyString
-  fkey: MyText
+--- 
+vote_facets_027: 
+  vl: 
+  ll: 
+  ag1: repellat ut
+  vote_topic_id: "29"
+  created_at: 2010-10-01 02:03:32
+  ag2: repellat ut
+  w: "No"
+  ag3: "No"
+  m: "No"
+  updated_at: 2010-10-01 02:03:32
+  ag4: "No"
+  last_update_tv: "0"
+  id: "3650"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_016: 
+  vl: 
+  ll: 
+  ag1: Other Entertainment
+  vote_topic_id: "16"
+  created_at: 2010-10-01 02:03:31
+  ag2: Other Entertainment
+  w: Shopping unessentials
+  ag3: Shopping unessentials
+  m: Wining/Dining
+  updated_at: 2010-10-01 02:03:31
+  ag4: Shopping unessentials
+  last_update_tv: "0"
+  id: "3639"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_005: 
+  vl: 
+  ll: 
+  ag1: "yes"
+  vote_topic_id: "5"
+  created_at: 2010-10-01 02:03:30
+  ag2: "no"
+  w: "yes"
+  ag3: "no"
+  m: "no"
+  updated_at: 2010-10-01 02:03:30
+  ag4: "yes"
+  last_update_tv: "0"
+  id: "3628"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_028: 
+  vl: 
+  ll: 
+  ag1: None
+  vote_topic_id: "30"
+  created_at: 2010-10-01 02:03:32
+  ag2: A lot
+  w: None
+  ag3: None
+  m: None
+  updated_at: 2010-10-01 02:03:32
+  ag4: None
+  last_update_tv: "0"
+  id: "3651"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_017: 
+  vl: 
+  ll: 
+  ag1: Community Center
+  vote_topic_id: "17"
+  created_at: 2010-10-01 02:03:31
+  ag2: Mosque
+  w: Mosque & Community Center
+  ag3: Mosque
+  m: Mosque & Community Center
+  updated_at: 2010-10-01 02:03:31
+  ag4: Extension of a mosque
+  last_update_tv: "0"
+  id: "3640"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_006: 
+  vl: 
+  ll: 
+  ag1: Severe all diplomatic ties
+  vote_topic_id: "6"
+  created_at: 2010-10-01 02:03:30
+  ag2: Close the borders and tell her she cannot come back in
+  w: Close the borders and tell her she cannot come back in
+  ag3: Severe all diplomatic ties
+  m: Close the borders and tell her she cannot come back in
+  updated_at: 2010-10-01 02:03:30
+  ag4: Close the borders and tell her she cannot come back in
+  last_update_tv: "0"
+  id: "3629"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_030: 
+  vl: 
+  ll: 
+  ag1: 
+  vote_topic_id: "203"
+  created_at: 2010-10-01 02:03:32
+  ag2: 
+  w: 
+  ag3: 
+  m: 
+  updated_at: 2010-10-01 02:03:32
+  ag4: 
+  last_update_tv: "0"
+  id: "3653"
+  wl: 
+  dag: ""
+vote_facets_029: 
+  vl: 
+  ll: 
+  ag1: 
+  vote_topic_id: "201"
+  created_at: 2010-10-01 02:03:32
+  ag2: 
+  w: "Yes"
+  ag3: "Yes"
+  m: 
+  updated_at: 2010-10-01 02:03:32
+  ag4: It should be your decision
+  last_update_tv: "0"
+  id: "3652"
+  wl: 
+  dag: California
+vote_facets_018: 
+  vl: 
+  ll: 
+  ag1: Mosque & Community Center
+  vote_topic_id: "18"
+  created_at: 2010-10-01 02:03:31
+  ag2: Mosque
+  w: Mosque
+  ag3: Extension of a mosque
+  m: Mosque
+  updated_at: 2010-10-01 02:03:31
+  ag4: Mosque
+  last_update_tv: "0"
+  id: "3641"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_007: 
+  vl: 
+  ll: 
+  ag1: "yes"
+  vote_topic_id: "7"
+  created_at: 2010-10-01 02:03:30
+  ag2: "no"
+  w: "yes"
+  ag3: "no"
+  m: "yes"
+  updated_at: 2010-10-01 02:03:30
+  ag4: "yes"
+  last_update_tv: "0"
+  id: "3630"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_019: 
+  vl: 
+  ll: 
+  ag1: Not sure
+  vote_topic_id: "19"
+  created_at: 2010-10-01 02:03:31
+  ag2: "Yes"
+  w: "No"
+  ag3: "Yes"
+  m: Not sure
+  updated_at: 2010-10-01 02:03:31
+  ag4: Not sure
+  last_update_tv: "0"
+  id: "3642"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_008: 
+  vl: 
+  ll: 
+  ag1: Booze
+  vote_topic_id: "8"
+  created_at: 2010-10-01 02:03:30
+  ag2: Booze
+  w: Facebook
+  ag3: Refrigerator
+  m: Porn
+  updated_at: 2010-10-01 02:03:30
+  ag4: Facebook
+  last_update_tv: "0"
+  id: "3631"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_031: 
+  vl: 
+  ll: 
+  ag1: 
+  vote_topic_id: "204"
+  created_at: 2010-10-01 02:03:32
+  ag2: XBox3
+  w: 
+  ag3: 
+  m: XBox3
+  updated_at: 2010-10-01 02:03:32
+  ag4: 
+  last_update_tv: "0"
+  id: "3654"
+  wl: 
+  dag: Texas
+vote_facets_020: 
+  vl: 
+  ll: 
+  ag1: occaecati assumenda
+  vote_topic_id: "22"
+  created_at: 2010-10-01 02:03:31
+  ag2: amet et
+  w: occaecati assumenda
+  ag3: occaecati assumenda
+  m: amet et
+  updated_at: 2010-10-01 02:03:31
+  ag4: amet et
+  last_update_tv: "0"
+  id: "3643"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_009: 
+  vl: 
+  ll: 
+  ag1: M.Bison(street fighter)
+  vote_topic_id: "9"
+  created_at: 2010-10-01 02:03:30
+  ag2: darth vader
+  w: Viktor(underworld)
+  ag3: Viktor(underworld)
+  m: Voldermort(harry potter)
+  updated_at: 2010-10-01 02:03:30
+  ag4: Voldermort(harry potter)
+  last_update_tv: "0"
+  id: "3632"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_032: 
+  vl: 
+  ll: 
+  ag1: 
+  vote_topic_id: "213"
+  created_at: 2010-10-01 02:03:32
+  ag2: Yes!
+  w: 
+  ag3: 
+  m: Yes!
+  updated_at: 2010-10-15 20:38:58
+  ag4: 
+  last_update_tv: "0"
+  id: "3655"
+  wl: Yes!$$Texas$$Austin
+  dag: Texas
+vote_facets_021: 
+  vl: 
+  ll: 
+  ag1: "No"
+  vote_topic_id: "23"
+  created_at: 2010-10-01 02:03:31
+  ag2: Not sure
+  w: "No"
+  ag3: Not sure
+  m: "No"
+  updated_at: 2010-10-01 02:03:31
+  ag4: "No"
+  last_update_tv: "0"
+  id: "3644"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_010: 
+  vl: 
+  ll: 
+  ag1: MacBook Pro
+  vote_topic_id: "10"
+  created_at: 2010-10-01 02:03:30
+  ag2: MacBook Pro
+  w: HP Notebook
+  ag3: HP Notebook
+  m: MacBook Pro
+  updated_at: 2010-10-01 02:03:30
+  ag4: MacBook Pro
+  last_update_tv: "0"
+  id: "3633"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_033: 
+  vl: 
+  ll: 
+  ag1: 
+  vote_topic_id: "215"
+  created_at: 2010-10-01 02:03:32
+  ag2: 
+  w: 
+  ag3: 
+  m: 
+  updated_at: 2010-10-01 02:03:32
+  ag4: 
+  last_update_tv: "0"
+  id: "3656"
+  wl: 
+  dag: ""
+vote_facets_022: 
+  vl: 
+  ll: 
+  ag1: "No"
+  vote_topic_id: "24"
+  created_at: 2010-10-01 02:03:31
+  ag2: "No"
+  w: "Yes"
+  ag3: "Yes"
+  m: "No"
+  updated_at: 2010-10-01 02:03:31
+  ag4: "Yes"
+  last_update_tv: "0"
+  id: "3645"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_011: 
+  vl: 
+  ll: 
+  ag1: "Yes"
+  vote_topic_id: "11"
+  created_at: 2010-10-01 02:03:30
+  ag2: "No"
+  w: "Yes"
+  ag3: "Yes"
+  m: "Yes"
+  updated_at: 2010-10-01 02:03:30
+  ag4: "Yes"
+  last_update_tv: "0"
+  id: "3634"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_023: 
+  vl: 
+  ll: 
+  ag1: Romania
+  vote_topic_id: "25"
+  created_at: 2010-10-01 02:03:31
+  ag2: Budapest(Hungary)
+  w: Serbia
+  ag3: Serbia
+  m: Serbia
+  updated_at: 2010-10-01 02:03:31
+  ag4: Crotia
+  last_update_tv: "0"
+  id: "3646"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_012: 
+  vl: 
+  ll: 
+  ag1: Twitter
+  vote_topic_id: "12"
+  created_at: 2010-10-01 02:03:30
+  ag2: Facebook
+  w: Twitter
+  ag3: Facebook
+  m: Facebook
+  updated_at: 2010-10-01 02:03:30
+  ag4: Facebook
+  last_update_tv: "0"
+  id: "3635"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_001: 
+  vl: 
+  ll: 
+  ag1: "Yes"
+  vote_topic_id: "1"
+  created_at: 2010-10-01 02:03:29
+  ag2: "Yes"
+  w: "Yes"
+  ag3: "No"
+  m: "Yes"
+  updated_at: 2010-10-01 02:03:29
+  ag4: "Yes"
+  last_update_tv: "0"
+  id: "3624"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_024: 
+  vl: 
+  ll: 
+  ag1: English
+  vote_topic_id: "26"
+  created_at: 2010-10-01 02:03:31
+  ag2: English
+  w: English
+  ag3: French
+  m: English
+  updated_at: 2010-10-01 02:03:31
+  ag4: English
+  last_update_tv: "0"
+  id: "3647"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_013: 
+  vl: 
+  ll: 
+  ag1: Math
+  vote_topic_id: "13"
+  created_at: 2010-10-01 02:03:30
+  ag2: History
+  w: History
+  ag3: History
+  m: Social Science
+  updated_at: 2010-10-01 02:03:30
+  ag4: Math
+  last_update_tv: "0"
+  id: "3636"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_002: 
+  vl: 
+  ll: 
+  ag1: Christian practicing Jesus' version of Judaism
+  vote_topic_id: "2"
+  created_at: 2010-10-01 02:03:30
+  ag2: Christian practicing Jesus' version of Judaism
+  w: A Muslim following the Quoran
+  ag3: rem cupiditate
+  m: Christian practicing Jesus' version of Judaism
+  updated_at: 2010-10-01 02:03:30
+  ag4: Christian practicing Jesus' version of Judaism
+  last_update_tv: "0"
+  id: "3625"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_025: 
+  vl: 
+  ll: 
+  ag1: "Yes"
+  vote_topic_id: "27"
+  created_at: 2010-10-01 02:03:31
+  ag2: Partially
+  w: Partially
+  ag3: Sometimes
+  m: "Yes"
+  updated_at: 2010-10-01 02:03:31
+  ag4: Sometimes
+  last_update_tv: "0"
+  id: "3648"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_014: 
+  vl: 
+  ll: 
+  ag1: Thanksgiving
+  vote_topic_id: "14"
+  created_at: 2010-10-01 02:03:31
+  ag2: Thanksgiving
+  w: Christmas
+  ag3: Christmas
+  m: Thanksgiving
+  updated_at: 2010-10-01 02:03:31
+  ag4: Thanksgiving
+  last_update_tv: "0"
+  id: "3637"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_003: 
+  vl: 
+  ll: 
+  ag1: 8th
+  vote_topic_id: "3"
+  created_at: 2010-10-01 02:03:30
+  ag2: 8th
+  w: 13th
+  ag3: once or twice a year
+  m: 8th
+  updated_at: 2010-10-01 02:03:30
+  ag4: 5th
+  last_update_tv: "0"
+  id: "3626"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_026: 
+  vl: 
+  ll: 
+  ag1: quia magnam quis
+  vote_topic_id: "28"
+  created_at: 2010-10-01 02:03:32
+  ag2: everyday
+  w: one a month
+  ag3: quia magnam quis
+  m: everyday
+  updated_at: 2010-10-01 02:03:32
+  ag4: one a month
+  last_update_tv: "0"
+  id: "3649"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_015: 
+  vl: 
+  ll: 
+  ag1: The Fly
+  vote_topic_id: "15"
+  created_at: 2010-10-01 02:03:31
+  ag2: The Fly
+  w: The Fly
+  ag3: Where the streets have no name
+  m: The Fly
+  updated_at: 2010-10-01 02:03:31
+  ag4: The Fly
+  last_update_tv: "0"
+  id: "3638"
+  wl: 
+  dag: California, New York, Washington, Texas
+vote_facets_004: 
+  vl: 
+  ll: 
+  ag1: Makes no difference to me
+  vote_topic_id: "4"
+  created_at: 2010-10-01 02:03:30
+  ag2: protest
+  w: protest
+  ag3: figure out where the pot is
+  m: figure out where the pot is
+  updated_at: 2010-10-01 02:03:30
+  ag4: figure out where the pot is
+  last_update_tv: "0"
+  id: "3627"
+  wl: 
+  dag: California, New York, Washington, Texas

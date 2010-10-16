@@ -1,0 +1,34 @@
+<ul class="" id="">
+  <li>
+    <a href="<%= root_path %>" class="" id="">
+      trends
+    </a>
+  </li>
+  <li>
+    <a href="<%= vote_topics_path %>" class="" id="">
+      votes
+    </a>
+  </li>
+  <li id="cat_nav">
+    <a href="#" class="" id="">
+      categories
+    </a>
+  </li>
+  <li id="city_nav">
+    <a href="#" class="" id="">
+      cities
+    </a>
+  </li>
+  <% if !current_user.nil? && current_role == 'admin' %>
+    <li>
+      <a href="<%= account_path %>" class="" id="">
+        admin
+      </a>
+    </li>
+  <% end  %>
+  <li>
+    <a href="<%= faq_path %>" class="" id="">
+      faq
+    </a>
+  </li>
+</ul>

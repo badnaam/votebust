@@ -1,11 +1,381 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  address: MyString
-  lat: 1.5
-  lng: 1.5
-
-two:
-  address: MyString
-  lat: 1.5
-  lng: 1.5
+--- 
+geocode_caches_037: 
+  city: berkeley
+  address: berkeley
+  created_at: 2010-09-28 16:24:36
+  updated_at: 2010-09-28 16:24:36
+  lng: "-122.273"
+  id: "63"
+  lat: "37.8716"
+  state: california
+  provider: google
+geocode_caches_026: 
+  city: seattle
+  address: "98105"
+  created_at: 2010-09-07 18:41:14
+  updated_at: 2010-09-07 18:41:14
+  lng: "-122.282"
+  id: "52"
+  lat: "47.6572"
+  state: washington
+  provider: google
+geocode_caches_015: 
+  city: austin
+  address: "78799"
+  created_at: 2010-08-18 21:21:38
+  updated_at: 2010-08-18 21:21:38
+  lng: "-97.757"
+  id: "39"
+  lat: "30.2962"
+  state: texas
+  provider: geonames
+geocode_caches_004: 
+  city: brentwood
+  address: "11717"
+  created_at: 2010-08-07 00:07:54
+  updated_at: 2010-08-07 00:07:54
+  lng: "-73.2503"
+  id: "23"
+  lat: "40.7809"
+  state: new york
+  provider: 
+geocode_caches_038: 
+  city: seattle
+  address: seattle
+  created_at: 2010-09-28 16:24:37
+  updated_at: 2010-09-28 16:24:37
+  lng: "-122.332"
+  id: "64"
+  lat: "47.6062"
+  state: washington
+  provider: google
+geocode_caches_027: 
+  city: burlingame
+  address: burlingame
+  created_at: 2010-09-23 03:51:56
+  updated_at: 2010-09-23 03:51:56
+  lng: "-122.368"
+  id: "53"
+  lat: "37.5671"
+  state: california
+  provider: geonames
+geocode_caches_016: 
+  city: san francisco
+  address: "94131"
+  created_at: 2010-08-18 21:22:13
+  updated_at: 2010-08-18 21:22:13
+  lng: "-122.44"
+  id: "40"
+  lat: "37.7446"
+  state: california
+  provider: yahoo
+geocode_caches_005: 
+  city: mountain view
+  address: "94043"
+  created_at: 2010-08-07 00:07:56
+  updated_at: 2010-08-07 00:07:56
+  lng: "-122.077"
+  id: "25"
+  lat: "37.4056"
+  state: california
+  provider: 
+geocode_caches_028: 
+  city: austin
+  address: austin
+  created_at: 2010-09-23 04:57:37
+  updated_at: 2010-09-23 04:57:37
+  lng: "-97.7431"
+  id: "54"
+  lat: "30.2672"
+  state: texas
+  provider: google
+geocode_caches_017: 
+  city: seattle
+  address: "98101"
+  created_at: 2010-08-25 05:40:21
+  updated_at: 2010-08-25 05:40:21
+  lng: "-122.333"
+  id: "41"
+  lat: "47.6096"
+  state: washington
+  provider: google
+geocode_caches_006: 
+  city: brooklyn
+  address: "11256"
+  created_at: 2010-08-07 00:07:57
+  updated_at: 2010-08-07 00:07:57
+  lng: "-73.945"
+  id: "26"
+  lat: "40.6451"
+  state: new york
+  provider: 
+geocode_caches_029: 
+  city: new york
+  address: new york
+  created_at: 2010-09-23 07:31:09
+  updated_at: 2010-09-23 07:31:09
+  lng: "-73.7769"
+  id: "55"
+  lat: "40.7683"
+  state: new york
+  provider: google
+geocode_caches_018: 
+  city: seattle
+  address: "98102"
+  created_at: 2010-08-25 20:13:09
+  updated_at: 2010-08-25 20:13:09
+  lng: "-122.324"
+  id: "42"
+  lat: "47.6413"
+  state: washington
+  provider: google
+geocode_caches_007: 
+  city: oakland
+  address: "94602"
+  created_at: 2010-08-07 00:07:58
+  updated_at: 2010-08-07 00:07:58
+  lng: "-122.21"
+  id: "27"
+  lat: "37.8011"
+  state: california
+  provider: 
+geocode_caches_030: 
+  city: oakland
+  address: oakland
+  created_at: 2010-09-23 07:41:28
+  updated_at: 2010-09-23 07:41:28
+  lng: "-122.271"
+  id: "56"
+  lat: "37.8044"
+  state: california
+  provider: google
+geocode_caches_019: 
+  city: seattle
+  address: "98103"
+  created_at: 2010-08-25 20:14:01
+  updated_at: 2010-08-25 20:14:01
+  lng: "-122.343"
+  id: "43"
+  lat: "47.66"
+  state: washington
+  provider: google
+geocode_caches_008: 
+  city: san leandro
+  address: "94577"
+  created_at: 2010-08-07 00:37:20
+  updated_at: 2010-08-07 00:37:20
+  lng: "-122.16"
+  id: "32"
+  lat: "37.7199"
+  state: california
+  provider: 
+geocode_caches_031: 
+  city: brooklyn
+  address: brooklyn
+  created_at: 2010-09-23 07:41:44
+  updated_at: 2010-09-23 07:41:44
+  lng: "-73.95"
+  id: "57"
+  lat: "40.65"
+  state: new york
+  provider: google
+geocode_caches_020: 
+  city: portland
+  address: "97212"
+  created_at: 2010-08-25 20:32:13
+  updated_at: 2010-08-25 20:32:13
+  lng: "-122.649"
+  id: "44"
+  lat: "45.542"
+  state: oregon
+  provider: google
+geocode_caches_009: 
+  city: sunnyvale
+  address: "94085"
+  created_at: 2010-08-09 07:59:17
+  updated_at: 2010-08-09 07:59:17
+  lng: "-122.018"
+  id: "33"
+  lat: "37.3895"
+  state: california
+  provider: 
+geocode_caches_032: 
+  city: san leandro
+  address: san leandro
+  created_at: 2010-09-23 08:37:33
+  updated_at: 2010-09-23 08:37:33
+  lng: "-122.156"
+  id: "58"
+  lat: "37.7249"
+  state: california
+  provider: google
+geocode_caches_021: 
+  city: portland
+  address: "97205"
+  created_at: 2010-08-25 20:33:09
+  updated_at: 2010-08-25 20:33:09
+  lng: "-122.707"
+  id: "45"
+  lat: "45.5205"
+  state: oregon
+  provider: google
+geocode_caches_010: 
+  city: fremont
+  address: "94536"
+  created_at: 2010-08-09 08:09:04
+  updated_at: 2010-08-09 08:09:04
+  lng: "-121.981"
+  id: "34"
+  lat: "37.571"
+  state: california
+  provider: 
+geocode_caches_033: 
+  city: san francisco
+  address: san francisco
+  created_at: 2010-09-23 08:39:10
+  updated_at: 2010-09-23 08:39:10
+  lng: "-122.419"
+  id: "59"
+  lat: "37.7749"
+  state: california
+  provider: google
+geocode_caches_022: 
+  city: bell
+  address: "90201"
+  created_at: 2010-08-25 20:34:00
+  updated_at: 2010-08-25 20:34:00
+  lng: "-118.165"
+  id: "46"
+  lat: "33.9696"
+  state: california
+  provider: google
+geocode_caches_011: 
+  city: los altos
+  address: "94022"
+  created_at: 2010-08-09 08:13:17
+  updated_at: 2010-08-09 08:13:17
+  lng: "-122.141"
+  id: "35"
+  lat: "37.3694"
+  state: california
+  provider: 
+geocode_caches_034: 
+  city: mountain view
+  address: mountain view
+  created_at: 2010-09-27 04:19:38
+  updated_at: 2010-09-27 04:19:38
+  lng: "-122.084"
+  id: "60"
+  lat: "37.3861"
+  state: california
+  provider: google
+geocode_caches_023: 
+  city: cedar lake
+  address: "46303"
+  created_at: 2010-08-25 21:56:39
+  updated_at: 2010-08-25 21:56:39
+  lng: "-87.4703"
+  id: "49"
+  lat: "41.3835"
+  state: indiana
+  provider: google
+geocode_caches_012: 
+  city: san francisco
+  address: "94118"
+  created_at: 2010-08-09 08:43:54
+  updated_at: 2010-08-09 08:43:54
+  lng: "-122.464"
+  id: "36"
+  lat: "37.7823"
+  state: california
+  provider: 
+geocode_caches_001: 
+  city: austin
+  address: "78789"
+  created_at: 2010-08-07 00:07:52
+  updated_at: 2010-08-07 00:07:52
+  lng: "-97.7713"
+  id: "20"
+  lat: "30.3264"
+  state: texas
+  provider: 
+geocode_caches_035: 
+  city: brentwood
+  address: brentwood
+  created_at: 2010-09-28 16:24:29
+  updated_at: 2010-09-28 16:24:29
+  lng: "-86.7828"
+  id: "61"
+  lat: "36.0331"
+  state: tennessee
+  provider: google
+geocode_caches_024: 
+  city: new orleans
+  address: "70112"
+  created_at: 2010-08-26 01:51:14
+  updated_at: 2010-08-26 01:51:14
+  lng: "-90.077"
+  id: "50"
+  lat: "29.9596"
+  state: louisiana
+  provider: google
+geocode_caches_013: 
+  city: berkeley
+  address: "94701"
+  created_at: 2010-08-09 08:45:13
+  updated_at: 2010-08-09 08:45:13
+  lng: "-122.272"
+  id: "37"
+  lat: "37.8718"
+  state: california
+  provider: 
+geocode_caches_002: 
+  city: alameda
+  address: "94501"
+  created_at: 2010-08-07 00:07:53
+  updated_at: 2010-08-07 00:07:53
+  lng: "-122.265"
+  id: "21"
+  lat: "37.7706"
+  state: california
+  provider: 
+geocode_caches_036: 
+  city: alameda
+  address: alameda
+  created_at: 2010-09-28 16:24:30
+  updated_at: 2010-09-28 16:24:30
+  lng: "-122.242"
+  id: "62"
+  lat: "37.7652"
+  state: california
+  provider: google
+geocode_caches_025: 
+  city: phoenix
+  address: "85001"
+  created_at: 2010-09-04 17:28:29
+  updated_at: 2010-09-04 17:28:29
+  lng: "-112.07"
+  id: "51"
+  lat: "33.45"
+  state: arizona
+  provider: google
+geocode_caches_014: 
+  city: burlingame
+  address: "94010"
+  created_at: 2010-08-18 21:20:39
+  updated_at: 2010-08-18 21:20:39
+  lng: "-122.367"
+  id: "38"
+  lat: "37.5685"
+  state: california
+  provider: google
+geocode_caches_003: 
+  city: bayside
+  address: "11361"
+  created_at: 2010-08-07 00:07:54
+  updated_at: 2010-08-07 00:07:54
+  lng: "-73.7745"
+  id: "22"
+  lat: "40.7627"
+  state: new york
+  provider: 

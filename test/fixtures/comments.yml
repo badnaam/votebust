@@ -1,424 +1,3729 @@
 --- 
-comments_050: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:49:18
-  body: whats going on?
-  updated_at: 2010-07-26 07:49:18
-  id: "53"
-  user_id: "13"
-comments_039: 
-  vote_topic_id: "2"
-  created_at: 2010-07-23 05:16:49
-  body: hhhhhhh
-  updated_at: 2010-07-23 05:16:49
-  id: "42"
-  user_id: "69"
-comments_028: 
-  vote_topic_id: "134"
-  created_at: 2010-07-12 22:59:55
-  body: again?
-  updated_at: 2010-07-12 23:03:57
-  id: "31"
-  user_id: "65"
-comments_017: 
-  vote_topic_id: "53"
-  created_at: 2010-07-10 19:01:03
-  body: ajax works?
-  updated_at: 2010-07-10 19:01:03
-  id: "20"
-  user_id: "9"
-comments_006: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:49:27
-  body: now it will
-  updated_at: 2010-07-09 06:49:27
-  id: "9"
-  user_id: "9"
-comments_051: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:50:12
-  body: fucking ft
-  updated_at: 2010-07-26 07:50:12
-  id: "54"
-  user_id: "13"
-comments_040: 
-  vote_topic_id: "2"
-  created_at: 2010-07-23 17:47:23
-  body: My 2 cents
-  updated_at: 2010-07-23 17:47:23
-  id: "43"
-  user_id: "10"
-comments_029: 
-  vote_topic_id: "134"
-  created_at: 2010-07-12 23:02:19
-  body: do this
-  updated_at: 2010-07-12 23:03:57
-  id: "32"
-  user_id: "65"
-comments_018: 
-  vote_topic_id: "53"
-  created_at: 2010-07-10 19:02:42
-  body: 1 ajax works?
-  updated_at: 2010-07-10 19:02:42
-  id: "21"
-  user_id: "9"
-comments_007: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:49:41
-  body: yes!!
-  updated_at: 2010-07-09 06:49:41
-  id: "10"
-  user_id: "9"
-comments_052: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:51:58
-  body: fdfsdfdsafdsafdsf
-  updated_at: 2010-07-26 07:51:58
-  id: "55"
-  user_id: "13"
-comments_041: 
-  vote_topic_id: "2"
-  created_at: 2010-07-23 18:29:35
-  body: Another one
-  updated_at: 2010-07-23 18:29:36
-  id: "44"
-  user_id: "10"
-comments_030: 
-  vote_topic_id: "3"
-  created_at: 2010-07-17 18:11:08
-  body: My comments
-  updated_at: 2010-07-17 18:11:08
-  id: "33"
-  user_id: "67"
-comments_019: 
-  vote_topic_id: "53"
-  created_at: 2010-07-10 19:03:48
-  body: 2 ajax works?
-  updated_at: 2010-07-10 19:03:48
-  id: "22"
-  user_id: "9"
-comments_008: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:49:58
-  body: WHAR?
-  updated_at: 2010-07-09 06:49:58
-  id: "11"
-  user_id: "9"
-comments_053: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:52:56
-  body: ok again
-  updated_at: 2010-07-26 07:52:56
-  id: "56"
-  user_id: "13"
-comments_042: 
-  vote_topic_id: "2"
-  created_at: 2010-07-23 18:31:53
-  body: Still another
-  updated_at: 2010-07-23 18:31:53
-  id: "45"
-  user_id: "10"
-comments_031: 
-  vote_topic_id: "3"
-  created_at: 2010-07-17 20:40:20
-  body: some more
-  updated_at: 2010-07-17 20:40:20
-  id: "34"
-  user_id: "67"
+comments_100: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Voluptate sequi qui autem esse quo id est excepturi sunt laudantium voluptatem quia suscipit ut quos suscipit ad nesciunt ut. Molestiae aut consectetur voluptas blanditiis eum minus dicta id neque corrupti ad aut est qui
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1109"
+  user_id: "14"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "52"
 comments_020: 
-  vote_topic_id: "53"
-  created_at: 2010-07-10 19:04:09
-  body: 3 ajax works?
-  updated_at: 2010-07-10 19:04:09
-  id: "23"
-  user_id: "9"
-comments_009: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:56:34
-  body: ok
-  updated_at: 2010-07-09 06:56:34
-  id: "12"
-  user_id: "9"
-comments_054: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:54:47
-  body: dfadsfdsafdsfdsafdsf now
-  updated_at: 2010-07-26 07:54:47
-  id: "57"
-  user_id: "13"
-comments_043: 
-  vote_topic_id: "161"
-  created_at: 2010-07-23 23:29:06
-  body: ok Ok
-  updated_at: 2010-07-23 23:29:06
-  id: "46"
-  user_id: "67"
-comments_032: 
+  referrer: ""
   vote_topic_id: "3"
-  created_at: 2010-07-17 20:40:31
-  body: also more
-  updated_at: 2010-07-17 20:40:31
-  id: "35"
-  user_id: "67"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Officia nulla praesentium vel eum cum corrupti
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1029"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "11"
+comments_101: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Cumque voluptates quas veniam sequi rerum reprehenderit officia veritatis in maxime illo possimus ea ut maiores
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1110"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "53"
 comments_021: 
-  vote_topic_id: "53"
-  created_at: 2010-07-10 19:04:51
-  body: 3 ajax works?mjlklmkl
-  updated_at: 2010-07-10 19:04:51
-  id: "24"
-  user_id: "9"
-comments_010: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:56:52
-  body: bastard
-  updated_at: 2010-07-09 06:56:52
-  id: "13"
-  user_id: "9"
-comments_055: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:55:07
-  body: "do this "
-  updated_at: 2010-07-26 07:55:07
-  id: "58"
+  referrer: ""
+  vote_topic_id: "4"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Odio occaecati illo alias et dicta eos fugit eius aperiam aspernatur at aliquid consequatur molestiae commodi vitae nisi. Ut dolorem dolor blanditiis veritatis ut et qui voluptatem et eos nesciunt non
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1030"
+  user_id: "32"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "14"
+comments_102: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Nulla velit atque totam ea minima sapiente commodi magnam inventore et perferendis et facilis aliquam laboriosam
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1111"
   user_id: "13"
-comments_044: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:45:02
-  body: Miles and miles and miles
-  updated_at: 2010-07-26 07:45:02
-  id: "47"
-  user_id: "13"
-comments_033: 
-  vote_topic_id: "3"
-  created_at: 2010-07-17 20:40:39
-  body: ok more
-  updated_at: 2010-07-17 20:40:39
-  id: "36"
-  user_id: "67"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "52"
 comments_022: 
-  vote_topic_id: "53"
-  created_at: 2010-07-10 19:05:02
-  body: |+
-    3 ajax works?mjlklmklmlkmlkmlkml,
-    mlkmkl.l
-    
-  updated_at: 2010-07-10 19:05:02
-  id: "25"
-  user_id: "9"
-comments_011: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:58:37
-  body: bastard!!!
-  updated_at: 2010-07-09 06:58:37
-  id: "14"
-  user_id: "9"
-comments_056: 
-  vote_topic_id: "106"
-  created_at: 2010-07-26 07:55:21
-  body: fresh fresh
-  updated_at: 2010-07-26 07:55:21
-  id: "59"
-  user_id: "13"
-comments_045: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:46:04
-  body: Miles and miles and miles and miles
-  updated_at: 2010-07-26 07:46:04
-  id: "48"
-  user_id: "13"
-comments_034: 
-  vote_topic_id: "27"
-  created_at: 2010-07-19 22:45:40
-  body: My comment
-  updated_at: 2010-07-19 22:45:40
-  id: "37"
-  user_id: "67"
+  referrer: ""
+  vote_topic_id: "4"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Ea aut pariatur cum occaecati est et quis
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1031"
+  user_id: "18"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "16"
+comments_103: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Doloribus laudantium enim et nulla velit et blanditiis modi illum modi aut esse cupiditate labore alias reiciendis
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1112"
+  user_id: "6"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "52"
+comments_210: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Eum non dolor ut vitae et nisi consequatur voluptate maxime omnis minima nihil enim ut repellat. Voluptas aut repudiandae quo vel soluta nemo non quod occaecati nobis asperiores odit error sed sapiente
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1901"
+  user_id: "20"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "485"
 comments_023: 
-  vote_topic_id: "53"
-  created_at: 2010-07-11 00:10:48
-  body: Stupid
-  updated_at: 2010-07-11 00:10:48
-  id: "26"
-  user_id: "9"
-comments_012: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:59:01
-  body: yes bastard!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!to banda. maghya
-  updated_at: 2010-07-09 06:59:01
-  id: "15"
-  user_id: "9"
-comments_001: 
-  vote_topic_id: "29"
-  created_at: 2010-07-09 00:09:12
-  body: My comment
-  updated_at: 2010-07-09 00:09:15
-  id: "4"
-  user_id: "10"
-comments_057: 
-  vote_topic_id: "106"
-  created_at: 2010-07-26 07:55:25
-  body: fresh again
-  updated_at: 2010-07-26 07:55:25
-  id: "60"
+  referrer: ""
+  vote_topic_id: "4"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Iste voluptatem sint accusantium sunt nam sunt nihil voluptatem sed ea fugit vero a aut quibusdam dolores
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1032"
   user_id: "13"
-comments_046: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:47:30
-  body: Miles and miles and miles and miles and more miles
-  updated_at: 2010-07-26 07:47:30
-  id: "49"
-  user_id: "13"
-comments_035: 
-  vote_topic_id: "27"
-  created_at: 2010-07-19 22:45:51
-  body: Another comments
-  updated_at: 2010-07-19 22:45:51
-  id: "38"
-  user_id: "67"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "15"
+comments_104: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Dicta delectus quam et et quae qui nostrum soluta aut ad officiis qui qui vel. Voluptatem laudantium corporis ad eius voluptatem eius tenetur aut earum repudiandae
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1113"
+  user_id: "26"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "53"
+comments_130: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Voluptas sint nisi inventore dolor assumenda dolores. Natus et velit quasi praesentium reiciendis et possimus alias doloribus omnis fuga dolores expedita perspiciatis dolores
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1139"
+  user_id: "50"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "63"
+comments_211: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Nobis dolore iure non quas temporibus excepturi omnis soluta mollitia velit est laborum quidem voluptates non sunt vero vel in. Est eveniet nulla debitis deserunt voluptate aspernatur
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1902"
+  user_id: "43"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "485"
 comments_024: 
-  vote_topic_id: "53"
-  created_at: 2010-07-11 01:09:13
-  body: Stupidok
-  updated_at: 2010-07-11 01:09:13
-  id: "27"
-  user_id: "9"
-comments_013: 
-  vote_topic_id: "12"
-  created_at: 2010-07-10 02:47:31
-  body: hhhh
-  updated_at: 2010-07-10 02:47:31
-  id: "16"
-  user_id: "9"
-comments_002: 
-  vote_topic_id: "29"
-  created_at: 2010-07-09 00:09:32
-  body: Another one
-  updated_at: 2010-07-09 00:09:32
-  id: "5"
-  user_id: "10"
-comments_058: 
-  vote_topic_id: "106"
-  created_at: 2010-07-26 07:55:28
-  body: very fresh
-  updated_at: 2010-07-26 07:55:28
-  id: "61"
-  user_id: "13"
-comments_047: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:47:42
-  body: Miles and miles and miles and miles and more miles and somoe more
-  updated_at: 2010-07-26 07:47:43
-  id: "50"
-  user_id: "13"
-comments_036: 
-  vote_topic_id: "27"
-  created_at: 2010-07-19 22:45:57
-  body: One more
-  updated_at: 2010-07-19 22:45:57
-  id: "39"
-  user_id: "67"
+  referrer: ""
+  vote_topic_id: "4"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Temporibus dignissimos consequatur dolorem qui distinctio et rerum qui molestias est doloribus voluptates quisquam officia numquam ipsam consequatur
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1033"
+  user_id: "11"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "14"
+comments_050: 
+  referrer: ""
+  vote_topic_id: "8"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Quo voluptates incidunt sed laboriosam recusandae. Rem nihil sequi est perferendis debitis reprehenderit eaque
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1059"
+  user_id: "32"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "28"
+comments_105: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Officia autem nisi iste molestiae voluptatem in autem recusandae assumenda sed
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1114"
+  user_id: "55"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "52"
+comments_131: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Unde consequatur pariatur ut exercitationem eos
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1140"
+  user_id: "24"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "65"
+comments_212: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Soluta cum velit et deserunt aut necessitatibus quis
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1903"
+  user_id: "40"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "485"
 comments_025: 
-  vote_topic_id: "134"
-  created_at: 2010-07-12 22:54:54
-  body: comment on my own
-  updated_at: 2010-07-12 23:03:57
-  id: "28"
-  user_id: "65"
-comments_014: 
-  vote_topic_id: "12"
-  created_at: 2010-07-10 02:51:03
-  body: jjjjj
-  updated_at: 2010-07-10 02:51:04
-  id: "17"
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Quos aspernatur ipsa ratione alias amet quia quasi facilis voluptas aliquid architecto consequatur non. Sunt sed a voluptates iste inventore aut soluta provident numquam ut dolores explicabo assumenda id
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1034"
+  user_id: "11"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "18"
+comments_051: 
+  referrer: ""
+  vote_topic_id: "8"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Minus placeat porro autem soluta labore possimus sint
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1060"
+  user_id: "5"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "29"
+comments_106: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Hic tempore maxime repellendus ut debitis velit ex iure recusandae ipsa eveniet nam ex ratione aliquam voluptas cumque expedita
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1115"
+  user_id: "35"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "54"
+comments_132: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Quis voluptas dicta qui natus tempore quia
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1141"
+  user_id: "64"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "68"
+comments_213: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Dolorem quia laborum ratione quo incidunt quisquam laudantium
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1904"
+  user_id: "46"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "486"
+comments_240: 
+  referrer: http://localhost/vote_topics/religion/should-muslims-be-allowed-extra-breaks-in-the-work
+  vote_topic_id: "215"
+  comment_likes_count: "0"
+  created_at: 2010-09-27 22:37:40
+  body: More comment
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2049"
   user_id: "9"
-comments_003: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:45:57
-  body: My comm
-  updated_at: 2010-07-09 06:45:57
-  id: "6"
-  user_id: "9"
-comments_060: 
-  vote_topic_id: "106"
-  created_at: 2010-07-26 07:55:50
-  body: my page
-  updated_at: 2010-07-26 07:55:50
-  id: "63"
-  user_id: "13"
-comments_059: 
-  vote_topic_id: "106"
-  created_at: 2010-07-26 07:55:33
-  body: now no pagination
-  updated_at: 2010-07-26 07:55:33
-  id: "62"
-  user_id: "13"
-comments_048: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:47:56
-  body: Miles and miles and miles and miles and more miles and somoe more and finally
-  updated_at: 2010-07-26 07:47:56
-  id: "51"
-  user_id: "13"
-comments_037: 
-  vote_topic_id: "27"
-  created_at: 2010-07-19 22:46:01
-  body: One more still
-  updated_at: 2010-07-19 22:46:01
-  id: "40"
-  user_id: "67"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "673"
 comments_026: 
-  vote_topic_id: "134"
-  created_at: 2010-07-12 22:55:36
-  body: another on my own
-  updated_at: 2010-07-12 23:03:57
-  id: "29"
-  user_id: "65"
-comments_015: 
-  vote_topic_id: "12"
-  created_at: 2010-07-10 02:58:49
-  body: nknkmnl
-  updated_at: 2010-07-10 02:58:49
-  id: "18"
-  user_id: "9"
-comments_004: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:46:25
-  body: not working
-  updated_at: 2010-07-09 06:46:25
-  id: "7"
-  user_id: "9"
-comments_049: 
-  vote_topic_id: "161"
-  created_at: 2010-07-26 07:48:47
-  body: Some more from me
-  updated_at: 2010-07-26 07:48:47
-  id: "52"
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Sunt unde dolore consequatur ut adipisci vel
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1035"
   user_id: "13"
-comments_038: 
-  vote_topic_id: "53"
-  created_at: 2010-07-20 00:25:58
-  body: "I have to "
-  updated_at: 2010-07-20 00:25:58
-  id: "41"
-  user_id: "67"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "18"
+comments_052: 
+  referrer: ""
+  vote_topic_id: "9"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Et optio rerum magni dolor eveniet corrupti minima et corrupti quia vero maxime quo autem. Explicabo aut quibusdam officia rem
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1061"
+  user_id: "30"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "35"
+comments_107: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Incidunt et quibusdam dolor perspiciatis ea. Perspiciatis nesciunt aperiam voluptas id nulla suscipit est nihil voluptatem consequatur voluptatem commodi
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1116"
+  user_id: "14"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "58"
+comments_133: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Consequatur fugit assumenda a consectetur hic nemo nulla atque ipsam laborum non
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1142"
+  user_id: "47"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "66"
+comments_214: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Pariatur possimus incidunt perspiciatis facilis qui incidunt eos aut voluptas tenetur ab corrupti sapiente animi voluptatem non optio
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1905"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "488"
+comments_241: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-01 18:37:18
+  body: still works?
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2050"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
 comments_027: 
-  vote_topic_id: "134"
-  created_at: 2010-07-12 22:59:18
-  body: trying again
-  updated_at: 2010-07-12 23:03:57
-  id: "30"
-  user_id: "65"
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Natus est aut officia ut enim aperiam sequi soluta omnis illum expedita sapiente soluta odio. Repellat iusto rerum ipsam ducimus suscipit quos
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1036"
+  user_id: "31"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "18"
+comments_053: 
+  referrer: ""
+  vote_topic_id: "9"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Sint itaque autem ea accusantium sapiente qui alias dolore quam recusandae ipsam esse. Omnis doloremque omnis officiis voluptatibus qui ut expedita repellendus
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1062"
+  user_id: "34"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "32"
+comments_080: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Explicabo sint culpa in veritatis et dolor quia sit voluptas velit architecto iure nemo quia eius quos amet eum non
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1089"
+  user_id: "11"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "42"
+comments_108: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Quibusdam numquam doloribus ut fugit sed et et porro aut vel aliquid quas
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1117"
+  user_id: "37"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "57"
+comments_134: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Odit maxime ratione dolorem officia aut consequatur consequatur fugit dicta excepturi commodi amet et illum quia. Non maiores odio a aut magnam totam eveniet est voluptatem quis sed recusandae quidem ullam ex
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1143"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "69"
+comments_160: 
+  referrer: ""
+  vote_topic_id: "23"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Necessitatibus consequatur deleniti commodi laboriosam accusantium velit suscipit itaque autem
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1169"
+  user_id: "36"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "79"
+comments_215: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Cum neque sit eaque sed enim dolorum eveniet explicabo quia ducimus repudiandae possimus. Nesciunt sed doloribus mollitia quo dolorem
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1906"
+  user_id: "6"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "488"
+comments_242: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "1"
+  created_at: 2010-10-01 18:37:26
+  body: does it
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2051"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_028: 
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Autem praesentium inventore ea repellendus perferendis dolore porro quidem magni quos sed praesentium distinctio quod qui reiciendis quae quae
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1037"
+  user_id: "5"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "18"
+comments_054: 
+  referrer: ""
+  vote_topic_id: "9"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Rerum aspernatur sequi aut quia. Nesciunt perferendis sunt excepturi error non voluptatem et corrupti
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1063"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "32"
+comments_081: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Aut non quis eos voluptas necessitatibus harum
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1090"
+  user_id: "20"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "43"
+comments_109: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Aspernatur magnam sit quo sapiente facilis sit quibusdam soluta inventore non
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1118"
+  user_id: "50"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "57"
+comments_135: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Deserunt aliquid debitis sed veritatis animi qui
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1144"
+  user_id: "57"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "67"
+comments_161: 
+  referrer: ""
+  vote_topic_id: "24"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Nihil ullam culpa cumque repellat consequatur aspernatur aut ratione rerum dicta eius esse quia hic eum et accusantium
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1170"
+  user_id: "21"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "81"
+comments_216: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Aut odio quis veritatis eum voluptatem labore ab cum dolore consequuntur voluptates libero illum in at laboriosam
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1907"
+  user_id: "17"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "489"
+comments_243: 
+  referrer: http://localhost:3000/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+  vote_topic_id: "203"
+  comment_likes_count: "0"
+  created_at: 2010-10-07 21:07:31
+  body: |-
+    *Comment with textile*
+    bq. one 
+    two
+    three
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2054"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: 
+comments_029: 
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Vero et itaque doloribus nihil ab quaerat dolorum eos adipisci odio et possimus consequuntur assumenda dolores voluptates aut
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1038"
+  user_id: "55"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "18"
+comments_055: 
+  referrer: ""
+  vote_topic_id: "9"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Magnam eos sit necessitatibus ipsum facere consequatur qui sequi voluptatem non
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1064"
+  user_id: "21"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "34"
+comments_082: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Praesentium voluptatem et blanditiis nobis sint minima eveniet sunt culpa eum aut nesciunt
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1091"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "42"
+comments_136: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Minima qui sequi hic deserunt sit molestiae vel numquam molestiae exercitationem nobis quis ea ut enim. Delectus reiciendis sint quas sunt amet nesciunt officia fuga provident et minus ea blanditiis velit eius
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1145"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "67"
+comments_162: 
+  referrer: ""
+  vote_topic_id: "24"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Nisi sint et ratione consequatur qui autem modi eaque. Voluptatem vero dolorem quia quo accusantium doloremque deserunt quae sint unde possimus quam et distinctio natus et
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1171"
+  user_id: "64"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "81"
+comments_217: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Necessitatibus dicta rerum laboriosam molestiae voluptate ut ipsa
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1908"
+  user_id: "24"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "488"
+comments_270: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:11:57
+  body: twice?
+  updated_at: 2010-10-13 05:11:57
+  approved: "1"
+  id: "2081"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_244: 
+  referrer: http://localhost:3000/vote_topics/entertainment/what-is-the-best-reality-show-you-ever-watched
+  vote_topic_id: "203"
+  comment_likes_count: "0"
+  created_at: 2010-10-08 18:04:09
+  body: |
+    *Great comment*
+    
+    bq. Because
+    
+     # a
+     # b
+     # b
+
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2055"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: 
+comments_056: 
+  referrer: ""
+  vote_topic_id: "9"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Et repellendus molestiae rerum sed placeat ea voluptas nemo quia qui excepturi optio ipsa eos a maiores. Voluptatum ullam quos sit dicta laboriosam et asperiores est quia quasi
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1065"
+  user_id: "48"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "32"
+comments_137: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Ullam voluptatem commodi atque et quisquam totam et quis aperiam autem eaque dolor a. Similique doloribus voluptates possimus at impedit dolore nisi voluptatem dolorem sunt libero porro voluptas aperiam quam sint nisi recusandae eos
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1146"
+  user_id: "44"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "67"
+comments_163: 
+  referrer: ""
+  vote_topic_id: "24"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Dolore sint aut ut recusandae adipisci voluptas quod ducimus enim quae
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1172"
+  user_id: "41"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "80"
+comments_190: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Id nobis et odit eum minus. Debitis quaerat libero minus fugit laboriosam molestiae id sint ut aut aliquam asperiores porro eius dolorum facere nam blanditiis non
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1199"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "96"
+comments_218: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Velit maxime qui aut ad reprehenderit officia iusto officiis nihil nam et ratione nesciunt. Tempore vel voluptate officia omnis eligendi incidunt accusantium dolorum quod eos sed fugit id non quo delectus
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1909"
+  user_id: "57"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "489"
+comments_271: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:11:58
+  body: twice?
+  updated_at: 2010-10-13 05:11:58
+  approved: "1"
+  id: "2082"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_245: 
+  referrer: http://localhost:3000/vote_topics/recreation-sports/macbook-pro-or-hp-notebook
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-10-09 18:56:36
+  body: "*Comment with texttile mark up*\n\n\
+    +I insist+\n\n\
+    __emphasize?_\n\
+    p. with a list of things\n * one\n * two \n * three\n\n "
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2056"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "36"
+comments_057: 
+  referrer: ""
+  vote_topic_id: "9"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Possimus ex aliquam earum quis non occaecati impedit adipisci natus modi minus qui perferendis blanditiis aspernatur
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1066"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "33"
+comments_083: 
+  referrer: ""
+  vote_topic_id: "14"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Id labore error rerum facilis fuga sequi ipsa eum veniam incidunt modi magnam est assumenda et voluptatem mollitia in alias. Qui sequi est totam labore cumque amet laudantium nesciunt nulla similique asperiores fugit vero
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1092"
+  user_id: "47"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "46"
+comments_138: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Sed eum sed excepturi molestiae vitae nemo et mollitia aut id numquam
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1147"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "70"
+comments_164: 
+  referrer: ""
+  vote_topic_id: "24"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Molestiae occaecati velit et aliquam nemo minima deserunt suscipit ut mollitia cum dolores minus eum est error nemo. Cumque adipisci rerum minima dolores esse consequatur aliquam laudantium voluptatem modi ex modi rerum quia deserunt labore qui
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1173"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "80"
+comments_191: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Totam amet rerum labore incidunt dignissimos nihil sed molestiae incidunt ut sit eos sed deserunt
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1200"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "101"
+comments_219: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Et sit vero unde officiis in velit eum aut minima nam ut
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1910"
+  user_id: "33"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "488"
+comments_272: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:12:26
+  body: dsafdsafdsfsdafdsf
+  updated_at: 2010-10-13 05:12:26
+  approved: "1"
+  id: "2083"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_246: 
+  referrer: http://localhost:3000/vote_topics/recreation-sports/macbook-pro-or-hp-notebook
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-10-09 18:57:08
+  body: _doesn't work?_
+  updated_at: 2010-10-11 19:08:23
+  approved: "1"
+  id: "2057"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "36"
+comments_058: 
+  referrer: ""
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Vel provident at dolores temporibus maxime fugit consectetur velit et maiores ducimus debitis sequi sequi ullam maxime
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1067"
+  user_id: "5"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "37"
+comments_084: 
+  referrer: ""
+  vote_topic_id: "14"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Eos qui quo exercitationem est cupiditate similique qui deserunt quia ea tenetur
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1093"
+  user_id: "31"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "47"
+comments_139: 
+  referrer: ""
+  vote_topic_id: "20"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Numquam corporis aperiam necessitatibus ab ea et quis. Consequatur ut ipsa omnis et unde asperiores et impedit incidunt sint cumque et odit
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1148"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "69"
+comments_165: 
+  referrer: ""
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Est iure porro amet explicabo inventore impedit. Tenetur velit beatae non omnis consequatur id qui voluptatibus aut voluptatem doloribus optio omnis facere error dolorem sit
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1174"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "85"
+comments_192: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Ipsa id ex harum libero iure vitae hic fuga ratione eos ea voluptatem voluptates assumenda. Accusantium sint voluptates perspiciatis dolorem reprehenderit expedita commodi veritatis rerum cumque laborum quia sit rem voluptatum autem et qui in
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1201"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "101"
+comments_273: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:12:27
+  body: dsafdsafdsfsdafdsf
+  updated_at: 2010-10-13 05:12:27
+  approved: "1"
+  id: "2084"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_247: 
+  referrer: http://localhost:3000/vote_topics/religion/should-i-convert-to-islam
+  vote_topic_id: "201"
+  comment_likes_count: "0"
+  created_at: 2010-10-10 02:30:06
+  body: |
+    +*Let's check the comments out*+
+    
+    p. This is what a great man said
+    
+    p. So this is another paragraphg So this is another paragraphg So this is another paragraphg So this is another paragraphg So this is another paragraphg
+
+  updated_at: 2010-10-11 19:08:23
+  approved: "1"
+  id: "2058"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "634"
+comments_085: 
+  referrer: ""
+  vote_topic_id: "14"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Tempora qui accusantium et omnis eum nam laborum omnis culpa eius et nobis in facere
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1094"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "47"
+comments_166: 
+  referrer: ""
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Asperiores sed rerum est dignissimos libero iste veniam est praesentium quia qui libero
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1175"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "85"
+comments_059: 
+  referrer: ""
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Eveniet dolorem explicabo at enim necessitatibus rerum mollitia hic qui qui aut et nam magni harum. Voluptates aliquid ea animi aliquam vitae ipsa
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1068"
+  user_id: "30"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "36"
+comments_274: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:12:48
+  body: twice
+  updated_at: 2010-10-13 05:12:48
+  approved: "1"
+  id: "2085"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_248: 
+  referrer: http://localhost:3000/vote_topics/computers/thin-vs-passenger
+  vote_topic_id: "218"
+  comment_likes_count: "1"
+  created_at: 2010-10-11 07:27:04
+  body: _*Texttile comment*_
+  updated_at: 2010-10-11 07:27:04
+  approved: "1"
+  id: "2059"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "679"
+comments_086: 
+  referrer: ""
+  vote_topic_id: "14"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Nesciunt aliquid impedit qui perferendis. Necessitatibus explicabo repellendus est eos deleniti tenetur expedita eligendi deserunt et tempore maiores magnam in aut saepe aut ut
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1095"
+  user_id: "64"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "46"
+comments_167: 
+  referrer: ""
+  vote_topic_id: "25"
+  comment_likes_count: "1"
+  created_at: 2010-08-06 08:57:40
+  body: Est rerum voluptatem quo quod quod ex sed ea tenetur asperiores iure aliquam minus iste quia occaecati
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1176"
+  user_id: "5"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "83"
+comments_193: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Cum similique cupiditate voluptatem eos non dolor
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1202"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "101"
+comments_275: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:13:22
+  body: "1"
+  updated_at: 2010-10-13 05:13:22
+  approved: "1"
+  id: "2086"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_249: 
+  referrer: http://localhost:3000/vote_topics/computers/thin-vs-passenger
+  vote_topic_id: "218"
+  comment_likes_count: "1"
+  created_at: 2010-10-11 19:04:43
+  body: Can't like own comment
+  updated_at: 2010-10-11 19:08:23
+  approved: "1"
+  id: "2060"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "679"
+comments_168: 
+  referrer: ""
+  vote_topic_id: "25"
+  comment_likes_count: "1"
+  created_at: 2010-08-06 08:57:40
+  body: Nisi accusamus quos et eos in est eius
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1177"
+  user_id: "21"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "83"
+comments_194: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Quis ex natus est minus officiis libero pariatur accusantium. Quia tempora dignissimos ut est ratione asperiores aut aspernatur laudantium ea dolores est repellat et vel odio consectetur ut dolorum
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1203"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "101"
+comments_087: 
+  referrer: ""
+  vote_topic_id: "14"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Veritatis et dolorem atque nihil. Voluptatem nemo molestiae molestiae mollitia qui aut et earum illum
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1096"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "47"
+comments_276: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:13:31
+  body: not twice
+  updated_at: 2010-10-13 05:13:31
+  approved: "1"
+  id: "2087"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_169: 
+  referrer: ""
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Fugit perspiciatis distinctio ut nihil rerum ut autem rerum quas numquam sint sit fugiat doloribus minima cumque impedit. Similique molestiae repellendus autem incidunt officia alias libero consequatur autem blanditiis similique
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1178"
+  user_id: "14"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "82"
+comments_195: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Voluptatem facilis ea doloribus doloribus ab quia. Occaecati officia iste praesentium quas eum
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1204"
+  user_id: "7"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "102"
+comments_088: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Sunt delectus necessitatibus quaerat aliquid non doloribus laborum rerum molestias eligendi ipsam
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1097"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "48"
+comments_277: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:13:38
+  body: once more
+  updated_at: 2010-10-13 05:13:38
+  approved: "1"
+  id: "2088"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_196: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Aliquid aut perspiciatis aut cum eum ut dolores
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1205"
+  user_id: "5"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "102"
+comments_089: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Excepturi iusto voluptatem et qui ut quis non sed. Amet quaerat est aliquid ipsum nostrum iusto aut ad iste dolorem voluptates tempore accusamus voluptate placeat aut voluptas omnis nisi
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1098"
+  user_id: "46"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "51"
+comments_278: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:24:14
+  body: really really long paragraph I am writing here and hopefully ljasklfjkldasjflk  lkjadkslfjklsadjfkljlkjlkjasdklfal ksdjfklajdskfjsdaklfjlaksdjflkdjsafkljasdfkljasdklfjs;lafj;klajsdf;kljdsakfljsa;ldkfjldaksjfklasjdf;kljadsfkljsad;kfjsa;ldkfj;adksljf;lkadjsfk;lajsdf;lkjsad;fkjads;lkfj;ladksjf;lkasdjf;lkdjas;flkjads;lkfjs;adklfj;ladkjf;lkdajsf;klsajdf;lksjadf;lkjsad;kfjsa;ldkfj;kladsjflkdsajfkljdask;lfjkldasjflk;ajdsflkadsjflkjdflkjadslk;fj;ldksajf;lkasdjf;lkjadsfk;ljads;klfjdask;lfj;ladkjf;lasdjf;
+  updated_at: 2010-10-13 05:24:14
+  approved: "1"
+  id: "2089"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_197: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Ut et quam distinctio aut est reprehenderit odit
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1206"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "101"
+comments_279: 
+  referrer: http://localhost:3001/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 17:54:21
+  body: commented
+  updated_at: 2010-10-13 17:54:21
+  approved: "1"
+  id: "2090"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_198: 
+  referrer: ""
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Possimus dolor eos iste reprehenderit assumenda. Iste dolore libero totam quo atque
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1207"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "101"
+comments_199: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Magnam error voluptatibus facere mollitia qui maxime quia amet at qui dolores reiciendis dolor doloribus
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1208"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "103"
+comments_010: 
+  referrer: ""
+  vote_topic_id: "2"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Enim aspernatur nihil molestiae molestiae sequi architecto autem velit voluptatem commodi
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1019"
+  user_id: "22"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "9"
+comments_011: 
+  referrer: ""
+  vote_topic_id: "2"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Repellendus earum est quis et quaerat ipsum vero similique nostrum aspernatur ea illum natus iusto culpa vel voluptatem doloribus
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1020"
+  user_id: "44"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "9"
+comments_012: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Dolor quaerat aperiam commodi occaecati. Qui ea recusandae et ut ipsum sit sit nesciunt accusantium harum nemo animi est est
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1021"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "13"
+comments_200: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Tempora sunt delectus distinctio et aut dolorem consequatur
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1209"
+  user_id: "64"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "103"
+comments_013: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Facere molestias nihil beatae corporis rerum est nulla non explicabo et nihil voluptas. Beatae et incidunt qui ea qui ipsa quia dicta nemo voluptatem impedit sit debitis rerum impedit inventore quas accusamus ab
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1022"
+  user_id: "42"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "13"
+comments_120: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Ad sint quod beatae optio facere suscipit beatae dolores fugiat dolores
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1129"
+  user_id: "39"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "61"
+comments_201: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Dolor sint doloribus delectus officia
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1210"
+  user_id: "41"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "104"
+comments_014: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Quas incidunt adipisci reiciendis aspernatur odit ut culpa et reprehenderit rerum. Adipisci quibusdam nihil sit harum corporis quia cumque
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1023"
+  user_id: "8"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "13"
+comments_040: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: A nihil molestias in odit fugiat consequatur et sit beatae
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1049"
+  user_id: "54"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "24"
+comments_121: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Quisquam velit consequatur vel ab
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1130"
+  user_id: "33"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "60"
+comments_202: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Optio similique sint nihil soluta
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1211"
+  user_id: "24"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "104"
+comments_015: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Voluptas excepturi at dolor quis in vel sint laborum perspiciatis unde nemo reiciendis autem. Ullam est delectus temporibus est quam possimus voluptatem molestiae voluptate omnis expedita et voluptatem dolor ullam
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1024"
+  user_id: "8"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "13"
+comments_041: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Et voluptatem molestias tempore autem. Ut earum qui expedita eum deserunt explicabo animi necessitatibus aut qui et blanditiis possimus aut quia consequatur et autem
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1050"
+  user_id: "11"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "24"
+comments_122: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Veritatis quia vel omnis et velit rerum nemo minus laudantium. Quia aut et voluptatem id consectetur dolor eum nam molestiae architecto inventore reiciendis recusandae laboriosam
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1131"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "62"
+comments_203: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Accusamus quia autem vitae quidem iure ducimus culpa delectus accusamus et ab doloremque et occaecati harum voluptatem id
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1212"
+  user_id: "46"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "103"
+comments_230: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-09-24 17:47:40
+  body: My kismet again
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2031"
+  user_id: "97"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "85"
 comments_016: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Impedit repellendus animi error cupiditate
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1025"
+  user_id: "63"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: 
+comments_042: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Quas sunt in facilis voluptas eaque aut. Sint provident dolor rerum perspiciatis impedit perspiciatis qui nobis dignissimos
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1051"
+  user_id: "40"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "24"
+comments_123: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Voluptatem et occaecati reiciendis modi non neque a nemo suscipit mollitia et sed neque rerum et voluptatum enim sunt
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1132"
+  user_id: "10"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "62"
+comments_204: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:42
+  body: Cum laborum laborum incidunt hic consectetur quo et ea vitae est autem saepe excepturi culpa
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1213"
+  user_id: "25"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "104"
+comments_231: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-09-24 17:51:39
+  body: akismet
+  updated_at: 2010-10-11 19:08:22
+  approved: "0"
+  id: "2034"
+  user_id: "97"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_017: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Architecto quaerat quia accusamus dolor consequatur voluptatibus consequatur quo atque ipsa. Consectetur sit qui asperiores ad et officiis voluptas ea harum quod repellat ut doloremque id repellendus
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1026"
+  user_id: "55"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "11"
+comments_043: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Ut ab molestiae harum eius
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1052"
+  user_id: "57"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "24"
+comments_070: 
+  referrer: ""
   vote_topic_id: "12"
-  created_at: 2010-07-10 02:59:23
-  body: nnklnklllmklmklmlkmlk
-  updated_at: 2010-07-10 02:59:23
-  id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Exercitationem eos id iusto qui facilis error quibusdam veritatis consequatur suscipit. Minus illo nesciunt quo sapiente et et omnis aut est ea excepturi quos
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1079"
+  user_id: "26"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "40"
+comments_124: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Numquam suscipit dolorum aspernatur eligendi
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1133"
+  user_id: "22"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "63"
+comments_150: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Quis accusantium aliquid molestias facilis exercitationem aut aspernatur aspernatur voluptates voluptas quis numquam. Dicta consequuntur quam porro ad qui numquam ea aut
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1159"
+  user_id: "52"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "76"
+comments_205: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:43
+  body: Veniam aliquam unde et quis repellendus cum
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1214"
+  user_id: "47"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "103"
+comments_232: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "1"
+  created_at: 2010-09-24 17:52:10
+  body: |
+    testing kismet
+
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2035"
+  user_id: "97"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_018: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Ut sapiente amet id sit at rem voluptatum itaque provident
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1027"
+  user_id: "34"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "11"
+comments_044: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Minima qui a unde aut consequuntur sequi amet
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1053"
+  user_id: "25"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "24"
+comments_071: 
+  referrer: ""
+  vote_topic_id: "12"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Repellat placeat id cupiditate ut. Dolorum amet omnis sed voluptatem unde asperiores inventore dolore saepe aut temporibus sint est tempore dolor
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1080"
+  user_id: "18"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "40"
+comments_125: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Iste ut quia exercitationem voluptatem incidunt voluptas eum quia est recusandae facere quo. Laudantium dolorem quas qui ipsam est voluptatem qui sint consequatur occaecati et aut sit iste
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1134"
+  user_id: "40"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "65"
+comments_151: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Qui magnam cumque voluptatum mollitia possimus exercitationem ut eius. Et incidunt eaque fuga voluptatem
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1160"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "75"
+comments_206: 
+  referrer: ""
+  vote_topic_id: "30"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:43
+  body: Quos atque et inventore blanditiis voluptas quos iure tempora. Fugit ab autem cupiditate repudiandae architecto placeat sapiente explicabo eos adipisci blanditiis officiis qui accusantium et
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1215"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "103"
+comments_233: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-09-24 22:42:53
+  body: A genuinely nice comment
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2039"
   user_id: "9"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "85"
+comments_019: 
+  referrer: ""
+  vote_topic_id: "3"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:28
+  body: Fuga autem non dicta qui voluptas esse in labore repellendus repellat laborum maiores et modi atque iure consequatur
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1028"
+  user_id: "63"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: 
+comments_045: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Voluptatibus aut nihil nihil laudantium sint porro odio ea ad at tenetur ea qui cumque deleniti
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1054"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "25"
+comments_126: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Nam dolor corporis officiis velit
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1135"
+  user_id: "8"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "63"
+comments_152: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Quia architecto ut omnis omnis saepe vel nesciunt ea numquam maxime non beatae reprehenderit
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1161"
+  user_id: "51"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "75"
+comments_207: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Id voluptate quia optio dolorum incidunt voluptas
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1898"
+  user_id: "29"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "485"
+comments_260: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:08:41
+  body: dfsadfsdafsdafasdfdsf
+  updated_at: 2010-10-13 05:08:41
+  approved: "1"
+  id: "2071"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_234: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-09-24 22:43:46
+  body: NIce comment
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2041"
+  user_id: "9"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "85"
+comments_046: 
+  referrer: ""
+  vote_topic_id: "7"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Vero magni ad est repellendus ex sed adipisci ipsam eum eligendi tenetur rerum aperiam. Asperiores quia optio doloremque inventore incidunt
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1055"
+  user_id: "17"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "25"
+comments_072: 
+  referrer: ""
+  vote_topic_id: "12"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Nemo iusto architecto magni corporis repellat qui vero qui in voluptatem quidem minima quasi architecto quam placeat consectetur
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1081"
+  user_id: "9"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "41"
+comments_127: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Quas aliquid magnam accusamus facilis harum aspernatur illum. Non odit minus explicabo aperiam provident non impedit rerum est dicta molestias error
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1136"
+  user_id: "18"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "64"
+comments_153: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Est ea fuga sint et facilis dolor quo est iste. Omnis modi iste ut vel dolore totam
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1162"
+  user_id: "19"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "76"
+comments_180: 
+  referrer: ""
+  vote_topic_id: "27"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Facilis esse commodi voluptatem sed sapiente dolor eligendi nemo incidunt autem sapiente necessitatibus cumque. Consequatur maxime eos blanditiis quia et distinctio numquam ut asperiores maiores nulla quibusdam quia
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1189"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "93"
+comments_208: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Molestias officia delectus a facere minima quia tenetur
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1899"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "485"
+comments_261: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:09:44
+  body: adfdsafdsfasdfdsaf
+  updated_at: 2010-10-13 05:09:44
+  approved: "1"
+  id: "2072"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_235: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-09-24 22:45:01
+  body: Great deals here
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2044"
+  user_id: "9"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "85"
+comments_047: 
+  referrer: ""
+  vote_topic_id: "8"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Occaecati aliquid et odit quas omnis odit et vero necessitatibus voluptatibus ullam commodi consectetur quia minus quia molestiae. Eaque magnam porro qui quibusdam recusandae vitae quia esse eum
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1056"
+  user_id: "42"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "29"
+comments_073: 
+  referrer: ""
+  vote_topic_id: "12"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: At praesentium fugiat aut eligendi aut explicabo debitis consequatur enim ipsa rerum aut. Necessitatibus quisquam non provident voluptatem porro consectetur architecto eos voluptas ipsum expedita amet ducimus perferendis quos rerum
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1082"
+  user_id: "8"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "40"
+comments_128: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Dolorem excepturi inventore cum earum iusto
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1137"
+  user_id: "37"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "63"
+comments_154: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "1"
+  created_at: 2010-08-06 08:57:39
+  body: Quidem ut qui assumenda voluptatem dolores sit quisquam vero. Et tempore est iste ut veniam laborum voluptatem sapiente odio eos necessitatibus iure molestias ut cum recusandae
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1163"
+  user_id: "32"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "75"
+comments_181: 
+  referrer: ""
+  vote_topic_id: "27"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Eum animi quas voluptatibus aut ex laboriosam officia reiciendis ad mollitia id nisi rerum. Rerum dignissimos quia soluta ducimus quae
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1190"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "93"
+comments_209: 
+  referrer: ""
+  vote_topic_id: "146"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:39
+  body: Esse enim perferendis modi dolores quo quis tempora aperiam quis rem minus architecto harum tempora maxime commodi dolorum velit
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1900"
+  user_id: "49"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "485"
+comments_262: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:09:55
+  body: adfadsfsdafsadfadsf
+  updated_at: 2010-10-13 05:09:55
+  approved: "1"
+  id: "2073"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_236: 
+  referrer: http://web1.tunnlr.com:11299/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "1"
+  created_at: 2010-09-25 22:29:17
+  body: comment on safari
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2045"
+  user_id: "9"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_8; en
+  vote_item_id: "101"
+comments_048: 
+  referrer: ""
+  vote_topic_id: "8"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Harum nisi et nemo laboriosam cupiditate blanditiis. Eum officiis aliquid molestiae maxime molestias et officiis natus
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1057"
+  user_id: "29"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "27"
+comments_074: 
+  referrer: ""
+  vote_topic_id: "12"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Quia quas nihil expedita expedita provident et et nihil ratione voluptatem molestiae quisquam qui
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1083"
+  user_id: "54"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "41"
+comments_129: 
+  referrer: ""
+  vote_topic_id: "19"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:37
+  body: Corrupti non distinctio quia omnis dolore aut dolorem cum
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1138"
+  user_id: "38"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "64"
+comments_155: 
+  referrer: ""
+  vote_topic_id: "23"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Et voluptas in iste laboriosam cupiditate quae expedita
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1164"
+  user_id: "24"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "77"
+comments_263: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:09:56
+  body: adfadsfsdafsadfadsf
+  updated_at: 2010-10-13 05:09:56
+  approved: "1"
+  id: "2074"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_237: 
+  referrer: http://localhost:3000/vote_topics/entertainment/japan-has-refused-entry-to-paris-hiltongasps-what-
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-09-27 06:11:17
+  body: comments
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2046"
+  user_id: "67"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "20"
+comments_049: 
+  referrer: ""
+  vote_topic_id: "8"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Et sed molestiae sunt rem inventore voluptatem culpa sapiente odit deleniti nemo illo ex et magnam consequuntur dolores
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1058"
+  user_id: "40"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "29"
+comments_075: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Necessitatibus expedita porro et enim cumque et provident libero temporibus tenetur explicabo expedita amet quae. Tenetur reiciendis consequatur eaque culpa voluptatem quae quo tenetur sunt non
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1084"
+  user_id: "9"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "45"
+comments_156: 
+  referrer: ""
+  vote_topic_id: "23"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Iusto repellendus corrupti occaecati repellat nesciunt ducimus autem possimus quis provident voluptatem quibusdam ipsum. Non enim voluptas et ipsam sunt
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1165"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "78"
+comments_182: 
+  referrer: ""
+  vote_topic_id: "27"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Soluta nihil velit rerum quam et sed amet
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1191"
+  user_id: "34"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "91"
+comments_264: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:10:01
+  body: next comment
+  updated_at: 2010-10-13 05:10:01
+  approved: "1"
+  id: "2075"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_238: 
+  referrer: http://localhost/vote_topics/religion/should-muslims-be-allowed-extra-breaks-in-the-work
+  vote_topic_id: "215"
+  comment_likes_count: "0"
+  created_at: 2010-09-27 22:36:41
+  body: Shall I comment
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2047"
+  user_id: "9"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "673"
+comments_076: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Cum unde quis est velit commodi cumque nostrum sunt officiis nemo
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1085"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "44"
+comments_157: 
+  referrer: ""
+  vote_topic_id: "23"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Omnis aut animi esse molestiae neque quod soluta facere iure ut animi deserunt doloremque
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1166"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "78"
+comments_183: 
+  referrer: ""
+  vote_topic_id: "27"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Dolor qui vero est veniam tempora aut corrupti non et distinctio mollitia pariatur ex et optio sit distinctio
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1192"
+  user_id: "30"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "93"
+comments_265: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:10:02
+  body: next comment
+  updated_at: 2010-10-13 05:10:02
+  approved: "1"
+  id: "2076"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_239: 
+  referrer: http://localhost/vote_topics/religion/should-muslims-be-allowed-extra-breaks-in-the-work
+  vote_topic_id: "215"
+  comment_likes_count: "0"
+  created_at: 2010-09-27 22:37:35
+  body: More comment More comment More comment
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2048"
+  user_id: "9"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "673"
+comments_077: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Est minus magni aspernatur aut est tenetur dolore et aspernatur deserunt totam ullam earum veniam officia nesciunt cum voluptatem rem
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1086"
+  user_id: "5"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "44"
+comments_158: 
+  referrer: ""
+  vote_topic_id: "23"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Aut reprehenderit dicta est maiores nam cum est
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1167"
+  user_id: "55"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "77"
+comments_184: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Cum quia et earum tempora fugit consectetur. Quod dolor dolorum totam expedita quo itaque iusto natus delectus enim culpa molestiae esse debitis ut ad neque
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1193"
+  user_id: "36"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "99"
+comments_266: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:10:15
+  body: so another comment
+  updated_at: 2010-10-13 05:10:15
+  approved: "1"
+  id: "2077"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_078: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Repudiandae ratione et dicta molestiae velit voluptatibus explicabo vero eveniet laboriosam suscipit esse rem similique labore eum quam
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1087"
+  user_id: "17"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "43"
+comments_159: 
+  referrer: ""
+  vote_topic_id: "23"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:39
+  body: Assumenda autem ut et fugit illum omnis. Qui voluptas sint reprehenderit et deleniti
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1168"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "78"
+comments_185: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Et qui sint atque perferendis omnis autem possimus consequatur quidem molestiae. Consequatur nihil laudantium est voluptatibus consequatur autem id et saepe aliquid sed in et eum voluptatum eaque nam odit voluptate
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1194"
+  user_id: "63"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: 
+comments_267: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:10:16
+  body: so another comment
+  updated_at: 2010-10-13 05:10:16
+  approved: "1"
+  id: "2078"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_079: 
+  referrer: ""
+  vote_topic_id: "13"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:33
+  body: Repellat laborum hic ut ducimus quia quam numquam qui. Necessitatibus voluptates unde dolorum veniam accusantium quia molestias
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1088"
+  user_id: "49"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "44"
+comments_186: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Sed tenetur cum qui a est et reprehenderit id
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1195"
+  user_id: "46"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "97"
+comments_268: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:11:43
+  body: dfsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdaf
+  updated_at: 2010-10-13 05:11:43
+  approved: "1"
+  id: "2079"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_187: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Ut nihil velit fugit in ratione debitis dolore. Quia omnis sint saepe recusandae in qui ea nam harum repellat dolorum vero neque
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1196"
+  user_id: "48"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "100"
+comments_269: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:11:44
+  body: dfsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdafsdafdsffsadfdsafsdafdsfdsafdsafsadfdsfsdafsdaf
+  updated_at: 2010-10-13 05:11:44
+  approved: "1"
+  id: "2080"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_188: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Est magnam corporis sunt ut voluptatem similique sit
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1197"
+  user_id: "36"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "99"
+comments_189: 
+  referrer: ""
+  vote_topic_id: "28"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Corrupti et ullam et nam est expedita laboriosam qui reprehenderit excepturi nihil consequuntur dolorem iste qui odio fugit animi
+  updated_at: 2010-10-11 19:08:20
+  approved: "1"
+  id: "1198"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "98"
+comments_001: 
+  referrer: ""
+  vote_topic_id: "1"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Commodi voluptatum autem eaque dolorem quibusdam nam ea
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1010"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "3"
+comments_002: 
+  referrer: ""
+  vote_topic_id: "1"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Aspernatur quos ea veritatis aut itaque nobis nulla doloribus. Delectus a deserunt velit ipsum culpa eos ipsam ut odio numquam temporibus
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1011"
+  user_id: "50"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "1"
+comments_110: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Eum quisquam unde voluptas et quaerat aut aut maxime unde veritatis voluptas corporis praesentium
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1119"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "56"
+comments_003: 
+  referrer: ""
+  vote_topic_id: "1"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Enim et eveniet blanditiis consequatur vitae. Dolor rerum enim ratione ea commodi dolorum distinctio iure esse dolore sed repellendus placeat inventore quo ut consectetur omnis et
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1012"
+  user_id: "22"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "1"
+comments_111: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Nisi et maxime sed qui voluptas ducimus quod nihil doloribus laudantium architecto error et repellat aut ut tempora rerum consequuntur
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1120"
+  user_id: "52"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "58"
+comments_004: 
+  referrer: ""
+  vote_topic_id: "1"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Optio cumque eum velit natus possimus maiores facere ad sint nam voluptas enim aliquam et iure rerum sit atque
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1013"
+  user_id: "7"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "2"
+comments_030: 
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Fuga modi sed consequatur perspiciatis sit nihil aliquam est doloremque quam
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1039"
+  user_id: "28"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "18"
+comments_112: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Quod ducimus deleniti aut sed libero itaque ut porro ea beatae rerum magnam et incidunt
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1121"
+  user_id: "55"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "58"
 comments_005: 
-  vote_topic_id: "53"
-  created_at: 2010-07-09 06:47:48
-  body: not working
-  updated_at: 2010-07-09 06:47:53
-  id: "8"
+  referrer: ""
+  vote_topic_id: "1"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Dolores omnis quis sit et sed modi consectetur delectus labore in minima animi hic est saepe deserunt
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1014"
+  user_id: "33"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "2"
+comments_031: 
+  referrer: ""
+  vote_topic_id: "5"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Dolore exercitationem nihil natus eaque laudantium eos omnis fugiat quia assumenda reprehenderit
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1040"
+  user_id: "44"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "19"
+comments_113: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Excepturi iste omnis ea officiis error voluptatibus eligendi corrupti accusamus et iusto atque dolorum qui
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1122"
+  user_id: "21"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "57"
+comments_220: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Ratione necessitatibus ut ut fuga dolorem molestias et nobis quae rerum quas. Quos perspiciatis beatae et adipisci ipsum aut quia ad nemo vero cupiditate doloremque ullam iste sunt
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1911"
+  user_id: "11"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "487"
+comments_006: 
+  referrer: ""
+  vote_topic_id: "1"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Et sunt repellendus id omnis ea voluptatibus facilis eos delectus reiciendis laborum accusamus voluptatibus. Dolorem culpa beatae velit ut commodi nostrum ut est
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1015"
+  user_id: "36"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "4"
+comments_032: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Inventore rerum quas assumenda quidem et qui reprehenderit aliquam eum porro architecto earum sequi odit qui nobis consequatur ratione. Odio quis ut vero aspernatur dolorem
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1041"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "21"
+comments_140: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Natus inventore voluptatum sit dolor voluptatem rerum dicta ut quasi nihil a et dolorem est voluptatem explicabo
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1149"
+  user_id: "52"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "72"
+comments_221: 
+  referrer: ""
+  vote_topic_id: "147"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Totam a suscipit nobis consequatur ipsum animi quia maiores ex
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1912"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "488"
+comments_007: 
+  referrer: ""
+  vote_topic_id: "2"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Rem aut reprehenderit quos sed iusto
+  updated_at: 2010-10-11 19:08:12
+  approved: "1"
+  id: "1016"
+  user_id: "10"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "7"
+comments_033: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Ipsa aut officiis est eos dolores qui quis soluta in repudiandae repudiandae in quibusdam libero perspiciatis saepe et officia quia. Maiores ab quia repudiandae et ut ipsam aliquam distinctio aspernatur quaerat quo itaque
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1042"
+  user_id: "48"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "20"
+comments_060: 
+  referrer: ""
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:31
+  body: Nihil magnam aut soluta iusto. Perferendis veniam ut sit consequatur repellat asperiores qui modi quo
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1069"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "37"
+comments_114: 
+  referrer: ""
+  vote_topic_id: "17"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Rerum et itaque ad repellendus sunt adipisci ut incidunt quia facilis officia sapiente recusandae omnis incidunt
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1123"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "56"
+comments_141: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Ab consequatur qui amet voluptas similique corrupti nostrum
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1150"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "73"
+comments_222: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Vero iusto delectus quisquam assumenda et error aliquid voluptas et ex nihil itaque libero iure corporis vel enim provident. Sequi illo omnis sit dignissimos dolorem ratione esse ipsam dolore deleniti perferendis excepturi blanditiis impedit voluptatem
+  updated_at: 2010-10-11 19:08:21
+  approved: "1"
+  id: "1913"
+  user_id: "39"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "490"
+comments_008: 
+  referrer: ""
+  vote_topic_id: "2"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Sed ut eum omnis ipsum suscipit ex saepe iusto et soluta minus quibusdam. Pariatur adipisci non voluptatem culpa
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1017"
+  user_id: "26"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "5"
+comments_034: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Dolorem aut et cum accusantium voluptas et quo voluptatibus ut doloribus id recusandae quod enim in debitis eaque. Voluptates debitis corrupti temporibus iste odio aliquid nisi ut voluptatibus consequatur doloremque iste et harum iure corporis iste praesentium
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1043"
+  user_id: "51"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "20"
+comments_115: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:35
+  body: Fugiat voluptatum laudantium sunt eius est rerum ducimus aut beatae recusandae ut
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1124"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "62"
+comments_223: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Quidem aut omnis accusamus voluptates sint ut vel quia qui consequatur delectus. Eligendi eos aut aperiam amet laborum consectetur ex dolorem aut dolorem eum velit debitis fuga quia quo
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "1914"
+  user_id: "10"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "491"
+comments_009: 
+  referrer: ""
+  vote_topic_id: "2"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:27
+  body: Ducimus nemo non ut autem maxime. Culpa maiores omnis dolores consequatur veniam minus sit nulla quia velit neque et
+  updated_at: 2010-10-11 19:08:13
+  approved: "1"
+  id: "1018"
+  user_id: "37"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "7"
+comments_035: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:29
+  body: Aliquid porro corporis excepturi id eligendi maiores sit inventore tempore eos ut. Porro quo vero tempore quisquam porro possimus rem ex aut
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1044"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "23"
+comments_061: 
+  referrer: ""
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Earum nihil sed qui aperiam non architecto veniam repellendus officiis voluptatem mollitia esse vel impedit. Autem ipsum eos nisi saepe illum nulla incidunt provident veniam beatae alias libero harum deserunt rerum pariatur hic
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1070"
+  user_id: "33"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "36"
+comments_116: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Illo blanditiis aut quibusdam incidunt reiciendis sed rerum dolores sint voluptas minus quo quo asperiores molestiae unde quam magnam eos
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1125"
+  user_id: "64"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "61"
+comments_142: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Deleniti veniam voluptate cupiditate qui. Et natus modi deserunt distinctio sed incidunt rerum quos eum aut error consequatur nemo qui minus soluta qui eos molestias
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1151"
+  user_id: "24"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "73"
+comments_250: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "1"
+  created_at: 2010-10-11 21:30:28
+  body: -Do you see this?-
+  updated_at: 2010-10-11 21:30:28
+  approved: "1"
+  id: "2061"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_224: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Explicabo expedita explicabo suscipit cum
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "1915"
+  user_id: "63"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: 
+comments_170: 
+  referrer: ""
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Nemo optio saepe asperiores reprehenderit hic quasi vitae accusamus esse quibusdam exercitationem nobis
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1179"
+  user_id: "28"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "83"
+comments_036: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Dolores culpa doloribus omnis totam dolores cum voluptatem consequuntur aperiam possimus. Consequatur tenetur ad quia alias expedita officia nisi doloribus sint soluta consequuntur repellat eligendi itaque est eligendi unde consectetur nulla
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1045"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "20"
+comments_062: 
+  referrer: ""
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Ullam delectus voluptatem nobis optio quia quod saepe delectus facere est. Eius distinctio voluptatem voluptates voluptates id temporibus nulla aliquam similique id corrupti in fugiat et aliquid quasi neque ipsa
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1071"
+  user_id: "37"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "37"
+comments_117: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Dolorem non error sit doloremque et nisi enim vel ut tempora sit cum neque praesentium. Expedita eos in cumque enim quos molestiae dolore fugit animi
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1126"
+  user_id: "18"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "59"
+comments_143: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Exercitationem omnis rerum quisquam dolorem sed fugit dolorum culpa consequatur eos eum eum ullam et sed aut facilis sequi
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1152"
+  user_id: "35"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "72"
+comments_251: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-11 21:31:16
+  body: Did it post?
+  updated_at: 2010-10-11 21:31:16
+  approved: "1"
+  id: "2062"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_225: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Non distinctio eveniet sit veritatis odit velit non dolore quo facere
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "1916"
+  user_id: "33"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "490"
+comments_037: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Quas voluptatum eius magni minima officia in ut illum ea est est aut perspiciatis omnis. Voluptas et nobis omnis aspernatur consequatur aut eveniet voluptate sit asperiores voluptatum distinctio non similique ea
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1046"
+  user_id: "7"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "20"
+comments_063: 
+  referrer: ""
+  vote_topic_id: "10"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Et dolor maiores id fuga est eum rerum assumenda veniam rerum. Est facilis omnis blanditiis quia fuga quia minima necessitatibus aperiam
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1072"
+  user_id: "17"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "36"
+comments_090: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Placeat est ut incidunt qui aut consectetur soluta impedit omnis nihil est odio aliquam molestiae odio eius iure
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1099"
+  user_id: "48"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "51"
+comments_118: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Nulla adipisci totam ut fugiat commodi occaecati sit exercitationem voluptatibus vel. Qui et enim id maiores debitis rerum quia et
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1127"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "59"
+comments_144: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Dolor corrupti repellendus velit asperiores in
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1153"
+  user_id: "37"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "72"
+comments_252: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "1"
+  created_at: 2010-10-12 21:51:25
+  body: user 101_1
+  updated_at: 2010-10-12 21:51:25
+  approved: "1"
+  id: "2063"
+  user_id: "101"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_226: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Doloribus quod error eaque id in quo qui. Aliquam corrupti rerum occaecati error harum quo enim voluptas eligendi cum dolores quis earum rem voluptate sit
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "1917"
+  user_id: "17"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "490"
+comments_038: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Possimus hic quibusdam at modi repellat ut quod consequatur dolore laudantium animi sunt modi necessitatibus fuga rerum quia non. Voluptatem sunt sit quibusdam magni earum laborum sit nam perspiciatis et esse aut dicta officia consequatur non facilis ex
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1047"
+  user_id: "23"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "21"
+comments_064: 
+  referrer: ""
+  vote_topic_id: "11"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Perferendis architecto et omnis quia
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1073"
+  user_id: "55"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "39"
+comments_091: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Debitis aliquam ab at eaque qui velit aut. Maiores ullam porro at voluptates nisi tempora
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1100"
+  user_id: "31"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "50"
+comments_119: 
+  referrer: ""
+  vote_topic_id: "18"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:36
+  body: Animi dolorum ullam impedit velit in et sed qui facilis et qui iste labore rerum quibusdam at
+  updated_at: 2010-10-11 19:08:17
+  approved: "1"
+  id: "1128"
   user_id: "9"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "59"
+comments_145: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Delectus vel velit et recusandae. Ad laboriosam pariatur consectetur blanditiis maiores iste molestias sed repellat amet dicta voluptatum quae vitae velit non consequatur ex asperiores
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1154"
+  user_id: "24"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "73"
+comments_171: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Saepe facilis sint id iusto quia placeat architecto aliquam. Aut id voluptatem ab totam hic
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1180"
+  user_id: "20"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "88"
+comments_280: 
+  referrer: http://localhost:3001/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 17:55:44
+  body: I am discussing
+  updated_at: 2010-10-13 17:55:44
+  approved: "1"
+  id: "2091"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_253: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "1"
+  created_at: 2010-10-12 21:51:31
+  body: user101_2
+  updated_at: 2010-10-12 21:51:31
+  approved: "1"
+  id: "2064"
+  user_id: "101"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_227: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:40
+  body: Ratione sit reprehenderit dicta omnis magnam pariatur aliquam sed qui consequuntur vero repellat aut excepturi exercitationem molestiae praesentium reprehenderit
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "1918"
+  user_id: "22"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "491"
+comments_039: 
+  referrer: ""
+  vote_topic_id: "6"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:30
+  body: Quaerat minima itaque adipisci qui enim iste adipisci neque quo
+  updated_at: 2010-10-11 19:08:14
+  approved: "1"
+  id: "1048"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "23"
+comments_065: 
+  referrer: ""
+  vote_topic_id: "11"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Molestiae ut cum alias aut quas at itaque molestiae deleniti quam at quia qui temporibus consequatur neque
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1074"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "38"
+comments_092: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Atque praesentium adipisci exercitationem quae ex voluptates eos velit non harum eos debitis vel esse itaque et hic
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1101"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "51"
+comments_146: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Natus eaque eos voluptates ea
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1155"
+  user_id: "6"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "74"
+comments_172: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Cupiditate ut totam temporibus optio tenetur eos dolor
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1181"
+  user_id: "31"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "86"
+comments_254: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-10-12 21:51:45
+  body: user101_3
+  updated_at: 2010-10-12 21:51:45
+  approved: "1"
+  id: "2065"
+  user_id: "101"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "84"
+comments_228: 
+  referrer: ""
+  vote_topic_id: "148"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:58:41
+  body: Perferendis a est omnis maxime rerum quas rem eaque ea optio qui autem ratione et ducimus exercitationem
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "1919"
+  user_id: "48"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "490"
+comments_066: 
+  referrer: ""
+  vote_topic_id: "11"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Nemo qui minus consectetur dolores expedita enim soluta iste distinctio dignissimos in excepturi sunt consequatur tenetur voluptates quaerat aut. Velit libero sint voluptate ipsa aperiam est
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1075"
+  user_id: "51"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "39"
+comments_093: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Repellat illo sit ipsa ipsam sunt autem cumque officiis dolores eum. Quis perspiciatis minima eveniet laborum est commodi sit et enim deleniti architecto ut et
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1102"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "48"
+comments_147: 
+  referrer: ""
+  vote_topic_id: "21"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Aut nihil nihil ex officia cum dicta
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1156"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "73"
+comments_173: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Magni et neque nemo eius porro velit aut consequuntur temporibus vel sint
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1182"
+  user_id: "27"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "89"
+comments_281: 
+  referrer: http://localhost:3001/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 17:56:49
+  body: dfdsafsdfdsafdsfdsafsadfadsf
+  updated_at: 2010-10-13 17:56:49
+  approved: "1"
+  id: "2092"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_255: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-10-12 21:51:51
+  body: user101_4
+  updated_at: 2010-10-12 21:51:51
+  approved: "1"
+  id: "2066"
+  user_id: "101"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "84"
+comments_229: 
+  referrer: http://localhost:3000/vote_topics/science/best-eastern-european-summer-destination
+  vote_topic_id: "25"
+  comment_likes_count: "0"
+  created_at: 2010-09-24 17:45:33
+  body: kismet
+  updated_at: 2010-10-11 19:08:22
+  approved: "1"
+  id: "2030"
+  user_id: "97"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "85"
+comments_067: 
+  referrer: ""
+  vote_topic_id: "11"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Nulla aliquid aut voluptas modi temporibus possimus a omnis sint odio adipisci ut quia eveniet quae autem asperiores
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1076"
+  user_id: "14"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "38"
+comments_148: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Fuga est possimus nulla quae ad est praesentium voluptas cum nemo. Sint adipisci sint aut eligendi possimus natus placeat distinctio enim culpa cupiditate vero ut impedit expedita quo
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1157"
+  user_id: "39"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "76"
+comments_174: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Ex eum aut sint consequuntur provident quo fuga id voluptas expedita et voluptates expedita et et dolor assumenda occaecati
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1183"
+  user_id: "44"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "87"
+comments_282: 
+  referrer: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 21:58:14
+  body: dsfds
+  updated_at: 2010-10-13 21:58:14
+  approved: "1"
+  id: "2093"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_256: 
+  referrer: http://localhost:3000/vote_topics/food-dining/where-are-you-cutting-your-spending-the-most
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-10-12 22:35:40
+  body: comment_102
+  updated_at: 2010-10-12 22:35:40
+  approved: "1"
+  id: "2067"
+  user_id: "102"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "54"
+comments_068: 
+  referrer: ""
+  vote_topic_id: "11"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Et odio quo molestias ut et possimus cumque eum hic harum dolor
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1077"
+  user_id: "19"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "39"
+comments_094: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Et voluptatibus aliquid esse sint ab et fugit sint dolores culpa quo nihil sunt sunt est voluptates dolores
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1103"
+  user_id: "53"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "49"
+comments_149: 
+  referrer: ""
+  vote_topic_id: "22"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:38
+  body: Dolorum ut expedita animi rem. Totam ut rem aliquid eaque aperiam voluptate et aspernatur magni aut corporis eos facilis eligendi aut in aut molestiae earum
+  updated_at: 2010-10-11 19:08:18
+  approved: "1"
+  id: "1158"
+  user_id: "40"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "76"
+comments_175: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Et aut ipsa consequatur ullam sit hic id aut tempora et reiciendis quas itaque suscipit consequatur animi ea. Architecto quisquam doloribus rerum dolorum rem aut distinctio neque nisi eos consequatur incidunt quis reiciendis esse error fugit sit ducimus
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1184"
+  user_id: "7"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "87"
+comments_283: 
+  referrer: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 21:59:36
+  body: ok
+  updated_at: 2010-10-13 21:59:36
+  approved: "1"
+  id: "2094"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_257: 
+  referrer: http://localhost:3000/vote_topics/food-dining/where-are-you-cutting-your-spending-the-most
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-10-12 22:35:44
+  body: Comment_102
+  updated_at: 2010-10-12 22:35:44
+  approved: "1"
+  id: "2068"
+  user_id: "102"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "54"
+comments_069: 
+  referrer: ""
+  vote_topic_id: "11"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:32
+  body: Illo temporibus labore illum voluptatem odit inventore quia quaerat ea numquam ipsam et quo. Ut mollitia similique architecto deserunt adipisci numquam ut voluptatem deserunt quis ut ipsa
+  updated_at: 2010-10-11 19:08:15
+  approved: "1"
+  id: "1078"
+  user_id: "56"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "38"
+comments_095: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Ullam quam iusto eum eius qui ut nihil neque deserunt eius
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1104"
+  user_id: "36"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "48"
+comments_176: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:40
+  body: Est quo autem ut in autem dolorem sint architecto ut doloribus. Nemo voluptate dolor eum ipsa harum quod voluptas saepe
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1185"
+  user_id: "57"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "87"
+comments_284: 
+  referrer: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 21:59:37
+  body: ok
+  updated_at: 2010-10-13 21:59:37
+  approved: "1"
+  id: "2095"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_258: 
+  referrer: http://localhost:3000/vote_topics/autos-motorcyles/user1012
+  vote_topic_id: "236"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 02:55:13
+  body: dfdsafadsfdsfdsafsdafsadfdsaf
+  updated_at: 2010-10-13 02:55:13
+  approved: "1"
+  id: "2069"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "714"
+comments_096: 
+  referrer: ""
+  vote_topic_id: "15"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Accusantium ipsum totam sed omnis qui voluptatem sed est assumenda qui ipsa
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1105"
+  user_id: "40"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "50"
+comments_177: 
+  referrer: ""
+  vote_topic_id: "26"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Sapiente cupiditate enim voluptatem aspernatur animi qui quam mollitia animi sit excepturi consequatur exercitationem. Voluptatem et nihil dolorem nihil
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1186"
+  user_id: "16"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "86"
+comments_285: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-14 21:06:10
+  body: Commented
+  updated_at: 2010-10-14 21:06:10
+  approved: "1"
+  id: "2096"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_259: 
+  referrer: http://localhost:3000/vote_topics/health-fitness/should-gay-marriage-be-legal
+  vote_topic_id: "29"
+  comment_likes_count: "0"
+  created_at: 2010-10-13 05:08:33
+  body: tdasfasdfsdafsda
+  updated_at: 2010-10-13 05:08:33
+  approved: "1"
+  id: "2070"
+  user_id: "14"
+  user_ip: 127.0.0.1
+  user_agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2
+  vote_item_id: "101"
+comments_097: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Eius occaecati ea dolores vel iusto
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1106"
+  user_id: "30"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "52"
+comments_178: 
+  referrer: ""
+  vote_topic_id: "27"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: In fugiat aliquam debitis et tenetur
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1187"
+  user_id: "17"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "94"
+comments_098: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Omnis illo vel temporibus distinctio et earum dicta odit accusamus alias quidem. Delectus sapiente corporis repellat sunt consequuntur optio quidem eveniet itaque et quia non laudantium provident aut
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1107"
+  user_id: "26"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "53"
+comments_179: 
+  referrer: ""
+  vote_topic_id: "27"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:41
+  body: Quo tenetur reiciendis maiores quis cumque neque ipsam hic
+  updated_at: 2010-10-11 19:08:19
+  approved: "1"
+  id: "1188"
+  user_id: "13"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "93"
+comments_099: 
+  referrer: ""
+  vote_topic_id: "16"
+  comment_likes_count: "0"
+  created_at: 2010-08-06 08:57:34
+  body: Eum rem rerum a vel rerum enim minus eos accusamus nulla illo. Voluptates distinctio et doloremque est iusto aut amet magni amet eos sint aliquid ducimus
+  updated_at: 2010-10-11 19:08:16
+  approved: "1"
+  id: "1108"
+  user_id: "45"
+  user_ip: 
+  user_agent: ""
+  vote_item_id: "53"
