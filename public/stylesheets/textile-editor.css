@@ -11,7 +11,8 @@ div.textile-toolbar span.ed_sep {
 
 div.textile-toolbar button {
 	margin: 0;
-	background-color: #f0f0ee;
+	background-color: #F6F6F6;
+/*	background-color: #f0f0ee;*/
 	background-repeat: no-repeat;
 	border: 1px solid #f0f0ee;
 	padding: 2px 0;
@@ -38,7 +39,8 @@ div.textile-toolbar button.selected {
 
 div.textile-toolbar button.unselected {
 	border: 1px solid #f0f0ee;
-	background-color: #f0f0ee;
+/*	background-color: #f0f0ee;*/
+	background-color: #F6F6F6;
 }
 
 div.textile-toolbar button.publish {
@@ -47,7 +49,8 @@ div.textile-toolbar button.publish {
 }
 
 div.textile-toolbar {
-	background-color: #f0f0ee;
+/*	background-color: #f0f0ee;*/
+	background-color: #F6F6F6;
 	padding: 3px;
 	margin-bottom: 4px;
 }

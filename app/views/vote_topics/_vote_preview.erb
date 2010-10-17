@@ -9,7 +9,7 @@
 <% end  %>
 
 <% if !vt.nil? %>
-  <div class="ui-widget-vote-preview bottom-mar normal-pad top-mar" style="clear:both" id="<%= vt.id%>">
+  <div class="ui-widget-vote-preview " style="clear:both" id="<%= vt.id%>">
     <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster, :anon => vt.anon} %>
     <div>
       <p class="preview">

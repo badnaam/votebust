@@ -27,7 +27,8 @@
     color:#ffffff;
 }
 .generic-bg {
-    background-color: #EDEFF4;
+/*    background-color: #EDEFF4;*/
+    background-color: #F6F6F6;
 }
 
 .standard-border {
@@ -470,6 +471,7 @@ html, body {
 .ui-widget-vote-preview {
     /*    border-top:1px solid #dddddd;*/
     border-bottom:1px solid #dddddd;
+    padding:.6em .4em .6em .4em;
 }
 .ui-widget-vote-preview:hover {
     background-color: #F6F6F6;
