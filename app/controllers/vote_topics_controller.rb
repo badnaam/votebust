@@ -3,7 +3,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics.xml
     layout "main", :except => [:new, :edit]
     before_filter :load_vt, :only => [:update]
-#    before_filter :load_vt_from_id_and_scope, :only => [:edit, :update]
+    #    before_filter :load_vt_from_id_and_scope, :only => [:edit, :update]
     filter_access_to [:edit, :update], :attribute_check => true
     before_filter :require_user, :only => [:edit, :new, :create]
     before_filter :store_location, :only => [:show, :index]
@@ -90,6 +90,7 @@ class VoteTopicsController < ApplicationController
             when "user_all"
                 #if currrent_user then show everything
                 if current_user && current_user.id == params[:user_id].to_i
+                    if stale?(:etag => "user_all_own_#{id}_#{page}_#{order}_#{curren_user.p_topics_count}_#{current_user.edit_count}")
                     @vote_topics = VoteTopic.get_all_votes_user_own(params[:user_id], params[:page] , params[:order])
                 else
                     #show only approved
@@ -100,14 +101,18 @@ class VoteTopicsController < ApplicationController
                     VoteTopic.get_featured_votes(true, nil, params[:order])
                 end
             when "featured_all"
-                @vote_topics = VoteTopic.get_featured_votes(false, params[:page], params[:order])
+                if stale?(:etag => "featured_all_#{page}_#{order}_#{VoteTopic.list_key}_#{user_key}")
+                    @vote_topics = VoteTopic.get_featured_votes(false, params[:page], params[:order])
+                end
             when "general_limited"
-                @vote_topics = VoteTopic.general_list true, nil, params[:order]
+                if stale?(:etag => "limited_vote_topics_#{VoteTopic.list_key}_#{user_key}")
+                    @vote_topics = VoteTopic.general_list true, nil, params[:order]
+                end
             else
                 # it's "all"
-#                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.list_key}_#{user_key}")
+                if stale?(:etag => "all_vote_topics_#{params[:page]}_#{params[:order]}_#{VoteTopic.list_key}_#{user_key}")
                     @vote_topics = VoteTopic.general_list false, params[:page], params[:order]
-#                end
+                end
             end
         end
 
@@ -170,7 +175,7 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/new
     # GET /vote_topics/new.xml
     def new
-#        @user = current_user
+        #        @user = current_user
         @vote_topic = current_user.posted_vote_topics.build
         @vote_items = 2.times {@vote_topic.vote_items.build}
 

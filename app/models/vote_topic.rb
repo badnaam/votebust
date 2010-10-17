@@ -288,7 +288,7 @@ class VoteTopic < ActiveRecord::Base
             find(:all,:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', STATUS[:approved]], :order => order,
                 :include => [:poster, {:category => :slug}, :slug],:limit => Constants::SMART_COL_LIMIT)
         else
-            Rails.cache.fetch("featured_all_#{page}_#{order}__#{list_key}") do
+            Rails.cache.fetch("featured_all_#{page}_#{order}_#{list_key}") do
                 order = 'vote_topics.power_offered DESC, ' + (ModelHelpers.determine_order order)
                 paginate(:conditions => ['status = ? AND expires > UTC_TIMESTAMP() AND power_offered > 0', STATUS[:approved]],
                     :order => order, :include => [:poster, {:category => :slug}, :slug], :per_page => Constants::LISTINGS_PER_PAGE,

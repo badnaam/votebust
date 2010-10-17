@@ -467,9 +467,7 @@ html, body {
 .vi-list-voted li {
     padding:.2em .2em .5em .2em;
 }
-/*.ui-state-normal .ui-icon { background-image: url(images/ui-icons_666666_256x240.png) !important; }*/
 .ui-widget-vote-preview {
-    /*    border-top:1px solid #dddddd;*/
     border-bottom:1px solid #dddddd;
     padding:.6em .4em .6em .4em;
 }
