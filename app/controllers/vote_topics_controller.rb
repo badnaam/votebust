@@ -176,6 +176,7 @@ class VoteTopicsController < ApplicationController
                 @vote_topics = VoteTopic.get_more_from_same_user params[:user_id]
             end
         when "top_votes_min"
+
             @vote_topics = VoteTopic.get_top_votes_minimal
             #todo the following is no good if cookies are disabled
         when "most_tracked_city"
