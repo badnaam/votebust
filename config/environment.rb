@@ -6,9 +6,10 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-require 'rack-cache'
+
 Rails::Initializer.run do |config|
     require 'custom_logger'
+    require 'rack-cache'
     #todo change log level in production
     config.log_level = ENV['RAILS_ENV']=='production' ?
       ActiveSupport::BufferedLogger::Severity::DEBUG :
@@ -54,10 +55,10 @@ Rails::Initializer.run do |config|
     # Run "rake -D time" for a list of tasks for finding time zone names.
     
 
-config.middleware.use Rack::Cache,
-  :verbose => true,
-  :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
-  :entitystore => 'file:/var/www/voteable/shared/rack/cache/body'
+    config.middleware.use Rack::Cache,
+      :verbose => true,
+      :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
+      :entitystore => 'file:/var/www/voteable/shared/rack/cache/body'
      
     config.gem 'hoptoad_notifier'
 
