@@ -471,7 +471,9 @@ html, body {
     /*    border-top:1px solid #dddddd;*/
     border-bottom:1px solid #dddddd;
 }
-
+.ui-widget-vote-preview:hover {
+    background-color: #F6F6F6;
+}
 
 .vote-info-table-top {
     margin-bottom: 0;
