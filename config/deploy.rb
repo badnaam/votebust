@@ -97,6 +97,9 @@ namespace :deploy do
         run "mkdir #{shared_path}/config"
         run "mkdir #{shared_path}/db"
         run "mkdir #{shared_path}/sphinx"
+        #todo remove rack cache?
+        run "mkdir -p #{shared_path}/rack/cache/meta"
+        run "mkdir -p #{shared_path}/rack/cache/body"
     end
 
     desc "Change group to www-data"

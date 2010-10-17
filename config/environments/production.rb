@@ -38,6 +38,10 @@ ActionMailer::Base.smtp_settings = {
     :content_type => "multipart/alternative"
 }
 
+config.middleware.use Rack::Cache,
+       :verbose => true,
+       :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
+       :entitystore => 'file:/var/www/voteable/shared/rack/cache/body'
 #config.gem "rails-footnotes"
 
 #ActionMailer::Base.smtp_settings = {

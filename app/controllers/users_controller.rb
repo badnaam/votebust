@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     end
 
     def top_voters
-        expires_in Constants::LIMITED_LISTING_CACHE_EXPIRATION
+        expires_in Constants::LIMITED_LISTING_CACHE_EXPIRATION, :public => true
         @users = User.get_top_voters
         respond_to do |format|
             format.js
