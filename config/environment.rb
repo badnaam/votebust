@@ -9,7 +9,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
     require 'custom_logger'
-    require 'rack-cache'
     #todo change log level in production
     config.log_level = ENV['RAILS_ENV']=='production' ?
       ActiveSupport::BufferedLogger::Severity::DEBUG :
@@ -54,6 +53,7 @@ Rails::Initializer.run do |config|
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names.
     
+    config.gem "rack/cache", :lib => 'rack/cache'
 
     config.middleware.use Rack::Cache,
       :verbose => true,
