@@ -6,7 +6,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-
+require 'rack-cache'
 Rails::Initializer.run do |config|
     require 'custom_logger'
     #todo change log level in production
@@ -53,6 +53,11 @@ Rails::Initializer.run do |config|
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names.
     
+
+config.middleware.use Rack::Cache,
+  :verbose => true,
+  :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
+  :entitystore => 'file:/var/www/voteable/shared/rack/cache/body'
      
     config.gem 'hoptoad_notifier'
 
