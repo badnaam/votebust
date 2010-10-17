@@ -6,22 +6,21 @@ module ApplicationHelper
         return (render :partial => '/shared/tooltip', :locals => {:text => str})
     end
 
-    def new_button_plain controller
+    def new_button_plain controller, txt
         if controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new')
         elsif controller.class == UsersController && (controller.action_name == 'edit')
         else
-            link_to("Start a new vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text', :rel => "#vote_overlay")
+            link_to(txt, new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text', :rel => "#vote_overlay")
         end
     end
     
-    def new_button controller
-        #        str = "<li>"
+    def new_button controller, txt
         str = ""
         if controller.class == VoteTopicsController && (controller.action_name == 'edit' || controller.action_name == 'new')
         elsif
             controller.class == UsersController && (controller.action_name == 'edit')
         else
-            str << link_to("new vote", new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text main-new-vote-link',
+            str << link_to(txt, new_user_posted_vote_topic_path(current_user), :id => 'main_new_vote_link',  :class=> 'special-text main-new-vote-link',
                 :rel => "#vote_overlay")
         end
         return str

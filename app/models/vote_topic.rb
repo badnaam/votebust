@@ -382,9 +382,18 @@ class VoteTopic < ActiveRecord::Base
         Notifier.deliver_new_vote_notification(self)
     end
 
-    def deliver_denied_vote_notification!(reason)
-        Notifier.deliver_denied_vote_notification(self, reason)
+    def deliver_approved_vote_notification!(reason)
+        if self.poster.status_update_yes == true
+            Notifier.deliver_approved_vote_notification(self)
+        end
     end
+
+    def deliver_denied_vote_notification!(reason)
+        if self.poster.status_update_yes == true
+            Notifier.deliver_denied_vote_notification(self, reason)
+        end
+    end
+
     
     def deliver_friendly_vote_emails!
         Notifier.deliver_friendly_vote_emails(self)

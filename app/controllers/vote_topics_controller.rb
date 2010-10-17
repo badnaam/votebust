@@ -170,16 +170,14 @@ class VoteTopicsController < ApplicationController
     # GET /vote_topics/new
     # GET /vote_topics/new.xml
     def new
-        @user = current_user
-        @vote_topic = @user.posted_vote_topics.build
+#        @user = current_user
+        @vote_topic = current_user.posted_vote_topics.build
         @vote_items = 2.times {@vote_topic.vote_items.build}
 
         respond_to do |format|
-            #            format.html # new.html.erb
             format.js {
                 
             }
-            #            format.xml  { render :xml => @vote_topic }
         end
     end
 
@@ -192,15 +190,6 @@ class VoteTopicsController < ApplicationController
             @saved = true
         end
         respond_to do |format|
-            #            format.html {
-            #                if @edit
-            #                    #
-            #                    setup_vote_items(true)
-            #                else
-            #                    flash[:error] = 'Sorry no further edits, Vote has already been approved.'
-            #                    redirect_back_or_default root_url
-            #                end
-            #            }
             format.js {
                 if !@edit
                     flash[:error] = 'Sorry no further edits, Vote has already been approved.'

@@ -13,7 +13,7 @@
     <%= render :partial => "/shared/ubox", :locals => {:user => vt.poster, :anon => vt.anon} %>
     <div>
       <p class="preview">
-        <span><%= link_to vt.header, scoped_vote_topic_path(vt.category, vt), :class => for_show ? "large" : "" %></span>
+          <span><%= link_to vt.header, scoped_vote_topic_path(vt.category, vt), :class => for_show ? "large" : "" %></span>
       </p>
     </div>
     <div class="" id="">
@@ -21,7 +21,7 @@
     </div>
     <% if toolbar == true &&  vt.status != 'a' %>
       <div class=" top-mar">
-        <%#= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt), :rel => "#vote_overlay", :class => "highlighted right-mar small bld" %>
+    <%#= link_to "Edit", scoped_edit_vote_topic_path(vt.category, vt), :rel => "#vote_overlay", :class => "highlighted right-mar small bld" %>
         <%= link_to "Edit", edit_vote_topic_path(:id => vt.id), :rel => "#vote_overlay", :class => "highlighted right-mar small bld" %>
         <span class="small bld">Status : <%= status_str vt.status %></span>
       </div>

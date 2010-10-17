@@ -1,0 +1,24 @@
+<html>
+  <head>
+  <body>
+    <p>
+      Dear <%= @vote_topic.poster.username  %>,
+    </p>
+    <p>
+      The topic "<%= @vote_topic.header %>" that you had posted for votes at <%= APP_CONFIG['site_name'] %>has been approved and voting has started!
+      <br/>
+      You can access it anytime at the following url.
+      <br/>
+      <br/>
+      <a href="<%= scoped_vote_topic_url(@vote_topic.category, @vote_topic) %>" class="" id="">
+      </a>
+    </p>
+    <p>
+      We hope we will see you at <%= @site_name %> soon!
+    </p>
+    <p>
+      The <%= APP_CONFIG['site_name'] %> team.
+    </p>
+  </body>
+</head>
+</html>

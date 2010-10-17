@@ -52,6 +52,7 @@ class AccountController < ApplicationController
         end
         ## todo cache delete refresh the cache
         Rails.cache.delete("vt_#{@vote_topic.to_param}")
+        @vote_topic.delay.deliver_approved_vote_notification!
         respond_to do |format|
             format.html {redirect_to not_approved_votes_account_path}
             format.js

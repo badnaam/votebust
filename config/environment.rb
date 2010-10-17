@@ -91,7 +91,6 @@ Rails::Initializer.run do |config|
     gem "ghazel-daemons"
     require "daemons"
     
-    config.gem "simple-navigation"
     
     config.gem "declarative_authorization"
     config.gem "searchlogic"

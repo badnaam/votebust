@@ -2,36 +2,100 @@
   <head>
     <title>Daily update from <%= @site_name  %></title>
   </head>
-  <body>
+  <body style="font-family:sans-serif,Helvetica, Arial;">
     <% if @vts && @vts.size > 0 %>
-      <p>
-        Here are some interesting votes.
-      </p>
-      <br/>
-      <table class="" id="">
+      <table class="" id="" style="      background-color:#EDEFF4;
+             border:0 none;
+             width:100%;">
+        <tr class="">
+          <td class="" style="padding :0 !important;">
+            <h4 style=" color:#FFFFFF;
+                font-size:1.2em;
+                font-weight:bold;
+                line-height:1.25;
+                background-color:#282842;
+                margin-top:0;
+                margin-bottom:0;
+                padding:.2em;">Daily updates in categories you are following</h4>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:.4em;">
+            Wanna have your say? Select the topic and vote at <%= t 'site_name' %>. Don't forget to add to the discussions!
+          </td>
+        </tr>
         <% @vts.each do |v| %>
           <tr>
-            <td>
-              <%= link_to v.header, scoped_vote_topic_url(v.category, v, :host => @site_host) %>
+            <td style="padding:.3em;">
+              <a href="<%= scoped_vote_topic_url(v.category, v) %>" style="font-weight:bold;
+                 font-size :1em;
+                 color: #255280;
+                 margin-bottom:.4em;"> <%= v.header %></a>
             </td>
           </tr>
         <% end  %>
+        <tr class="">
+          <td class="" style="text-align: right">
+            <a href="<%= vote_topics_url %>" class="" id="">
+              More...
+            </a>
+          </td>
+        </tr>
       </table>
     <% end  %>
     <br/>
     <% if @l_vts && @l_vts.size > 0 %>
-      <p>
-        Here are some interesting votes in your local area.
-      </p>
-      <table class="" id="">
+      <table class="" id="" style="      background-color:#EDEFF4;
+             border:0 none;
+             width:100%;">
+        <tr class="">
+          <td class="" style="padding :0 !important;">
+            <h4 style=" color:#FFFFFF;
+                font-size:1.2em;
+                font-weight:bold;
+                line-height:1.25;
+                background-color:#282842;
+                margin-top:0;
+                margin-bottom:0;
+                padding:.2em;">Daily updates in <%= @u.city.titleize if !@u.city.nil? %></h4>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:.4em;">
+            Wanna have your say? Select the topic and vote at <%= t 'site_name' %>. Don't forget to add to the discussions!
+          </td>
+        </tr>
         <% @l_vts.each do |v| %>
           <tr>
-            <td>
-              <%= link_to v.header, scoped_vote_topic_url(v.category, v, :host => @site_host) %>
+            <td style="padding:.3em;">
+              <a href="<%= scoped_vote_topic_url(v.category, v) %>" style="font-weight:bold;
+                 font-size :1em;
+                 color: #255280;
+                 margin-bottom:.4em;"> <%= v.header %>
+              </a> <span style="font-size:.9em"> in <%= vt.category.name.titleize %></span>
             </td>
           </tr>
         <% end  %>
+        <tr class="">
+          <td class="" style="text-align: right">
+            <a href="<%= vote_topics_url %>" class="" id="">
+              More...
+            </a>
+          </td>
+        </tr>
       </table>
     <% end  %>
+    <p >
+      The <%= t 'site_name' %> team.
+    </p >
+    <p style="font-size: .6em;color : #444444;">
+      Please do not reply to this email.
+      <br/>
+      <br/>
+      You are receiving this email because you have opted to receive daily updates from <%= t 'site_name' %>. If you would rather not receive this email, you can opt out by
+      turning off daily updates from  interests settings in your profile page at <a href="<%= user_url(@u) %>"></a>.
+      <br/>
+      <br/>
+    </p>
   </body>
 </html>

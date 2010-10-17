@@ -15,7 +15,7 @@ class Notifier < ActionMailer::Base
         recipients    u.email
         sent_on       Time.now
         content_type "multipart/alternative"
-        body          :vts => vts, :l_vts => l_vts, :u => u,  :site_name => APP_CONFIG['site_name'], :site_host => APP_CONFIG['site_domain']
+        body          :vts => vts, :l_vts => l_vts, :u => u
     end
     
     def local_updates  l_vts, u
@@ -24,7 +24,7 @@ class Notifier < ActionMailer::Base
         recipients    u.email
         sent_on       Time.now
         content_type "multipart/alternative"
-        body          :l_vts => l_vts, :u => u, :site_name => APP_CONFIG['site_name'], :site_host => APP_CONFIG['site_domain']
+        body          :l_vts => l_vts, :u => u
     end
 
     def interest_updates vts, u
@@ -33,7 +33,7 @@ class Notifier < ActionMailer::Base
         recipients    u.email
         sent_on       Time.now
         content_type "multipart/alternative"
-        body          :vts => vts, :u => u,  :site_name => APP_CONFIG['site_name'], :site_host => APP_CONFIG['site_domain']
+        body          :vts => vts, :u => u
     end
 
     def friend_invite_message(friend_invitation)
@@ -95,7 +95,16 @@ class Notifier < ActionMailer::Base
         recipients    vote_topic.poster.email
         sent_on       Time.now
         content_type "multipart/alternative"
-        body          :vote_topic => vote_topic, :reason => reason, :terms_url => terms_url, :faq_url => faq_url, :site_name => APP_CONFIG['site_name']
+        body          :vote_topic => vote_topic, :reason => reason, :terms_url => terms_url, :faq_url => faq_url
+    end
+
+    def approved_vote_notification(vote_topic)
+        subject "#{APP_CONFIG['site_name']} - Vote Topic not approved"
+        from          APP_CONFIG['site_admin_email']
+        recipients    vote_topic.poster.email
+        sent_on       Time.now
+        content_type "multipart/alternative"
+        body          :vote_topic => vote_topic
     end
 
     def contact_message(cm)

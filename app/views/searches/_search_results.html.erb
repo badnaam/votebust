@@ -9,19 +9,23 @@ end  %>
     <%= will_paginate @search_results, :class => 'pagination' %>
   <% end %>
   <% if request.parameters[:limited] %>
-      <%= get_more_listing_str request.parameters %>
+    <%= get_more_listing_str request.parameters %>
   <% end  %>
   <% @search_results.each do |s| %>
-    <%= render :partial => '/vote_topics/vote_preview', :locals => {:vt => s, :si => s.vote_items} %>
+    <%= render :partial => '/vote_topics/vote_preview', :locals => {:vt => s, :si => s.vote_items, :ex => true} %>
   <% end %>
   <% if request.parameters[:limited] %>
-      <%= get_more_listing_str request.parameters %>
+    <%= get_more_listing_str request.parameters %>
   <% end  %>
   <% if paginate  %>
     <%= order_links_s request.parameters['order'] %>
     <%= page_entries_info @search_results, :entry_name => "Search Result" %>
     <%= will_paginate @search_results, :class => 'pagination' %>
   <% end %>
+<% else %>
+  <div>Sorry no votes found.
+    <span class="left-mar"><%= new_button controller, "Start one!" %></span>
+  </div>
 <% end  %>
 
 <% content_for :right_nav do %>
