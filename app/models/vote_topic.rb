@@ -130,7 +130,7 @@ class VoteTopic < ActiveRecord::Base
 
     ######################################### sidebar index finders, # todo, createa  module for this #############################
     def self.get_same_category id
-        Rails.cache.fetch("side_bar_same_category_#{id}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+        Rails.cache.fetch("side_bar_same_category_#{id}_#{Category.count_key id}") do
             same_category id
         end
     end
@@ -142,11 +142,12 @@ class VoteTopic < ActiveRecord::Base
     end
 
     def self.get_featured_votes_by_user user_id
-        Rails.cache.fetch("featured_by_user", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+        Rails.cache.fetch("featured_by_user_#{User.count_key user_id}") do
             featured_votes_by_user user_id
         end
     end
-    
+
+    #todo rethink this unanimous thing
     def self.get_unanimous_vote_topics
         Rails.cache.fetch("unanimous", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
             unanimous_votes
@@ -154,7 +155,7 @@ class VoteTopic < ActiveRecord::Base
     end
     #todo removve anonymous
     def self.get_more_from_same_user id
-        Rails.cache.fetch("more_from_same_user_#{id}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+        Rails.cache.fetch("more_from_same_user_#{id}_#{User.pt_count_key id}") do
             same_user id
         end
     end
@@ -243,7 +244,7 @@ class VoteTopic < ActiveRecord::Base
             find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
                 :limit => Constants::SMART_COL_LIMIT)
         else
-            Rails.cache.fetch("most_tracked_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            Rails.cache.fetch("most_tracked_all_#{page}_#{order}_#{tracking_key}") do
                 order = 'vote_topics.trackings_count DESC, ' + (ModelHelpers.determine_order order)
                 paginate( :conditions => ['status = ?', STATUS[:approved]], :order => order, :include => [:poster, {:category => :slug}, :slug],
                     :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
@@ -257,7 +258,7 @@ class VoteTopic < ActiveRecord::Base
             find(:all, :conditions => ['status = ?', STATUS[:approved]],  :order => order, :include => [:poster, {:category => :slug}, :slug],
                 :limit => Constants::SMART_COL_LIMIT)
         else
-            Rails.cache.fetch("most_discussed_all_#{page}_#{order}", :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
+            Rails.cache.fetch("most_discussed_all_#{page}_#{order}_#{comment_key}") do
                 order = 'vote_topics.comments_count DESC, ' + (ModelHelpers.determine_order order)
                 paginate( :conditions => ['status = ?', STATUS[:approved]], :order => order, :include => [:poster, {:category => :slug}, :slug],
                     :per_page => Constants::LISTINGS_PER_PAGE, :page => page)
@@ -768,6 +769,13 @@ class VoteTopic < ActiveRecord::Base
 
     def self.list_key
         count(:conditions => ['status = ?', STATUS[:approved]])
+    end
+    
+    def self.tracking_key
+        sum(:trackings_count)
+    end
+    def self.comment_key
+        sum(:comments_count)
     end
 
     def self.list_key_cat id

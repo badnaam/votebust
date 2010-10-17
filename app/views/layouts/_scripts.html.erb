@@ -12,11 +12,6 @@
   <% end  %>
   <title><%= @title %> </title>
 
-
-
-<%#= stylesheet_link_tag "screen", "custom", "formtastic", "formtastic_changes","/stylesheets/css/bb/jquery-ui-1.8.2.custom.css", :cache => "base" %>
-<%#= stylesheet_link_tag "screen", "custom", "formtastic", "jquery-ui-1.8.2.custom.css", :cache => "base" %>
-<%#= stylesheet_link_tag "print", :media => "print", :cache => 'base' %>
   <%= stylesheet_link_merged :base %>
 
   <!--[if IE]>
@@ -37,7 +32,7 @@
     google.load("jqueryui", "1.8.5");
     google.setOnLoadCallback(function() {
       jQuery.ajaxSetup({
-        cache: false,
+        //cache: false,
         'beforeSend': function (xhr) {
           xhr.setRequestHeader("Accept", "text/javascript")
         }

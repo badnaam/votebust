@@ -36,7 +36,10 @@ class VoteTopicsController < ApplicationController
         end
 
         if params[:category_id]
-            @vote_topics = (VoteTopic.category_list params[:category_id], params[:page], params[:order])
+            c = Category.find(params[:category_id])
+            if stale?(:etag => "cat_list_#{params[:page]}_#{params[:order]}_#{c.id}_#{VoteTopic.list_key_cat c.id}_#{user_key}")
+                @vote_topics = (VoteTopic.category_list params[:category_id], params[:page], params[:order])
+            end
         else
             if params[:city]
                 if params[:limited]
@@ -54,31 +57,41 @@ class VoteTopicsController < ApplicationController
             case listing_type
                 #todo locking it down, anyone can pass tracked user?
             when "tracked_all"
-                @vote_topics = VoteTopic.get_tracked_votes(current_user, false, params[:page], params[:order])
+                if stale?(:etag => "trackings_all_#{current_user.id}_#{current_user.trackings_count}_#{params[:page]}_#{params[:order]}")
+                    @vote_topics = VoteTopic.get_tracked_votes(current_user, false, params[:page], params[:order])
+                end
             when "most_discussed"
                 @vote_topics = Rails.cache.fetch('most_discussed_limited', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                     VoteTopic.get_most_commented_votes true, nil, params[:order]
                 end
             when "most_discussed_all"
-                @vote_topics = VoteTopic.get_most_commented_votes(false, params[:page], params[:order])
+                if stale?(:etag => "most_discussed_all_#{params[:page]}_#{params[:order]}_#{comment_key}_#{user_key}")
+                    @vote_topics = VoteTopic.get_most_commented_votes(false, params[:page], params[:order])
+                end
             when "user_tracked_all"
-                @vote_topics = VoteTopic.get_tracked_votes(current_user, false, params[:page], params[:order])
+                if stale?(:etag => "trackings_all_#{current_user.id}_#{current_user.trackings_count}_#{params[:page]}_#{params[:order]}")
+                    @vote_topics = VoteTopic.get_tracked_votes(current_user, false, params[:page], params[:order])
+                end
             when "tracked"
                 @vote_topics = VoteTopic.get_tracked_votes(current_user, true, nil, params[:order])
             when "city"
-                @vote_topics = VoteTopic.city_search params[:city], false, params[:page], params[:order]
                 cookies[:current_search_city] = params[:city]
+                if stale?(:etag=> "#{params[:city].gsub(' ', '')}_#{params[:page]}_#{params[:order]}_#{VoteTopic.city_list_key params[:city]}_#{user_key}")
+                    @vote_topics = VoteTopic.city_search params[:city], false, params[:page], params[:order]
+                end
             when "city_limited"
-                @vote_topics = VoteTopic.city_search params[:city], true, nil, params[:order]
+                if stale?(:etag => "#{params[:city].gsub(' ', '')}_ltd_#{VoteTopic.city_list_key params[:city]}")
+                    @vote_topics = VoteTopic.city_search params[:city], true, nil, params[:order]
+                end
             when "state"
-                @vote_topics = VoteTopic.state_search params[:state], false, params[:page], params[:order]
                 cookies[:current_search_state] = params[:state]
+                if stale?(:etag => "#{params[:state].gsub(' ', '')}_#{params[:page]}_#{params[:order]}_#{VoteTopic.state_list_key params[:state]}_#{user_key}")
+                    @vote_topics = VoteTopic.state_search params[:state], false, params[:page], params[:order]
+                end
             when "top"
-                #                if stale?(:etag => Datetime.now.utc + )
                 @vote_topics = Rails.cache.fetch('top_limited', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                     (VoteTopic.get_top_votes true, params[:page], params[:order])
                 end
-                #                end
             when "top_all"
                 @vote_topics = VoteTopic.get_top_votes false, params[:page] || 1,  params[:order]
             when "most_tracked"
@@ -86,22 +99,28 @@ class VoteTopicsController < ApplicationController
                     VoteTopic.get_most_tracked_votes true, nil, params[:order]
                 end
             when "most_tracked_all"
-                @vote_topics =  VoteTopic.get_most_tracked_votes false, params[:page], params[:order]
+                if stale?(:etag => "most_tracked_all_#{params[:page]}_#{params[:order]}_#{VoteTopic.tracking_key}_#{user_key}")
+                    @vote_topics =  VoteTopic.get_most_tracked_votes false, params[:page], params[:order]
+                end
             when "user_all"
                 #if currrent_user then show everything
                 if current_user && current_user.id == params[:user_id].to_i
-                    if stale?(:etag => "user_all_own_#{id}_#{page}_#{order}_#{curren_user.p_topics_count}_#{current_user.edit_count}")
-                    @vote_topics = VoteTopic.get_all_votes_user_own(params[:user_id], params[:page] , params[:order])
+                    if stale?(:etag =>
+                              "user_all_own_#{params[:user_id]}_#{params[:page]}_#{params[:order]}_#{current_user.p_topics_count}_#{current_user.edit_count}_#{user_key}")
+                        @vote_topics = VoteTopic.get_all_votes_user_own(params[:user_id], params[:page] , params[:order])
+                    end
                 else
                     #show only approved
-                    @vote_topics = VoteTopic.get_all_votes_user(params[:user_id], params[:page] , params[:order])
+                    if stale?(:etag => "user_all_#{id}_#{params[:page]}_#{params[:order]}_#{User.find(params[:user_id]).p_topics_count}_#{user_key}")
+                        @vote_topics = VoteTopic.get_all_votes_user(params[:user_id], params[:page] , params[:order])
+                    end
                 end
             when "featured"
                 @vote_topics = Rails.cache.fetch('featured_limited', :expires_in => Constants::LIMITED_LISTING_CACHE_EXPIRATION) do
                     VoteTopic.get_featured_votes(true, nil, params[:order])
                 end
             when "featured_all"
-                if stale?(:etag => "featured_all_#{page}_#{order}_#{VoteTopic.list_key}_#{user_key}")
+                if stale?(:etag => "featured_all_#{params[:page]}_#{params[:order]}_#{VoteTopic.list_key}_#{user_key}")
                     @vote_topics = VoteTopic.get_featured_votes(false, params[:page], params[:order])
                 end
             when "general_limited"
@@ -115,12 +134,6 @@ class VoteTopicsController < ApplicationController
                 end
             end
         end
-
-        #        respond_to do |format|
-        #            format.html # index.html.erb
-        #            format.js
-        ##            format.xml  { render :xml => @vote_topics }
-        #        end
     end
 
     # GET /vote_topics/1
@@ -149,27 +162,39 @@ class VoteTopicsController < ApplicationController
         
         case listing_type
         when "same_category"
-            @vote_topics = VoteTopic.get_same_category params[:category_id]
+            if stale?(:etag => "side_bar_same_category_#{params[:category_id]}_#{Category.count_key params[:category_id]}")
+                @vote_topics = VoteTopic.get_same_category params[:category_id]
+            end
         when "latest"
-            @vote_topics = VoteTopic.get_latest
+            if stale?(:etag => "latest_#{VoteTopic.list_key}")
+                @vote_topics = VoteTopic.get_latest
+            end
         when "unan"
             @vote_topics = VoteTopic.get_unanimous_vote_topics
         when "same_user"
-            @vote_topics = VoteTopic.get_more_from_same_user params[:user_id]
+            if stale?(:etag => "more_from_same_user_#{params[:user_id]}_#{User.pt_count_key params[:user_id]}")
+                @vote_topics = VoteTopic.get_more_from_same_user params[:user_id]
+            end
         when "top_votes_min"
             @vote_topics = VoteTopic.get_top_votes_minimal
             #todo the following is no good if cookies are disabled
         when "most_tracked_city"
-            @vote_topics = VoteTopic.city_search cookies[:current_search_city], true, nil, 'tracking'
+            if stale?(:etag=> "#{cookies[:current_search_city].gsub(' ', '')}_ltd_#{VoteTopic.city_list_key cookies[:current_search_city]}")
+                @vote_topics = VoteTopic.city_search cookies[:current_search_city], true, nil, 'tracking'
+            end
         when "most_tracked_state"
-            @vote_topics = VoteTopic.state_search cookies[:current_search_state], true, nil, 'tracking'
+            if stale?(:etag=> "#{cookies[:current_search_state].gsub(' ', '')}_ltd_#{VoteTopic.state_list_key cookies[:current_search_state]}")
+                @vote_topics = VoteTopic.state_search cookies[:current_search_state], true, nil, 'tracking'
+            end
         when "featured_votes_by_user"
             user_id = params[:user_id]
-            @vote_topics = VoteTopic.get_featured_votes_by_user user_id
+            if stale?(:etag => "featured_by_user_#{User.count_key params[:user_id]}")
+                @vote_topics = VoteTopic.get_featured_votes_by_user user_id
+            end
         end
-        respond_to do |format|
-            format.js
-        end
+#        respond_to do |format|
+#            format.js
+#        end
     end
     
     # GET /vote_topics/new
@@ -215,7 +240,7 @@ class VoteTopicsController < ApplicationController
                 @saved = true
                 flash[:success] = t 'vote_topics.create.success'
                 @vote_topic.poster.increment!(:edit_count, 1) # so that the user_owned_vote_topics cache expires
-                @vote_topic.delay.deliver_new_vote_notification! 
+                @vote_topic.delay.deliver_new_vote_notification!
                 format.html { redirect_to root_path }
                 format.js {}
                 format.xml  { render :xml => @vote_topic, :status => :created, :location => @vote_topic }

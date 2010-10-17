@@ -18,6 +18,7 @@ class Tracking < ActiveRecord::Base
     def award_tracking pos, vote_topic_id
         vt = VoteTopic.find_for_tracking(vote_topic_id)
         vt.poster.award_points(Constants::TRACK_POINTS * pos)
+        self.follower.increment!(:trackings_count, pos)
     end
 
     def reset_tracking_cache

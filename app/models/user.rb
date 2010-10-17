@@ -241,6 +241,9 @@ class User < ActiveRecord::Base
         end
     end
 
+    def self.pt_count_key id
+        find(id, :select => "p_topics_count").p_topics_count
+    end
     private
 
     # map_added_rpx_data maps additional fields from the RPX response into the user object during the "add RPX to existing account" process.

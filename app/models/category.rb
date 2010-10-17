@@ -34,4 +34,7 @@ class Category < ActiveRecord::Base
     def self.list_key
         sum(:vote_topics_count)
     end
+    def self.count_key id
+        find(id, :select => "vote_topics_count").vote_topics_count
+    end
 end
