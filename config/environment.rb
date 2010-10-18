@@ -11,7 +11,7 @@ Rails::Initializer.run do |config|
     require 'custom_logger'
     #todo change log level in production
     config.log_level = ENV['RAILS_ENV']=='production' ?
-      ActiveSupport::BufferedLogger::Severity::DEBUG :
+      ActiveSupport::BufferedLogger::Severity::INFO :
       ActiveSupport::BufferedLogger::Severity::DEBUG
 
     #   # initializing custom logger
@@ -54,7 +54,7 @@ Rails::Initializer.run do |config|
     # Run "rake -D time" for a list of tasks for finding time zone names.
     
 #    config.gem "rack/cache", :lib => 'rack/cache'
-
+#
 #    config.middleware.use Rack::Cache,
 #      :verbose => true,
 #      :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
