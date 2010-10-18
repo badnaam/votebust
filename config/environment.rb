@@ -55,10 +55,10 @@ Rails::Initializer.run do |config|
     
 #    config.gem "rack/cache", :lib => 'rack/cache'
 
-    config.middleware.use Rack::Cache,
-      :verbose => true,
-      :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
-      :entitystore => 'file:/var/www/voteable/shared/rack/cache/body'
+#    config.middleware.use Rack::Cache,
+#      :verbose => true,
+#      :metastore   => 'file:/var/www/voteable/shared/rack/cache/meta',
+#      :entitystore => 'file:/var/www/voteable/shared/rack/cache/body'
      
     config.gem 'hoptoad_notifier'
 
